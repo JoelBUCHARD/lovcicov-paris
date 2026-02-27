@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Shop', path: '/shop' },
-  { label: 'Experience', path: '/experience' },
-  { label: 'State Scan', path: '/scan' },
-  { label: 'Philosophy', path: '/philosophy' },
+  { label: 'Boutique', path: '/shop' },
+  { label: 'Expérience', path: '/experience' },
+  { label: 'Scan d\'État', path: '/scan' },
+  { label: 'Philosophie', path: '/philosophy' },
 ];
 
 const Navbar = () => {

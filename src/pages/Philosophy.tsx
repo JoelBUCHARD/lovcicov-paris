@@ -15,7 +15,7 @@ const Philosophy = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-6xl font-serif font-light mb-16 md:mb-24">
-              Philosophy
+              Philosophie
             </h1>
           </motion.div>
 
@@ -27,7 +27,7 @@ const Philosophy = () => {
               transition={{ duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl font-serif font-light leading-relaxed">
-                Clothing influences posture.
+                Le vêtement influence la posture.
               </p>
             </motion.div>
 
@@ -38,7 +38,7 @@ const Philosophy = () => {
               transition={{ duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl font-serif font-light leading-relaxed">
-                Posture influences perception.
+                La posture influence la perception.
               </p>
             </motion.div>
 
@@ -49,7 +49,7 @@ const Philosophy = () => {
               transition={{ duration: 0.8 }}
             >
               <p className="text-xl md:text-2xl font-serif font-light leading-relaxed">
-                Perception influences action.
+                La perception influence l'action.
               </p>
             </motion.div>
 
@@ -61,13 +61,13 @@ const Philosophy = () => {
               className="pt-8 border-t border-border"
             >
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                Every garment is an environment. The weight of a fabric changes how you hold your shoulders. The cut of a silhouette changes how you sit. The structure of a piece changes how you enter a room.
+                Chaque vêtement est un environnement. Le poids d'un tissu change la façon dont vous tenez vos épaules. La coupe d'une silhouette change la façon dont vous vous asseyez. La structure d'une pièce change la façon dont vous entrez dans une pièce.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                We design for three states — Grounded, Present, Confident — because these are the foundations of how you show up. Not as ideas. As physical realities shaped by what touches your body.
+                Nous concevons pour trois états — Ancré, Présent, Confiant — car ce sont les fondations de votre manière d'être. Pas comme des idées. Comme des réalités physiques façonnées par ce qui touche votre corps.
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                LOVCICOV is behavioral design expressed through clothing. Each piece is engineered to shift how you carry yourself — and through that, how the world responds.
+                LOVCICOV est du design comportemental exprimé à travers le vêtement. Chaque pièce est pensée pour transformer votre façon de vous porter — et à travers cela, la façon dont le monde vous répond.
               </p>
             </motion.div>
           </div>

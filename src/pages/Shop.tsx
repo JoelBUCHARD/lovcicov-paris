@@ -27,7 +27,7 @@ const Shop = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-serif font-light mb-12">Shop</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-light mb-12">Boutique</h1>
 
           <div className="flex gap-6 mb-16">
             {(['all', 'signature', 'mystic'] as const).map((col) => (
@@ -38,7 +38,7 @@ const Shop = () => {
                   activeCollection === col ? 'opacity-100' : 'opacity-40 hover:opacity-70'
                 }`}
               >
-                {col === 'all' ? 'All' : col === 'signature' ? 'Signature Essentials' : 'Mystic Lov'}
+                {col === 'all' ? 'Tout' : col === 'signature' ? 'Signature Essentials' : 'Mystic Lov'}
               </button>
             ))}
           </div>

@@ -20,9 +20,9 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
         <div className="pt-32 px-6 md:px-12 text-center">
-          <h1 className="text-2xl font-serif">Product not found</h1>
+          <h1 className="text-2xl font-serif">Produit introuvable</h1>
           <Link to="/shop" className="text-brand text-xs mt-4 inline-block opacity-60 hover:opacity-100">
-            Back to Shop
+            Retour à la Boutique
           </Link>
         </div>
       </div>
@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
       <main className="pt-28 pb-24 px-6 md:px-12">
         <Link to="/shop" className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
-          ← Back
+          ← Retour
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 max-w-6xl">
@@ -74,12 +74,12 @@ const ProductDetail = () => {
 
             {product.state && (
               <p className="text-xs text-muted-foreground mb-8">
-                State: {product.state}
+                État : {product.state}
               </p>
             )}
 
             <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto">
-              Add to Cart
+              Ajouter au Panier
             </button>
           </motion.div>
         </div>

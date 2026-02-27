@@ -26,7 +26,6 @@ const StateScan = () => {
 
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Count states
     const counts: Record<string, number> = {};
     answers.forEach((a) => {
       counts[a] = (counts[a] || 0) + 1;
@@ -96,10 +95,10 @@ const StateScan = () => {
               className="max-w-md mx-auto pt-12 md:pt-24 text-center"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-4">
-                Your result is ready.
+                Votre résultat est prêt.
               </h2>
               <p className="text-muted-foreground text-sm mb-10">
-                Enter your email to discover your state.
+                Entrez votre email pour découvrir votre état.
               </p>
               <form onSubmit={handleEmailSubmit} className="space-y-4">
                 <input
@@ -107,14 +106,14 @@ const StateScan = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
+                  placeholder="votre@email.com"
                   className="w-full px-6 py-4 border border-border bg-background text-sm focus:outline-none focus:border-foreground transition-colors"
                 />
                 <button
                   type="submit"
                   className="w-full bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity"
                 >
-                  Reveal my state
+                  Révéler mon état
                 </button>
               </form>
             </motion.div>
@@ -129,7 +128,7 @@ const StateScan = () => {
               className="max-w-3xl mx-auto pt-12 md:pt-24"
             >
               <div className="text-center mb-20">
-                <p className="text-brand text-xs mb-4 opacity-50">Your state</p>
+                <p className="text-brand text-xs mb-4 opacity-50">Votre état</p>
                 <h1 className="text-5xl md:text-7xl font-serif font-light mb-6">
                   {stateDescriptions[result].title}
                 </h1>
@@ -140,7 +139,7 @@ const StateScan = () => {
 
               {recommendedProducts.length > 0 && (
                 <div>
-                  <h2 className="text-xl font-serif font-light mb-8">Recommended for you</h2>
+                  <h2 className="text-xl font-serif font-light mb-8">Recommandé pour vous</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {recommendedProducts.map((product, i) => (
                       <ProductCard key={product.id} product={product} index={i} />
@@ -154,7 +153,7 @@ const StateScan = () => {
                   to="/shop"
                   className="inline-block border border-foreground px-8 py-3 text-brand text-xs hover:bg-foreground hover:text-background transition-all"
                 >
-                  Browse All
+                  Voir Tout
                 </Link>
               </div>
             </motion.div>

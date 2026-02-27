@@ -17,15 +17,15 @@ const Cart = () => {
           className="max-w-2xl mx-auto pt-12 md:pt-24 text-center"
         >
           <ShoppingBag size={32} strokeWidth={1} className="mx-auto mb-6 text-muted-foreground" />
-          <h1 className="text-3xl md:text-4xl font-serif font-light mb-4">Your cart is empty</h1>
+          <h1 className="text-3xl md:text-4xl font-serif font-light mb-4">Votre panier est vide</h1>
           <p className="text-muted-foreground text-sm mb-10">
-            Discover pieces designed to change how you feel.
+            Découvrez des pièces conçues pour changer ce que vous ressentez.
           </p>
           <Link
             to="/shop"
             className="inline-block bg-primary text-primary-foreground px-8 py-3 text-brand text-xs hover:opacity-80 transition-opacity"
           >
-            Continue Shopping
+            Continuer mes Achats
           </Link>
         </motion.div>
       </main>

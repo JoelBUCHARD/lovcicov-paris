@@ -5,19 +5,19 @@ import Footer from '@/components/Footer';
 
 const experiences = [
   {
-    title: 'Ground',
+    title: 'Ancrage',
     duration: '2 min',
-    description: 'A body-awareness reset. Feel your weight, your posture, your breath.',
+    description: 'Un reset de conscience corporelle. Sentez votre poids, votre posture, votre souffle.',
   },
   {
-    title: 'Presence',
+    title: 'Présence',
     duration: '3 min',
-    description: 'Reconnect with the space around you. Notice texture, temperature, tension.',
+    description: 'Reconnectez-vous à l\'espace autour de vous. Observez la texture, la température, la tension.',
   },
   {
-    title: 'Confidence',
+    title: 'Confiance',
     duration: '2 min',
-    description: 'A postural recalibration. Align your spine, open your chest, settle in.',
+    description: 'Un recalibrage postural. Alignez votre colonne, ouvrez votre poitrine, installez-vous.',
   },
 ];
 
@@ -35,8 +35,8 @@ const Experience = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl md:text-5xl font-serif font-light mb-4">Experience</h1>
-              <p className="text-muted-foreground text-sm">Moments to reset.</p>
+              <h1 className="text-4xl md:text-5xl font-serif font-light mb-4">Expérience</h1>
+              <p className="text-muted-foreground text-sm">Des moments pour se recentrer.</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}
@@ -46,7 +46,7 @@ const Experience = () => {
               <div className="aspect-[4/3] overflow-hidden bg-secondary">
                 <img
                   src={experienceImage}
-                  alt="Experience"
+                  alt="Expérience"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -75,7 +75,7 @@ const Experience = () => {
                 <div className="flex items-center gap-4">
                   <span className="text-xs text-muted-foreground">{exp.duration}</span>
                   <button className="border border-foreground px-6 py-2 text-brand text-xs hover:bg-foreground hover:text-background transition-all">
-                    Listen
+                    Écouter
                   </button>
                 </div>
               </motion.div>
