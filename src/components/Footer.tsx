@@ -8,12 +8,12 @@ const Footer = () => {
           <div>
             <p className="text-brand-lg text-sm mb-6">LOVCICOV</p>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Clothes that change how you feel.
+              Des vêtements qui changent ce que vous ressentez.
             </p>
           </div>
 
           <div>
-            <p className="text-brand text-xs mb-4">Shop</p>
+            <p className="text-brand text-xs mb-4">Boutique</p>
             <div className="flex flex-col gap-3">
               <Link to="/shop" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Signature Essentials
@@ -25,16 +25,16 @@ const Footer = () => {
           </div>
 
           <div>
-            <p className="text-brand text-xs mb-4">Explore</p>
+            <p className="text-brand text-xs mb-4">Explorer</p>
             <div className="flex flex-col gap-3">
               <Link to="/scan" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                State Scan
+                Scan d'État
               </Link>
               <Link to="/experience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Experience
+                Expérience
               </Link>
               <Link to="/philosophy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Philosophy
+                Philosophie
               </Link>
             </div>
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
 
         <div className="mt-16 pt-8 border-t border-border">
           <p className="text-xs text-muted-foreground">
-            © 2026 LOVCICOV. All rights reserved.
+            © 2026 LOVCICOV. Tous droits réservés.
           </p>
         </div>
       </div>

@@ -16,7 +16,7 @@ const Index = () => {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="LOVCICOV editorial campaign"
+            alt="Campagne éditoriale LOVCICOV"
             className="w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-background/20" />
@@ -28,23 +28,23 @@ const Index = () => {
             transition={{ duration: 1, delay: 0.3 }}
           >
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-light mb-4 text-foreground">
-              Clothes that change how you feel.
+              Des vêtements qui changent ce que vous ressentez.
             </h1>
             <p className="text-sm md:text-base text-muted-foreground mb-8 max-w-md">
-              Designed to influence posture, presence and confidence.
+              Conçus pour influencer la posture, la présence et la confiance.
             </p>
             <div className="flex gap-4">
               <Link
                 to="/shop"
                 className="inline-block bg-primary text-primary-foreground px-8 py-3 text-brand text-xs hover:opacity-80 transition-opacity"
               >
-                Shop the Signature
+                Découvrir la Signature
               </Link>
               <Link
                 to="/scan"
                 className="inline-block border border-foreground px-8 py-3 text-brand text-xs hover:bg-foreground hover:text-background transition-all"
               >
-                Discover your state
+                Découvrir votre état
               </Link>
             </div>
           </motion.div>
@@ -63,7 +63,7 @@ const Index = () => {
             <div className="aspect-[3/4] overflow-hidden bg-secondary">
               <img
                 src={signatureImage}
-                alt="The Signature T-Shirt"
+                alt="Le T-Shirt Signature"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -77,16 +77,16 @@ const Index = () => {
             className="max-w-sm"
           >
             <h2 className="text-3xl md:text-4xl font-serif font-light mb-6">
-              The Signature T‑Shirt
+              Le T‑Shirt Signature
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-              Heavy cotton. Structured silhouette. Designed to feel right.
+              Coton lourd. Silhouette structurée. Conçu pour se sentir bien.
             </p>
             <Link
               to="/shop/signature-tee-black"
               className="inline-block bg-primary text-primary-foreground px-8 py-3 text-brand text-xs hover:opacity-80 transition-opacity"
             >
-              Shop Now
+              Acheter
             </Link>
           </motion.div>
         </div>
@@ -102,17 +102,17 @@ const Index = () => {
           className="max-w-xl mx-auto text-center"
         >
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">
-            Designed with intention.
+            Conçu avec intention.
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed mb-10">
-            What you wear influences how you move, sit and show up.
-            Each piece is designed around three states: Grounded. Present. Confident.
+            Ce que vous portez influence la façon dont vous bougez, vous asseyez et vous présentez.
+            Chaque pièce est conçue autour de trois états : Ancré. Présent. Confiant.
           </p>
           <Link
             to="/scan"
             className="inline-block border border-foreground px-8 py-3 text-brand text-xs hover:bg-foreground hover:text-background transition-all"
           >
-            Take the State Scan
+            Faire le Scan d'État
           </Link>
         </motion.div>
       </section>
@@ -131,14 +131,14 @@ const Index = () => {
               Mystic Lov
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-              A symbolic line within the house of LOVCICOV.
-              Minimal forms. Subtle meaning. Designed to support how you feel.
+              Une ligne symbolique au sein de la maison LOVCICOV.
+              Formes minimales. Sens subtil. Conçue pour soutenir ce que vous ressentez.
             </p>
             <Link
               to="/shop?collection=mystic"
               className="inline-block bg-primary text-primary-foreground px-8 py-3 text-brand text-xs hover:opacity-80 transition-opacity"
             >
-              Explore the Collection
+              Explorer la Collection
             </Link>
           </motion.div>
           <motion.div
@@ -151,7 +151,7 @@ const Index = () => {
             <div className="aspect-[3/4] overflow-hidden bg-secondary">
               <img
                 src={mysticImage}
-                alt="Mystic Lov Collection"
+                alt="Collection Mystic Lov"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
