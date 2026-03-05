@@ -4,7 +4,9 @@ import { products } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-const imageModules = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModules = { ...imageModulesJpg, ...imageModulesWebp };
 
 const getImage = (key: string) => {
   const match = Object.entries(imageModules).find(([path]) => path.includes(key));
@@ -28,6 +30,8 @@ const ProductDetail = () => {
       </div>
     );
   }
+
+  const collectionLabel = product.collection === 'mystic' ? 'Mystic Lov' : 'Collection Standards';
 
   return (
     <div className="min-h-screen bg-background">
@@ -60,7 +64,7 @@ const ProductDetail = () => {
             className="flex flex-col justify-center"
           >
             <p className="text-brand text-xs opacity-50 mb-4">
-              Collection I — Le Standard
+              {collectionLabel}
             </p>
             <h1 className="text-3xl md:text-4xl font-serif font-light mb-4">{product.name}</h1>
             <p className="text-xl mb-8">€{product.price}</p>
@@ -71,6 +75,27 @@ const ProductDetail = () => {
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
               {product.details}
             </p>
+
+            {product.colors && product.colors.length > 1 && (
+              <div className="mb-8">
+                <p className="text-brand text-xs mb-3">Couleurs</p>
+                <div className="flex gap-2">
+                  {product.colors.map((color) => (
+                    <Link
+                      key={color.id}
+                      to={`/shop/${color.id}`}
+                      className={`text-xs px-3 py-2 border transition-all ${
+                        color.id === product.id
+                          ? 'border-foreground text-foreground'
+                          : 'border-border text-muted-foreground hover:border-foreground'
+                      }`}
+                    >
+                      {color.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto">
               Ajouter au Panier

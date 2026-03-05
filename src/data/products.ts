@@ -2,14 +2,16 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  collection: 'standard';
+  collection: 'standard' | 'mystic';
   description: string;
   details: string;
   image: string;
   badge?: string;
+  colors?: { name: string; id: string }[];
 }
 
-export const products: Product[] = [
+// Collection "Standards" — pièces à message fort
+export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
     name: 'Hoodie Signature',
@@ -30,16 +32,6 @@ export const products: Product[] = [
     image: 'signature-tshirt',
   },
   {
-    id: 'veste-presence',
-    name: 'Veste Presence',
-    price: 450,
-    collection: 'standard',
-    description: 'Laine structurée. Surpiqûres géométriques subtiles.',
-    details: 'Présence et autorité naturelle dans chaque coupe.',
-    image: 'product-mystic-coat',
-    badge: 'Nouveau',
-  },
-  {
     id: 'ensemble-the-standard',
     name: 'Ensemble The Standard',
     price: 380,
@@ -49,3 +41,46 @@ export const products: Product[] = [
     image: 'product-trousers',
   },
 ];
+
+// Collection "Mystic Lov" — produits du site mysticlov.com
+export const mysticProducts: Product[] = [
+  {
+    id: 'mystic-tshirt-noir',
+    name: 'T-Shirt Love',
+    price: 70,
+    collection: 'mystic',
+    description: 'Coton bio certifié. Coupe unisexe.',
+    details: 'Le T-shirt essentiel Mystic Lov. Doux, conscient, assumé.',
+    image: 'mystic-tshirt-noir',
+    colors: [
+      { name: 'Noir', id: 'mystic-tshirt-noir' },
+      { name: 'Natural Raw', id: 'mystic-tshirt-natural' },
+      { name: 'Green Bottle', id: 'mystic-tshirt-green' },
+    ],
+  },
+  {
+    id: 'mystic-hoodie-noir',
+    name: 'Hoodie Love',
+    price: 180,
+    collection: 'mystic',
+    description: 'Molleton épais. Coupe décontractée unisexe.',
+    details: 'Le hoodie signature Mystic Lov. Confort et présence.',
+    image: 'mystic-hoodie-noir',
+    badge: 'Édition limitée',
+  },
+  {
+    id: 'mystic-crewneck-noir',
+    name: 'Crewneck Love',
+    price: 120,
+    collection: 'mystic',
+    description: 'Col rond épais. Coton bio traçable.',
+    details: 'Le crewneck Mystic Lov. Simplicité et conscience.',
+    image: 'mystic-crewneck-noir',
+    colors: [
+      { name: 'Noir', id: 'mystic-crewneck-noir' },
+      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
+    ],
+  },
+];
+
+export const products: Product[] = [...standardProducts, ...mysticProducts];

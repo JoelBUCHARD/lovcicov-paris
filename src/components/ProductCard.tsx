@@ -2,7 +2,10 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
 
-const imageModules = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+// Dynamic image imports — supports both jpg and webp
+const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModules = { ...imageModulesJpg, ...imageModulesWebp };
 
 const getImage = (key: string) => {
   const match = Object.entries(imageModules).find(([path]) => path.includes(key));
@@ -33,6 +36,11 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           {product.badge && (
             <span className="absolute top-3 left-3 bg-foreground text-background text-brand text-[10px] px-3 py-1">
               {product.badge}
+            </span>
+          )}
+          {product.collection === 'mystic' && (
+            <span className="absolute bottom-3 right-3 text-brand text-[10px] text-muted-foreground/80 bg-background/80 backdrop-blur-sm px-2 py-1">
+              Mystic Lov
             </span>
           )}
         </div>
