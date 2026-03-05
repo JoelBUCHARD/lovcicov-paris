@@ -6,17 +6,27 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
+type MysticSub = 'all' | 'tshirt' | 'crewneck' | 'hoodie';
 
 const Shop = () => {
   const [active, setActive] = useState<Collection>('all');
+  const [mysticSub, setMysticSub] = useState<MysticSub>('all');
 
-  const filtered = active === 'all'
-    ? [...standardProducts, ...mysticProducts, ...bijouxProducts]
-    : active === 'standard'
-      ? standardProducts
-      : active === 'mystic'
-        ? mysticProducts
-        : bijouxProducts;
+  const handleCollectionChange = (key: Collection) => {
+    setActive(key);
+    setMysticSub('all');
+  };
+
+  const getFiltered = () => {
+    if (active === 'all') return [...standardProducts, ...mysticProducts, ...bijouxProducts];
+    if (active === 'standard') return standardProducts;
+    if (active === 'bijoux') return bijouxProducts;
+    // mystic with subcategory
+    if (mysticSub === 'all') return mysticProducts;
+    return mysticProducts.filter(p => p.subcategory === mysticSub);
+  };
+
+  const filtered = getFiltered();
 
   return (
     <div className="min-h-screen bg-background">
@@ -32,7 +42,7 @@ const Shop = () => {
           <p className="text-muted-foreground text-sm mb-16">Toutes les collections LOVCICOV</p>
 
           {/* Collection filter */}
-          <div className="flex gap-8 mb-16 border-b border-border">
+          <div className="flex gap-8 mb-8 border-b border-border">
             {([
               { key: 'all' as Collection, label: 'Tout' },
               { key: 'standard' as Collection, label: 'Standards' },
@@ -41,7 +51,7 @@ const Shop = () => {
             ]).map(({ key, label }) => (
               <button
                 key={key}
-                onClick={() => setActive(key)}
+                onClick={() => handleCollectionChange(key)}
                 className={`text-brand text-xs pb-4 transition-all border-b-2 -mb-[2px] ${
                   active === key
                     ? 'border-foreground opacity-100'
@@ -52,6 +62,35 @@ const Shop = () => {
               </button>
             ))}
           </div>
+
+          {/* Mystic subcategory filter */}
+          {active === 'mystic' && (
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="flex gap-4 mb-8"
+            >
+              {([
+                { key: 'all' as MysticSub, label: 'Tout' },
+                { key: 'tshirt' as MysticSub, label: 'T-Shirts' },
+                { key: 'crewneck' as MysticSub, label: 'Sweats Col Rond' },
+                { key: 'hoodie' as MysticSub, label: 'Sweats Capuche' },
+              ]).map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setMysticSub(key)}
+                  className={`text-[11px] px-4 py-2 border transition-all ${
+                    mysticSub === key
+                      ? 'border-foreground text-foreground'
+                      : 'border-border text-muted-foreground hover:border-foreground'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </motion.div>
+          )}
 
           {/* Collection header */}
           {active === 'standard' && (
