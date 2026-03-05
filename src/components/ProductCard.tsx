@@ -43,6 +43,11 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               Mystic Lov
             </span>
           )}
+          {product.collection === 'bijoux' && (
+            <span className="absolute bottom-3 right-3 text-brand text-[10px] text-muted-foreground/80 bg-background/80 backdrop-blur-sm px-2 py-1">
+              Bijoux
+            </span>
+          )}
         </div>
         <div className="space-y-1">
           <h3 className="text-sm font-sans font-medium">{product.name}</h3>
