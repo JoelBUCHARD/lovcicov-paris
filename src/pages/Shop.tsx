@@ -1,32 +1,48 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
+import type { Product } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
-type MysticSub = 'all' | 'tshirt' | 'crewneck' | 'hoodie';
+type Subcategory = 'all' | 'tshirt' | 'crewneck' | 'hoodie';
 
 const Shop = () => {
   const [active, setActive] = useState<Collection>('all');
-  const [mysticSub, setMysticSub] = useState<MysticSub>('all');
+  const [sub, setSub] = useState<Subcategory>('all');
 
   const handleCollectionChange = (key: Collection) => {
     setActive(key);
-    setMysticSub('all');
+    setSub('all');
   };
 
-  const getFiltered = () => {
+  const getCollectionProducts = (): Product[] => {
     if (active === 'all') return [...standardProducts, ...mysticProducts, ...bijouxProducts];
     if (active === 'standard') return standardProducts;
-    if (active === 'bijoux') return bijouxProducts;
-    // mystic with subcategory
-    if (mysticSub === 'all') return mysticProducts;
-    return mysticProducts.filter(p => p.subcategory === mysticSub);
+    if (active === 'mystic') return mysticProducts;
+    return bijouxProducts;
   };
 
-  const filtered = getFiltered();
+  const collectionProducts = getCollectionProducts();
+
+  // Detect which subcategories exist in the current collection
+  const availableSubs = useMemo(() => {
+    if (active === 'all') return [];
+    const subs = new Set(collectionProducts.map(p => p.subcategory).filter(Boolean));
+    return subs.size > 1 ? Array.from(subs) : [];
+  }, [active, collectionProducts]);
+
+  const filtered = sub === 'all'
+    ? collectionProducts
+    : collectionProducts.filter(p => p.subcategory === sub);
+
+  const subLabels: Record<string, string> = {
+    tshirt: 'T-Shirts',
+    crewneck: 'Sweats Col Rond',
+    hoodie: 'Sweats Capuche',
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -63,30 +79,36 @@ const Shop = () => {
             ))}
           </div>
 
-          {/* Mystic subcategory filter */}
-          {active === 'mystic' && (
+          {/* Subcategory filter — shown when collection has multiple subcategories */}
+          {availableSubs.length > 0 && (
             <motion.div
+              key={active}
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
               className="flex gap-4 mb-8"
             >
-              {([
-                { key: 'all' as MysticSub, label: 'Tout' },
-                { key: 'tshirt' as MysticSub, label: 'T-Shirts' },
-                { key: 'crewneck' as MysticSub, label: 'Sweats Col Rond' },
-                { key: 'hoodie' as MysticSub, label: 'Sweats Capuche' },
-              ]).map(({ key, label }) => (
+              <button
+                onClick={() => setSub('all')}
+                className={`text-[11px] px-4 py-2 border transition-all ${
+                  sub === 'all'
+                    ? 'border-foreground text-foreground'
+                    : 'border-border text-muted-foreground hover:border-foreground'
+                }`}
+              >
+                Tout
+              </button>
+              {availableSubs.map((s) => (
                 <button
-                  key={key}
-                  onClick={() => setMysticSub(key)}
+                  key={s}
+                  onClick={() => setSub(s as Subcategory)}
                   className={`text-[11px] px-4 py-2 border transition-all ${
-                    mysticSub === key
+                    sub === s
                       ? 'border-foreground text-foreground'
                       : 'border-border text-muted-foreground hover:border-foreground'
                   }`}
                 >
-                  {label}
+                  {subLabels[s!] || s}
                 </button>
               ))}
             </motion.div>
