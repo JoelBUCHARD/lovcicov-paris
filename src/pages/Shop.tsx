@@ -85,8 +85,8 @@ const Shop = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Bijoux</h2>
-              <p className="text-muted-foreground text-sm max-w-lg">
-                Colliers et chaînes pensés comme des signatures. Chaque pièce porte une intention.
+              <p className="text-muted-foreground text-sm max-w-lg leading-relaxed">
+                Chaque pièce est composée de pierres naturelles sélectionnées pour leur caractère et leur couleur. Assemblés à la main, ces bijoux sont inspirés de symboles intemporels et de compositions vibrantes. Chaque création est unique, comme l'histoire de la personne qui la porte.
               </p>
             </motion.div>
           )}
