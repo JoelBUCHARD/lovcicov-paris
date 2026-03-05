@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { standardProducts, mysticProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
-type Collection = 'all' | 'standard' | 'mystic';
+type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
 
 const Shop = () => {
   const [active, setActive] = useState<Collection>('all');
 
   const filtered = active === 'all'
-    ? [...standardProducts, ...mysticProducts]
+    ? [...standardProducts, ...mysticProducts, ...bijouxProducts]
     : active === 'standard'
       ? standardProducts
-      : mysticProducts;
+      : active === 'mystic'
+        ? mysticProducts
+        : bijouxProducts;
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,6 +37,7 @@ const Shop = () => {
               { key: 'all' as Collection, label: 'Tout' },
               { key: 'standard' as Collection, label: 'Standards' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
+              { key: 'bijoux' as Collection, label: 'Bijoux' },
             ]).map(({ key, label }) => (
               <button
                 key={key}
@@ -72,6 +75,18 @@ const Shop = () => {
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Mystic Lov</h2>
               <p className="text-muted-foreground text-sm max-w-lg">
                 Coton bio certifié vegan, traçable de la graine au sweat. Pour celles et ceux qui veulent porter un message sans faire de compromis.
+              </p>
+            </motion.div>
+          )}
+          {active === 'bijoux' && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mb-12"
+            >
+              <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Bijoux</h2>
+              <p className="text-muted-foreground text-sm max-w-lg">
+                Colliers et chaînes pensés comme des signatures. Chaque pièce porte une intention.
               </p>
             </motion.div>
           )}

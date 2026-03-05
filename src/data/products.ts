@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  collection: 'standard' | 'mystic';
+  collection: 'standard' | 'mystic' | 'bijoux';
   description: string;
   details: string;
   image: string;
@@ -83,4 +83,37 @@ export const mysticProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...standardProducts, ...mysticProducts];
+// Collection "Bijoux" — colliers et chaînes
+export const bijouxProducts: Product[] = [
+  {
+    id: 'chaine-or-signature',
+    name: 'Chaîne Or Signature',
+    price: 290,
+    collection: 'bijoux',
+    description: 'Maille gourmette plaquée or 18k. 45cm.',
+    details: 'La chaîne qui impose sans forcer. Présence dorée, élégance silencieuse.',
+    image: 'bijoux-chaine-or',
+    badge: 'Nouveau',
+  },
+  {
+    id: 'pendentif-argent-minimal',
+    name: 'Pendentif Argent Minimal',
+    price: 180,
+    collection: 'bijoux',
+    description: 'Argent massif 925. Médaillon épuré.',
+    details: 'Le pendentif pour ceux qui portent un symbole, pas un accessoire.',
+    image: 'bijoux-pendentif-argent',
+  },
+  {
+    id: 'chaines-layered-or',
+    name: 'Set Chaînes Layered',
+    price: 420,
+    collection: 'bijoux',
+    description: 'Ensemble de chaînes superposées plaquées or.',
+    details: 'Le layering signature LOVCICOV. Trois chaînes, une seule intention.',
+    image: 'bijoux-chaines-layered',
+    badge: 'Édition limitée',
+  },
+];
+
+export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts];
