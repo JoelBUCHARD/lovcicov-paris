@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
-import { products } from '@/data/products';
+import { standardProducts, mysticProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -194,8 +194,8 @@ const Index = () => {
           >
             Pièces Phares
           </motion.p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
-            {products.map((product, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+            {standardProducts.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
