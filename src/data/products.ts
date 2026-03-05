@@ -134,16 +134,6 @@ export const mysticProducts: Product[] = [
     gallery: ['mystic-tshirt-heart-flat'],
     badge: 'Nouveau',
   },
-  {
-    id: 'mystic-tshirt-blanc',
-    name: 'T-Shirt Essentiel Blanc',
-    price: 55,
-    collection: 'mystic',
-    description: 'Coton bio certifié. Blanc pur, coupe unisexe.',
-    details: 'La base parfaite. Simplicité absolue, qualité sans compromis.',
-    image: 'mystic-tshirt-blanc-model',
-    gallery: ['mystic-tshirt-blanc-flat'],
-  },
 ];
 
 // Collection "Bijoux" — colliers en pierres naturelles
