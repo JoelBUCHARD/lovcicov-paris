@@ -83,36 +83,36 @@ export const mysticProducts: Product[] = [
   },
 ];
 
-// Collection "Bijoux" — colliers et chaînes
+// Collection "Bijoux" — colliers en pierres naturelles
 export const bijouxProducts: Product[] = [
   {
-    id: 'chaine-or-signature',
-    name: 'Chaîne Or Signature',
+    id: 'collier-emeraude-pendentif',
+    name: 'Collier Émeraude & Pendentif',
     price: 290,
     collection: 'bijoux',
-    description: 'Maille gourmette plaquée or 18k. 45cm.',
-    details: 'La chaîne qui impose sans forcer. Présence dorée, élégance silencieuse.',
-    image: 'bijoux-chaine-or',
+    description: 'Perles de jade vert, détails dorés, pendentif nacre.',
+    details: 'La pièce signature. Pierres naturelles montées à la main, fermoir doré.',
+    image: 'bijoux-collier-emeraude',
     badge: 'Nouveau',
   },
   {
-    id: 'pendentif-argent-minimal',
-    name: 'Pendentif Argent Minimal',
-    price: 180,
+    id: 'collier-fuchsia-or',
+    name: 'Collier Fuchsia & Or',
+    price: 320,
     collection: 'bijoux',
-    description: 'Argent massif 925. Médaillon épuré.',
-    details: 'Le pendentif pour ceux qui portent un symbole, pas un accessoire.',
-    image: 'bijoux-pendentif-argent',
+    description: 'Perles œil de tigre rose, sphères dorées martelées.',
+    details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
+    image: 'bijoux-collier-fuchsia',
+    badge: 'Édition limitée',
   },
   {
-    id: 'chaines-layered-or',
-    name: 'Set Chaînes Layered',
-    price: 420,
+    id: 'collier-quartz-aventurine',
+    name: 'Collier Quartz Rose & Aventurine',
+    price: 260,
     collection: 'bijoux',
-    description: 'Ensemble de chaînes superposées plaquées or.',
-    details: 'Le layering signature LOVCICOV. Trois chaînes, une seule intention.',
-    image: 'bijoux-chaines-layered',
-    badge: 'Édition limitée',
+    description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
+    details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
+    image: 'bijoux-collier-quartz',
   },
 ];
 
