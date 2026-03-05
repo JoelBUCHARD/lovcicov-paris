@@ -36,6 +36,16 @@ export const standardProducts: Product[] = [
     image: 'signature-tshirt',
   },
   {
+    id: 'crewneck-standard',
+    name: 'Crewneck The Standard',
+    price: 160,
+    collection: 'standard',
+    subcategory: 'crewneck',
+    description: 'Molleton 350g. Col rond structuré.',
+    details: 'Le crewneck essentiel. Coupe nette, présence affirmée.',
+    image: 'product-shirt',
+  },
+  {
     id: 'ensemble-the-standard',
     name: 'Ensemble The Standard',
     price: 380,
