@@ -6,9 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
-import StateScan from "./pages/StateScan";
-import Experience from "./pages/Experience";
-import Philosophy from "./pages/Philosophy";
+import Manifeste from "./pages/Manifeste";
+import Fondatrice from "./pages/Fondatrice";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 
@@ -24,9 +23,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:id" element={<ProductDetail />} />
-          <Route path="/scan" element={<StateScan />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/philosophy" element={<Philosophy />} />
+          <Route path="/manifeste" element={<Manifeste />} />
+          <Route path="/fondatrice" element={<Fondatrice />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

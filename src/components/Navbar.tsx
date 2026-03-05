@@ -5,9 +5,8 @@ import { ShoppingBag, Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Boutique', path: '/shop' },
-  { label: 'Expérience', path: '/experience' },
-  { label: 'Scan d\'État', path: '/scan' },
-  { label: 'Philosophie', path: '/philosophy' },
+  { label: 'Manifeste', path: '/manifeste' },
+  { label: 'La Fondatrice', path: '/fondatrice' },
 ];
 
 const Navbar = () => {
@@ -17,7 +16,7 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
       <nav className="flex items-center justify-between px-6 md:px-12 py-5">
-        <Link to="/" className="text-brand-lg text-base md:text-lg tracking-[0.3em]">
+        <Link to="/" className="text-brand-lg text-base md:text-lg">
           LOVCICOV
         </Link>
 

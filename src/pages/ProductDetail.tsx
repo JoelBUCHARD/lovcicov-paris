@@ -60,7 +60,7 @@ const ProductDetail = () => {
             className="flex flex-col justify-center"
           >
             <p className="text-brand text-xs opacity-50 mb-4">
-              {product.collection === 'mystic' ? 'Mystic Lov' : 'Signature Essentials'}
+              Collection I — Le Standard
             </p>
             <h1 className="text-3xl md:text-4xl font-serif font-light mb-4">{product.name}</h1>
             <p className="text-xl mb-8">€{product.price}</p>
@@ -71,12 +71,6 @@ const ProductDetail = () => {
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
               {product.details}
             </p>
-
-            {product.state && (
-              <p className="text-xs text-muted-foreground mb-8">
-                État : {product.state}
-              </p>
-            )}
 
             <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto">
               Ajouter au Panier
