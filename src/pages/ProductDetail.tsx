@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
@@ -16,6 +17,7 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+  const [activeImage, setActiveImage] = useState(0);
 
   if (!product) {
     return (
@@ -31,7 +33,13 @@ const ProductDetail = () => {
     );
   }
 
-  const collectionLabel = product.collection === 'mystic' ? 'Mystic Lov' : 'Collection Standards';
+  const collectionLabel =
+    product.collection === 'mystic' ? 'Mystic Lov'
+    : product.collection === 'bijoux' ? 'Bijoux'
+    : 'Collection Standards';
+
+  // Build all images: main + gallery
+  const allImages = [product.image, ...(product.gallery || [])];
 
   return (
     <div className="min-h-screen bg-background">
@@ -48,13 +56,35 @@ const ProductDetail = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="aspect-[3/4] overflow-hidden bg-secondary">
+            {/* Main image */}
+            <div className="aspect-[3/4] overflow-hidden bg-secondary mb-3">
               <img
-                src={getImage(product.image)}
+                src={getImage(allImages[activeImage])}
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
             </div>
+
+            {/* Thumbnail gallery */}
+            {allImages.length > 1 && (
+              <div className="flex gap-2">
+                {allImages.map((img, i) => (
+                  <button
+                    key={img}
+                    onClick={() => setActiveImage(i)}
+                    className={`aspect-square w-16 md:w-20 overflow-hidden bg-secondary border-2 transition-all ${
+                      activeImage === i ? 'border-foreground' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img
+                      src={getImage(img)}
+                      alt={`${product.name} - vue ${i + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </motion.div>
 
           <motion.div

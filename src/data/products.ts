@@ -8,6 +8,7 @@ export interface Product {
   image: string;
   badge?: string;
   colors?: { name: string; id: string }[];
+  gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
 }
 
 // Collection "Standards" — pièces à message fort
@@ -84,17 +85,8 @@ export const mysticProducts: Product[] = [
 ];
 
 // Collection "Bijoux" — colliers en pierres naturelles
+// Photos classifiées : solo (produit), fleurs (lifestyle), tarot (ambiance)
 export const bijouxProducts: Product[] = [
-  {
-    id: 'collier-emeraude-pendentif',
-    name: 'Collier Émeraude & Pendentif',
-    price: 290,
-    collection: 'bijoux',
-    description: 'Perles de jade vert, détails dorés, pendentif nacre.',
-    details: 'La pièce signature. Pierres naturelles montées à la main, fermoir doré.',
-    image: 'bijoux-collier-emeraude',
-    badge: 'Nouveau',
-  },
   {
     id: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
@@ -104,6 +96,7 @@ export const bijouxProducts: Product[] = [
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
     image: 'bijoux-fuchsia-solo',
     badge: 'Édition limitée',
+    gallery: ['bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
   },
   {
     id: 'collier-quartz-aventurine',
@@ -113,6 +106,7 @@ export const bijouxProducts: Product[] = [
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
     image: 'bijoux-quartz-solo',
+    gallery: ['bijoux-quartz-fleurs', 'bijoux-quartz-tarot'],
   },
   {
     id: 'collier-labradorite-amethyste',
@@ -123,6 +117,7 @@ export const bijouxProducts: Product[] = [
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
     image: 'bijoux-labradorite-solo',
     badge: 'Nouveau',
+    gallery: ['bijoux-labradorite-fleurs', 'bijoux-labradorite-tarot'],
   },
   {
     id: 'collier-prehnite-malachite',
@@ -132,6 +127,7 @@ export const bijouxProducts: Product[] = [
     description: 'Triple rang préhnite et malachite, fermoir doré.',
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
     image: 'bijoux-prehnite-solo',
+    gallery: ['bijoux-prehnite-fleurs', 'bijoux-prehnite-tarot'],
   },
   {
     id: 'collier-quartz-croix-jade',
@@ -141,6 +137,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
     image: 'bijoux-quartz-croix-fleurs',
+    gallery: ['bijoux-croix-tarot'],
   },
   {
     id: 'collier-malachite-corail',
@@ -151,6 +148,7 @@ export const bijouxProducts: Product[] = [
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
     image: 'bijoux-malachite-solo',
     badge: 'Édition limitée',
+    gallery: ['bijoux-malachite-fleurs', 'bijoux-malachite-tarot'],
   },
   {
     id: 'collier-trio-citrine',
@@ -161,6 +159,7 @@ export const bijouxProducts: Product[] = [
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
     image: 'bijoux-trio-solo',
     badge: 'Nouveau',
+    gallery: ['bijoux-trio-fleurs', 'bijoux-trio-tarot'],
   },
   {
     id: 'collier-jade-nacre',
@@ -170,6 +169,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
     image: 'bijoux-jade-pendentif',
+    gallery: ['bijoux-jade-tarot'],
   },
   {
     id: 'collier-corail-multicolor',
@@ -180,6 +180,7 @@ export const bijouxProducts: Product[] = [
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
     image: 'bijoux-corail-multicolor',
     badge: 'Édition limitée',
+    gallery: ['bijoux-corail-fleurs', 'bijoux-corail-tarot'],
   },
   {
     id: 'collier-turquoise-or',
@@ -189,6 +190,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
     image: 'bijoux-turquoise-solo',
+    gallery: ['bijoux-turquoise-fleurs', 'bijoux-turquoise-tarot'],
   },
 ];
 
