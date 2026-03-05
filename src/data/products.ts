@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   price: number;
   collection: 'standard' | 'mystic' | 'bijoux';
+  subcategory?: 'tshirt' | 'crewneck' | 'hoodie';
   description: string;
   details: string;
   image: string;
@@ -50,6 +51,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Love',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Coupe unisexe.',
     details: 'Le T-shirt essentiel Mystic Lov. Doux, conscient, assumé.',
     image: 'mystic-tshirt-noir',
@@ -64,6 +66,7 @@ export const mysticProducts: Product[] = [
     name: 'Hoodie Love',
     price: 180,
     collection: 'mystic',
+    subcategory: 'hoodie',
     description: 'Molleton épais. Coupe décontractée unisexe.',
     details: 'Le hoodie signature Mystic Lov. Confort et présence.',
     image: 'mystic-hoodie-noir',
@@ -74,6 +77,7 @@ export const mysticProducts: Product[] = [
     name: 'Crewneck Love',
     price: 120,
     collection: 'mystic',
+    subcategory: 'crewneck',
     description: 'Col rond épais. Coton bio traçable.',
     details: 'Le crewneck Mystic Lov. Simplicité et conscience.',
     image: 'mystic-crewneck-noir',
@@ -87,6 +91,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Namaste',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "Namaste Bitches".',
     details: 'L\'irrévérence assumée. Un message spirituel avec du caractère.',
     image: 'mystic-tshirt-namaste-model',
@@ -97,6 +102,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Cosmos',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print cosmique multicolore.',
     details: 'L\'univers sur un t-shirt. Art psychédélique et couleurs vibrantes.',
     image: 'mystic-tshirt-cosmos-model',
@@ -108,6 +114,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Sunshine',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "Sunshine Stay Magical".',
     details: 'Soleil, papillons et magie. Un t-shirt qui rayonne.',
     image: 'mystic-tshirt-sunshine-model',
@@ -118,6 +125,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt No Risk No Magic',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Broderie poitrine fluo.',
     details: 'Le mantra des audacieux. Petit message, grand impact.',
     image: 'mystic-tshirt-norisk-model',
@@ -128,6 +136,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Heart Eye',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Patch cœur brodé rouge.',
     details: 'L\'œil qui voit tout, dans un cœur qui bat. Patch artisanal.',
     image: 'mystic-tshirt-heart-model',
@@ -139,6 +148,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Abstract Art',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print art abstrait multicolore.',
     details: 'L\'art brut sur coton. Composition abstraite vibrante, entre peinture et collage.',
     image: 'mystic-tshirt-abstract-flat',
@@ -148,6 +158,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt New World System',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "New World System" cosmique.',
     details: 'Un nouveau monde à construire. Graphisme rétro-futuriste et énergie galactique.',
     image: 'mystic-tshirt-newworld-flat',
@@ -158,6 +169,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Switch Off',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "Switch Off" rétro psychédélique.',
     details: 'Déconnecte pour mieux te reconnecter. Inspiration 70s et ondes cosmiques.',
     image: 'mystic-tshirt-switchoff-flat',
@@ -167,6 +179,7 @@ export const mysticProducts: Product[] = [
     name: 'T-Shirt Madonna',
     price: 70,
     collection: 'mystic',
+    subcategory: 'tshirt',
     description: 'Coton bio certifié. Print Vierge pop art.',
     details: 'Sacré et irrévérence. Une icône revisitée en street art explosif.',
     image: 'mystic-tshirt-madonna-flat',
