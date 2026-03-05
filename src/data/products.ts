@@ -102,7 +102,7 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
-    image: 'bijoux-collier-fuchsia',
+    image: 'bijoux-fuchsia-solo',
     badge: 'Édition limitée',
   },
   {
@@ -112,7 +112,17 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
-    image: 'bijoux-collier-quartz',
+    image: 'bijoux-quartz-solo',
+  },
+  {
+    id: 'collier-labradorite-amethyste',
+    name: 'Collier Labradorite & Améthyste',
+    price: 280,
+    collection: 'bijoux',
+    description: 'Double rang labradorite et améthyste brute, détails dorés.',
+    details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
+    image: 'bijoux-labradorite-fleurs',
+    badge: 'Nouveau',
   },
 ];
 
