@@ -162,7 +162,8 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "New World System" cosmique.',
     details: 'Un nouveau monde à construire. Graphisme rétro-futuriste et énergie galactique.',
-    image: 'mystic-tshirt-newworld-flat',
+    image: 'mystic-tshirt-newworld-model',
+    gallery: ['mystic-tshirt-newworld-flat'],
     badge: 'Nouveau',
   },
   {
@@ -173,7 +174,8 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton bio certifié. Print "Switch Off" rétro psychédélique.',
     details: 'Déconnecte pour mieux te reconnecter. Inspiration 70s et ondes cosmiques.',
-    image: 'mystic-tshirt-switchoff-flat',
+    image: 'mystic-tshirt-switchoff-model',
+    gallery: ['mystic-tshirt-switchoff-flat'],
   },
   {
     id: 'mystic-tshirt-madonna',
@@ -183,7 +185,8 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton bio certifié. Print Vierge pop art.',
     details: 'Sacré et irrévérence. Une icône revisitée en street art explosif.',
-    image: 'mystic-tshirt-madonna-flat',
+    image: 'mystic-tshirt-madonna-model',
+    gallery: ['mystic-tshirt-madonna-flat'],
     badge: 'Nouveau',
   },
 ];
