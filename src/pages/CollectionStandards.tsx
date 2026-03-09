@@ -47,10 +47,13 @@ const CollectionStandards = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              L'essence de LOVCICOV : une vision du style guidée par l'exigence et la clarté.
+              Standards incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Des pièces aux lignes épurées, pensées pour accompagner une présence naturelle et affirmer une identité.
+              La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.
             </p>
           </motion.div>
         </div>
