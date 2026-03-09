@@ -118,10 +118,20 @@ const Shop = () => {
               key="standard"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12"
+              className="mb-12 max-w-lg"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-2">Standards</h2>
-              <p className="text-brand text-[11px] text-muted-foreground">Define your standard.</p>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Standards</h2>
+              <div className="space-y-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Standards incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.
+                </p>
+              </div>
             </motion.div>
           )}
           {active === 'mystic' && (
@@ -129,10 +139,20 @@ const Shop = () => {
               key="mystic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12"
+              className="mb-12 max-w-lg"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-2">MysticLov</h2>
-              <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">MysticLov</h2>
+              <div className="space-y-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  MysticLov explore une dimension plus intérieure du style.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Chaque pièce devient une manière de porter un signe, une idée ou une histoire qui dépasse le simple vêtement.
+                </p>
+              </div>
             </motion.div>
           )}
           {active === 'bijoux' && (
@@ -140,10 +160,20 @@ const Shop = () => {
               key="bijoux"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12"
+              className="mb-12 max-w-lg"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-2">Jewelry</h2>
-              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Jewelry</h2>
+              <div className="space-y-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  La collection Bijoux rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
+                </p>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Des pièces singulières, destinées à accompagner celles et ceux qui recherchent des objets porteurs de sens et de présence.
+                </p>
+              </div>
             </motion.div>
           )}
 
