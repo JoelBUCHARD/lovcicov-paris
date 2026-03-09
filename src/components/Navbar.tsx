@@ -104,14 +104,6 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
 
-        <Link
-          to="/shop"
-          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
-            location.pathname === '/shop' ? 'opacity-100' : 'opacity-70'
-          }`}
-        >
-          Shop
-        </Link>
       </nav>
 
       {/* Mobile menu */}
