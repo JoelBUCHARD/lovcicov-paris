@@ -48,7 +48,7 @@ const Shop = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10 md:px-10">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -152,7 +152,7 @@ const Shop = () => {
             </motion.div>
           )}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
+          <div className="grid g2 md:grid-cols-4 gap-x-4 gap-y-10 gap-y-16">
             {filtered.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
