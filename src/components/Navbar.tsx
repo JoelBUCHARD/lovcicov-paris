@@ -119,15 +119,8 @@ const Navbar = () => {
               <Link to="/" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
                 Accueil
               </Link>
-              <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Collections</p>
-              <Link to="/collections/standards" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Standards
-              </Link>
-              <Link to="/collections/mystic-lov" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Mystic Lov
-              </Link>
-              <Link to="/collections/bijoux" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Bijoux
+              <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+                Shop
               </Link>
               <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
@@ -135,6 +128,7 @@ const Navbar = () => {
               </Link>
               <Link to="/fondatrice" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 La Fondatrice
+              </Link>
               </Link>
               <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
                 Shop
