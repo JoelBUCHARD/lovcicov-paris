@@ -70,7 +70,7 @@ const Fondatrice = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            className="text-4xl md:text-5xl font-serif font-light mb-14"
+            className="text-brand-lg text-lg md:text-xl mb-14"
           >
             Georgiana Lovcicov
           </motion.h2>
