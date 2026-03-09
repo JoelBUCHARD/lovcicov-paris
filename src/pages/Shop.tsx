@@ -100,7 +100,7 @@ const Shop = () => {
                 <button
                   key={s}
                   onClick={() => setSub(s as Subcategory)}
-                  className={`text-[11px] px-4 py-2 border transition-all ${
+                  className={`text-brand text-[11px] px-4 py-2 border transition-all ${
                     sub === s
                       ? 'border-foreground text-foreground'
                       : 'border-border text-muted-foreground hover:border-foreground'
