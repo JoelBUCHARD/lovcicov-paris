@@ -35,7 +35,7 @@ const CollectionStandards = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-10"
+            className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10"
           >
             Standards
           </motion.h1>

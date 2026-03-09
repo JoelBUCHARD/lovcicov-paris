@@ -89,7 +89,7 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={1}
-          className="text-3xl md:text-5xl lg:text-6xl font-serif font-light mb-8 max-w-3xl mx-auto leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-medium mb-8 max-w-3xl mx-auto leading-tight"
         >
           Pas une tendance. Un standard.
         </motion.h2>

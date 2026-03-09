@@ -120,7 +120,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-mediumndards</h2>
+              <h2 className="text-2xl md:text-3xl font-medium>
               <p className="text-brand text-[11px] text-muted-foreground">Define your standard.</p>
             </motion.div>
           )}
@@ -131,8 +131,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif fontmediumticLov</h2>
-              <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
+              <h2 className="text-2xl md:text-3xl font-serif fontmediumticLmedium      <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
           {active === 'bijoux' && (
@@ -142,8 +141,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Jewelry</h2>
-              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
+              <h2 className="text-2xl md:text-3xl font-serif font-light mb-medium              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
