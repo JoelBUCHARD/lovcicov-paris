@@ -19,14 +19,14 @@ const CollectionStandards = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+      <main className="pt-32 md:pt-36 pb-24">
         {/* Hero */}
-        <div className="max-w-3xl mb-20">
+        <div className="text-center px-6 md:px-10 mb-20 md:mb-28">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-brand text-[11px] text-muted-foreground mb-6 tracking-[0.2em]"
+            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
           >
             Collection
           </motion.p>
@@ -35,27 +35,33 @@ const CollectionStandards = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-4xl md:text-6xl font-serif font-light mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-10"
           >
             Standards
           </motion.h1>
-          <motion.p
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={2}
-            className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl"
+            className="max-w-lg mx-auto space-y-6"
           >
-            Des pièces à message fort. Pensées pour ceux qui choisissent leur propre direction.
-            Silhouettes minimalistes, lignes précises, tons intemporels.
-          </motion.p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              L'essence de LOVCICOV : une vision du style guidée par l'exigence et la clarté.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Des pièces aux lignes épurées, pensées pour accompagner une présence naturelle et affirmer une identité.
+            </p>
+          </motion.div>
         </div>
 
         {/* Products */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-          {standardProducts.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} />
-          ))}
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+            {standardProducts.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
