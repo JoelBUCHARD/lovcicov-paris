@@ -54,52 +54,14 @@ const Navbar = () => {
           Accueil
         </Link>
 
-        {/* Collections dropdown */}
-        <div
-          className="relative"
-          onMouseEnter={() => setCollectionsOpen(true)}
-          onMouseLeave={() => setCollectionsOpen(false)}
+        <Link
+          to="/shop"
+          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
+            location.pathname === '/shop' ? 'opacity-100' : 'opacity-70'
+          }`}
         >
-          <button
-            className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 flex items-center gap-1 ${
-              location.pathname.startsWith('/collections') ? 'opacity-100' : 'opacity-70'
-            }`}
-          >
-            Collections
-            <ChevronDown size={10} strokeWidth={2} className={`transition-transform ${collectionsOpen ? 'rotate-180' : ''}`} />
-          </button>
-
-          <AnimatePresence>
-            {collectionsOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 4 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-background border border-border shadow-lg min-w-[180px]"
-              >
-                <Link
-                  to="/collections/standards"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Standards
-                </Link>
-                <Link
-                  to="/collections/mystic-lov"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Mystic Lov
-                </Link>
-                <Link
-                  to="/collections/bijoux"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Bijoux
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+          Shop
+        </Link>
 
         {/* Univers dropdown */}
         <div
