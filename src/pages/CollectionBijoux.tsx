@@ -47,10 +47,13 @@ const CollectionBijoux = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Des pierres naturelles sélectionnées pour leur beauté, leur couleur et leur caractère unique.
+              La collection Bijoux rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Chaque création révèle l'équilibre entre matière, lumière et symboles intemporels.
+              Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Des pièces singulières, destinées à accompagner celles et ceux qui recherchent des objets porteurs de sens et de présence.
             </p>
           </motion.div>
         </div>
