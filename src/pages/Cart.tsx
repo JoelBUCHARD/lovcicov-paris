@@ -17,7 +17,7 @@ const Cart = () => {
           className="max-w-2xl mx-auto pt-12 md:pt-24 text-center"
         >
           <ShoppingBag size={32} strokeWidth={1} className="mx-auto mb-6 text-muted-foreground" />
-          <h1 className="text-3xl md:text-4xl font-serif font-light mb-4">Votre panier est vide</h1>
+          <h1 className="text-3xl md:text-4xl font-medium mb-4">Votre panier est vide</h1>
           <p className="text-muted-foreground text-sm mb-10">
             Découvrez des pièces conçues pour changer ce que vous ressentez.
           </p>

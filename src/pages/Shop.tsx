@@ -120,7 +120,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Standards</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-2">Standards</h2>
               <p className="text-brand text-[11px] text-muted-foreground">Define your standard.</p>
             </motion.div>
           )}
@@ -131,7 +131,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">MysticLov</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-2">MysticLov</h2>
               <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
@@ -142,12 +142,12 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Jewelry</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-2">Jewelry</h2>
               <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
-          <div className="grid g2 md:grid-cols-4 gap-x-4 gap-y-10 gap-y-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {filtered.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
