@@ -8,9 +8,6 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import Manifeste from "./pages/Manifeste";
 import Fondatrice from "./pages/Fondatrice";
-import CollectionStandards from "./pages/CollectionStandards";
-import CollectionMystic from "./pages/CollectionMystic";
-import CollectionBijoux from "./pages/CollectionBijoux";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 
