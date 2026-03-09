@@ -112,6 +112,34 @@ const Shop = () => {
             </motion.div>
           )}
 
+          {/* "Voir tout" — menu des 3 collections */}
+          {active === 'all' && (
+            <motion.div
+              key="all"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-col gap-6 mt-4"
+            >
+              {([
+                { key: 'standard' as Collection, label: 'Standards', tagline: 'Define your standard.' },
+                { key: 'mystic' as Collection, label: 'MysticLov', tagline: 'Symbols. Guidance. Intuition.' },
+                { key: 'bijoux' as Collection, label: 'Bijoux', tagline: 'Natural Stones. Singular Pieces.' },
+              ]).map(({ key, label, tagline }) => (
+                <button
+                  key={key}
+                  onClick={() => handleCollectionChange(key)}
+                  className="group flex items-center justify-between border-b border-border pb-6 text-left transition-all hover:opacity-70"
+                >
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-medium">{label}</h2>
+                    <p className="text-muted-foreground text-sm mt-1">{tagline}</p>
+                  </div>
+                  <ArrowRight size={18} className="text-muted-foreground group-hover:translate-x-1 transition-transform" />
+                </button>
+              ))}
+            </motion.div>
+          )}
+
           {/* Collection header */}
           {active === 'standard' && (
             <motion.div
@@ -177,11 +205,13 @@ const Shop = () => {
             </motion.div>
           )}
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {filtered.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
-          </div>
+          {active !== 'all' && (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+              {filtered.map((product, i) => (
+                <ProductCard key={product.id} product={product} index={i} />
+              ))}
+            </div>
+          )}
         </motion.div>
       </main>
 
