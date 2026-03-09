@@ -33,18 +33,16 @@ const Shop = () => {
     setSub('all');
   };
 
-  const getCollectionProducts = (): Product[] => {
+  const collectionProducts = useMemo(() => {
     if (active === 'all') return [...standardProducts, ...mysticProducts, ...bijouxProducts];
     if (active === 'standard') return standardProducts;
     if (active === 'mystic') return mysticProducts;
     return bijouxProducts;
-  };
-
-  const collectionProducts = useMemo(() => getCollectionProducts(), [active]);
+  }, [active]);
 
   // Detect which subcategories exist in the current collection
   const availableSubs = useMemo(() => {
-    if (active === 'all') return [];
+    if (active === 'all' || active === 'bijoux') return [];
     const subs = new Set(collectionProducts.map(p => p.subcategory).filter(Boolean));
     return subs.size > 1 ? Array.from(subs) : [];
   }, [active, collectionProducts]);
