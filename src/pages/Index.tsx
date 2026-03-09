@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
 import mysticCollection from '@/assets/mystic-collection.jpg';
+import bijouxImage from '@/assets/bijoux-fuchsia-fleurs.jpg';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
