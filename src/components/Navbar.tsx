@@ -129,10 +129,6 @@ const Navbar = () => {
               <Link to="/fondatrice" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 La Fondatrice
               </Link>
-              </Link>
-              <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
-                Shop
-              </Link>
             </div>
           </motion.div>
         )}
