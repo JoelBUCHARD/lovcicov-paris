@@ -30,7 +30,27 @@ const Index = () => {
 
       {/* 1. HERO — Split layout */}
       <section className="pt-[120px] md:pt-[110px]">
-        <div className="grid grid-cols-1 md:grid-cols-2 h-[85vh] md:h-[90vh]">
+        {/* Hero Statement */}
+        <div className="text-center py-12 md:py-16 px-6">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="text-brand-lg text-base md:text-lg tracking-[0.35em] mb-4"
+          >
+            LOVCICOV
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-editorial text-lg md:text-2xl text-muted-foreground max-w-lg mx-auto"
+          >
+            Une vision du style où chaque pièce devient une signature.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[75vh] md:h-[85vh]">
           <div className="relative overflow-hidden">
             <img src={heroImage} alt="Collection LOVCICOV" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-foreground/10" />
