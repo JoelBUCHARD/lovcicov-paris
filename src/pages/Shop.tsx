@@ -86,9 +86,9 @@ const Shop = () => {
               transition={{ duration: 0.3 }}
               className="flex gap-4 mb-8"
             >
-              <button
+               <button
                 onClick={() => setSub('all')}
-                className={`text-[11px] px-4 py-2 border transition-all ${
+                className={`text-brand text-[11px] px-4 py-2 border transition-all ${
                   sub === 'all'
                     ? 'border-foreground text-foreground'
                     : 'border-border text-muted-foreground hover:border-foreground'
