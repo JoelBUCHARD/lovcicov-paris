@@ -131,7 +131,8 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif fontmediumticLmedium      <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
+              <h2 className="text-2xl md:text-3xl font-medium mb-2">MysticLov</h2>
+              <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
           {active === 'bijoux' && (
