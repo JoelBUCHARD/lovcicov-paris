@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
 import mysticCollection from '@/assets/mystic-collection.jpg';
+import bijouxImage from '@/assets/bijoux-fuchsia-fleurs.jpg';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
@@ -42,33 +43,26 @@ const Index = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 h-[75vh] md:h-[85vh]">
-          <div className="relative overflow-hidden">
-            <img src={heroImage} alt="Collection LOVCICOV" className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-foreground/10" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <Link
-                to="/collections/standards"
-                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
-              >
-                Collection Standards
-                <ArrowRight size={12} />
-              </Link>
+        <div className="grid grid-cols-1 md:grid-cols-3 h-[75vh] md:h-[85vh]">
+          {[
+            { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
+            { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
+            { src: bijouxImage, alt: 'Collection Bijoux', label: 'Bijoux', path: '/collections/bijoux' },
+          ].map((col, i) => (
+            <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
+              <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
+              <div className="absolute inset-0 bg-foreground/10" />
+              <div className="absolute bottom-8 left-8 right-8">
+                <Link
+                  to={col.path}
+                  className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
+                >
+                  {col.label}
+                  <ArrowRight size={12} />
+                </Link>
+              </div>
             </div>
-          </div>
-          <div className="relative overflow-hidden hidden md:block">
-            <img src={mysticCollection} alt="Collection Mystic Lov" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-foreground/10" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <Link
-                to="/collections/mystic-lov"
-                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
-              >
-                Mystic Lov
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
