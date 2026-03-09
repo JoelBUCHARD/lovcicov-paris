@@ -24,7 +24,7 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-background">
         <Navbar />
         <div className="pt-32 px-6 md:px-12 text-center">
-          <h1 className="text-2xl font-serif">Produit introuvable</h1>
+          <h1 className="text-2xl font-medium">Produit introuvable</h1>
           <Link to="/shop" className="text-brand text-xs mt-4 inline-block opacity-60 hover:opacity-100">
             Retour à la Boutique
           </Link>
