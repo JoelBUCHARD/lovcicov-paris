@@ -66,8 +66,8 @@
 
 @layer utilities {
   .text-editorial {
-    font-family: var(--font-serif);
-    font-weight: 300;
+    font-family: var(--font-sans);
+    font-weight: 400;
     letter-spacing: 0.04em;
     line-height: 1.3;
   }
