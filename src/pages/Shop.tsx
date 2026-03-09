@@ -1,4 +1,5 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
@@ -10,9 +11,22 @@ import Footer from '@/components/Footer';
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
 type Subcategory = 'all' | 'tshirt' | 'crewneck' | 'hoodie';
 
+const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
+
 const Shop = () => {
-  const [active, setActive] = useState<Collection>('all');
+  const [searchParams] = useSearchParams();
+  const collectionParam = searchParams.get('collection') as Collection | null;
+  const initialCollection = collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
+
+  const [active, setActive] = useState<Collection>(initialCollection);
   const [sub, setSub] = useState<Subcategory>('all');
+
+  useEffect(() => {
+    if (collectionParam && validCollections.includes(collectionParam)) {
+      setActive(collectionParam);
+      setSub('all');
+    }
+  }, [collectionParam]);
 
   const handleCollectionChange = (key: Collection) => {
     setActive(key);
