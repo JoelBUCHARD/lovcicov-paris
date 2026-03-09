@@ -46,7 +46,7 @@ const Fondatrice = () => {
             <p>La marque célèbre les personnalités qui avancent avec assurance, guidées par leurs propres standards.</p>
             <p>Chaque création est pensée comme une signature : une rencontre entre caractère, matière et intention.</p>
             <p>Des pièces conçues pour accompagner celles et ceux qui choisissent d'affirmer leur présence avec simplicité et élégance.</p>
-            <p className="text-foreground font-serif text-xl md:text-2xl italic mt-6">
+            <p className="text-foreground uppercase tracking-[0.1em] mt-6">
               LOVCICOV incarne une manière d'être, plus qu'une tendance.
             </p>
           </motion.div>
@@ -70,7 +70,7 @@ const Fondatrice = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            className="text-4xl md:text-5xl font-serif font-light mb-14"
+            className="text-brand-lg text-lg md:text-xl mb-14"
           >
             Georgiana Lovcicov
           </motion.h2>
@@ -85,7 +85,7 @@ const Fondatrice = () => {
             <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
             <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
             <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
-            <p className="text-foreground font-serif text-xl md:text-2xl italic mt-6">
+            <p className="text-foreground uppercase tracking-[0.1em] mt-6">
               À travers LOVCICOV, Georgiana Lovcicov propose une vision du style où la présence devient une signature.
             </p>
           </motion.div>

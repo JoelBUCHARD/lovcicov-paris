@@ -46,7 +46,7 @@ const Manifeste = () => {
             <p>La marque célèbre les personnalités qui avancent avec assurance, guidées par leurs propres standards.</p>
             <p>Chaque création est pensée comme une signature : une rencontre entre caractère, matière et intention.</p>
             <p>Des pièces conçues pour accompagner celles et ceux qui choisissent d'affirmer leur présence avec simplicité et élégance.</p>
-            <p className="text-foreground font-serif text-xl md:text-2xl italic mt-14">
+            <p className="text-foreground uppercase tracking-[0.1em] mt-14">
               LOVCICOV incarne une manière d'être, plus qu'une tendance.
             </p>
           </motion.div>
