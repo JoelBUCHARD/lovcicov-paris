@@ -143,7 +143,7 @@ const Shop = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Jewelry</h2>
-              <p className="text-muted-foreground text-sm tracking-wide">Natural Stones. Singular Pieces.</p>
+              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
