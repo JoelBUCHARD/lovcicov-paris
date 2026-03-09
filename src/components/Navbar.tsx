@@ -176,8 +176,12 @@ const Navbar = () => {
               <Link to="/collections/bijoux" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 Bijoux
               </Link>
-              <Link to="/univers" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity mt-2" onClick={() => setIsOpen(false)}>
-                Univers
+              <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
+              <Link to="/manifeste" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
+                Manifeste
+              </Link>
+              <Link to="/fondatrice" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
+                La Fondatrice
               </Link>
               <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
                 Shop
