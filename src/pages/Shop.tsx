@@ -1,5 +1,6 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import type { Product } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
