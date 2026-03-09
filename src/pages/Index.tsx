@@ -44,9 +44,9 @@ const Index = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-editorial text-lg md:text-2xl text-muted-foreground max-w-lg mx-auto"
+            className="text-brand text-[11px] text-muted-foreground"
           >
-            Une vision du style où chaque pièce devient une signature.
+            Vision. Présence. Signature.
           </motion.p>
         </div>
 
