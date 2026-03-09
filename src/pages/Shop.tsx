@@ -117,38 +117,35 @@ const Shop = () => {
           {/* Collection header */}
           {active === 'standard' && (
             <motion.div
+              key="standard"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Collection Standards</h2>
-              <p className="text-muted-foreground text-sm max-w-lg">
-                Des pièces à message fort. Pensées pour ceux qui choisissent leur propre direction.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Standards</h2>
+              <p className="text-muted-foreground text-sm tracking-wide">Define your standard.</p>
             </motion.div>
           )}
           {active === 'mystic' && (
             <motion.div
+              key="mystic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Mystic Lov</h2>
-              <p className="text-muted-foreground text-sm max-w-lg">
-                Coton bio certifié vegan, traçable de la graine au sweat. Pour celles et ceux qui veulent porter un message sans faire de compromis.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">MysticLov</h2>
+              <p className="text-muted-foreground text-sm tracking-wide">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
           {active === 'bijoux' && (
             <motion.div
+              key="bijoux"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-3">Bijoux</h2>
-              <p className="text-muted-foreground text-sm max-w-lg leading-relaxed">
-                Chaque pièce est composée de pierres naturelles sélectionnées pour leur caractère et leur couleur. Assemblés à la main, ces bijoux sont inspirés de symboles intemporels et de compositions vibrantes. Chaque création est unique, comme l'histoire de la personne qui la porte.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Jewelry</h2>
+              <p className="text-muted-foreground text-sm tracking-wide">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
