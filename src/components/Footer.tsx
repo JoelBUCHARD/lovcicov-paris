@@ -39,14 +39,20 @@ const Footer = () => {
           <Link to="/" className="text-brand-lg text-sm tracking-[0.3em]">LOVCICOV</Link>
           
           <div className="flex flex-wrap items-center justify-center gap-6">
+            <Link to="/collections/standards" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
+              Standards
+            </Link>
+            <Link to="/collections/mystic-lov" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
+              Mystic Lov
+            </Link>
+            <Link to="/collections/bijoux" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
+              Bijoux
+            </Link>
+            <Link to="/univers" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
+              Univers
+            </Link>
             <Link to="/shop" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
-              Boutique
-            </Link>
-            <Link to="/manifeste" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
-              Manifeste
-            </Link>
-            <Link to="/fondatrice" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
-              La Fondatrice
+              Shop
             </Link>
             <a href="mailto:contact@lovcicov.com" className="text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-wide uppercase">
               Contact
