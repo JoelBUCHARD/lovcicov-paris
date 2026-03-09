@@ -120,7 +120,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-2">Standards</h2>
+              <h2 className="text-2xl md:text-3xl font-mediumndards</h2>
               <p className="text-brand text-[11px] text-muted-foreground">Define your standard.</p>
             </motion.div>
           )}
@@ -131,7 +131,7 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">MysticLov</h2>
+              <h2 className="text-2xl md:text-3xl font-serif fontmediumticLov</h2>
               <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
