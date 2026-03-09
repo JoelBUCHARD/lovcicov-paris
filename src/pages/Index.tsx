@@ -18,7 +18,6 @@ const fadeUp = {
 };
 
 const Index = () => {
-  // Pick featured products
   const featured = [
     ...standardProducts.slice(0, 2),
     ...mysticProducts.slice(0, 4),
@@ -29,36 +28,28 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* 1. HERO — Split layout like Anine Bing */}
+      {/* 1. HERO — Split layout */}
       <section className="pt-[120px] md:pt-[110px]">
         <div className="grid grid-cols-1 md:grid-cols-2 h-[85vh] md:h-[90vh]">
           <div className="relative overflow-hidden">
-            <img
-              src={heroImage}
-              alt="Collection LOVCICOV"
-              className="w-full h-full object-cover object-top"
-            />
+            <img src={heroImage} alt="Collection LOVCICOV" className="w-full h-full object-cover object-top" />
             <div className="absolute inset-0 bg-foreground/10" />
             <div className="absolute bottom-8 left-8 right-8">
               <Link
-                to="/shop"
+                to="/collections/standards"
                 className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
               >
-                Explorer la collection
+                Collection Standards
                 <ArrowRight size={12} />
               </Link>
             </div>
           </div>
           <div className="relative overflow-hidden hidden md:block">
-            <img
-              src={mysticCollection}
-              alt="Collection Mystic Lov"
-              className="w-full h-full object-cover"
-            />
+            <img src={mysticCollection} alt="Collection Mystic Lov" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-foreground/10" />
             <div className="absolute bottom-8 left-8 right-8">
               <Link
-                to="/shop?collection=mystic"
+                to="/collections/mystic-lov"
                 className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
               >
                 Mystic Lov
@@ -69,7 +60,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 2. BRAND STATEMENT */}
+      {/* 2. MANIFESTO */}
       <section className="px-6 md:px-10 py-20 md:py-28 text-center">
         <motion.p
           variants={fadeUp}
@@ -118,7 +109,7 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* 3. FEATURED PRODUCTS — 4 column grid */}
+      {/* 3. FEATURED PRODUCTS */}
       <section className="px-6 md:px-10 pb-20 md:pb-28">
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-brand text-[11px] tracking-[0.2em] text-muted-foreground">Sélection</h2>
@@ -139,9 +130,9 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'Standards', desc: 'Pièces à message fort', path: '/shop?collection=standard' },
-          { label: 'Mystic Lov', desc: 'Coton bio, art & conscience', path: '/shop?collection=mystic' },
-          { label: 'Bijoux', desc: 'Pierres naturelles, pièces uniques', path: '/shop?collection=bijoux' },
+          { label: 'Standards', desc: 'Pièces à message fort', path: '/collections/standards' },
+          { label: 'Mystic Lov', desc: 'Coton bio, art & conscience', path: '/collections/mystic-lov' },
+          { label: 'Bijoux', desc: 'Pierres naturelles, pièces uniques', path: '/collections/bijoux' },
         ].map((col, i) => (
           <Link
             key={col.label}
