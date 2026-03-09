@@ -5,7 +5,6 @@ import { ShoppingBag, Menu, X, Search, User, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [collectionsOpen, setCollectionsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
   const location = useLocation();
 
@@ -55,52 +54,14 @@ const Navbar = () => {
           Accueil
         </Link>
 
-        {/* Collections dropdown */}
-        <div
-          className="relative"
-          onMouseEnter={() => setCollectionsOpen(true)}
-          onMouseLeave={() => setCollectionsOpen(false)}
+        <Link
+          to="/shop"
+          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
+            location.pathname === '/shop' ? 'opacity-100' : 'opacity-70'
+          }`}
         >
-          <button
-            className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 flex items-center gap-1 ${
-              location.pathname.startsWith('/collections') ? 'opacity-100' : 'opacity-70'
-            }`}
-          >
-            Collections
-            <ChevronDown size={10} strokeWidth={2} className={`transition-transform ${collectionsOpen ? 'rotate-180' : ''}`} />
-          </button>
-
-          <AnimatePresence>
-            {collectionsOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 4 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-background border border-border shadow-lg min-w-[180px]"
-              >
-                <Link
-                  to="/collections/standards"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Standards
-                </Link>
-                <Link
-                  to="/collections/mystic-lov"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Mystic Lov
-                </Link>
-                <Link
-                  to="/collections/bijoux"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Bijoux
-                </Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+          Shop
+        </Link>
 
         {/* Univers dropdown */}
         <div
@@ -143,14 +104,6 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
 
-        <Link
-          to="/shop"
-          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
-            location.pathname === '/shop' ? 'opacity-100' : 'opacity-70'
-          }`}
-        >
-          Shop
-        </Link>
       </nav>
 
       {/* Mobile menu */}
@@ -166,15 +119,8 @@ const Navbar = () => {
               <Link to="/" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
                 Accueil
               </Link>
-              <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Collections</p>
-              <Link to="/collections/standards" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Standards
-              </Link>
-              <Link to="/collections/mystic-lov" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Mystic Lov
-              </Link>
-              <Link to="/collections/bijoux" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Bijoux
+              <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+                Shop
               </Link>
               <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
@@ -182,9 +128,6 @@ const Navbar = () => {
               </Link>
               <Link to="/fondatrice" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 La Fondatrice
-              </Link>
-              <Link to="/shop" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
-                Shop
               </Link>
             </div>
           </motion.div>
