@@ -36,7 +36,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-brand text-[11px] text-muted-foreground tracking-[0.2em]"
+            className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em]"
           >
             Vision. Présence. Signature.
           </motion.p>
