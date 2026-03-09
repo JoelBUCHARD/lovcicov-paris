@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
-import { standardProducts, mysticProducts } from '@/data/products';
+import mysticCollection from '@/assets/mystic-collection.jpg';
+import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -17,364 +17,146 @@ const fadeUp = {
   }),
 };
 
-const signatures = [
-  'La présence parle avant les mots',
-  'Pas conçu pour se fondre dans la masse',
-  'Les standards définissent la réalité',
-  'Choisi, jamais suivi',
-];
-
 const Index = () => {
-  const [email, setEmail] = useState('');
+  // Pick featured products
+  const featured = [
+    ...standardProducts.slice(0, 2),
+    ...mysticProducts.slice(0, 4),
+    ...bijouxProducts.slice(0, 2),
+  ];
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* 1. HERO */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Campagne LOVCICOV"
-            className="w-full h-full object-cover object-top"
-          />
-          <div className="absolute inset-0 bg-foreground/30" />
-        </div>
-        <div className="relative z-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.3 }}
-            className="text-brand-lg text-3xl md:text-5xl lg:text-6xl text-primary-foreground mb-6"
-          >
-            LOVCICOV
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="text-editorial text-xl md:text-2xl text-primary-foreground/90 mb-12"
-          >
-            Pas une tendance. Un standard.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-10 py-4 text-brand text-xs hover:bg-primary-foreground/90 transition-all"
-            >
-              Découvrir la collection
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 2. MANIFESTE */}
-      <section className="px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-3xl mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-brand text-xs text-muted-foreground mb-10"
-          >
-            Le Manifeste
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-14"
-          >
-            Le Standard
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="text-manifeste text-muted-foreground space-y-6"
-          >
-            <p>
-              Il existe un moment dans la vie où l'on comprend que le monde que l'on nous a présenté n'est pas le seul possible.
-            </p>
-            <p>
-              Un moment où quelque chose en nous refuse les limites ordinaires.
-            </p>
-            <p>
-              Pour Georgiana Lovcicov, ce moment est devenu une philosophie.
-            </p>
-            <p>
-              La conviction que la vie que l'on construit dépend des standards que l'on accepte.
-            </p>
-            <p>
-              LOVCICOV est née de cette idée.
-            </p>
-            <p>
-              Pas simplement comme une marque de vêtements,<br />
-              mais comme une signature.
-            </p>
-            <p className="text-foreground font-serif text-xl md:text-2xl italic mt-10">
-              Un rappel que la présence se ressent bien avant les mots.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 3. COLLECTION */}
-      <section className="bg-secondary px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-brand text-xs text-muted-foreground mb-8"
-          >
-            Collection I
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-10"
-          >
-            Le Standard
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-14 space-y-3"
-          >
-            <p>Une collection pensée comme un uniforme moderne pour ceux qui choisissent leur propre direction.</p>
-            <p>Des silhouettes minimalistes. Des lignes précises. Des tons intemporels.</p>
-            <p>Chaque pièce reflète clarté, confiance et intention.</p>
-          </motion.div>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-          >
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-4 text-brand text-xs hover:opacity-85 transition-opacity"
-            >
-              Voir la collection
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 4. PIÈCES PHARES */}
-      <section className="px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-6xl mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-brand text-xs text-muted-foreground mb-8"
-          >
-            Pièces Phares
-          </motion.p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
-            {standardProducts.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
+      {/* 1. HERO — Split layout like Anine Bing */}
+      <section className="pt-[120px] md:pt-[110px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 h-[85vh] md:h-[90vh]">
+          <div className="relative overflow-hidden">
+            <img
+              src={heroImage}
+              alt="Collection LOVCICOV"
+              className="w-full h-full object-cover object-top"
+            />
+            <div className="absolute inset-0 bg-foreground/10" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <Link
+                to="/shop"
+                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
+              >
+                Explorer la collection
+                <ArrowRight size={12} />
+              </Link>
+            </div>
           </div>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center mt-16"
-          >
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 border border-foreground px-10 py-4 text-brand text-xs hover:bg-foreground hover:text-background transition-all"
-            >
-              Voir tous les produits
-              <ArrowRight size={14} />
-            </Link>
-          </motion.div>
+          <div className="relative overflow-hidden hidden md:block">
+            <img
+              src={mysticCollection}
+              alt="Collection Mystic Lov"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-foreground/10" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <Link
+                to="/shop?collection=mystic"
+                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
+              >
+                Mystic Lov
+                <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 5. LA FONDATRICE */}
-      <section className="bg-secondary px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-3xl mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-brand text-xs text-muted-foreground mb-10"
+      {/* 2. BRAND STATEMENT */}
+      <section className="px-6 md:px-10 py-20 md:py-28 text-center">
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
+        >
+          Le Manifeste
+        </motion.p>
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={1}
+          className="text-3xl md:text-5xl lg:text-6xl font-serif font-light mb-8 max-w-3xl mx-auto leading-tight"
+        >
+          Pas une tendance. Un standard.
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={2}
+          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
+        >
+          Des vêtements qui reflètent un état d'esprit. Pour ceux qui choisissent 
+          leur propre direction et imposent leurs standards.
+        </motion.p>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={3}
+        >
+          <Link
+            to="/manifeste"
+            className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
           >
-            L'histoire
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-14"
-          >
-            La Fondatrice
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="text-manifeste text-muted-foreground space-y-6"
-          >
-            <p>
-              LOVCICOV a été fondée par Georgiana Lovcicov avec une vision simple mais puissante.
-            </p>
-            <p>
-              Créer des vêtements qui reflètent un état d'esprit.
-            </p>
-            <p>
-              Pas des pièces qui suivent les tendances, mais des créations qui incarnent présence, clarté et ambition.
-            </p>
-            <p>
-              Pour Georgiana, le style n'a jamais été une question de conformité.
-            </p>
-            <p>
-              Il a toujours été une manière d'exprimer la personne que l'on a décidé de devenir.
-            </p>
-            <p className="text-foreground font-serif text-xl md:text-2xl italic mt-10">
-              LOVCICOV est né de cette philosophie.
-            </p>
-          </motion.div>
-        </div>
+            Lire le manifeste
+            <ArrowRight size={12} />
+          </Link>
+        </motion.div>
       </section>
 
-      {/* 6. SIGNATURES */}
-      <section className="px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-5xl mx-auto">
-          {signatures.map((phrase, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              className="border-b border-border py-10 md:py-14"
-            >
-              <p className="text-editorial text-2xl md:text-4xl lg:text-5xl text-foreground">
-                {phrase}
-              </p>
-            </motion.div>
+      {/* 3. FEATURED PRODUCTS — 4 column grid */}
+      <section className="px-6 md:px-10 pb-20 md:pb-28">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-brand text-[11px] tracking-[0.2em] text-muted-foreground">Sélection</h2>
+          <Link
+            to="/shop"
+            className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
+          >
+            Tout voir
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+          {featured.map((product, i) => (
+            <ProductCard key={product.id} product={product} index={i} />
           ))}
         </div>
       </section>
 
-      {/* 7. L'UNIVERS LOVCICOV */}
-      <section className="bg-foreground text-primary-foreground px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-brand text-xs text-primary-foreground/50 mb-10"
+      {/* 4. COLLECTIONS BANNER */}
+      <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
+        {[
+          { label: 'Standards', desc: 'Pièces à message fort', path: '/shop?collection=standard' },
+          { label: 'Mystic Lov', desc: 'Coton bio, art & conscience', path: '/shop?collection=mystic' },
+          { label: 'Bijoux', desc: 'Pierres naturelles, pièces uniques', path: '/shop?collection=bijoux' },
+        ].map((col, i) => (
+          <Link
+            key={col.label}
+            to={col.path}
+            className={`group py-14 md:py-20 px-8 md:px-12 text-center border-b md:border-b-0 border-border ${
+              i < 2 ? 'md:border-r' : ''
+            } hover:bg-secondary/50 transition-colors`}
           >
-            L'Univers
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-12"
-          >
-            L'univers LOVCICOV
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="text-primary-foreground/70 text-base md:text-lg leading-relaxed space-y-4"
-          >
-            <p>Plus qu'une marque.</p>
-            <p>Une perspective.</p>
-            <p>
-              Une communauté grandissante de personnes qui choisissent des standards plus élevés, une pensée indépendante et une vision claire de la vie qu'elles construisent.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 8. NEWSLETTER */}
-      <section className="px-6 md:px-16 lg:px-24 py-28 md:py-40">
-        <div className="max-w-xl mx-auto text-center">
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl lg:text-5xl font-serif font-light mb-6"
-          >
-            Rejoindre le cercle
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-muted-foreground text-base leading-relaxed mb-10"
-          >
-            Soyez les premiers à découvrir les nouvelles collections, les sorties privées et les expériences exclusives.
-          </motion.p>
-          <motion.form
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            onSubmit={(e) => e.preventDefault()}
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Votre adresse e-mail"
-              className="flex-1 px-5 py-4 bg-secondary border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-foreground transition-colors"
-            />
-            <button
-              type="submit"
-              className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-85 transition-opacity whitespace-nowrap"
-            >
-              S'inscrire
-            </button>
-          </motion.form>
-        </div>
+            <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em]">{col.label}</p>
+            <p className="text-sm text-muted-foreground/70">{col.desc}</p>
+            <span className="inline-block mt-4 text-brand text-[11px] border-b border-foreground pb-0.5 group-hover:opacity-60 transition-opacity">
+              Découvrir
+            </span>
+          </Link>
+        ))}
       </section>
 
       <Footer />
