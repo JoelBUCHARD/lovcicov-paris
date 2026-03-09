@@ -67,10 +67,13 @@ const CollectionMystic = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Une dimension plus symbolique du style. Inspirée par les pierres naturelles, les couleurs profondes et les formes intemporelles.
+              MysticLov explore une dimension plus intérieure du style.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Des créations où matière et symboles se rencontrent pour donner naissance à une esthétique libre et personnelle.
+              Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Chaque pièce devient une manière de porter un signe, une idée ou une histoire qui dépasse le simple vêtement.
             </p>
           </motion.div>
         </div>
