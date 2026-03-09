@@ -142,7 +142,8 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12"
             >
-              <h2 className="text-2xl md:text-3xl font-serif font-light mb-medium              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
+              <h2 className="text-2xl md:text-3xl font-medium mb-2">Jewelry</h2>
+              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
