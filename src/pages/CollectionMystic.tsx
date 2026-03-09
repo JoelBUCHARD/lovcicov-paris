@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { mysticProducts } from '@/data/products';
-import type { Product } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -40,14 +39,14 @@ const CollectionMystic = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+      <main className="pt-32 md:pt-36 pb-24">
         {/* Hero */}
-        <div className="max-w-3xl mb-14">
+        <div className="text-center px-6 md:px-10 mb-16 md:mb-24">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-brand text-[11px] text-muted-foreground mb-6 tracking-[0.2em]"
+            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
           >
             Collection
           </motion.p>
@@ -56,25 +55,29 @@ const CollectionMystic = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-4xl md:text-6xl font-serif font-light mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-serif font-light mb-10"
           >
-            Mystic Lov
+            MysticLov
           </motion.h1>
-          <motion.p
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={2}
-            className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl"
+            className="max-w-lg mx-auto space-y-6"
           >
-            Coton bio certifié vegan, traçable de la graine au sweat. Pour celles et ceux 
-            qui veulent porter un message sans faire de compromis.
-          </motion.p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Une dimension plus symbolique du style. Inspirée par les pierres naturelles, les couleurs profondes et les formes intemporelles.
+            </p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Des créations où matière et symboles se rencontrent pour donner naissance à une esthétique libre et personnelle.
+            </p>
+          </motion.div>
         </div>
 
         {/* Subcategory filter */}
         {availableSubs.length > 0 && (
-          <div className="flex gap-4 mb-10">
+          <div className="flex justify-center gap-4 mb-12 px-6">
             <button
               onClick={() => setSub('all')}
               className={`text-[11px] px-4 py-2 border transition-all ${
@@ -102,10 +105,12 @@ const CollectionMystic = () => {
         )}
 
         {/* Products */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-          {filtered.map((product, i) => (
-            <ProductCard key={product.id} product={product} index={i} />
-          ))}
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+            {filtered.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
