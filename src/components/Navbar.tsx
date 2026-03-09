@@ -101,14 +101,46 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
 
-        <Link
-          to="/univers"
-          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
-            location.pathname === '/univers' ? 'opacity-100' : 'opacity-70'
-          }`}
+        {/* Univers dropdown */}
+        <div
+          className="relative"
+          onMouseEnter={() => setUniversOpen(true)}
+          onMouseLeave={() => setUniversOpen(false)}
         >
-          Univers
-        </Link>
+          <button
+            className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 flex items-center gap-1 ${
+              location.pathname === '/univers' || location.pathname === '/manifeste' || location.pathname === '/fondatrice' ? 'opacity-100' : 'opacity-70'
+            }`}
+          >
+            Univers
+            <ChevronDown size={10} strokeWidth={2} className={`transition-transform ${universOpen ? 'rotate-180' : ''}`} />
+          </button>
+
+          <AnimatePresence>
+            {universOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 4 }}
+                transition={{ duration: 0.2 }}
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-background border border-border shadow-lg min-w-[180px]"
+              >
+                <Link
+                  to="/manifeste"
+                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  Manifeste
+                </Link>
+                <Link
+                  to="/fondatrice"
+                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  La Fondatrice
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         <Link
           to="/shop"
