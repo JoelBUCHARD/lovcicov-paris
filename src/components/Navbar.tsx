@@ -6,6 +6,7 @@ import { ShoppingBag, Menu, X, Search, User, ChevronDown } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [collectionsOpen, setCollectionsOpen] = useState(false);
+  const [universOpen, setUniversOpen] = useState(false);
   const location = useLocation();
 
   return (
