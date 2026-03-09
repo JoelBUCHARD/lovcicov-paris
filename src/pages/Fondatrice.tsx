@@ -45,7 +45,7 @@ const Fondatrice = () => {
             <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
             <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
             <p className="text-foreground uppercase tracking-[0.1em] mt-6">
-              À travers LOVCICOV, Georgiana Lovcicov propose une vision du style où la présence devient une signature.
+              Une vision du style où la présence devient une signature.
             </p>
           </motion.div>
         </div>
