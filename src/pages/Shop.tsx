@@ -54,13 +54,11 @@ const Shop = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl md:text-5xl font-serif font-light mb-2">LOVCICOV</h1>
-          <p className="text-muted-foreground text-sm mb-16 tracking-wide">Vision. Présence. Signature.</p>
 
           {/* Collection filter */}
           <div className="flex gap-8 mb-8 border-b border-border">
             {([
-              { key: 'all' as Collection, label: 'Tout' },
+              { key: 'all' as Collection, label: 'Voir tout' },
               { key: 'standard' as Collection, label: 'Standards' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
               { key: 'bijoux' as Collection, label: 'Bijoux' },
