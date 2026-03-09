@@ -25,7 +25,7 @@ const Shop = () => {
     return bijouxProducts;
   };
 
-  const collectionProducts = getCollectionProducts();
+  const collectionProducts = useMemo(() => getCollectionProducts(), [active]);
 
   // Detect which subcategories exist in the current collection
   const availableSubs = useMemo(() => {
