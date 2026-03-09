@@ -86,9 +86,9 @@ const Shop = () => {
               transition={{ duration: 0.3 }}
               className="flex gap-4 mb-8"
             >
-              <button
+               <button
                 onClick={() => setSub('all')}
-                className={`text-[11px] px-4 py-2 border transition-all ${
+                className={`text-brand text-[11px] px-4 py-2 border transition-all ${
                   sub === 'all'
                     ? 'border-foreground text-foreground'
                     : 'border-border text-muted-foreground hover:border-foreground'
@@ -100,7 +100,7 @@ const Shop = () => {
                 <button
                   key={s}
                   onClick={() => setSub(s as Subcategory)}
-                  className={`text-[11px] px-4 py-2 border transition-all ${
+                  className={`text-brand text-[11px] px-4 py-2 border transition-all ${
                     sub === s
                       ? 'border-foreground text-foreground'
                       : 'border-border text-muted-foreground hover:border-foreground'
@@ -121,7 +121,7 @@ const Shop = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Standards</h2>
-              <p className="text-muted-foreground text-sm tracking-wide">Define your standard.</p>
+              <p className="text-brand text-[11px] text-muted-foreground">Define your standard.</p>
             </motion.div>
           )}
           {active === 'mystic' && (
@@ -132,7 +132,7 @@ const Shop = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">MysticLov</h2>
-              <p className="text-muted-foreground text-sm tracking-wide">Symbols. Guidance. Intuition.</p>
+              <p className="text-brand text-[11px] text-muted-foreground">Symbols. Guidance. Intuition.</p>
             </motion.div>
           )}
           {active === 'bijoux' && (
@@ -143,7 +143,7 @@ const Shop = () => {
               className="mb-12"
             >
               <h2 className="text-2xl md:text-3xl font-serif font-light mb-2">Jewelry</h2>
-              <p className="text-muted-foreground text-sm tracking-wide">Natural Stones. Singular Pieces.</p>
+              <p className="text-brand text-[11px] text-muted-foreground">Natural Stones. Singular Pieces.</p>
             </motion.div>
           )}
 
