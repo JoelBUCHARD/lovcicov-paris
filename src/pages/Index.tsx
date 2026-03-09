@@ -33,18 +33,10 @@ const Index = () => {
         {/* Hero Statement */}
         <div className="text-center py-12 md:py-16 px-6">
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            className="text-brand-lg text-base md:text-lg tracking-[0.35em] mb-4"
-          >
-            LOVCICOV
-          </motion.p>
-          <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-brand text-[11px] text-muted-foreground"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-brand text-[11px] text-muted-foreground tracking-[0.2em]"
           >
             Vision. Présence. Signature.
           </motion.p>
