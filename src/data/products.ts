@@ -152,7 +152,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Patch cœur brodé rouge.',
     details: 'L\'œil qui voit tout, dans un cœur qui bat. Patch artisanal.',
     image: 'mystic-tshirt-heart-model',
-    gallery: ['mystic-tshirt-heart-flat'],
+    
     badge: 'Nouveau',
   },
   {
