@@ -107,7 +107,6 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Namaste Bitches".',
     details: 'L\'irrévérence assumée. Un message spirituel avec du caractère.',
     image: 'mystic-tshirt-namaste-model',
-    gallery: ['mystic-tshirt-namaste-flat'],
   },
   {
     id: 'mystic-tshirt-cosmos',
@@ -118,7 +117,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print cosmique multicolore.',
     details: 'L\'univers sur un t-shirt. Art psychédélique et couleurs vibrantes.',
     image: 'mystic-tshirt-cosmos-model',
-    gallery: ['mystic-tshirt-cosmos-flat'],
+    
     badge: 'Nouveau',
   },
   {
@@ -130,7 +129,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Sunshine Stay Magical".',
     details: 'Soleil, papillons et magie. Un t-shirt qui rayonne.',
     image: 'mystic-tshirt-sunshine-model',
-    gallery: ['mystic-tshirt-sunshine-flat'],
+    
   },
   {
     id: 'mystic-tshirt-norisk',
@@ -141,7 +140,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Broderie poitrine fluo.',
     details: 'Le mantra des audacieux. Petit message, grand impact.',
     image: 'mystic-tshirt-norisk-model',
-    gallery: ['mystic-tshirt-norisk-flat'],
+    
   },
   {
     id: 'mystic-tshirt-heart',
@@ -152,7 +151,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Patch cœur brodé rouge.',
     details: 'L\'œil qui voit tout, dans un cœur qui bat. Patch artisanal.',
     image: 'mystic-tshirt-heart-model',
-    gallery: ['mystic-tshirt-heart-flat'],
+    
     badge: 'Nouveau',
   },
   {
@@ -164,7 +163,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print art abstrait multicolore.',
     details: 'L\'art brut sur coton. Composition abstraite vibrante, entre peinture et collage.',
     image: 'mystic-tshirt-abstract-model',
-    gallery: ['mystic-tshirt-abstract-flat'],
+    
   },
   {
     id: 'mystic-tshirt-newworld',
@@ -175,7 +174,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "New World System" cosmique.',
     details: 'Un nouveau monde à construire. Graphisme rétro-futuriste et énergie galactique.',
     image: 'mystic-tshirt-newworld-model',
-    gallery: ['mystic-tshirt-newworld-flat'],
+    
     badge: 'Nouveau',
   },
   {
@@ -187,7 +186,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Switch Off" rétro psychédélique.',
     details: 'Déconnecte pour mieux te reconnecter. Inspiration 70s et ondes cosmiques.',
     image: 'mystic-tshirt-switchoff-model',
-    gallery: ['mystic-tshirt-switchoff-flat'],
+    
   },
   {
     id: 'mystic-tshirt-madonna',
@@ -198,7 +197,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print Vierge pop art.',
     details: 'Sacré et irrévérence. Une icône revisitée en street art explosif.',
     image: 'mystic-tshirt-madonna-model',
-    gallery: ['mystic-tshirt-madonna-flat'],
+    
     badge: 'Nouveau',
   },
 ];
