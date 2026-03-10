@@ -141,7 +141,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Broderie poitrine fluo.',
     details: 'Le mantra des audacieux. Petit message, grand impact.',
     image: 'mystic-tshirt-norisk-model',
-    gallery: ['mystic-tshirt-norisk-flat'],
+    
   },
   {
     id: 'mystic-tshirt-heart',
