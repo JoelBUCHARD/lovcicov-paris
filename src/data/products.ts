@@ -175,7 +175,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "New World System" cosmique.',
     details: 'Un nouveau monde à construire. Graphisme rétro-futuriste et énergie galactique.',
     image: 'mystic-tshirt-newworld-model',
-    gallery: ['mystic-tshirt-newworld-flat'],
+    
     badge: 'Nouveau',
   },
   {
