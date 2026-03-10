@@ -198,7 +198,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print Vierge pop art.',
     details: 'Sacré et irrévérence. Une icône revisitée en street art explosif.',
     image: 'mystic-tshirt-madonna-model',
-    gallery: ['mystic-tshirt-madonna-flat'],
+    
     badge: 'Nouveau',
   },
 ];
