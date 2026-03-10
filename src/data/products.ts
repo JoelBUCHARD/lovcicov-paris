@@ -164,7 +164,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print art abstrait multicolore.',
     details: 'L\'art brut sur coton. Composition abstraite vibrante, entre peinture et collage.',
     image: 'mystic-tshirt-abstract-model',
-    gallery: ['mystic-tshirt-abstract-flat'],
+    
   },
   {
     id: 'mystic-tshirt-newworld',
