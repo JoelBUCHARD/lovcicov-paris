@@ -130,7 +130,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Sunshine Stay Magical".',
     details: 'Soleil, papillons et magie. Un t-shirt qui rayonne.',
     image: 'mystic-tshirt-sunshine-model',
-    gallery: ['mystic-tshirt-sunshine-flat'],
+    
   },
   {
     id: 'mystic-tshirt-norisk',
