@@ -187,7 +187,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Switch Off" rétro psychédélique.',
     details: 'Déconnecte pour mieux te reconnecter. Inspiration 70s et ondes cosmiques.',
     image: 'mystic-tshirt-switchoff-model',
-    gallery: ['mystic-tshirt-switchoff-flat'],
+    
   },
   {
     id: 'mystic-tshirt-madonna',
