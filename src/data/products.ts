@@ -107,7 +107,6 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print "Namaste Bitches".',
     details: 'L\'irrévérence assumée. Un message spirituel avec du caractère.',
     image: 'mystic-tshirt-namaste-model',
-    gallery: ['mystic-tshirt-namaste-flat'],
   },
   {
     id: 'mystic-tshirt-cosmos',
