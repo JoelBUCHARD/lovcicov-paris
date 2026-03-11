@@ -197,10 +197,10 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12 max-w-lg"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">Bijoux</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Amulets</h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  La collection Bijoux rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
+                  La collection Amulets rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
