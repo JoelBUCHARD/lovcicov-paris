@@ -96,7 +96,7 @@ const Navbar = () => {
                   to="/shop?collection=bijoux"
                   className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
                 >
-                  Bijoux
+                  Amulets
                 </Link>
               </motion.div>
             )}
@@ -169,7 +169,7 @@ const Navbar = () => {
                 MysticLov
               </Link>
               <Link to="/shop?collection=bijoux" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Bijoux
+                Amulets
               </Link>
               <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>

@@ -37,7 +37,7 @@ const CollectionBijoux = () => {
             custom={1}
             className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10"
           >
-            Bijoux
+            Amulets
           </motion.h1>
           <motion.div
             variants={fadeUp}
@@ -47,7 +47,7 @@ const CollectionBijoux = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              La collection Bijoux rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
+              La collection Amulets rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               Chaque bijou est pensé comme un objet personnel, où la matière devient signature.

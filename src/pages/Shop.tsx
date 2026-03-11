@@ -74,7 +74,7 @@ const Shop = () => {
               { key: 'all' as Collection, label: 'Voir tout' },
               { key: 'standard' as Collection, label: 'Standards' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
-              { key: 'bijoux' as Collection, label: 'Bijoux' },
+              { key: 'bijoux' as Collection, label: 'Amulets' },
             ]).map(({ key, label }) => (
               <button
                 key={key}
@@ -130,7 +130,7 @@ const Shop = () => {
               {([
                 { key: 'standard' as Collection, label: 'Standards', tagline: 'Define your standard.' },
                 { key: 'mystic' as Collection, label: 'MysticLov', tagline: 'Symbols. Guidance. Intuition.' },
-                { key: 'bijoux' as Collection, label: 'Bijoux', tagline: 'Natural Stones. Singular Pieces.' },
+                { key: 'bijoux' as Collection, label: 'Amulets', tagline: 'Natural Stones. Singular Pieces.' },
               ]).map(({ key, label, tagline }) => (
                 <button
                   key={key}
@@ -197,10 +197,10 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12 max-w-lg"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">Bijoux</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Amulets</h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  La collection Bijoux rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
+                  La collection Amulets rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Chaque bijou est pensé comme un objet personnel, où la matière devient signature.

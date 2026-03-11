@@ -47,7 +47,7 @@ const Index = () => {
           {[
             { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
             { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
-            { src: bijouxImage, alt: 'Collection Bijoux', label: 'Bijoux', path: '/collections/bijoux' },
+            { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
           ].map((col, i) => (
             <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
               <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
@@ -138,7 +138,7 @@ const Index = () => {
         {[
           { label: 'Standards', desc: 'Define your standard.', path: '/shop' },
           { label: 'Mystic Lov', desc: 'Symbols. Guidance. Intuition.', path: '/shop' },
-          { label: 'Jewelry', desc: 'Natural Stones. Singular Pieces.', path: '/shop' },
+          { label: 'Amulets', desc: 'Natural Stones. Singular Pieces.', path: '/shop' },
         ].map((col, i) => (
           <Link
             key={col.label}
