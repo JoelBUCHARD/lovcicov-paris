@@ -116,7 +116,7 @@ const Shop = () => {
                   {subLabels[s!] || s}
                 </button>
               ))}
-            </motion.div>
+            </div>
           )}
 
           {/* "Voir tout" — menu des 3 collections */}
