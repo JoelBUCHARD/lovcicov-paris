@@ -119,31 +119,15 @@ const Shop = () => {
             </div>
           )}
 
-          {/* "Voir tout" — menu des 3 collections */}
+          {/* Collection header for "all" */}
           {active === 'all' && (
             <motion.div
-              key="all"
+              key="all-header"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="flex flex-col gap-6 mt-4"
+              className="mb-12 max-w-lg"
             >
-              {([
-                { key: 'standard' as Collection, label: 'Standards', tagline: 'Define your standard.' },
-                { key: 'mystic' as Collection, label: 'MysticLov', tagline: 'Symbols. Guidance. Intuition.' },
-                { key: 'bijoux' as Collection, label: 'Amulets', tagline: 'Natural Stones. Singular Pieces.' },
-              ]).map(({ key, label, tagline }) => (
-                <button
-                  key={key}
-                  onClick={() => handleCollectionChange(key)}
-                  className="group flex items-center justify-between border-b border-border pb-6 text-left transition-all hover:opacity-70"
-                >
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-medium">{label}</h2>
-                    <p className="text-muted-foreground text-sm mt-1">{tagline}</p>
-                  </div>
-                  <ArrowRight size={18} className="text-muted-foreground group-hover:translate-x-1 transition-transform" />
-                </button>
-              ))}
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Toutes les pièces</h2>
             </motion.div>
           )}
 
