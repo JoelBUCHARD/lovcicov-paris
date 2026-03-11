@@ -196,13 +196,11 @@ const Shop = () => {
             </motion.div>
           )}
 
-          {active !== 'all' && (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-              {filtered.map((product, i) => (
-                <ProductCard key={product.id} product={product} index={i} />
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+            {filtered.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
         </motion.div>
       </main>
 
