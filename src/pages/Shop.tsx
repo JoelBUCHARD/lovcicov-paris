@@ -130,7 +130,7 @@ const Shop = () => {
               {([
                 { key: 'standard' as Collection, label: 'Standards', tagline: 'Define your standard.' },
                 { key: 'mystic' as Collection, label: 'MysticLov', tagline: 'Symbols. Guidance. Intuition.' },
-                { key: 'bijoux' as Collection, label: 'Bijoux', tagline: 'Natural Stones. Singular Pieces.' },
+                { key: 'bijoux' as Collection, label: 'Amulets', tagline: 'Natural Stones. Singular Pieces.' },
               ]).map(({ key, label, tagline }) => (
                 <button
                   key={key}
