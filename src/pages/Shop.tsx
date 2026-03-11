@@ -74,7 +74,7 @@ const Shop = () => {
               { key: 'all' as Collection, label: 'Voir tout' },
               { key: 'standard' as Collection, label: 'Standards' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
-              { key: 'bijoux' as Collection, label: 'Bijoux' },
+              { key: 'bijoux' as Collection, label: 'Amulets' },
             ]).map(({ key, label }) => (
               <button
                 key={key}
