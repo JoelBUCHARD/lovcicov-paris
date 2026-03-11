@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
   const collectionLabel =
     product.collection === 'mystic' ? 'Mystic Lov'
-    : product.collection === 'bijoux' ? 'Bijoux'
+    : product.collection === 'bijoux' ? 'Amulets'
     : 'Collection Standards';
 
   // Build all images: main + gallery
