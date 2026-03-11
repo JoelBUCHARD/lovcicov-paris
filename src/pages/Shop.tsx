@@ -92,13 +92,7 @@ const Shop = () => {
 
           {/* Subcategory filter — shown when collection has multiple subcategories */}
           {availableSubs.length > 0 && (
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="flex gap-4 mb-8"
-            >
+            <div className="flex gap-4 mb-8">
                <button
                 onClick={() => setSub('all')}
                 className={`text-brand text-[11px] px-4 py-2 border transition-all ${
@@ -122,7 +116,7 @@ const Shop = () => {
                   {subLabels[s!] || s}
                 </button>
               ))}
-            </motion.div>
+            </div>
           )}
 
           {/* "Voir tout" — menu des 3 collections */}
