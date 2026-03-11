@@ -138,7 +138,7 @@ const Index = () => {
         {[
           { label: 'Standards', desc: 'Define your standard.', path: '/shop' },
           { label: 'Mystic Lov', desc: 'Symbols. Guidance. Intuition.', path: '/shop' },
-          { label: 'Jewelry', desc: 'Natural Stones. Singular Pieces.', path: '/shop' },
+          { label: 'Amulets', desc: 'Natural Stones. Singular Pieces.', path: '/shop' },
         ].map((col, i) => (
           <Link
             key={col.label}
