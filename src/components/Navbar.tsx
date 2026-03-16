@@ -22,7 +22,7 @@ const Navbar = () => {
           </div>
 
           {/* Center logo */}
-          <Link to="/" className="flex flex-col items-center">
+          <Link to="/" className="flex flex-col items-center text-center">
             <span className="text-brand-lg text-lg md:text-xl tracking-[0.35em]">LOVCICOV</span>
             <span className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">PARIS</span>
           </Link>
