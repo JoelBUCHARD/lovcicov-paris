@@ -92,7 +92,7 @@ const Shop = () => {
 
           {/* Subcategory filter — shown when collection has multiple subcategories */}
           {availableSubs.length > 0 && (
-            <div className="flex gap-4 mb-8">
+            <div className="flex justify-center gap-4 mb-8">
                <button
                 onClick={() => setSub('all')}
                 className={`text-brand text-[11px] px-4 py-2 border transition-all ${
