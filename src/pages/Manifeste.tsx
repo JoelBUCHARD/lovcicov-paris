@@ -16,7 +16,7 @@ const Manifeste = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
           <motion.p
             variants={fadeUp}
             initial="hidden"
