@@ -137,7 +137,7 @@ const Shop = () => {
               key="standard"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Standards</h2>
               <div className="space-y-4">
