@@ -39,7 +39,7 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em]"
           >
-            Vision. Présence. Signature.
+            Vision. Allure. Signature.
           </motion.p>
         </div>
 
