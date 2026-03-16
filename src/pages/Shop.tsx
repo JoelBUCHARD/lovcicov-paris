@@ -179,7 +179,7 @@ const Shop = () => {
               key="bijoux"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Amulets</h2>
               <div className="space-y-4">
