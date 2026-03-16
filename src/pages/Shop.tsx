@@ -125,7 +125,7 @@ const Shop = () => {
               key="all-header"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Toutes les pièces</h2>
             </motion.div>
