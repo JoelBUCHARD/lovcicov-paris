@@ -69,7 +69,7 @@ const Shop = () => {
         >
 
           {/* Collection filter */}
-          <div className="flex gap-8 mb-8 border-b border-border">
+          <div className="flex justify-center gap-8 mb-8 border-b border-border">
             {([
               { key: 'all' as Collection, label: 'Voir tout' },
               { key: 'standard' as Collection, label: 'Standards' },
