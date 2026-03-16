@@ -25,15 +25,16 @@ const Manifeste = () => {
           >
             Le Manifeste
           </motion.p>
-          <motion.h1
+          <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-brand-lg text-lg md:text-xl mb-20"
+            className="mb-20"
           >
-            LOVCICOV
-          </motion.h1>
+            <h1 className="text-brand-lg text-lg md:text-xl">LOVCICOV</h1>
+            <p className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">PARIS</p>
+          </motion.div>
 
           <motion.div
             variants={fadeUp}
