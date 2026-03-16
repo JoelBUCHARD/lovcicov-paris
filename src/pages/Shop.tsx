@@ -69,7 +69,7 @@ const Shop = () => {
         >
 
           {/* Collection filter */}
-          <div className="flex gap-8 mb-8 border-b border-border">
+          <div className="flex justify-center gap-8 mb-8 border-b border-border">
             {([
               { key: 'all' as Collection, label: 'Voir tout' },
               { key: 'standard' as Collection, label: 'Standards' },
@@ -92,7 +92,7 @@ const Shop = () => {
 
           {/* Subcategory filter — shown when collection has multiple subcategories */}
           {availableSubs.length > 0 && (
-            <div className="flex gap-4 mb-8">
+            <div className="flex justify-center gap-4 mb-8">
                <button
                 onClick={() => setSub('all')}
                 className={`text-brand text-[11px] px-4 py-2 border transition-all ${
@@ -125,7 +125,7 @@ const Shop = () => {
               key="all-header"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Toutes les pièces</h2>
             </motion.div>
@@ -137,7 +137,7 @@ const Shop = () => {
               key="standard"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Standards</h2>
               <div className="space-y-4">
@@ -158,7 +158,7 @@ const Shop = () => {
               key="mystic"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">MysticLov</h2>
               <div className="space-y-4">
@@ -179,7 +179,7 @@ const Shop = () => {
               key="bijoux"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="mb-12 max-w-lg"
+              className="mb-12 max-w-lg mx-auto text-center"
             >
               <h2 className="text-2xl md:text-3xl font-medium mb-4">Amulets</h2>
               <div className="space-y-4">
