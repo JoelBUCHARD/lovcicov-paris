@@ -56,7 +56,7 @@ export const standardProducts: Product[] = [
   },
 ];
 
-// Collection "Mystic Lov" — produits du site mysticlov.com
+// Collection "MysticLov" — produits du site mysticlov.com
 export const mysticProducts: Product[] = [
   {
     id: 'mystic-tshirt-noir',
