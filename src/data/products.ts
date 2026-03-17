@@ -91,7 +91,7 @@ export const mysticProducts: Product[] = [
     collection: 'mystic',
     subcategory: 'crewneck',
     description: 'Col rond épais. Coton bio traçable.',
-    details: 'Le crewneck Mystic Lov. Simplicité et conscience.',
+    details: 'Le crewneck MysticLov. Simplicité et conscience.',
     image: 'mystic-crewneck-noir',
     colors: [
       { name: 'Noir', id: 'mystic-crewneck-noir' },

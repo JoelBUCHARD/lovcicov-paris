@@ -164,8 +164,8 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'Power Lov', desc: 'Définissez votre standard.', path: '/shop' },
-          { label: 'Mystic Lov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
           { label: 'Amulets', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
         ].map((col, i) => (
           <Link

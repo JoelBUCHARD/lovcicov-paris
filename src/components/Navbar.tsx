@@ -164,7 +164,7 @@ const Navbar = () => {
                 Shop
               </Link>
               <Link to="/shop?collection=standard" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Power Lov
+                PowerLov
               </Link>
               <Link to="/shop?collection=mystic" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 MysticLov
