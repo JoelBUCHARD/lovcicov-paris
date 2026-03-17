@@ -17,24 +17,38 @@ const Fondatrice = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
-          >
-            La Fondatrice
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="text-brand-lg text-lg md:text-xl mb-14"
-          >
-            Georgiana Lovcicov
-          </motion.h2>
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="w-64 md:w-80 shrink-0"
+            >
+              <img
+                src={fondatriceImg}
+                alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
+            <div className="text-center md:text-left">
+              <motion.p
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
+              >
+                La Fondatrice
+              </motion.p>
+              <motion.h2
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={1}
+                className="text-brand-lg text-lg md:text-xl mb-14"
+              >
+                Georgiana Lovcicov
+              </motion.h2>
           <motion.div
             variants={fadeUp}
             initial="hidden"
