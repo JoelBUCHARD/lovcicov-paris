@@ -14,6 +14,8 @@ import NotFound from "./pages/NotFound";
 import CollectionStandards from "./pages/CollectionStandards";
 import CollectionMystic from "./pages/CollectionMystic";
 import CollectionBijoux from "./pages/CollectionBijoux";
+import Auth from "./pages/Auth";
+import Account from "./pages/Account";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
           <Route path="/univers" element={<Fondatrice />} />
           <Route path="/fondatrice" element={<Fondatrice />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/account" element={<Account />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

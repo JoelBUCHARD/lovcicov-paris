@@ -1,13 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, Search, User, ChevronDown } from 'lucide-react';
+import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
   const [shopOpen, setShopOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
+      setIsLoggedIn(!!session);
+    });
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setIsLoggedIn(!!session);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
@@ -26,6 +38,9 @@ const Navbar = () => {
 
           {/* Right icons */}
           <div className="flex items-center gap-4 w-40 justify-end">
+            <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
+              <User size={18} strokeWidth={1.5} />
+            </Link>
             <Link to="/cart" className="hover:opacity-60 transition-opacity">
               <ShoppingBag size={18} strokeWidth={1.5} />
             </Link>
