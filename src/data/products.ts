@@ -12,7 +12,7 @@ export interface Product {
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
 }
 
-// Collection "Power Lov" — pièces à message fort
+// Collection "PowerLov" — pièces à message fort
 export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
