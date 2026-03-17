@@ -65,7 +65,7 @@ export const mysticProducts: Product[] = [
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'Coton bio certifié. Coupe unisexe.',
-    details: 'Le T-shirt essentiel Mystic Lov. Doux, conscient, assumé.',
+    details: 'Le T-shirt essentiel MysticLov. Doux, conscient, assumé.',
     image: 'mystic-tshirt-noir',
     colors: [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
