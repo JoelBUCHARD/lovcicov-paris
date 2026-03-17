@@ -203,7 +203,7 @@ export const mysticProducts: Product[] = [
   },
 ];
 
-// Collection "Amulets" — colliers en pierres naturelles
+// Collection "StoneLov" — colliers en pierres naturelles
 // Photos classifiées : solo (produit), fleurs (lifestyle), tarot (ambiance)
 export const bijouxProducts: Product[] = [
   {

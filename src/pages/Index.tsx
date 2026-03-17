@@ -126,7 +126,7 @@ const Index = () => {
         {[
           { src: heroImage, alt: 'Collection PowerLov', label: 'PowerLov', path: '/collections/standards' },
           { src: mysticCollection, alt: 'Collection MysticLov', label: 'MysticLov', path: '/collections/mystic-lov' },
-          { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
+          { src: bijouxImage, alt: 'Collection StoneLov', label: 'StoneLov', path: '/collections/bijoux' },
         ].map((col, i) => (
           <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
             <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
@@ -166,7 +166,7 @@ const Index = () => {
         {[
           { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop' },
           { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
-          { label: 'Amulets', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
+          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
         ].map((col, i) => (
           <Link
             key={col.label}
