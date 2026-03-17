@@ -72,7 +72,7 @@ const Shop = () => {
           <div className="flex justify-center gap-8 mb-8 border-b border-border">
             {([
               { key: 'all' as Collection, label: 'Voir tout' },
-              { key: 'standard' as Collection, label: 'Standards' },
+              { key: 'standard' as Collection, label: 'Power Lov' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
               { key: 'bijoux' as Collection, label: 'Amulets' },
             ]).map(({ key, label }) => (
@@ -139,10 +139,10 @@ const Shop = () => {
               animate={{ opacity: 1 }}
               className="mb-12 max-w-lg mx-auto text-center"
             >
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">Standards</h2>
+              <h2 className="text-2xl md:text-3xl font-medium mb-4">Power Lov</h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Standards incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
+                  Power Lov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
                 </p>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.

@@ -85,7 +85,7 @@ const Navbar = () => {
                   to="/shop?collection=standard"
                   className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
                 >
-                  Standards
+                  Power Lov
                 </Link>
                 <Link
                   to="/shop?collection=mystic"
@@ -164,7 +164,7 @@ const Navbar = () => {
                 Shop
               </Link>
               <Link to="/shop?collection=standard" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
-                Standards
+                Power Lov
               </Link>
               <Link to="/shop?collection=mystic" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
                 MysticLov
