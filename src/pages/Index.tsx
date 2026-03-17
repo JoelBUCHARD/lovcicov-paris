@@ -40,7 +40,7 @@ const Index = () => {
           poster={heroImage}
         >
           <source
-            src="https://videos.pexels.com/video-files/857251/857251-hd_1920_1080_25fps.mp4"
+            src="/hero-video.mp4"
             type="video/mp4"
           />
         </video>
