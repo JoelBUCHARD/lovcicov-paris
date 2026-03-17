@@ -166,7 +166,7 @@ const Index = () => {
         {[
           { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop' },
           { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
-          { label: 'Amulets', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
+          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
         ].map((col, i) => (
           <Link
             key={col.label}
