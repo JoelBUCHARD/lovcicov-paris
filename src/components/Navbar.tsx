@@ -11,6 +11,7 @@ const Navbar = () => {
   const [shopOpen, setShopOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
