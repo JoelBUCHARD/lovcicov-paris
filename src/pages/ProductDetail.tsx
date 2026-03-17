@@ -20,6 +20,14 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+      toast({ title: 'Ajouté au panier', description: product.name });
+    }
+  };
 
   if (!product) {
     return (
