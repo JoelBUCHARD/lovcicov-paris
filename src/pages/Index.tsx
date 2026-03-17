@@ -146,8 +146,7 @@ const Index = () => {
 
       {/* 3. FEATURED PRODUCTS */}
       <section className="px-6 md:px-10 pb-20 md:pb-28">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-brand text-[11px] tracking-[0.2em] text-muted-foreground">Sélection</h2>
+        <div className="flex items-center justify-end mb-10">
           <Link
             to="/shop"
             className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
