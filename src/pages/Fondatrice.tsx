@@ -23,13 +23,15 @@ const Fondatrice = () => {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="w-64 md:w-80 shrink-0"
+              className="w-64 md:w-80 shrink-0 overflow-hidden"
             >
-              <img
-                src={fondatriceImg}
-                alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
-                className="w-full h-auto object-cover"
-              />
+              <div className="aspect-[3/4] w-full">
+                <img
+                  src={fondatriceImg}
+                  alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
             </motion.div>
             <div className="text-center md:text-left">
               <motion.p
