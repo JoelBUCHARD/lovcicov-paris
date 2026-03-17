@@ -37,7 +37,7 @@ const CollectionStandards = () => {
             custom={1}
             className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10"
           >
-            Standards
+            Power Lov
           </motion.h1>
           <motion.div
             variants={fadeUp}
