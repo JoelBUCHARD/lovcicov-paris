@@ -124,8 +124,8 @@ const Index = () => {
       {/* 3. THREE COLLECTIONS */}
       <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
         {[
-          { src: heroImage, alt: 'Collection Power Lov', label: 'Power Lov', path: '/collections/standards' },
-          { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
+          { src: heroImage, alt: 'Collection PowerLov', label: 'PowerLov', path: '/collections/standards' },
+          { src: mysticCollection, alt: 'Collection MysticLov', label: 'MysticLov', path: '/collections/mystic-lov' },
           { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
         ].map((col, i) => (
           <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
@@ -164,8 +164,8 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'Power Lov', desc: 'Définissez votre standard.', path: '/shop' },
-          { label: 'Mystic Lov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
           { label: 'Amulets', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
         ].map((col, i) => (
           <Link

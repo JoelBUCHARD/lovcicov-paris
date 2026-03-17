@@ -37,7 +37,7 @@ const CollectionStandards = () => {
             custom={1}
             className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10"
           >
-            Power Lov
+            PowerLov
           </motion.h1>
           <motion.div
             variants={fadeUp}
@@ -47,7 +47,7 @@ const CollectionStandards = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Power Lov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
+              PowerLov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
             </p>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
               La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.

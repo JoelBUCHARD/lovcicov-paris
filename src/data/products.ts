@@ -12,7 +12,7 @@ export interface Product {
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
 }
 
-// Collection "Power Lov" — pièces à message fort
+// Collection "PowerLov" — pièces à message fort
 export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
@@ -56,7 +56,7 @@ export const standardProducts: Product[] = [
   },
 ];
 
-// Collection "Mystic Lov" — produits du site mysticlov.com
+// Collection "MysticLov" — produits du site mysticlov.com
 export const mysticProducts: Product[] = [
   {
     id: 'mystic-tshirt-noir',
@@ -65,7 +65,7 @@ export const mysticProducts: Product[] = [
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'Coton bio certifié. Coupe unisexe.',
-    details: 'Le T-shirt essentiel Mystic Lov. Doux, conscient, assumé.',
+    details: 'Le T-shirt essentiel MysticLov. Doux, conscient, assumé.',
     image: 'mystic-tshirt-noir',
     colors: [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
@@ -80,7 +80,7 @@ export const mysticProducts: Product[] = [
     collection: 'mystic',
     subcategory: 'hoodie',
     description: 'Molleton épais. Coupe décontractée unisexe.',
-    details: 'Le hoodie signature Mystic Lov. Confort et présence.',
+    details: 'Le hoodie signature MysticLov. Confort et présence.',
     image: 'mystic-hoodie-noir',
     badge: 'Édition limitée',
   },
@@ -91,7 +91,7 @@ export const mysticProducts: Product[] = [
     collection: 'mystic',
     subcategory: 'crewneck',
     description: 'Col rond épais. Coton bio traçable.',
-    details: 'Le crewneck Mystic Lov. Simplicité et conscience.',
+    details: 'Le crewneck MysticLov. Simplicité et conscience.',
     image: 'mystic-crewneck-noir',
     colors: [
       { name: 'Noir', id: 'mystic-crewneck-noir' },
