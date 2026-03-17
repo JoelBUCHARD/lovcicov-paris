@@ -72,7 +72,7 @@ const Shop = () => {
           <div className="flex justify-center gap-8 mb-8 border-b border-border">
             {([
               { key: 'all' as Collection, label: 'Voir tout' },
-              { key: 'standard' as Collection, label: 'Standards' },
+              { key: 'standard' as Collection, label: 'Power Lov' },
               { key: 'mystic' as Collection, label: 'Mystic Lov' },
               { key: 'bijoux' as Collection, label: 'Amulets' },
             ]).map(({ key, label }) => (
