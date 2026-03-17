@@ -165,7 +165,7 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'Standards', desc: 'Define your standard.', path: '/shop' },
+          { label: 'Power Lov', desc: 'Define your standard.', path: '/shop' },
           { label: 'Mystic Lov', desc: 'Symbols. Guidance. Intuition.', path: '/shop' },
           { label: 'Amulets', desc: 'Natural Stones. Singular Pieces.', path: '/shop' },
         ].map((col, i) => (
