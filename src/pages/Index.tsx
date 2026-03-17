@@ -46,19 +46,16 @@ const Index = () => {
           />
         </video>
         <div className="absolute inset-0 bg-foreground/20" />
-      </section>
-
-      {/* 2. SLOGAN */}
-      <section className="py-16 md:py-24 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.4em]"
-        >
-          Vision. Allure. Signature.
-        </motion.p>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.5 }}
+            className="text-brand text-lg md:text-3xl text-primary-foreground tracking-[0.4em]"
+          >
+            Vision. Allure. Signature.
+          </motion.p>
+        </div>
       </section>
 
       {/* 3. THREE COLLECTIONS */}
