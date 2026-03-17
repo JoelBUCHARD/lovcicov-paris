@@ -72,29 +72,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 3. THREE COLLECTIONS */}
-      <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
-        {[
-          { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
-          { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
-          { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
-        ].map((col, i) => (
-          <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
-            <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-foreground/10" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <Link
-                to={col.path}
-                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
-              >
-                {col.label}
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
-        ))}
-      </section>
-
       {/* 2. MANIFESTO */}
       <section className="px-6 md:px-10 py-20 md:py-28 text-center">
         <motion.p
@@ -142,6 +119,29 @@ const Index = () => {
             <ArrowRight size={12} />
           </Link>
         </motion.div>
+      </section>
+
+      {/* 3. THREE COLLECTIONS */}
+      <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
+        {[
+          { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
+          { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
+          { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
+        ].map((col, i) => (
+          <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
+            <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
+            <div className="absolute inset-0 bg-foreground/10" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <Link
+                to={col.path}
+                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
+              >
+                {col.label}
+                <ArrowRight size={12} />
+              </Link>
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* 3. FEATURED PRODUCTS */}
