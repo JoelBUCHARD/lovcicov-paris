@@ -72,6 +72,55 @@ const Index = () => {
         </div>
       </section>
 
+      {/* 2. MANIFESTO */}
+      <section className="px-6 md:px-10 py-20 md:py-28 text-center">
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
+        >
+          Le Manifeste
+        </motion.p>
+        <motion.h2
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={1}
+          className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em] mb-8 max-w-3xl mx-auto"
+        >
+          Pas une tendance. Un standard.
+        </motion.h2>
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={2}
+          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
+        >
+          Des vêtements qui reflètent un état d'esprit. Pour ceux qui choisissent 
+          leur propre direction et imposent leurs standards.
+        </motion.p>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          custom={3}
+        >
+          <Link
+            to="/manifeste"
+            className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+          >
+            Lire le manifeste
+            <ArrowRight size={12} />
+          </Link>
+        </motion.div>
+      </section>
+
       {/* 3. THREE COLLECTIONS */}
       <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
         {[
