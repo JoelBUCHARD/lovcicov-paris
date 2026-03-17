@@ -10,6 +10,7 @@ export interface Product {
   badge?: string;
   colors?: { name: string; id: string }[];
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
+  stoneMeaning?: string; // Signification des pierres (bijoux only)
 }
 
 // Collection "PowerLov" — pièces à message fort
