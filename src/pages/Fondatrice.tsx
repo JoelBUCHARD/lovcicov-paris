@@ -49,20 +49,22 @@ const Fondatrice = () => {
               >
                 Georgiana Lovcicov
               </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="text-manifeste text-muted-foreground space-y-8"
-          >
-            <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
-            <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
-            <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
-            <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base whitespace-nowrap">
-              Une vision du style où la présence devient une signature.
-            </p>
-          </motion.div>
+              <motion.div
+                variants={fadeUp}
+                initial="hidden"
+                animate="visible"
+                custom={2}
+                className="text-manifeste text-muted-foreground space-y-8"
+              >
+                <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
+                <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
+                <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+                <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base whitespace-nowrap">
+                  Une vision du style où la présence devient une signature.
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
