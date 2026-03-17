@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
 import mysticCollection from '@/assets/mystic-collection.jpg';
 import bijouxImage from '@/assets/bijoux-fuchsia-fleurs.jpg';
+import heroVideo from '../../public/hero-video.mp4.asset.json';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
