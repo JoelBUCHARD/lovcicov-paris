@@ -10,6 +10,9 @@ import Manifeste from "./pages/Manifeste";
 import Fondatrice from "./pages/Fondatrice";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
+import CollectionStandards from "./pages/CollectionStandards";
+import CollectionMystic from "./pages/CollectionMystic";
+import CollectionBijoux from "./pages/CollectionBijoux";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +26,9 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:id" element={<ProductDetail />} />
+          <Route path="/collections/standards" element={<CollectionStandards />} />
+          <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
+          <Route path="/collections/bijoux" element={<CollectionBijoux />} />
           <Route path="/manifeste" element={<Manifeste />} />
           <Route path="/univers" element={<Fondatrice />} />
           <Route path="/fondatrice" element={<Fondatrice />} />
