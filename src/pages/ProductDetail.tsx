@@ -106,6 +106,15 @@ const ProductDetail = () => {
               {product.details}
             </p>
 
+            {product.stoneMeaning && (
+              <div className="border-t border-border pt-6 mb-8">
+                <p className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-3">Vertus des pierres</p>
+                <p className="text-muted-foreground text-sm leading-relaxed italic">
+                  {product.stoneMeaning}
+                </p>
+              </div>
+            )}
+
             {product.colors && product.colors.length > 1 && (
               <div className="mb-8">
                 <p className="text-brand text-xs mb-3">Couleurs</p>

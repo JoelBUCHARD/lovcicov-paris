@@ -10,6 +10,7 @@ export interface Product {
   badge?: string;
   colors?: { name: string; id: string }[];
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
+  stoneMeaning?: string; // Signification des pierres (bijoux only)
 }
 
 // Collection "PowerLov" — pièces à message fort
@@ -215,6 +216,7 @@ export const bijouxProducts: Product[] = [
     image: 'bijoux-fuchsia-solo',
     badge: 'Édition limitée',
     gallery: ['bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
+    stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
     id: 'collier-quartz-aventurine',
@@ -225,6 +227,7 @@ export const bijouxProducts: Product[] = [
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
     image: 'bijoux-quartz-solo',
     gallery: ['bijoux-quartz-fleurs', 'bijoux-quartz-tarot'],
+    stoneMeaning: 'Quartz rose — Pierre de l\'amour inconditionnel et de la paix intérieure. Aventurine — Pierre de chance et de prospérité, elle apaise le cœur et attire l\'abondance.',
   },
   {
     id: 'collier-labradorite-amethyste',
@@ -236,6 +239,7 @@ export const bijouxProducts: Product[] = [
     image: 'bijoux-labradorite-solo',
     badge: 'Nouveau',
     gallery: ['bijoux-labradorite-fleurs', 'bijoux-labradorite-tarot'],
+    stoneMeaning: 'Labradorite — Pierre de protection et d\'intuition. Elle absorbe les énergies négatives et éveille la clairvoyance. Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle.',
   },
   {
     id: 'collier-prehnite-malachite',
@@ -246,6 +250,7 @@ export const bijouxProducts: Product[] = [
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
     image: 'bijoux-prehnite-solo',
     gallery: ['bijoux-prehnite-fleurs', 'bijoux-prehnite-tarot'],
+    stoneMeaning: 'Préhnite — Pierre de guérison et de renouveau, elle apaise l\'esprit et renforce la connexion à la nature. Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et favorise le changement profond.',
   },
   {
     id: 'collier-quartz-croix-jade',
@@ -256,6 +261,7 @@ export const bijouxProducts: Product[] = [
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
     image: 'bijoux-quartz-croix-fleurs',
     gallery: ['bijoux-croix-tarot'],
+    stoneMeaning: 'Quartz rose — Pierre de l\'amour et de la tendresse, elle ouvre le chakra du cœur. Jade — Pierre d\'harmonie et d\'équilibre, symbole de pureté et de longévité dans de nombreuses cultures.',
   },
   {
     id: 'collier-malachite-corail',
@@ -267,6 +273,7 @@ export const bijouxProducts: Product[] = [
     image: 'bijoux-malachite-solo',
     badge: 'Édition limitée',
     gallery: ['bijoux-malachite-fleurs', 'bijoux-malachite-tarot'],
+    stoneMeaning: 'Malachite — Pierre de transformation, elle accompagne les périodes de changement et protège des influences extérieures. Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie et le courage.',
   },
   {
     id: 'collier-trio-citrine',
@@ -278,6 +285,7 @@ export const bijouxProducts: Product[] = [
     image: 'bijoux-trio-solo',
     badge: 'Nouveau',
     gallery: ['bijoux-trio-fleurs', 'bijoux-trio-tarot'],
+    stoneMeaning: 'Citrine — Pierre de joie et d\'abondance, elle rayonne d\'énergie solaire et attire la réussite. Améthyste — Pierre de sagesse spirituelle. Malachite — Pierre de transformation et de renouveau.',
   },
   {
     id: 'collier-jade-nacre',
@@ -288,6 +296,7 @@ export const bijouxProducts: Product[] = [
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
     image: 'bijoux-jade-pendentif',
     gallery: ['bijoux-jade-tarot'],
+    stoneMeaning: 'Jade vert — Pierre de sérénité et de sagesse, elle favorise l\'harmonie et la paix intérieure. Nacre — Symbole de douceur et de féminité, elle protège et apaise les émotions.',
   },
   {
     id: 'collier-corail-multicolor',
@@ -299,6 +308,7 @@ export const bijouxProducts: Product[] = [
     image: 'bijoux-corail-multicolor',
     badge: 'Édition limitée',
     gallery: ['bijoux-corail-fleurs', 'bijoux-corail-tarot'],
+    stoneMeaning: 'Corail rouge — Pierre de vitalité, elle stimule l\'énergie et la passion. Les pierres multicolores apportent chacune leur vibration : équilibre, joie, protection et créativité.',
   },
   {
     id: 'collier-turquoise-or',
@@ -309,6 +319,7 @@ export const bijouxProducts: Product[] = [
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
     image: 'bijoux-turquoise-solo',
     gallery: ['bijoux-turquoise-fleurs', 'bijoux-turquoise-tarot'],
+    stoneMeaning: 'Turquoise — Pierre de communication et de protection. Considérée comme sacrée par de nombreuses civilisations, elle favorise l\'expression de soi et apporte chance et sérénité.',
   },
 ];
 
