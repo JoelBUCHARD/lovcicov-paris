@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
+import { useCart } from '@/context/CartContext';
+import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
