@@ -16,58 +16,57 @@ const Fondatrice = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[70vh]">
-          {/* Image */}
+      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+        <div className="max-w-3xl mx-auto">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em] text-center"
+          >
+            La Fondatrice
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+            className="text-brand-lg text-lg md:text-xl mb-16 text-center"
+          >
+            Georgiana Lovcicov
+          </motion.h2>
+
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="relative overflow-hidden"
+            custom={2}
+            className="text-manifeste text-muted-foreground space-y-8"
           >
-            <img
-              src={fondatriceImg}
-              alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
-              className="w-full h-full object-cover object-top min-h-[400px] md:min-h-full"
-            />
-          </motion.div>
+            <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
 
-          {/* Texte */}
-          <div className="flex items-center px-8 md:px-16 lg:px-24 py-16 md:py-0">
-            <div>
-              <motion.p
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
-              >
-                La Fondatrice
-              </motion.p>
-              <motion.h2
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                custom={1}
-                className="text-brand-lg text-lg md:text-xl mb-14"
-              >
-                Georgiana Lovcicov
-              </motion.h2>
-              <motion.div
-                variants={fadeUp}
-                initial="hidden"
-                animate="visible"
-                custom={2}
-                className="text-manifeste text-muted-foreground space-y-8"
-              >
-                <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
-                <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
-                <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
-                <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base">
-                  Une vision du style où la présence devient une signature.
-                </p>
-              </motion.div>
-            </div>
-          </div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+              className="float-right ml-8 mb-6 w-52 md:w-64"
+            >
+              <div className="aspect-[3/4] overflow-hidden">
+                <img
+                  src={fondatriceImg}
+                  alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+            </motion.div>
+
+            <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
+            <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+            <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base clear-both">
+              Une vision du style où la présence devient une signature.
+            </p>
+          </motion.div>
         </div>
       </main>
       <Footer />
