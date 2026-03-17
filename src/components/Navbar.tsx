@@ -83,7 +83,7 @@ const Navbar = () => {
           to="/shop?collection=bijoux"
           className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
         >
-          Amulets
+          StoneLov
         </Link>
 
         {/* Univers dropdown */}
