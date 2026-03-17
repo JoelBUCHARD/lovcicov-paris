@@ -85,7 +85,7 @@ const Navbar = () => {
                   to="/shop?collection=standard"
                   className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
                 >
-                  Power Lov
+                  PowerLov
                 </Link>
                 <Link
                   to="/shop?collection=mystic"
