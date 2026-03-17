@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import heroImage from '@/assets/hero-main.jpg';
 import mysticCollection from '@/assets/mystic-collection.jpg';
 import bijouxImage from '@/assets/bijoux-fuchsia-fleurs.jpg';
+import heroVideo from '../../public/hero-video.mp4.asset.json';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
@@ -40,24 +41,27 @@ const Index = () => {
           poster={mysticCollection}
         >
           <source
-            src="/hero-video.mp4"
+            src={heroVideo.url}
             type="video/mp4"
           />
         </video>
         <div className="absolute inset-0 bg-foreground/20" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="absolute inset-0 flex items-end justify-center pb-20"
-        >
-          <p className="text-primary-foreground text-lg md:text-2xl tracking-[0.4em] text-brand">
-            Vision. Allure. Signature.
-          </p>
-        </motion.div>
       </section>
 
-      {/* 2. THREE COLLECTIONS */}
+      {/* 2. SLOGAN */}
+      <section className="py-16 md:py-24 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.4em]"
+        >
+          Vision. Allure. Signature.
+        </motion.p>
+      </section>
+
+      {/* 3. THREE COLLECTIONS */}
       <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
         {[
           { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
