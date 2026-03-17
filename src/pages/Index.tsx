@@ -29,41 +29,55 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* 1. HERO — Split layout */}
-      <section className="pt-[120px] md:pt-[110px]">
-        {/* Hero Statement */}
-        <div className="text-center py-12 md:py-16 px-6">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em]"
-          >
+      {/* 1. HERO VIDEO — Full screen like Zara */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster={heroImage}
+        >
+          <source
+            src="https://videos.pexels.com/video-files/857251/857251-hd_1920_1080_25fps.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div className="absolute inset-0 bg-foreground/20" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="absolute inset-0 flex items-end justify-center pb-20"
+        >
+          <p className="text-primary-foreground text-lg md:text-2xl tracking-[0.4em] text-brand">
             Vision. Allure. Signature.
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
+      </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 h-[75vh] md:h-[85vh]">
-          {[
-            { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
-            { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
-            { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
-          ].map((col, i) => (
-            <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
-              <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
-              <div className="absolute inset-0 bg-foreground/10" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <Link
-                  to={col.path}
-                  className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
-                >
-                  {col.label}
-                  <ArrowRight size={12} />
-                </Link>
-              </div>
+      {/* 2. THREE COLLECTIONS */}
+      <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
+        {[
+          { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
+          { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
+          { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
+        ].map((col, i) => (
+          <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
+            <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
+            <div className="absolute inset-0 bg-foreground/10" />
+            <div className="absolute bottom-8 left-8 right-8">
+              <Link
+                to={col.path}
+                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
+              >
+                {col.label}
+                <ArrowRight size={12} />
+              </Link>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </section>
 
       {/* 2. MANIFESTO */}
