@@ -37,7 +37,7 @@ const Index = () => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster={heroImage}
+          poster={mysticCollection}
         >
           <source
             src="/hero-video.mp4"
