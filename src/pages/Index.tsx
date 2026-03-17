@@ -45,16 +45,30 @@ const Index = () => {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-foreground/20" />
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 bg-foreground/30" />
+        <div className="absolute inset-0 flex flex-col items-center justify-end pb-[15vh]">
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 0.8 }}
+            className="text-brand text-[10px] md:text-[11px] text-primary-foreground/70 tracking-[0.5em] uppercase mb-4"
+          >
+            Collection 2026
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.5 }}
-            className="text-brand text-lg md:text-3xl text-primary-foreground tracking-[0.4em]"
+            transition={{ duration: 1.4, delay: 1.2 }}
+            className="text-brand text-2xl md:text-5xl text-primary-foreground tracking-[0.35em] leading-tight"
           >
             Vision. Allure. Signature.
-          </motion.p>
+          </motion.h1>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 1, delay: 2 }}
+            className="w-16 h-px bg-primary-foreground/40 mt-6"
+          />
         </div>
       </section>
 
