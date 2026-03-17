@@ -124,7 +124,7 @@ const Index = () => {
       {/* 3. THREE COLLECTIONS */}
       <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
         {[
-          { src: heroImage, alt: 'Collection Standards', label: 'Standards', path: '/collections/standards' },
+          { src: heroImage, alt: 'Collection Power Lov', label: 'Power Lov', path: '/collections/standards' },
           { src: mysticCollection, alt: 'Collection Mystic Lov', label: 'Mystic Lov', path: '/collections/mystic-lov' },
           { src: bijouxImage, alt: 'Collection Amulets', label: 'Amulets', path: '/collections/bijoux' },
         ].map((col, i) => (
