@@ -68,27 +68,8 @@ const Shop = () => {
           transition={{ duration: 0.6 }}
         >
 
-          {/* Collection filter */}
-          <div className="flex justify-center gap-8 mb-8 border-b border-border">
-            {([
-              { key: 'all' as Collection, label: 'Voir tout' },
-              { key: 'standard' as Collection, label: 'PowerLov' },
-              { key: 'mystic' as Collection, label: 'MysticLov' },
-              { key: 'bijoux' as Collection, label: 'Amulets' },
-            ]).map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => handleCollectionChange(key)}
-                className={`text-brand text-xs pb-4 transition-all border-b-2 -mb-[2px] ${
-                  active === key
-                    ? 'border-foreground opacity-100'
-                    : 'border-transparent opacity-40 hover:opacity-70'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
+
+
 
           {/* Subcategory filter — shown when collection has multiple subcategories */}
           {availableSubs.length > 0 && (
