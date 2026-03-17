@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { CartProvider } from "./context/CartContext";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
@@ -30,6 +31,7 @@ const ScrollToTop = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <CartProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
@@ -50,6 +52,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

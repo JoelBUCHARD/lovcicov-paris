@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { useCart } from '@/context/CartContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [shopOpen, setShopOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
@@ -41,8 +43,13 @@ const Navbar = () => {
             <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
               <User size={18} strokeWidth={1.5} />
             </Link>
-            <Link to="/cart" className="hover:opacity-60 transition-opacity">
+            <Link to="/cart" className="hover:opacity-60 transition-opacity relative">
               <ShoppingBag size={18} strokeWidth={1.5} />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
             </Link>
             <button
               className="md:hidden hover:opacity-60 transition-opacity"

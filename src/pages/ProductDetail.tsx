@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
+import { useCart } from '@/context/CartContext';
+import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -18,6 +20,14 @@ const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product) {
+      addToCart(product);
+      toast({ title: 'Ajouté au panier', description: product.name });
+    }
+  };
 
   if (!product) {
     return (
@@ -136,7 +146,10 @@ const ProductDetail = () => {
               </div>
             )}
 
-            <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto">
+            <button
+              onClick={handleAddToCart}
+              className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto"
+            >
               Ajouter au Panier
             </button>
           </motion.div>
