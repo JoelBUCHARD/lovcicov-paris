@@ -146,7 +146,10 @@ const ProductDetail = () => {
               </div>
             )}
 
-            <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto">
+            <button
+              onClick={handleAddToCart}
+              className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto"
+            >
               Ajouter au Panier
             </button>
           </motion.div>

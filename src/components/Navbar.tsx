@@ -43,8 +43,13 @@ const Navbar = () => {
             <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
               <User size={18} strokeWidth={1.5} />
             </Link>
-            <Link to="/cart" className="hover:opacity-60 transition-opacity">
+            <Link to="/cart" className="hover:opacity-60 transition-opacity relative">
               <ShoppingBag size={18} strokeWidth={1.5} />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
             </Link>
             <button
               className="md:hidden hover:opacity-60 transition-opacity"
