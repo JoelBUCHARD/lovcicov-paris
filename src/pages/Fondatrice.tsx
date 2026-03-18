@@ -67,7 +67,7 @@ const Fondatrice = () => {
                 <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
                 <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
               </div>
-              <p className="text-foreground uppercase tracking-[0.1em] text-sm md:text-base">
+              <p className="text-foreground uppercase tracking-[0.1em] text-sm md:text-base text-center">
                 Une vision du style où la présence devient une signature.
               </p>
             </motion.div>
