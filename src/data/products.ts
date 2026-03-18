@@ -221,7 +221,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
-    price: 260,
+    price: 79,
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
