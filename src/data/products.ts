@@ -255,7 +255,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-croix-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
-    price: 270,
+    price: 82,
     collection: 'bijoux',
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
