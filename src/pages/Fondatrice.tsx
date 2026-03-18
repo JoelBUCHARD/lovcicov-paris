@@ -52,7 +52,7 @@ const Fondatrice = () => {
               custom={3}
               className="float-right ml-10 mb-8 w-64 md:w-80"
             >
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-[2/3.5] overflow-hidden">
                 <img
                   src={fondatriceImg}
                   alt="Georgiana Lovcicov, fondatrice de LOVCICOV"
