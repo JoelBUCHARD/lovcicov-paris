@@ -244,7 +244,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-prehnite-malachite',
     name: 'Collier Préhnite & Malachite',
-    price: 300,
+    price: 89,
     collection: 'bijoux',
     description: 'Triple rang préhnite et malachite, fermoir doré.',
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
