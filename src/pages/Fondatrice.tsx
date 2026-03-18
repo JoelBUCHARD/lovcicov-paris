@@ -54,30 +54,24 @@ const Fondatrice = () => {
               </div>
             </motion.div>
 
-            {/* Texte */}
+            {/* Texte + phrase signature */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={3}
-              className="text-manifeste text-muted-foreground space-y-8 flex-1"
+              className="text-manifeste text-muted-foreground space-y-8 flex-1 flex flex-col justify-between"
             >
-              <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
-              <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
-              <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+              <div className="space-y-8">
+                <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
+                <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
+                <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+              </div>
+              <p className="text-foreground uppercase tracking-[0.1em] text-sm md:text-base">
+                Une vision du style où la présence devient une signature.
+              </p>
             </motion.div>
           </div>
-
-          {/* Phrase signature centrée */}
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={4}
-            className="text-foreground uppercase tracking-[0.1em] mt-16 text-sm md:text-base text-center"
-          >
-            Une vision du style où la présence devient une signature.
-          </motion.p>
         </div>
       </main>
       <Footer />
