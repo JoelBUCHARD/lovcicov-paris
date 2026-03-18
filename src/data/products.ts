@@ -209,7 +209,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
-    price: 320,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
