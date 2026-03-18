@@ -313,7 +313,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-turquoise-or',
     name: 'Collier Turquoise & Or',
-    price: 240,
+    price: 79,
     collection: 'bijoux',
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
