@@ -50,7 +50,7 @@ const Fondatrice = () => {
               initial="hidden"
               animate="visible"
               custom={3}
-              className="float-right ml-8 mb-6 w-52 md:w-64"
+              className="float-right ml-10 mb-8 w-64 md:w-80"
             >
               <div className="aspect-[3/4] overflow-hidden">
                 <img
