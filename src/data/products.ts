@@ -232,7 +232,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-labradorite-amethyste',
     name: 'Collier Labradorite & Améthyste',
-    price: 280,
+    price: 85,
     collection: 'bijoux',
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
