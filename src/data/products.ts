@@ -290,7 +290,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-jade-nacre',
     name: 'Collier Jade & Nacre',
-    price: 310,
+    price: 87,
     collection: 'bijoux',
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
