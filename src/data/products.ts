@@ -209,7 +209,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
-    price: 320,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
@@ -221,7 +221,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
-    price: 260,
+    price: 79,
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
@@ -232,7 +232,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-labradorite-amethyste',
     name: 'Collier Labradorite & Améthyste',
-    price: 280,
+    price: 85,
     collection: 'bijoux',
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
@@ -244,7 +244,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-prehnite-malachite',
     name: 'Collier Préhnite & Malachite',
-    price: 300,
+    price: 89,
     collection: 'bijoux',
     description: 'Triple rang préhnite et malachite, fermoir doré.',
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
@@ -255,7 +255,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-croix-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
-    price: 270,
+    price: 82,
     collection: 'bijoux',
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
@@ -266,7 +266,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-malachite-corail',
     name: 'Collier Malachite & Corail',
-    price: 340,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
@@ -278,7 +278,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-trio-citrine',
     name: 'Collier Trio Citrine & Améthyste',
-    price: 290,
+    price: 85,
     collection: 'bijoux',
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
@@ -290,7 +290,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-jade-nacre',
     name: 'Collier Jade & Nacre',
-    price: 310,
+    price: 87,
     collection: 'bijoux',
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
@@ -301,7 +301,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-corail-multicolor',
     name: 'Collier Corail & Pierres Multicolores',
-    price: 350,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
@@ -313,7 +313,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-turquoise-or',
     name: 'Collier Turquoise & Or',
-    price: 240,
+    price: 79,
     collection: 'bijoux',
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
