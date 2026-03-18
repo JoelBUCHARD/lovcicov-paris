@@ -266,7 +266,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-malachite-corail',
     name: 'Collier Malachite & Corail',
-    price: 340,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
