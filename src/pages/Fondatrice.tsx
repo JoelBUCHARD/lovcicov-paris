@@ -36,19 +36,14 @@ const Fondatrice = () => {
             Georgiana Lovcicov
           </motion.h2>
 
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="text-manifeste text-muted-foreground space-y-8"
-          >
+          <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-start">
+            {/* Photo */}
             <motion.div
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={3}
-              className="float-right ml-10 mb-8 w-64 md:w-80"
+              custom={2}
+              className="w-full md:w-80 flex-shrink-0"
             >
               <div className="aspect-[2/3.5] overflow-hidden">
                 <img
@@ -59,13 +54,30 @@ const Fondatrice = () => {
               </div>
             </motion.div>
 
-            <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
-            <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
-            <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
-            <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base clear-both">
-              Une vision du style où la présence devient une signature.
-            </p>
-          </motion.div>
+            {/* Texte */}
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+              className="text-manifeste text-muted-foreground space-y-8 flex-1"
+            >
+              <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
+              <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
+              <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+            </motion.div>
+          </div>
+
+          {/* Phrase signature centrée */}
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+            className="text-foreground uppercase tracking-[0.1em] mt-16 text-sm md:text-base text-center"
+          >
+            Une vision du style où la présence devient une signature.
+          </motion.p>
         </div>
       </main>
       <Footer />
