@@ -301,7 +301,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-corail-multicolor',
     name: 'Collier Corail & Pierres Multicolores',
-    price: 350,
+    price: 89,
     collection: 'bijoux',
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
