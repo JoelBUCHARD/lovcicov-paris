@@ -278,7 +278,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-trio-citrine',
     name: 'Collier Trio Citrine & Améthyste',
-    price: 290,
+    price: 85,
     collection: 'bijoux',
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
