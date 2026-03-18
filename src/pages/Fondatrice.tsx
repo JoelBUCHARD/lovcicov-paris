@@ -71,7 +71,7 @@ const Fondatrice = () => {
                 Une vision du style où la présence devient une signature.
               </p>
             </motion.div>
-        </div>
+          </div>
       </main>
       <Footer />
     </div>
