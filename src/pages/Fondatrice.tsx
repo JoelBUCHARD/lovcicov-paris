@@ -72,6 +72,7 @@ const Fondatrice = () => {
               </p>
             </motion.div>
           </div>
+        </div>
       </main>
       <Footer />
     </div>
