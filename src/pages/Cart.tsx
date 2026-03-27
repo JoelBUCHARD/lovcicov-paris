@@ -1,28 +1,28 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ShoppingBag, Trash2, Minus, Plus } from 'lucide-react';
+import { ShoppingBag, Trash2, Minus, Plus, ExternalLink, Loader2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { useCart } from '@/context/CartContext';
-
-const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModules = { ...imageModulesJpg, ...imageModulesWebp };
-
-const getImage = (key: string) => {
-  const match = Object.entries(imageModules).find(([path]) => path.includes(key));
-  return match ? match[1] : '';
-};
+import { useCartStore } from '@/stores/cartStore';
 
 const Cart = () => {
-  const { items, removeFromCart, updateQuantity, totalPrice } = useCart();
+  const { items, removeItem, updateQuantity, isLoading, getCheckoutUrl, totalPrice, totalItems } = useCartStore();
+  const total = totalPrice();
+  const count = totalItems();
+
+  const handleCheckout = () => {
+    const checkoutUrl = getCheckoutUrl();
+    if (checkoutUrl) {
+      window.open(checkoutUrl, '_blank');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
 
       <main className="pt-28 pb-24 px-6 md:px-12 min-h-[60vh]">
-        {items.length === 0 ? (
+        {count === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -51,47 +51,72 @@ const Cart = () => {
             <h1 className="text-2xl md:text-3xl font-medium mb-10">Votre Panier</h1>
 
             <div className="space-y-6 border-t border-border">
-              {items.map((item) => (
-                <div key={item.product.id} className="flex gap-4 md:gap-6 py-6 border-b border-border">
-                  <Link to={`/shop/${item.product.id}`} className="w-20 md:w-28 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0">
-                    <img src={getImage(item.product.image)} alt={item.product.name} className="w-full h-full object-cover" />
-                  </Link>
+              {items.map((item) => {
+                const image = item.product.node.images?.edges?.[0]?.node?.url;
+                const title = item.product.node.title;
+                const price = parseFloat(item.price.amount).toFixed(0);
+                const optionsLabel = item.selectedOptions.map(o => o.value).join(' / ');
 
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div>
-                      <Link to={`/shop/${item.product.id}`} className="text-brand text-[11px] hover:opacity-70 transition-opacity">
-                        {item.product.name}
-                      </Link>
-                      <p className="text-sm text-muted-foreground mt-1">€{item.product.price}</p>
-                    </div>
+                return (
+                  <div key={item.variantId} className="flex gap-4 md:gap-6 py-6 border-b border-border">
+                    <Link to={`/product/${item.product.node.handle}`} className="w-20 md:w-28 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0">
+                      {image ? (
+                        <img src={image} alt={title} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full bg-secondary" />
+                      )}
+                    </Link>
 
-                    <div className="flex items-center justify-between mt-4">
-                      <div className="flex items-center gap-3 border border-border">
-                        <button onClick={() => updateQuantity(item.product.id, item.quantity - 1)} className="p-2 hover:opacity-60 transition-opacity">
-                          <Minus size={12} />
-                        </button>
-                        <span className="text-xs w-4 text-center">{item.quantity}</span>
-                        <button onClick={() => updateQuantity(item.product.id, item.quantity + 1)} className="p-2 hover:opacity-60 transition-opacity">
-                          <Plus size={12} />
-                        </button>
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <Link to={`/product/${item.product.node.handle}`} className="text-brand text-[11px] hover:opacity-70 transition-opacity">
+                          {title}
+                        </Link>
+                        {optionsLabel && (
+                          <p className="text-[10px] text-muted-foreground mt-0.5">{optionsLabel}</p>
+                        )}
+                        <p className="text-sm text-muted-foreground mt-1">€{price}</p>
                       </div>
 
-                      <button onClick={() => removeFromCart(item.product.id)} className="text-muted-foreground hover:text-foreground transition-colors">
-                        <Trash2 size={14} strokeWidth={1.5} />
-                      </button>
+                      <div className="flex items-center justify-between mt-4">
+                        <div className="flex items-center gap-3 border border-border">
+                          <button onClick={() => updateQuantity(item.variantId, item.quantity - 1)} className="p-2 hover:opacity-60 transition-opacity">
+                            <Minus size={12} />
+                          </button>
+                          <span className="text-xs w-4 text-center">{item.quantity}</span>
+                          <button onClick={() => updateQuantity(item.variantId, item.quantity + 1)} className="p-2 hover:opacity-60 transition-opacity">
+                            <Plus size={12} />
+                          </button>
+                        </div>
+
+                        <button onClick={() => removeItem(item.variantId)} className="text-muted-foreground hover:text-foreground transition-colors">
+                          <Trash2 size={14} strokeWidth={1.5} />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="mt-8 flex flex-col items-end gap-4">
               <div className="flex justify-between w-full md:w-72">
                 <span className="text-brand text-xs">Total</span>
-                <span className="text-sm font-medium">€{totalPrice}</span>
+                <span className="text-sm font-medium">€{total.toFixed(0)}</span>
               </div>
-              <button className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-72">
-                Passer la Commande
+              <button
+                onClick={handleCheckout}
+                disabled={isLoading}
+                className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-72 flex items-center justify-center gap-2 disabled:opacity-50"
+              >
+                {isLoading ? (
+                  <Loader2 className="animate-spin" size={14} />
+                ) : (
+                  <>
+                    <ExternalLink size={12} />
+                    Passer la Commande
+                  </>
+                )}
               </button>
               <Link to="/shop" className="text-brand text-[10px] text-muted-foreground hover:text-foreground transition-colors">
                 Continuer mes Achats
