@@ -4,10 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { CartProvider } from "./context/CartContext";
+import { useCartSync } from "./hooks/useCartSync";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
+import ShopifyProductDetail from "./pages/ShopifyProductDetail";
 import Manifeste from "./pages/Manifeste";
 import Fondatrice from "./pages/Fondatrice";
 import Cart from "./pages/Cart";
@@ -28,31 +29,39 @@ const ScrollToTop = () => {
   return null;
 };
 
+const AppContent = () => {
+  useCartSync();
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/:id" element={<ProductDetail />} />
+        <Route path="/product/:handle" element={<ShopifyProductDetail />} />
+        <Route path="/collections/standards" element={<CollectionStandards />} />
+        <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
+        <Route path="/collections/bijoux" element={<CollectionBijoux />} />
+        <Route path="/manifeste" element={<Manifeste />} />
+        <Route path="/univers" element={<Fondatrice />} />
+        <Route path="/fondatrice" element={<Fondatrice />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <CartProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:id" element={<ProductDetail />} />
-          <Route path="/collections/standards" element={<CollectionStandards />} />
-          <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
-          <Route path="/collections/bijoux" element={<CollectionBijoux />} />
-          <Route path="/manifeste" element={<Manifeste />} />
-          <Route path="/univers" element={<Fondatrice />} />
-          <Route path="/fondatrice" element={<Fondatrice />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AppContent />
       </BrowserRouter>
-      </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
