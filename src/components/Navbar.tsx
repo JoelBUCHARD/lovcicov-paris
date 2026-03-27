@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { useCart } from '@/context/CartContext';
+import { useCartStore } from '@/stores/cartStore';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +11,8 @@ const Navbar = () => {
   const [shopOpen, setShopOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
-  const { totalItems } = useCart();
+  const shopifyTotalItems = useCartStore(state => state.totalItems);
+  const totalItems = shopifyTotalItems();
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
