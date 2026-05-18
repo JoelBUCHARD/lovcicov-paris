@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Loader2 } from 'lucide-react';
-import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
-import ShopifyProductCard from '@/components/ShopifyProductCard';
+import { ArrowRight } from 'lucide-react';
+import { mysticProducts } from '@/data/products';
+import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -17,16 +16,6 @@ const fadeUp = {
 };
 
 const CollectionMystic = () => {
-  const [products, setProducts] = useState<ShopifyProduct[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchShopifyProducts(20)
-      .then(setProducts)
-      .catch(console.error)
-      .finally(() => setLoading(false));
-  }, []);
-
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -54,21 +43,11 @@ const CollectionMystic = () => {
 
         {/* Products */}
         <div className="px-6 md:px-10">
-          {loading ? (
-            <div className="flex justify-center py-20">
-              <Loader2 className="animate-spin text-muted-foreground" size={24} />
-            </div>
-          ) : products.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-muted-foreground text-sm">Aucun produit trouvé</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10">
-              {products.map((product, i) => (
-                <ShopifyProductCard key={product.node.id} product={product} index={i} />
-              ))}
-            </div>
-          )}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+            {mysticProducts.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* CTA */}
