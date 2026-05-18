@@ -56,8 +56,11 @@ const ProductDetail = () => {
       <Navbar />
 
       <main className="pt-28 pb-24 px-6 md:px-12">
-        <Link to="/shop" className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
-          ← Retour
+        <Link
+          to={`/shop?collection=${product.collection}`}
+          className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block"
+        >
+          ← Retour à {collectionLabel}
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 max-w-6xl">
