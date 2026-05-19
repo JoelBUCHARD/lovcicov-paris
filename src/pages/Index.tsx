@@ -175,24 +175,6 @@ const Index = () => {
             LOVCICOV
           </span>
         </div>
-
-        {/* STONELOV label — desktop only */}
-        <div
-          aria-hidden="true"
-          className="hidden md:flex absolute inset-0 z-[3] items-start justify-end pointer-events-none select-none pt-10 pr-10"
-        >
-          <span
-            className="text-[#C4714A]/40 leading-none whitespace-nowrap"
-            style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(40px, 7vw, 100px)',
-              fontWeight: 600,
-              letterSpacing: '0.05em',
-            }}
-          >
-            STONELOV
-          </span>
-        </div>
       </section>
 
 
