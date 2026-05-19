@@ -26,8 +26,8 @@ const MysticLovEditorial = () => {
         <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: GOLD, opacity: 0.5 }} />
         <Link
           to="/mysticlov/shop"
-          className="text-white text-[10px] uppercase px-4 py-2"
-          style={{ backgroundColor: "#000000", letterSpacing: "0.15em" }}
+          className="text-black text-[10px] uppercase px-4 py-2"
+          style={{ backgroundColor: "#FFFFFF", letterSpacing: "0.15em" }}
         >
           REJOINDRE LE CERCLE →
         </Link>
