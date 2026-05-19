@@ -118,7 +118,7 @@ const ShopifyProductDetail = () => {
             </p>
 
             {product.description && (
-              <p className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
+              <p className="text-[#8A8985] text-[12px] leading-[1.8] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
                 {product.description}
               </p>
             )}
