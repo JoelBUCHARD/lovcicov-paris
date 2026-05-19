@@ -165,7 +165,7 @@ const Index = () => {
         {/* Giant LOVCICOV in front of image — desktop only */}
         <div
           aria-hidden="true"
-          className="hidden md:flex absolute inset-0 z-[3] items-end justify-center pointer-events-none select-none pb-10"
+          className="hidden md:flex absolute inset-0 z-[3] items-end justify-start pointer-events-none select-none pb-10 pl-10"
         >
           <span
             className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
