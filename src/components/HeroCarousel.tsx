@@ -17,8 +17,8 @@ const HeroCarousel = () => {
   const next = () => setActive((a) => (a + 1) % slides.length);
 
   return (
-    <section className="w-full bg-[#FAF7F2] py-4 md:py-6">
-      <div className="relative max-w-6xl mx-auto px-6 md:px-10">
+    <section className="w-full bg-[#FAF7F2]">
+      <div className="relative w-full">
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-out"
@@ -35,7 +35,7 @@ const HeroCarousel = () => {
                     />
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 px-6 md:px-10">
                     {slide.images.length > 0 ? (
                       slide.images.map((src, j) => (
                         <div key={j} className="aspect-[3/4] overflow-hidden bg-[#F0EBE3]">
@@ -79,7 +79,7 @@ const HeroCarousel = () => {
           <ChevronRight size={18} />
         </button>
 
-        <div className="flex items-center justify-center gap-2 mt-6">
+        <div className="flex items-center justify-center gap-2 mt-6 pb-6">
           {slides.map((_, i) => (
             <button
               key={i}
