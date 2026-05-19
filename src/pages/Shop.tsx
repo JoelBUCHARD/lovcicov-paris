@@ -36,7 +36,11 @@ const Shop = () => {
     if (collectionParam && validCollections.includes(collectionParam)) {
       setActive(collectionParam);
       setSub('all');
+      return;
     }
+
+    setActive('all');
+    setSub('all');
   }, [collectionParam]);
 
   const handleCollectionChange = (key: Collection) => {
