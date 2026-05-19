@@ -35,8 +35,8 @@ const Navbar = () => {
 
           {/* Center logo */}
           <Link to="/" className="flex flex-col items-center text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="text-brand-lg text-lg md:text-xl tracking-[0.35em]">LOVCICOV</span>
-            <span className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">PARIS</span>
+            <span className="text-brand-lg text-lg md:text-xl tracking-[0.2em] text-foreground">LOVCICOV</span>
+            <span className="text-[8px] md:text-[9px] tracking-[0.2em] text-muted-foreground mt-[-2px]">PARIS</span>
           </Link>
 
           {/* Right icons */}
