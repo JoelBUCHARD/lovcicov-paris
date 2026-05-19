@@ -143,7 +143,7 @@ const Index = () => {
       </section>
 
       {/* PRESS */}
-      <section className="py-10 md:py-14 text-center bg-[#0A0A0A] border-b border-white/10">>
+      <section className="py-10 md:py-14 text-center bg-[#0A0A0A] border-b border-white/10">
         <p className="text-[9px] uppercase tracking-[0.2em] text-white/40 mb-6">
           Vu dans la presse
         </p>
