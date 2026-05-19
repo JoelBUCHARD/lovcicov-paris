@@ -56,7 +56,7 @@ const StoneLovEditorial = () => {
               Chaque pierre a une raison d'être.
             </h1>
             <Link
-              to="/stonelov/shop"
+              to="/shop"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
               style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
