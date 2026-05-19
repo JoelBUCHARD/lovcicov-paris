@@ -47,12 +47,14 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 65%", transform: "scale(1.45)", transformOrigin: "center 65%" }}
           />
           <div className="absolute bottom-0 left-0 z-10" style={{ padding: 48, paddingBottom: 20 }}>
-            <p className="text-[9px] uppercase mb-3" style={{ color: TERRA, letterSpacing: "0.25em" }}>
-              STONELOV
-            </p>
-            <h1 className="italic mb-3" style={{ color: INK, fontSize: "clamp(24px,4vw,34px)", fontWeight: 300, lineHeight: 1.2 }}>
-              Chaque pierre a une raison d'être.
-            </h1>
+            <div className="inline-block backdrop-blur-[2px]" style={{ backgroundColor: "rgba(250,247,242,0.25)", padding: "12px 16px", margin: "-12px -16px", borderRadius: 2 }}>
+              <p className="text-[9px] uppercase mb-3" style={{ color: TERRA, letterSpacing: "0.25em" }}>
+                STONELOV
+              </p>
+              <h1 className="italic mb-3" style={{ color: INK, fontSize: "clamp(24px,4vw,34px)", fontWeight: 300, lineHeight: 1.2 }}>
+                Chaque pierre a une raison d'être.
+              </h1>
+            </div>
             <Link
               to="/stonelov/shop"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
