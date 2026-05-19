@@ -35,17 +35,8 @@ const Index = () => {
 
       {/* 1. HERO — Clean text over warm cream */}
       <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center relative overflow-hidden">
-        {/* Decorative oversized LOVCICOV text — Zara-style editorial effect */}
-        <div
-          className="hidden md:block absolute bottom-0 right-[-20px] font-[inherit] text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap pointer-events-none select-none"
-          style={{
-            fontSize: 'clamp(120px, 18vw, 280px)',
-            fontWeight: 200,
-            zIndex: 0,
-          }}
-        >
-          LOVCICOV
-        </div>
+
+
 
         <div className="relative z-[1]">
           <motion.p
@@ -155,6 +146,18 @@ const Index = () => {
           </Link>
         </motion.div>
       </section>
+
+      {/* DECORATIVE OVERSIZED LOVCICOV */}
+      <div className="hidden md:block relative overflow-hidden w-full bg-[#FAF7F2]" aria-hidden="true">
+        <div
+          className="text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap select-none pointer-events-none text-center"
+          style={{ fontSize: 'clamp(120px, 18vw, 280px)', fontWeight: 200 }}
+        >
+          LOVCICOV
+        </div>
+      </div>
+
+
 
       {/* PRESS */}
       <section className="py-10 md:py-14 text-center bg-white border-b border-[#E8E4DD]">
