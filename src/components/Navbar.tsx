@@ -153,7 +153,7 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="flex flex-col px-6 py-8 gap-5">
-              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-foreground hover:text-black transition-colors" onClick={() => setIsOpen(false)}>
                 Accueil
               </Link>
               <Link to="/shop?collection=standard" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
