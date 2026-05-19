@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroCarousel from '@/components/HeroCarousel';
+import editorialStonelov from '@/assets/editorial-stonelov.png';
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
 import ig3 from '@/assets/instagram/ig-3.jpg';
