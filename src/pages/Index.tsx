@@ -227,54 +227,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* 3. THREE COLLECTIONS */}
-      <section className="grid grid-cols-1 md:grid-cols-3">
-        {[
-          {
-            label: 'PowerLov',
-            badge: 'Éditions limitées',
-            desc: 'Définissez votre standard. Pièces à message fort.',
-            path: '/collections/standards',
-            bg: 'bg-[#FDE8E8]',
-            border: 'border-t-[3px] border-t-[#E66060]',
-            badgeColor: 'text-[#E66060]',
-          },
-          {
-            label: 'MysticLov',
-            badge: 'Pièce unique · Artisanat',
-            desc: 'Symboles. Guidance. Intuition. Conscience.',
-            path: '/collections/mystic-lov',
-            bg: 'bg-[#F7F5F0]',
-            border: 'border-t-[3px] border-t-[#B5B3AD]',
-            badgeColor: 'text-[#8A8985]',
-          },
-          {
-            label: 'StoneLov',
-            badge: 'Pierres naturelles',
-            desc: 'Pièces singulières. Énergie minérale.',
-            path: '/collections/bijoux',
-            bg: 'bg-[#FDF5EF]',
-            border: 'border-t-[3px] border-t-[#C4714A]',
-            badgeColor: 'text-[#C4714A]',
-          },
-        ].map((col) => (
-          <Link
-            key={col.label}
-            to={col.path}
-            className={`group flex flex-col ${col.bg} ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:opacity-90 transition-opacity`}
-          >
-            <p className={`text-[9px] uppercase tracking-[0.12em] font-medium mb-3 ${col.badgeColor}`}>
-              {col.badge}
-            </p>
-            <p className="text-brand text-[13px] text-[#1A1A1A] tracking-[0.15em] mb-2">{col.label}</p>
-            <p className="text-[12px] text-[#888780] mb-6 leading-relaxed flex-1">{col.desc}</p>
-            <span className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#666666] group-hover:border-[#666666] transition-colors mt-auto">
-              Découvrir
-              <ArrowRight size={10} />
-            </span>
-          </Link>
-        ))}
-      </section>
 
       {/* INSTAGRAM FEED */}
       <section className="pt-10 md:pt-14 pb-6 md:pb-8 text-center bg-background">
