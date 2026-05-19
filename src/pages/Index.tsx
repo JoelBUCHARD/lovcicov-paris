@@ -227,7 +227,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-10"
+          className="text-[13px] text-white hover:text-white/70 transition-colors inline-block mb-10"
         >
           @lovcicov.paris
         </motion.a>
@@ -244,7 +244,7 @@ const Index = () => {
               href="https://www.instagram.com/lovcicov.paris/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-square overflow-hidden bg-[#E8E4DD]"
+              className="group relative block aspect-square overflow-hidden bg-white/10"
             >
               <img
                 src={src}
@@ -266,7 +266,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 hover:text-[#666666] hover:border-[#666666] transition-colors"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-white border-b border-white pb-0.5 hover:text-white/70 hover:border-white/70 transition-colors"
         >
           Voir notre Instagram
           <ArrowRight size={10} />
