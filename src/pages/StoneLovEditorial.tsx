@@ -88,6 +88,9 @@ const StoneLovEditorial = () => {
           </div>
         </section>
 
+        {/* PHOTO GRID */}
+        <StoneLovGrid />
+
         {/* BLOCK 3 — SPLIT */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh" }}>
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
