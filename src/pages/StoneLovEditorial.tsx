@@ -43,7 +43,7 @@ const StoneLovEditorial = () => {
             src={hero}
             alt="StoneLov hero"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 35%" }}
+            style={{ objectPosition: "center center" }}
           />
           <div
             className="absolute inset-0"
