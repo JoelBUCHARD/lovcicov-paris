@@ -106,13 +106,21 @@ const ShopifyProductDetail = () => {
             )}
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center">
-            <p className="text-brand text-xs opacity-50 mb-4">MysticLov</p>
-            <h1 className="text-3xl md:text-4xl font-medium mb-4">{product.title}</h1>
-            <p className="text-xl mb-8">€{price}</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F5F0FF]">
+            <p className="text-[9px] uppercase tracking-[0.18em] font-medium text-[#6B3FA0] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+              MYSTICLOV
+            </p>
+            <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+              {product.title}
+            </h1>
+            <p className="text-[16px] font-normal text-[#1A1A1A] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
+              €{price}
+            </p>
 
             {product.description && (
-              <p className="text-muted-foreground text-sm leading-relaxed mb-8">{product.description}</p>
+              <p className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
+                {product.description}
+              </p>
             )}
 
             {/* Variant selector */}
@@ -120,10 +128,9 @@ const ShopifyProductDetail = () => {
               <div className="space-y-4 mb-8">
                 {options.map((option) => (
                   <div key={option.name}>
-                    <p className="text-brand text-xs mb-3">{option.name}</p>
+                    <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3">{option.name}</p>
                     <div className="flex flex-wrap gap-2">
                       {option.values.map((value) => {
-                        // Find if this option value matches selected variant
                         const isSelected = selectedVariant.selectedOptions.some(
                           o => o.name === option.name && o.value === value
                         );
@@ -131,17 +138,17 @@ const ShopifyProductDetail = () => {
                           <button
                             key={value}
                             onClick={() => {
-                              // Find variant matching this option value
                               const idx = variants.findIndex(v =>
                                 v.selectedOptions.some(o => o.name === option.name && o.value === value)
                               );
                               if (idx >= 0) setSelectedVariantIdx(idx);
                             }}
-                            className={`text-xs px-3 py-2 border transition-all ${
+                            className={`text-[11px] px-3 py-2 border transition-all ${
                               isSelected
-                                ? 'border-foreground text-foreground'
-                                : 'border-border text-muted-foreground hover:border-foreground'
+                                ? 'border-[#1A1A1A] text-[#1A1A1A]'
+                                : 'border-[#E8E4DD] text-[#888780] hover:border-[#1A1A1A]'
                             }`}
+                            style={{ fontFamily: 'Arial, sans-serif' }}
                           >
                             {value}
                           </button>
@@ -156,7 +163,8 @@ const ShopifyProductDetail = () => {
             <button
               onClick={handleAddToCart}
               disabled={cartLoading || !selectedVariant.availableForSale}
-              className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto disabled:opacity-50"
+              className="bg-[#6B3FA0] text-white px-8 py-4 text-[10px] tracking-[0.15em] uppercase hover:bg-[#5432A8] transition-colors w-full rounded-[2px] disabled:opacity-50"
+              style={{ fontFamily: 'Arial, sans-serif' }}
             >
               {cartLoading ? (
                 <Loader2 className="animate-spin mx-auto" size={16} />
@@ -166,6 +174,10 @@ const ShopifyProductDetail = () => {
                 'Ajouter au Panier'
               )}
             </button>
+
+            <p className="text-[11px] text-[#888780] text-center mt-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
+            </p>
           </motion.div>
         </div>
       </main>
