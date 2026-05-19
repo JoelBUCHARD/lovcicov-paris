@@ -279,7 +279,7 @@ const Index = () => {
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
           </p>
-          <p className="font-sans italic text-[12px] text-[#888780]">
+          <p className="font-sans italic text-[12px] text-white/50">
             Pierres naturelles · Pièces singulières · Paris
           </p>
         </div>
@@ -287,7 +287,7 @@ const Index = () => {
           <div className="flex items-center justify-end mb-10">
             <Link
               to="/shop"
-              className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
+              className="text-white text-[11px] border-b border-white pb-0.5 hover:opacity-60 transition-opacity"
             >
               Tout voir
             </Link>
@@ -301,22 +301,22 @@ const Index = () => {
       </section>
 
       {/* 4. COLLECTIONS BANNER */}
-      <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
+      <section className="grid grid-cols-1 md:grid-cols-3 border-t border-white/10 bg-[#0A0A0A]">
         {[
-          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-[#FDE8E8]' },
-          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-[#F7F5F0]' },
-          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-white/5' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-white/5' },
+          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-white/5' },
         ].map((col, i) => (
           <Link
             key={col.label}
             to={col.path}
-            className={`group py-14 md:py-20 px-8 md:px-12 text-center border-b md:border-b-0 border-border ${
-              i < 2 ? 'md:border-r' : ''
+            className={`group py-14 md:py-20 px-8 md:px-12 text-center border-b md:border-b-0 border-white/10 ${
+              i < 2 ? 'md:border-r md:border-r-white/10' : ''
             } ${col.hoverBg} transition-colors`}
           >
-            <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em]">{col.label}</p>
-            <p className="text-sm text-muted-foreground/70">{col.desc}</p>
-            <span className="inline-block mt-4 text-brand text-[11px] border-b border-foreground pb-0.5 group-hover:opacity-60 transition-opacity">
+            <p className="text-white text-[11px] mb-3 tracking-[0.15em]">{col.label}</p>
+            <p className="text-sm text-white/60">{col.desc}</p>
+            <span className="inline-block mt-4 text-white text-[11px] border-b border-white pb-0.5 group-hover:opacity-60 transition-opacity">
               Découvrir
             </span>
           </Link>
