@@ -106,8 +106,8 @@ const ShopifyProductDetail = () => {
             )}
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F0EBE3]">
-            <p className="text-[9px] uppercase tracking-[0.18em] font-medium text-[#5F5E5A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F7F5F0]">
+            <p className="text-[9px] uppercase tracking-[0.18em] font-medium text-[#8A8985] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
               MYSTICLOV
             </p>
             <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
