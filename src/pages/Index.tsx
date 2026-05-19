@@ -163,15 +163,14 @@ const Index = () => {
       </section>
 
       {/* 3. THREE COLLECTIONS */}
-      <section className="grid grid-cols-1 md:grid-cols-3">
+      <section className="grid grid-cols-1 md:grid-cols-3 bg-[#0A0A0A]">
         {[
           {
             label: 'PowerLov',
             badge: 'Éditions limitées',
             desc: 'Définissez votre standard. Pièces à message fort.',
             path: '/collections/standards',
-            bg: 'bg-[#FDE8E8]',
-            border: 'border-t-[3px] border-t-[#E66060]',
+            border: 'border-t-[3px] border-t-white/20',
             badgeColor: 'text-[#E66060]',
           },
           {
@@ -179,31 +178,29 @@ const Index = () => {
             badge: 'Pièce unique · Artisanat',
             desc: 'Symboles. Guidance. Intuition. Conscience.',
             path: '/collections/mystic-lov',
-            bg: 'bg-[#F7F5F0]',
-            border: 'border-t-[3px] border-t-[#B5B3AD]',
-            badgeColor: 'text-[#8A8985]',
+            border: 'border-t-[3px] border-t-white/20',
+            badgeColor: 'text-white/60',
           },
           {
             label: 'StoneLov',
             badge: 'Pierres naturelles',
             desc: 'Pièces singulières. Énergie minérale.',
             path: '/collections/bijoux',
-            bg: 'bg-[#FDF5EF]',
-            border: 'border-t-[3px] border-t-[#C4714A]',
+            border: 'border-t-[3px] border-t-white/20',
             badgeColor: 'text-[#C4714A]',
           },
         ].map((col) => (
           <Link
             key={col.label}
             to={col.path}
-            className={`group flex flex-col ${col.bg} ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:opacity-90 transition-opacity`}
+            className={`group flex flex-col bg-[#0A0A0A] ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:bg-white/5 transition-colors`}
           >
             <p className={`text-[9px] uppercase tracking-[0.12em] font-medium mb-3 ${col.badgeColor}`}>
               {col.badge}
             </p>
-            <p className="text-brand text-[13px] text-[#1A1A1A] tracking-[0.15em] mb-2">{col.label}</p>
-            <p className="text-[12px] text-[#888780] mb-6 leading-relaxed flex-1">{col.desc}</p>
-            <span className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#666666] group-hover:border-[#666666] transition-colors mt-auto">
+            <p className="text-white text-[13px] tracking-[0.15em] mb-2">{col.label}</p>
+            <p className="text-white/60 text-[12px] mb-6 leading-relaxed flex-1">{col.desc}</p>
+            <span className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.12em] text-white border-b border-white pb-0.5 group-hover:text-white/70 group-hover:border-white/70 transition-colors mt-auto">
               Découvrir
               <ArrowRight size={10} />
             </span>
