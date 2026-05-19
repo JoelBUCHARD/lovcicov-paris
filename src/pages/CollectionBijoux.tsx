@@ -26,19 +26,10 @@ const CollectionBijoux = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[9px] uppercase tracking-[0.2em] text-[#C4714A] mb-8 font-medium"
+            className="text-[13px] uppercase tracking-[0.25em] text-[#C4714A] mt-8 font-medium"
           >
             STONELOV
           </motion.p>
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-[#1A1A1A]"
-          >
-            StoneLov
-          </motion.h1>
         </div>
 
         {/* Products */}
