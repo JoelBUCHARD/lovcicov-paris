@@ -206,6 +206,10 @@ const Index = () => {
         ))}
       </section>
 
+      {/* COUPS DE COEUR CAROUSEL */}
+      <CoupsDeCoeurCarousel />
+
+
       {/* INSTAGRAM FEED */}
       <section className="py-16 md:py-24 text-center bg-background">
         <motion.p
