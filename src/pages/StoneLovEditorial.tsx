@@ -5,6 +5,7 @@ import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
+import StoneUniverse from "@/components/StoneUniverse";
 
 const BG = "#FAF7F2";
 const INK = "#1A1A1A";
@@ -61,6 +62,9 @@ const StoneLovEditorial = () => {
             </p>
           </div>
         </section>
+
+        {/* L'UNIVERS DES PIERRES */}
+        <StoneUniverse />
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden" style={{ height: "90vh" }}>
