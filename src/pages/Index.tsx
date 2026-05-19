@@ -306,7 +306,7 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-red-50' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-[#F0EBE3]' },
           { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-purple-50' },
           { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
         ].map((col, i) => (
