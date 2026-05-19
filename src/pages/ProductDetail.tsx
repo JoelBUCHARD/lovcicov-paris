@@ -154,21 +154,12 @@ const ProductDetail = () => {
               {product.details}
             </p>
 
-            {product.stoneMeaning && (
-              <div className="border-t border-[#E8D8C8] pt-6 mb-8">
-                <p
-                  className="text-[9px] uppercase tracking-[0.15em] text-[#C4714A] mb-3 font-medium"
-                  style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                  Vertus des pierres
-                </p>
-                <p
-                  className="text-[#5F5E5A] text-[12px] leading-[1.8] italic"
-                  style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                  {product.stoneMeaning}
-                </p>
-              </div>
+            {product.collection === 'bijoux' && (
+              <StoneMeaningBlock
+                productName={product.name}
+                productDescription={`${product.description} ${product.details ?? ''}`}
+                fallback={product.stoneMeaning}
+              />
             )}
 
             {product.colors && product.colors.length > 1 && (
