@@ -46,7 +46,7 @@ const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => 
             />
           )}
         </div>
-        <div className="space-y-1 text-center">
+        <div className="space-y-1 text-center pb-4 px-3">
           <h3 className="text-brand text-[11px]">{node.title}</h3>
           <p className="text-sm font-sans text-muted-foreground">{currency}{price}</p>
         </div>
