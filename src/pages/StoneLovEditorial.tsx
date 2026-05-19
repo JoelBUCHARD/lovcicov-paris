@@ -50,7 +50,7 @@ const StoneLovEditorial = () => {
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, transparent 65%, rgba(250,247,242,0.9) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 z-10" style={{ padding: 48, paddingBottom: 64 }}>
+          <div className="absolute bottom-0 left-0 z-10" style={{ padding: 48, paddingBottom: 32 }}>
             <p className="text-[9px] uppercase mb-3" style={{ color: TERRA, letterSpacing: "0.25em" }}>
               STONELOV
             </p>
