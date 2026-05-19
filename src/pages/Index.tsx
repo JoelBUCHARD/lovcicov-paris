@@ -34,61 +34,75 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[9px] tracking-[0.2em] uppercase text-[#B4A99A] mb-6"
+      <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center relative overflow-hidden">
+        {/* Decorative oversized LOVCICOV text — Zara-style editorial effect */}
+        <div
+          className="hidden md:block absolute bottom-0 right-[-20px] font-[inherit] text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap pointer-events-none select-none"
+          style={{
+            fontSize: 'clamp(120px, 18vw, 280px)',
+            fontWeight: 200,
+            zIndex: 0,
+          }}
         >
-          COLLECTION 2026
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
-        >
-          Clothes That Change How You Feel
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-[13px] italic text-[#888780] mb-4"
-        >
-          Par Georgiana · Paris · Pièces uniques
-        </motion.p>
+          LOVCICOV
+        </div>
 
-        <HeroCarousel />
+        <div className="relative z-[1]">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-[9px] tracking-[0.2em] uppercase text-[#B4A99A] mb-6"
+          >
+            COLLECTION 2026
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
+          >
+            Clothes That Change How You Feel
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="text-[13px] italic text-[#888780] mb-4"
+          >
+            Par Georgiana · Paris · Pièces uniques
+          </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex items-center justify-center gap-4 mb-3 mt-3"
-        >
-          <Link
-            to="/shop"
-            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
+          <HeroCarousel />
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="flex items-center justify-center gap-4 mb-3 mt-3"
           >
-            Découvrir la collection
-          </Link>
-          <Link
-            to="/fondatrice"
-            className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors"
+            <Link
+              to="/shop"
+              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
+            >
+              Découvrir la collection
+            </Link>
+            <Link
+              to="/fondatrice"
+              className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors"
+            >
+              Notre histoire
+            </Link>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.4 }}
+            className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
           >
-            Notre histoire
-          </Link>
-        </motion.div>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.4 }}
-          className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
-        >
-          Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
-        </motion.p>
+            Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
+          </motion.p>
+        </div>
       </section>
 
 
