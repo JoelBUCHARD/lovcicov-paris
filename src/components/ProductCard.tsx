@@ -48,7 +48,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       className="h-full"
     >
       <Link to={`/shop/${product.id}`} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
-        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative shrink-0">
+        <div className="aspect-[3/4] max-h-[280px] overflow-hidden bg-secondary mb-3 relative shrink-0">
           <img
             src={mainImage}
             alt={product.name}
@@ -71,9 +71,9 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </span>
           )}
         </div>
-        <div className="space-y-1 text-center pb-4 px-3 mt-auto">
-          <h3 className="text-brand text-[11px]">{product.name}</h3>
-          <p className="text-sm font-sans text-muted-foreground">€{product.price}</p>
+        <div className="space-y-1 text-center pb-3 px-2 mt-auto">
+          <h3 className="text-brand text-[11px] uppercase tracking-[0.12em]">{product.name}</h3>
+          <p className="text-[12px] font-sans text-muted-foreground">€{product.price}</p>
         </div>
       </Link>
     </motion.div>
