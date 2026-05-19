@@ -68,8 +68,8 @@ const CollectionMystic = () => {
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#888780] mt-20 py-10 px-6 md:px-10 text-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#C9C4BD]">MysticLov · Lovcicov Paris</p>
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#B5B3AD] mt-20 py-10 px-6 md:px-10 text-center">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE]">MysticLov · Lovcicov Paris</p>
         </div>
       </main>
       <Footer />
