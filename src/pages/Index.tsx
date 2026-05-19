@@ -5,6 +5,14 @@ import { standardProducts, mysticProducts, bijouxProducts } from '@/data/product
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ig1 from '@/assets/instagram/ig-1.png';
+import ig2 from '@/assets/instagram/ig-2.jpg';
+import ig3 from '@/assets/instagram/ig-3.png';
+import ig4 from '@/assets/instagram/ig-4.png';
+import ig5 from '@/assets/instagram/ig-5.png';
+import ig6 from '@/assets/instagram/ig-6.png';
+
+const instagramImages = [ig1, ig2, ig3, ig4, ig5, ig6];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -211,11 +219,22 @@ const Index = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 px-4 md:px-10 max-w-5xl mx-auto mb-10"
         >
-          {[...Array(6)].map((_, i) => (
-            <div
+          {instagramImages.map((src, i) => (
+            <a
               key={i}
-              className="aspect-square bg-[#E8E4DD] hover:bg-[#D5D0C8] transition-colors cursor-pointer"
-            />
+              href="https://www.instagram.com/lovcicov.paris/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block aspect-square overflow-hidden bg-[#E8E4DD]"
+            >
+              <img
+                src={src}
+                alt={`Instagram @lovcicov.paris ${i + 1}`}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+            </a>
           ))}
         </motion.div>
         <motion.a
