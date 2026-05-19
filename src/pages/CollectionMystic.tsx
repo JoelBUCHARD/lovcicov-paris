@@ -19,7 +19,7 @@ const CollectionMystic = () => {
   return (
     <div className="min-h-screen bg-[#F5F0FF]">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24">
+      <main className="pt-40 md:pt-44 pb-24">
         {/* Hero */}
         <div className="text-center px-6 md:px-10 mb-16 md:mb-24">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#6B3FA0] mb-8 font-medium">

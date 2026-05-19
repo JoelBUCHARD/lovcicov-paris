@@ -36,7 +36,7 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <div className="pt-32 px-6 md:px-12 text-center">
+        <div className="pt-40 px-6 md:px-12 text-center">
           <h1 className="text-2xl font-mediumm">Produit introuvable</h1>
           <Link to="/shop" className="text-brand text-xs mt-4 inline-block opacity-60 hover:opacity-100">
             Retour à la Boutique
@@ -58,7 +58,7 @@ const ProductDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-28 pb-24 px-6 md:px-12">
+      <main className="pt-36 pb-24 px-6 md:px-12">
         <Link
           to={`/shop?collection=${product.collection}`}
           className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block"
