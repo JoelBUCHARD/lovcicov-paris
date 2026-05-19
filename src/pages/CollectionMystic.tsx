@@ -21,18 +21,15 @@ const CollectionMystic = () => {
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
         {/* Hero Header — deep black */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#B5B3AD] text-white px-6 md:px-10 py-16 md:py-24 mb-16 md:mb-24">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#B5B3AD] text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
           <div className="text-center">
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE] mb-8 font-medium">
+            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE] mb-6 font-medium">
               MYSTICLOV
             </motion.p>
-            <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-white">
+            <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8 text-white">
               MysticLov
             </motion.h1>
-            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="max-w-lg mx-auto space-y-6">
-              <p className="text-white/80 text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-                MysticLov explore une dimension plus intérieure du style.
-              </p>
+            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="max-w-lg mx-auto space-y-5">
               <p className="text-white/80 text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
                 Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.
               </p>
@@ -43,10 +40,6 @@ const CollectionMystic = () => {
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="px-6 md:px-10 mb-16 md:mb-24">
-          <div className="max-w-lg mx-auto h-px bg-[#E8E4DD]" />
-        </div>
 
         {/* Products */}
         <div className="px-6 md:px-10">
