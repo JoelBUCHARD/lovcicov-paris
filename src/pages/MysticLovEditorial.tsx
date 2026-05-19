@@ -94,16 +94,16 @@ const MysticLovEditorial = () => {
       </section>
 
       {/* BLOCK 3 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-      <section className="relative w-screen overflow-hidden" style={{ height: "80vh" }}>
+      <section className="relative w-screen overflow-hidden" style={{ height: "100vh", backgroundColor: BG }}>
         <img
           src={groupShot}
           alt="La communauté MysticLov"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center top" }}
+          className="absolute inset-0 w-full h-full object-contain md:object-cover"
+          style={{ objectPosition: "right center" }}
         />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 60%)" }}
+          style={{ background: "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 45%, transparent 70%)" }}
         />
         <div className="absolute inset-y-0 left-0 flex items-center" style={{ paddingLeft: 60, paddingRight: 24 }}>
           <div className="max-w-md">
