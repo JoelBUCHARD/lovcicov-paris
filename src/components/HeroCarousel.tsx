@@ -3,12 +3,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import slide1a from '@/assets/slide1-img1.jpeg';
 import slide1b from '@/assets/slide1-img2.jpeg';
 import slide1c from '@/assets/slide1-img3.png';
+import slide2a from '@/assets/slide2-img1.jpeg';
+import slide2b from '@/assets/slide2-img2.jpeg';
+import slide2c from '@/assets/slide2-img3.jpeg';
 
 type Slide = { images: string[] };
 
 const slides: Slide[] = [
   { images: [slide1a, slide1b, slide1c] },
-  { images: [] },
+  { images: [slide2a, slide2b, slide2c] },
   { images: [] },
 ];
 
