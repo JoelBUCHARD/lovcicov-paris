@@ -30,46 +30,59 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* 1. HERO VIDEO — Full screen like Zara */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster={mysticCollection}
+      {/* 1. HERO — Clean text over warm cream */}
+      <section className="w-full bg-[#FAF7F2] py-24 md:py-32 text-center">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-[9px] tracking-[0.2em] uppercase text-[#B4A99A] mb-6"
         >
-          <source
-            src={heroVideo.url}
-            type="video/mp4"
-          />
-        </video>
-        <div className="absolute inset-0 bg-foreground/25" />
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-[12vh]">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 2, delay: 0.8 }}
-            className="text-[9px] md:text-[10px] text-primary-foreground/50 tracking-[0.6em] uppercase mb-3 font-light"
+          COLLECTION 2026
+        </motion.p>
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
+        >
+          Clothes That Change How You Feel
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="text-[13px] italic text-[#888780] mb-10"
+        >
+          Par Georgiana · Paris · Pièces uniques · Anti fast-fashion
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="flex items-center justify-center gap-4 mb-10"
+        >
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#E8529A] transition-colors"
           >
-            Collection 2026
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, delay: 1.2 }}
-            className="text-brand text-base md:text-2xl text-primary-foreground/90 tracking-[0.3em]"
+            Découvrir la collection
+          </Link>
+          <Link
+            to="/fondatrice"
+            className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors"
           >
-            Vision. Allure. Signature.
-          </motion.h1>
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 2 }}
-            className="w-10 h-px bg-primary-foreground/30 mt-4"
-          />
-        </div>
+            Notre histoire
+          </Link>
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.4 }}
+          className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
+        >
+          Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
+        </motion.p>
       </section>
 
       {/* 2. MANIFESTO */}
