@@ -159,7 +159,7 @@ const Navbar = () => {
               <Link to="/shop?collection=standard" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 PowerLov
               </Link>
-              <Link to="/shop?collection=mystic" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/mysticlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 MysticLov
               </Link>
               <Link to="/shop?collection=bijoux" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
