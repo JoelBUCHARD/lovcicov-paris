@@ -109,7 +109,7 @@ const ProductDetail = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={`flex flex-col justify-center p-8 md:p-12 ${
               product.collection === 'mystic'
-                ? 'bg-[#F5F0FF]'
+                ? 'bg-[#F7F5F0]'
                 : product.collection === 'bijoux'
                 ? 'bg-[#FDF5EF]'
                 : 'bg-[#FAF7F2]'
@@ -118,10 +118,10 @@ const ProductDetail = () => {
             <p
               className={`text-[9px] uppercase tracking-[0.18em] font-medium mb-4 ${
                 product.collection === 'mystic'
-                  ? 'text-[#6B3FA0]'
+                  ? 'text-[#8A8985]'
                   : product.collection === 'bijoux'
                   ? 'text-[#C4714A]'
-                  : 'text-[#C4407A]'
+                  : 'text-[#E66060]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
