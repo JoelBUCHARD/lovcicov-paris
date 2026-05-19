@@ -88,6 +88,32 @@ const StoneLovEditorial = () => {
           </div>
         </section>
 
+        {/* BLOCK 2.5 — NECKLACES ON ROCK */}
+        <section className="w-screen">
+          <div style={{ height: "70vh", width: "100%" }}>
+            <img
+              src={necklacesRock}
+              alt="Colliers StoneLov sur pierre"
+              className="w-full h-full"
+              style={{ objectFit: "cover", objectPosition: "center center" }}
+            />
+          </div>
+          <p
+            className="text-center"
+            style={{
+              fontFamily: "Arial, sans-serif",
+              fontStyle: "italic",
+              fontSize: 12,
+              color: "#888780",
+              letterSpacing: "0.08em",
+              padding: "16px 0 40px",
+            }}
+          >
+            Chaque pierre choisie à la main. Chaque pièce unique.
+          </p>
+        </section>
+
+
         {/* BLOCK 3 — SPLIT */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh" }}>
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
