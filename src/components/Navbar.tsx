@@ -25,7 +25,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-card">
       {/* Top bar */}
       <div className="border-b border-border">
         <div className="flex items-center justify-between px-6 md:px-10 py-4">
@@ -35,8 +35,8 @@ const Navbar = () => {
 
           {/* Center logo */}
           <Link to="/" className="flex flex-col items-center text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="text-brand-lg text-lg md:text-xl tracking-[0.35em]">LOVCICOV</span>
-            <span className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">PARIS</span>
+            <span className="text-brand-lg text-lg md:text-xl tracking-[0.2em] text-foreground">LOVCICOV</span>
+            <span className="text-[8px] md:text-[9px] tracking-[0.2em] text-muted-foreground mt-[-2px]">PARIS</span>
           </Link>
 
           {/* Right icons */}
@@ -66,7 +66,7 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center justify-center gap-10 py-3 border-b border-border/50">
         <Link
           to="/"
-          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
+          className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia ${
             location.pathname === '/' ? 'opacity-100' : 'opacity-70'
           }`}
         >
@@ -75,21 +75,21 @@ const Navbar = () => {
 
         <Link
           to="/shop?collection=standard"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia text-muted-foreground hover:text-fuchsia"
         >
           PowerLov
         </Link>
 
         <Link
           to="/shop?collection=mystic"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia text-muted-foreground hover:text-fuchsia"
         >
           MysticLov
         </Link>
 
         <Link
           to="/shop?collection=bijoux"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia text-muted-foreground hover:text-fuchsia"
         >
           StoneLov
         </Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
-            className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 flex items-center gap-1 ${
+            className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia flex items-center gap-1 ${
               location.pathname === '/manifeste' || location.pathname === '/fondatrice' ? 'opacity-100' : 'opacity-70'
             }`}
           >
@@ -147,23 +147,23 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="flex flex-col px-6 py-8 gap-5">
-              <Link to="/" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 Accueil
               </Link>
-              <Link to="/shop?collection=standard" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+              <Link to="/shop?collection=standard" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 PowerLov
               </Link>
-              <Link to="/shop?collection=mystic" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+              <Link to="/shop?collection=mystic" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 MysticLov
               </Link>
-              <Link to="/shop?collection=bijoux" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity" onClick={() => setIsOpen(false)}>
+              <Link to="/shop?collection=bijoux" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 StoneLov
               </Link>
               <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
-              <Link to="/manifeste" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
+              <Link to="/manifeste" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
                 Manifeste
               </Link>
-              <Link to="/fondatrice" className="text-brand text-xs opacity-70 hover:opacity-100 transition-opacity pl-4" onClick={() => setIsOpen(false)}>
+              <Link to="/fondatrice" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
                 La Fondatrice
               </Link>
             </div>

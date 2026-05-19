@@ -54,6 +54,7 @@ export default {
         stone: "hsl(var(--stone))",
         charcoal: "hsl(var(--charcoal))",
         mineral: "hsl(var(--mineral))",
+        fuchsia: "hsl(var(--fuchsia))",
       },
       borderRadius: {
         lg: "var(--radius)",

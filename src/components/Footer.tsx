@@ -5,9 +5,9 @@ const Footer = () => {
   const [email, setEmail] = useState('');
 
   return (
-    <footer className="border-t border-border">
+    <footer className="border-t border-border bg-background">
       {/* Newsletter */}
-      <div className="px-6 md:px-10 py-16 md:py-20 text-center">
+      <div className="px-6 md:px-10 py-16 md:py-20 text-center bg-background">
         <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
         <h3 className="text-2xl md:text-3xl font-medium mb-3">Rejoindre le cercle</h3>
         <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
@@ -15,18 +15,18 @@ const Footer = () => {
         </p>
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="flex max-w-sm mx-auto border-b border-foreground"
+          className="flex max-w-sm mx-auto gap-2"
         >
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Votre adresse e-mail"
-            className="flex-1 py-3 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+            className="flex-1 py-3 px-3 bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary rounded-[2px]"
           />
           <button
             type="submit"
-            className="text-brand text-[11px] px-4 py-3 hover:opacity-60 transition-opacity"
+            className="text-brand text-[11px] px-6 py-3 bg-primary text-primary-foreground hover:bg-fuchsia transition-colors rounded-[2px]"
           >
             OK
           </button>
