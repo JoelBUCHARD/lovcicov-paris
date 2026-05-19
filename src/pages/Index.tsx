@@ -148,33 +148,38 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* EDITORIAL — Zara-style oversized logo behind image */}
+      {/* EDITORIAL — Zara-style oversized logo in front of image */}
       <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center">
         {/* Editorial label */}
-        <p className="absolute top-6 left-6 md:top-10 md:left-10 z-[3] text-[10px] uppercase tracking-[0.2em] text-[#888780]">
+        <p className="absolute top-6 left-6 md:top-10 md:left-10 z-[4] text-[10px] uppercase tracking-[0.2em] text-[#888780]">
           Collection 2026
         </p>
 
-        {/* Giant LOVCICOV behind image — desktop only */}
-        <div
-          aria-hidden="true"
-          className="hidden md:block absolute left-[-20px] bottom-[-20px] z-[1] text-[#1A1A1A] leading-none whitespace-nowrap select-none pointer-events-none"
-          style={{
-            fontFamily: '"Cormorant Garamond", serif',
-            fontSize: 'clamp(160px, 28vw, 420px)',
-            fontWeight: 700,
-            letterSpacing: '0.02em',
-          }}
-        >
-          LOVCICOV
-        </div>
-
-        {/* Image in front */}
+        {/* Image */}
         <img
           src={editorialStonelov}
           alt="LOVCICOV — Collection 2026"
-          className="relative z-[2] h-[60vh] md:h-[90vh] w-auto max-w-full object-cover object-top"
+          className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-cover object-top"
         />
+
+        {/* Giant LOVCICOV in front of image — desktop only */}
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute inset-0 z-[3] flex items-end justify-start pointer-events-none select-none"
+        >
+          <span
+            className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
+            style={{
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: 'clamp(160px, 28vw, 420px)',
+              fontWeight: 700,
+              letterSpacing: '0.02em',
+              transform: 'translate(-20px, 20px)',
+            }}
+          >
+            LOVCICOV
+          </span>
+        </div>
       </section>
 
 
