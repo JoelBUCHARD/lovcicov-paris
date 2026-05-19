@@ -37,7 +37,7 @@ const Index = () => {
       <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center relative overflow-hidden">
         {/* Decorative oversized LOVCICOV text — Zara-style editorial effect */}
         <div
-          className="hidden md:block absolute bottom-0 right-[-20px] font-[inherit] text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap pointer-events-none select-none"
+          className="hidden md:block absolute bottom-0 left-[-20px] font-[inherit] text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap pointer-events-none select-none"
           style={{
             fontSize: 'clamp(120px, 18vw, 280px)',
             fontWeight: 200,
