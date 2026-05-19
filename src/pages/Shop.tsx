@@ -120,16 +120,6 @@ const Shop = () => {
               </div>
             </motion.div>
           )}
-          {active === 'mystic' && (
-            <motion.div key="mystic" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">MysticLov</h2>
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-sm leading-relaxed">MysticLov explore une dimension plus intérieure du style.</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">Chaque pièce devient une manière de porter un signe, une idée ou une histoire qui dépasse le simple vêtement.</p>
-              </div>
-            </motion.div>
-          )}
           {active === 'bijoux' && (
             <motion.div key="bijoux" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-medium mb-4">StoneLov</h2>
