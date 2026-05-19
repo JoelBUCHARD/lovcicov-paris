@@ -104,25 +104,64 @@ const ProductDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col justify-center"
+            className={`flex flex-col justify-center p-8 md:p-12 ${
+              product.collection === 'mystic'
+                ? 'bg-[#F5F0FF]'
+                : product.collection === 'bijoux'
+                ? 'bg-[#FDF5EF]'
+                : 'bg-[#FAF7F2]'
+            }`}
           >
-            <p className="text-brand text-xs opacity-50 mb-4">
-              {collectionLabel}
+            <p
+              className={`text-[9px] uppercase tracking-[0.18em] font-medium mb-4 ${
+                product.collection === 'mystic'
+                  ? 'text-[#6B3FA0]'
+                  : product.collection === 'bijoux'
+                  ? 'text-[#C4714A]'
+                  : 'text-[#C4407A]'
+              }`}
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              {collectionLabel.toUpperCase()}
             </p>
-            <h1 className="text-3xl md:text-4xl fontmediumt mb-4">{product.name}</h1>
-            <p className="text-xl mb-8">€{product.price}</p>
+            <h1
+              className="text-[22px] font-light text-[#1A1A1A] mb-4"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              {product.name}
+            </h1>
+            <p
+              className="text-[16px] font-normal text-[#1A1A1A] mb-8"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              €{product.price}
+            </p>
 
-            <p className="text-muted-foreground text-sm leading-relaxed mb-2">
+            <p
+              className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-2"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
               {product.description}
             </p>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+            <p
+              className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-8"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
               {product.details}
             </p>
 
             {product.stoneMeaning && (
-              <div className="border-t border-border pt-6 mb-8">
-                <p className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-3">Vertus des pierres</p>
-                <p className="text-muted-foreground text-sm leading-relaxed italic">
+              <div className="border-t border-[#E8D8C8] pt-6 mb-8">
+                <p
+                  className="text-[9px] uppercase tracking-[0.15em] text-[#C4714A] mb-3 font-medium"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
+                  Vertus des pierres
+                </p>
+                <p
+                  className="text-[#5F5E5A] text-[12px] leading-[1.8] italic"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
                   {product.stoneMeaning}
                 </p>
               </div>
@@ -130,17 +169,18 @@ const ProductDetail = () => {
 
             {product.colors && product.colors.length > 1 && (
               <div className="mb-8">
-                <p className="text-brand text-xs mb-3">Couleurs</p>
+                <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3">Couleurs</p>
                 <div className="flex gap-2">
                   {product.colors.map((color) => (
                     <Link
                       key={color.id}
                       to={`/shop/${color.id}`}
-                      className={`text-xs px-3 py-2 border transition-all ${
+                      className={`text-[11px] px-3 py-2 border transition-all ${
                         color.id === product.id
-                          ? 'border-foreground text-foreground'
-                          : 'border-border text-muted-foreground hover:border-foreground'
+                          ? 'border-[#1A1A1A] text-[#1A1A1A]'
+                          : 'border-[#E8E4DD] text-[#888780] hover:border-[#1A1A1A]'
                       }`}
+                      style={{ fontFamily: 'Arial, sans-serif' }}
                     >
                       {color.name}
                     </Link>
@@ -151,10 +191,24 @@ const ProductDetail = () => {
 
             <button
               onClick={handleAddToCart}
-              className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-auto"
+              className={`text-white px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
+                product.collection === 'mystic'
+                  ? 'bg-[#6B3FA0] hover:bg-[#5432A8]'
+                  : product.collection === 'bijoux'
+                  ? 'bg-[#C4714A] hover:bg-[#A55A35]'
+                  : 'bg-[#1A1A1A] hover:bg-[#E8529A]'
+              }`}
+              style={{ fontFamily: 'Arial, sans-serif' }}
             >
               Ajouter au Panier
             </button>
+
+            <p
+              className="text-[11px] text-[#888780] text-center mt-4"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
+            </p>
           </motion.div>
         </div>
       </main>
