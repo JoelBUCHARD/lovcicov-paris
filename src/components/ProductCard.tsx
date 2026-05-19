@@ -16,6 +16,25 @@ interface ProductCardProps {
   index?: number;
 }
 
+const getBadgeStyles = (collection: string, badge?: string) => {
+  if (!badge) return '';
+  const normalizedBadge = badge.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  if (collection === 'standard') {
+    return 'bg-[#F2D9E0] text-[#C4407A]';
+  }
+  if (collection === 'mystic') {
+    if (normalizedBadge.includes('EDITION LIMITEE')) {
+      return 'bg-[#1C1030] text-[#C9A84C]';
+    }
+    return 'bg-[#EDE8FC] text-[#6B3FA0]';
+  }
+  if (collection === 'bijoux') {
+    return 'bg-[#FDF5EF] text-[#C4714A]';
+  }
+  return '';
+};
+
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const mainImage = getImage(product.image);
   const hoverImage = product.gallery?.[0] ? getImage(product.gallery[0]) : null;
@@ -46,7 +65,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             />
           )}
           {product.badge && (
-            <span className="absolute top-3 left-3 bg-foreground text-background text-brand text-[10px] px-3 py-1">
+            <span className={`absolute top-3 left-3 text-[9px] uppercase tracking-[0.12em] font-medium px-3 py-1 ${getBadgeStyles(product.collection, product.badge)}`}>
               {product.badge}
             </span>
           )}
