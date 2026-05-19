@@ -17,7 +17,7 @@ const fadeUp = {
 
 const CollectionStandards = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
         {/* Hero */}
@@ -26,16 +26,16 @@ const CollectionStandards = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
+            className="text-[9px] uppercase tracking-[0.2em] text-[#C4407A] mb-8 font-medium"
           >
-            Collection
+            POWERLOV
           </motion.p>
           <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10"
+            className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-[#1A1A1A]"
           >
             PowerLov
           </motion.h1>
@@ -46,13 +46,13 @@ const CollectionStandards = () => {
             custom={2}
             className="max-w-lg mx-auto space-y-6"
           >
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
               PowerLov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
             </p>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
               La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.
             </p>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
               Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.
             </p>
           </motion.div>
@@ -62,7 +62,9 @@ const CollectionStandards = () => {
         <div className="px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {standardProducts.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
+              <div key={product.id} className="bg-white p-3">
+                <ProductCard product={product} index={i} />
+              </div>
             ))}
           </div>
         </div>
@@ -77,7 +79,7 @@ const CollectionStandards = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#E8529A] transition-colors"
           >
             Voir tous les produits
             <ArrowRight size={12} />
