@@ -30,6 +30,20 @@ const CollectionBijoux = () => {
           >
             STONELOV
           </motion.p>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+            className="max-w-lg mx-auto space-y-5 mt-8"
+          >
+            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
+              Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
+            </p>
+            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
+              Des pièces singulières, destinées à accompagner celles et ceux qui recherchent des objets porteurs de sens et de présence.
+            </p>
+          </motion.div>
         </div>
 
         {/* Products */}
