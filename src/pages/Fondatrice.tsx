@@ -24,7 +24,7 @@ const Fondatrice = () => {
             animate="visible"
             className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em] text-center"
           >
-            La Fondatrice
+            LA FONDATRICE
           </motion.p>
           <motion.h2
             variants={fadeUp}
@@ -63,12 +63,13 @@ const Fondatrice = () => {
               className="text-manifeste text-muted-foreground space-y-8 flex-1 flex flex-col justify-between"
             >
               <div className="space-y-8">
-                <p>LOVCICOV a été fondé par Georgiana Lovcicov avec le désir de créer un univers où esthétique et sens se rencontrent.</p>
-                <p>Inspirée par les symboles intemporels, les pierres naturelles et les objets porteurs d'histoire, elle imagine des créations qui allient caractère et raffinement.</p>
-                <p>Chaque pièce est conçue comme un objet singulier, pensé pour traverser le temps et accompagner une identité affirmée.</p>
+                <p>LOVCICOV a été fondé par Georgiana Lovcicov — une femme qui a toujours cru que ce qu'on porte dit quelque chose de profond sur qui on est.</p>
+                <p>Tout a commencé par l'atelier 1966 et le sur-mesure. Puis les pop-ups — Paris, Bordeaux, la Belgique. Des femmes qui ont traversé des frontières pour porter une pièce qui leur ressemblait vraiment.</p>
+                <p>Et puis la vie a tout bousculé. Le mariage. La maternité. Une pause nécessaire pour se retrouver, comprendre ce qu'on veut vraiment créer — et pourquoi.</p>
+                <p>Georgiana revient avec encore plus de conviction. Des pièces faites avec intention, contre le jetable, pour les femmes qui avancent. Des bijoux en pierres naturelles qui ont une énergie. Des broderies qui ont un sens. Rien de superflu.</p>
               </div>
               <p className="text-foreground uppercase tracking-[0.1em] text-sm md:text-base text-center">
-                Une vision du style où la présence devient une signature.
+                LOVCICOV EST UNE VISION DU MONDE. GEORGIANA EN EST LA VOIX.
               </p>
             </motion.div>
           </div>
