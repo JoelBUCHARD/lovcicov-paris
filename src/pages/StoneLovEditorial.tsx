@@ -5,7 +5,6 @@ import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
-import necklacesRock from "@/assets/stonelov/necklaces-rock.jpg";
 import StoneUniverse from "@/components/StoneUniverse";
 
 const BG = "#FAF7F2";
@@ -87,32 +86,6 @@ const StoneLovEditorial = () => {
             </p>
           </div>
         </section>
-
-        {/* BLOCK 2.5 — NECKLACES ON ROCK */}
-        <section className="w-screen">
-          <div style={{ height: "70vh", width: "100%" }}>
-            <img
-              src={necklacesRock}
-              alt="Colliers StoneLov sur pierre"
-              className="w-full h-full"
-              style={{ objectFit: "cover", objectPosition: "center center" }}
-            />
-          </div>
-          <p
-            className="text-center"
-            style={{
-              fontFamily: "Arial, sans-serif",
-              fontStyle: "italic",
-              fontSize: 12,
-              color: "#888780",
-              letterSpacing: "0.08em",
-              padding: "16px 0 40px",
-            }}
-          >
-            Chaque pierre choisie à la main. Chaque pièce unique.
-          </p>
-        </section>
-
 
         {/* BLOCK 3 — SPLIT */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh" }}>
