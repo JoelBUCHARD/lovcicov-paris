@@ -89,7 +89,7 @@ const Navbar = () => {
 
         <Link
           to="/shop?collection=bijoux"
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia text-muted-foreground hover:text-fuchsia"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4654A]"
         >
           StoneLov
         </Link>
