@@ -19,7 +19,7 @@ const HeroCarousel = () => {
   const next = () => setActive((a) => (a + 1) % slides.length);
 
   return (
-    <section className="w-full bg-[#FAF7F2] py-12 md:py-16">
+    <section className="w-full bg-[#FAF7F2] py-4 md:py-6">
       <div className="relative max-w-6xl mx-auto px-6 md:px-10">
         <div className="overflow-hidden">
           <div
