@@ -20,7 +20,7 @@ const StoneLovGrid = () => {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
-    <section style={{ backgroundColor: "#FAF7F2", padding: "40px 0 16px" }}>
+    <section style={{ backgroundColor: "#FAF7F2", padding: "20px 0 0" }}>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-[4px] md:gap-[6px]">
         {images.map((img, i) => (
           <button
@@ -37,20 +37,6 @@ const StoneLovGrid = () => {
           </button>
         ))}
       </div>
-
-      <p
-        className="text-center"
-        style={{
-          fontFamily: "Arial, sans-serif",
-          fontStyle: "italic",
-          fontSize: 12,
-          color: "#B4A99A",
-          letterSpacing: "0.08em",
-          padding: "20px 0 16px",
-        }}
-      >
-        Chaque collier est unique. Aucune pièce ne se répète.
-      </p>
 
       {lightbox && (
         <div
