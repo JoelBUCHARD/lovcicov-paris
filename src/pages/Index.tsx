@@ -296,7 +296,7 @@ const Index = () => {
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {featured.map((product, i) => (
+            {featured.slice(0, 6).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
