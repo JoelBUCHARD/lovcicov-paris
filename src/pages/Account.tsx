@@ -41,7 +41,7 @@ const Account = () => {
   if (loading) return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10 text-center">
+      <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10 text-center">
         <p className="text-muted-foreground text-sm">Chargement...</p>
       </main>
     </div>
@@ -50,7 +50,7 @@ const Account = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+      <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

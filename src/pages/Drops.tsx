@@ -75,7 +75,7 @@ const Drops = () => {
 
       <main>
         {/* Hero header */}
-        <section className="pt-32 md:pt-36 pb-16 px-6 md:px-10">
+        <section className="pt-40 md:pt-44 pb-16 px-6 md:px-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.p
               variants={fadeUp}

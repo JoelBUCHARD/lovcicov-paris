@@ -19,7 +19,7 @@ const CollectionStandards = () => {
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24">
+      <main className="pt-40 md:pt-44 pb-24">
         {/* Hero */}
         <div className="text-center px-6 md:px-10 mb-20 md:mb-28">
           <motion.p

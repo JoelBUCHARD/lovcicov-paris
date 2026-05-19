@@ -21,7 +21,7 @@ const Cart = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-28 pb-24 px-6 md:px-12 min-h-[60vh]">
+      <main className="pt-36 pb-24 px-6 md:px-12 min-h-[60vh]">
         {count === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}

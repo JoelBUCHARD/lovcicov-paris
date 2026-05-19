@@ -16,7 +16,7 @@ const Fondatrice = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-24 px-6 md:px-10">
+      <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">
           <motion.p
             variants={fadeUp}
