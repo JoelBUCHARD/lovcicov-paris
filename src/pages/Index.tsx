@@ -232,7 +232,7 @@ const Index = () => {
                 alt={`Instagram @lovcicov.paris ${i + 1}`}
                 loading="lazy"
                 className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                  i === 2 ? 'object-[center_30%]' : i === 3 ? 'object-top' : 'object-[center_20%]'
+                  i === 2 ? 'object-[center_30%]' : i === 3 ? 'object-bottom' : 'object-[center_20%]'
                 }`}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
