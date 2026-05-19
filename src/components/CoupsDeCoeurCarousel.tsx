@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { standardProducts, mysticProducts, bijouxProducts, type Product } from '@/data/products';
+import { bijouxProducts, type Product } from '@/data/products';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -11,140 +11,150 @@ const getImage = (key: string) => {
   return match ? match[1] : '';
 };
 
-const find = (arr: Product[], id: string) => arr.find((p) => p.id === id)!;
-
-type BadgeKey = 'powerlov' | 'mysticlov' | 'stonelov';
-
-const badgeStyles: Record<BadgeKey, { bg: string; color: string; label: string }> = {
-  powerlov: { bg: '#F2D9E0', color: '#C4407A', label: 'POWERLOV' },
-  mysticlov: { bg: '#EDE8FC', color: '#6B3FA0', label: 'MYSTICLOV' },
-  stonelov: { bg: '#FDF5EF', color: '#C4714A', label: 'STONELOV' },
-};
-
-const slides: { badge: BadgeKey; products: Product[] }[] = [
-  {
-    badge: 'powerlov',
-    products: [
-      find(standardProducts, 'hoodie-signature'),
-      find(standardProducts, 'tshirt-statement'),
-      find(standardProducts, 'crewneck-standard'),
-    ],
-  },
-  {
-    badge: 'mysticlov',
-    products: [
-      find(mysticProducts, 'mystic-hoodie-noir'),
-      find(mysticProducts, 'mystic-tshirt-noir'),
-      find(mysticProducts, 'mystic-crewneck-noir'),
-    ],
-  },
-  {
-    badge: 'stonelov',
-    products: [
-      find(bijouxProducts, 'collier-fuchsia-or'),
-      find(bijouxProducts, 'collier-quartz-aventurine'),
-      find(bijouxProducts, 'collier-malachite-corail'),
-    ],
-  },
-];
-
-const Card = ({ product, badgeKey }: { product: Product; badgeKey: BadgeKey }) => {
-  const b = badgeStyles[badgeKey];
-  return (
-    <div className="bg-white rounded-[4px] overflow-hidden flex flex-col" style={{ border: '0.5px solid #E8E4DC' }}>
-      <Link to={`/shop/${product.id}`} className="block relative">
-        <div className="aspect-[3/4] overflow-hidden bg-[#FAF7F2]">
-          <img src={getImage(product.image)} alt={product.name} className="w-full h-full object-cover" loading="lazy" />
-        </div>
-        <span
-          className="absolute top-3 left-3 text-[9px] uppercase tracking-[0.12em] font-medium px-2 py-1"
-          style={{ background: b.bg, color: b.color }}
-        >
-          {b.label}
-        </span>
-      </Link>
-      <h3 className="text-[14px] font-normal text-[#1A1A1A] px-4 pt-3 pb-1">{product.name}</h3>
-      <p className="text-[13px] text-[#5F5E5A] px-4 pb-3">€{product.price}</p>
-      <Link
-        to={`/shop/${product.id}`}
-        className="mt-auto block text-center bg-[#1A1A1A] text-white text-[9px] uppercase tracking-[0.15em] py-3 transition-colors hover:bg-[#E8529A]"
+const Card = ({ product }: { product: Product }) => (
+  <div
+    className="bg-white rounded-[4px] overflow-hidden flex flex-col flex-shrink-0 w-[66%] sm:w-[48%] md:w-[calc((100%-2rem)/3)]"
+    style={{ border: '0.5px solid #E8D8C8' }}
+  >
+    <Link to={`/shop/${product.id}`} className="block relative">
+      <div className="aspect-square overflow-hidden bg-[#FDF5EF]">
+        <img src={getImage(product.image)} alt={product.name} className="w-full h-full object-cover" loading="lazy" />
+      </div>
+      <span
+        className="absolute top-3 left-3 text-[9px] uppercase tracking-[0.12em] font-medium px-2 py-1"
+        style={{ background: '#FDF5EF', color: '#C4714A' }}
       >
-        Découvrir la pièce
-      </Link>
-    </div>
-  );
-};
+        StoneLov
+      </span>
+      {product.badge && (
+        <span
+          className="absolute top-3 right-3 text-[9px] uppercase tracking-[0.12em] font-medium px-2 py-1"
+          style={{ background: '#FDF5EF', color: '#C4714A' }}
+        >
+          {product.badge}
+        </span>
+      )}
+    </Link>
+    <h3 className="text-[13px] font-normal text-[#1A1A1A] px-3.5 pt-2.5 pb-1">{product.name}</h3>
+    <p className="text-[12px] text-[#5F5E5A] px-3.5 pb-2.5">€{product.price}</p>
+    <Link
+      to={`/shop/${product.id}`}
+      className="mt-auto block text-center text-white text-[9px] uppercase tracking-[0.15em] font-medium py-[11px] transition-colors"
+      style={{ background: '#C4714A' }}
+      onMouseEnter={(e) => (e.currentTarget.style.background = '#A55A35')}
+      onMouseLeave={(e) => (e.currentTarget.style.background = '#C4714A')}
+    >
+      Découvrir la pièce
+    </Link>
+  </div>
+);
 
 const CoupsDeCoeurCarousel = () => {
-  const [index, setIndex] = useState(0);
-  const total = slides.length;
-  const go = (i: number) => setIndex((i + total) % total);
+  const products = bijouxProducts.slice(0, 10);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [activeDot, setActiveDot] = useState(0);
+  const totalDots = Math.max(1, products.length - 2); // groups of 3 visible
+
+  const scrollByCards = (dir: 1 | -1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>('[data-card]');
+    if (!card) return;
+    const gap = 16;
+    el.scrollBy({ left: dir * (card.offsetWidth + gap), behavior: 'smooth' });
+  };
+
+  const goToDot = (i: number) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>('[data-card]');
+    if (!card) return;
+    const gap = 16;
+    el.scrollTo({ left: i * (card.offsetWidth + gap), behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const card = el.querySelector<HTMLElement>('[data-card]');
+      if (!card) return;
+      const gap = 16;
+      const i = Math.round(el.scrollLeft / (card.offsetWidth + gap));
+      setActiveDot(Math.min(totalDots - 1, Math.max(0, i)));
+    };
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [totalDots]);
 
   return (
-    <section className="bg-[#FAF7F2] py-20 md:py-24 px-6 md:px-10">
+    <section className="py-20 md:py-24 px-6 md:px-10" style={{ background: '#FDF5EF' }}>
       <div className="max-w-6xl mx-auto text-center">
-        <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-3">Nos coups de coeur</p>
-        <h2 className="text-[22px] font-light text-[#1A1A1A] mb-12">Les pièces du moment</h2>
+        <p className="text-[9px] uppercase tracking-[0.2em] mb-3" style={{ color: '#C4714A' }}>
+          StoneLov · Lancement
+        </p>
+        <h2 className="text-[22px] font-light text-[#1A1A1A] mb-3">Les bijoux du moment</h2>
+        <p className="italic text-[12px] text-[#888780] mb-12">
+          Pierres naturelles · Pièces singulières · Paris
+        </p>
 
         <div className="relative">
-          {/* Arrows */}
           <button
-            onClick={() => go(index - 1)}
+            onClick={() => scrollByCards(-1)}
             aria-label="Précédent"
-            className="absolute left-0 md:-left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#1A1A1A] hover:opacity-60 transition-opacity"
+            className="hidden md:flex absolute -left-2 top-1/2 -translate-y-1/2 z-10 p-2 hover:opacity-60 transition-opacity"
+            style={{ color: '#C4714A' }}
           >
             <ChevronLeft size={28} strokeWidth={1.25} />
           </button>
           <button
-            onClick={() => go(index + 1)}
+            onClick={() => scrollByCards(1)}
             aria-label="Suivant"
-            className="absolute right-0 md:-right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-[#1A1A1A] hover:opacity-60 transition-opacity"
+            className="hidden md:flex absolute -right-2 top-1/2 -translate-y-1/2 z-10 p-2 hover:opacity-60 transition-opacity"
+            style={{ color: '#C4714A' }}
           >
             <ChevronRight size={28} strokeWidth={1.25} />
           </button>
 
-          {/* Track */}
-          <div className="overflow-hidden mx-8 md:mx-10">
-            <div
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${index * 100}%)` }}
-            >
-              {slides.map((slide, i) => (
-                <div key={i} className="w-full flex-shrink-0">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {slide.products.map((p) => (
-                      <Card key={p.id} product={p} badgeKey={slide.badge} />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div
+            ref={scrollerRef}
+            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory md:mx-8 pb-2"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {products.map((p) => (
+              <div key={p.id} data-card className="snap-start">
+                <Card product={p} />
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Dots */}
-        <div className="flex items-center justify-center gap-2 mt-10">
-          {slides.map((_, i) => (
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {Array.from({ length: totalDots }).map((_, i) => (
             <button
               key={i}
-              onClick={() => go(i)}
-              aria-label={`Slide ${i + 1}`}
+              onClick={() => goToDot(i)}
+              aria-label={`Aller à ${i + 1}`}
               className="h-1.5 rounded-full transition-all"
               style={{
-                width: i === index ? 24 : 6,
-                background: i === index ? '#1A1A1A' : '#E8E4DC',
+                width: i === activeDot ? 24 : 6,
+                background: i === activeDot ? '#C4714A' : '#E8D8C8',
               }}
             />
           ))}
         </div>
 
-        {/* Footer link */}
         <Link
-          to="/shop"
-          className="inline-block mt-10 text-[10px] uppercase tracking-[0.15em] text-[#1A1A1A] hover:text-[#E8529A] hover:underline transition-colors"
+          to="/collections/bijoux"
+          className="inline-block mt-10 text-[10px] uppercase tracking-[0.15em] hover:underline transition-all"
+          style={{ color: '#C4714A' }}
         >
-          Voir toute la collection →
+          Voir toute la collection StoneLov →
         </Link>
+
+        <p className="mt-4 italic text-[11px]" style={{ color: '#B4A99A' }}>
+          PowerLov &amp; MysticLov — Bientôt disponibles
+        </p>
       </div>
     </section>
   );
