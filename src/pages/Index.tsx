@@ -131,25 +131,51 @@ const Index = () => {
       </section>
 
       {/* 3. THREE COLLECTIONS */}
-      <section className="grid grid-cols-1 md:grid-cols-3 h-[60vh] md:h-[75vh]">
+      <section className="grid grid-cols-1 md:grid-cols-3">
         {[
-          { src: heroImage, alt: 'Collection PowerLov', label: 'PowerLov', path: '/collections/standards' },
-          { src: mysticCollection, alt: 'Collection MysticLov', label: 'MysticLov', path: '/collections/mystic-lov' },
-          { src: bijouxImage, alt: 'Collection StoneLov', label: 'StoneLov', path: '/collections/bijoux' },
-        ].map((col, i) => (
-          <div key={col.label} className={`relative overflow-hidden ${i > 0 ? 'hidden md:block' : ''}`}>
-            <img src={col.src} alt={col.alt} className="w-full h-full object-cover object-top" />
-            <div className="absolute inset-0 bg-foreground/10" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <Link
-                to={col.path}
-                className="inline-flex items-center gap-3 bg-primary-foreground text-foreground px-8 py-3 text-brand text-[11px] hover:bg-primary-foreground/90 transition-all"
-              >
-                {col.label}
-                <ArrowRight size={12} />
-              </Link>
-            </div>
-          </div>
+          {
+            label: 'PowerLov',
+            badge: 'Éditions limitées',
+            desc: 'Définissez votre standard. Pièces à message fort.',
+            path: '/collections/standards',
+            bg: 'bg-[#FAF7F2]',
+            border: 'border-t-[3px] border-t-[#1A1A1A]',
+            badgeColor: 'text-[#C4407A]',
+          },
+          {
+            label: 'MysticLov',
+            badge: 'Pièce unique · Artisanat',
+            desc: 'Symboles. Guidance. Intuition. Conscience.',
+            path: '/collections/mystic-lov',
+            bg: 'bg-[#F5F0FF]',
+            border: 'border-t-[3px] border-t-[#6B3FA0]',
+            badgeColor: 'text-[#6B3FA0]',
+          },
+          {
+            label: 'StoneLov',
+            badge: 'Pierres naturelles',
+            desc: 'Pièces singulières. Énergie minérale.',
+            path: '/collections/bijoux',
+            bg: 'bg-[#FDF5EF]',
+            border: 'border-t-[3px] border-t-[#C4714A]',
+            badgeColor: 'text-[#C4714A]',
+          },
+        ].map((col) => (
+          <Link
+            key={col.label}
+            to={col.path}
+            className={`group ${col.bg} ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:opacity-90 transition-opacity`}
+          >
+            <p className={`text-[9px] uppercase tracking-[0.12em] font-medium mb-3 ${col.badgeColor}`}>
+              {col.badge}
+            </p>
+            <p className="text-brand text-[13px] text-[#1A1A1A] tracking-[0.15em] mb-2">{col.label}</p>
+            <p className="text-[12px] text-[#888780] mb-6 leading-relaxed">{col.desc}</p>
+            <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#E8529A] group-hover:border-[#E8529A] transition-colors">
+              Découvrir
+              <ArrowRight size={10} />
+            </span>
+          </Link>
         ))}
       </section>
 
