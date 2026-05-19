@@ -24,7 +24,7 @@ export const standardProducts: Product[] = [
     description: 'Molleton lourd 380g. Coupe architecturale.',
     details: 'Structure et confort. Un essentiel pensé pour ceux qui imposent leur standard.',
     image: 'product-hoodie',
-    badge: 'Bestseller',
+    badge: 'BESTSELLER',
   },
   {
     id: 'tshirt-statement',
@@ -83,7 +83,7 @@ export const mysticProducts: Product[] = [
     description: 'Molleton épais. Coupe décontractée unisexe.',
     details: 'Le hoodie signature MysticLov. Confort et présence.',
     image: 'mystic-hoodie-noir',
-    badge: 'Édition limitée',
+    badge: 'EDITION LIMITEE',
   },
   {
     id: 'mystic-crewneck-noir',
@@ -119,7 +119,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'univers sur un t-shirt. Art psychédélique et couleurs vibrantes.',
     image: 'mystic-tshirt-cosmos-model',
     
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-sunshine',
@@ -153,7 +153,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'œil qui voit tout, dans un cœur qui bat. Patch artisanal.',
     image: 'mystic-tshirt-heart-model',
     
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-abstract',
@@ -176,7 +176,7 @@ export const mysticProducts: Product[] = [
     details: 'Un nouveau monde à construire. Graphisme rétro-futuriste et énergie galactique.',
     image: 'mystic-tshirt-newworld-model',
     
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-switchoff',
@@ -199,7 +199,7 @@ export const mysticProducts: Product[] = [
     details: 'Sacré et irrévérence. Une icône revisitée en street art explosif.',
     image: 'mystic-tshirt-madonna-model',
     
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
   },
 ];
 
@@ -214,7 +214,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
     image: 'bijoux-fuchsia-solo',
-    badge: 'Édition limitée',
+    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
@@ -237,7 +237,7 @@ export const bijouxProducts: Product[] = [
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
     image: 'bijoux-labradorite-solo',
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
     gallery: ['bijoux-labradorite-fleurs', 'bijoux-labradorite-tarot'],
     stoneMeaning: 'Labradorite — Pierre de protection et d\'intuition. Elle absorbe les énergies négatives et éveille la clairvoyance. Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle.',
   },
@@ -271,7 +271,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
     image: 'bijoux-malachite-solo',
-    badge: 'Édition limitée',
+    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-malachite-fleurs', 'bijoux-malachite-tarot'],
     stoneMeaning: 'Malachite — Pierre de transformation, elle accompagne les périodes de changement et protège des influences extérieures. Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie et le courage.',
   },
@@ -283,7 +283,7 @@ export const bijouxProducts: Product[] = [
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
     image: 'bijoux-trio-solo',
-    badge: 'Nouveau',
+    badge: 'NOUVEAU',
     gallery: ['bijoux-trio-fleurs', 'bijoux-trio-tarot'],
     stoneMeaning: 'Citrine — Pierre de joie et d\'abondance, elle rayonne d\'énergie solaire et attire la réussite. Améthyste — Pierre de sagesse spirituelle. Malachite — Pierre de transformation et de renouveau.',
   },
@@ -306,7 +306,7 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
     image: 'bijoux-corail-multicolor',
-    badge: 'Édition limitée',
+    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-corail-fleurs', 'bijoux-corail-tarot'],
     stoneMeaning: 'Corail rouge — Pierre de vitalité, elle stimule l\'énergie et la passion. Les pierres multicolores apportent chacune leur vibration : équilibre, joie, protection et créativité.',
   },
