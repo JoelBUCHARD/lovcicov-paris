@@ -50,7 +50,7 @@ const Index = () => {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="text-[13px] italic text-[#888780] mb-10"
         >
-          Par Georgiana · Paris · Pièces uniques · Anti fast-fashion
+          Par Georgiana · Paris · Pièces uniques
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
