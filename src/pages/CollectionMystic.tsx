@@ -21,9 +21,9 @@ const CollectionMystic = () => {
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
         {/* Hero Header — deep black */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#888780] text-white px-6 md:px-10 py-16 md:py-24 mb-16 md:mb-24">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#B5B3AD] text-white px-6 md:px-10 py-16 md:py-24 mb-16 md:mb-24">
           <div className="text-center">
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#C9C4BD] mb-8 font-medium">
+            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE] mb-8 font-medium">
               MYSTICLOV
             </motion.p>
             <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-white">
@@ -68,8 +68,8 @@ const CollectionMystic = () => {
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#888780] mt-20 py-10 px-6 md:px-10 text-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#C9C4BD]">MysticLov · Lovcicov Paris</p>
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#B5B3AD] mt-20 py-10 px-6 md:px-10 text-center">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE]">MysticLov · Lovcicov Paris</p>
         </div>
       </main>
       <Footer />
