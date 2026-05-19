@@ -71,7 +71,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </span>
           )}
         </div>
-        <div className="space-y-1 text-center pb-4 px-3">
+        <div className="space-y-1 text-center pb-4 px-3 mt-auto">
           <h3 className="text-brand text-[11px]">{product.name}</h3>
           <p className="text-sm font-sans text-muted-foreground">€{product.price}</p>
         </div>
