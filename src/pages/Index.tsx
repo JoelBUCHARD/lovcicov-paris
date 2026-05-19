@@ -231,8 +231,8 @@ const Index = () => {
                 src={src}
                 alt={`Instagram @lovcicov.paris ${i + 1}`}
                 loading="lazy"
-                className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
-                  i === 2 || i === 3 ? 'object-contain' : 'object-cover object-[center_20%]'
+                className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                  i === 2 || i === 3 ? 'object-[center_30%]' : 'object-[center_20%]'
                 }`}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
