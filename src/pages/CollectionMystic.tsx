@@ -23,7 +23,7 @@ const CollectionMystic = () => {
         {/* Hero Header — deep black */}
         <div className="bg-[#1A1A1A] border-b-[3px] border-[#B5B3AD] text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
           <div className="text-center">
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE] mb-6 font-medium">
+            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-sm uppercase tracking-[0.25em] text-[#D8D4CE] mb-6 font-medium">
               MYSTICLOV
             </motion.p>
             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={1} className="max-w-lg mx-auto space-y-5">
