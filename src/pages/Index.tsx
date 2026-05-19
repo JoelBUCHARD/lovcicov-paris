@@ -26,26 +26,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Trust bar */}
-      <section className="w-full bg-[#F5F0E8] border-b border-[#E8E4DD]">
-        <div className="flex items-center justify-center gap-3 md:gap-6 py-2.5 px-4 flex-wrap">
-          {[
-            'Livraison offerte dès 150€',
-            'Paiement sécurisé',
-            'Retours sous 14 jours',
-            'Service client disponible',
-          ].map((item, i) => (
-            <div key={item} className="flex items-center gap-3 md:gap-6">
-              {i > 0 && (
-                <span className="hidden md:inline-block w-px h-3 bg-[#C9B99A]" />
-              )}
-              <span className="text-[9px] tracking-[0.15em] uppercase text-[#8B7D6B] font-light whitespace-nowrap">
-                ✦ {item}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
 
 
       {/* 1. HERO — Clean text over warm cream */}
