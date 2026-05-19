@@ -102,7 +102,7 @@ const Navbar = () => {
         >
           <button
             className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia flex items-center gap-1 ${
-              location.pathname === '/manifeste' || location.pathname === '/fondatrice' ? 'opacity-100' : 'opacity-70'
+              location.pathname === '/manifeste' || location.pathname === '/fondatrice' || location.pathname === '/drops' ? 'opacity-100' : 'opacity-70'
             }`}
           >
             Univers
@@ -129,6 +129,12 @@ const Navbar = () => {
                   className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
                 >
                   La Fondatrice
+                </Link>
+                <Link
+                  to="/drops"
+                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  Drops
                 </Link>
               </motion.div>
             )}
@@ -165,6 +171,9 @@ const Navbar = () => {
               </Link>
               <Link to="/fondatrice" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
                 La Fondatrice
+              </Link>
+              <Link to="/drops" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
+                Drops
               </Link>
             </div>
           </motion.div>
