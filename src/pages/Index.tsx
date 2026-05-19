@@ -180,6 +180,33 @@ const Index = () => {
 
 
 
+      {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
+      <section className="bg-[#FDF5EF]">
+        <div className="text-center pt-6 pb-6">
+          <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
+            STONELOV · LANCEMENT
+          </p>
+          <p className="font-sans italic text-[12px] text-[#888780]">
+            Pierres naturelles · Pièces singulières · Paris
+          </p>
+        </div>
+        <div className="px-6 md:px-10 pb-20 md:pb-28">
+          <div className="flex items-center justify-end mb-10">
+            <Link
+              to="/shop"
+              className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
+            >
+              Tout voir
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-10">
+            {featured.slice(0, 6).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PRESS */}
       <section className="py-10 md:py-14 text-center bg-white border-b border-[#E8E4DD]">
         <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-6">
