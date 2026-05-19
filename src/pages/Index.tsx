@@ -306,16 +306,16 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop' },
-          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop' },
-          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-red-50' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-purple-50' },
+          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
         ].map((col, i) => (
           <Link
             key={col.label}
             to={col.path}
             className={`group py-14 md:py-20 px-8 md:px-12 text-center border-b md:border-b-0 border-border ${
               i < 2 ? 'md:border-r' : ''
-            } hover:bg-secondary/50 transition-colors`}
+            } ${col.hoverBg} transition-colors`}
           >
             <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em]">{col.label}</p>
             <p className="text-sm text-muted-foreground/70">{col.desc}</p>
