@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import slide3landscape from '@/assets/slide3-landscape.jpeg';
+import slide1landscape from '@/assets/slide1-landscape.png';
 import slide2landscape from '@/assets/slide2-landscape.jpeg';
 import slide4landscape from '@/assets/slide4-landscape.jpeg';
 
 type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
-  { images: [], landscape: slide3landscape },
+  { images: [], landscape: slide1landscape },
   { images: [], landscape: slide2landscape },
   { images: [], landscape: slide4landscape },
 ];
