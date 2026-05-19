@@ -156,6 +156,18 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* DECORATIVE OVERSIZED LOVCICOV */}
+      <div className="hidden md:block relative overflow-hidden w-full bg-[#FAF7F2]" aria-hidden="true">
+        <div
+          className="text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap select-none pointer-events-none text-center"
+          style={{ fontSize: 'clamp(120px, 18vw, 280px)', fontWeight: 200 }}
+        >
+          LOVCICOV
+        </div>
+      </div>
+
+
+
       {/* PRESS */}
       <section className="py-10 md:py-14 text-center bg-white border-b border-[#E8E4DD]">
         <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-6">
