@@ -49,7 +49,7 @@ const Index = () => {
           transition={{ duration: 1, delay: 0.6 }}
           className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
         >
-          Clothes That Change How You Feel
+          Pas une tendance. Un standard.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
