@@ -6,13 +6,14 @@ import slide1c from '@/assets/slide1-img3.png';
 import slide2a from '@/assets/slide2-img1.jpeg';
 import slide2b from '@/assets/slide2-img2.jpeg';
 import slide2c from '@/assets/slide2-img3.jpeg';
+import slide3landscape from '@/assets/slide3-landscape.jpeg';
 
-type Slide = { images: string[] };
+type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
   { images: [slide1a, slide1b, slide1c] },
   { images: [slide2a, slide2b, slide2c] },
-  { images: [] },
+  { images: [], landscape: slide3landscape },
 ];
 
 const HeroCarousel = () => {
