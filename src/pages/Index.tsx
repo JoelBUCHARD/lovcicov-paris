@@ -105,7 +105,18 @@ const Index = () => {
         </div>
       </section>
 
-
+      {/* FULL-WIDTH TYPOGRAPHIC LOVCICOV */}
+      <section className="hidden md:block w-full bg-[#FAF7F2] py-5 text-center overflow-hidden">
+        <div
+          className="font-[inherit] text-[#1A1A1A] tracking-[0.15em] leading-none"
+          style={{
+            fontSize: 'clamp(80px, 14vw, 220px)',
+            fontWeight: 200,
+          }}
+        >
+          LOVCICOV
+        </div>
+      </section>
 
       {/* 2. MANIFESTO */}
       <section className="px-6 md:px-10 pt-4 md:pt-6 pb-8 md:pb-10 text-center">
