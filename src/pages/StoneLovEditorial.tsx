@@ -6,6 +6,7 @@ import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
 import StoneUniverse from "@/components/StoneUniverse";
+import StoneLovGrid from "@/components/StoneLovGrid";
 
 const BG = "#FAF7F2";
 const INK = "#1A1A1A";
@@ -86,6 +87,9 @@ const StoneLovEditorial = () => {
             </p>
           </div>
         </section>
+
+        {/* PHOTO GRID */}
+        <StoneLovGrid />
 
         {/* BLOCK 3 — SPLIT */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh" }}>
