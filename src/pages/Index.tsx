@@ -100,7 +100,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
+          className="text-white/60 text-[11px] mb-8 tracking-[0.2em]"
         >
           Le Manifeste
         </motion.p>
@@ -110,7 +110,7 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={1}
-          className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em] mb-8 max-w-3xl mx-auto"
+          className="text-white text-lg md:text-2xl tracking-[0.3em] mb-8 max-w-3xl mx-auto"
         >
           Pas une tendance. Un standard.
         </motion.h2>
@@ -120,7 +120,7 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
+          className="text-white/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
         >
           Des vêtements qui reflètent un état d'esprit. Pour ceux qui choisissent 
           leur propre direction et imposent leurs standards.
@@ -134,7 +134,7 @@ const Index = () => {
         >
           <Link
             to="/manifeste"
-            className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+            className="inline-flex items-center gap-3 text-white text-[11px] border-b border-white pb-1 hover:opacity-60 transition-opacity"
           >
             Lire le manifeste
             <ArrowRight size={12} />
@@ -143,20 +143,20 @@ const Index = () => {
       </section>
 
       {/* PRESS */}
-      <section className="py-10 md:py-14 text-center bg-white border-b border-[#E8E4DD]">
-        <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-6">
+      <section className="py-10 md:py-14 text-center bg-[#0A0A0A] border-b border-white/10">>
+        <p className="text-[9px] uppercase tracking-[0.2em] text-white/40 mb-6">
           Vu dans la presse
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6">
           {['Madame Figaro', 'ELLE', 'Vogue'].map((media) => (
             <span
               key={media}
-              className="text-[13px] md:text-[14px] text-[#888780] tracking-[0.08em] font-light"
+              className="text-[13px] md:text-[14px] text-white/60 tracking-[0.08em] font-light"
             >
               {media}
             </span>
           ))}
-          <span className="text-[13px] md:text-[14px] text-[#B4A99A] tracking-[0.08em] font-light italic">
+          <span className="text-[13px] md:text-[14px] text-white/40 tracking-[0.08em] font-light italic">
             — et d&apos;autres
           </span>
         </div>
