@@ -21,7 +21,7 @@ const getBadgeStyles = (collection: string, badge?: string) => {
   const normalizedBadge = badge.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
   if (collection === 'standard') {
-    return 'bg-[#F2D9E0] text-[#C4407A]';
+    return 'bg-[#FDE8E8] text-[#E66060]';
   }
   if (collection === 'mystic') {
     if (normalizedBadge.includes('EDITION LIMITEE')) {

@@ -170,9 +170,9 @@ const Index = () => {
             badge: 'Éditions limitées',
             desc: 'Définissez votre standard. Pièces à message fort.',
             path: '/collections/standards',
-            bg: 'bg-[#FAF7F2]',
-            border: 'border-t-[3px] border-t-[#1A1A1A]',
-            badgeColor: 'text-[#C4407A]',
+            bg: 'bg-[#FDE8E8]',
+            border: 'border-t-[3px] border-t-[#E66060]',
+            badgeColor: 'text-[#E66060]',
           },
           {
             label: 'MysticLov',
@@ -306,7 +306,7 @@ const Index = () => {
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
-          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-[#F0EBE3]' },
+          { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-[#FDE8E8]' },
           { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-[#FDE8E8]' },
           { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
         ].map((col, i) => (
