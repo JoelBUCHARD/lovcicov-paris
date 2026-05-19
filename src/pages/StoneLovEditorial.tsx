@@ -28,7 +28,7 @@ const StoneLovEditorial = () => {
           </Link>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: BORDER }} />
           <Link
-            to="/shop?collection=all"
+            to="/shop?collection=bijoux"
             className="text-white text-[10px] uppercase transition-colors"
             style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
@@ -56,7 +56,7 @@ const StoneLovEditorial = () => {
               Chaque pierre a une raison d'être.
             </h1>
             <Link
-              to="/shop?collection=all"
+              to="/shop?collection=bijoux"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
               style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
