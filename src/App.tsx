@@ -19,6 +19,7 @@ import CollectionMystic from "./pages/CollectionMystic";
 import CollectionBijoux from "./pages/CollectionBijoux";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
+import NewsletterPopup from "./components/NewsletterPopup";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const AppContent = () => {
   return (
     <>
       <ScrollToTop />
+      <NewsletterPopup />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
