@@ -81,7 +81,7 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/shop?collection=mystic"
+          to="/mysticlov"
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
         >
           MysticLov
