@@ -31,7 +31,7 @@ const StoneLovGrid = () => {
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="w-full h-[220px] md:h-[420px] object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
+              className="w-full h-[220px] md:h-[420px] object-contain bg-background transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
             />
           </button>
         ))}
