@@ -150,10 +150,6 @@ const Index = () => {
 
       {/* EDITORIAL — Zara-style oversized logo in front of image */}
       <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center">
-        {/* Editorial label */}
-        <p className="absolute top-6 left-6 md:top-10 md:left-10 z-[4] text-[10px] uppercase tracking-[0.2em] text-[#888780]">
-          Collection 2026
-        </p>
 
         {/* Image */}
         <img
