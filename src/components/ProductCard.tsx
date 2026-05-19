@@ -25,9 +25,9 @@ const getBadgeStyles = (collection: string, badge?: string) => {
   }
   if (collection === 'mystic') {
     if (normalizedBadge.includes('EDITION LIMITEE')) {
-      return 'bg-[#1C1030] text-[#C9A84C]';
+      return 'bg-[#1A1A1A] text-[#E66060]';
     }
-    return 'bg-[#EDE8FC] text-[#6B3FA0]';
+    return 'bg-[#FDE8E8] text-[#E66060]';
   }
   if (collection === 'bijoux') {
     return 'bg-[#FDF5EF] text-[#C4714A]';
