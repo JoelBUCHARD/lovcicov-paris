@@ -24,11 +24,7 @@ const fadeUp = {
 };
 
 const Index = () => {
-  const featured = [
-    ...standardProducts.slice(0, 2),
-    ...mysticProducts.slice(0, 4),
-    ...bijouxProducts.slice(0, 2),
-  ];
+  const featured = bijouxProducts;
 
   return (
     <div className="min-h-screen bg-background">
