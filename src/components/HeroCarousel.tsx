@@ -6,6 +6,8 @@ type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
   { images: [], landscape: slide3landscape },
+  { images: [] },
+  { images: [] },
 ];
 
 const HeroCarousel = () => {
