@@ -179,9 +179,9 @@ const Index = () => {
             badge: 'Pièce unique · Artisanat',
             desc: 'Symboles. Guidance. Intuition. Conscience.',
             path: '/collections/mystic-lov',
-            bg: 'bg-[#F5F0FF]',
-            border: 'border-t-[3px] border-t-[#6B3FA0]',
-            badgeColor: 'text-[#6B3FA0]',
+            bg: 'bg-[#FDE8E8]',
+            border: 'border-t-[3px] border-t-[#E66060]',
+            badgeColor: 'text-[#E66060]',
           },
           {
             label: 'StoneLov',
@@ -307,7 +307,7 @@ const Index = () => {
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
         {[
           { label: 'PowerLov', desc: 'Définissez votre standard.', path: '/shop', hoverBg: 'hover:bg-[#F0EBE3]' },
-          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-purple-50' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/shop', hoverBg: 'hover:bg-[#FDE8E8]' },
           { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
         ].map((col, i) => (
           <Link
