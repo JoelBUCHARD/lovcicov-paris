@@ -26,10 +26,7 @@ const CollectionMystic = () => {
             <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#D8D4CE] mb-6 font-medium">
               MYSTICLOV
             </motion.p>
-            <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8 text-white">
-              MysticLov
-            </motion.h1>
-            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={2} className="max-w-lg mx-auto space-y-5">
+            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={1} className="max-w-lg mx-auto space-y-5">
               <p className="text-white/80 text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
                 Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.
               </p>
