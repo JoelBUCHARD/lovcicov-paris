@@ -201,18 +201,18 @@ const Index = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto justify-items-center">
             {featured.slice(0, 6).map((product, i) => (
-              <ProductCard
+              <div
                 key={product.id}
-                product={product}
-                index={i}
                 className={
                   i === 4
-                    ? "md:col-start-1 md:row-start-2"
+                    ? "md:col-start-1 md:row-start-2 w-full flex justify-center"
                     : i === 5
-                    ? "md:col-start-4 md:row-start-2"
-                    : ""
+                    ? "md:col-start-4 md:row-start-2 w-full flex justify-center"
+                    : "w-full flex justify-center"
                 }
-              />
+              >
+                <ProductCard product={product} index={i} />
+              </div>
             ))}
           </div>
         </div>
