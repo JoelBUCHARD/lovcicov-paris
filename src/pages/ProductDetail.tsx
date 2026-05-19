@@ -16,10 +16,13 @@ const getImage = (key: string) => {
   return match ? match[1] : '';
 };
 
+const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
+
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
+  const [selectedSize, setSelectedSize] = useState('M');
   const { addToCart } = useCart();
 
   const handleAddToCart = () => {
