@@ -7,9 +7,9 @@ import slide3landscape from '@/assets/slide3-landscape.png';
 type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
-  { images: [], landscape: slide1landscape },
-  { images: [], landscape: slide2landscape },
   { images: [], landscape: slide3landscape },
+  { images: [], landscape: slide2landscape },
+  { images: [], landscape: slide1landscape },
 ];
 
 const HeroCarousel = () => {
