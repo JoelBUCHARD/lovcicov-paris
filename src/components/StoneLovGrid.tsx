@@ -11,7 +11,7 @@ const images = [
   { src: grid1, alt: "Collier œil de tigre rose sur sable" },
   { src: grid2, alt: "Collier malachite verte avec pendentif corail rouge" },
   { src: grid3, alt: "Collier jade vert avec pendentif pierre blanche" },
-  { src: talisman, alt: "Collier malachite vert foncé sur sable" },
+  { src: savoirfaire, alt: "Collier malachite vert foncé sur sable" },
   { src: closing, alt: "Collier howlite blanche et turquoise" },
   { src: grid6, alt: "Collier turquoise et corail rouge avec perles" },
 ];
