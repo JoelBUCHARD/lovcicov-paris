@@ -39,7 +39,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[9px] tracking-[0.2em] uppercase text-[#B4A99A] mb-6"
+          className="text-[9px] tracking-[0.2em] uppercase text-white/50 mb-6"
         >
           COLLECTION 2026
         </motion.p>
@@ -47,7 +47,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
+          className="text-[26px] font-light text-white leading-tight mb-4"
         >
           Clothes That Change How You Feel
         </motion.h1>
@@ -55,7 +55,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-[13px] italic text-[#888780] mb-4"
+          className="text-[13px] italic text-white/60 mb-4"
         >
           Par Georgiana · Paris · Pièces uniques
         </motion.p>
@@ -76,7 +76,7 @@ const Index = () => {
           </Link>
           <Link
             to="/fondatrice"
-            className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors"
+            className="inline-flex items-center justify-center bg-transparent text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-white/40 hover:bg-white hover:text-[#0A0A0A] hover:border-white transition-colors"
           >
             Notre histoire
           </Link>
@@ -85,7 +85,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.4 }}
-          className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
+          className="text-[10px] text-white/40 tracking-[0.08em]"
         >
           Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
         </motion.p>
