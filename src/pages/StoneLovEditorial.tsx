@@ -63,6 +63,9 @@ const StoneLovEditorial = () => {
           </div>
         </section>
 
+        {/* L'UNIVERS DES PIERRES */}
+        <StoneUniverse />
+
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden" style={{ height: "90vh" }}>
           <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center" }} />
