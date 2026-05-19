@@ -36,6 +36,7 @@ const AppContent = () => {
   return (
     <>
       <ScrollToTop />
+      <NewsletterPopup />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
