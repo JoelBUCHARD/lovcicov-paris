@@ -2,18 +2,17 @@ import { useState } from "react";
 import grid1 from "@/assets/stonelov/grid-1.jpg";
 import grid2 from "@/assets/stonelov/grid-2.jpg";
 import grid3 from "@/assets/stonelov/grid-3.jpg";
+import grid4 from "@/assets/stonelov/grid-4.jpg";
+import grid5 from "@/assets/stonelov/grid-5.jpg";
 import grid6 from "@/assets/stonelov/grid-6.jpg";
-import talisman from "@/assets/stonelov/talisman.png";
-import savoirfaire from "@/assets/stonelov/savoirfaire.png";
-import closing from "@/assets/stonelov/closing.png";
 
 const images = [
   { src: grid1, alt: "Collier œil de tigre rose sur sable" },
   { src: grid2, alt: "Collier malachite verte avec pendentif corail rouge" },
   { src: grid3, alt: "Collier jade vert avec pendentif pierre blanche" },
-  { src: savoirfaire, alt: "Collier malachite vert foncé sur sable" },
-  { src: closing, alt: "Collier howlite blanche et turquoise" },
-  { src: grid6, alt: "Collier turquoise et corail rouge avec perles" },
+  { src: grid4, alt: "Colliers multicolores en pierres sur rocher" },
+  { src: grid5, alt: "Collier corail rouge sur rocher" },
+  { src: grid6, alt: "Collier turquoise et calcédoine bleue sur rocher" },
 ];
 
 const StoneLovGrid = () => {
