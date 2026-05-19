@@ -20,23 +20,18 @@ const StoneLovGrid = () => {
 
   return (
     <section style={{ backgroundColor: "#FAF7F2", padding: "40px 0" }}>
-      <div
-        className="grid grid-cols-2 md:grid-cols-3"
-        style={{ gap: 6 }}
-      >
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-[4px] md:gap-[6px]">
         {images.map((img, i) => (
           <button
             key={i}
             onClick={() => setLightbox(img.src)}
-            className="overflow-hidden block group"
-            style={{ cursor: "pointer", padding: 0, border: 0, background: "none" }}
+            className="overflow-hidden block group p-0 border-0 bg-transparent cursor-pointer"
           >
             <img
               src={img.src}
               alt={img.alt}
               loading="lazy"
-              className="w-full object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
-              style={{ height: "var(--sl-grid-h, 420px)" }}
+              className="w-full h-[220px] md:h-[420px] object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
             />
           </button>
         ))}
@@ -55,20 +50,6 @@ const StoneLovGrid = () => {
       >
         Chaque collier est unique. Aucune pièce ne se répète.
       </p>
-
-      <style>{`
-        @media (max-width: 767px) {
-          section :global(img) { }
-        }
-      `}</style>
-      <style>{`
-        @media (min-width: 768px) {
-          .sl-grid-img { height: 420px; }
-        }
-        @media (max-width: 767px) {
-          .sl-grid-img { height: 220px; }
-        }
-      `}</style>
 
       {lightbox && (
         <div
