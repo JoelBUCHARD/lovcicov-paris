@@ -152,9 +152,37 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         Expédié sous 48h · Emballage soigné
       </p>
 
-      {/* Description */}
-      <p style={{ ...bodyStyle, marginTop: 32 }}>{product.description}</p>
-      <p style={{ ...bodyStyle, marginTop: 8, marginBottom: 24 }}>{product.details}</p>
+      {/* BLOCK 11 — Cross-sell (remonté) */}
+      <div style={{ marginTop: 32 }}>
+        <p
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 9,
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: TERRA,
+            marginBottom: 16,
+          }}
+        >
+          On porte aussi
+        </p>
+        <div className="grid grid-cols-3 gap-3 mb-10">
+          {crossSell.map((p) => (
+            <Link key={p.id} to={`/shop/${p.id}`} className="block group">
+              <div className="aspect-[3/4] overflow-hidden bg-white mb-2">
+                <img
+                  src={getImage(p.image)}
+                  alt={p.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#1A1A1A", lineHeight: 1.4 }}>{p.name}</p>
+              <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#888780", marginTop: 2 }}>€{p.price}</p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
 
       {/* BLOCKS 7-10 — Collapsibles */}
       <Collapsible title="Histoire de la pierre" highlight>
