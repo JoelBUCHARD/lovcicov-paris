@@ -128,7 +128,7 @@ const ShopifyProductDetail = () => {
               <div className="space-y-4 mb-8">
                 {options.map((option) => (
                   <div key={option.name}>
-                    <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3">{option.name}</p>
+                    <p className="text-[9px] uppercase tracking-[0.15em] text-[#B5B3AD] mb-3">{option.name}</p>
                     <div className="flex flex-wrap gap-2">
                       {option.values.map((value) => {
                         const isSelected = selectedVariant.selectedOptions.some(
@@ -146,7 +146,7 @@ const ShopifyProductDetail = () => {
                             className={`text-[11px] px-3 py-2 border transition-all ${
                               isSelected
                                 ? 'border-[#1A1A1A] text-[#1A1A1A]'
-                                : 'border-[#E8E4DD] text-[#888780] hover:border-[#1A1A1A]'
+                                : 'border-[#E8E4DD] text-[#B5B3AD] hover:border-[#1A1A1A]'
                             }`}
                             style={{ fontFamily: 'Arial, sans-serif' }}
                           >
@@ -175,7 +175,7 @@ const ShopifyProductDetail = () => {
               )}
             </button>
 
-            <p className="text-[11px] text-[#888780] text-center mt-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+            <p className="text-[11px] text-[#B5B3AD] text-center mt-4" style={{ fontFamily: 'Arial, sans-serif' }}>
               Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
             </p>
           </motion.div>

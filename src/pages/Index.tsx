@@ -179,9 +179,9 @@ const Index = () => {
             badge: 'Pièce unique · Artisanat',
             desc: 'Symboles. Guidance. Intuition. Conscience.',
             path: '/collections/mystic-lov',
-            bg: 'bg-[#F0EBE3]',
-            border: 'border-t-[3px] border-t-[#888780]',
-            badgeColor: 'text-[#5F5E5A]',
+            bg: 'bg-[#F7F5F0]',
+            border: 'border-t-[3px] border-t-[#B5B3AD]',
+            badgeColor: 'text-[#8A8985]',
           },
           {
             label: 'StoneLov',
