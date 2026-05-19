@@ -66,7 +66,7 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center justify-center gap-10 py-3 border-b border-border/50">
         <Link
           to="/"
-          className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 ${
+          className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia ${
             location.pathname === '/' ? 'opacity-100' : 'opacity-70'
           }`}
         >
@@ -75,21 +75,21 @@ const Navbar = () => {
 
         <Link
           to="/shop?collection=standard"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia opacity-70"
         >
           PowerLov
         </Link>
 
         <Link
           to="/shop?collection=mystic"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia opacity-70"
         >
           MysticLov
         </Link>
 
         <Link
           to="/shop?collection=bijoux"
-          className="text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 opacity-70"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia opacity-70"
         >
           StoneLov
         </Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
-            className={`text-brand text-[11px] tracking-[0.15em] transition-opacity hover:opacity-60 flex items-center gap-1 ${
+            className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia flex items-center gap-1 ${
               location.pathname === '/manifeste' || location.pathname === '/fondatrice' ? 'opacity-100' : 'opacity-70'
             }`}
           >
