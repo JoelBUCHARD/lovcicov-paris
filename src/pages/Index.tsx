@@ -179,6 +179,58 @@ const Index = () => {
         ))}
       </section>
 
+      {/* INSTAGRAM FEED */}
+      <section className="py-16 md:py-24 text-center bg-background">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-4"
+        >
+          Suivez l'univers Lovcicov
+        </motion.p>
+        <motion.a
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          href="https://www.instagram.com/lovcicov.paris/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] text-[#1A1A1A] hover:text-[#E8529A] transition-colors inline-block mb-10"
+        >
+          @lovcicov.paris
+        </motion.a>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 px-4 md:px-10 max-w-5xl mx-auto mb-10"
+        >
+          {[...Array(6)].map((_, i) => (
+            <div
+              key={i}
+              className="aspect-square bg-[#E8E4DD] hover:bg-[#D5D0C8] transition-colors cursor-pointer"
+            />
+          ))}
+        </motion.div>
+        <motion.a
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          href="https://www.instagram.com/lovcicov.paris/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 hover:text-[#E8529A] hover:border-[#E8529A] transition-colors"
+        >
+          Voir notre Instagram
+          <ArrowRight size={10} />
+        </motion.a>
+      </section>
+
       {/* 3. FEATURED PRODUCTS */}
       <section className="px-6 md:px-10 pb-20 md:pb-28">
         <div className="flex items-center justify-end mb-10">
