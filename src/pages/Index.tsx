@@ -7,8 +7,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
-import ig3 from '@/assets/instagram/ig-3.png';
-import ig4 from '@/assets/instagram/ig-4.png';
+import ig3 from '@/assets/instagram/ig-3.jpg';
+import ig4 from '@/assets/instagram/ig-4.jpg';
 import ig5 from '@/assets/instagram/ig-5.png';
 import ig6 from '@/assets/instagram/ig-6.png';
 
@@ -231,8 +231,8 @@ const Index = () => {
                 src={src}
                 alt={`Instagram @lovcicov.paris ${i + 1}`}
                 loading="lazy"
-                className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                  i === 2 || i === 3 ? 'object-[center_top]' : 'object-[center_20%]'
+                className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
+                  i === 2 || i === 3 ? 'object-contain' : 'object-cover object-[center_20%]'
                 }`}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
