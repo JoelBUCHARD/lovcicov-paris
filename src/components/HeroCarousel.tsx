@@ -38,7 +38,7 @@ const HeroCarousel = () => {
                         <img
                           src={src}
                           alt={`Slide ${i + 1} visuel ${j + 1}`}
-                          className={`w-full h-full ${i === 1 ? 'object-contain' : 'object-cover'}`}
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     ))
