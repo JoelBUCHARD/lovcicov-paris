@@ -196,7 +196,7 @@ const ProductDetail = () => {
                   ? 'bg-[#6B3FA0] hover:bg-[#5432A8]'
                   : product.collection === 'bijoux'
                   ? 'bg-[#C4714A] hover:bg-[#A55A35]'
-                  : 'bg-[#1A1A1A] hover:bg-[#E8529A]'
+                  : 'bg-[#1A1A1A] hover:bg-[#333333]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >

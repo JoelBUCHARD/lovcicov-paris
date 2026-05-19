@@ -70,7 +70,7 @@ const Index = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#E8529A] transition-colors"
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
           >
             Découvrir la collection
           </Link>
@@ -181,7 +181,7 @@ const Index = () => {
             </p>
             <p className="text-brand text-[13px] text-[#1A1A1A] tracking-[0.15em] mb-2">{col.label}</p>
             <p className="text-[12px] text-[#888780] mb-6 leading-relaxed">{col.desc}</p>
-            <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#E8529A] group-hover:border-[#E8529A] transition-colors">
+            <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#666666] group-hover:border-[#666666] transition-colors">
               Découvrir
               <ArrowRight size={10} />
             </span>
@@ -208,7 +208,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] text-[#1A1A1A] hover:text-[#E8529A] transition-colors inline-block mb-10"
+          className="text-[13px] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-10"
         >
           @lovcicov.paris
         </motion.a>
@@ -247,7 +247,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 hover:text-[#E8529A] hover:border-[#E8529A] transition-colors"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 hover:text-[#666666] hover:border-[#666666] transition-colors"
         >
           Voir notre Instagram
           <ArrowRight size={10} />
