@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
+import { bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -24,11 +24,7 @@ const fadeUp = {
 };
 
 const Index = () => {
-  const featured = [
-    ...standardProducts.slice(0, 2),
-    ...mysticProducts.slice(0, 4),
-    ...bijouxProducts.slice(0, 2),
-  ];
+  const featured = bijouxProducts;
 
   return (
     <div className="min-h-screen bg-background">
