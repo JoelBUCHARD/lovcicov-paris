@@ -6,13 +6,14 @@ import slide1c from '@/assets/slide1-img3.png';
 import slide2a from '@/assets/slide2-img1.jpeg';
 import slide2b from '@/assets/slide2-img2.jpeg';
 import slide2c from '@/assets/slide2-img3.jpeg';
+import slide3landscape from '@/assets/slide3-landscape.jpeg';
 
-type Slide = { images: string[] };
+type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
   { images: [slide1a, slide1b, slide1c] },
   { images: [slide2a, slide2b, slide2c] },
-  { images: [] },
+  { images: [], landscape: slide3landscape },
 ];
 
 const HeroCarousel = () => {
@@ -31,28 +32,39 @@ const HeroCarousel = () => {
           >
             {slides.map((slide, i) => (
               <div key={i} className="w-full flex-shrink-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                  {slide.images.length > 0 ? (
-                    slide.images.map((src, j) => (
-                      <div key={j} className="aspect-[3/4] overflow-hidden bg-[#F0EBE3]">
-                        <img
-                          src={src}
-                          alt={`Slide ${i + 1} visuel ${j + 1}`}
-                          className={`w-full h-full ${i === 1 ? 'object-contain' : 'object-cover'}`}
-                        />
-                      </div>
-                    ))
-                  ) : (
-                    [0, 1, 2].map((j) => (
-                      <div
-                        key={j}
-                        className="aspect-[3/4] bg-[#F0EBE3] flex items-center justify-center text-[10px] tracking-[0.2em] uppercase text-[#B4A99A]"
-                      >
-                        Visuel à venir
-                      </div>
-                    ))
-                  )}
-                </div>
+                {slide.landscape ? (
+                  <div className="aspect-[16/9] overflow-hidden bg-[#F0EBE3]">
+                    <img
+                      src={slide.landscape}
+                      alt={`Slide ${i + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    {slide.images.length > 0 ? (
+                      slide.images.map((src, j) => (
+                        <div key={j} className="aspect-[3/4] overflow-hidden bg-[#F0EBE3]">
+                          <img
+                            src={src}
+                            alt={`Slide ${i + 1} visuel ${j + 1}`}
+                            className={`w-full h-full ${i === 1 ? 'object-contain' : 'object-cover'}`}
+                          />
+                        </div>
+                      ))
+                    ) : (
+                      [0, 1, 2].map((j) => (
+                        <div
+                          key={j}
+                          className="aspect-[3/4] bg-[#F0EBE3] flex items-center justify-center text-[10px] tracking-[0.2em] uppercase text-[#B4A99A]"
+                        >
+                          Visuel à venir
+                        </div>
+                      ))
+                    )}
+                  </div>
+                )}
+
               </div>
             ))}
           </div>
