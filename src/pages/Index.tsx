@@ -140,6 +140,26 @@ const Index = () => {
         </motion.div>
       </section>
 
+      {/* PRESS */}
+      <section className="py-10 md:py-14 text-center bg-white border-b border-[#E8E4DD]">
+        <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-6">
+          Vu dans la presse
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6">
+          {['Madame Figaro', 'ELLE', 'Vogue'].map((media) => (
+            <span
+              key={media}
+              className="text-[13px] md:text-[14px] text-[#888780] tracking-[0.08em] font-light"
+            >
+              {media}
+            </span>
+          ))}
+          <span className="text-[13px] md:text-[14px] text-[#B4A99A] tracking-[0.08em] font-light italic">
+            — et d&apos;autres
+          </span>
+        </div>
+      </section>
+
       {/* 3. THREE COLLECTIONS */}
       <section className="grid grid-cols-1 md:grid-cols-3">
         {[
