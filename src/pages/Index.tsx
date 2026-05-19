@@ -34,7 +34,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-16 md:pb-20 text-center">
+      <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ const Index = () => {
 
 
       {/* 2. MANIFESTO */}
-      <section className="px-6 md:px-10 pt-4 md:pt-6 pb-14 md:pb-16 text-center">
+      <section className="px-6 md:px-10 pt-4 md:pt-6 pb-8 md:pb-10 text-center">
         <motion.p
           variants={fadeUp}
           initial="hidden"
