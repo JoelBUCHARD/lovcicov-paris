@@ -5,6 +5,7 @@ import { bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HeroCarousel from '@/components/HeroCarousel';
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
 import ig3 from '@/assets/instagram/ig-3.jpg';
@@ -86,6 +87,10 @@ const Index = () => {
           Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
         </motion.p>
       </section>
+
+      <HeroCarousel />
+
+
 
       {/* 2. MANIFESTO */}
       <section className="px-6 md:px-10 py-20 md:py-28 text-center">
