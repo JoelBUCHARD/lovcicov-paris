@@ -46,7 +46,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
     >
-      <Link to={`/shop/${product.id}`} className="group block">
+      <Link to={`/shop/${product.id}`} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
           <img
             src={mainImage}
@@ -70,7 +70,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </span>
           )}
         </div>
-        <div className="space-y-1 text-center">
+        <div className="space-y-1 text-center pb-4 px-3">
           <h3 className="text-brand text-[11px]">{product.name}</h3>
           <p className="text-sm font-sans text-muted-foreground">€{product.price}</p>
         </div>
