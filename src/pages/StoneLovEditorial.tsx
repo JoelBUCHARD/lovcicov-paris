@@ -66,9 +66,6 @@ const StoneLovEditorial = () => {
             >
               DÉCOUVRIR LA COLLECTION →
             </Link>
-            <p className="text-[11px]" style={{ color: WARM, opacity: 0.7 }}>
-              Pierres naturelles · Pièces singulières · Paris
-            </p>
           </div>
         </section>
 
