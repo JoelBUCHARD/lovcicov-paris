@@ -124,7 +124,7 @@ const StoneLovEditorial = () => {
               Chaque pièce attend la femme qui lui correspond.
             </p>
             <Link
-              to="/stonelov/shop"
+              to="/collections/bijoux"
               className="text-white text-[11px] uppercase transition-colors"
               style={{ backgroundColor: TERRA, padding: "14px 32px", letterSpacing: "0.15em", marginTop: 28 }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
