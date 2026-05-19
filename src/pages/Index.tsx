@@ -277,15 +277,24 @@ const Index = () => {
       </section>
 
       {/* 3. FEATURED PRODUCTS */}
-      <section className="px-6 md:px-10 pb-20 md:pb-28">
-        <div className="flex items-center justify-end mb-10">
-          <Link
-            to="/shop"
-            className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
-          >
-            Tout voir
-          </Link>
+      <section className="bg-[#FDF5EF]">
+        <div className="text-center pt-10 pb-6">
+          <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
+            STONELOV · LANCEMENT
+          </p>
+          <p className="font-sans italic text-[12px] text-[#888780]">
+            Pierres naturelles · Pièces singulières · Paris
+          </p>
         </div>
+        <div className="px-6 md:px-10 pb-20 md:pb-28">
+          <div className="flex items-center justify-end mb-10">
+            <Link
+              to="/shop"
+              className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
+            >
+              Tout voir
+            </Link>
+          </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
           {featured.map((product, i) => (
             <ProductCard key={product.id} product={product} index={i} />
