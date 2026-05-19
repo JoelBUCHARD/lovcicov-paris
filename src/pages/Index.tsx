@@ -199,7 +199,7 @@ const Index = () => {
               Tout voir
             </Link>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 w-full mx-auto justify-items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto justify-items-center">
             {featured.slice(0, 6).map((product, i) => (
               <div
                 key={product.id}
