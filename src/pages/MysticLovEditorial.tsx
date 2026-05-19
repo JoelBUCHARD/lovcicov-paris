@@ -157,6 +157,8 @@ const MysticLovEditorial = () => {
           </Link>
         </div>
       </section>
+      </div>
+      <Footer />
     </div>
   );
 };
