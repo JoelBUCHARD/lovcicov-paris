@@ -77,7 +77,7 @@ const StoneLovEditorial = () => {
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 80 }}>
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
             <h2 className="text-white italic mb-4" style={{ fontSize: "clamp(22px,3vw,28px)", fontWeight: 300 }}>
               Ce n'est pas un bijou. C'est un talisman.
             </h2>
