@@ -237,7 +237,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3 px-4 md:px-10 max-w-5xl mx-auto mb-10"
+          className="grid grid-cols-3 md:grid-cols-6 gap-1 px-2 md:px-4 mb-10"
         >
           {instagramImages.map((src, i) => (
             <a
