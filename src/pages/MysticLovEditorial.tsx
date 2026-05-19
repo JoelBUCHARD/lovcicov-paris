@@ -35,19 +35,24 @@ const MysticLovEditorial = () => {
 
       {/* BLOCK 1 — HERO */}
       <section className="relative w-screen h-screen overflow-hidden">
-        <img src={heroSolo} alt="MysticLov hero" className="absolute inset-0 w-full h-full object-cover" />
+        <img
+          src={heroSolo}
+          alt="MysticLov hero"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center top" }}
+        />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.4) 100%)" }}
+          style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
         />
-        <div className="absolute bottom-0 left-0 p-10 z-10">
+        <div className="absolute bottom-0 left-0 right-0 px-8 md:px-12 pb-12 md:pb-16 z-10">
           <p className="text-[10px] uppercase mb-3" style={{ color: GOLD, letterSpacing: "0.25em" }}>
             MYSTICLOV
           </p>
-          <h1 className="text-white italic mb-3" style={{ fontSize: 32, fontWeight: 300 }}>
+          <h1 className="text-white italic mb-3" style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 300, lineHeight: 1.2 }}>
             La pièce qui vous appartient.
           </h1>
-          <p className="text-white text-[11px]" style={{ opacity: 0.6 }}>
+          <p className="text-white text-[11px]" style={{ opacity: 0.7, letterSpacing: "0.05em" }}>
             Broderie dorée · Pièce unique · Paris
           </p>
         </div>
