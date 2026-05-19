@@ -181,7 +181,7 @@ const Index = () => {
 
 
       {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
-      <section className="bg-[#FDF5EF] pt-16 md:pt-24 pb-10 md:pb-14">
+      <section className="bg-[#FDF5EF] pt-16 md:pt-24">
         <div className="text-center pt-6 pb-6">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
