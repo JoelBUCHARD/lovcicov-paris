@@ -66,7 +66,7 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center justify-center gap-10 py-3 border-b border-border/50">
         <Link
           to="/"
-          className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400 ${
+          className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-gray-400 ${
             location.pathname === '/' ? 'opacity-100' : 'opacity-70'
           }`}
         >
@@ -101,7 +101,7 @@ const Navbar = () => {
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
-            className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400 flex items-center gap-1 ${
+            className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-gray-400 flex items-center gap-1 ${
               location.pathname === '/manifeste' || location.pathname === '/fondatrice' || location.pathname === '/drops' ? 'opacity-100' : 'opacity-70'
             }`}
           >
@@ -153,7 +153,7 @@ const Navbar = () => {
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="flex flex-col px-6 py-8 gap-5">
-              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 Accueil
               </Link>
               <Link to="/shop?collection=standard" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
@@ -165,7 +165,7 @@ const Navbar = () => {
               <Link to="/shop?collection=bijoux" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 StoneLov
               </Link>
-              <p className="text-brand text-[10px] text-muted-foreground/50 tracking-[0.2em] mt-2">Univers</p>
+              <p className="text-brand text-[10px] text-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
                 Manifeste
               </Link>
