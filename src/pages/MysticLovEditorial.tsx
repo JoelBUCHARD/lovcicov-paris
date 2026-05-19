@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import heroSolo from "@/assets/mysticlov/hero-solo.png";
 import seatedRooftop from "@/assets/mysticlov/seated-rooftop.png";
 import groupShot from "@/assets/mysticlov/group.png";
@@ -11,9 +13,11 @@ const BG = "#1A1A1A";
 const MysticLovEditorial = () => {
   return (
     <div style={{ backgroundColor: BG, scrollBehavior: "smooth" }} className="min-h-screen text-white">
+      <Navbar />
+      <div className="pt-[73px]">
       {/* STICKY HEADER */}
       <header
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6"
+        className="sticky top-[73px] left-0 right-0 z-40 flex items-center justify-between px-6"
         style={{ backgroundColor: BG, height: 48 }}
       >
         <Link to="/mysticlov" className="text-white text-[11px] uppercase" style={{ letterSpacing: "0.2em" }}>
@@ -153,6 +157,8 @@ const MysticLovEditorial = () => {
           </Link>
         </div>
       </section>
+      </div>
+      <Footer />
     </div>
   );
 };
