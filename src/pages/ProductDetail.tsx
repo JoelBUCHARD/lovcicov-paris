@@ -7,6 +7,7 @@ import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StoneMeaningBlock from '@/components/StoneMeaningBlock';
+import StoneLovProductPanel from '@/components/StoneLovProductPanel';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -104,6 +105,15 @@ const ProductDetail = () => {
             )}
           </motion.div>
 
+          {product.collection === 'bijoux' ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <StoneLovProductPanel product={product} />
+            </motion.div>
+          ) : (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -111,8 +121,6 @@ const ProductDetail = () => {
             className={`flex flex-col justify-center p-8 md:p-12 ${
               product.collection === 'mystic'
                 ? 'bg-[#F7F5F0]'
-                : product.collection === 'bijoux'
-                ? 'bg-[#FDF5EF]'
                 : 'bg-[#FAF7F2]'
             }`}
           >
@@ -120,8 +128,6 @@ const ProductDetail = () => {
               className={`text-[9px] uppercase tracking-[0.18em] font-medium mb-4 ${
                 product.collection === 'mystic'
                   ? 'text-[#8A8985]'
-                  : product.collection === 'bijoux'
-                  ? 'text-[#C4714A]'
                   : 'text-[#E66060]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
@@ -154,14 +160,6 @@ const ProductDetail = () => {
               {product.details}
             </p>
 
-            {product.collection === 'bijoux' && (
-              <StoneMeaningBlock
-                productName={product.name}
-                productDescription={`${product.description} ${product.details ?? ''}`}
-                fallback={product.stoneMeaning}
-              />
-            )}
-
             {product.colors && product.colors.length > 1 && (
               <div className="mb-8">
                 <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3">Couleurs</p>
@@ -184,44 +182,38 @@ const ProductDetail = () => {
               </div>
             )}
 
-            {product.collection !== 'bijoux' && (
-              <div className="mb-6">
-                <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Taille</p>
-                <div className="flex gap-2">
-                  {SIZES.map((size) => (
-                    <button
-                      key={size}
-                      onClick={() => setSelectedSize(size)}
-                      className={`w-11 h-11 text-[11px] border transition-colors ${
-                        selectedSize === size
-                          ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
-                          : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
-                      }`}
-                      style={{ fontFamily: 'Arial, sans-serif' }}
-                    >
-                      {size}
-                    </button>
-                  ))}
-                </div>
+            <div className="mb-6">
+              <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Taille</p>
+              <div className="flex gap-2">
+                {SIZES.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`w-11 h-11 text-[11px] border transition-colors ${
+                      selectedSize === size
+                        ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
+                        : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
+                    }`}
+                    style={{ fontFamily: 'Arial, sans-serif' }}
+                  >
+                    {size}
+                  </button>
+                ))}
               </div>
-            )}
+            </div>
 
-            {product.collection !== 'bijoux' && (
-              <p
-                className="text-[11px] text-[#C0392B] mb-3"
-                style={{ fontFamily: 'Arial, sans-serif' }}
-              >
-                Plus que 3 en stock
-              </p>
-            )}
+            <p
+              className="text-[11px] text-[#C0392B] mb-3"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              Plus que 3 en stock
+            </p>
 
             <button
               onClick={handleAddToCart}
               className={`text-white px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
                 product.collection === 'mystic'
                   ? 'bg-[#6B3FA0] hover:bg-[#5432A8]'
-                  : product.collection === 'bijoux'
-                  ? 'bg-[#C4714A] hover:bg-[#A55A35]'
                   : 'bg-[#1A1A1A] hover:bg-[#333333]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
@@ -229,18 +221,16 @@ const ProductDetail = () => {
               Ajouter au Panier
             </button>
 
-            {product.collection !== 'bijoux' && (
-              <div
-                className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-[#5F5E5A] mt-4"
-                style={{ fontFamily: 'Arial, sans-serif' }}
-              >
-                <span>🔒 Paiement sécurisé</span>
-                <span className="text-[#C9C4BC]">·</span>
-                <span>📦 Livraison 3-5 jours</span>
-                <span className="text-[#C9C4BC]">·</span>
-                <span>↩ Retours 14 jours</span>
-              </div>
-            )}
+            <div
+              className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-[#5F5E5A] mt-4"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              <span>🔒 Paiement sécurisé</span>
+              <span className="text-[#C9C4BC]">·</span>
+              <span>📦 Livraison 3-5 jours</span>
+              <span className="text-[#C9C4BC]">·</span>
+              <span>↩ Retours 14 jours</span>
+            </div>
 
             <p
               className="text-[11px] text-[#888780] text-center mt-4"
@@ -249,6 +239,7 @@ const ProductDetail = () => {
               Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
             </p>
           </motion.div>
+          )}
         </div>
       </main>
 
