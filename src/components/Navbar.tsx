@@ -101,7 +101,7 @@ const Navbar = () => {
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
-            className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-gray-400 flex items-center gap-1 ${
+            className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-black flex items-center gap-1 ${
               location.pathname === '/manifeste' || location.pathname === '/fondatrice' || location.pathname === '/drops' ? 'opacity-100' : 'opacity-70'
             }`}
           >
