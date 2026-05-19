@@ -27,9 +27,9 @@ const MysticLovEditorial = () => {
         <Link
           to="/mysticlov/shop"
           className="text-white text-[10px] uppercase px-4 py-2"
-          style={{ backgroundColor: ACCENT, letterSpacing: "0.15em" }}
+          style={{ backgroundColor: "#000000", letterSpacing: "0.15em" }}
         >
-          VOIR TOUTE LA COLLECTION →
+          REJOINDRE LE CERCLE →
         </Link>
       </header>
 
