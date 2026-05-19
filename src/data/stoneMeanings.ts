@@ -3,6 +3,7 @@ export interface StoneInfo {
   name: string; // display name uppercase
   color: string; // natural color hex
   meaning: string;
+  symbol?: string; // short symbolic word (transformation, vitalité, etc.)
   patterns: RegExp[]; // patterns to detect in product name/description
 }
 
