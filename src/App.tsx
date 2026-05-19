@@ -12,6 +12,7 @@ import ProductDetail from "./pages/ProductDetail";
 import ShopifyProductDetail from "./pages/ShopifyProductDetail";
 import Manifeste from "./pages/Manifeste";
 import Fondatrice from "./pages/Fondatrice";
+import Drops from "./pages/Drops";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import CollectionStandards from "./pages/CollectionStandards";
@@ -47,6 +48,7 @@ const AppContent = () => {
         <Route path="/collections/bijoux" element={<CollectionBijoux />} />
         <Route path="/manifeste" element={<Manifeste />} />
         <Route path="/univers" element={<Fondatrice />} />
+        <Route path="/drops" element={<Drops />} />
         <Route path="/fondatrice" element={<Fondatrice />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth" element={<Auth />} />
