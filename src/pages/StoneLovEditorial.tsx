@@ -71,16 +71,13 @@ const StoneLovEditorial = () => {
         <StoneUniverse />
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
-        <section className="relative w-screen overflow-hidden" style={{ height: "90vh" }}>
+        <section className="relative w-screen overflow-hidden" style={{ height: "80vh" }}>
           <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center", transform: "scale(1.08)", transformOrigin: "center center" }} />
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 60 }}>
-            <p className="text-[9px] uppercase mb-3" style={{ color: TERRA, letterSpacing: "0.2em" }}>
-              L'ÉNERGIE QUE VOUS PORTEZ
-            </p>
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
             <h2 className="text-white italic mb-4" style={{ fontSize: "clamp(22px,3vw,28px)", fontWeight: 300 }}>
               Ce n'est pas un bijou. C'est un talisman.
             </h2>
