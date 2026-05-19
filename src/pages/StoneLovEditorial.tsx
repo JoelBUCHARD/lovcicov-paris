@@ -5,6 +5,7 @@ import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
+import necklacesRock from "@/assets/stonelov/necklaces-rock.jpg";
 import StoneUniverse from "@/components/StoneUniverse";
 
 const BG = "#FAF7F2";
