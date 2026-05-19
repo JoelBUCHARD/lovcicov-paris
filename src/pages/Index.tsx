@@ -190,7 +190,7 @@ const Index = () => {
             Pierres naturelles · Pièces singulières · Paris
           </p>
         </div>
-        <div className="px-6 md:px-10 pb-20 md:pb-28">
+        <div className="px-6 md:px-10 pb-10 md:pb-14">
           <div className="flex items-center justify-end mb-10">
             <Link
               to="/shop"
