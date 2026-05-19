@@ -114,13 +114,9 @@ const StoneLovEditorial = () => {
         <section className="relative w-screen h-screen overflow-hidden">
           <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center" }} />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
-            <Link
-              to="/manifeste"
-              className="text-[9px] uppercase mb-3 inline-block"
-              style={{ color: TERRA, letterSpacing: "0.25em" }}
-            >
+            <p className="text-[9px] uppercase mb-3" style={{ color: TERRA, letterSpacing: "0.25em" }}>
               VERY SLOW FASHION
-            </Link>
+            </p>
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Portez ce qui vous ressemble.
             </h2>
