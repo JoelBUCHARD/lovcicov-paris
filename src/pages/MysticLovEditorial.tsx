@@ -55,6 +55,13 @@ const MysticLovEditorial = () => {
           <p className="text-white text-[11px]" style={{ opacity: 0.7, letterSpacing: "0.05em" }}>
             Broderie dorée · Pièce unique · Paris
           </p>
+          <Link
+            to="/mysticlov/shop"
+            className="inline-block mt-6 text-white text-[10px] uppercase"
+            style={{ backgroundColor: ACCENT, padding: "12px 28px", letterSpacing: "0.15em" }}
+          >
+            DÉCOUVRIR LA COLLECTION →
+          </Link>
         </div>
       </section>
 
