@@ -228,7 +228,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[13px] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-10"
+          className="text-[16px] tracking-[0.1em] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-10"
         >
           @lovcicov.paris
         </motion.a>
