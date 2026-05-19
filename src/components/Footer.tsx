@@ -9,7 +9,7 @@ const Footer = () => {
       {/* Newsletter */}
       <div className="px-6 md:px-10 py-16 md:py-20 text-center bg-background">
         <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
-        <h3 className="text-2xl md:text-3xl font-medium mb-3">Rejoindre le cercle</h3>
+        <h3 className="text-2xl md:text-3xl font-medium mb-3 text-foreground">Rejoindre le cercle</h3>
         <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
           Soyez les premiers à découvrir les nouvelles collections et les sorties exclusives.
         </p>
