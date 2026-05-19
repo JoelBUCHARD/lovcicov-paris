@@ -34,7 +34,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] py-24 md:py-32 text-center">
+      <section className="w-full bg-[#FAF7F2] py-16 md:py-20 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="text-[13px] italic text-[#888780] mb-10"
+          className="text-[13px] italic text-[#888780] mb-4"
         >
           Par Georgiana · Paris · Pièces uniques
         </motion.p>
@@ -66,7 +66,7 @@ const Index = () => {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex items-center justify-center gap-4 mb-10 mt-10"
+          className="flex items-center justify-center gap-4 mb-6 mt-6"
         >
           <Link
             to="/shop"
@@ -94,7 +94,7 @@ const Index = () => {
 
 
       {/* 2. MANIFESTO */}
-      <section className="px-6 md:px-10 py-20 md:py-28 text-center">
+      <section className="px-6 md:px-10 py-14 md:py-16 text-center">
         <motion.p
           variants={fadeUp}
           initial="hidden"
