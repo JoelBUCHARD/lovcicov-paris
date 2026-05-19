@@ -66,7 +66,7 @@ const Navbar = () => {
       <nav className="hidden md:flex items-center justify-center gap-10 py-3 border-b border-border/50">
         <Link
           to="/"
-          className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-fuchsia ${
+          className={`text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400 ${
             location.pathname === '/' ? 'opacity-100' : 'opacity-70'
           }`}
         >
