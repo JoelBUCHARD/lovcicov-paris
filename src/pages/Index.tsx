@@ -148,15 +148,35 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* DECORATIVE OVERSIZED LOVCICOV */}
-      <div className="hidden md:block relative overflow-hidden w-full bg-[#FAF7F2]" aria-hidden="true">
+      {/* EDITORIAL — Zara-style oversized logo behind image */}
+      <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center">
+        {/* Editorial label */}
+        <p className="absolute top-6 left-6 md:top-10 md:left-10 z-[3] text-[10px] uppercase tracking-[0.2em] text-[#888780]">
+          Collection 2026
+        </p>
+
+        {/* Giant LOVCICOV behind image — desktop only */}
         <div
-          className="text-[#1A1A1A] opacity-[0.08] tracking-[0.04em] leading-none whitespace-nowrap select-none pointer-events-none text-center"
-          style={{ fontSize: 'clamp(120px, 18vw, 280px)', fontWeight: 200 }}
+          aria-hidden="true"
+          className="hidden md:block absolute left-[-20px] bottom-[-20px] z-[1] text-[#1A1A1A] leading-none whitespace-nowrap select-none pointer-events-none"
+          style={{
+            fontFamily: '"Cormorant Garamond", serif',
+            fontSize: 'clamp(160px, 28vw, 420px)',
+            fontWeight: 700,
+            letterSpacing: '0.02em',
+          }}
         >
           LOVCICOV
         </div>
-      </div>
+
+        {/* Image in front */}
+        <img
+          src={editorialStonelov}
+          alt="LOVCICOV — Collection 2026"
+          className="relative z-[2] h-[60vh] md:h-[90vh] w-auto max-w-full object-cover object-top"
+        />
+      </section>
+
 
 
 
