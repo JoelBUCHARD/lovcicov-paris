@@ -212,7 +212,7 @@ const Index = () => {
       </section>
 
       {/* INSTAGRAM FEED */}
-      <section className="py-16 md:py-24 text-center bg-background">
+      <section className="pt-16 md:pt-24 pb-10 md:pb-12 text-center bg-background">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -278,7 +278,7 @@ const Index = () => {
 
       {/* 3. FEATURED PRODUCTS */}
       <section className="bg-[#FDF5EF]">
-        <div className="text-center pt-10 pb-6">
+        <div className="text-center pt-6 pb-6">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
           </p>
