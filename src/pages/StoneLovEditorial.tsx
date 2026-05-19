@@ -57,6 +57,15 @@ const StoneLovEditorial = () => {
             <h1 className="italic mb-3" style={{ color: INK, fontSize: "clamp(24px,4vw,34px)", fontWeight: 300, lineHeight: 1.2 }}>
               Chaque pierre a une raison d'être.
             </h1>
+            <Link
+              to="/stonelov/shop"
+              className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
+              style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
+            >
+              DÉCOUVRIR LA COLLECTION →
+            </Link>
             <p className="text-[11px]" style={{ color: WARM, opacity: 0.7 }}>
               Pierres naturelles · Pièces singulières · Paris
             </p>
