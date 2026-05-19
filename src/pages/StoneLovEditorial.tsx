@@ -28,7 +28,7 @@ const StoneLovEditorial = () => {
           </Link>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: BORDER }} />
           <Link
-            to="/collections/bijoux"
+            to="/shop"
             className="text-white text-[10px] uppercase transition-colors"
             style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
