@@ -88,7 +88,7 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/shop?collection=bijoux"
+          to="/stonelov"
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4654A]"
         >
           StoneLov
@@ -162,7 +162,7 @@ const Navbar = () => {
               <Link to="/mysticlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 MysticLov
               </Link>
-              <Link to="/shop?collection=bijoux" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
+              <Link to="/stonelov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 StoneLov
               </Link>
               <p className="text-brand text-[10px] text-foreground/50 tracking-[0.2em] mt-2">Univers</p>
