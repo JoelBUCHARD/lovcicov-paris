@@ -274,7 +274,7 @@ const Index = () => {
       </section>
 
       {/* 3. FEATURED PRODUCTS */}
-      <section className="bg-[#FDF5EF]">
+      <section className="bg-[#0A0A0A]">
         <div className="text-center pt-6 pb-6">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
