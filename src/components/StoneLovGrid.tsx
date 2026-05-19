@@ -46,7 +46,7 @@ const StoneLovGrid = () => {
           fontSize: 12,
           color: "#B4A99A",
           letterSpacing: "0.08em",
-          padding: "20px 0 40px",
+          padding: "20px 0 16px",
         }}
       >
         Chaque collier est unique. Aucune pièce ne se répète.
