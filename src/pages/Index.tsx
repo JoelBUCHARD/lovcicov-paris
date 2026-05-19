@@ -94,7 +94,7 @@ const Index = () => {
 
 
       {/* 2. MANIFESTO */}
-      <section className="px-6 md:px-10 py-20 md:py-28 text-center">
+      <section className="px-6 md:px-10 py-14 md:py-16 text-center">
         <motion.p
           variants={fadeUp}
           initial="hidden"
