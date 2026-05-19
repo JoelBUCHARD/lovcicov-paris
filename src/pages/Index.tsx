@@ -174,14 +174,14 @@ const Index = () => {
           <Link
             key={col.label}
             to={col.path}
-            className={`group ${col.bg} ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:opacity-90 transition-opacity`}
+            className={`group flex flex-col ${col.bg} ${col.border} py-14 md:py-20 px-8 md:px-12 text-center hover:opacity-90 transition-opacity`}
           >
             <p className={`text-[9px] uppercase tracking-[0.12em] font-medium mb-3 ${col.badgeColor}`}>
               {col.badge}
             </p>
             <p className="text-brand text-[13px] text-[#1A1A1A] tracking-[0.15em] mb-2">{col.label}</p>
-            <p className="text-[12px] text-[#888780] mb-6 leading-relaxed">{col.desc}</p>
-            <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#666666] group-hover:border-[#666666] transition-colors">
+            <p className="text-[12px] text-[#888780] mb-6 leading-relaxed flex-1">{col.desc}</p>
+            <span className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 group-hover:text-[#666666] group-hover:border-[#666666] transition-colors mt-auto">
               Découvrir
               <ArrowRight size={10} />
             </span>
