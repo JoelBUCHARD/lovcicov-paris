@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
+import CoupsDeCoeurCarousel from '@/components/CoupsDeCoeurCarousel';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ig1 from '@/assets/instagram/ig-1.png';
