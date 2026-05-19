@@ -21,9 +21,9 @@ const CollectionMystic = () => {
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
         {/* Hero Header — deep black */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-16 md:py-24 mb-16 md:mb-24">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#888780] text-white px-6 md:px-10 py-16 md:py-24 mb-16 md:mb-24">
           <div className="text-center">
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#E66060] mb-8 font-medium">
+            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-[9px] uppercase tracking-[0.2em] text-[#C9C4BD] mb-8 font-medium">
               MYSTICLOV
             </motion.p>
             <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-white">
@@ -45,7 +45,7 @@ const CollectionMystic = () => {
 
         {/* Separator */}
         <div className="px-6 md:px-10 mb-16 md:mb-24">
-          <div className="max-w-lg mx-auto h-px bg-[#F5D0D0]" />
+          <div className="max-w-lg mx-auto h-px bg-[#E8E4DD]" />
         </div>
 
         {/* Products */}
@@ -61,15 +61,15 @@ const CollectionMystic = () => {
 
         {/* CTA */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-20">
-          <Link to="/shop" className="inline-flex items-center gap-3 bg-[#E66060] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#C94A4A] transition-colors">
+          <Link to="/shop" className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors">
             Voir tous les produits
             <ArrowRight size={12} />
           </Link>
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-20 py-10 px-6 md:px-10 text-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-[#E66060]">MysticLov · Lovcicov Paris</p>
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#888780] mt-20 py-10 px-6 md:px-10 text-center">
+          <p className="text-[9px] uppercase tracking-[0.2em] text-[#C9C4BD]">MysticLov · Lovcicov Paris</p>
         </div>
       </main>
       <Footer />
