@@ -68,7 +68,7 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden" style={{ height: "90vh" }}>
-          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center" }} />
+          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center", transform: "scale(1.08)", transformOrigin: "center center" }} />
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
