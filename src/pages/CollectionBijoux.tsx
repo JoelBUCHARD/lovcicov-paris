@@ -19,9 +19,9 @@ const CollectionBijoux = () => {
   return (
     <div className="min-h-screen bg-[#FDF5EF]">
       <Navbar />
-      <main className="pt-40 md:pt-44 pb-24">
+      <main className="pt-32 md:pt-36 pb-24">
         {/* Hero — aéré, luxe */}
-        <div className="text-center px-6 md:px-10 mb-20 md:mb-28">
+        <div className="text-center px-6 md:px-10 mb-10 md:mb-14">
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -39,28 +39,6 @@ const CollectionBijoux = () => {
           >
             StoneLov
           </motion.h1>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={2}
-            className="max-w-lg mx-auto space-y-6"
-          >
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              La collection StoneLov rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.
-            </p>
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
-            </p>
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Des pièces singulières, destinées à accompagner celles et ceux qui recherchent des objets porteurs de sens et de présence.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Separator */}
-        <div className="px-6 md:px-10 mb-16 md:mb-24">
-          <div className="max-w-lg mx-auto h-px bg-[#E8D8C8]" />
         </div>
 
         {/* Products */}
