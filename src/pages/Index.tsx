@@ -59,11 +59,14 @@ const Index = () => {
         >
           Par Georgiana · Paris · Pièces uniques
         </motion.p>
+
+        <HeroCarousel />
+
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="flex items-center justify-center gap-4 mb-10"
+          className="flex items-center justify-center gap-4 mb-10 mt-10"
         >
           <Link
             to="/shop"
@@ -87,8 +90,6 @@ const Index = () => {
           Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
         </motion.p>
       </section>
-
-      <HeroCarousel />
 
 
 
