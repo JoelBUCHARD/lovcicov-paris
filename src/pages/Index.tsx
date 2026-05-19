@@ -34,7 +34,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] py-24 md:py-32 text-center">
+      <section className="w-full bg-[#FAF7F2] py-16 md:py-20 text-center">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
