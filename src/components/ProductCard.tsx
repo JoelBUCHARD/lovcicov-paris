@@ -45,9 +45,10 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="h-full"
     >
-      <Link to={`/shop/${product.id}`} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
-        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
+      <Link to={`/shop/${product.id}`} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
+        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative shrink-0">
           <img
             src={mainImage}
             alt={product.name}
@@ -70,7 +71,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
             </span>
           )}
         </div>
-        <div className="space-y-1 text-center pb-4 px-3">
+        <div className="space-y-1 text-center pb-4 px-3 mt-auto">
           <h3 className="text-brand text-[11px]">{product.name}</h3>
           <p className="text-sm font-sans text-muted-foreground">€{product.price}</p>
         </div>
