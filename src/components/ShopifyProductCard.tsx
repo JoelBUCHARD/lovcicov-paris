@@ -21,7 +21,7 @@ const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => 
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
     >
-      <Link to={`/product/${node.handle}`} className="group block">
+      <Link to={`/product/${node.handle}`} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
           {mainImage ? (
             <img
