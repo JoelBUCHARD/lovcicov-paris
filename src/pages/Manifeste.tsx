@@ -43,11 +43,11 @@ const Manifeste = () => {
             custom={2}
             className="text-manifeste text-muted-foreground space-y-8"
           >
-            <p>LOVCICOV est né d'une conviction : que ce qu'on choisit de porter dit quelque chose de qui on est — et de qui on veut devenir.</p>
+            <p>LOVCICOV est né d'une conviction : que ce qu'on choisit de porter dit quelque chose de qui on est, et de qui on veut devenir.</p>
             <p>Nous ne faisons pas de la mode. Nous faisons des pièces. Des pièces qui durent, qui racontent, qui vous ressemblent.</p>
-            <p>Chaque bijou a une pierre avec une énergie. Chaque broderie a un symbole avec une intention. Chaque tissu vient d'un artisan avec une histoire. Ce n'est pas de la décoration — c'est de la signification.</p>
+            <p>Chaque bijou a une pierre avec une énergie. Chaque broderie a un symbole avec une intention. Chaque tissu vient d'un artisan avec une histoire. Ce n'est pas de la décoration. C'est de la signification.</p>
             <p>Nous revendiquons le Very Slow Fashion. Le droit de prendre le temps. De bien faire. De livrer quelque chose d'exceptionnel plutôt que quelque chose de rapide.</p>
-            <p>Lovcicov s'adresse aux femmes qui avancent avec intention. Qui refusent le jetable. Qui cherchent des pièces qui leur appartiennent vraiment — pas des pièces de série.</p>
+            <p>Lovcicov s'adresse aux femmes qui avancent avec intention. Qui refusent le jetable. Qui cherchent des pièces qui leur appartiennent vraiment. Pas des pièces de série.</p>
             <p className="text-foreground uppercase tracking-[0.1em] mt-14 text-sm md:text-base whitespace-nowrap">
               LOVCICOV INCARNE UNE MANIÈRE DE VIVRE, PAS UNE TENDANCE.
             </p>
