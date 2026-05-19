@@ -69,14 +69,14 @@ const HeroCarousel = () => {
         <button
           onClick={prev}
           aria-label="Précédent"
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-white/80 hover:bg-white text-[#1A1A1A] transition-colors"
+          className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center text-white/70 hover:text-white transition-colors"
         >
           <ChevronLeft size={18} />
         </button>
         <button
           onClick={next}
           aria-label="Suivant"
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center bg-white/80 hover:bg-white text-[#1A1A1A] transition-colors"
+          className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center text-white/70 hover:text-white transition-colors"
         >
           <ChevronRight size={18} />
         </button>
