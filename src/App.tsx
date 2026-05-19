@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import CollectionStandards from "./pages/CollectionStandards";
 import CollectionMystic from "./pages/CollectionMystic";
 import MysticLovEditorial from "./pages/MysticLovEditorial";
+import StoneLovEditorial from "./pages/StoneLovEditorial";
 import CollectionBijoux from "./pages/CollectionBijoux";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
@@ -48,6 +49,8 @@ const AppContent = () => {
         <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
         <Route path="/mysticlov" element={<MysticLovEditorial />} />
         <Route path="/mysticlov/shop" element={<CollectionMystic />} />
+        <Route path="/stonelov" element={<StoneLovEditorial />} />
+        <Route path="/stonelov/shop" element={<Shop />} />
         <Route path="/collections/bijoux" element={<CollectionBijoux />} />
         <Route path="/manifeste" element={<Manifeste />} />
         <Route path="/univers" element={<Fondatrice />} />
