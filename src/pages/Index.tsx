@@ -216,7 +216,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-4"
+          className="text-[11px] uppercase tracking-[0.2em] text-[#B4A99A] mb-4"
         >
           Suivez l'univers Lovcicov
         </motion.p>
