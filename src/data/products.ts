@@ -24,7 +24,6 @@ export const standardProducts: Product[] = [
     description: 'Molleton lourd 380g, coupe oversize architecturale. Au dos : « STANDARD » brodé. Disponible en 2 coloris. Unisex — taille unique ou S/M/L/XL.',
     details: 'Ce que vous portez parle pour vous. Un manifeste discret pour celles et ceux qui imposent leur propre standard.',
     image: 'product-hoodie',
-    badge: 'UNISEX',
   },
   {
     id: 'tshirt-statement',
@@ -35,7 +34,6 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 240g, silhouette structurée. Au dos : « POWER » sérigraphié. Disponible en 2 coloris. Unisex — taille unique ou S/M/L/XL.',
     details: 'Un mot, une posture. Pour celles et ceux qui choisissent ce qu\'ils affichent.',
     image: 'signature-tshirt',
-    badge: 'UNISEX',
   },
   {
     id: 'crewneck-standard',
@@ -46,7 +44,6 @@ export const standardProducts: Product[] = [
     description: 'Molleton 350g, col rond structuré. Au dos : « THE STANDARD » brodé. Disponible en 2 coloris. Unisex — taille unique ou S/M/L/XL.',
     details: 'Le crewneck essentiel. Coupe nette, présence affirmée, message qui suit ceux qui avancent.',
     image: 'product-shirt',
-    badge: 'UNISEX',
   },
   {
     id: 'ensemble-the-standard',
@@ -56,7 +53,6 @@ export const standardProducts: Product[] = [
     description: 'Pantalon et haut coordonnés, tombé impeccable. Au dos du haut : « DIRECTION » brodé. Disponible en 2 coloris. Unisex — taille unique ou S/M/L/XL.',
     details: 'L\'uniforme moderne de celles et ceux qui choisissent leur propre direction.',
     image: 'product-trousers',
-    badge: 'UNISEX',
   },
 ];
 
