@@ -98,13 +98,21 @@ const CollectionStandards = () => {
           </div>
         </div>
 
+        {/* Secondary claim */}
+        <p
+          className="italic text-center mt-16"
+          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+        >
+          Wear your truth.
+        </p>
+
         {/* CTA */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-12"
         >
           <Link
             to="/shop"
@@ -114,6 +122,14 @@ const CollectionStandards = () => {
             <ArrowRight size={12} />
           </Link>
         </motion.div>
+
+        {/* Secondary claim */}
+        <p
+          className="italic text-center mt-16"
+          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+        >
+          Protected. Guided. Unstoppable.
+        </p>
       </main>
       <Footer />
     </div>
