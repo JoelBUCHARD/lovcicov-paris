@@ -37,25 +37,54 @@ const CollectionStandards = () => {
             custom={1}
             className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-[#1A1A1A]"
           >
-            PowerLov
+            Wear your power.
           </motion.h1>
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={2}
-            className="max-w-lg mx-auto space-y-6"
+            className="mx-auto"
+            style={{ maxWidth: '580px' }}
           >
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              PowerLov incarne la conviction que la vie que vous construisez reflète les standards que vous choisissez.
-            </p>
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Une collection unisex, pensée pour toutes et tous, de 20 à 60 ans. Des pièces aux lignes épurées, à porter comme un manifeste.
-            </p>
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Pour celles et ceux qui avancent avec intention et définissent leur propre direction.
+            <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', lineHeight: 1.7 }}>
+              POWERLOV explore la puissance intérieure à travers des pièces fortes, structurées et profondément alignées. Une énergie calme. Une présence affirmée. Des vêtements pensés pour transformer la posture et révéler la confiance instinctive.
             </p>
           </motion.div>
+
+          {/* Keywords strip */}
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            className="mt-10 overflow-hidden"
+          >
+            <p
+              className="whitespace-nowrap overflow-hidden text-ellipsis md:whitespace-normal"
+              style={{
+                fontSize: '10px',
+                textTransform: 'uppercase',
+                color: '#B4A99A',
+                letterSpacing: '0.16em',
+                lineHeight: 1.9,
+              }}
+            >
+              Puissance · Présence · Alignement · Aura · Force douce · Leadership · Confiance · Impact · Intensité · Magnétisme · Protection · Feu intérieur
+            </p>
+          </motion.div>
+
+          {/* Secondary claim */}
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+            className="italic mt-10"
+            style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+          >
+            Calm is powerful.
+          </motion.p>
         </div>
 
         {/* Products */}
@@ -69,13 +98,21 @@ const CollectionStandards = () => {
           </div>
         </div>
 
+        {/* Secondary claim */}
+        <p
+          className="italic text-center mt-16"
+          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+        >
+          Wear your truth.
+        </p>
+
         {/* CTA */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-12"
         >
           <Link
             to="/shop"
@@ -85,6 +122,14 @@ const CollectionStandards = () => {
             <ArrowRight size={12} />
           </Link>
         </motion.div>
+
+        {/* Secondary claim */}
+        <p
+          className="italic text-center mt-16"
+          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+        >
+          Protected. Guided. Unstoppable.
+        </p>
       </main>
       <Footer />
     </div>

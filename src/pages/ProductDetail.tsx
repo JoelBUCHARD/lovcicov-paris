@@ -140,11 +140,19 @@ const ProductDetail = () => {
               {collectionLabel.toUpperCase()}
             </p>
             <h1
-              className="text-[22px] font-light text-[#1A1A1A] mb-4"
+              className="text-[22px] font-light text-[#1A1A1A] mb-2"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
               {product.name}
             </h1>
+            {product.collection !== 'mystic' && (
+              <p
+                className="italic mb-4"
+                style={{ fontSize: '11px', color: '#888780' }}
+              >
+                Une pièce pensée pour transformer votre posture.
+              </p>
+            )}
             <ColorSwatches product={product} />
             <p
               className="text-[16px] font-normal text-[#1A1A1A] mb-1"
