@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
 
@@ -36,8 +36,10 @@ const getBadgeStyles = (collection: string, badge?: string) => {
 };
 
 const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
+  const location = useLocation();
   const mainImage = getImage(product.image);
   const hoverImage = product.gallery?.[0] ? getImage(product.gallery[0]) : null;
+  const from = `${location.pathname}${location.search}`;
 
   return (
     <motion.div
@@ -47,7 +49,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full w-full"
     >
-      <Link to={`/shop/${product.id}`} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
+      <Link to={`/shop/${product.id}`} state={{ from }} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-3 relative shrink-0">
           <img
             src={mainImage}
