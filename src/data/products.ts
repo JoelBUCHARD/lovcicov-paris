@@ -70,6 +70,7 @@ export const mysticProducts: Product[] = [
     gallery: [
       'mystic-tshirt-love-back',
       'mystic-tshirt-love-detail-2',
+      'mystic-tshirt-love-detail-3',
     ],
     colors: [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
