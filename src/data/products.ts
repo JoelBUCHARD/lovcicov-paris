@@ -157,6 +157,31 @@ export const mysticProducts: Product[] = [
     image: 'mystic-hoodie-love-front',
     gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-3'],
     badge: 'EDITION LIMITEE',
+    colors: [
+      { name: 'Noir', id: 'mystic-hoodie-noir' },
+      { name: 'Natural Raw', id: 'mystic-hoodie-natural' },
+    ],
+  },
+  {
+    id: 'mystic-hoodie-natural',
+    name: 'Hoodie Love',
+    price: 180,
+    collection: 'mystic',
+    subcategory: 'hoodie',
+    description: 'Molleton épais. Coupe décontractée unisexe.',
+    details: 'Le hoodie signature MysticLov. Confort et présence.',
+    image: 'mystic-hoodie-love-natural-front',
+    gallery: [
+      'mystic-hoodie-love-natural-back',
+      'mystic-hoodie-love-natural-detail-1',
+      'mystic-hoodie-love-natural-detail-2',
+      'mystic-hoodie-love-natural-detail-3',
+    ],
+    badge: 'EDITION LIMITEE',
+    colors: [
+      { name: 'Noir', id: 'mystic-hoodie-noir' },
+      { name: 'Natural Raw', id: 'mystic-hoodie-natural' },
+    ],
   },
   {
     id: 'mystic-crewneck-noir',
