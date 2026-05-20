@@ -126,7 +126,7 @@ const MysticLovEditorial = () => {
       {/* BLOCK 3.5 — MOSAIQUE 6 IMAGES */}
       <section className="w-full my-5" style={{ backgroundColor: BG }}>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {[duoRooftop, seatedRooftop, closingJoy, heroSolo, groupShot, seatedRooftop].map((img, i) => (
+          {[duoRooftop, greenTee, closingJoy, heroSolo, groupShot, seatedRooftop].map((img, i) => (
             <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
               <img
                 src={img}
