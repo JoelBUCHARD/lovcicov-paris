@@ -77,6 +77,7 @@ export const mysticProducts: Product[] = [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
       { name: 'Natural Raw', id: 'mystic-tshirt-natural' },
       { name: 'Green Bottle', id: 'mystic-tshirt-green' },
+      { name: 'Rose', id: 'mystic-tshirt-rose' },
     ],
   },
   {
@@ -98,6 +99,7 @@ export const mysticProducts: Product[] = [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
       { name: 'Natural Raw', id: 'mystic-tshirt-natural' },
       { name: 'Green Bottle', id: 'mystic-tshirt-green' },
+      { name: 'Rose', id: 'mystic-tshirt-rose' },
     ],
   },
   {
@@ -119,6 +121,28 @@ export const mysticProducts: Product[] = [
       { name: 'Noir', id: 'mystic-tshirt-noir' },
       { name: 'Natural Raw', id: 'mystic-tshirt-natural' },
       { name: 'Green Bottle', id: 'mystic-tshirt-green' },
+      { name: 'Rose', id: 'mystic-tshirt-rose' },
+    ],
+  },
+  {
+    id: 'mystic-tshirt-rose',
+    name: 'T-Shirt Love',
+    price: 70,
+    collection: 'mystic',
+    subcategory: 'tshirt',
+    description: 'Coton bio certifié. Coupe unisexe.',
+    details: 'Le T-shirt essentiel MysticLov. Doux, conscient, assumé.',
+    image: 'mystic-tshirt-love-rose-front',
+    gallery: [
+      'mystic-tshirt-love-rose-detail-1',
+      'mystic-tshirt-love-rose-detail-2',
+      'mystic-tshirt-love-rose-detail-3',
+    ],
+    colors: [
+      { name: 'Noir', id: 'mystic-tshirt-noir' },
+      { name: 'Natural Raw', id: 'mystic-tshirt-natural' },
+      { name: 'Green Bottle', id: 'mystic-tshirt-green' },
+      { name: 'Rose', id: 'mystic-tshirt-rose' },
     ],
   },
   {
