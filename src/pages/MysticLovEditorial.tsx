@@ -132,6 +132,7 @@ const MysticLovEditorial = () => {
                 src={img}
                 alt={`MysticLov communauté ${i + 1}`}
                 className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: i === 1 ? "center 20%" : "center center" }}
               />
             </div>
           ))}
