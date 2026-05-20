@@ -8,6 +8,7 @@ import closingJoy from "@/assets/mysticlov/closing-joy.png";
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
 import greenTee from "@/assets/mysticlov/green-tee.png";
 import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
+import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
 
 const GOLD = "#C9A84C";
 const ACCENT = "#E66060";
