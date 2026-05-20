@@ -86,7 +86,8 @@ export const mysticProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Molleton épais. Coupe décontractée unisexe.',
     details: 'Le hoodie signature MysticLov. Confort et présence.',
-    image: 'mystic-hoodie-noir',
+    image: 'mystic-hoodie-love-front',
+    gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-2', 'mystic-hoodie-love-detail-3'],
     badge: 'EDITION LIMITEE',
   },
   {
