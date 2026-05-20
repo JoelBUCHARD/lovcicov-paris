@@ -141,6 +141,20 @@ export const mysticProducts: Product[] = [
     ],
   },
   {
+    id: 'mystic-crewneck-natural',
+    name: 'Crewneck Love',
+    price: 120,
+    collection: 'mystic',
+    subcategory: 'crewneck',
+    description: 'Col rond épais. Coton bio traçable.',
+    details: 'Le crewneck MysticLov. Simplicité et conscience.',
+    image: 'mystic-crewneck-love-front',
+    colors: [
+      { name: 'Noir', id: 'mystic-crewneck-noir' },
+      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
+    ],
+  },
+  {
     id: 'mystic-tshirt-namaste',
     name: 'T-Shirt Namaste',
     price: 70,
