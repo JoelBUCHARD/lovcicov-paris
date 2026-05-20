@@ -92,7 +92,7 @@ const StoneLovEditorial = () => {
         <StoneLovGrid />
 
         {/* BLOCK 3 — SPLIT */}
-        <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh", paddingTop: 20, paddingBottom: 20 }}>
+        <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh", paddingTop: 20 }}>
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
             <div className="max-w-md">
               <p className="text-[9px] uppercase mb-6" style={{ color: TERRA, letterSpacing: "0.2em" }}>
