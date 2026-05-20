@@ -11,6 +11,8 @@ const COLOR_HEX: Record<string, string> = {
   white: '#FFFFFF',
   'green bottle': '#2A6670',
   vert: '#2A6670',
+  rose: '#F4C9C9',
+  pink: '#F4C9C9',
 };
 
 const getHex = (name: string) => COLOR_HEX[name.toLowerCase()] ?? '#CCCCCC';
