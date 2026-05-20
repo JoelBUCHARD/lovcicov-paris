@@ -151,12 +151,6 @@ const ProductDetail = () => {
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
               €{product.price}
-            </p>
-              className="text-[16px] font-normal text-[#1A1A1A] mb-1"
-              style={{ fontFamily: 'Arial, sans-serif' }}
-            >
-              €{product.price}
-            </p>
             {product.collection === 'standard' ? (
               <p
                 className="text-[11px] italic text-[#888780] mb-8"
