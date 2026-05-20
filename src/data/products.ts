@@ -192,7 +192,7 @@ export const mysticProducts: Product[] = [
     description: 'Coton bio certifié. Print cosmique multicolore.',
     details: 'L\'univers sur un t-shirt. Art psychédélique et couleurs vibrantes.',
     image: 'mystic-tshirt-cosmos-model',
-    
+    gallery: ['mystic-tshirt-cosmos-back'],
     badge: 'NOUVEAU',
   },
   {
