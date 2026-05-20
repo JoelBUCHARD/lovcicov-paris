@@ -48,7 +48,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       className="h-full w-full"
     >
       <Link to={`/shop/${product.id}`} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
-        <div className="aspect-[3/4] max-h-[280px] overflow-hidden bg-secondary mb-3 relative shrink-0">
+        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-3 relative shrink-0">
           <img
             src={mainImage}
             alt={product.name}
