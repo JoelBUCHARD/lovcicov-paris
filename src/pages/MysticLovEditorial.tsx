@@ -94,7 +94,7 @@ const MysticLovEditorial = () => {
       </section>
 
       {/* BLOCK 3 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-      <section className="relative w-screen overflow-hidden" style={{ height: "100vh", backgroundColor: BG }}>
+      <section className="relative w-screen overflow-hidden my-5" style={{ height: "100vh", backgroundColor: BG }}>
         <img
           src={groupShot}
           alt="La communauté MysticLov"
