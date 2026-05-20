@@ -163,7 +163,7 @@ const Index = () => {
           custom={1}
           className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em] mb-8 max-w-3xl mx-auto"
         >
-          Pas une tendance. Un standard.
+          Pas une tendance. Une manière d'être.
         </motion.h2>
         <motion.p
           variants={fadeUp}
