@@ -56,10 +56,10 @@ const MysticLovEditorial = () => {
             MYSTICLOV
           </p>
           <h1 className="text-white italic mb-3" style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 300, lineHeight: 1.2 }}>
-            La pièce qui vous appartient.
+            Love is my frequency.
           </h1>
-          <p className="text-white text-[11px]" style={{ opacity: 0.7, letterSpacing: "0.05em" }}>
-            Broderie dorée · Pièce unique · Paris
+          <p className="text-white italic text-[13px]" style={{ opacity: 0.8, letterSpacing: "0.04em" }}>
+            A frequency to wear.
           </p>
           <Link
             to="/mysticlov/shop"
@@ -87,13 +87,24 @@ const MysticLovEditorial = () => {
             <h2 className="text-white mb-6" style={{ fontSize: 26, fontWeight: 300 }}>
               Chaque symbole a une raison d'être.
             </h2>
-            <p className="text-white text-[13px]" style={{ opacity: 0.7, lineHeight: 1.9 }}>
-              MysticLov est né d'une conviction : que ce qu'on porte dit quelque chose de qui on est.
-              Ces broderies ne sont pas décoratives. Elles sont intentionnelles.
+            <p
+              className="mx-auto"
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '580px', lineHeight: 1.7, textAlign: 'center' }}
+            >
+              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle. Des créations inspirées par les fréquences, les symboles et l'invisible. Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </p>
-            <div className="my-6 h-px" style={{ width: 40, backgroundColor: ACCENT }} />
-            <p className="text-[11px]" style={{ color: GOLD }}>
-              Broderie dorée sur coton premium. Pièce unique.
+            <div className="my-6 h-px mx-auto" style={{ width: 40, backgroundColor: ACCENT }} />
+            <p
+              className="text-center"
+              style={{
+                fontSize: '10px',
+                textTransform: 'uppercase',
+                color: '#E66060',
+                letterSpacing: '0.16em',
+                lineHeight: 1.9,
+              }}
+            >
+              Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Éveil · Oracle
             </p>
           </div>
         </div>
@@ -117,7 +128,7 @@ const MysticLovEditorial = () => {
               LA COMMUNAUTÉ
             </p>
             <h2 className="text-white mb-5" style={{ fontSize: 30, fontWeight: 300 }}>
-              Portée par celles qui avancent.
+              Spirituality meets style.
             </h2>
             <p className="text-white text-[12px]" style={{ opacity: 0.7, lineHeight: 1.8 }}>
               MysticLov s'adresse aux femmes qui assument. Qui choisissent leurs symboles.
@@ -153,10 +164,10 @@ const MysticLovEditorial = () => {
         />
         <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
           <h2 className="text-white italic mb-3" style={{ fontSize: 40, fontWeight: 200, letterSpacing: "0.05em" }}>
-            Very Slow Fashion.
+            More than fashion.
           </h2>
-          <p className="text-white text-[13px] mb-8" style={{ opacity: 0.6 }}>
-            Fait avec intention. Porté avec sens.
+          <p className="text-white text-[13px] mb-8 italic" style={{ opacity: 0.7 }}>
+            Wear your energy.
           </p>
           <Link
             to="/mysticlov/shop"

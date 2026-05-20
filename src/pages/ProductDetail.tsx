@@ -153,6 +153,14 @@ const ProductDetail = () => {
                 Une pièce pensée pour transformer votre posture.
               </p>
             )}
+            {product.collection === 'mystic' && (
+              <p
+                className="italic mb-4"
+                style={{ fontSize: '11px', color: '#E66060' }}
+              >
+                Un mantra. Une vibration. Une énergie à porter.
+              </p>
+            )}
             <ColorSwatches product={product} />
             <p
               className="text-[16px] font-normal text-[#1A1A1A] mb-1"
