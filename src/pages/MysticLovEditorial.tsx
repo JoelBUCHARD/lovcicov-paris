@@ -138,7 +138,7 @@ const MysticLovEditorial = () => {
 
 
       {/* BLOCK 4 — CLOSING FULL SCREEN */}
-      <section className="relative w-screen h-screen overflow-hidden">
+      <section className="relative w-screen h-screen overflow-hidden my-5">
         <img
           src={closingJoy}
           alt="Very Slow Fashion"
