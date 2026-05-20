@@ -134,6 +134,7 @@ export const mysticProducts: Product[] = [
     details: 'Le T-shirt essentiel MysticLov. Doux, conscient, assumé.',
     image: 'mystic-tshirt-love-rose-front',
     gallery: [
+      'mystic-tshirt-love-rose-back',
       'mystic-tshirt-love-rose-detail-1',
       'mystic-tshirt-love-rose-detail-2',
       'mystic-tshirt-love-rose-detail-3',
