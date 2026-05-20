@@ -76,7 +76,7 @@ const ShopifyProductDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-36 pb-24 px-6 md:px-12">
-        <Link to="/shop?collection=mystic" className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
+        <Link to="/collections/mystic-lov" className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
           ← RETOUR À MYSTICLOV
         </Link>
 
