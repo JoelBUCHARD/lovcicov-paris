@@ -69,7 +69,7 @@ export const mysticProducts: Product[] = [
     image: 'mystic-tshirt-love-front',
     gallery: [
       'mystic-tshirt-love-back',
-      'mystic-tshirt-love-front-packshot',
+      
       'mystic-tshirt-love-detail-1',
       'mystic-tshirt-love-detail-2',
     ],
@@ -88,7 +88,7 @@ export const mysticProducts: Product[] = [
     description: 'Molleton épais. Coupe décontractée unisexe.',
     details: 'Le hoodie signature MysticLov. Confort et présence.',
     image: 'mystic-hoodie-love-front',
-    gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-back-packshot', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-3'],
+    gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-3'],
     badge: 'EDITION LIMITEE',
   },
   {
