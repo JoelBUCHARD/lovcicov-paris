@@ -8,6 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import StoneMeaningBlock from '@/components/StoneMeaningBlock';
 import StoneLovProductPanel from '@/components/StoneLovProductPanel';
+import ColorSwatches from '@/components/ColorSwatches';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -144,6 +145,7 @@ const ProductDetail = () => {
             >
               {product.name}
             </h1>
+            <ColorSwatches product={product} />
             <p
               className="text-[16px] font-normal text-[#1A1A1A] mb-1"
               style={{ fontFamily: 'Arial, sans-serif' }}
@@ -174,27 +176,6 @@ const ProductDetail = () => {
               {product.details}
             </p>
 
-            {product.colors && product.colors.length > 1 && (
-              <div className="mb-8">
-                <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3">Couleurs</p>
-                <div className="flex gap-2">
-                  {product.colors.map((color) => (
-                    <Link
-                      key={color.id}
-                      to={`/shop/${color.id}`}
-                      className={`text-[11px] px-3 py-2 border transition-all ${
-                        color.id === product.id
-                          ? 'border-[#1A1A1A] text-[#1A1A1A]'
-                          : 'border-[#E8E4DD] text-[#888780] hover:border-[#1A1A1A]'
-                      }`}
-                      style={{ fontFamily: 'Arial, sans-serif' }}
-                    >
-                      {color.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
 
             <div className="mb-6">
               <p className="text-[9px] uppercase tracking-[0.15em] text-[#888780] mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>Taille</p>
