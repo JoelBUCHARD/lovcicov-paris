@@ -36,7 +36,7 @@ const Footer = () => {
       {/* Links */}
       <div className="border-t border-border px-6 md:px-10 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link to="/" className="text-brand-lg text-sm tracking-[0.3em]">LOVCICOV</Link>
+          <Link to="/"><img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" /></Link>
           
           <div className="flex flex-wrap items-center justify-center gap-6">
             <Link to="/shop" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
