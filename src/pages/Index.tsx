@@ -52,17 +52,27 @@ const Index = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
+            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-3"
           >
-            Clothes That Change How You Feel
+            Presence over appearance.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-[13px] italic text-[#888780] mb-4"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-[15px] italic mb-5"
+            style={{ color: '#888780' }}
           >
-            Par Georgiana · Paris · Pièces uniques
+            Clothes That Change How You Feel
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.95 }}
+            className="mx-auto mb-6"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '600px', lineHeight: 1.6 }}
+          >
+            LOVCICOV explore le lien entre la mode, l'énergie, l'émotion et la transformation intérieure à travers des pièces pensées comme des talismans contemporains.
           </motion.p>
 
           <HeroCarousel />
