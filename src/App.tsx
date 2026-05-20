@@ -26,11 +26,52 @@ import NewsletterPopup from "./components/NewsletterPopup";
 
 const queryClient = new QueryClient();
 
+// Pages whose scroll position should be remembered when navigating away
+// (e.g. clicking a product) and restored on return (e.g. browser back).
+const SCROLL_MEMORY_PATHS = [
+  '/collections/mystic-lov',
+  '/collections/powerlov',
+  '/collections/stonelov',
+  '/collections/standards',
+  '/collections/bijoux',
+  '/mysticlov/shop',
+  '/stonelov/shop',
+  '/shop',
+];
+
+const scrollKey = (pathname: string) => `scroll-memory:${pathname}`;
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
+  const prevPathname = (ScrollToTop as any)._prev as string | undefined;
+
   useEffect(() => {
+    // Save scroll position of the page we are leaving, if it's tracked.
+    if (prevPathname && prevPathname !== pathname && SCROLL_MEMORY_PATHS.includes(prevPathname)) {
+      try {
+        sessionStorage.setItem(scrollKey(prevPathname), String(window.scrollY));
+      } catch {}
+    }
+    (ScrollToTop as any)._prev = pathname;
+
+    // If the new page is tracked and has a saved position, restore it.
+    if (SCROLL_MEMORY_PATHS.includes(pathname)) {
+      const saved = (() => {
+        try { return sessionStorage.getItem(scrollKey(pathname)); } catch { return null; }
+      })();
+      if (saved !== null) {
+        const y = parseInt(saved, 10) || 0;
+        // Defer to next frame so content has a chance to mount.
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior });
+          try { sessionStorage.removeItem(scrollKey(pathname)); } catch {}
+        });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
   }, [pathname]);
+
   return null;
 };
 
