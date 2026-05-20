@@ -10,6 +10,7 @@ import greenTee from "@/assets/mysticlov/green-tee.png";
 import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
 import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
 import hoodieMadonnaParis from "@/assets/mysticlov/hoodie-madonna-paris.png";
+import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
 
 const GOLD = "#C9A84C";
 const ACCENT = "#E66060";
