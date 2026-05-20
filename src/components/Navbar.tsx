@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
+import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,10 +35,10 @@ const Navbar = () => {
           </div>
 
           {/* Center logo */}
-          <Link to="/" className="flex flex-col items-center text-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <span className="text-brand-lg text-lg md:text-xl tracking-[0.2em] text-foreground">LOVCICOV</span>
-            <span className="text-[8px] md:text-[9px] tracking-[0.2em] text-muted-foreground mt-[-2px]">PARIS</span>
+          <Link to="/" className="flex items-center justify-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-10 w-auto" />
           </Link>
+
 
           {/* Right icons */}
           <div className="flex items-center gap-4 w-40 justify-end">
