@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
 import { useCart } from '@/context/CartContext';
@@ -22,6 +22,7 @@ const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const product = products.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('M');
@@ -52,6 +53,8 @@ const ProductDetail = () => {
     product.collection === 'mystic' ? 'MysticLov'
     : product.collection === 'bijoux' ? 'StoneLov'
     : 'PowerLov';
+  const fallbackBackLink = `/shop?collection=${product.collection}`;
+  const backLink = typeof location.state?.from === 'string' ? location.state.from : fallbackBackLink;
 
   // Build all images: main + gallery
   const allImages = [product.image, ...(product.gallery || [])];
@@ -62,7 +65,7 @@ const ProductDetail = () => {
 
       <main className="pt-36 pb-24 px-6 md:px-12">
         <Link
-          to={`/shop?collection=${product.collection}`}
+          to={backLink}
           className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block"
         >
           ← Retour à {collectionLabel}

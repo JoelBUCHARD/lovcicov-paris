@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ShopifyProduct } from '@/lib/shopify';
 
@@ -8,11 +8,13 @@ interface ShopifyProductCardProps {
 }
 
 const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => {
+  const location = useLocation();
   const node = product.node;
   const mainImage = node.images.edges[0]?.node.url;
   const hoverImage = node.images.edges[1]?.node.url;
   const price = parseFloat(node.priceRange.minVariantPrice.amount).toFixed(0);
   const currency = node.priceRange.minVariantPrice.currencyCode === 'EUR' ? '€' : node.priceRange.minVariantPrice.currencyCode;
+  const from = `${location.pathname}${location.search}`;
 
   return (
     <motion.div
@@ -21,7 +23,7 @@ const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => 
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
     >
-      <Link to={`/product/${node.handle}`} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
+      <Link to={`/product/${node.handle}`} state={{ from }} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
           {mainImage ? (
             <img
