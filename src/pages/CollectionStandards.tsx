@@ -79,7 +79,7 @@ const CollectionStandards = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
+            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#E63946] transition-colors"
           >
             Voir tous les produits
             <ArrowRight size={12} />
