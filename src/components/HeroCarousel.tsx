@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import slide1landscape from '@/assets/hero-slide-3.png';
 import slide2landscape from '@/assets/slide2-landscape.jpeg';
@@ -17,6 +17,14 @@ const HeroCarousel = () => {
 
   const prev = () => setActive((a) => (a - 1 + slides.length) % slides.length);
   const next = () => setActive((a) => (a + 1) % slides.length);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((a) => (a + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
     <section className="w-full bg-[#FAF7F2]">
