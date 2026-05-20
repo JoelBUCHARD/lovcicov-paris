@@ -144,11 +144,11 @@ const StoneLovEditorial = () => {
             STONELOV · Pierres naturelles · Pièces uniques · Paris
           </p>
           <div className="flex justify-center gap-6 text-[11px] uppercase" style={{ letterSpacing: "0.15em" }}>
-            <Link to="/powerlov" style={{ color: WARM, opacity: 0.5 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
+            <Link to="/powerlov" style={{ color: WARM, opacity: 0.8 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
               PowerLov
             </Link>
             <span style={{ color: WARM, opacity: 0.4 }}>·</span>
-            <Link to="/mysticlov" style={{ color: WARM, opacity: 0.5 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
+            <Link to="/mysticlov" style={{ color: WARM, opacity: 0.8 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
               MysticLov
             </Link>
           </div>
