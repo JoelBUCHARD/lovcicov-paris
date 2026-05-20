@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
