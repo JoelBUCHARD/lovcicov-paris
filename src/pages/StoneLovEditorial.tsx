@@ -116,6 +116,7 @@ const StoneLovEditorial = () => {
         </section>
 
         {/* BLOCK 4 — CLOSING */}
+        <div style={{ height: 20, backgroundColor: BG }} />
         <section className="relative w-screen h-screen overflow-hidden">
           <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
