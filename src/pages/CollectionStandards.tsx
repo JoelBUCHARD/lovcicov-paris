@@ -26,7 +26,7 @@ const CollectionStandards = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[9px] uppercase tracking-[0.2em] text-[#E66060] mb-8 font-medium"
+            className="text-[9px] uppercase tracking-[0.2em] text-[#E63946] mb-8 font-medium"
           >
             POWERLOV
           </motion.p>
