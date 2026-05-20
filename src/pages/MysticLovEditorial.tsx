@@ -34,7 +34,7 @@ const MysticLovEditorial = () => {
       </header>
 
       {/* BLOCK 1 — HERO */}
-      <section className="relative w-screen h-screen overflow-hidden">
+      <section className="relative w-screen h-screen overflow-hidden my-5">
         <img
           src={heroSolo}
           alt="MysticLov hero"
