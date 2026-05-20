@@ -29,6 +29,9 @@ const queryClient = new QueryClient();
 // Pages whose scroll position should be remembered when navigating away
 // (e.g. clicking a product) and restored on return (e.g. browser back).
 const SCROLL_MEMORY_PATHS = [
+  '/mysticlov',
+  '/stonelov',
+  '/powerlov',
   '/collections/mystic-lov',
   '/collections/powerlov',
   '/collections/stonelov',
