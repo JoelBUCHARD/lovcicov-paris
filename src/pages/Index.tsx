@@ -52,17 +52,27 @@ const Index = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-4"
+            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-3"
           >
-            Clothes That Change How You Feel
+            Presence over appearance.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="text-[13px] italic text-[#888780] mb-4"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="text-[15px] italic mb-5"
+            style={{ color: '#888780' }}
           >
-            Par Georgiana · Paris · Pièces uniques
+            Clothes That Change How You Feel
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.95 }}
+            className="mx-auto mb-6"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '600px', lineHeight: 1.6 }}
+          >
+            LOVCICOV explore le lien entre la mode, l'énergie, l'émotion et la transformation intérieure à travers des pièces pensées comme des talismans contemporains.
           </motion.p>
 
           <HeroCarousel />
@@ -97,6 +107,41 @@ const Index = () => {
         </div>
       </section>
 
+      {/* KEYWORDS STRIP */}
+      <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
+        <div className="whitespace-nowrap overflow-hidden">
+          <div className="inline-flex animate-[marquee_45s_linear_infinite]" style={{ animationName: 'marquee' }}>
+            {[0, 1].map((dup) => (
+              <span
+                key={dup}
+                className="inline-block px-6"
+                style={{
+                  fontSize: '10px',
+                  textTransform: 'uppercase',
+                  color: '#B4A99A',
+                  letterSpacing: '0.18em',
+                }}
+              >
+                Présence · Énergie · Fréquence · Alignement · Luxe contemporain · Intuition · Transformation · Élégance instinctive · Émotion · Matière · Spiritualité moderne · Aura · Talisman · Luxe avec âme&nbsp;·&nbsp;
+              </span>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+        `}</style>
+      </section>
+
+      {/* Secondary claim */}
+      <section className="text-center py-8 bg-background">
+        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
+          Luxury with soul.
+        </p>
+      </section>
+
 
 
       {/* 2. MANIFESTO */}
@@ -118,7 +163,7 @@ const Index = () => {
           custom={1}
           className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em] mb-8 max-w-3xl mx-auto"
         >
-          Pas une tendance. Un standard.
+          Pas une tendance. Une manière d'être.
         </motion.h2>
         <motion.p
           variants={fadeUp}
@@ -177,6 +222,13 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Secondary claim */}
+      <section className="text-center py-8 bg-white">
+        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
+          The art of presence.
+        </p>
+      </section>
+
 
 
 
@@ -205,6 +257,13 @@ const Index = () => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Secondary claim */}
+      <section className="text-center py-8 bg-[#FDF5EF]">
+        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
+          Style with intention.
+        </p>
       </section>
 
 
@@ -295,6 +354,13 @@ const Index = () => {
             </span>
           </Link>
         ))}
+      </section>
+
+      {/* Secondary claim */}
+      <section className="text-center py-8 bg-background">
+        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
+          Designed for transformation.
+        </p>
       </section>
 
       {/* PRESS */}
