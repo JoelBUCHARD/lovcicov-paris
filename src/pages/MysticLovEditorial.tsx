@@ -122,13 +122,7 @@ const MysticLovEditorial = () => {
       </section>
 
       {/* BLOCK 3.5 — MOSAIQUE 6 IMAGES */}
-      <section className="w-full px-6 md:px-12 py-16" style={{ backgroundColor: BG }}>
-        <p
-          className="text-center text-[10px] uppercase mb-8"
-          style={{ color: GOLD, letterSpacing: "0.25em" }}
-        >
-          LE CERCLE
-        </p>
+      <section className="w-full" style={{ backgroundColor: BG }}>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
           {[groupShot, seatedRooftop, closingJoy, heroSolo, groupShot, seatedRooftop].map((img, i) => (
             <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
