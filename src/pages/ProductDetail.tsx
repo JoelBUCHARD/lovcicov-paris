@@ -145,7 +145,13 @@ const ProductDetail = () => {
             >
               {product.name}
             </h1>
+            <ColorSwatches product={product} />
             <p
+              className="text-[16px] font-normal text-[#1A1A1A] mb-1"
+              style={{ fontFamily: 'Arial, sans-serif' }}
+            >
+              €{product.price}
+            </p>
               className="text-[16px] font-normal text-[#1A1A1A] mb-1"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
