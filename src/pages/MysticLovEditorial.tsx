@@ -7,6 +7,7 @@ import groupShot from "@/assets/mysticlov/group.png";
 import closingJoy from "@/assets/mysticlov/closing-joy.png";
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
 import greenTee from "@/assets/mysticlov/green-tee.png";
+import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
 
 const GOLD = "#C9A84C";
 const ACCENT = "#E66060";
@@ -126,7 +127,7 @@ const MysticLovEditorial = () => {
       {/* BLOCK 3.5 — MOSAIQUE 6 IMAGES */}
       <section className="w-full my-5" style={{ backgroundColor: BG }}>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-          {[duoRooftop, greenTee, closingJoy, heroSolo, groupShot, seatedRooftop].map((img, i) => (
+          {[duoRooftop, greenTee, hoodieRooftop, heroSolo, groupShot, seatedRooftop].map((img, i) => (
             <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
               <img
                 src={img}
