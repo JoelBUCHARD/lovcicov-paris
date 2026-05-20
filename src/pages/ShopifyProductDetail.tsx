@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Loader2 } from 'lucide-react';
 import { fetchShopifyProductByHandle, type ShopifyProduct } from '@/lib/shopify';
@@ -10,6 +10,7 @@ import Footer from '@/components/Footer';
 
 const ShopifyProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
+  const location = useLocation();
   const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
@@ -71,12 +72,13 @@ const ShopifyProductDetail = () => {
   };
 
   const price = parseFloat(selectedVariant.price.amount).toFixed(0);
+  const backLink = typeof location.state?.from === 'string' ? location.state.from : '/collections/mystic-lov';
 
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-36 pb-24 px-6 md:px-12">
-        <Link to="/collections/mystic-lov" className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
+        <Link to={backLink} className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
           ← RETOUR À MYSTICLOV
         </Link>
 
