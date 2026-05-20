@@ -9,8 +9,8 @@ const COLOR_HEX: Record<string, string> = {
   'écru': '#DDD3C0',
   blanc: '#F5F2EB',
   white: '#FFFFFF',
-  'green bottle': '#1F4D3A',
-  vert: '#1F4D3A',
+  'green bottle': '#2A6670',
+  vert: '#2A6670',
 };
 
 const getHex = (name: string) => COLOR_HEX[name.toLowerCase()] ?? '#CCCCCC';
