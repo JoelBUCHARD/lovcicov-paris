@@ -145,7 +145,7 @@ const ProductDetail = () => {
             >
               {product.name}
             </h1>
-            {product.collection !== 'mystic' && product.collection !== 'bijoux' && (
+            {product.collection !== 'mystic' && (product.collection as string) !== 'bijoux' && (
               <p
                 className="italic mb-4"
                 style={{ fontSize: '11px', color: '#888780' }}
