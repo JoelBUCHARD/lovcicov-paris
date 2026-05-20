@@ -131,7 +131,7 @@ const ProductDetail = () => {
               className={`text-[9px] uppercase tracking-[0.18em] font-medium mb-4 ${
                 product.collection === 'mystic'
                   ? 'text-[#8A8985]'
-                  : 'text-[#E66060]'
+                  : 'text-[#E63946]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
@@ -144,11 +144,21 @@ const ProductDetail = () => {
               {product.name}
             </h1>
             <p
-              className="text-[16px] font-normal text-[#1A1A1A] mb-8"
+              className="text-[16px] font-normal text-[#1A1A1A] mb-1"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
               €{product.price}
             </p>
+            {product.collection === 'standard' ? (
+              <p
+                className="text-[11px] italic text-[#888780] mb-8"
+                style={{ fontFamily: 'Arial, sans-serif' }}
+              >
+                Qualite premium — coton 280g double fil, coupe oversize
+              </p>
+            ) : (
+              <div className="mb-7" />
+            )}
 
             <p
               className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-2"
@@ -217,7 +227,7 @@ const ProductDetail = () => {
               className={`text-white px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
                 product.collection === 'mystic'
                   ? 'bg-[#6B3FA0] hover:bg-[#5432A8]'
-                  : 'bg-[#1A1A1A] hover:bg-[#333333]'
+                  : 'bg-[#1A1A1A] hover:bg-[#E63946]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >

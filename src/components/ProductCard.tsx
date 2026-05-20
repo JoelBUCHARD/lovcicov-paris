@@ -21,7 +21,16 @@ const getBadgeStyles = (collection: string, badge?: string) => {
   const normalizedBadge = badge.toUpperCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
   if (collection === 'standard') {
-    return 'bg-[#FDE8E8] text-[#E66060]';
+    if (normalizedBadge.includes('UNISEX')) {
+      return 'bg-[#F5F3EE] text-[#1A1A1A] border border-[#1A1A1A]';
+    }
+    if (normalizedBadge.includes('EDITION LIMITEE')) {
+      return 'bg-[#1A1A1A] text-white';
+    }
+    if (normalizedBadge.includes('NOUVEAU')) {
+      return 'bg-[#FDE8E8] text-[#E63946]';
+    }
+    return 'bg-[#FDE8E8] text-[#E63946]';
   }
   if (collection === 'mystic') {
     if (normalizedBadge.includes('EDITION LIMITEE')) {

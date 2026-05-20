@@ -26,7 +26,7 @@ const CollectionStandards = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[9px] uppercase tracking-[0.2em] text-[#E66060] mb-8 font-medium"
+            className="text-[9px] uppercase tracking-[0.2em] text-[#E63946] mb-8 font-medium"
           >
             POWERLOV
           </motion.p>
@@ -47,13 +47,13 @@ const CollectionStandards = () => {
             className="max-w-lg mx-auto space-y-6"
           >
             <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              PowerLov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.
+              PowerLov incarne la conviction que la vie que vous construisez reflète les standards que vous choisissez.
             </p>
             <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.
+              Une collection unisex, pensée pour toutes et tous, de 20 à 60 ans. Des pièces aux lignes épurées, à porter comme un manifeste.
             </p>
             <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.
+              Pour celles et ceux qui avancent avec intention et définissent leur propre direction.
             </p>
           </motion.div>
         </div>
@@ -79,7 +79,7 @@ const CollectionStandards = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
+            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#E63946] transition-colors"
           >
             Voir tous les produits
             <ArrowRight size={12} />
