@@ -135,51 +135,69 @@ const Shop = () => {
             </motion.div>
           )}
 
-          {/* Shopify products (MysticLov) */}
+          {/* PowerLov */}
+          {active === 'all' && standardProducts.length > 0 && (
+            <section className="mb-16">
+              <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">PowerLov</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+                {standardProducts.map((product, i) => (
+                  <ProductCard key={product.id} product={product} index={i} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* MysticLov */}
           {showShopify && (
             <>
               {active === 'all' && shopifyProducts.length > 0 && (
-                <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">MysticLov</h3>
+                <section className="mb-16">
+                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">MysticLov</h3>
+                  {shopifyLoading ? (
+                    <div className="flex justify-center py-12">
+                      <Loader2 className="animate-spin text-muted-foreground" size={24} />
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+                      {shopifyProducts.map((product, i) => (
+                        <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      ))}
+                    </div>
+                  )}
+                </section>
               )}
-              {shopifyLoading ? (
-                <div className="flex justify-center py-12">
-                  <Loader2 className="animate-spin text-muted-foreground" size={24} />
-                </div>
-              ) : (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 mb-12">
-                  {shopifyProducts.map((product, i) => (
-                    <ShopifyProductCard key={product.node.id} product={product} index={i} />
-                  ))}
-                </div>
+              {active === 'mystic' && (
+                <>
+                  {shopifyLoading ? (
+                    <div className="flex justify-center py-12">
+                      <Loader2 className="animate-spin text-muted-foreground" size={24} />
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+                      {shopifyProducts.map((product, i) => (
+                        <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      ))}
+                    </div>
+                  )}
+                </>
               )}
             </>
           )}
 
-          {/* Local products (PowerLov / StoneLov) */}
-          {active === 'all' ? (
-            <>
-              {standardProducts.length > 0 && (
-                <section className="mb-16">
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">PowerLov</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {standardProducts.map((product, i) => (
-                      <ProductCard key={product.id} product={product} index={i} />
-                    ))}
-                  </div>
-                </section>
-              )}
-              {bijouxProducts.length > 0 && (
-                <section>
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">StoneLov</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {bijouxProducts.map((product, i) => (
-                      <ProductCard key={product.id} product={product} index={i} />
-                    ))}
-                  </div>
-                </section>
-              )}
-            </>
-          ) : filteredLocal.length > 0 && (
+          {/* StoneLov */}
+          {active === 'all' && bijouxProducts.length > 0 && (
+            <section>
+              <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">StoneLov</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+                {bijouxProducts.map((product, i) => (
+                  <ProductCard key={product.id} product={product} index={i} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Local products for non-all views */}
+          {active !== 'all' && filteredLocal.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
               {filteredLocal.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
