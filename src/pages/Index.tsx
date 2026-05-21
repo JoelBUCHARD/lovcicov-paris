@@ -266,10 +266,20 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="uppercase mb-6"
+            className="uppercase mb-2"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
             MYSTICLOV
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="uppercase mb-6"
+            style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em' }}
+          >
+            sweats · t-shirt · message fort
           </motion.p>
           <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
         </div>
