@@ -266,7 +266,7 @@ const ProductDetail = () => {
               className="text-[11px] text-[#888780] text-center mt-4"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
+              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours
             </p>
           </motion.div>
           )}
