@@ -235,7 +235,7 @@ const Index = () => {
           </p>
         </div>
         <div className="px-6 md:px-10 pb-2 md:pb-3">
-          <div className="flex items-center justify-end mb-10">
+          <div className="flex items-center justify-end mb-4">
             <Link
               to="/shop"
               className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
