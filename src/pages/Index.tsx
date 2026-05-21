@@ -234,8 +234,8 @@ const Index = () => {
             Pierres naturelles
           </p>
         </div>
-        <div className="px-6 md:px-10 pb-10 md:pb-14">
-          <div className="flex items-center justify-end mb-10">
+        <div className="px-6 md:px-10 pb-2 md:pb-3">
+          <div className="flex items-center justify-end mb-4">
             <Link
               to="/shop"
               className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
@@ -255,7 +255,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center py-6 md:py-8"
+          className="text-center pt-1 pb-2 md:pt-1 md:pb-2"
         >
           <Link
             to="/shop"
@@ -272,7 +272,7 @@ const Index = () => {
 
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-10 md:pt-12 pb-10 md:pb-12">
+      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-4 md:pt-6 pb-10 md:pb-12">
         <div className="text-center px-6 md:px-10 mb-6 md:mb-8 max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
