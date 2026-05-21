@@ -17,11 +17,11 @@ const fadeUp = {
 
 const CollectionMystic = () => {
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-[#E66060]">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
-        {/* Hero Header — deep black */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#B5B3AD] text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
+        {/* Hero Header — Mystic red */}
+        <div className="bg-[#E66060] border-b-[3px] border-white/30 text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
           <div className="text-center">
             <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-sm uppercase tracking-[0.25em] text-[#D8D4CE] mb-6 font-medium">
               MYSTICLOV
