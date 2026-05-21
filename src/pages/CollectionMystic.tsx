@@ -23,16 +23,26 @@ const CollectionMystic = () => {
         {/* Hero Header strip — black with red accent border */}
         <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-8 md:py-10 mb-6 md:mb-8">
           <div className="text-center max-w-[640px] mx-auto">
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="uppercase mb-6"
-              style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
-            >
-              MYSTICLOV
-            </motion.p>
-            <motion.h1
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="uppercase mb-2"
+            style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
+          >
+            MYSTICLOV
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.5}
+            className="uppercase mb-6"
+            style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em' }}
+          >
+            sweats · t-shirt · message fort
+          </motion.p>
+          <motion.h1
               variants={fadeUp}
               initial="hidden"
               animate="visible"
