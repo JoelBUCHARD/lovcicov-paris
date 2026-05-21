@@ -3,8 +3,8 @@ import type { Product } from '@/data/products';
 
 const COLOR_HEX: Record<string, string> = {
   noir: '#1A1A1A',
-  'natural raw': '#E8DCC8',
-  natural: '#E8DCC8',
+  'natural raw': '#ECE2CE',
+  natural: '#ECE2CE',
   ecru: '#DDD3C0',
   'écru': '#DDD3C0',
   blanc: '#F5F2EB',
