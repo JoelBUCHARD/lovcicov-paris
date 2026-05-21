@@ -262,17 +262,6 @@ const ProductDetail = () => {
               Ajouter au Panier
             </button>
 
-            <div
-              className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-[#5F5E5A] mt-4"
-              style={{ fontFamily: 'Arial, sans-serif' }}
-            >
-              <span>🔒 Paiement sécurisé</span>
-              <span className="text-[#C9C4BC]">·</span>
-              <span>📦 Livraison 3-5 jours</span>
-              <span className="text-[#C9C4BC]">·</span>
-              <span>↩ Retours 14 jours</span>
-            </div>
-
             <p
               className="text-[11px] text-[#888780] text-center mt-4"
               style={{ fontFamily: 'Arial, sans-serif' }}
