@@ -19,15 +19,15 @@ const CollectionMystic = () => {
   return (
     <div className="min-h-screen bg-[#FFF5F5]">
       <Navbar />
-      <main className="pt-20 md:pt-24 pb-24">
+      <main className="pt-14 md:pt-16 pb-14">
         {/* Hero Header strip — black with red accent border */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-5 md:py-6 mb-4 md:mb-6">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-3 md:py-4 mb-3 md:mb-4">
           <div className="text-center max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="uppercase mb-2"
+            className="uppercase mb-1"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
             MYSTICLOV
@@ -36,8 +36,8 @@ const CollectionMystic = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={0.5}
-            className="font-sans italic text-[12px] text-[#C8C0B8] mb-3"
+            custom={1}
+            className="font-sans italic text-[12px] text-[#C8C0B8] mb-2"
           >
             sweats · t-shirt · message fort
           </motion.p>
@@ -47,20 +47,20 @@ const CollectionMystic = () => {
               animate="visible"
               custom={2}
               className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.8 }}
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.7 }}
             >
               MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
               Des créations inspirées par les fréquences, les symboles et l'invisible.
               Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </motion.p>
-            <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <div className="my-2 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={3}
               className="uppercase"
-              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.9 }}
+              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.8 }}
             >
               Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
             </motion.p>
@@ -81,14 +81,14 @@ const CollectionMystic = () => {
 
         {/* Secondary claim */}
         <p
-          className="text-center mt-16"
+          className="text-center mt-10"
           style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, fontStyle: 'italic', color: '#888780' }}
         >
           Spirituality meets style.
         </p>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-6">
           <Link
             to="/shop"
             className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
@@ -102,7 +102,7 @@ const CollectionMystic = () => {
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-20 py-10 px-6 md:px-10 text-center">
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-12 py-6 px-6 md:px-10 text-center">
           <p className="uppercase" style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}>
             MYSTICLOV · Broderies dorées · Pièces uniques · Paris
           </p>
