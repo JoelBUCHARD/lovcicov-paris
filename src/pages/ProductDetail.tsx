@@ -150,7 +150,7 @@ const ProductDetail = () => {
                 className="italic mb-4"
                 style={{ fontSize: '11px', color: '#888780' }}
               >
-                Une pièce pensée pour transformer votre posture.
+                Une piece pensee pour transformer votre posture.
               </p>
             )}
             {product.collection === 'mystic' && (
@@ -169,15 +169,30 @@ const ProductDetail = () => {
               €{product.price}
             </p>
             {product.collection === 'standard' ? (
-              <p
-                className="text-[11px] italic text-[#888780] mb-8"
-                style={{ fontFamily: 'Arial, sans-serif' }}
-              >
-                Qualite premium — coton 280g double fil, coupe oversize
-              </p>
+              <>
+                <p
+                  className="italic text-[#888780] mb-1"
+                  style={{ fontFamily: 'Arial, sans-serif', fontSize: '10px' }}
+                >
+                  Qualite premium justifiee — matiere, coupe, intention
+                </p>
+                <p
+                  className="text-[11px] text-[#5F5E5A] mb-1"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
+                  Disponible en 2 coloris : Noir et Ecru
+                </p>
+                <p
+                  className="text-[11px] text-[#5F5E5A] mb-8"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
+                  Unisex · Coupe oversize · Coton 280g double fil
+                </p>
+              </>
             ) : (
               <div className="mb-7" />
             )}
+
 
             <p
               className="text-[#5F5E5A] text-[12px] leading-[1.8] mb-2"
