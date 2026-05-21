@@ -11,7 +11,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
-type Subcategory = 'all' | 'tshirt' | 'crewneck' | 'hoodie';
 
 const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
 
@@ -21,7 +20,6 @@ const Shop = () => {
   const initialCollection = collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
 
   const [active, setActive] = useState<Collection>(initialCollection);
-  const [sub, setSub] = useState<Subcategory>('all');
   const [shopifyProducts, setShopifyProducts] = useState<ShopifyProduct[]>([]);
   const [shopifyLoading, setShopifyLoading] = useState(true);
 
@@ -35,18 +33,11 @@ const Shop = () => {
   useEffect(() => {
     if (collectionParam && validCollections.includes(collectionParam)) {
       setActive(collectionParam);
-      setSub('all');
       return;
     }
 
     setActive('all');
-    setSub('all');
   }, [collectionParam]);
-
-  const handleCollectionChange = (key: Collection) => {
-    setActive(key);
-    setSub('all');
-  };
 
   // Local products for standard and bijoux
   const localProducts = useMemo(() => {
@@ -58,23 +49,6 @@ const Shop = () => {
 
   // Show shopify products for mystic and all
   const showShopify = active === 'all' || active === 'mystic';
-
-  // Detect which subcategories exist
-  const availableSubs = useMemo(() => {
-    if (active === 'all' || active === 'bijoux' || active === 'mystic') return [];
-    const subs = new Set(localProducts.map(p => p.subcategory).filter(Boolean));
-    return subs.size > 1 ? Array.from(subs) : [];
-  }, [active, localProducts]);
-
-  const filteredLocal = sub === 'all'
-    ? localProducts
-    : localProducts.filter(p => p.subcategory === sub);
-
-  const subLabels: Record<string, string> = {
-    tshirt: 'T-Shirts',
-    crewneck: 'Sweats Col Rond',
-    hoodie: 'Sweats Capuche',
-  };
 
   return (
     <div className="min-h-screen bg-background">
