@@ -225,7 +225,7 @@ const Index = () => {
 
 
       {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
-      <section className="bg-[#FDF5EF] pt-10 md:pt-14 pb-2 md:pb-4">
+      <section className="bg-[#FDF5EF] pt-10 md:pt-14">
         <div className="text-center pt-3 pb-3">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
@@ -234,7 +234,7 @@ const Index = () => {
             Pierres naturelles
           </p>
         </div>
-        <div className="px-6 md:px-10 pb-4 md:pb-6">
+        <div className="px-6 md:px-10 pb-2 md:pb-3">
           <div className="flex items-center justify-end mb-10">
             <Link
               to="/shop"
@@ -255,7 +255,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center py-2 md:py-3"
+          className="text-center pt-1 pb-2 md:pt-1 md:pb-2"
         >
           <Link
             to="/shop"
