@@ -231,7 +231,7 @@ const Index = () => {
             STONELOV · LANCEMENT
           </p>
           <p className="font-sans italic text-[12px] text-[#888780]">
-            Pierres naturelles · Pièces singulières · Paris
+            Pierres naturelles
           </p>
         </div>
         <div className="px-6 md:px-10 pb-10 md:pb-14">
