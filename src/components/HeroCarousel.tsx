@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import slideHero from '@/assets/slide-hero.png';
 
 type Slide = { images: string[]; landscape?: string };
@@ -10,9 +9,6 @@ const slides: Slide[] = [
 
 const HeroCarousel = () => {
   const [active, setActive] = useState(0);
-
-  const prev = () => setActive((a) => (a - 1 + slides.length) % slides.length);
-  const next = () => setActive((a) => (a + 1) % slides.length);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,20 +66,6 @@ const HeroCarousel = () => {
           </div>
         </div>
 
-        <button
-          onClick={prev}
-          aria-label="Précédent"
-          className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center text-white/70 hover:text-white transition-colors"
-        >
-          <ChevronLeft size={18} />
-        </button>
-        <button
-          onClick={next}
-          aria-label="Suivant"
-          className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center text-white/70 hover:text-white transition-colors"
-        >
-          <ChevronRight size={18} />
-        </button>
 
         <div className="flex items-center justify-center gap-2 mt-6 pb-6">
           {slides.map((_, i) => (
