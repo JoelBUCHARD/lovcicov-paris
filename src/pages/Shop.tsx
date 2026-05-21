@@ -66,9 +66,10 @@ const Shop = () => {
           )}
           {active === 'standard' && (
             <motion.div key="standard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">PowerLov</h2>
+              <p className="text-[9px] uppercase tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium">
+                POWERLOV
+              </p>
               <div className="space-y-4">
-                <p className="text-muted-foreground text-sm leading-relaxed">PowerLov incarne la conviction que la vie que l'on construit reflète les standards que l'on choisit.</p>
                 <p className="text-muted-foreground text-sm leading-relaxed">La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.</p>
                 <p className="text-muted-foreground text-sm leading-relaxed">Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.</p>
               </div>
