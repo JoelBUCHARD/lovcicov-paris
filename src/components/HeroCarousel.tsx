@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import slide1landscape from '@/assets/hero-slide-3.png';
-import slide2landscape from '@/assets/slide2-landscape.jpeg';
+import slide2landscape from '@/assets/slide2-landscape.png';
 import slide3landscape from '@/assets/slide3-landscape.png';
 
 type Slide = { images: string[]; landscape?: string };
