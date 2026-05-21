@@ -219,6 +219,7 @@ const Index = () => {
           <p className="font-sans italic text-[12px] text-[#888780]">
             Pierres naturelles
           </p>
+          <div className="w-8 h-px bg-[#C4714A] mx-auto mt-3 opacity-60" />
         </div>
         <div className="px-6 md:px-10 pb-2 md:pb-3">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
