@@ -103,7 +103,7 @@ const CollectionStandards = () => {
         {/* Secondary claim */}
         <p
           className="italic text-center mt-16"
-          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+          style={{ fontSize: '11px', color: '#888780', letterSpacing: '0.04em' }}
         >
           Wear your truth.
         </p>
@@ -128,7 +128,7 @@ const CollectionStandards = () => {
         {/* Secondary claim */}
         <p
           className="italic text-center mt-16"
-          style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+          style={{ fontSize: '11px', color: '#888780', letterSpacing: '0.04em' }}
         >
           Protected. Guided. Unstoppable.
         </p>
