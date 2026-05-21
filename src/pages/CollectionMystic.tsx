@@ -17,23 +17,55 @@ const fadeUp = {
 
 const CollectionMystic = () => {
   return (
-    <div className="min-h-screen bg-[#E66060]">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
-        {/* Hero Header — Mystic red */}
-        <div className="bg-[#E66060] border-b-[3px] border-white/30 text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
-          <div className="text-center">
-            <motion.p variants={fadeUp} initial="hidden" animate="visible" className="text-sm uppercase tracking-[0.25em] text-[#D8D4CE] mb-6 font-medium">
+        {/* Hero Header strip — black with red accent border */}
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-12 md:py-16 mb-10 md:mb-14">
+          <div className="text-center max-w-[640px] mx-auto">
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="uppercase mb-6"
+              style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
+            >
               MYSTICLOV
             </motion.p>
-            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={1} className="max-w-lg mx-auto space-y-5">
-              <p className="text-white/80 text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-                Inspirée par les symboles intemporels et les archétypes universels, la collection évoque intuition, mystère et expression personnelle.
-              </p>
-              <p className="text-white/80 text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-                Chaque pièce devient une manière de porter un signe, une idée ou une histoire qui dépasse le simple vêtement.
-              </p>
-            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+              className="text-white"
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: 36, fontWeight: 200, fontStyle: 'italic', lineHeight: 1.2 }}
+            >
+              Love is my frequency.
+            </motion.h1>
+            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={2}
+              className="mx-auto"
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.8 }}
+            >
+              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
+              Des créations inspirées par les fréquences, les symboles et l'invisible.
+              Chaque pièce devient un mantra, une vibration, une énergie à porter.
+            </motion.p>
+            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={3}
+              className="uppercase"
+              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.9 }}
+            >
+              Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
+            </motion.p>
           </div>
         </div>
 
@@ -49,17 +81,33 @@ const CollectionMystic = () => {
           </div>
         </div>
 
+        {/* Secondary claim */}
+        <p
+          className="text-center mt-16"
+          style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, fontStyle: 'italic', color: '#888780' }}
+        >
+          Spirituality meets style.
+        </p>
+
         {/* CTA */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-20">
-          <Link to="/shop" className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
+            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
+          >
             Voir tous les produits
             <ArrowRight size={12} />
           </Link>
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#E66060] border-t-[3px] border-white/30 mt-20 py-10 px-6 md:px-10 text-center">
-          <p className="text-[9px] uppercase tracking-[0.2em] text-white">MysticLov · Lovcicov Paris</p>
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-20 py-10 px-6 md:px-10 text-center">
+          <p className="uppercase" style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}>
+            MYSTICLOV · Broderies dorées · Pièces uniques · Paris
+          </p>
         </div>
       </main>
       <Footer />
