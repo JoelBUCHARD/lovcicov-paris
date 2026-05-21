@@ -93,7 +93,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
           marginTop: 8,
         }}
       >
-        {subtitle}
+        Une pierre. Une énergie. Un talisman à porter.
       </p>
 
       {/* BLOCK 3 — Price + payment */}
