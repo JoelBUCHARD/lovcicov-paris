@@ -26,7 +26,7 @@ const CollectionStandards = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[9px] uppercase tracking-[0.2em] text-[#E63946] mb-8 font-medium"
+            className="text-[9px] uppercase tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium"
           >
             POWERLOV
           </motion.p>
@@ -35,7 +35,8 @@ const CollectionStandards = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="text-4xl md:text-5xl lg:text-6xl font-medium mb-10 text-[#1A1A1A]"
+            className="italic mb-10 text-[#1A1A1A]"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '36px', fontWeight: 200 }}
           >
             Wear your power.
           </motion.h1>
@@ -45,10 +46,10 @@ const CollectionStandards = () => {
             animate="visible"
             custom={2}
             className="mx-auto"
-            style={{ maxWidth: '580px' }}
+            style={{ maxWidth: '600px' }}
           >
             <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', lineHeight: 1.7 }}>
-              POWERLOV explore la puissance intérieure à travers des pièces fortes, structurées et profondément alignées. Une énergie calme. Une présence affirmée. Des vêtements pensés pour transformer la posture et révéler la confiance instinctive.
+              POWERLOV explore la puissance interieure a travers des pieces fortes, structurees et profondement alignees. Une energie calme. Une presence affirmee. Des vetements penses pour transformer la posture et reveler la confiance instinctive.
             </p>
           </motion.div>
 
@@ -66,11 +67,11 @@ const CollectionStandards = () => {
                 fontSize: '10px',
                 textTransform: 'uppercase',
                 color: '#B4A99A',
-                letterSpacing: '0.16em',
+                letterSpacing: '0.18em',
                 lineHeight: 1.9,
               }}
             >
-              Puissance · Présence · Alignement · Aura · Force douce · Leadership · Confiance · Impact · Intensité · Magnétisme · Protection · Feu intérieur
+              Puissance · Presence · Alignement · Aura · Force douce · Leadership · Confiance · Impact · Intensite · Magnetisme · Protection · Feu interieur
             </p>
           </motion.div>
 
@@ -81,11 +82,12 @@ const CollectionStandards = () => {
             animate="visible"
             custom={4}
             className="italic mt-10"
-            style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780', letterSpacing: '0.04em' }}
           >
             Calm is powerful.
           </motion.p>
         </div>
+
 
         {/* Products */}
         <div className="px-6 md:px-10">
