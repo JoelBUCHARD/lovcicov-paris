@@ -35,19 +35,11 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-40 md:pt-48 pb-8 md:pb-10 text-center relative overflow-hidden">
+      <section className="w-full bg-[#FAF7F2] pt-28 md:pt-36 pb-8 md:pb-10 text-center relative overflow-hidden">
 
 
 
         <div className="relative z-[1]">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-[9px] tracking-[0.2em] uppercase text-[#B4A99A] mb-6"
-          >
-            COLLECTION 2026
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
