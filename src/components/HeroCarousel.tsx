@@ -1,15 +1,11 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import slide1landscape from '@/assets/hero-slide-3.png';
-import slide2landscape from '@/assets/slide2-landscape.png';
-import slide3landscape from '@/assets/slide3-landscape.png';
+import slideHero from '@/assets/slide-hero.png';
 
 type Slide = { images: string[]; landscape?: string };
 
 const slides: Slide[] = [
-  { images: [], landscape: slide3landscape },
-  { images: [], landscape: slide2landscape },
-  { images: [], landscape: slide1landscape },
+  { images: [], landscape: slideHero },
 ];
 
 const HeroCarousel = () => {
