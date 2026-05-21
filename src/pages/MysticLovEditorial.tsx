@@ -139,7 +139,7 @@ const MysticLovEditorial = () => {
         {/* BLOCK 3 — SPLIT 50/50 */}
         <section className="flex flex-col md:flex-row w-full my-5" style={{ minHeight: "100vh" }}>
           <div className="w-full md:w-1/2 h-[70vh] md:h-auto">
-            <img src={seatedRooftop} alt="L'histoire MysticLov" className="w-full h-full object-cover" />
+            <img src={seatedRooftop} alt="L'histoire MysticLov" className="w-full h-full object-cover" style={{ objectPosition: "center 70%" }} />
           </div>
           <div
             className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0"
