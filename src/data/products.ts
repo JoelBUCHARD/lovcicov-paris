@@ -160,7 +160,6 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : protection, ancrage, foi tranquille. Une armure douce pour traverser le monde.',
     image: 'mystic-hoodie-love-front',
     gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-3'],
-    badge: 'EDITION LIMITEE',
     colors: [
       { name: 'Noir', id: 'mystic-hoodie-noir' },
       { name: 'Natural Raw', id: 'mystic-hoodie-natural' },
@@ -181,7 +180,6 @@ export const mysticProducts: Product[] = [
       'mystic-hoodie-love-natural-detail-2',
       'mystic-hoodie-love-natural-detail-3',
     ],
-    badge: 'EDITION LIMITEE',
     colors: [
       { name: 'Noir', id: 'mystic-hoodie-noir' },
       { name: 'Natural Raw', id: 'mystic-hoodie-natural' },
@@ -222,7 +220,6 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : émerveillement, expansion, alignement cosmique.',
     image: 'mystic-tshirt-cosmos-model',
     gallery: ['mystic-tshirt-cosmos-back'],
-    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-sunshine',
@@ -253,7 +250,6 @@ export const mysticProducts: Product[] = [
     description: 'Carte du Tarot : L\'Amoureux. Intention : choix du cœur, alignement entre désir et conscience. À porter quand il faut écouter l\'intuition amoureuse — au sens large. L\'œil dans le cœur est un symbole ancien de clairvoyance émotionnelle ; Georgiana l\'a brodé main en patch rouge sacré. Broderie dorée main · Coton premium · Paris.',
     details: 'L\'énergie : intuition du cœur, vérité ressentie, amour lucide.',
     image: 'mystic-tshirt-heart-model',
-    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-abstract',
@@ -275,7 +271,6 @@ export const mysticProducts: Product[] = [
     description: 'Carte du Tarot : Le Monde (renversé en intention). Intention : reconstruire, refonder, refuser l\'ancien système. À porter dans les moments où l\'on choisit son propre cadre. Georgiana l\'a imaginé pour celles et ceux qui sentent qu\'un autre monde est non seulement possible — mais déjà en train de naître. Broderie dorée main · Coton premium · Paris.',
     details: 'L\'énergie : vision, rupture, construction nouvelle.',
     image: 'mystic-tshirt-newworld-model',
-    badge: 'NOUVEAU',
   },
   {
     id: 'mystic-tshirt-switchoff',
@@ -296,7 +291,6 @@ export const mysticProducts: Product[] = [
     description: 'Carte du Tarot : La Papesse — incarnée ici par la Vierge Marie en pop art. Intention : sacré féminin, intuition profonde, mystère assumé. À porter quand on veut honorer son intériorité tout en l\'affichant sans pudeur. Georgiana a choisi de revisiter l\'icône en street art explosif pour réconcilier le sacré et le bruit du monde. Broderie dorée main · Coton premium · Paris.',
     details: 'L\'énergie : sacré assumé, féminin universel, présence iconique.',
     image: 'mystic-tshirt-madonna-model',
-    badge: 'NOUVEAU',
   },
 ];
 
@@ -311,7 +305,6 @@ export const bijouxProducts: Product[] = [
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
     image: 'bijoux-fuchsia-solo',
-    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
@@ -334,7 +327,6 @@ export const bijouxProducts: Product[] = [
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
     image: 'bijoux-labradorite-solo',
-    badge: 'NOUVEAU',
     gallery: ['bijoux-labradorite-fleurs', 'bijoux-labradorite-tarot'],
     stoneMeaning: 'Labradorite — Pierre de protection et d\'intuition. Elle absorbe les énergies négatives et éveille la clairvoyance. Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle.',
   },
@@ -368,7 +360,6 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
     image: 'bijoux-malachite-solo',
-    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-malachite-fleurs', 'bijoux-malachite-tarot'],
     stoneMeaning: 'Malachite — Pierre de transformation, elle accompagne les périodes de changement et protège des influences extérieures. Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie et le courage.',
   },
@@ -380,7 +371,6 @@ export const bijouxProducts: Product[] = [
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
     image: 'bijoux-trio-solo',
-    badge: 'NOUVEAU',
     gallery: ['bijoux-trio-fleurs', 'bijoux-trio-tarot'],
     stoneMeaning: 'Citrine — Pierre de joie et d\'abondance, elle rayonne d\'énergie solaire et attire la réussite. Améthyste — Pierre de sagesse spirituelle. Malachite — Pierre de transformation et de renouveau.',
   },
@@ -403,7 +393,6 @@ export const bijouxProducts: Product[] = [
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
     image: 'bijoux-corail-multicolor',
-    badge: 'EDITION LIMITEE',
     gallery: ['bijoux-corail-fleurs', 'bijoux-corail-tarot'],
     stoneMeaning: 'Corail rouge — Pierre de vitalité, elle stimule l\'énergie et la passion. Les pierres multicolores apportent chacune leur vibration : équilibre, joie, protection et créativité.',
   },
