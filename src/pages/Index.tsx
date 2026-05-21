@@ -252,7 +252,7 @@ const Index = () => {
             </Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
-            {featured.slice(0, 8).map((product, i) => (
+            {featured.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
@@ -264,6 +264,75 @@ const Index = () => {
         <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
           Style with intention.
         </p>
+      </section>
+
+      {/* 4. MYSTICLOV — section in MysticLov DA */}
+      <section className="bg-[#1A1A1A] border-t-[3px] border-b-[3px] border-[#E66060] pt-16 md:pt-20 pb-16 md:pb-20">
+        <div className="text-center px-6 md:px-10 mb-10 md:mb-14 max-w-[640px] mx-auto">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="uppercase mb-6"
+            style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
+          >
+            MYSTICLOV
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+            className="text-white"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 32, fontWeight: 200, fontStyle: 'italic', lineHeight: 1.2 }}
+          >
+            Love is my frequency.
+          </motion.h2>
+          <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+            className="mx-auto"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.8 }}
+          >
+            Des créations inspirées par les fréquences, les symboles et l'invisible.
+            Chaque pièce devient un mantra, une vibration, une énergie à porter.
+          </motion.p>
+        </div>
+
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+            {mysticProducts.slice(0, 4).map((product, i) => (
+              <div key={product.id} className="bg-white p-3">
+                <ProductCard product={product} index={i} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <Link
+            to="/collection/mysticlov"
+            className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
+            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
+          >
+            Découvrir MysticLov
+            <ArrowRight size={12} />
+          </Link>
+        </motion.div>
       </section>
 
 
