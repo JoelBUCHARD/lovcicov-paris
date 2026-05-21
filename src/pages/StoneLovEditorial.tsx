@@ -54,8 +54,11 @@ const StoneLovEditorial = () => {
               </p>
             </div>
             <h1 className="italic mb-3" style={{ color: INK, fontSize: "clamp(24px,4vw,34px)", fontWeight: 300, lineHeight: 1.2 }}>
-              Chaque pierre a une raison d'être.
+              Rooted in the earth.
             </h1>
+            <p className="italic mb-4" style={{ color: WARM, fontSize: 13 }}>
+              Rooted in the earth.
+            </p>
             <Link
               to="/collections/bijoux"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
@@ -80,7 +83,7 @@ const StoneLovEditorial = () => {
           />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
             <h2 className="text-white italic mb-4" style={{ fontSize: "clamp(22px,3vw,28px)", fontWeight: 300 }}>
-              Ce n'est pas un bijou. C'est un talisman.
+              Wear your truth.
             </h2>
             <p className="text-white text-[12px]" style={{ opacity: 0.75, maxWidth: 480, lineHeight: 1.9 }}>
               Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
@@ -99,7 +102,7 @@ const StoneLovEditorial = () => {
                 LE SAVOIR-FAIRE
               </p>
               <h2 className="mb-6" style={{ color: INK, fontSize: 26, fontWeight: 300 }}>
-                Fabriquées à la main. Pensées pour durer.
+                Luxury with soul.
               </h2>
               <p className="text-[13px]" style={{ color: WARM, lineHeight: 1.9 }}>
                 Chaque collier StoneLov est assemblé à la main. Nous sélectionnons chaque pierre une à une, pour sa qualité, son énergie et sa singularité. Aucune pièce n'est identique.
@@ -121,7 +124,7 @@ const StoneLovEditorial = () => {
           <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
-              Portez ce qui vous ressemble.
+              Protected. Guided. Unstoppable.
             </h2>
             <p className="text-[13px]" style={{ color: WARM, marginTop: 12 }}>
               Chaque pièce attend la femme qui lui correspond.
