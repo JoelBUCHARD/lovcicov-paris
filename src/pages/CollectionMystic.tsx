@@ -17,7 +17,7 @@ const fadeUp = {
 
 const CollectionMystic = () => {
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-[#FFF5F5]">
       <Navbar />
       <main className="pt-20 md:pt-24 pb-24">
         {/* Hero Header strip — black with red accent border */}
