@@ -95,18 +95,36 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
 
       {/* BLOCK 3 — Price + payment */}
       <p style={{ fontFamily: ARIAL, fontSize: 18, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
-      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
+      <p style={{ fontFamily: ARIAL, fontSize: 10, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
+        Pierre choisie pour son énergie et sa vertu
+      </p>
+      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 6 }}>
         4x sans frais avec Alma · Paiement sécurisé
       </p>
 
-      {/* BLOCK 4 — Reassurance banner */}
+      {/* BLOCK 4 — Product info */}
+      <div style={{ marginTop: 20, marginBottom: 20 }}>
+        <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
+          Fait main en Turquie · Monture en laiton doré
+        </p>
+        <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
+          Pierre naturelle — chaque pièce est unique
+        </p>
+        <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
+          {product.name.toLowerCase().includes('bracelet')
+            ? 'Poids : environ 30g'
+            : 'Poids : environ 100g — une vraie pièce qui se sent'}
+        </p>
+      </div>
+
+      {/* Reassurance banner */}
       <div
         style={{
           backgroundColor: PEACH_BG,
           padding: "12px 20px",
           borderTop: "0.5px solid #E8D8C8",
           borderBottom: "0.5px solid #E8D8C8",
-          marginTop: 24,
+          marginTop: 8,
           marginBottom: 24,
           marginLeft: -32,
           marginRight: -32,
@@ -122,9 +140,10 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
             textAlign: "center",
           }}
         >
-          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours&nbsp; · &nbsp;Fait à Paris&nbsp; · &nbsp;Édition limitée
+          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours&nbsp; · &nbsp;Fait main en Turquie&nbsp; · &nbsp;Pièce unique
         </p>
       </div>
+
 
       {/* BLOCK 5 skipped — jewelry, no sizes */}
 
@@ -197,12 +216,13 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       <Collapsible title="Composition & savoir-faire">
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Matière principale : {stones.length ? stones.map((s) => s.name.toLowerCase()).join(", ") + " naturelles" : "Pierres naturelles"}</li>
-          <li>· Monture : Acier doré à l'or fin</li>
-          <li>· Fabrication : Assemblage à la main, Paris</li>
-          <li>· Créée en collaboration avec Marque Blanche</li>
+          <li>· Monture : Laiton doré à la main</li>
+          <li>· Fabrication : Fait main en Turquie</li>
+          <li>· Pièce unique — aucune n'est identique</li>
           <li>· Longueur ajustable : 42 — 48 cm</li>
         </ul>
       </Collapsible>
+
 
       <Collapsible title="Livraison & retour">
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
@@ -214,7 +234,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         </ul>
       </Collapsible>
 
-      <Collapsible title="Vertus de la pierre" highlight>
+      <Collapsible title="L'énergie de cette pierre" highlight>
         {stones.length > 0 ? (
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }} className="space-y-4">
             {stones.map((s) => (

@@ -20,31 +20,66 @@ const CollectionBijoux = () => {
     <div className="min-h-screen bg-[#FDF5EF]">
       <Navbar />
       <main className="pt-32 md:pt-36 pb-24">
-        {/* Hero — aéré, luxe */}
-        <div className="text-center px-6 md:px-10 mb-10 md:mb-14">
+        {/* Hero — StoneLov identity */}
+        <div className="text-center px-6 md:px-10 mb-12 md:mb-16">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[13px] uppercase tracking-[0.25em] text-[#C4714A] mt-8 font-medium"
+            className="text-[9px] uppercase tracking-[0.18em] text-[#C4714A] mt-8 font-medium"
+            style={{ fontFamily: 'Arial, sans-serif' }}
           >
             STONELOV
           </motion.p>
-          <motion.div
+          <motion.h1
             variants={fadeUp}
             initial="hidden"
             animate="visible"
             custom={1}
-            className="max-w-lg mx-auto space-y-5 mt-8"
+            className="italic text-[#1A1A1A] mt-6"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 'clamp(28px,4vw,36px)', fontWeight: 200 }}
           >
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Chaque bijou est pensé comme un objet personnel, où la matière devient signature.
-            </p>
-            <p className="text-[#5F5E5A] text-[12px] leading-[1.8]" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Des pièces singulières, destinées à accompagner celles et ceux qui recherchent des objets porteurs de sens et de présence.
-            </p>
-          </motion.div>
+            Rooted in the earth.
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={2}
+            className="text-[#5F5E5A] mx-auto mt-6"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, lineHeight: 1.8, maxWidth: 600 }}
+          >
+            STONELOV puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            className="mx-auto mt-8 uppercase"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 10,
+              color: '#C4714A',
+              letterSpacing: '0.18em',
+              lineHeight: 2,
+              maxWidth: 760,
+            }}
+          >
+            Pierre · Terre · Minéral · Matière · Ancrage · Nature · Brut · Silence · Protection · Mémoire · Force ancienne · Élégance organique · Talisman
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+            className="italic mt-8"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, color: '#888780' }}
+          >
+            Wear your truth. — Luxury with soul.
+          </motion.p>
         </div>
+
 
         {/* Products */}
         <div className="px-6 md:px-10">
