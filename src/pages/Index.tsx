@@ -178,7 +178,7 @@ const Index = () => {
       </section>
 
       {/* EDITORIAL — Zara-style oversized logo in front of image */}
-      <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center pt-4 md:pt-6">
+      <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center pt-4 md:pt-6 pb-4 md:pb-6">
 
         {/* Image */}
         <img
