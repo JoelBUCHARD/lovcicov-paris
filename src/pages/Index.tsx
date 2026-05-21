@@ -255,7 +255,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center py-10 md:py-14"
+          className="text-center py-6 md:py-8"
         >
           <Link
             to="/shop"
