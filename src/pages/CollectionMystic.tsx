@@ -21,7 +21,7 @@ const CollectionMystic = () => {
       <Navbar />
       <main className="pt-20 md:pt-24 pb-24">
         {/* Hero Header strip — black with red accent border */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-8 md:py-10 mb-6 md:mb-8">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-5 md:py-6 mb-4 md:mb-6">
           <div className="text-center max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
@@ -37,8 +37,7 @@ const CollectionMystic = () => {
             initial="hidden"
             animate="visible"
             custom={0.5}
-            className="uppercase mb-6"
-            style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em' }}
+            className="font-sans italic text-[12px] text-[#C8C0B8] mb-3"
           >
             sweats · t-shirt · message fort
           </motion.p>
@@ -54,7 +53,7 @@ const CollectionMystic = () => {
               Des créations inspirées par les fréquences, les symboles et l'invisible.
               Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </motion.p>
-            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}
               initial="hidden"
