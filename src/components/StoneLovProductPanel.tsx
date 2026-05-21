@@ -234,7 +234,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         </ul>
       </Collapsible>
 
-      <Collapsible title="Vertus de la pierre" highlight>
+      <Collapsible title="L'énergie de cette pierre" highlight>
         {stones.length > 0 ? (
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }} className="space-y-4">
             {stones.map((s) => (
