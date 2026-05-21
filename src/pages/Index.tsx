@@ -225,7 +225,7 @@ const Index = () => {
 
 
       {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
-      <section className="bg-[#FDF5EF] pt-10 md:pt-14">
+      <section className="bg-[#FDF5EF] pt-10 md:pt-14 pb-2 md:pb-4">
         <div className="text-center pt-3 pb-3">
           <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
             STONELOV · LANCEMENT
@@ -272,7 +272,7 @@ const Index = () => {
 
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-10 md:pt-12 pb-10 md:pb-12">
+      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-6 md:pt-8 pb-10 md:pb-12">
         <div className="text-center px-6 md:px-10 mb-6 md:mb-8 max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
