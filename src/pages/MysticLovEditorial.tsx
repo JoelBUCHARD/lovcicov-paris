@@ -13,8 +13,8 @@ import hoodieMadonnaParis from "@/assets/mysticlov/hoodie-madonna-paris.png";
 import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
 
 const GOLD = "#C9A84C";
-const ACCENT = "#E66060";
-const BG = "#1A1A1A";
+const ACCENT = "#C94A4A";
+const BG = "#E66060";
 
 const MysticLovEditorial = () => {
   return (
@@ -95,13 +95,13 @@ const MysticLovEditorial = () => {
               <br />
               MysticLov ne se cache pas. MysticLov s'assume.
             </p>
-            <div className="my-6 h-px mx-auto" style={{ width: 40, backgroundColor: ACCENT }} />
+            <div className="my-6 h-px mx-auto" style={{ width: 40, backgroundColor: '#FFFFFF' }} />
             <p
               className="text-center"
               style={{
                 fontSize: '10px',
                 textTransform: 'uppercase',
-                color: '#E66060',
+                color: '#FFFFFF',
                 letterSpacing: '0.16em',
                 lineHeight: 1.9,
               }}
