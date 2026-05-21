@@ -13,8 +13,8 @@ import hoodieMadonnaParis from "@/assets/mysticlov/hoodie-madonna-paris.png";
 import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
 
 const GOLD = "#C9A84C";
-const ACCENT = "#E66060";
-const BG = "#1A1A1A";
+const ACCENT = "#C94A4A";
+const BG = "#E66060";
 
 const MysticLovEditorial = () => {
   return (
