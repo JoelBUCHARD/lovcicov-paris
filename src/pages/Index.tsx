@@ -206,12 +206,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Secondary claim */}
-      <section className="text-center py-8 bg-white">
-        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
-          The art of presence.
-        </p>
-      </section>
 
 
 
