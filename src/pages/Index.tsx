@@ -416,12 +416,6 @@ const Index = () => {
         ))}
       </section>
 
-      {/* Secondary claim */}
-      <section className="text-center py-8 bg-background">
-        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
-          Designed for transformation.
-        </p>
-      </section>
 
       {/* PRESS */}
       <section className="py-10 md:py-14 text-center bg-white border-t border-b border-[#E8E4DD]">
