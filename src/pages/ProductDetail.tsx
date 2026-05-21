@@ -252,10 +252,10 @@ const ProductDetail = () => {
 
             <button
               onClick={handleAddToCart}
-              className={`text-white px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
+              className={`px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
                 product.collection === 'mystic'
-                  ? 'bg-[#6B3FA0] hover:bg-[#5432A8]'
-                  : 'bg-[#1A1A1A] hover:bg-[#E63946]'
+                  ? 'bg-[#F5D0D0] text-[#1A1A1A] hover:bg-[#E5C0C0]'
+                  : 'bg-[#1A1A1A] text-white hover:bg-[#E63946]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
