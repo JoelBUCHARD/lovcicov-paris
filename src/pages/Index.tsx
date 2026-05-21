@@ -311,7 +311,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-6"
         >
           <Link
             to="/collection/mysticlov"
