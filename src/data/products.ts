@@ -70,10 +70,10 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'LOVE, le mot-mantra. Symbole universel qui ouvre le cœur et appelle à la vibration la plus haute. Georgiana l\'a choisi parce que tout part de là : aimer ce que l\'on porte, ce que l\'on est, ce que l\'on dégage. Broderie dorée main, Coton premium, Paris.',
     details: 'L\'énergie : ancrage, ouverture, douceur affirmée. Une pièce qui rappelle au monde, et à soi, que l\'amour est la fréquence première.',
-    image: 'mystic-tshirt-love-front',
+    image: 'mystic-tshirt-love-lifestyle',
     gallery: [
+      'mystic-tshirt-love-front',
       'mystic-tshirt-love-back',
-      'mystic-tshirt-love-lifestyle',
       'mystic-tshirt-love-detail-2',
       'mystic-tshirt-love-detail-3',
     ],
