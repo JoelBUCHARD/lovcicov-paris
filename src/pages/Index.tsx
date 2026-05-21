@@ -184,7 +184,7 @@ const Index = () => {
         <img
           src={editorialStonelov}
           alt="LOVCICOV — Collection 2026"
-          className="relative z-[1] h-[40vh] md:h-[60vh] w-auto max-w-full object-cover object-top"
+          className="relative z-[1] h-[35vh] md:h-[50vh] w-auto max-w-full object-contain object-top"
         />
 
         {/* Giant LOVCICOV in front of image — desktop only */}
