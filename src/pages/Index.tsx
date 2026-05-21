@@ -272,8 +272,8 @@ const Index = () => {
 
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-4 md:pt-6 pb-10 md:pb-12">
-        <div className="text-center px-6 md:px-10 mb-6 md:mb-8 max-w-[640px] mx-auto">
+      <section className="bg-[#FDE8E8] border-t-[3px] border-b-[3px] border-[#E66060] pt-2 md:pt-3 pb-6 md:pb-8">
+        <div className="text-center px-6 md:px-10 mb-3 md:mb-4 max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -311,7 +311,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-6"
         >
           <Link
             to="/collection/mysticlov"
