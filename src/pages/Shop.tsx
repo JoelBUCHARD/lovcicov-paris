@@ -57,30 +57,6 @@ const Shop = () => {
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
 
-          {/* Subcategory filter */}
-          {availableSubs.length > 0 && (
-            <div className="flex justify-center gap-4 mb-8">
-              <button
-                onClick={() => setSub('all')}
-                className={`text-brand text-[11px] px-4 py-2 border transition-all ${
-                  sub === 'all' ? 'border-foreground text-foreground' : 'border-border text-muted-foreground hover:border-foreground'
-                }`}
-              >
-                Tout
-              </button>
-              {availableSubs.map((s) => (
-                <button
-                  key={s}
-                  onClick={() => setSub(s as Subcategory)}
-                  className={`text-brand text-[11px] px-4 py-2 border transition-all ${
-                    sub === s ? 'border-foreground text-foreground' : 'border-border text-muted-foreground hover:border-foreground'
-                  }`}
-                >
-                  {subLabels[s!] || s}
-                </button>
-              ))}
-            </div>
-          )}
 
           {/* Collection headers */}
           {active === 'all' && (
