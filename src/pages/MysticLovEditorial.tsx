@@ -12,7 +12,7 @@ import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
 import hoodieMadonnaParis from "@/assets/mysticlov/hoodie-madonna-paris.png";
 import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
 
-const BG = "#FAF7F2";
+const BG = "#FDE8E8";
 const ACCENT = "#E66060";
 const ACCENT_HOVER = "#C94A4A";
 const INK = "#1A1A1A";
