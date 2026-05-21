@@ -251,12 +251,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Secondary claim */}
-      <section className="text-center py-8 bg-[#FDF5EF]">
-        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
-          Style with intention.
-        </p>
-      </section>
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
       <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-16 md:pt-20 pb-16 md:pb-20">
