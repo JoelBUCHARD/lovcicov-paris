@@ -216,12 +216,13 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       <Collapsible title="Composition & savoir-faire">
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Matière principale : {stones.length ? stones.map((s) => s.name.toLowerCase()).join(", ") + " naturelles" : "Pierres naturelles"}</li>
-          <li>· Monture : Acier doré à l'or fin</li>
-          <li>· Fabrication : Assemblage à la main, Paris</li>
-          <li>· Créée en collaboration avec Marque Blanche</li>
+          <li>· Monture : Laiton doré à la main</li>
+          <li>· Fabrication : Fait main en Turquie</li>
+          <li>· Pièce unique — aucune n'est identique</li>
           <li>· Longueur ajustable : 42 — 48 cm</li>
         </ul>
       </Collapsible>
+
 
       <Collapsible title="Livraison & retour">
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
