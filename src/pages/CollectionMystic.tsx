@@ -42,17 +42,6 @@ const CollectionMystic = () => {
           >
             sweats · t-shirt · message fort
           </motion.p>
-          <motion.h1
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-              className="text-white"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 36, fontWeight: 200, fontStyle: 'italic', lineHeight: 1.2 }}
-            >
-              Love is my frequency.
-            </motion.h1>
-            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}
               initial="hidden"
