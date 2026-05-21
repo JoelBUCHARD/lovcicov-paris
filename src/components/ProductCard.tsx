@@ -60,9 +60,6 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               loading="lazy"
             />
           )}
-          <span className="absolute top-3 left-3 text-[8px] uppercase tracking-[0.12em] font-medium px-2 py-0.5 bg-[#F5F3EE]/90 text-[#1A1A1A] border-[0.5px] border-[#1A1A1A]/40 rounded-sm">
-            Unisex
-          </span>
         </div>
         <div className="space-y-1 text-center pb-3 px-2 mt-auto">
           <h3 className="text-brand text-[11px] uppercase tracking-[0.12em]">{product.name}</h3>

@@ -83,9 +83,6 @@ const StoneLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
-            <h2 className="text-white italic mb-4" style={{ fontSize: "clamp(22px,3vw,28px)", fontWeight: 300 }}>
-              Wear your truth.
-            </h2>
             <p className="text-white text-[12px]" style={{ opacity: 0.75, maxWidth: 480, lineHeight: 1.9 }}>
               Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
             </p>
