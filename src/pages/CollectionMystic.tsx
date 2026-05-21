@@ -27,7 +27,7 @@ const CollectionMystic = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="uppercase mb-2"
+            className="uppercase mb-1"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
             MYSTICLOV
@@ -36,8 +36,8 @@ const CollectionMystic = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            custom={0.5}
-            className="font-sans italic text-[12px] text-[#C8C0B8] mb-3"
+            custom={1}
+            className="font-sans italic text-[12px] text-[#C8C0B8] mb-2"
           >
             sweats · t-shirt · message fort
           </motion.p>
@@ -47,20 +47,20 @@ const CollectionMystic = () => {
               animate="visible"
               custom={2}
               className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.8 }}
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.7 }}
             >
               MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
               Des créations inspirées par les fréquences, les symboles et l'invisible.
               Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </motion.p>
-            <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <div className="my-2 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}
               initial="hidden"
               animate="visible"
               custom={3}
               className="uppercase"
-              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.9 }}
+              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.8 }}
             >
               Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
             </motion.p>
