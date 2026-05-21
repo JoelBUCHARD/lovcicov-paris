@@ -234,7 +234,7 @@ const Index = () => {
             Pierres naturelles
           </p>
         </div>
-        <div className="px-6 md:px-10 pb-10 md:pb-14">
+        <div className="px-6 md:px-10 pb-4 md:pb-6">
           <div className="flex items-center justify-end mb-10">
             <Link
               to="/shop"
@@ -255,7 +255,7 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center py-6 md:py-8"
+          className="text-center py-2 md:py-3"
         >
           <Link
             to="/shop"
