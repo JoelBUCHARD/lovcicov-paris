@@ -148,9 +148,9 @@ const Shop = () => {
           )}
 
           {/* Local products for non-all views */}
-          {active !== 'all' && filteredLocal.length > 0 && (
+          {active !== 'all' && localProducts.length > 0 && (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-              {filteredLocal.map((product, i) => (
+              {localProducts.map((product, i) => (
                 <ProductCard key={product.id} product={product} index={i} />
               ))}
             </div>
