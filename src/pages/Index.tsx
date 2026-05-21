@@ -127,14 +127,6 @@ const Index = () => {
         `}</style>
       </section>
 
-      {/* Secondary claim */}
-      <section className="text-center py-8 bg-background">
-        <p className="italic" style={{ fontSize: '14px', color: '#888780', letterSpacing: '0.04em' }}>
-          Luxury with soul.
-        </p>
-      </section>
-
-
 
       {/* 2. MANIFESTO */}
       <section className="px-6 md:px-10 pt-4 md:pt-6 pb-8 md:pb-10 text-center">

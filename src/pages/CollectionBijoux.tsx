@@ -76,7 +76,7 @@ const CollectionBijoux = () => {
             className="italic mt-8"
             style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, color: '#888780' }}
           >
-            Wear your truth. — Luxury with soul.
+            Wear your truth.
           </motion.p>
         </div>
 
