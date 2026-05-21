@@ -197,6 +197,7 @@ export const mysticProducts: Product[] = [
     gallery: [
       'mystic-crewneck-love-back',
       'mystic-crewneck-love-detail-1',
+      'mystic-crewneck-love-detail-4',
       'mystic-crewneck-love-detail-3',
     ],
   },
