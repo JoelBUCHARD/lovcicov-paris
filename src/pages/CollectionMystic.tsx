@@ -19,9 +19,9 @@ const CollectionMystic = () => {
   return (
     <div className="min-h-screen bg-[#FFF5F5]">
       <Navbar />
-      <main className="pt-20 md:pt-24 pb-24">
+      <main className="pt-14 md:pt-16 pb-14">
         {/* Hero Header strip — black with red accent border */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-5 md:py-6 mb-4 md:mb-6">
+        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-3 md:py-4 mb-3 md:mb-4">
           <div className="text-center max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
