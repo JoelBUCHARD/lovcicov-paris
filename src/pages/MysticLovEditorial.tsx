@@ -85,13 +85,15 @@ const MysticLovEditorial = () => {
               L'HISTOIRE
             </p>
             <h2 className="text-white mb-6" style={{ fontSize: 26, fontWeight: 300 }}>
-              Chaque symbole a une raison d'être.
+              Portez ce en quoi vous croyez.
             </h2>
             <p
               className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '580px', lineHeight: 1.7, textAlign: 'center' }}
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#E8E4DD', maxWidth: '580px', lineHeight: 1.8, textAlign: 'center' }}
             >
-              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle. Des créations inspirées par les fréquences, les symboles et l'invisible. Chaque pièce devient un mantra, une vibration, une énergie à porter.
+              Vierge Marie. Tarot. Symboles sacrés. Couleurs qui parlent.
+              <br />
+              MysticLov ne se cache pas. MysticLov s'assume.
             </p>
             <div className="my-6 h-px mx-auto" style={{ width: 40, backgroundColor: ACCENT }} />
             <p
