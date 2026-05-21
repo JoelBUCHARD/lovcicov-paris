@@ -102,24 +102,11 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
-        <section className="w-full px-6 md:px-10 py-20 md:py-28" style={{ backgroundColor: BG }}>
+        <section className="w-full px-6 md:px-10 py-8 md:py-10" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
-            <p className="uppercase mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
               MYSTICLOV
             </p>
-            <h2
-              style={{
-                fontFamily: "Arial, sans-serif",
-                fontSize: 36,
-                fontWeight: 200,
-                fontStyle: "italic",
-                color: INK,
-                lineHeight: 1.2,
-              }}
-            >
-              Love is my frequency.
-            </h2>
-            <div className="my-8 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
             <p
               style={{
                 fontFamily: "Arial, sans-serif",
@@ -134,7 +121,7 @@ const MysticLovEditorial = () => {
               Des créations inspirées par les fréquences, les symboles et l'invisible.
               Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </p>
-            <div className="my-8 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
+            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
             <p
               className="uppercase"
               style={{
@@ -145,12 +132,6 @@ const MysticLovEditorial = () => {
               }}
             >
               Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
-            </p>
-            <p
-              className="mt-10"
-              style={{ fontFamily: "Arial, sans-serif", fontSize: 11, fontStyle: "italic", color: SOFT }}
-            >
-              Spirituality meets style.
             </p>
           </div>
         </section>
