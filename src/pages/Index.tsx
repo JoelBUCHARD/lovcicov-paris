@@ -272,8 +272,8 @@ const Index = () => {
 
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-2 md:pt-3 pb-6 md:pb-8">
-        <div className="text-center px-6 md:px-10 mb-3 md:mb-4 max-w-[640px] mx-auto">
+      <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-10 md:pt-14 pb-6 md:pb-8">
+        <div className="text-center px-6 md:px-10 pt-3 pb-3 max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
             initial="hidden"
