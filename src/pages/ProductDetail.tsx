@@ -189,6 +189,21 @@ const ProductDetail = () => {
                   Unisex · Coupe oversize · Coton 280g double fil
                 </p>
               </>
+            ) : product.collection === 'mystic' ? (
+              <>
+                <p
+                  className="text-[11px] text-[#5F5E5A] mb-1 mt-2"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
+                  Broderie dorée main · Symbole intentionnel
+                </p>
+                <p
+                  className="text-[11px] text-[#5F5E5A] mb-8"
+                  style={{ fontFamily: 'Arial, sans-serif' }}
+                >
+                  Unisex · Coupe oversize · Paris
+                </p>
+              </>
             ) : (
               <div className="mb-7" />
             )}
