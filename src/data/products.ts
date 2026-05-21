@@ -176,9 +176,6 @@ export const mysticProducts: Product[] = [
     image: 'mystic-hoodie-love-natural-front',
     gallery: [
       'mystic-hoodie-love-natural-back',
-      'mystic-hoodie-love-natural-detail-1',
-      'mystic-hoodie-love-natural-detail-2',
-      'mystic-hoodie-love-natural-detail-3',
       'mystic-hoodie-love-natural-detail-4',
       'mystic-hoodie-love-natural-detail-5',
     ],
