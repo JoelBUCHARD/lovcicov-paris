@@ -273,8 +273,8 @@ const Index = () => {
 
 
       {/* 4. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-16 md:pt-20 pb-16 md:pb-20">
-        <div className="text-center px-6 md:px-10 mb-10 md:mb-14 max-w-[640px] mx-auto">
+      <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-10 md:pt-12 pb-10 md:pb-12">
+        <div className="text-center px-6 md:px-10 mb-6 md:mb-8 max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -290,11 +290,11 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-sans italic text-[12px] text-[#888780] mb-6"
+            className="font-sans italic text-[12px] text-[#888780] mb-4"
           >
             sweats · t-shirt · message fort
           </motion.p>
-          <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+          <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
         </div>
 
         <div className="px-6 md:px-10">
