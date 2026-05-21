@@ -256,14 +256,13 @@ const Index = () => {
           whileInView="visible"
           viewport={{ once: true }}
           className="text-center py-10 md:py-14"
-          style={{ backgroundColor: '#1A1A1A' }}
         >
           <Link
             to="/shop"
             className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
-            style={{ backgroundColor: '#1A1A1A', fontSize: 10, letterSpacing: '0.15em', border: '1px solid rgba(255,255,255,0.3)' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#333333')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}
+            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
           >
             Découvrir StoneLov
             <ArrowRight size={12} />
