@@ -22,7 +22,7 @@ const StoneUniverse = () => {
             textTransform: "uppercase",
           }}
         >
-          L'UNIVERS DES PIERRES
+          STONELOV
         </p>
         <h2
           className="text-center italic mb-10"
@@ -32,8 +32,34 @@ const StoneUniverse = () => {
             fontWeight: 300,
           }}
         >
-          Chaque pierre, une intention.
+          Rooted in the earth.
         </h2>
+
+        <p
+          className="text-center mx-auto mb-6"
+          style={{
+            fontFamily: "Arial, sans-serif",
+            fontSize: 13,
+            color: "#5F5E5A",
+            lineHeight: 1.8,
+            maxWidth: 580,
+          }}
+        >
+          STONELOV puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
+        </p>
+
+        <p
+          className="text-center mb-10"
+          style={{
+            fontFamily: "Arial, sans-serif",
+            fontSize: 10,
+            color: "#C4714A",
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+          }}
+        >
+          Pierre · Terre · Minéral · Matière · Ancrage · Nature · Brut · Silence · Protection · Mémoire · Force ancienne · Élégance organique · Talisman
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {stones.map((stone) => (
