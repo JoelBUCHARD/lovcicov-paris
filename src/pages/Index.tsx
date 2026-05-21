@@ -224,14 +224,6 @@ const Index = () => {
           </p>
         </div>
         <div className="px-6 md:px-10 pb-2 md:pb-3">
-          <div className="flex items-center justify-end mb-4">
-            <Link
-              to="/shop"
-              className="text-brand text-[11px] border-b border-foreground pb-0.5 hover:opacity-60 transition-opacity"
-            >
-              Tout voir
-            </Link>
-          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
             {featured.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
