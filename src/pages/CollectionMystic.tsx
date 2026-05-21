@@ -37,7 +37,7 @@ const CollectionMystic = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="font-sans italic text-[12px] text-[#C8C0B8] mb-2"
+            className="font-sans italic text-[12px] text-[#888780]"
           >
             sweats · t-shirt · message fort
           </motion.p>
