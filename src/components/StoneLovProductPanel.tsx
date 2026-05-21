@@ -66,9 +66,6 @@ const bodyStyle: React.CSSProperties = {
 const StoneLovProductPanel = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();
   const stones = detectStones(`${product.name} ${product.description} ${product.details ?? ""}`);
-  const primarySymbol = stones[0]?.symbol ?? "la transformation";
-  const stoneLabel = stones.length ? stones.map((s) => s.name.charAt(0) + s.name.slice(1).toLowerCase()).join(" & ") : "Pierres naturelles";
-  const subtitle = `${stoneLabel} · Le signe de ${primarySymbol}`;
 
   const crossSell = bijouxProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
@@ -93,7 +90,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
           marginTop: 8,
         }}
       >
-        {subtitle}
+        Une pierre. Une énergie. Un talisman à porter.
       </p>
 
       {/* BLOCK 3 — Price + payment */}
