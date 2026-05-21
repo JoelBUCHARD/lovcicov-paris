@@ -270,8 +270,7 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="uppercase mb-6"
-            style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em' }}
+            className="font-sans italic text-[12px] text-[#888780] mb-6"
           >
             sweats · t-shirt · message fort
           </motion.p>
