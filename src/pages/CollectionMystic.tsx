@@ -81,14 +81,14 @@ const CollectionMystic = () => {
 
         {/* Secondary claim */}
         <p
-          className="text-center mt-16"
+          className="text-center mt-10"
           style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, fontStyle: 'italic', color: '#888780' }}
         >
           Spirituality meets style.
         </p>
 
         {/* CTA */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-10">
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-6">
           <Link
             to="/shop"
             className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
@@ -102,7 +102,7 @@ const CollectionMystic = () => {
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-20 py-10 px-6 md:px-10 text-center">
+        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-12 py-6 px-6 md:px-10 text-center">
           <p className="uppercase" style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}>
             MYSTICLOV · Broderies dorées · Pièces uniques · Paris
           </p>
