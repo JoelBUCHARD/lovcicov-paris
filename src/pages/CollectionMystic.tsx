@@ -103,7 +103,7 @@ const CollectionMystic = () => {
         </motion.div>
 
         {/* Footer strip */}
-        <div className="bg-[#1A1A1A] border-t-[3px] border-[#E66060] mt-12 py-6 px-6 md:px-10 text-center">
+        <div className="bg-[#FFF5F5] border-t-[3px] border-[#E66060] mt-12 py-10 md:py-14 px-6 md:px-10 text-center">
           <p className="uppercase" style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}>
             MYSTICLOV · Broderies dorées · Pièces uniques · Paris
           </p>
