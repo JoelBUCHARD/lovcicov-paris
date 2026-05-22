@@ -202,12 +202,12 @@ const MysticLovEditorial = () => {
         <section className="w-full my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[duoRooftop, greenTee, hoodieRooftop, rooftopArmsOpen, hoodieMadonnaParis, rooftopMadonna].map((img, i) => (
-              <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: i === 0 ? "2 / 3" : "1 / 1" }}>
+              <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
                 <img
                   src={img}
                   alt={`MysticLov communauté ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: i === 0 ? "center 30%" : i === 1 ? "center 10%" : "center center" }}
+                  style={{ objectPosition: i === 0 ? "center top" : i === 1 ? "center 10%" : "center center" }}
                 />
               </div>
             ))}
