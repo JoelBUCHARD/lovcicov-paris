@@ -64,7 +64,7 @@ const MysticLovEditorial = () => {
             src={heroSolo}
             alt="MysticLov hero"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 55%" }}
+            style={{ objectPosition: "center 50%" }}
           />
           <div
             className="absolute inset-0"
