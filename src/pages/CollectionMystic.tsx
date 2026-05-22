@@ -21,13 +21,13 @@ const CollectionMystic = () => {
       <Navbar />
       <main className="pt-14 md:pt-16 pb-14">
         {/* Hero Header strip — black with red accent border */}
-        <div className="bg-[#1A1A1A] border-b-[3px] border-[#E66060] text-white px-6 md:px-10 py-3 md:py-4 mb-3 md:mb-4">
+        <div className="bg-[#FFF5F5] border-b-[3px] border-[#E66060] px-6 md:px-10 py-10 md:py-14 mb-6 md:mb-8">
           <div className="text-center max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="uppercase mb-1"
+            className="uppercase mb-2"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
             MYSTICLOV
@@ -37,7 +37,7 @@ const CollectionMystic = () => {
             initial="hidden"
             animate="visible"
             custom={1}
-            className="font-sans italic text-[12px] text-[#888780]"
+            className="font-sans italic text-[12px] text-[#888780] mb-3"
           >
             sweats · t-shirt · message fort
           </motion.p>
@@ -47,13 +47,13 @@ const CollectionMystic = () => {
               animate="visible"
               custom={2}
               className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#E8E4DD', maxWidth: 600, lineHeight: 1.7 }}
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#5F5E5A', maxWidth: 600, lineHeight: 1.7 }}
             >
               MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
               Des créations inspirées par les fréquences, les symboles et l'invisible.
               Chaque pièce devient un mantra, une vibration, une énergie à porter.
             </motion.p>
-            <div className="my-2 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+            <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}
               initial="hidden"
@@ -66,6 +66,7 @@ const CollectionMystic = () => {
             </motion.p>
           </div>
         </div>
+
 
 
         {/* Products */}
