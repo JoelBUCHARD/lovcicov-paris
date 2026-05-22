@@ -80,13 +80,6 @@ const CollectionMystic = () => {
           </div>
         </div>
 
-        {/* Secondary claim */}
-        <p
-          className="text-center mt-10"
-          style={{ fontFamily: 'Arial, sans-serif', fontSize: 11, fontStyle: 'italic', color: '#888780' }}
-        >
-          Spirituality meets style.
-        </p>
 
         {/* CTA */}
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-6">
