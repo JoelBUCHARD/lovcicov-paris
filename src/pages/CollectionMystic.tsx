@@ -79,7 +79,7 @@ const CollectionMystic = () => {
         </div>
 
         {/* CTA strip — pale red */}
-        <div className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#C94A4A] px-6 md:px-10 py-12">
+        <div className="bg-[#FFF5F5] border-t-[3px] border-[#C94A4A] px-6 md:px-10 py-12">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center">
             <Link
               to="/shop"
