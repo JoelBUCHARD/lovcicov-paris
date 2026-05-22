@@ -19,7 +19,7 @@ const CollectionMystic = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-52 md:pt-56 pb-14">
+      <main className="pt-32 md:pt-36 pb-14">
         {/* Hero Header strip — light red accent */}
         <div className="bg-[#FFF5F5] border-b-[3px] border-[#E66060] px-6 md:px-10 py-10 md:py-14 mb-10 md:mb-12">
           <div className="text-center max-w-[640px] mx-auto">
@@ -102,12 +102,8 @@ const CollectionMystic = () => {
           </Link>
         </motion.div>
 
-        {/* Footer strip */}
-        <div className="bg-[#FFF5F5] border-t-[3px] border-[#E66060] mt-12 py-10 md:py-14 px-6 md:px-10 text-center">
-          <p className="uppercase" style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}>
-            MYSTICLOV · Broderies dorées · Pièces uniques · Paris
-          </p>
-        </div>
+        {/* Footer accent strip */}
+        <div className="border-t-[3px] border-[#E66060] mt-12" />
       </main>
       <Footer />
     </div>
