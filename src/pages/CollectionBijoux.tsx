@@ -84,7 +84,7 @@ const CollectionBijoux = () => {
         </div>
 
         {/* CTA strip — terracotta */}
-        <div className="bg-[#FDF5EF] border-t-[3px] border-b-[3px] border-[#A55A35] px-6 md:px-10 py-12">
+        <div className="bg-[#FDF5EF] border-t-[3px] border-[#A55A35] px-6 md:px-10 py-12">
           <motion.div
             variants={fadeUp}
             initial="hidden"
