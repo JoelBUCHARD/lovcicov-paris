@@ -2,11 +2,15 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
-const Footer = () => {
+interface FooterProps {
+  hideTopBorder?: boolean;
+}
+
+const Footer = ({ hideTopBorder }: FooterProps) => {
   const [email, setEmail] = useState('');
 
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}>
       {/* Newsletter */}
       <div className="px-6 md:px-10 py-16 md:py-20 text-center bg-background">
         <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>

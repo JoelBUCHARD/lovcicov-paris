@@ -102,10 +102,8 @@ const CollectionMystic = () => {
           </Link>
         </motion.div>
 
-        {/* Footer accent strip */}
-        <div className="border-t-[3px] border-[#E66060] mt-12" />
       </main>
-      <Footer />
+      <Footer hideTopBorder />
     </div>
   );
 };
