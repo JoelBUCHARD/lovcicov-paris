@@ -209,7 +209,7 @@ const MysticLovEditorial = () => {
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{
                     objectPosition: i === 0 ? "center top" : i === 1 ? "center 10%" : "center center",
-                    transform: i === 1 ? "translateY(8%)" : i === 0 ? "translateY(-15%)" : undefined,
+                    transform: i === 3 ? "translateY(8%)" : i === 0 ? "translateY(-15%)" : undefined,
                   }}
                 />
               </div>
