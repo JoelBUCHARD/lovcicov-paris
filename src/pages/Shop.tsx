@@ -36,7 +36,7 @@ const Shop = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
+      <main className="pt-52 md:pt-56 pb-24 px-6 md:px-10">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
 
           {/* Collection headers */}
