@@ -17,11 +17,11 @@ const fadeUp = {
 
 const CollectionMystic = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#EFEDE8]">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-14">
-        {/* Hero Header strip — light red accent */}
-        <div className="bg-[#FFF5F5] border-b-[3px] border-[#E66060] px-6 md:px-10 py-10 md:py-14 mb-10 md:mb-12">
+      <main className="pt-32 md:pt-36 pb-0">
+        {/* Hero Header strip — pale red */}
+        <div className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#C94A4A] px-6 md:px-10 py-10 md:py-14">
           <div className="text-center max-w-[640px] mx-auto">
           <motion.p
             variants={fadeUp}
@@ -67,10 +67,8 @@ const CollectionMystic = () => {
           </div>
         </div>
 
-
-
-        {/* Products */}
-        <div className="px-6 md:px-10">
+        {/* Products — gray background */}
+        <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {mysticProducts.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
@@ -80,20 +78,21 @@ const CollectionMystic = () => {
           </div>
         </div>
 
-
-        {/* CTA */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mt-6">
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
-            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
-          >
-            Voir tous les produits
-            <ArrowRight size={12} />
-          </Link>
-        </motion.div>
+        {/* CTA strip — pale red */}
+        <div className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#C94A4A] px-6 md:px-10 py-12">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center">
+            <Link
+              to="/shop"
+              className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
+              style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
+            >
+              Voir tous les produits
+              <ArrowRight size={12} />
+            </Link>
+          </motion.div>
+        </div>
 
       </main>
       <Footer hideTopBorder />
