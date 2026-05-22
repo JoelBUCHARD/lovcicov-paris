@@ -76,14 +76,14 @@ const Navbar = () => {
 
         <Link
           to="/shop?collection=standard"
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#E66060]"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
         >
           PowerLov
         </Link>
 
         <Link
           to="/mysticlov"
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
+          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#E66060]"
         >
           MysticLov
         </Link>
