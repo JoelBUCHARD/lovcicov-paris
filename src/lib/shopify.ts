@@ -25,6 +25,8 @@ export interface ShopifyProduct {
         };
       }>;
     };
+    productType?: string;
+    tags?: string[];
     variants: {
       edges: Array<{
         node: {
@@ -35,6 +37,7 @@ export interface ShopifyProduct {
             currencyCode: string;
           };
           availableForSale: boolean;
+          quantityAvailable: number | null;
           selectedOptions: Array<{
             name: string;
             value: string;
@@ -100,6 +103,8 @@ const STOREFRONT_QUERY = `
               }
             }
           }
+          productType
+          tags
           variants(first: 20) {
             edges {
               node {
@@ -110,6 +115,7 @@ const STOREFRONT_QUERY = `
                   currencyCode
                 }
                 availableForSale
+                quantityAvailable
                 selectedOptions {
                   name
                   value
@@ -148,6 +154,8 @@ const PRODUCT_BY_HANDLE_QUERY = `
           }
         }
       }
+      productType
+      tags
       variants(first: 20) {
         edges {
           node {
@@ -158,6 +166,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
               currencyCode
             }
             availableForSale
+            quantityAvailable
             selectedOptions {
               name
               value
