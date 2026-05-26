@@ -9,6 +9,7 @@ import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
+import sacSaintLaurent from '@/assets/sac-saint-laurent.avif';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
@@ -403,6 +404,23 @@ const Index = () => {
           >
             Campagne lancement · Édition limitée
           </p>
+
+          {/* Bag image — editorial framing */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="mx-auto mb-12"
+            style={{ maxWidth: 360 }}
+          >
+            <img
+              src={sacSaintLaurent}
+              alt="Sac Saint Laurent à gagner"
+              className="w-full h-auto block"
+              style={{ filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5))' }}
+            />
+          </motion.div>
 
           <h2
             className="italic"
