@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Plus, Minus, Instagram, Star } from "lucide-react";
+import { Plus, Minus, Instagram, Star, Loader2 } from "lucide-react";
 import { Product, bijouxProducts } from "@/data/products";
 import { detectStones } from "@/data/stoneMeanings";
 import { useCart } from "@/context/CartContext";
+import { useCartStore } from "@/stores/cartStore";
+import { fetchShopifyProductByHandle } from "@/lib/shopify";
 import { toast } from "@/hooks/use-toast";
 
 const imageModulesJpg = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
