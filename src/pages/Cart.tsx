@@ -26,7 +26,14 @@ const Cart = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
+      return;
     }
+    toast({
+      title: 'Commande indisponible',
+      description: localItems.length > 0
+        ? "Certains articles ne sont pas synchronisés. Retirez-les et ré-ajoutez-les depuis la fiche produit."
+        : 'Ajoutez un article au panier pour passer commande.',
+    });
   };
 
   return (
