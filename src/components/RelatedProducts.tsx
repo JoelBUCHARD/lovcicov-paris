@@ -168,54 +168,33 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
             <Link
               key={p.key}
               to={p.link}
-              className="group block snap-start shrink-0 md:shrink"
+              className="group flex flex-col snap-start shrink-0 md:shrink bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] overflow-hidden"
               style={{ width: "70%", maxWidth: "100%" }}
             >
-              <div className="md:w-full" style={{ width: "100%" }}>
-                <div
-                  className="overflow-hidden bg-secondary"
-                  style={{ aspectRatio: "1 / 1" }}
-                >
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"
-                  />
-                </div>
-                <p
-                  className="text-center"
+              <div
+                className="overflow-hidden bg-secondary relative shrink-0"
+                style={{ aspectRatio: "3 / 4" }}
+              >
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="space-y-1 text-center pb-3 px-2 mt-3">
+                <h3
                   style={{
                     fontFamily: "Arial, sans-serif",
-                    fontSize: "12px",
+                    fontSize: "11px",
                     color: "#1A1A1A",
-                    letterSpacing: "0.1em",
+                    letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    marginTop: "12px",
                   }}
                 >
                   {p.name}
-                </p>
-                <p
-                  className="text-center"
-                  style={{
-                    fontFamily: "Arial, sans-serif",
-                    fontSize: "9px",
-                    color: UNIVERSE_COLOR[p.universe],
-                    letterSpacing: "0.15em",
-                    marginTop: "4px",
-                  }}
-                >
-                  {UNIVERSE_LABEL[p.universe]}
-                </p>
-                <p
-                  className="text-center"
-                  style={{
-                    fontFamily: "Arial, sans-serif",
-                    fontSize: "14px",
-                    color: "#1A1A1A",
-                    marginTop: "4px",
-                  }}
-                >
+                </h3>
+                <p style={{ fontFamily: "Arial, sans-serif", fontSize: "14px", color: "#1A1A1A" }}>
                   €{p.price}
                 </p>
               </div>
