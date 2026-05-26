@@ -78,14 +78,14 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden h-[60vh] md:h-[80vh]" style={{ backgroundColor: BG }}>
-          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
+          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
 
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
-            <p className="text-white text-[12px]" style={{ opacity: 0.75, maxWidth: 480, lineHeight: 1.9 }}>
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-6 md:pb-10">
+            <p className="text-white text-[12px]" style={{ opacity: 0.85, maxWidth: 480, lineHeight: 1.7, textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
               Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
             </p>
           </div>
