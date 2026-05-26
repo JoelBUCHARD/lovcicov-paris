@@ -30,6 +30,10 @@ const fadeUp = {
 
 const Index = () => {
   const featured = bijouxProducts;
+  const { sold } = usePowerLovSalesCount();
+  const target = 500;
+  const pct = Math.min(100, (sold / target) * 100);
+
 
   return (
     <div className="min-h-screen bg-background">
