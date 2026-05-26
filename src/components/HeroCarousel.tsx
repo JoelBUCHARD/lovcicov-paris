@@ -48,7 +48,7 @@ const HeroCarousel = () => {
             {slides.map((slide, i) => (
               <div key={i} className="w-full flex-shrink-0">
                 {slide.landscape ? (
-                  <div className="overflow-hidden bg-[#F0EBE3] h-[68vh] md:h-[75vh]">
+                  <div className="overflow-hidden bg-[#F0EBE3] h-[55vh] md:h-[75vh]">
                     <img
                       src={slide.landscape}
                       alt={`Slide ${i + 1}`}
@@ -86,7 +86,7 @@ const HeroCarousel = () => {
         </div>
 
 
-        <div className="flex items-center justify-center gap-2 mt-6 pb-6">
+        <div className="flex items-center justify-center gap-2 mt-3 pb-4">
           {slides.map((_, i) => (
             <button
               key={i}
