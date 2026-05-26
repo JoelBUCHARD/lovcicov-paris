@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
+import { toast } from '@/hooks/use-toast';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -25,7 +26,14 @@ const Cart = () => {
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
+      return;
     }
+    toast({
+      title: 'Commande indisponible',
+      description: localItems.length > 0
+        ? "Certains articles ne sont pas synchronisés. Retirez-les et ré-ajoutez-les depuis la fiche produit."
+        : 'Ajoutez un article au panier pour passer commande.',
+    });
   };
 
   return (

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Plus, Minus, Instagram, Star } from "lucide-react";
+import { Plus, Minus, Instagram, Star, Loader2 } from "lucide-react";
 import { Product, bijouxProducts } from "@/data/products";
 import { detectStones } from "@/data/stoneMeanings";
 import { useCart } from "@/context/CartContext";
+import { useCartStore } from "@/stores/cartStore";
+import { fetchShopifyProductByHandle } from "@/lib/shopify";
 import { toast } from "@/hooks/use-toast";
 
 const imageModulesJpg = import.meta.glob("@/assets/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
@@ -65,13 +67,46 @@ const bodyStyle: React.CSSProperties = {
 
 const StoneLovProductPanel = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();
+  const addShopifyItem = useCartStore((s) => s.addItem);
+  const [isAdding, setIsAdding] = useState(false);
   const stones = detectStones(`${product.name} ${product.description} ${product.details ?? ""}`);
 
   const crossSell = bijouxProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
-  const handleAdd = () => {
-    addToCart(product);
-    toast({ title: "Ajouté au panier", description: product.name });
+  const handleAdd = async () => {
+    if (!product.shopifyHandle) {
+      addToCart(product);
+      toast({ title: "Ajouté au panier", description: product.name });
+      return;
+    }
+    setIsAdding(true);
+    try {
+      const sp = await fetchShopifyProductByHandle(product.shopifyHandle);
+      if (!sp) {
+        toast({ title: "Produit indisponible", description: "Réessayez dans un instant." });
+        return;
+      }
+      const variants = sp.variants.edges.map((e) => e.node);
+      const variant = variants.find((v) => v.availableForSale) || variants[0];
+      if (!variant) {
+        toast({ title: "Aucune variante disponible" });
+        return;
+      }
+      await addShopifyItem({
+        product: { node: sp },
+        variantId: variant.id,
+        variantTitle: variant.title,
+        price: variant.price,
+        quantity: 1,
+        selectedOptions: variant.selectedOptions,
+      });
+      toast({ title: "Ajouté au panier", description: product.name });
+    } catch (err) {
+      console.error("Add to cart failed", err);
+      toast({ title: "Erreur", description: "Impossible d'ajouter au panier." });
+    } finally {
+      setIsAdding(false);
+    }
   };
 
   return (
@@ -138,7 +173,8 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 6 — Add to cart */}
       <button
         onClick={handleAdd}
-        className="w-full transition-colors hover:opacity-90"
+        disabled={isAdding}
+        className="w-full transition-colors hover:opacity-90 flex items-center justify-center gap-2 disabled:opacity-60"
         style={{
           backgroundColor: TERRA,
           color: "#FFFFFF",
@@ -150,7 +186,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
           textTransform: "uppercase",
         }}
       >
-        Ajouter au panier
+        {isAdding ? <Loader2 size={14} className="animate-spin" /> : "Ajouter au panier"}
       </button>
 
       {/* BLOCK 11 — Cross-sell (remonté) */}
