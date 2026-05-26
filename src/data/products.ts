@@ -18,7 +18,7 @@ export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
     name: 'Hoodie Signature',
-    price: 220,
+    price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
     description: 'Molleton lourd 380g, coupe oversize architecturale. Au dos : « STANDARD » brodé. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
@@ -29,7 +29,7 @@ export const standardProducts: Product[] = [
   {
     id: 'tshirt-statement',
     name: 'T-shirt Statement',
-    price: 120,
+    price: 69,
     collection: 'standard',
     subcategory: 'tshirt',
     description: 'Coton lourd 240g, silhouette structurée. Au dos : « POWER » sérigraphié. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
@@ -40,7 +40,7 @@ export const standardProducts: Product[] = [
   {
     id: 'crewneck-standard',
     name: 'Crewneck The Standard',
-    price: 160,
+    price: 89,
     collection: 'standard',
     subcategory: 'crewneck',
     description: 'Molleton 350g, col rond structuré. Au dos : « THE STANDARD » brodé. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
