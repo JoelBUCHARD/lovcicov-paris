@@ -54,12 +54,6 @@ const StoneLovEditorial = () => {
                 STONELOV
               </p>
             </div>
-            <h1 className="italic mb-3" style={{ color: INK, fontSize: "clamp(24px,4vw,34px)", fontWeight: 300, lineHeight: 1.2 }}>
-              
-            </h1>
-            <p className="italic mb-4" style={{ color: WARM, fontSize: 13 }}>
-              
-            </p>
             <Link
               to="/collections/bijoux"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
