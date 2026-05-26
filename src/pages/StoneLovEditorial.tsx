@@ -31,12 +31,12 @@ const StoneLovEditorial = () => {
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: BORDER }} />
           <Link
             to="/collections/bijoux"
-            className="text-white text-[10px] uppercase transition-colors"
-            style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
+            className="uppercase px-4 py-2 transition-colors"
+            style={{ backgroundColor: TERRA, color: "#FFFFFF", fontSize: 10, letterSpacing: "0.15em" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
           >
-            VOIR TOUTE LA COLLECTION →
+            DÉCOUVRIR LA COLLECTION →
           </Link>
         </header>
 
@@ -48,19 +48,20 @@ const StoneLovEditorial = () => {
             className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-12 pb-5">
-            <div style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", display: "inline-block" }}>
-              <p className="uppercase" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
-                STONELOV
-              </p>
-            </div>
-            <p className="italic mb-3" style={{ color: INK, fontSize: "clamp(14px, 2.5vw, 20px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
-              Rooted in the earth.
+          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
+            <p className="uppercase mb-3" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
+              STONELOV
             </p>
+            <h1
+              className="mb-3 text-[22px] md:text-[30px]"
+              style={{ color: INK, fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
+            >
+              Rooted in the earth.
+            </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block text-white text-[9px] uppercase transition-colors mb-3"
-              style={{ backgroundColor: TERRA, padding: "8px 16px", letterSpacing: "0.12em" }}
+              className="inline-block mt-4 uppercase transition-colors text-[8px] md:text-[9px] px-4 py-2 md:px-6 md:py-2.5"
+              style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
@@ -82,7 +83,7 @@ const StoneLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-6 md:pb-10">
-            <p className="text-white text-[12px]" style={{ opacity: 0.85, maxWidth: 480, lineHeight: 1.7, textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
+            <p className="text-white" style={{ fontFamily: "Arial, sans-serif", fontSize: 13, opacity: 0.85, maxWidth: 480, lineHeight: 1.8, textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
               Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
             </p>
           </div>
@@ -96,10 +97,10 @@ const StoneLovEditorial = () => {
         <section className="flex flex-col md:flex-row w-full md:min-h-screen md:pt-5">
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-8 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
             <div className="max-w-md">
-              <p className="text-[9px] uppercase mb-6" style={{ color: TERRA, letterSpacing: "0.2em" }}>
+              <p className="uppercase mb-6" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
                 LE SAVOIR-FAIRE
               </p>
-              <p className="text-[13px]" style={{ color: WARM, lineHeight: 1.9 }}>
+              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: WARM, lineHeight: 1.8 }}>
                 Chaque collier StoneLov est assemblé à la main. Nous sélectionnons chaque pierre une à une, pour sa qualité, son énergie et sa singularité. Aucune pièce n'est identique.
               </p>
               <div className="h-px" style={{ width: 40, backgroundColor: TERRA, margin: "24px 0" }} />
@@ -119,13 +120,16 @@ const StoneLovEditorial = () => {
           <img src={closing} alt="Very Slow Fashion" className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover" style={{ objectPosition: "center 30%" }} />
 
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
-            <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
+            <h2
+              className="mb-5"
+              style={{ color: INK, fontFamily: "Arial, sans-serif", fontSize: 30, fontWeight: 200, fontStyle: "italic", letterSpacing: "0.03em" }}
+            >
               Protected. Guided. Unstoppable.
             </h2>
             <Link
               to="/collections/bijoux"
-              className="text-white text-[9px] uppercase transition-colors"
-              style={{ backgroundColor: TERRA, padding: "10px 24px", letterSpacing: "0.15em", marginTop: 20 }}
+              className="uppercase transition-colors px-5 py-2.5 md:px-6 md:py-3"
+              style={{ backgroundColor: TERRA, color: "#FFFFFF", fontSize: 8, letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
