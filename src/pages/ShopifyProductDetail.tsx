@@ -223,6 +223,10 @@ const ShopifyProductDetail = () => {
           </motion.div>
         </div>
       </main>
+      <RelatedProducts
+        currentKey={`shopify:${product.handle}`}
+        currentUniverse={universeKey}
+      />
       <Footer />
     </div>
   );
