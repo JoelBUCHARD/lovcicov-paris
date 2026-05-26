@@ -21,25 +21,6 @@ const HeroCarousel = () => {
   return (
     <section className="w-full bg-[#FAF7F2]">
       <div className="relative w-full">
-        <div
-          aria-hidden="true"
-          className="absolute left-2 md:left-8 top-1/2 z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
-        >
-          <span
-            className="leading-none whitespace-nowrap"
-            style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(56px, 14vw, 160px)',
-              fontWeight: 700,
-              letterSpacing: '0.02em',
-              color: 'rgba(26, 26, 26, 0.42)',
-              textShadow: '0 0 1px rgba(255,255,255,0.08)',
-            }}
-          >
-            LOVCICOV
-          </span>
-        </div>
-
         <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-700 ease-out"
