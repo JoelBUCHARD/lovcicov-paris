@@ -70,8 +70,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
   const [isAdding, setIsAdding] = useState(false);
   const stones = detectStones(`${product.name} ${product.description} ${product.details ?? ""}`);
 
-  const crossSell = bijouxProducts.filter((p) => p.id !== product.id).slice(0, 3);
-
   const handleAdd = async () => {
     if (!product.shopifyHandle) {
       addToCart(product);
