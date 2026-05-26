@@ -163,7 +163,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 4 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-        <section className="relative w-full overflow-hidden my-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
+        <section className="relative w-full overflow-hidden my-0 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
           <img
             src={groupShot}
             alt="La communauté MysticLov"
@@ -195,7 +195,7 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
-        <section className="w-full mt-5 mb-0 md:my-5" style={{ backgroundColor: BG }}>
+        <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[duoRooftop, greenTee, hoodieRooftop, rooftopArmsOpen, hoodieMadonnaParis, rooftopMadonna].map((img, i) => (
               <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
