@@ -338,8 +338,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang préhnite et malachite, fermoir doré.',
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
-    image: 'bijoux-prehnite-solo',
-    gallery: ['bijoux-prehnite-fleurs', 'bijoux-prehnite-tarot'],
+    image: 'bijoux-prehnite-model',
+    gallery: ['bijoux-prehnite-solo', 'bijoux-prehnite-tarot'],
     stoneMeaning: 'Préhnite — Pierre de guérison et de renouveau, elle apaise l\'esprit et renforce la connexion à la nature. Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et favorise le changement profond.',
   },
   {
