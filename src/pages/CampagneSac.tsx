@@ -287,43 +287,6 @@ const CampagneSac = () => {
         </p>
       </section>
 
-      {/* ALL TSHIRTS */}
-      <section
-        className="w-full"
-        style={{ backgroundColor: '#FFFFFF', padding: '80px 24px', borderTop: `0.5px solid ${BEIGE_BORDER}` }}
-      >
-        <p
-          className="text-center"
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 9,
-            textTransform: 'uppercase',
-            color: INK,
-            letterSpacing: '0.2em',
-            marginBottom: 40,
-          }}
-        >
-          Tous les t-shirts
-        </p>
-        <ProductGrid products={allTees} />
-
-        <div className="text-center mt-12">
-          <Link
-            to="/collections/t-shirts"
-            className="hover:underline"
-            style={{
-              fontFamily: ARIAL,
-              fontSize: 11,
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-              color: INK,
-            }}
-          >
-            Voir toute la collection de t-shirts →
-          </Link>
-        </div>
-      </section>
-
       {/* LEGAL */}
       <section
         className="mx-auto"
