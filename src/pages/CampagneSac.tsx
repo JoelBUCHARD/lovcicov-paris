@@ -248,6 +248,24 @@ const CampagneSac = () => {
         ))}
       </section>
 
+      {/* PARTICIPANTS */}
+      <section className="w-full" style={{ backgroundColor: BEIGE, padding: '80px 24px' }}>
+        <p
+          className="text-center"
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 9,
+            textTransform: 'uppercase',
+            color: INK,
+            letterSpacing: '0.2em',
+            marginBottom: 40,
+          }}
+        >
+          Les t-shirts participants
+        </p>
+        <ProductGrid products={allTees} />
+      </section>
+
       {/* HASHTAG */}
       <section
         className="w-full text-center"
@@ -267,24 +285,6 @@ const CampagneSac = () => {
         <p className="italic" style={{ fontFamily: ARIAL, fontSize: 13, color: SOFT, marginTop: 12 }}>
           Rejoignez le mouvement. Taguez-nous.
         </p>
-      </section>
-
-      {/* PARTICIPANTS */}
-      <section className="w-full" style={{ backgroundColor: BEIGE, padding: '80px 24px' }}>
-        <p
-          className="text-center"
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 9,
-            textTransform: 'uppercase',
-            color: INK,
-            letterSpacing: '0.2em',
-            marginBottom: 40,
-          }}
-        >
-          Les t-shirts participants
-        </p>
-        <ProductGrid products={allTees} />
       </section>
 
       {/* ALL TSHIRTS */}
