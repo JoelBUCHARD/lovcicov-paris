@@ -97,10 +97,10 @@ const StoneLovEditorial = () => {
         <section className="flex flex-col md:flex-row w-full md:min-h-screen md:pt-5">
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-8 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
             <div className="max-w-md">
-              <p className="text-[9px] uppercase mb-6" style={{ color: TERRA, letterSpacing: "0.2em" }}>
+              <p className="uppercase mb-6" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
                 LE SAVOIR-FAIRE
               </p>
-              <p className="text-[13px]" style={{ color: WARM, lineHeight: 1.9 }}>
+              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: WARM, lineHeight: 1.8 }}>
                 Chaque collier StoneLov est assemblé à la main. Nous sélectionnons chaque pierre une à une, pour sa qualité, son énergie et sa singularité. Aucune pièce n'est identique.
               </p>
               <div className="h-px" style={{ width: 40, backgroundColor: TERRA, margin: "24px 0" }} />
