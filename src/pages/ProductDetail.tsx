@@ -218,24 +218,20 @@ const ProductDetail = () => {
             >
               €{product.price}
             </p>
+            <p className="italic" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+              4x sans frais avec Alma
+            </p>
             {(() => {
               const ship =
                 product.subcategory === 'tshirt' ? "Livraison 4.50€ · Offerte dès 250€ d'achat"
                 : product.subcategory === 'crewneck' ? "Livraison 5.50€ · Offerte dès 250€ d'achat"
                 : product.subcategory === 'hoodie' ? "Livraison 6.50€ · Offerte dès 250€ d'achat"
                 : null;
-              return (
-                <>
-                  <p className="italic" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
-                    4x sans frais avec Alma
-                  </p>
-                  {ship && (
-                    <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
-                      {ship}
-                    </p>
-                  )}
-                </>
-              );
+              return ship && product.collection !== 'mystic' ? (
+                <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+                  {ship}
+                </p>
+              ) : null;
             })()}
             {product.collection === 'standard' ? (
               <>
@@ -259,20 +255,12 @@ const ProductDetail = () => {
                 </p>
               </>
             ) : product.collection === 'mystic' ? (
-              <>
-                <p
-                  className="text-[11px] text-[#5F5E5A] mb-1 mt-2"
-                  style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                  Broderie dorée main · Symbole intentionnel
-                </p>
-                <p
-                  className="text-[11px] text-[#5F5E5A] mb-8"
-                  style={{ fontFamily: 'Arial, sans-serif' }}
-                >
-                  Unisex · Coupe oversize · Paris
-                </p>
-              </>
+              <p
+                className="text-[11px] text-[#5F5E5A] mb-8 mt-2"
+                style={{ fontFamily: 'Arial, sans-serif' }}
+              >
+                Unisex · Coupe oversize · Paris
+              </p>
             ) : (
               <div className="mb-7" />
             )}
