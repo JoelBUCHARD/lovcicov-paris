@@ -37,7 +37,7 @@ const CollectionTshirts = () => {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FAF7F2' }}>
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-20 px-6">
+      <main className="pt-40 md:pt-52 pb-20 px-6">
         <div className="text-center mb-12">
           <h1
             className="italic"
