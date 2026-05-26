@@ -41,14 +41,14 @@ const StoneLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-auto md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
           <img
             src={hero}
             alt="StoneLov hero"
-            className="absolute inset-0 w-full h-full object-cover md:scale-[1.2]"
+            className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 z-10 p-6 md:p-12 pb-5">
+          <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-12 pb-5">
             <div className="inline-block" style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", borderRadius: 1, marginBottom: 8 }}>
               <p className="text-[9px] uppercase" style={{ color: TERRA, letterSpacing: "0.25em", fontWeight: 700 }}>
                 STONELOV
