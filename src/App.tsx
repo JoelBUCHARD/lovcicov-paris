@@ -88,6 +88,7 @@ const AppContent = () => {
     <>
       <ScrollToTop />
       <NewsletterPopup />
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
