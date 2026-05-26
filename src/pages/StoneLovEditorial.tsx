@@ -49,9 +49,11 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-12 pb-5">
-            <p className="uppercase mb-3" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
-              STONELOV
-            </p>
+            <div style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", display: "inline-block" }}>
+              <p className="uppercase" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
+                STONELOV
+              </p>
+            </div>
             <p className="italic mb-3" style={{ color: INK, fontSize: "clamp(14px, 2.5vw, 20px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
               Rooted in the earth.
             </p>
@@ -117,7 +119,7 @@ const StoneLovEditorial = () => {
           <img src={closing} alt="Very Slow Fashion" className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover" style={{ objectPosition: "center 30%" }} />
 
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
-            <h2 className="italic" style={{ color: INK, fontSize: "clamp(18px,3vw,28px)", fontWeight: 200, letterSpacing: "0.03em" }}>
+            <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Protected. Guided. Unstoppable.
             </h2>
             <Link
