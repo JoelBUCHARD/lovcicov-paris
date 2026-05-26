@@ -182,7 +182,7 @@ const Index = () => {
       </section>
 
       {/* EDITORIAL */}
-      <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center">
+      <section className="w-full bg-white pt-4 md:pt-16 pb-0 flex justify-center">
         <div className="relative inline-block">
           {/* LOVCICOV text overlay on second photo */}
           <div
