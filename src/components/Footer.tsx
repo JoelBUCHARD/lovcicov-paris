@@ -68,6 +68,9 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
             <Link to="/confidentialite" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
               Confidentialité
             </Link>
+            <Link to="/cgv" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+              CGV
+            </Link>
           </div>
 
           <p className="text-[10px] text-muted-foreground/60">

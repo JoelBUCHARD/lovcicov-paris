@@ -25,6 +25,7 @@ import Account from "./pages/Account";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import LivraisonRetours from "./pages/LivraisonRetours";
+import CGV from "./pages/CGV";
 import NewsletterPopup from "./components/NewsletterPopup";
 import CookieBanner from "./components/CookieBanner";
 
@@ -111,6 +112,7 @@ const AppContent = () => {
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/confidentialite" element={<Confidentialite />} />
         <Route path="/livraison-retours" element={<LivraisonRetours />} />
+        <Route path="/cgv" element={<CGV />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
