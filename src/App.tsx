@@ -24,7 +24,9 @@ import Auth from "./pages/Auth";
 import Account from "./pages/Account";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
+import LivraisonRetours from "./pages/LivraisonRetours";
 import NewsletterPopup from "./components/NewsletterPopup";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
