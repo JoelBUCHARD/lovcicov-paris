@@ -80,9 +80,6 @@ const MysticLovEditorial = () => {
             >
               Love is my frequency.
             </h1>
-            <p style={{ fontFamily: "Arial, sans-serif", fontSize: 11, fontStyle: "italic", color: "#FFFFFF", opacity: 0.85 }}>
-              A frequency to wear.
-            </p>
             <Link
               to="/mysticlov/shop"
               className="inline-block mt-6 uppercase transition-colors"
@@ -161,9 +158,6 @@ const MysticLovEditorial = () => {
                 MysticLov ne se cache pas. MysticLov s'assume.
               </p>
               <div className="my-8 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 11, fontStyle: "italic", color: SOFT }}>
-                More than fashion.
-              </p>
             </div>
           </div>
         </section>
@@ -229,7 +223,7 @@ const MysticLovEditorial = () => {
               className="text-white mb-3"
               style={{ fontFamily: "Arial, sans-serif", fontSize: 40, fontWeight: 200, fontStyle: "italic", letterSpacing: "0.03em" }}
             >
-              More than fashion.
+              Wear your energy.
             </h2>
             <p
               className="mb-8"
