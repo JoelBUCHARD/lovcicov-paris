@@ -221,12 +221,11 @@ const MysticLovEditorial = () => {
           <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
             <Link
               to="/mysticlov/shop"
-              className="uppercase transition-colors"
+              className="uppercase transition-colors px-5 py-2.5 md:px-6 md:py-3"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
-                padding: "14px 32px",
-                fontSize: 11,
+                fontSize: 9,
                 letterSpacing: "0.15em",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
