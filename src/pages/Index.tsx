@@ -207,7 +207,7 @@ const Index = () => {
           <img
             src={editorialStonelov}
             alt="LOVCICOV — Collection 2026"
-            className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
+            className="relative z-[1] h-auto md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
         </div>
       </section>
