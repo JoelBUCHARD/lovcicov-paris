@@ -128,7 +128,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
             textAlign: "center",
           }}
         >
-          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours&nbsp; · &nbsp;Fait main en Turquie&nbsp; · &nbsp;Pièce unique
+          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours
         </p>
       </div>
 
@@ -152,9 +152,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       >
         Ajouter au panier
       </button>
-      <p style={{ fontFamily: ARIAL, fontSize: 10, fontStyle: "italic", color: "#888780", marginTop: 8, textAlign: "center" }}>
-        Expédié sous 48h · Emballage soigné
-      </p>
 
       {/* BLOCK 11 — Cross-sell (remonté) */}
       <div style={{ marginTop: 32 }}>
@@ -205,8 +202,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Matière principale : {stones.length ? stones.map((s) => s.name.toLowerCase()).join(", ") + " naturelles" : "Pierres naturelles"}</li>
           <li>· Monture : Laiton doré à la main</li>
-          <li>· Fabrication : Fait main en Turquie</li>
-          <li>· Pièce unique — aucune n'est identique</li>
           <li>· Longueur ajustable : 42 — 48 cm</li>
         </ul>
       </Collapsible>
