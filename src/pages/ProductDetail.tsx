@@ -3,6 +3,8 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products } from '@/data/products';
 import { useCart } from '@/context/CartContext';
+import { useCartStore } from '@/stores/cartStore';
+import { fetchShopifyProductByHandle } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -28,14 +30,62 @@ const ProductDetail = () => {
   const product = products.find((p) => p.id === id);
   const [activeImage, setActiveImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('M');
+  const [isAdding, setIsAdding] = useState(false);
   const { addToCart } = useCart();
+  const addShopifyItem = useCartStore((s) => s.addItem);
 
-  const handleAddToCart = () => {
-    if (product) {
+  const handleAddToCart = async () => {
+    if (!product) return;
+
+    // Local fallback for products not yet linked to Shopify
+    if (!product.shopifyHandle) {
       addToCart(product);
       toast({ title: 'Ajouté au panier', description: product.name });
+      return;
+    }
+
+    setIsAdding(true);
+    try {
+      const shopifyProduct = await fetchShopifyProductByHandle(product.shopifyHandle);
+      if (!shopifyProduct) {
+        toast({ title: 'Produit indisponible', description: 'Réessayez dans un instant.' });
+        return;
+      }
+
+      const variants = shopifyProduct.variants.edges.map((e) => e.node);
+      const hasSizeOption = shopifyProduct.options.some((o) => o.name.toLowerCase().includes('taille') || o.name.toLowerCase() === 'size');
+      const hasColorOption = shopifyProduct.options.some((o) => o.name.toLowerCase().includes('couleur') || o.name.toLowerCase() === 'color');
+
+      const variant =
+        variants.find((v) => {
+          const opts = v.selectedOptions;
+          const colorOk = !hasColorOption || !product.shopifyColor || opts.some((o) => o.value === product.shopifyColor);
+          const sizeOk = !hasSizeOption || opts.some((o) => o.value === selectedSize);
+          return v.availableForSale && colorOk && sizeOk;
+        }) || variants.find((v) => v.availableForSale) || variants[0];
+
+      if (!variant) {
+        toast({ title: 'Aucune variante disponible' });
+        return;
+      }
+
+      await addShopifyItem({
+        product: { node: shopifyProduct },
+        variantId: variant.id,
+        variantTitle: variant.title,
+        price: variant.price,
+        quantity: 1,
+        selectedOptions: variant.selectedOptions,
+      });
+      toast({ title: 'Ajouté au panier', description: product.name });
+    } catch (err) {
+      console.error('Add to cart failed', err);
+      toast({ title: 'Erreur', description: 'Impossible d\'ajouter au panier.' });
+    } finally {
+      setIsAdding(false);
     }
   };
+
 
   if (!product) {
     return (
@@ -271,15 +321,17 @@ const ProductDetail = () => {
 
             <button
               onClick={handleAddToCart}
-              className={`px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
+              disabled={isAdding}
+              className={`px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] disabled:opacity-60 ${
                 product.collection === 'mystic'
                   ? 'bg-[#F5D0D0] text-[#1A1A1A] hover:bg-[#F5D0D0]'
                   : 'bg-[#1A1A1A] text-white hover:bg-[#E63946]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Ajouter au Panier
+              {isAdding ? 'Ajout en cours…' : 'Ajouter au Panier'}
             </button>
+
 
             <p
               className="text-[11px] text-[#888780] text-center mt-4"
