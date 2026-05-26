@@ -112,7 +112,7 @@ const ShopifyProductDetail = () => {
           ← RETOUR À MYSTICLOV
         </Link>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-24 max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-24 max-w-6xl">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
             <div className="aspect-[3/4] overflow-hidden bg-secondary mb-3">
               {images[activeImage] ? (
