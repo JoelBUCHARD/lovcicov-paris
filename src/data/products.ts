@@ -329,7 +329,7 @@ export const mysticProducts: Product[] = [
 export const bijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
-    shopifyHandle: 'collier-fuchsia-or',
+    shopifyHandle: 'collier-fuchsia-et-or',
     name: 'Collier Fuchsia & Or',
     price: 69,
     collection: 'bijoux',
@@ -341,7 +341,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-aventurine',
-    shopifyHandle: 'collier-quartz-rose-aventurine',
+    shopifyHandle: 'collier-quartz-rose-et-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
     price: 89,
     collection: 'bijoux',
@@ -353,7 +353,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-labradorite-amethyste',
-    shopifyHandle: 'collier-labradorite-amethyste',
+    shopifyHandle: 'collier-labradorite-et-amethyste',
     name: 'Collier Labradorite & Améthyste',
     price: 89,
     collection: 'bijoux',
@@ -365,7 +365,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-prehnite-malachite',
-    shopifyHandle: 'collier-prehnite-malachite',
+    shopifyHandle: 'collier-prehnite-et-malachite',
     name: 'Collier Préhnite & Malachite',
     price: 89,
     collection: 'bijoux',
@@ -377,7 +377,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-croix-jade',
-    shopifyHandle: 'collier-quartz-rose-croix-de-jade',
+    shopifyHandle: 'collier-quartz-rose-et-croix-de-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
     price: 69,
     collection: 'bijoux',
@@ -389,7 +389,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-corail',
-    shopifyHandle: 'collier-malachite-corail',
+    shopifyHandle: 'collier-malachite-et-corail',
     name: 'Collier Malachite & Corail',
     price: 69,
     collection: 'bijoux',
@@ -413,7 +413,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-jade-nacre',
-    shopifyHandle: 'collier-trio-citrine-amethyste',
+    shopifyHandle: 'collier-jade-et-nacre',
     name: 'Collier Jade & Nacre',
     price: 69,
     collection: 'bijoux',
@@ -425,7 +425,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-corail-multicolor',
-    shopifyHandle: 'collier-corail-pierres-multicolores',
+    shopifyHandle: 'collier-corail-et-pierres-multicolores',
     name: 'Collier Corail & Pierres Multicolores',
     price: 69,
     collection: 'bijoux',
@@ -437,7 +437,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-turquoise-or',
-    shopifyHandle: 'collier-turquoise-or',
+    shopifyHandle: 'collier-turquoise-et-or',
     name: 'Collier Turquoise & Or',
     price: 69,
     collection: 'bijoux',
