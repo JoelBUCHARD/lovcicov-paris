@@ -48,19 +48,20 @@ const StoneLovEditorial = () => {
             className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-12 pb-5">
-            <div style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", display: "inline-block" }}>
-              <p className="uppercase" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
-                STONELOV
-              </p>
-            </div>
-            <p className="italic mb-3" style={{ color: INK, fontSize: "clamp(14px, 2.5vw, 20px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
-              Rooted in the earth.
+          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
+            <p className="uppercase mb-3" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
+              STONELOV
             </p>
+            <h1
+              className="mb-3 text-[22px] md:text-[30px]"
+              style={{ color: INK, fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
+            >
+              Rooted in the earth.
+            </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block text-white text-[9px] uppercase transition-colors mb-3"
-              style={{ backgroundColor: TERRA, padding: "8px 16px", letterSpacing: "0.12em" }}
+              className="inline-block mt-4 uppercase transition-colors text-[8px] md:text-[9px] px-4 py-2 md:px-6 md:py-2.5"
+              style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
