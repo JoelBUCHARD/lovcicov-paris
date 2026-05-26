@@ -321,15 +321,17 @@ const ProductDetail = () => {
 
             <button
               onClick={handleAddToCart}
-              className={`px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] ${
+              disabled={isAdding}
+              className={`px-8 py-4 text-[10px] tracking-[0.15em] uppercase transition-colors w-full rounded-[2px] disabled:opacity-60 ${
                 product.collection === 'mystic'
                   ? 'bg-[#F5D0D0] text-[#1A1A1A] hover:bg-[#F5D0D0]'
                   : 'bg-[#1A1A1A] text-white hover:bg-[#E63946]'
               }`}
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Ajouter au Panier
+              {isAdding ? 'Ajout en cours…' : 'Ajouter au Panier'}
             </button>
+
 
             <p
               className="text-[11px] text-[#888780] text-center mt-4"
