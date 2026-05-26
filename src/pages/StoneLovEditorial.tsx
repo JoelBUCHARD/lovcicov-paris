@@ -49,18 +49,18 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
-            <p className="uppercase mb-3" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: TERRA, letterSpacing: "0.18em" }}>
               STONELOV
             </p>
             <h1
-              className="mb-3 text-[22px] md:text-[30px]"
+              className="mb-3 text-[18px] md:text-[30px]"
               style={{ color: INK, fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
             >
               Rooted in the earth.
             </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block mt-4 uppercase transition-colors text-[8px] md:text-[9px] px-4 py-2 md:px-6 md:py-2.5"
+              className="inline-block mt-4 uppercase transition-colors text-[7px] md:text-[9px] px-3 py-1.5 md:px-6 md:py-2.5"
               style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.15em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
