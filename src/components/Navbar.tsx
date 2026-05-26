@@ -13,9 +13,10 @@ const Navbar = () => {
   const [shopOpen, setShopOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
-  const shopifyTotalItems = useCartStore(state => state.totalItems);
+  const shopifyItems = useCartStore(state => state.items);
+  const shopifyTotalItems = shopifyItems.reduce((sum, i) => sum + i.quantity, 0);
   const { totalItems: localTotalItems } = useCart();
-  const totalItems = shopifyTotalItems() + localTotalItems;
+  const totalItems = shopifyTotalItems + localTotalItems;
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
