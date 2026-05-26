@@ -493,7 +493,7 @@ export const bijouxProducts: Product[] = [
     description: 'Double rang aigue-marine brute et agate bleue, intercalaires dorés.',
     details: 'Fraîcheur marine. Deux rangs qui évoquent l\'eau, le calme et la clarté.',
     image: 'stonelov-aigue-marine-agate-model',
-    gallery: ['stonelov-aigue-marine-agate-orange', 'stonelov-aigue-marine-agate', 'stonelov-aigue-marine-agate-book'],
+    gallery: ['stonelov-aigue-marine-agate-2', 'stonelov-aigue-marine-agate-book'],
     stoneMeaning: 'Aigue-marine — Pierre de calme et de communication, elle apaise les émotions et clarifie l\'esprit. Agate bleue — Pierre d\'équilibre et de sérénité, elle favorise la confiance et la prise de parole.',
   },
   {
