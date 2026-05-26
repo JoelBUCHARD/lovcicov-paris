@@ -46,9 +46,10 @@ const StoneUniverse = () => {
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-          {stones.map((stone) => (
+          {stones.map((stone, index) => (
             <article
               key={stone.key}
+              className={index >= 3 ? "hidden md:block" : ""}
               style={{
                 backgroundColor: "#FFFFFF",
                 border: "0.5px solid #E8D8C8",
