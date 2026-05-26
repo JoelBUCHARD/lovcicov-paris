@@ -218,7 +218,7 @@ const MysticLovEditorial = () => {
           />
 
 
-          <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
+          <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
             <Link
               to="/mysticlov/shop"
               className="uppercase transition-colors px-5 py-2.5 md:px-6 md:py-3"
