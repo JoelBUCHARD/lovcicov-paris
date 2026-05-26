@@ -41,11 +41,11 @@ const StoneLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-screen overflow-hidden" style={{ backgroundColor: BG }}>
           <img
             src={hero}
             alt="StoneLov hero"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.2]"
+            className="absolute inset-0 w-full h-full object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 z-10 p-6 md:p-12 pb-5">
@@ -78,14 +78,14 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden h-[60vh] md:h-[80vh]" style={{ backgroundColor: BG }}>
-          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
+          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
 
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6" style={{ paddingBottom: 40 }}>
-            <p className="text-white text-[12px]" style={{ opacity: 0.75, maxWidth: 480, lineHeight: 1.9 }}>
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-6 md:pb-10">
+            <p className="text-white text-[12px]" style={{ opacity: 0.85, maxWidth: 480, lineHeight: 1.7, textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
               Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
             </p>
           </div>
@@ -95,8 +95,8 @@ const StoneLovEditorial = () => {
         <StoneLovGrid />
 
         {/* BLOCK 3 — SPLIT */}
-        <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "100vh", paddingTop: 20 }}>
-          <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
+        <section className="flex flex-col md:flex-row w-full md:min-h-screen md:pt-5">
+          <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-8 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
             <div className="max-w-md">
               <p className="text-[9px] uppercase mb-6" style={{ color: TERRA, letterSpacing: "0.2em" }}>
                 LE SAVOIR-FAIRE
@@ -117,10 +117,10 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 4 — CLOSING */}
         <div style={{ height: 20, backgroundColor: BG }} />
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
-          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-contain md:object-cover" style={{ objectPosition: "center 30%" }} />
+        <section className="relative w-screen h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
 
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
+          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Protected. Guided. Unstoppable.
             </h2>
