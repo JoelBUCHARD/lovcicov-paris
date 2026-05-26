@@ -163,7 +163,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 4 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-        <section className="relative w-full overflow-hidden my-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
+        <section className="relative w-full overflow-hidden mt-2 mb-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
           <img
             src={groupShot}
             alt="La communauté MysticLov"
