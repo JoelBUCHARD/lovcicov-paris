@@ -49,7 +49,7 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: TERRA, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-3 text-[8px] md:text-[9px] inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.18em", backgroundColor: "rgba(95,94,90,0.35)" }}>
               STONELOV
             </p>
             <h1
