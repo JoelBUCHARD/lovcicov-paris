@@ -39,7 +39,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[188px] pb-8 md:pb-10 text-center relative overflow-hidden">
+      <section className="w-full bg-[#FAF7F2] pt-[100px] md:pt-[140px] pb-8 md:pb-10 text-center relative overflow-hidden">
 
 
 
@@ -65,8 +65,8 @@ const Index = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.95 }}
-            className="mx-auto mb-6"
-            style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '600px', lineHeight: 1.6 }}
+            className="mx-auto mb-6 px-8 md:px-12"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '640px', lineHeight: 1.6 }}
           >
             LOVCICOV explore le lien entre la mode, l'énergie, l'émotion et la transformation intérieure à travers des pièces pensées comme des talismans contemporains.
           </motion.p>
