@@ -482,7 +482,7 @@ export const bijouxProducts: Product[] = [
     description: 'Double rang malachite et lapis-lazuli, deux pendentifs gouttes sertis d\'or.',
     details: 'Pièce de signature. Deux rangs et deux gouttes de lapis pour une présence affirmée.',
     image: 'stonelov-malachite-lapis-double-pendentif',
-    gallery: [],
+    gallery: ['stonelov-malachite-lapis-double-pendentif-2', 'stonelov-malachite-lapis-double-pendentif-3'],
     stoneMeaning: 'Lapis-lazuli — Pierre de vérité, d\'intuition et d\'expression de soi. Malachite — Pierre de transformation, de protection et d\'ancrage profond.',
   },
   {
