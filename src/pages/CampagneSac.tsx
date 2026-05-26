@@ -284,7 +284,7 @@ const CampagneSac = () => {
         >
           Les t-shirts participants
         </p>
-        <ProductGrid products={participants} />
+        <ProductGrid products={allTees} />
       </section>
 
       {/* ALL TSHIRTS */}
