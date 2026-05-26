@@ -40,14 +40,8 @@ const CollectionTshirts = () => {
       <main className="pt-40 md:pt-52 pb-20 px-6">
         <div className="text-center mb-12">
           <h1
-            className="italic"
-            style={{
-              fontFamily: ARIAL,
-              fontSize: 'clamp(22px, 3vw, 32px)',
-              fontWeight: 200,
-              color: '#1A1A1A',
-              lineHeight: 1.1,
-            }}
+            className="italic text-[#1A1A1A]"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: '36px', fontWeight: 200 }}
           >
             Tous les t-shirts
           </h1>
