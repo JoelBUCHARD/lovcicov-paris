@@ -4,11 +4,22 @@ import { ShoppingBag, Trash2, Minus, Plus, ExternalLink, Loader2 } from 'lucide-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCartStore } from '@/stores/cartStore';
+import { useCart } from '@/context/CartContext';
+
+const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesPng = import.meta.glob('@/assets/*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const localImages = { ...imageModulesJpg, ...imageModulesWebp, ...imageModulesPng };
+const getLocalImage = (key: string) => {
+  const match = Object.entries(localImages).find(([path]) => path.includes(key));
+  return match ? match[1] : '';
+};
 
 const Cart = () => {
   const { items, removeItem, updateQuantity, isLoading, getCheckoutUrl, totalPrice, totalItems } = useCartStore();
-  const total = totalPrice();
-  const count = totalItems();
+  const { items: localItems, removeFromCart, updateQuantity: updateLocalQty, totalItems: localTotal, totalPrice: localPriceTotal } = useCart();
+  const total = totalPrice() + localPriceTotal;
+  const count = totalItems() + localTotal;
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
