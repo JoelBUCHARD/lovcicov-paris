@@ -73,17 +73,17 @@ const Index = () => {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
-            className="flex items-center justify-center gap-4 mb-3 mt-3"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 mt-3 px-6"
           >
             <Link
               to="/shop"
-              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors"
+              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors w-full sm:w-auto"
             >
               Découvrir la collection
             </Link>
             <Link
               to="/fondatrice"
-              className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors"
+              className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors w-full sm:w-auto"
             >
               Notre histoire
             </Link>
@@ -184,19 +184,19 @@ const Index = () => {
         <img
           src={editorialStonelov}
           alt="LOVCICOV — Collection 2026"
-          className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-cover object-top"
+          className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top"
         />
 
-        {/* Giant LOVCICOV in front of image — desktop only */}
+        {/* Giant LOVCICOV in front of image */}
         <div
           aria-hidden="true"
-          className="hidden md:flex absolute inset-0 z-[3] items-end justify-start pointer-events-none select-none pb-10 pl-10"
+          className="absolute inset-0 z-[3] flex items-end justify-center md:justify-start pointer-events-none select-none pb-6 md:pb-10 px-4 md:pl-10 md:pr-0"
         >
           <span
             className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
             style={{
               fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(60px, 10vw, 140px)',
+              fontSize: 'clamp(40px, 12vw, 140px)',
               fontWeight: 700,
               letterSpacing: '0.02em',
             }}

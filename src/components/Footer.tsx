@@ -43,21 +43,9 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/"><img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" /></Link>
           
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <Link to="/shop" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-              Shop
-            </Link>
-            <Link to="/manifeste" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-              Manifeste
-            </Link>
-            <Link to="/fondatrice" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-              La Fondatrice
-            </Link>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
             <a href="mailto:contact@lovcicov.com" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
               Contact
-            </a>
-            <a href="https://instagram.com/lovcicov" target="_blank" rel="noopener noreferrer" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
-              Instagram
             </a>
             <Link to="/livraison-retours" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
               Livraison & Retours
