@@ -9,7 +9,7 @@ import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
-import sacSaintLaurent from '@/assets/campagne-sac-saint-laurent.jpg';
+
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
 import ig3 from '@/assets/instagram/ig-3.jpg';
