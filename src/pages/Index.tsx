@@ -194,7 +194,7 @@ const Index = () => {
           {/* Giant LOVCICOV fixed on the left side of the image */}
           <div
             aria-hidden="true"
-            className="absolute left-0 top-1/2 z-[3] flex -translate-x-[34%] -translate-y-1/2 items-center pointer-events-none select-none"
+            className="absolute inset-y-0 left-0 z-[3] flex items-center pointer-events-none select-none pl-3 md:pl-6"
           >
             <span
               className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
