@@ -223,13 +223,13 @@ const MysticLovEditorial = () => {
               to="/mysticlov/shop"
               className="uppercase transition-colors px-5 py-2.5 md:px-6 md:py-3"
               style={{
-                backgroundColor: ACCENT,
+                backgroundColor: "#000000",
                 color: "#FFFFFF",
                 fontSize: 9,
                 letterSpacing: "0.15em",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333333")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#000000")}
             >
               DÉCOUVRIR LA COLLECTION
             </Link>
