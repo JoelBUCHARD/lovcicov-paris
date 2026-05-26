@@ -80,20 +80,9 @@ const CampagneSac = () => {
       {/* HERO */}
       <section
         className="w-full flex items-center justify-center text-center px-6"
-        style={{ backgroundColor: INK, height: '90vh' }}
+        style={{ backgroundColor: INK, height: '75vh' }}
       >
         <div>
-          <p
-            style={{
-              fontFamily: ARIAL,
-              fontSize: 9,
-              textTransform: 'uppercase',
-              color: SOFT,
-              letterSpacing: '0.2em',
-            }}
-          >
-            LOVCICOV PARIS
-          </p>
           <h1
             className="italic"
             style={{
