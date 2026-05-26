@@ -21,6 +21,7 @@ import MysticLovEditorial from "./pages/MysticLovEditorial";
 import StoneLovEditorial from "./pages/StoneLovEditorial";
 import CampagneSac from "./pages/CampagneSac";
 import CollectionBijoux from "./pages/CollectionBijoux";
+import CollectionTshirts from "./pages/CollectionTshirts";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
 import MentionsLegales from "./pages/MentionsLegales";
@@ -104,6 +105,7 @@ const AppContent = () => {
         <Route path="/stonelov/shop" element={<Shop />} />
         <Route path="/campagne-sac" element={<CampagneSac />} />
         <Route path="/collections/bijoux" element={<CollectionBijoux />} />
+        <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
         <Route path="/manifeste" element={<Manifeste />} />
         <Route path="/univers" element={<Fondatrice />} />
         <Route path="/drops" element={<Drops />} />

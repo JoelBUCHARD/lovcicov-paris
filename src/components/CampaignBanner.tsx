@@ -12,7 +12,7 @@ const CampaignBanner = () => {
       {/* Mobile */}
       <div className="flex md:hidden items-center gap-2 text-[10px] tracking-[0.15em] uppercase text-white">
         <span>Un sac à gagner</span>
-        <span style={{ color: '#C4714A' }}>·</span>
+        <span className="text-white/60">·</span>
         <Link to="/campagne-sac" className="text-white hover:underline">
           Participer →
         </Link>
@@ -23,11 +23,11 @@ const CampaignBanner = () => {
         <span className="text-white" style={{ letterSpacing: '0.15em' }}>
           Un sac Saint Laurent à gagner
         </span>
-        <span style={{ color: '#C4714A' }}>·</span>
-        <span style={{ color: '#C4714A', letterSpacing: '0.1em' }}>
+        <span className="text-white/60">·</span>
+        <span className="text-white/80" style={{ letterSpacing: '0.1em' }}>
           {sold} / {target} T-shirts vendus
         </span>
-        <span style={{ color: '#C4714A' }}>·</span>
+        <span className="text-white/60">·</span>
         <Link
           to="/campagne-sac"
           className="text-white hover:underline"

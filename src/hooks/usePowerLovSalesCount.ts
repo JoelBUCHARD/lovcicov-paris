@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
  */
 export function usePowerLovSalesCount(): { sold: number; target: number } {
   const [sold, setSold] = useState(0);
-  const target = 500;
+  const target = 1000;
 
   useEffect(() => {
     // Placeholder: future edge function call to Shopify Admin API
