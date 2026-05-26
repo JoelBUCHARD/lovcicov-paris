@@ -181,7 +181,7 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* EDITORIAL — Zara-style oversized logo in front of image */}
+      {/* EDITORIAL — Zara-style oversized logo on the left of image */}
       <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center">
         <div className="relative inline-block">
           {/* Image */}
@@ -191,16 +191,16 @@ const Index = () => {
             className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
 
-          {/* Giant LOVCICOV in front of image */}
+          {/* Giant LOVCICOV fixed on the left side of the image */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 z-[3] flex items-end justify-start pointer-events-none select-none pb-10 pl-10 pr-0"
+            className="absolute inset-y-0 left-0 z-[3] flex items-center pointer-events-none select-none pl-4 md:pl-10"
           >
             <span
               className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
               style={{
                 fontFamily: '"Cormorant Garamond", serif',
-                fontSize: 'clamp(40px, 12vw, 140px)',
+                fontSize: 'clamp(56px, 12vw, 140px)',
                 fontWeight: 700,
                 letterSpacing: '0.02em',
               }}
