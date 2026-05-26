@@ -24,7 +24,9 @@ import Auth from "./pages/Auth";
 import Account from "./pages/Account";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
+import LivraisonRetours from "./pages/LivraisonRetours";
 import NewsletterPopup from "./components/NewsletterPopup";
+import CookieBanner from "./components/CookieBanner";
 
 const queryClient = new QueryClient();
 
@@ -86,6 +88,7 @@ const AppContent = () => {
     <>
       <ScrollToTop />
       <NewsletterPopup />
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
@@ -107,6 +110,7 @@ const AppContent = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/confidentialite" element={<Confidentialite />} />
+        <Route path="/livraison-retours" element={<LivraisonRetours />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
