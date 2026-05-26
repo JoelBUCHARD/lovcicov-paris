@@ -18,7 +18,7 @@ export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
     name: 'Hoodie Signature',
-    price: 220,
+    price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
     description: 'Molleton lourd 380g, coupe oversize architecturale. Au dos : « STANDARD » brodé. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
@@ -29,7 +29,7 @@ export const standardProducts: Product[] = [
   {
     id: 'tshirt-statement',
     name: 'T-shirt Statement',
-    price: 120,
+    price: 69,
     collection: 'standard',
     subcategory: 'tshirt',
     description: 'Coton lourd 240g, silhouette structurée. Au dos : « POWER » sérigraphié. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
@@ -40,7 +40,7 @@ export const standardProducts: Product[] = [
   {
     id: 'crewneck-standard',
     name: 'Crewneck The Standard',
-    price: 160,
+    price: 89,
     collection: 'standard',
     subcategory: 'crewneck',
     description: 'Molleton 350g, col rond structuré. Au dos : « THE STANDARD » brodé. Disponible en 2 coloris. Unisex, taille unique ou S/M/L/XL.',
@@ -301,7 +301,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
-    price: 89,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
@@ -312,7 +312,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
-    price: 79,
+    price: 89,
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
@@ -323,7 +323,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-labradorite-amethyste',
     name: 'Collier Labradorite & Améthyste',
-    price: 85,
+    price: 89,
     collection: 'bijoux',
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
@@ -345,7 +345,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-quartz-croix-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
-    price: 82,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
@@ -356,7 +356,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-malachite-corail',
     name: 'Collier Malachite & Corail',
-    price: 89,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
@@ -367,7 +367,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-trio-citrine',
     name: 'Collier Trio Citrine & Améthyste',
-    price: 85,
+    price: 89,
     collection: 'bijoux',
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
@@ -378,7 +378,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-jade-nacre',
     name: 'Collier Jade & Nacre',
-    price: 87,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
@@ -389,7 +389,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-corail-multicolor',
     name: 'Collier Corail & Pierres Multicolores',
-    price: 89,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
@@ -400,7 +400,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'collier-turquoise-or',
     name: 'Collier Turquoise & Or',
-    price: 79,
+    price: 69,
     collection: 'bijoux',
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
@@ -510,7 +510,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-prehnite-malachite',
     name: 'Bracelet Préhnite & Malachite',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang préhnite et cubes de malachite, intercalaires dorés. Poids : environ 30g.',
     details: 'Fraîcheur minérale au poignet. Trois rangs de pierres brutes pour une présence végétale.',
@@ -521,7 +521,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-malachite-triple',
     name: 'Bracelet Malachite Triple Rang',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang malachite ronde, intercalaires dorés filigranés. Poids : environ 30g.',
     details: 'Profondeur minérale au poignet. Trois rangs vibrants où la malachite rencontre l\'or travaillé.',
@@ -532,7 +532,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-agate-jaune',
     name: 'Bracelet Agate Jaune & Or',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang agate jaune miel, intercalaires dorés. Poids : environ 30g.',
     details: 'Lumière solaire. Trois rangs d\'agate miel ponctués d\'or pour un éclat naturel au poignet.',
@@ -543,7 +543,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-prehnite-perles',
     name: 'Bracelet Préhnite & Perles',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang préhnite brute, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Douceur végétale. La préhnite brute sublimée par la lumière des perles d\'eau douce.',
@@ -554,7 +554,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-oeil-tigre-fuchsia',
     name: 'Bracelet Œil de Tigre Fuchsia',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Double rang œil de tigre fuchsia, éclats multicolores, sphères dorées striées. Poids : environ 30g.',
     details: 'Caractère et éclat au poignet. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
@@ -565,7 +565,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-sodalite',
     name: 'Bracelet Sodalite Bleue',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang sodalite et aventurine bleue, fermoir nacre serti d\'or. Poids : environ 30g.',
     details: 'Calme marin. Trois rangs de bleus profonds qui évoquent l\'eau et la clarté de l\'esprit.',
@@ -576,7 +576,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-amethyste-quartz',
     name: 'Bracelet Améthyste & Quartz Rose',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang améthyste, quartz rose, intercalaires dorés, pendentif améthyste facetté. Poids : environ 30g.',
     details: 'Sagesse et douceur. Deux pierres complices liées par l\'or, pour une énergie apaisante.',
@@ -587,7 +587,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-goldstone-perles',
     name: 'Bracelet Goldstone & Perles',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang goldstone, pierre de lune et perles d\'eau douce, détails dorés. Poids : environ 30g.',
     details: 'Éclat terrestre. La goldstone scintillante rencontre la lumière nacrée des perles.',
@@ -598,7 +598,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-howlite-amazonite',
     name: 'Bracelet Howlite & Amazonite',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang howlite blanche, amazonite et jaspe, fermoir serti d\'amazonite. Poids : environ 30g.',
     details: 'Sérénité minérale. Le blanc apaisant de la howlite ponctué de turquoises naturelles.',
@@ -609,7 +609,7 @@ export const bijouxProducts: Product[] = [
   {
     id: 'bracelet-turquoise-corail',
     name: 'Bracelet Turquoise & Corail Rouge',
-    price: 49,
+    price: 39,
     collection: 'bijoux',
     description: 'Triple rang turquoise, corail rouge, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Contraste solaire. La turquoise vibrante rencontre l\'éclat du corail rouge.',

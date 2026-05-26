@@ -94,12 +94,12 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       </p>
 
       {/* BLOCK 3 — Price + payment */}
-      <p style={{ fontFamily: ARIAL, fontSize: 18, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
-      <p style={{ fontFamily: ARIAL, fontSize: 10, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
-        Pierre choisie pour son énergie et sa vertu
+      <p style={{ fontFamily: ARIAL, fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
+      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
+        Livraison offerte dès 100€ d'achat
       </p>
-      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 6 }}>
-        4x sans frais avec Alma · Paiement sécurisé
+      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
+        4x sans frais avec Alma
       </p>
 
       {/* BLOCK 4 — Product info */}
