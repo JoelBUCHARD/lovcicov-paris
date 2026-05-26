@@ -27,6 +27,30 @@ const ShopifyProductDetail = () => {
       .finally(() => setLoading(false));
   }, [handle]);
 
+  // Universe detection and color (computed safely whether product exists or not)
+  const universe = product && (/powerlov/i.test(product.title) || /power/i.test(product.productType || ''))
+    ? 'PowerLov'
+    : product && (/collier|bracelet|stone/i.test(product.title) || /stone|bijoux/i.test(product.productType || ''))
+      ? 'StoneLov'
+      : 'MysticLov';
+  const universeKey: 'powerlov' | 'mysticlov' | 'stonelov' =
+    universe === 'PowerLov' ? 'powerlov' : universe === 'StoneLov' ? 'stonelov' : 'mysticlov';
+  const universeColor = universe === 'PowerLov' ? '#C44529' : universe === 'StoneLov' ? '#C4654A' : '#1A1A1A';
+
+  // Track recently viewed
+  useEffect(() => {
+    if (!product) return;
+    const firstImage = product.images.edges[0]?.node.url || '';
+    trackViewedProduct({
+      key: `shopify:${product.handle}`,
+      name: product.title,
+      price: parseFloat(product.priceRange.minVariantPrice.amount).toFixed(0),
+      image: firstImage,
+      universe: universeKey,
+      link: `/product/${product.handle}`,
+    });
+  }, [product?.handle]);
+
   if (loading) {
     return (
       <div className="min-h-screen bg-background">
@@ -75,28 +99,6 @@ const ShopifyProductDetail = () => {
   const price = parseFloat(selectedVariant.price.amount).toFixed(0);
   const backLink = typeof location.state?.from === 'string' ? location.state.from : '/collections/mystic-lov';
 
-  // Universe detection and color
-  const universe = /powerlov/i.test(product.title) || /power/i.test(product.productType || '')
-    ? 'PowerLov'
-    : /collier|bracelet|stone/i.test(product.title) || /stone|bijoux/i.test(product.productType || '')
-      ? 'StoneLov'
-      : 'MysticLov';
-  const universeKey: 'powerlov' | 'mysticlov' | 'stonelov' =
-    universe === 'PowerLov' ? 'powerlov' : universe === 'StoneLov' ? 'stonelov' : 'mysticlov';
-  const universeColor = universe === 'PowerLov' ? '#C44529' : universe === 'StoneLov' ? '#C4654A' : '#1A1A1A';
-
-  // Track recently viewed
-  useEffect(() => {
-    if (!product) return;
-    trackViewedProduct({
-      key: `shopify:${product.handle}`,
-      name: product.title,
-      price: parseFloat(product.priceRange.minVariantPrice.amount).toFixed(0),
-      image: images[0]?.url || '',
-      universe: universeKey,
-      link: `/product/${product.handle}`,
-    });
-  }, [product?.handle]);
 
   const qty = selectedVariant.quantityAvailable;
   const isSoldOut = !selectedVariant.availableForSale || qty === 0;
