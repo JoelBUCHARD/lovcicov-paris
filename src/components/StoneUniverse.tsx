@@ -13,29 +13,6 @@ const StoneUniverse = () => {
     >
       <div className="max-w-6xl mx-auto">
         <p
-          className="text-center mb-3"
-          style={{
-            fontFamily: "Arial, sans-serif",
-            fontSize: 9,
-            color: "#C4714A",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-          }}
-        >
-          STONELOV
-        </p>
-        <h2
-          className="text-center italic mb-10"
-          style={{
-            color: "#1A1A1A",
-            fontSize: "clamp(22px, 3vw, 28px)",
-            fontWeight: 300,
-          }}
-        >
-          Rooted in the earth.
-        </h2>
-
-        <p
           className="text-center mx-auto mb-6"
           style={{
             fontFamily: "Arial, sans-serif",
