@@ -195,7 +195,7 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
-        <section className="w-full my-5" style={{ backgroundColor: BG }}>
+        <section className="w-full mt-5 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[duoRooftop, greenTee, hoodieRooftop, rooftopArmsOpen, hoodieMadonnaParis, rooftopMadonna].map((img, i) => (
               <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
@@ -211,7 +211,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden mt-2 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <img
             src={closingJoy}
             alt="Very Slow Fashion"
@@ -250,7 +250,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BOTTOM SECTION */}
-        <section className="py-12 px-6" style={{ backgroundColor: BG }}>
+        <section className="py-6 md:py-12 px-6" style={{ backgroundColor: BG }}>
           <div className="w-full h-px mb-8" style={{ backgroundColor: SEP }} />
           <p
             className="text-center uppercase mb-4"
