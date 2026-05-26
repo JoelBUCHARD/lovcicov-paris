@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Plus, Minus, Instagram, Star, Loader2 } from "lucide-react";
-import { Product, bijouxProducts } from "@/data/products";
+import { Plus, Minus, Loader2 } from "lucide-react";
+import { Product } from "@/data/products";
 import { detectStones } from "@/data/stoneMeanings";
 import { useCart } from "@/context/CartContext";
 import { useCartStore } from "@/stores/cartStore";
@@ -70,8 +69,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
   const addShopifyItem = useCartStore((s) => s.addItem);
   const [isAdding, setIsAdding] = useState(false);
   const stones = detectStones(`${product.name} ${product.description} ${product.details ?? ""}`);
-
-  const crossSell = bijouxProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
   const handleAdd = async () => {
     if (!product.shopifyHandle) {
@@ -185,38 +182,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       >
         {isAdding ? <Loader2 size={14} className="animate-spin" /> : "Ajouter au panier"}
       </button>
-
-      {/* BLOCK 11 — Cross-sell (remonté) */}
-      <div style={{ marginTop: 32 }}>
-        <p
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 9,
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            color: TERRA,
-            marginBottom: 16,
-          }}
-        >
-          On porte aussi
-        </p>
-        <div className="grid grid-cols-3 gap-3 mb-10">
-          {crossSell.map((p) => (
-            <Link key={p.id} to={`/shop/${p.id}`} className="block group">
-              <div className="aspect-[3/4] overflow-hidden bg-white mb-2">
-                <img
-                  src={getImage(p.image)}
-                  alt={p.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#1A1A1A", lineHeight: 1.4 }}>{p.name}</p>
-              <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#888780", marginTop: 2 }}>€{p.price}</p>
-            </Link>
-          ))}
-        </div>
-      </div>
-
 
       {/* BLOCKS 7-10 — Collapsibles */}
       <Collapsible title="Histoire de la pierre" highlight>
