@@ -59,6 +59,12 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
             <a href="https://instagram.com/lovcicov" target="_blank" rel="noopener noreferrer" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
               Instagram
             </a>
+            <Link to="/mentions-legales" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+              Mentions Légales
+            </Link>
+            <Link to="/confidentialite" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+              Confidentialité
+            </Link>
           </div>
 
           <p className="text-[10px] text-muted-foreground/60">

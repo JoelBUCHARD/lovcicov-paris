@@ -22,6 +22,8 @@ import StoneLovEditorial from "./pages/StoneLovEditorial";
 import CollectionBijoux from "./pages/CollectionBijoux";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
+import MentionsLegales from "./pages/MentionsLegales";
+import Confidentialite from "./pages/Confidentialite";
 import NewsletterPopup from "./components/NewsletterPopup";
 
 const queryClient = new QueryClient();
@@ -103,6 +105,8 @@ const AppContent = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/account" element={<Account />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
+        <Route path="/confidentialite" element={<Confidentialite />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
