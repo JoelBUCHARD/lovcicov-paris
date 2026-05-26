@@ -63,7 +63,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
         </div>
         <div className="space-y-1 text-center pb-3 px-2 mt-auto">
           <h3 className="text-brand text-[11px] uppercase tracking-[0.12em]">{product.name}</h3>
-          <p className="text-[12px] font-sans text-muted-foreground">€{product.price}</p>
+          <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#1A1A1A' }}>€{product.price}</p>
         </div>
       </Link>
     </motion.div>
