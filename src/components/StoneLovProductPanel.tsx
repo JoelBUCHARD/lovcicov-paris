@@ -244,7 +244,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Livraison standard : 3 à 5 jours ouvrés</li>
           <li>· Livraison express : 24h disponible</li>
-          <li>· Livraison offerte dès 100€ d'achat</li>
+          
           <li>· Retours acceptés sous 14 jours</li>
           <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
         </ul>
