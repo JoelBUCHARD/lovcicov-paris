@@ -31,12 +31,12 @@ const StoneLovEditorial = () => {
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: BORDER }} />
           <Link
             to="/collections/bijoux"
-            className="text-white text-[10px] uppercase transition-colors"
-            style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
+            className="uppercase px-4 py-2 transition-colors"
+            style={{ backgroundColor: TERRA, color: "#FFFFFF", fontSize: 10, letterSpacing: "0.15em" }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
           >
-            VOIR TOUTE LA COLLECTION →
+            DÉCOUVRIR LA COLLECTION →
           </Link>
         </header>
 
