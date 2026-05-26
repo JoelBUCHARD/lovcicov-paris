@@ -7,6 +7,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
 
 const ShopifyProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
@@ -80,7 +81,22 @@ const ShopifyProductDetail = () => {
     : /collier|bracelet|stone/i.test(product.title) || /stone|bijoux/i.test(product.productType || '')
       ? 'StoneLov'
       : 'MysticLov';
+  const universeKey: 'powerlov' | 'mysticlov' | 'stonelov' =
+    universe === 'PowerLov' ? 'powerlov' : universe === 'StoneLov' ? 'stonelov' : 'mysticlov';
   const universeColor = universe === 'PowerLov' ? '#C44529' : universe === 'StoneLov' ? '#C4654A' : '#1A1A1A';
+
+  // Track recently viewed
+  useEffect(() => {
+    if (!product) return;
+    trackViewedProduct({
+      key: `shopify:${product.handle}`,
+      name: product.title,
+      price: parseFloat(product.priceRange.minVariantPrice.amount).toFixed(0),
+      image: images[0]?.url || '',
+      universe: universeKey,
+      link: `/product/${product.handle}`,
+    });
+  }, [product?.handle]);
 
   const qty = selectedVariant.quantityAvailable;
   const isSoldOut = !selectedVariant.availableForSale || qty === 0;
@@ -207,6 +223,10 @@ const ShopifyProductDetail = () => {
           </motion.div>
         </div>
       </main>
+      <RelatedProducts
+        currentKey={`shopify:${product.handle}`}
+        currentUniverse={universeKey}
+      />
       <Footer />
     </div>
   );
