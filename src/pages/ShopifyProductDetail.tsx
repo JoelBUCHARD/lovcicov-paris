@@ -194,8 +194,8 @@ const ShopifyProductDetail = () => {
             >
               {cartLoading ? (
                 <Loader2 className="animate-spin mx-auto" size={16} />
-              ) : !selectedVariant.availableForSale ? (
-                'Rupture de stock'
+              ) : isSoldOut ? (
+                'Épuisé'
               ) : (
                 'Ajouter au Panier'
               )}
