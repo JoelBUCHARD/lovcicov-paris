@@ -119,9 +119,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 3 — Price + payment */}
       <p style={{ fontFamily: ARIAL, fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
       <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
-        Livraison offerte dès 100€ d'achat
-      </p>
-      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
         4x sans frais avec Alma
       </p>
 
@@ -247,7 +244,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Livraison standard : 3 à 5 jours ouvrés</li>
           <li>· Livraison express : 24h disponible</li>
-          <li>· Livraison offerte dès 100€ d'achat</li>
+          
           <li>· Retours acceptés sous 14 jours</li>
           <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
         </ul>
@@ -283,72 +280,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       <div style={{ borderTop: "0.5px solid #E8D8C8", marginBottom: 32 }} />
 
 
-
-
-      {/* BLOCK 12 — UGC */}
-      <div style={{ backgroundColor: "#FAF7F2", padding: 20, marginLeft: -32, marginRight: -32, marginBottom: 32 }}>
-        <p
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 9,
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            color: "#1A1A1A",
-            marginBottom: 16,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-          }}
-        >
-          Comme vu sur <Instagram size={14} strokeWidth={1.2} />
-        </p>
-        <div className="grid grid-cols-4 gap-2">
-          {[0, 1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="aspect-square flex items-center justify-center text-center"
-              style={{
-                backgroundColor: "#FFFFFF",
-                border: "0.5px dashed #E8D8C8",
-                fontFamily: ARIAL,
-                fontSize: 9,
-                color: "#B4A99A",
-                fontStyle: "italic",
-                padding: 8,
-                lineHeight: 1.4,
-              }}
-            >
-              [Photo cliente @lovcicov.paris à ajouter]
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* BLOCK 13 — Reviews */}
-      <div className="mb-8 text-center">
-        <p
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 10,
-            textTransform: "uppercase",
-            letterSpacing: "0.15em",
-            color: "#1A1A1A",
-            marginBottom: 12,
-          }}
-        >
-          Avis clients
-        </p>
-        <div className="flex justify-center gap-1 mb-3" style={{ color: TERRA }}>
-          {[1, 2, 3, 4, 5].map((i) => (
-            <Star key={i} size={14} fill={TERRA} strokeWidth={0} />
-          ))}
-        </div>
-        <p style={{ ...bodyStyle, marginBottom: 6 }}>Les premiers avis arrivent bientôt.</p>
-        <p style={{ fontFamily: ARIAL, fontSize: 10, fontStyle: "italic", color: "#B4A99A" }}>
-          Objectif : 30 avis vérifiés par pièce phare
-        </p>
-      </div>
 
       {/* BLOCK 14 — Secure payment footer */}
       <div
