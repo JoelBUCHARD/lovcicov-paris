@@ -25,6 +25,8 @@ export interface ShopifyProduct {
         };
       }>;
     };
+    productType?: string;
+    tags?: string[];
     variants: {
       edges: Array<{
         node: {
@@ -35,6 +37,7 @@ export interface ShopifyProduct {
             currencyCode: string;
           };
           availableForSale: boolean;
+          quantityAvailable: number | null;
           selectedOptions: Array<{
             name: string;
             value: string;
