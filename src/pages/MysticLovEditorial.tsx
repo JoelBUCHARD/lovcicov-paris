@@ -59,7 +59,7 @@ const MysticLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-auto md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-auto md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
           <img
             src={heroSolo}
             alt="MysticLov hero"
@@ -75,19 +75,17 @@ const MysticLovEditorial = () => {
               MYSTICLOV
             </p>
             <h1
-              className="text-white mb-3"
-              style={{ fontFamily: "Arial, sans-serif", fontSize: 36, fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
+              className="text-white mb-3 text-[26px] md:text-[36px]"
+              style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
             >
               Love is my frequency.
             </h1>
             <Link
               to="/mysticlov/shop"
-              className="inline-block mt-6 uppercase transition-colors"
+              className="inline-block mt-6 uppercase transition-colors text-[9px] md:text-[10px] px-5 py-2.5 md:px-7 md:py-3"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
-                padding: "12px 28px",
-                fontSize: 10,
                 letterSpacing: "0.15em",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
@@ -97,6 +95,7 @@ const MysticLovEditorial = () => {
             </Link>
           </div>
         </section>
+
 
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
