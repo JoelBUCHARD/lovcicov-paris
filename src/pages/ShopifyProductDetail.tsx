@@ -105,7 +105,7 @@ const ShopifyProductDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-36 pb-24 px-6 md:px-12">
+      <main className="pt-36 pb-8 px-6 md:px-12">
         <Link to={backLink} className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block">
           ← RETOUR À MYSTICLOV
         </Link>
