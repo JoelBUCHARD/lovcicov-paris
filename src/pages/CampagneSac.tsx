@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 
@@ -27,27 +28,10 @@ const isTshirt = (p: ShopifyProduct) => {
 };
 
 const ProductGrid = ({ products }: { products: ShopifyProduct[] }) => (
-  <div className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
-    {products.map((p) => {
-      const img = p.node.images.edges[0]?.node.url;
-      return (
-        <Link key={p.node.id} to={`/product/${p.node.handle}`} className="block group">
-          <div className="aspect-[3/4] overflow-hidden bg-white mb-3">
-            {img && (
-              <img
-                src={img}
-                alt={p.node.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            )}
-          </div>
-          <p style={{ fontFamily: ARIAL, fontSize: 12, color: INK }}>{p.node.title}</p>
-          <p style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED, marginTop: 2 }}>
-            €{Number(p.node.priceRange.minVariantPrice.amount).toFixed(0)}
-          </p>
-        </Link>
-      );
-    })}
+  <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl">
+    {products.map((p, i) => (
+      <ShopifyProductCard key={p.node.id} product={p} index={i} />
+    ))}
   </div>
 );
 
