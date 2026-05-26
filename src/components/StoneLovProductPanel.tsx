@@ -80,18 +80,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       <h1 style={{ fontFamily: ARIAL, fontSize: 22, fontWeight: 300, color: "#1A1A1A" }}>
         {product.name}
       </h1>
-      <p
-        style={{
-          fontFamily: ARIAL,
-          fontStyle: "italic",
-          color: TERRA,
-          fontSize: 11,
-          letterSpacing: "0.1em",
-          marginTop: 8,
-        }}
-      >
-        Une pierre. Une énergie. Un talisman à porter.
-      </p>
 
       {/* BLOCK 3 — Price + payment */}
       <p style={{ fontFamily: ARIAL, fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
