@@ -110,6 +110,7 @@ const AppContent = () => {
         <Route path="/account" element={<Account />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/confidentialite" element={<Confidentialite />} />
+        <Route path="/livraison-retours" element={<LivraisonRetours />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
