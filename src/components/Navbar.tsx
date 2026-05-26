@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
+import { useCart } from '@/context/CartContext';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 const Navbar = () => {
@@ -13,7 +14,8 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   const shopifyTotalItems = useCartStore(state => state.totalItems);
-  const totalItems = shopifyTotalItems();
+  const { totalItems: localTotalItems } = useCart();
+  const totalItems = shopifyTotalItems() + localTotalItems;
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_, session) => {
