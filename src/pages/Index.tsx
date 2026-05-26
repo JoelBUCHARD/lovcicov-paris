@@ -191,16 +191,16 @@ const Index = () => {
             className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
 
-          {/* Giant LOVCICOV fixed on the left side of the image */}
+          {/* Giant LOVCICOV fixed inside the image on the left */}
           <div
             aria-hidden="true"
-            className="absolute inset-y-0 left-0 z-[3] flex items-center pointer-events-none select-none pl-3 md:pl-6"
+            className="absolute left-[3%] top-1/2 z-[3] flex -translate-y-1/2 items-center pointer-events-none select-none"
           >
             <span
               className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
               style={{
                 fontFamily: '"Cormorant Garamond", serif',
-                fontSize: 'clamp(56px, 12vw, 140px)',
+                fontSize: 'clamp(42px, 9vw, 140px)',
                 fontWeight: 700,
                 letterSpacing: '0.02em',
               }}
