@@ -81,7 +81,22 @@ const ShopifyProductDetail = () => {
     : /collier|bracelet|stone/i.test(product.title) || /stone|bijoux/i.test(product.productType || '')
       ? 'StoneLov'
       : 'MysticLov';
+  const universeKey: 'powerlov' | 'mysticlov' | 'stonelov' =
+    universe === 'PowerLov' ? 'powerlov' : universe === 'StoneLov' ? 'stonelov' : 'mysticlov';
   const universeColor = universe === 'PowerLov' ? '#C44529' : universe === 'StoneLov' ? '#C4654A' : '#1A1A1A';
+
+  // Track recently viewed
+  useEffect(() => {
+    if (!product) return;
+    trackViewedProduct({
+      key: `shopify:${product.handle}`,
+      name: product.title,
+      price: parseFloat(product.priceRange.minVariantPrice.amount).toFixed(0),
+      image: images[0]?.url || '',
+      universe: universeKey,
+      link: `/product/${product.handle}`,
+    });
+  }, [product?.handle]);
 
   const qty = selectedVariant.quantityAvailable;
   const isSoldOut = !selectedVariant.availableForSale || qty === 0;
