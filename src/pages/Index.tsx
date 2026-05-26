@@ -195,16 +195,17 @@ const Index = () => {
         {/* Giant LOVCICOV fixed on the visible left side of the image */}
         <div
           aria-hidden="true"
-          className="absolute left-3 md:left-8 top-1/2 z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
+          className="absolute left-2 md:left-8 top-1/2 z-20 flex -translate-y-1/2 items-center pointer-events-none select-none"
         >
           <span
             className="leading-none whitespace-nowrap"
             style={{
               fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(44px, 10vw, 140px)',
+              fontSize: 'clamp(56px, 14vw, 160px)',
               fontWeight: 700,
               letterSpacing: '0.02em',
-              color: 'rgba(26, 26, 26, 0.28)',
+              color: 'rgba(26, 26, 26, 0.42)',
+              textShadow: '0 0 1px rgba(255,255,255,0.08)',
             }}
           >
             LOVCICOV
