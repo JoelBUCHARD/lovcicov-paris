@@ -163,12 +163,12 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 4 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-        <section className="relative w-screen overflow-hidden my-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
+        <section className="relative w-full overflow-hidden my-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
           <img
             src={groupShot}
             alt="La communauté MysticLov"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover"
-            style={{ objectPosition: "right center" }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "65% center" }}
           />
           <div
             className="absolute inset-0 pointer-events-none"
