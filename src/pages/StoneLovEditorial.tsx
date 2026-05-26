@@ -54,17 +54,17 @@ const StoneLovEditorial = () => {
                 STONELOV
               </p>
             </div>
-            <p className="italic mb-4" style={{ color: INK, fontSize: "clamp(18px, 3vw, 26px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
+            <p className="italic mb-3" style={{ color: INK, fontSize: "clamp(14px, 2.5vw, 20px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
               Rooted in the earth.
             </p>
             <Link
               to="/collections/bijoux"
-              className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
-              style={{ backgroundColor: TERRA, padding: "10px 20px", letterSpacing: "0.15em" }}
+              className="inline-block text-white text-[9px] uppercase transition-colors mb-3"
+              style={{ backgroundColor: TERRA, padding: "8px 16px", letterSpacing: "0.12em" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
-              DÉCOUVRIR LA COLLECTION →
+              DÉCOUVRIR →
             </Link>
           </div>
         </section>
