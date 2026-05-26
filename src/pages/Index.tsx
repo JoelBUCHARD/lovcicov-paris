@@ -5,6 +5,7 @@ import { bijouxProducts, mysticProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
 import ig1 from '@/assets/instagram/ig-1.png';
@@ -31,6 +32,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
+      <CampaignBanner />
+
+
 
 
 
