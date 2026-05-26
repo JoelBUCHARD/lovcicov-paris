@@ -121,9 +121,6 @@ const StoneLovEditorial = () => {
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Protected. Guided. Unstoppable.
             </h2>
-            <p className="text-[13px]" style={{ color: WARM, marginTop: 12 }}>
-              Chaque pièce attend la femme qui lui correspond.
-            </p>
             <Link
               to="/collections/bijoux"
               className="text-white text-[11px] uppercase transition-colors"
