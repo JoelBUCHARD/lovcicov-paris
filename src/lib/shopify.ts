@@ -154,6 +154,8 @@ const PRODUCT_BY_HANDLE_QUERY = `
           }
         }
       }
+      productType
+      tags
       variants(first: 20) {
         edges {
           node {
@@ -164,6 +166,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
               currencyCode
             }
             availableForSale
+            quantityAvailable
             selectedOptions {
               name
               value
