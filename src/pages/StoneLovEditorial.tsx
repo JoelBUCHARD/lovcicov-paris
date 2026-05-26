@@ -64,7 +64,7 @@ const StoneLovEditorial = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
-              DÉCOUVRIR →
+              DÉCOUVRIR LA COLLECTION →
             </Link>
           </div>
         </section>
