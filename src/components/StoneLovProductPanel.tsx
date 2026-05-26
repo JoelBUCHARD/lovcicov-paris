@@ -80,18 +80,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       <h1 style={{ fontFamily: ARIAL, fontSize: 22, fontWeight: 300, color: "#1A1A1A" }}>
         {product.name}
       </h1>
-      <p
-        style={{
-          fontFamily: ARIAL,
-          fontStyle: "italic",
-          color: TERRA,
-          fontSize: 11,
-          letterSpacing: "0.1em",
-          marginTop: 8,
-        }}
-      >
-        Une pierre. Une énergie. Un talisman à porter.
-      </p>
 
       {/* BLOCK 3 — Price + payment */}
       <p style={{ fontFamily: ARIAL, fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
@@ -105,10 +93,10 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 4 — Product info */}
       <div style={{ marginTop: 20, marginBottom: 20 }}>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
-          Fait main en Turquie · Monture en laiton doré
+          Monture en laiton doré
         </p>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
-          Pierre naturelle — chaque pièce est unique
+          Pierre naturelle
         </p>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
           {product.name.toLowerCase().includes('bracelet')
@@ -140,7 +128,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
             textAlign: "center",
           }}
         >
-          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours&nbsp; · &nbsp;Fait main en Turquie&nbsp; · &nbsp;Pièce unique
+          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours
         </p>
       </div>
 
@@ -164,9 +152,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       >
         Ajouter au panier
       </button>
-      <p style={{ fontFamily: ARIAL, fontSize: 10, fontStyle: "italic", color: "#888780", marginTop: 8, textAlign: "center" }}>
-        Expédié sous 48h · Emballage soigné
-      </p>
 
       {/* BLOCK 11 — Cross-sell (remonté) */}
       <div style={{ marginTop: 32 }}>
@@ -217,8 +202,6 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
         <ul style={{ ...bodyStyle, listStyle: "none", padding: 0 }}>
           <li>· Matière principale : {stones.length ? stones.map((s) => s.name.toLowerCase()).join(", ") + " naturelles" : "Pierres naturelles"}</li>
           <li>· Monture : Laiton doré à la main</li>
-          <li>· Fabrication : Fait main en Turquie</li>
-          <li>· Pièce unique — aucune n'est identique</li>
           <li>· Longueur ajustable : 42 — 48 cm</li>
         </ul>
       </Collapsible>
