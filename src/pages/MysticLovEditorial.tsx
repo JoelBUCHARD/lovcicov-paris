@@ -59,11 +59,11 @@ const MysticLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
           <img
             src={heroSolo}
             alt="MysticLov hero"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center 15%" }}
           />
           <div
@@ -103,7 +103,7 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
-        <section className="w-full px-6 md:px-10 py-8 md:py-10" style={{ backgroundColor: BG }}>
+        <section className="w-full px-6 md:px-10 py-4 md:py-10" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
             <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
               MYSTICLOV
@@ -139,11 +139,11 @@ const MysticLovEditorial = () => {
 
         {/* BLOCK 3 — SPLIT 50/50 */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "auto" }}>
-          <div className="w-full md:w-1/2 h-[55vh] md:h-auto flex items-center justify-center p-4 md:p-6">
+          <div className="w-full md:w-1/2 h-[55vh] md:h-auto flex items-center justify-center p-0 md:p-6">
             <img src={seatedRooftop} alt="L'histoire MysticLov" className="w-full h-full object-cover" style={{ objectPosition: "center 70%" }} />
           </div>
           <div
-            className="w-full md:w-1/2 flex items-center justify-center px-10 py-20 md:py-0"
+            className="w-full md:w-1/2 flex items-center justify-center px-10 py-10 md:py-0"
             style={{ backgroundColor: BG }}
           >
             <div className="max-w-md text-center">
@@ -217,7 +217,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
           <img
             src={closingJoy}
             alt="Very Slow Fashion"
