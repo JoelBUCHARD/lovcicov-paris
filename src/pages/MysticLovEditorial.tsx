@@ -175,16 +175,16 @@ const MysticLovEditorial = () => {
           />
           <div className="absolute inset-y-0 left-0 flex items-center px-6 md:pl-[60px] md:pr-6">
             <div className="max-w-md">
-              <p className="uppercase mb-5" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
+              <p className="uppercase mb-5 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.18em" }}>
                 LE CERCLE
               </p>
               <h2
-                className="text-white mb-5"
-                style={{ fontFamily: "Arial, sans-serif", fontSize: 30, fontWeight: 200, fontStyle: "italic" }}
+                className="text-white mb-5 text-[22px] md:text-[30px]"
+                style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic" }}
               >
                 Wear your energy.
               </h2>
-              <p className="text-white" style={{ fontFamily: "Arial, sans-serif", fontSize: 12, opacity: 0.8, lineHeight: 1.8 }}>
+              <p className="text-white text-[11px] md:text-[12px]" style={{ fontFamily: "Arial, sans-serif", opacity: 0.8, lineHeight: 1.8 }}>
                 MysticLov s'adresse à celles et ceux qui assument leurs symboles.
                 Qui savent ce qu'ils portent et pourquoi.
               </p>
