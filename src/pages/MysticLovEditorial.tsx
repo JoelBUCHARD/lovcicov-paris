@@ -219,12 +219,6 @@ const MysticLovEditorial = () => {
           />
 
           <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
-            <h2
-              className="text-white mb-3"
-              style={{ fontFamily: "Arial, sans-serif", fontSize: 40, fontWeight: 200, fontStyle: "italic", letterSpacing: "0.03em" }}
-            >
-              Wear your energy.
-            </h2>
             <Link
               to="/mysticlov/shop"
               className="uppercase transition-colors"
