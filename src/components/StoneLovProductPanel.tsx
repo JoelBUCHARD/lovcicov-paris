@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Plus, Minus, Instagram, Star, Loader2 } from "lucide-react";
+import { Plus, Minus, Loader2 } from "lucide-react";
 import { Product, bijouxProducts } from "@/data/products";
 import { detectStones } from "@/data/stoneMeanings";
 import { useCart } from "@/context/CartContext";
