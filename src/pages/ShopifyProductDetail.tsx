@@ -7,6 +7,7 @@ import { useCartStore } from '@/stores/cartStore';
 import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
 
 const ShopifyProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
