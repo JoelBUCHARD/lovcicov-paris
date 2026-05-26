@@ -93,10 +93,10 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 4 — Product info */}
       <div style={{ marginTop: 20, marginBottom: 20 }}>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
-          Fait main en Turquie · Monture en laiton doré
+          Monture en laiton doré
         </p>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
-          Pierre naturelle — chaque pièce est unique
+          Pierre naturelle
         </p>
         <p style={{ fontFamily: ARIAL, fontSize: 11, color: "#5F5E5A", lineHeight: 1.9 }}>
           {product.name.toLowerCase().includes('bracelet')
