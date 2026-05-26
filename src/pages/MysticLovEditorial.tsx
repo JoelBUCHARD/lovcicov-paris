@@ -169,7 +169,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 4 — FULL WIDTH IMAGE WITH SIDE TEXT */}
-        <section className="relative w-screen overflow-hidden my-5" style={{ height: "100vh", backgroundColor: BG }}>
+        <section className="relative w-screen overflow-hidden my-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
           <img
             src={groupShot}
             alt="La communauté MysticLov"
@@ -177,10 +177,10 @@ const MysticLovEditorial = () => {
             style={{ objectPosition: "right center" }}
           />
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 pointer-events-none"
             style={{ background: "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 45%, transparent 70%)" }}
           />
-          <div className="absolute inset-y-0 left-0 flex items-center" style={{ paddingLeft: 60, paddingRight: 24 }}>
+          <div className="absolute inset-y-0 left-0 flex items-center px-6 md:pl-[60px] md:pr-6">
             <div className="max-w-md">
               <p className="uppercase mb-5" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
                 LE CERCLE
@@ -198,6 +198,7 @@ const MysticLovEditorial = () => {
             </div>
           </div>
         </section>
+
 
         {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
         <section className="w-full my-5" style={{ backgroundColor: BG }}>
