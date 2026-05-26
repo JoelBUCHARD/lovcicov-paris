@@ -225,12 +225,6 @@ const MysticLovEditorial = () => {
             >
               Wear your energy.
             </h2>
-            <p
-              className="mb-8"
-              style={{ fontFamily: "Arial, sans-serif", fontSize: 11, fontStyle: "italic", color: "#FFFFFF", opacity: 0.85 }}
-            >
-              Wear your energy.
-            </p>
             <Link
               to="/mysticlov/shop"
               className="uppercase transition-colors"
