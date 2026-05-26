@@ -103,7 +103,7 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
-        <section className="w-full px-6 md:px-10 py-8 md:py-10" style={{ backgroundColor: BG }}>
+        <section className="w-full px-6 md:px-10 py-4 md:py-10" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
             <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
               MYSTICLOV
