@@ -351,6 +351,11 @@ const ProductDetail = () => {
         </div>
       </main>
 
+      <RelatedProducts
+        currentKey={`local:${product.id}`}
+        currentUniverse={universe as 'powerlov' | 'mysticlov' | 'stonelov'}
+      />
+
       <Footer />
     </div>
   );
