@@ -56,6 +56,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'ensemble-the-standard',
+    shopifyHandle: 'ensemble-the-standard',
     name: 'Ensemble The Standard',
     price: 380,
     collection: 'standard',
@@ -222,6 +223,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-namaste',
+    shopifyHandle: 't-shirt-namaste',
     name: 'T-Shirt Namaste',
     price: 70,
     collection: 'mystic',
@@ -232,6 +234,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-cosmos',
+    shopifyHandle: 't-shirt-cosmos',
     name: 'T-Shirt Cosmos',
     price: 70,
     collection: 'mystic',
@@ -243,6 +246,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-sunshine',
+    shopifyHandle: 't-shirt-sunshine',
     name: 'T-Shirt Sunshine',
     price: 70,
     collection: 'mystic',
@@ -253,6 +257,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-norisk',
+    shopifyHandle: 't-shirt-no-risk-no-magic',
     name: 'T-Shirt No Risk No Magic',
     price: 70,
     collection: 'mystic',
@@ -263,6 +268,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-heart',
+    shopifyHandle: 't-shirt-heart-eye',
     name: 'T-Shirt Heart Eye',
     price: 70,
     collection: 'mystic',
@@ -273,6 +279,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-abstract',
+    shopifyHandle: 't-shirt-abstract-art',
     name: 'T-Shirt Abstract Art',
     price: 70,
     collection: 'mystic',
@@ -284,6 +291,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-newworld',
+    shopifyHandle: 't-shirt-new-world-system',
     name: 'T-Shirt New World System',
     price: 70,
     collection: 'mystic',
@@ -294,6 +302,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-switchoff',
+    shopifyHandle: 't-shirt-switch-off',
     name: 'T-Shirt Switch Off',
     price: 70,
     collection: 'mystic',
@@ -304,6 +313,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-madonna',
+    shopifyHandle: 't-shirt-madonna',
     name: 'T-Shirt Madonna',
     price: 70,
     collection: 'mystic',
@@ -391,6 +401,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-trio-citrine',
+    shopifyHandle: 'collier-trio-citrine-et-amethyste',
     name: 'Collier Trio Citrine & Améthyste',
     price: 89,
     collection: 'bijoux',
@@ -438,6 +449,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-double',
+    shopifyHandle: 'collier-malachite-double-rang',
     name: 'Collier Malachite Double Rang',
     price: 89,
     collection: 'bijoux',
@@ -449,6 +461,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-lapis-goutte',
+    shopifyHandle: 'collier-malachite-et-lapis-lazuli',
     name: 'Collier Malachite & Lapis-Lazuli',
     price: 89,
     collection: 'bijoux',
@@ -460,6 +473,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-corail-rouge-or',
+    shopifyHandle: 'collier-corail-rouge-et-or',
     name: 'Collier Corail Rouge & Or',
     price: 89,
     collection: 'bijoux',
@@ -471,6 +485,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-citrine-malachite-amethyste',
+    shopifyHandle: 'collier-citrine-malachite-amethyste',
     name: 'Collier Citrine, Malachite & Améthyste',
     price: 89,
     collection: 'bijoux',
@@ -482,6 +497,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-oeil-tigre-fuchsia',
+    shopifyHandle: 'collier-oeil-de-tigre-fuchsia',
     name: 'Collier Œil de Tigre Fuchsia',
     price: 89,
     collection: 'bijoux',
@@ -493,6 +509,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-amethyste-brute-labradorite',
+    shopifyHandle: 'collier-amethyste-brute-et-labradorite',
     name: 'Collier Améthyste Brute & Labradorite',
     price: 89,
     collection: 'bijoux',
@@ -504,6 +521,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-lapis-double-pendentif',
+    shopifyHandle: 'collier-malachite-et-lapis-double-pendentif',
     name: 'Collier Malachite & Lapis Double Pendentif',
     price: 89,
     collection: 'bijoux',
@@ -515,6 +533,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-aigue-marine-agate',
+    shopifyHandle: 'collier-aigue-marine-et-agate-bleue',
     name: 'Collier Aigue-Marine & Agate Bleue',
     price: 89,
     collection: 'bijoux',
@@ -526,6 +545,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-chips-double',
+    shopifyHandle: 'collier-malachite-chips-double',
     name: 'Collier Malachite Chips Double',
     price: 89,
     collection: 'bijoux',
@@ -537,6 +557,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-prehnite-malachite',
+    shopifyHandle: 'bracelet-prehnite-et-malachite',
     name: 'Bracelet Préhnite & Malachite',
     price: 39,
     collection: 'bijoux',
@@ -548,6 +569,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-malachite-triple',
+    shopifyHandle: 'bracelet-malachite-triple-rang',
     name: 'Bracelet Malachite Triple Rang',
     price: 39,
     collection: 'bijoux',
@@ -559,6 +581,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-agate-jaune',
+    shopifyHandle: 'bracelet-agate-jaune-et-or',
     name: 'Bracelet Agate Jaune & Or',
     price: 39,
     collection: 'bijoux',
@@ -570,6 +593,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-prehnite-perles',
+    shopifyHandle: 'bracelet-prehnite-et-perles',
     name: 'Bracelet Préhnite & Perles',
     price: 39,
     collection: 'bijoux',
@@ -581,6 +605,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-oeil-tigre-fuchsia',
+    shopifyHandle: 'bracelet-oeil-de-tigre-fuchsia',
     name: 'Bracelet Œil de Tigre Fuchsia',
     price: 39,
     collection: 'bijoux',
@@ -592,6 +617,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-sodalite',
+    shopifyHandle: 'bracelet-sodalite-bleue',
     name: 'Bracelet Sodalite Bleue',
     price: 39,
     collection: 'bijoux',
@@ -603,6 +629,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-amethyste-quartz',
+    shopifyHandle: 'bracelet-amethyste-et-quartz-rose',
     name: 'Bracelet Améthyste & Quartz Rose',
     price: 39,
     collection: 'bijoux',
@@ -614,6 +641,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-goldstone-perles',
+    shopifyHandle: 'bracelet-goldstone-et-perles',
     name: 'Bracelet Goldstone & Perles',
     price: 39,
     collection: 'bijoux',
@@ -625,6 +653,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-howlite-amazonite',
+    shopifyHandle: 'bracelet-howlite-et-amazonite',
     name: 'Bracelet Howlite & Amazonite',
     price: 39,
     collection: 'bijoux',
@@ -636,6 +665,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-turquoise-corail',
+    shopifyHandle: 'bracelet-turquoise-et-corail-rouge',
     name: 'Bracelet Turquoise & Corail Rouge',
     price: 39,
     collection: 'bijoux',
