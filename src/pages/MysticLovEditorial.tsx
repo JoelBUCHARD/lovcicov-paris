@@ -215,7 +215,7 @@ const MysticLovEditorial = () => {
           <img
             src={closingJoy}
             alt="Very Slow Fashion"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
 
           <div className="absolute bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
