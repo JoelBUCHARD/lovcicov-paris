@@ -4,11 +4,22 @@ import { ShoppingBag, Trash2, Minus, Plus, ExternalLink, Loader2 } from 'lucide-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCartStore } from '@/stores/cartStore';
+import { useCart } from '@/context/CartContext';
+
+const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesPng = import.meta.glob('@/assets/*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const localImages = { ...imageModulesJpg, ...imageModulesWebp, ...imageModulesPng };
+const getLocalImage = (key: string) => {
+  const match = Object.entries(localImages).find(([path]) => path.includes(key));
+  return match ? match[1] : '';
+};
 
 const Cart = () => {
   const { items, removeItem, updateQuantity, isLoading, getCheckoutUrl, totalPrice, totalItems } = useCartStore();
-  const total = totalPrice();
-  const count = totalItems();
+  const { items: localItems, removeFromCart, updateQuantity: updateLocalQty, totalItems: localTotal, totalPrice: localPriceTotal } = useCart();
+  const total = totalPrice() + localPriceTotal;
+  const count = totalItems() + localTotal;
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
@@ -90,6 +101,39 @@ const Cart = () => {
                         </div>
 
                         <button onClick={() => removeItem(item.variantId)} className="text-muted-foreground hover:text-foreground transition-colors">
+                          <Trash2 size={14} strokeWidth={1.5} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+
+              {localItems.map((item) => {
+                const image = getLocalImage(item.product.image);
+                return (
+                  <div key={item.product.id} className="flex gap-4 md:gap-6 py-6 border-b border-border">
+                    <Link to={`/shop/${item.product.id}`} className="w-20 md:w-28 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0">
+                      {image ? <img src={image} alt={item.product.name} className="w-full h-full object-cover" /> : <div className="w-full h-full bg-secondary" />}
+                    </Link>
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <Link to={`/shop/${item.product.id}`} className="text-brand text-[11px] hover:opacity-70 transition-opacity">
+                          {item.product.name}
+                        </Link>
+                        <p className="text-sm text-muted-foreground mt-1">€{item.product.price}</p>
+                      </div>
+                      <div className="flex items-center justify-between mt-4">
+                        <div className="flex items-center gap-3 border border-border">
+                          <button onClick={() => updateLocalQty(item.product.id, item.quantity - 1)} className="p-2 hover:opacity-60 transition-opacity">
+                            <Minus size={12} />
+                          </button>
+                          <span className="text-xs w-4 text-center">{item.quantity}</span>
+                          <button onClick={() => updateLocalQty(item.product.id, item.quantity + 1)} className="p-2 hover:opacity-60 transition-opacity">
+                            <Plus size={12} />
+                          </button>
+                        </div>
+                        <button onClick={() => removeFromCart(item.product.id)} className="text-muted-foreground hover:text-foreground transition-colors">
                           <Trash2 size={14} strokeWidth={1.5} />
                         </button>
                       </div>
