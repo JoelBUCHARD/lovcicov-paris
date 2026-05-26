@@ -127,9 +127,21 @@ const ShopifyProductDetail = () => {
             <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
               {product.title}
             </h1>
-            <p className="text-[16px] font-normal text-[#1A1A1A] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
+            <p className="text-[16px] font-normal text-[#1A1A1A] mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>
               €{price}
             </p>
+
+            {/* Stock badge */}
+            {(isSoldOut || isLowStock) && (
+              <p
+                className="text-[10px] uppercase tracking-[0.18em] mb-6"
+                style={{ fontFamily: 'Arial, sans-serif', color: universeColor }}
+              >
+                {isSoldOut ? 'Épuisé' : `Plus que ${qty} en stock`}
+              </p>
+            )}
+            {!isSoldOut && !isLowStock && <div className="mb-5" />}
+
 
             {product.description && (
               <p className="text-[#8A8985] text-[12px] leading-[1.8] mb-8" style={{ fontFamily: 'Arial, sans-serif' }}>
