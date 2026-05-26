@@ -59,18 +59,18 @@ const MysticLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-screen overflow-hidden my-5">
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
           <img
             src={heroSolo}
             alt="MysticLov hero"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-contain md:object-cover"
             style={{ objectPosition: "center 15%" }}
           />
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 pointer-events-none"
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 px-8 md:px-12 pb-12 md:pb-16 z-10">
+          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
             <p className="uppercase mb-3" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
               MYSTICLOV
             </p>
@@ -100,6 +100,7 @@ const MysticLovEditorial = () => {
             </Link>
           </div>
         </section>
+
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
         <section className="w-full px-6 md:px-10 py-8 md:py-10" style={{ backgroundColor: BG }}>
