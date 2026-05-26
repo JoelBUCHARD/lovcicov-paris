@@ -225,7 +225,7 @@ const MysticLovEditorial = () => {
               style={{
                 backgroundColor: "#000000",
                 color: "#FFFFFF",
-                fontSize: 9,
+                fontSize: 8,
                 letterSpacing: "0.15em",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333333")}
