@@ -59,7 +59,7 @@ const Cart = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto"
           >
-            <h1 className="text-2xl md:text-3xl font-medium mb-10">Votre Panier</h1>
+            <h1 className="text-2xl md:text-3xl font-medium mb-10 mt-8">Votre Panier</h1>
 
             <div className="space-y-6 border-t border-border">
               {items.map((item) => {
