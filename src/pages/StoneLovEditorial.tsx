@@ -41,14 +41,14 @@ const StoneLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-screen overflow-hidden">
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
           <img
             src={hero}
             alt="StoneLov hero"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center 42%", transform: "scale(1.2)", transformOrigin: "center 42%" }}
+            className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.2]"
+            style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 z-10" style={{ padding: 48, paddingBottom: 20 }}>
+          <div className="absolute bottom-0 left-0 z-10 p-6 md:p-12 pb-5">
             <div className="inline-block" style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", borderRadius: 1, marginBottom: 8 }}>
               <p className="text-[9px] uppercase" style={{ color: TERRA, letterSpacing: "0.25em", fontWeight: 700 }}>
                 STONELOV
@@ -72,12 +72,14 @@ const StoneLovEditorial = () => {
           </div>
         </section>
 
+
         {/* L'UNIVERS DES PIERRES */}
         <StoneUniverse />
 
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
-        <section className="relative w-screen overflow-hidden" style={{ height: "80vh" }}>
-          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 25%", transform: "scale(1.08)", transformOrigin: "center 25%" }} />
+        <section className="relative w-screen overflow-hidden h-[60vh] md:h-[80vh]" style={{ backgroundColor: BG }}>
+          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
+
           <div
             className="absolute inset-0"
             style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
@@ -115,8 +117,9 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 4 — CLOSING */}
         <div style={{ height: 20, backgroundColor: BG }} />
-        <section className="relative w-screen h-screen overflow-hidden">
-          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-contain md:object-cover" style={{ objectPosition: "center 30%" }} />
+
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Protected. Guided. Unstoppable.
