@@ -107,11 +107,28 @@ const ProductDetail = () => {
     product.collection === 'mystic' ? 'MysticLov'
     : product.collection === 'bijoux' ? 'StoneLov'
     : 'PowerLov';
+  const universe = product.collection === 'mystic' ? 'mysticlov'
+    : product.collection === 'bijoux' ? 'stonelov'
+    : 'powerlov';
   const fallbackBackLink = `/shop?collection=${product.collection}`;
   const backLink = typeof location.state?.from === 'string' ? location.state.from : fallbackBackLink;
 
   // Build all images: main + gallery
   const allImages = [product.image, ...(product.gallery || [])];
+
+  // Track recently viewed
+  useEffect(() => {
+    if (!product) return;
+    const resolved = getImage(product.image);
+    trackViewedProduct({
+      key: `local:${product.id}`,
+      name: product.name,
+      price: String(product.price),
+      image: resolved,
+      universe: universe as 'powerlov' | 'mysticlov' | 'stonelov',
+      link: `/shop/${product.id}`,
+    });
+  }, [product?.id]);
 
   return (
     <div className="min-h-screen bg-background">
