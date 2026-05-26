@@ -182,7 +182,7 @@ const Index = () => {
       </section>
 
       {/* EDITORIAL — Zara-style oversized logo on the left of image */}
-      <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center overflow-visible">
+      <section className="relative w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center overflow-visible">
         <div className="relative inline-block overflow-visible">
           {/* Image */}
           <img
@@ -190,26 +190,25 @@ const Index = () => {
             alt="LOVCICOV — Collection 2026"
             className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
+        </div>
 
-          {/* Giant LOVCICOV fixed inside the image on the left */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-y-0 left-0 z-10 flex items-center pointer-events-none select-none"
-            style={{ paddingLeft: '12px' }}
+        {/* Giant LOVCICOV fixed on the visible left side of the image */}
+        <div
+          aria-hidden="true"
+          className="absolute left-3 md:left-8 top-1/2 z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
+        >
+          <span
+            className="leading-none whitespace-nowrap"
+            style={{
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: 'clamp(44px, 10vw, 140px)',
+              fontWeight: 700,
+              letterSpacing: '0.02em',
+              color: 'rgba(26, 26, 26, 0.28)',
+            }}
           >
-            <span
-              className="leading-none whitespace-nowrap"
-              style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: 'clamp(44px, 10vw, 140px)',
-                fontWeight: 700,
-                letterSpacing: '0.02em',
-                color: 'rgba(26, 26, 26, 0.28)',
-              }}
-            >
-              LOVCICOV
-            </span>
-          </div>
+            LOVCICOV
+          </span>
         </div>
       </section>
 
