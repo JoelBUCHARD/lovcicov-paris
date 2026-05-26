@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 
 const ARIAL = 'Arial, sans-serif';
