@@ -39,22 +39,11 @@ const CollectionTshirts = () => {
       <Navbar />
       <main className="pt-32 md:pt-36 pb-20 px-6">
         <div className="text-center mb-12">
-          <p
-            style={{
-              fontFamily: ARIAL,
-              fontSize: 9,
-              textTransform: 'uppercase',
-              color: '#1A1A1A',
-              letterSpacing: '0.2em',
-            }}
-          >
-            LOVCICOV PARIS
-          </p>
           <h1
-            className="italic mt-4"
+            className="italic"
             style={{
               fontFamily: ARIAL,
-              fontSize: 'clamp(32px, 5vw, 56px)',
+              fontSize: 'clamp(22px, 3vw, 32px)',
               fontWeight: 200,
               color: '#1A1A1A',
               lineHeight: 1.1,
@@ -73,33 +62,10 @@ const CollectionTshirts = () => {
             Aucun t-shirt disponible.
           </p>
         ) : (
-          <div className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
-            {products.map((p) => {
-              const img = p.node.images.edges[0]?.node.url;
-              return (
-                <Link
-                  key={p.node.id}
-                  to={`/product/${p.node.handle}`}
-                  className="block group"
-                >
-                  <div className="aspect-[3/4] overflow-hidden bg-white mb-3">
-                    {img && (
-                      <img
-                        src={img}
-                        alt={p.node.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    )}
-                  </div>
-                  <p style={{ fontFamily: ARIAL, fontSize: 12, color: '#1A1A1A' }}>
-                    {p.node.title}
-                  </p>
-                  <p style={{ fontFamily: ARIAL, fontSize: 12, color: '#888780', marginTop: 2 }}>
-                    €{Number(p.node.priceRange.minVariantPrice.amount).toFixed(0)}
-                  </p>
-                </Link>
-              );
-            })}
+          <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl px-6 md:px-10">
+            {products.map((p, i) => (
+              <ShopifyProductCard key={p.node.id} product={p} index={i} />
+            ))}
           </div>
         )}
       </main>
