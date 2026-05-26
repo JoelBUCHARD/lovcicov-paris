@@ -59,11 +59,11 @@ const MysticLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
           <img
             src={heroSolo}
             alt="MysticLov hero"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center 15%" }}
           />
           <div
