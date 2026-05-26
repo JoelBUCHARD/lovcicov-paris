@@ -6,30 +6,81 @@ import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 
 const ARIAL = 'Arial, sans-serif';
-const TERRA = '#C4714A';
+const BEIGE = '#FAF7F2';
+const BEIGE_BORDER = '#E8E4DC';
+const MUTED = '#888780';
+const SOFT = '#B4A99A';
+const INK = '#1A1A1A';
+
+const isTshirt = (p: ShopifyProduct) => {
+  const t = (p.node.productType || '').toLowerCase();
+  const title = p.node.title.toLowerCase();
+  const tags = (p.node.tags || []).map((x) => x.toLowerCase());
+  return (
+    t.includes('t-shirt') ||
+    t.includes('tshirt') ||
+    t.includes('tee') ||
+    title.includes('t-shirt') ||
+    title.includes('tshirt') ||
+    tags.some((x) => x.includes('t-shirt') || x.includes('tshirt') || x.includes('tee'))
+  );
+};
+
+const ProductGrid = ({ products }: { products: ShopifyProduct[] }) => (
+  <div className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
+    {products.map((p) => {
+      const img = p.node.images.edges[0]?.node.url;
+      return (
+        <Link key={p.node.id} to={`/product/${p.node.handle}`} className="block group">
+          <div className="aspect-[3/4] overflow-hidden bg-white mb-3">
+            {img && (
+              <img
+                src={img}
+                alt={p.node.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            )}
+          </div>
+          <p style={{ fontFamily: ARIAL, fontSize: 12, color: INK }}>{p.node.title}</p>
+          <p style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED, marginTop: 2 }}>
+            €{Number(p.node.priceRange.minVariantPrice.amount).toFixed(0)}
+          </p>
+        </Link>
+      );
+    })}
+  </div>
+);
 
 const CampagneSac = () => {
   const { sold, target } = usePowerLovSalesCount();
   const pct = Math.min(100, (sold / target) * 100);
-  const [products, setProducts] = useState<ShopifyProduct[]>([]);
+  const [participants, setParticipants] = useState<ShopifyProduct[]>([]);
+  const [allTees, setAllTees] = useState<ShopifyProduct[]>([]);
 
   useEffect(() => {
     fetchShopifyProducts(12, 'tag:powerlov')
       .then((p) => {
-        if (p.length) setProducts(p);
-        else return fetchShopifyProducts(12).then(setProducts);
+        if (p.length) setParticipants(p);
+        else return fetchShopifyProducts(12).then(setParticipants);
       })
-      .catch(() => setProducts([]));
+      .catch(() => setParticipants([]));
+
+    fetchShopifyProducts(100)
+      .then((all) => {
+        const tees = all.filter(isTshirt);
+        setAllTees(tees.length ? tees : all);
+      })
+      .catch(() => setAllTees([]));
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ backgroundColor: BEIGE }}>
       <Navbar />
 
       {/* HERO */}
       <section
         className="w-full flex items-center justify-center text-center px-6"
-        style={{ backgroundColor: '#1A1A1A', height: '90vh' }}
+        style={{ backgroundColor: INK, height: '90vh' }}
       >
         <div>
           <p
@@ -37,11 +88,11 @@ const CampagneSac = () => {
               fontFamily: ARIAL,
               fontSize: 9,
               textTransform: 'uppercase',
-              color: TERRA,
+              color: SOFT,
               letterSpacing: '0.2em',
             }}
           >
-            LOVCICOV PARIS · CAMPAGNE LANCEMENT
+            LOVCICOV PARIS
           </p>
           <h1
             className="italic"
@@ -62,28 +113,21 @@ const CampagneSac = () => {
               fontFamily: ARIAL,
               fontSize: 'clamp(40px, 7vw, 90px)',
               fontWeight: 200,
-              color: TERRA,
+              color: '#FFFFFF',
               lineHeight: 1.05,
             }}
           >
             à gagner.
           </h2>
-          <p
-            style={{
-              fontFamily: ARIAL,
-              fontSize: 13,
-              color: '#B4A99A',
-              marginTop: 16,
-            }}
-          >
-            Pour les 500 premiers t-shirts PowerLov vendus.
+          <p style={{ fontFamily: ARIAL, fontSize: 13, color: SOFT, marginTop: 16 }}>
+            Pour les 1000 premiers t-shirts vendus.
           </p>
           <Link
-            to="/collections/powerlov"
+            to="/collections/t-shirts"
             className="inline-block mt-10 hover:opacity-90 transition-opacity"
             style={{
               backgroundColor: '#FFFFFF',
-              color: '#1A1A1A',
+              color: INK,
               padding: '14px 32px',
               borderRadius: 0,
               fontFamily: ARIAL,
@@ -100,14 +144,14 @@ const CampagneSac = () => {
       {/* COUNTDOWN */}
       <section
         className="w-full text-center px-6"
-        style={{ backgroundColor: '#FAF7F2', padding: '60px 24px' }}
+        style={{ backgroundColor: BEIGE, padding: '60px 24px' }}
       >
         <p
           style={{
             fontFamily: ARIAL,
             fontSize: 9,
             textTransform: 'uppercase',
-            color: '#B4A99A',
+            color: SOFT,
             letterSpacing: '0.2em',
           }}
         >
@@ -118,12 +162,12 @@ const CampagneSac = () => {
             fontFamily: ARIAL,
             fontSize: 'clamp(60px, 12vw, 160px)',
             fontWeight: 200,
-            color: '#1A1A1A',
+            color: INK,
             lineHeight: 1.1,
             marginTop: 16,
           }}
         >
-          {sold} / <span style={{ color: TERRA }}>{target}</span>
+          {sold} / {target}
         </p>
 
         <div
@@ -131,7 +175,7 @@ const CampagneSac = () => {
           style={{
             maxWidth: 600,
             height: 4,
-            backgroundColor: '#E8E4DC',
+            backgroundColor: BEIGE_BORDER,
             marginTop: 24,
             marginBottom: 16,
           }}
@@ -140,20 +184,13 @@ const CampagneSac = () => {
             style={{
               height: '100%',
               width: `${pct}%`,
-              backgroundColor: TERRA,
+              backgroundColor: INK,
               transition: 'width 0.8s ease',
             }}
           />
         </div>
 
-        <p
-          className="italic"
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 12,
-            color: '#888780',
-          }}
-        >
+        <p className="italic" style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED }}>
           Chaque t-shirt vendu vous rapproche du tirage.
         </p>
       </section>
@@ -161,11 +198,7 @@ const CampagneSac = () => {
       {/* RULES */}
       <section
         className="mx-auto"
-        style={{
-          backgroundColor: '#FFFFFF',
-          padding: '80px 40px',
-          maxWidth: 700,
-        }}
+        style={{ backgroundColor: '#FFFFFF', padding: '80px 40px', maxWidth: 700 }}
       >
         <p
           className="text-center"
@@ -173,7 +206,7 @@ const CampagneSac = () => {
             fontFamily: ARIAL,
             fontSize: 9,
             textTransform: 'uppercase',
-            color: '#1A1A1A',
+            color: INK,
             letterSpacing: '0.2em',
             marginBottom: 40,
           }}
@@ -182,31 +215,15 @@ const CampagneSac = () => {
         </p>
 
         {[
-          {
-            n: '01',
-            title: 'Acheter un t-shirt PowerLov',
-            text: 'Sur lovcicov.com · Collection PowerLov',
-          },
-          {
-            n: '02',
-            title: "S'abonner sur Instagram",
-            text: '@lovcicov.paris · Compte public',
-          },
-          {
-            n: '03',
-            title: 'Rejoindre Le Cercle',
-            text: "S'inscrire sur lovcicov.com/le-cercle",
-          },
-          {
-            n: '04',
-            title: 'Repartager le post en story',
-            text: 'Avec le hashtag #LovcicovCercle',
-          },
+          { n: '01', title: 'Acheter un t-shirt', text: 'Sur lovcicov.com · PowerLov ou MysticLov' },
+          { n: '02', title: "S'abonner sur Instagram", text: '@lovcicov.paris · Compte public' },
+          { n: '03', title: 'Rejoindre Le Cercle', text: "S'inscrire sur lovcicov.com/le-cercle" },
+          { n: '04', title: 'Repartager le post en story', text: 'Avec le hashtag #LovcicovCercle' },
         ].map((step, i) => (
           <div
             key={step.n}
             style={{
-              borderTop: i === 0 ? 'none' : '0.5px solid #E8E4DC',
+              borderTop: i === 0 ? 'none' : `0.5px solid ${BEIGE_BORDER}`,
               padding: '28px 0',
             }}
           >
@@ -215,7 +232,7 @@ const CampagneSac = () => {
                 fontFamily: ARIAL,
                 fontSize: 48,
                 fontWeight: 200,
-                color: '#E8E4DC',
+                color: BEIGE_BORDER,
                 lineHeight: 1,
               }}
             >
@@ -226,7 +243,7 @@ const CampagneSac = () => {
                 fontFamily: ARIAL,
                 fontSize: 16,
                 fontWeight: 700,
-                color: '#1A1A1A',
+                color: INK,
                 marginTop: 8,
               }}
             >
@@ -234,12 +251,7 @@ const CampagneSac = () => {
             </p>
             <p
               className="italic"
-              style={{
-                fontFamily: ARIAL,
-                fontSize: 12,
-                color: '#888780',
-                marginTop: 4,
-              }}
+              style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED, marginTop: 4 }}
             >
               {step.text}
             </p>
@@ -250,7 +262,7 @@ const CampagneSac = () => {
       {/* HASHTAG */}
       <section
         className="w-full text-center"
-        style={{ backgroundColor: '#1A1A1A', padding: '60px 40px' }}
+        style={{ backgroundColor: INK, padding: '60px 40px' }}
       >
         <p
           style={{
@@ -263,23 +275,33 @@ const CampagneSac = () => {
         >
           #LovcicovCercle
         </p>
-        <p
-          className="italic"
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 13,
-            color: '#B4A99A',
-            marginTop: 12,
-          }}
-        >
+        <p className="italic" style={{ fontFamily: ARIAL, fontSize: 13, color: SOFT, marginTop: 12 }}>
           Rejoignez le mouvement. Taguez-nous.
         </p>
       </section>
 
-      {/* POWERLOV T-SHIRTS */}
+      {/* PARTICIPANTS */}
+      <section className="w-full" style={{ backgroundColor: BEIGE, padding: '80px 24px' }}>
+        <p
+          className="text-center"
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 9,
+            textTransform: 'uppercase',
+            color: INK,
+            letterSpacing: '0.2em',
+            marginBottom: 40,
+          }}
+        >
+          Les t-shirts participants
+        </p>
+        <ProductGrid products={participants} />
+      </section>
+
+      {/* ALL TSHIRTS */}
       <section
         className="w-full"
-        style={{ backgroundColor: '#FAF7F2', padding: '80px 24px' }}
+        style={{ backgroundColor: '#FFFFFF', padding: '80px 24px', borderTop: `0.5px solid ${BEIGE_BORDER}` }}
       >
         <p
           className="text-center"
@@ -287,69 +309,28 @@ const CampagneSac = () => {
             fontFamily: ARIAL,
             fontSize: 9,
             textTransform: 'uppercase',
-            color: '#1A1A1A',
+            color: INK,
             letterSpacing: '0.2em',
             marginBottom: 40,
           }}
         >
-          Les t-shirts participants
+          Tous les t-shirts
         </p>
-
-        <div className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl">
-          {products.map((p) => {
-            const img = p.node.images.edges[0]?.node.url;
-            return (
-              <Link
-                key={p.node.id}
-                to={`/product/${p.node.handle}`}
-                className="block group"
-              >
-                <div className="aspect-[3/4] overflow-hidden bg-white mb-3">
-                  {img && (
-                    <img
-                      src={img}
-                      alt={p.node.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  )}
-                </div>
-                <p
-                  style={{
-                    fontFamily: ARIAL,
-                    fontSize: 12,
-                    color: '#1A1A1A',
-                  }}
-                >
-                  {p.node.title}
-                </p>
-                <p
-                  style={{
-                    fontFamily: ARIAL,
-                    fontSize: 12,
-                    color: '#888780',
-                    marginTop: 2,
-                  }}
-                >
-                  €{Number(p.node.priceRange.minVariantPrice.amount).toFixed(0)}
-                </p>
-              </Link>
-            );
-          })}
-        </div>
+        <ProductGrid products={allTees} />
 
         <div className="text-center mt-12">
           <Link
-            to="/collections/powerlov"
+            to="/collections/t-shirts"
             className="hover:underline"
             style={{
               fontFamily: ARIAL,
               fontSize: 11,
               textTransform: 'uppercase',
               letterSpacing: '0.15em',
-              color: '#1A1A1A',
+              color: INK,
             }}
           >
-            Voir toute la collection PowerLov →
+            Voir toute la collection de t-shirts →
           </Link>
         </div>
       </section>
@@ -358,25 +339,19 @@ const CampagneSac = () => {
       <section
         className="mx-auto"
         style={{
-          backgroundColor: '#FAF7F2',
-          borderTop: '0.5px solid #E8E4DC',
+          backgroundColor: BEIGE,
+          borderTop: `0.5px solid ${BEIGE_BORDER}`,
           padding: 40,
           maxWidth: 600,
         }}
       >
         <p
           className="italic text-center"
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 11,
-            color: '#B4A99A',
-            lineHeight: 1.8,
-          }}
+          style={{ fontFamily: ARIAL, fontSize: 11, color: SOFT, lineHeight: 1.8 }}
         >
-          Tirage au sort effectué à la vente du 500ème t-shirt PowerLov. Une
-          voie d'accès gratuite est disponible sans obligation d'achat :
-          envoyer un email à contact@lovcicov.com avec l'objet « Je rejoins
-          le Cercle ». Règlement complet disponible sur demande.
+          Tirage au sort effectué à la vente du 1000ème t-shirt. Une voie d'accès gratuite est
+          disponible sans obligation d'achat : envoyer un email à contact@lovcicov.com avec
+          l'objet « Je rejoins le Cercle ». Règlement complet disponible sur demande.
         </p>
       </section>
 
