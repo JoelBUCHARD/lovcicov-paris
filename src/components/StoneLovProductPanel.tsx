@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, Minus, Loader2 } from "lucide-react";
-import { Product, bijouxProducts } from "@/data/products";
+import { Product } from "@/data/products";
 import { detectStones } from "@/data/stoneMeanings";
 import { useCart } from "@/context/CartContext";
 import { useCartStore } from "@/stores/cartStore";
