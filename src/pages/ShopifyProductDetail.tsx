@@ -74,6 +74,18 @@ const ShopifyProductDetail = () => {
   const price = parseFloat(selectedVariant.price.amount).toFixed(0);
   const backLink = typeof location.state?.from === 'string' ? location.state.from : '/collections/mystic-lov';
 
+  // Universe detection and color
+  const universe = /powerlov/i.test(product.title) || /power/i.test(product.productType || '')
+    ? 'PowerLov'
+    : /collier|bracelet|stone/i.test(product.title) || /stone|bijoux/i.test(product.productType || '')
+      ? 'StoneLov'
+      : 'MysticLov';
+  const universeColor = universe === 'PowerLov' ? '#C44529' : universe === 'StoneLov' ? '#C4654A' : '#1A1A1A';
+
+  const qty = selectedVariant.quantityAvailable;
+  const isSoldOut = !selectedVariant.availableForSale || qty === 0;
+  const isLowStock = !isSoldOut && typeof qty === 'number' && qty > 0 && qty < 5;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
