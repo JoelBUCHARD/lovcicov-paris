@@ -117,8 +117,9 @@ const StoneLovEditorial = () => {
 
         {/* BLOCK 4 — CLOSING */}
         <div style={{ height: 20, backgroundColor: BG }} />
-        <section className="relative w-screen h-screen overflow-hidden">
-          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+          <img src={closing} alt="Very Slow Fashion" className="absolute inset-0 w-full h-full object-contain md:object-cover" style={{ objectPosition: "center 30%" }} />
+
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10" style={{ paddingBottom: 80 }}>
             <h2 className="italic" style={{ color: INK, fontSize: "clamp(28px,5vw,42px)", fontWeight: 200, letterSpacing: "0.03em" }}>
               Protected. Guided. Unstoppable.
