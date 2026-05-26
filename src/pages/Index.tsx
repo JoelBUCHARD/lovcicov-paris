@@ -178,31 +178,32 @@ const Index = () => {
       </section>
 
       {/* EDITORIAL — Zara-style oversized logo in front of image */}
-      <section className="relative w-full overflow-hidden bg-white min-h-[60vh] md:min-h-[90vh] flex items-center justify-center pt-4 md:pt-16 pb-4 md:pb-6">
+      <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center">
+        <div className="relative inline-block">
+          {/* Image */}
+          <img
+            src={editorialStonelov}
+            alt="LOVCICOV — Collection 2026"
+            className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
+          />
 
-        {/* Image */}
-        <img
-          src={editorialStonelov}
-          alt="LOVCICOV — Collection 2026"
-          className="relative z-[1] h-[60vh] md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top"
-        />
-
-        {/* Giant LOVCICOV in front of image */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 z-[3] flex items-end justify-center md:justify-start pointer-events-none select-none pb-6 md:pb-10 px-4 md:pl-10 md:pr-0"
-        >
-          <span
-            className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
-            style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(40px, 12vw, 140px)',
-              fontWeight: 700,
-              letterSpacing: '0.02em',
-            }}
+          {/* Giant LOVCICOV in front of image */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 z-[3] flex items-end justify-center md:justify-start pointer-events-none select-none pb-4 md:pb-10 px-2 md:pl-10 md:pr-0"
           >
-            LOVCICOV
-          </span>
+            <span
+              className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
+              style={{
+                fontFamily: '"Cormorant Garamond", serif',
+                fontSize: 'clamp(40px, 12vw, 140px)',
+                fontWeight: 700,
+                letterSpacing: '0.02em',
+              }}
+            >
+              LOVCICOV
+            </span>
+          </div>
         </div>
       </section>
 
