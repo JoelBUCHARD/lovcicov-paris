@@ -14,7 +14,7 @@ const StoneUniverse = () => {
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-center mb-4">
           <div style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", borderRadius: 1 }}>
-            <p className="text-[9px] uppercase" style={{ color: "#C4714A", letterSpacing: "0.25em", fontWeight: 700 }}>
+            <p className="text-[9px] uppercase" style={{ color: "#C4714A", letterSpacing: "0.25em" }}>
               STONELOV
             </p>
           </div>
