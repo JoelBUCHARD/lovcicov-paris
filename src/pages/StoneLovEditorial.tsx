@@ -124,8 +124,8 @@ const StoneLovEditorial = () => {
             </h2>
             <Link
               to="/collections/bijoux"
-              className="text-white text-[11px] uppercase transition-colors"
-              style={{ backgroundColor: TERRA, padding: "14px 32px", letterSpacing: "0.15em", marginTop: 28 }}
+              className="text-white text-[9px] uppercase transition-colors"
+              style={{ backgroundColor: TERRA, padding: "10px 24px", letterSpacing: "0.15em", marginTop: 20 }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
