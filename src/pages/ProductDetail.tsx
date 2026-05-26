@@ -163,11 +163,30 @@ const ProductDetail = () => {
             )}
             <ColorSwatches product={product} />
             <p
-              className="text-[16px] font-normal text-[#1A1A1A] mb-1"
-              style={{ fontFamily: 'Arial, sans-serif' }}
+              className="font-bold text-[#1A1A1A] mb-1"
+              style={{ fontFamily: 'Arial, sans-serif', fontSize: '20px' }}
             >
               €{product.price}
             </p>
+            {(() => {
+              const ship =
+                product.subcategory === 'tshirt' ? "Livraison 4.50€ · Offerte dès 250€ d'achat"
+                : product.subcategory === 'crewneck' ? "Livraison 5.50€ · Offerte dès 250€ d'achat"
+                : product.subcategory === 'hoodie' ? "Livraison 6.50€ · Offerte dès 250€ d'achat"
+                : null;
+              return (
+                <>
+                  <p className="italic" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+                    4x sans frais avec Alma
+                  </p>
+                  {ship && (
+                    <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+                      {ship}
+                    </p>
+                  )}
+                </>
+              );
+            })()}
             {product.collection === 'standard' ? (
               <>
                 <p
