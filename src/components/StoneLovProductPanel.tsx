@@ -67,13 +67,46 @@ const bodyStyle: React.CSSProperties = {
 
 const StoneLovProductPanel = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();
+  const addShopifyItem = useCartStore((s) => s.addItem);
+  const [isAdding, setIsAdding] = useState(false);
   const stones = detectStones(`${product.name} ${product.description} ${product.details ?? ""}`);
 
   const crossSell = bijouxProducts.filter((p) => p.id !== product.id).slice(0, 3);
 
-  const handleAdd = () => {
-    addToCart(product);
-    toast({ title: "Ajouté au panier", description: product.name });
+  const handleAdd = async () => {
+    if (!product.shopifyHandle) {
+      addToCart(product);
+      toast({ title: "Ajouté au panier", description: product.name });
+      return;
+    }
+    setIsAdding(true);
+    try {
+      const sp = await fetchShopifyProductByHandle(product.shopifyHandle);
+      if (!sp) {
+        toast({ title: "Produit indisponible", description: "Réessayez dans un instant." });
+        return;
+      }
+      const variants = sp.variants.edges.map((e) => e.node);
+      const variant = variants.find((v) => v.availableForSale) || variants[0];
+      if (!variant) {
+        toast({ title: "Aucune variante disponible" });
+        return;
+      }
+      await addShopifyItem({
+        product: { node: sp },
+        variantId: variant.id,
+        variantTitle: variant.title,
+        price: variant.price,
+        quantity: 1,
+        selectedOptions: variant.selectedOptions,
+      });
+      toast({ title: "Ajouté au panier", description: product.name });
+    } catch (err) {
+      console.error("Add to cart failed", err);
+      toast({ title: "Erreur", description: "Impossible d'ajouter au panier." });
+    } finally {
+      setIsAdding(false);
+    }
   };
 
   return (
