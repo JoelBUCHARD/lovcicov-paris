@@ -71,18 +71,18 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="uppercase mb-3" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.18em" }}>
               MYSTICLOV
             </p>
             <h1
-              className="text-white mb-3 text-[22px] md:text-[30px]"
+              className="text-white mb-3 text-[18px] md:text-[30px]"
               style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
             >
               Love is my frequency.
             </h1>
             <Link
               to="/mysticlov/shop"
-              className="inline-block mt-4 uppercase transition-colors text-[8px] md:text-[9px] px-4 py-2 md:px-6 md:py-2.5"
+              className="inline-block mt-4 uppercase transition-colors text-[7px] md:text-[9px] px-3 py-1.5 md:px-6 md:py-2.5"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
