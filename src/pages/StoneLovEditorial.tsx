@@ -54,6 +54,9 @@ const StoneLovEditorial = () => {
                 STONELOV
               </p>
             </div>
+            <p className="italic mb-4" style={{ color: INK, fontSize: "clamp(18px, 3vw, 26px)", fontWeight: 300, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}>
+              Rooted in the earth.
+            </p>
             <Link
               to="/collections/bijoux"
               className="inline-block text-white text-[10px] uppercase transition-colors mb-4"
