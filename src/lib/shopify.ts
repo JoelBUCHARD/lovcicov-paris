@@ -103,6 +103,8 @@ const STOREFRONT_QUERY = `
               }
             }
           }
+          productType
+          tags
           variants(first: 20) {
             edges {
               node {
@@ -113,6 +115,7 @@ const STOREFRONT_QUERY = `
                   currencyCode
                 }
                 availableForSale
+                quantityAvailable
                 selectedOptions {
                   name
                   value
