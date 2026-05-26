@@ -31,7 +31,7 @@ const fadeUp = {
 const Index = () => {
   const featured = bijouxProducts;
   const { sold } = usePowerLovSalesCount();
-  const target = 500;
+  const target = 1000;
   const pct = Math.min(100, (sold / target) * 100);
 
 
