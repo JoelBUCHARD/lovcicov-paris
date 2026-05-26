@@ -41,11 +41,11 @@ const StoneLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-screen overflow-hidden" style={{ backgroundColor: BG }}>
           <img
             src={hero}
             alt="StoneLov hero"
-            className="absolute inset-0 w-full h-full object-contain md:object-cover md:scale-[1.2]"
+            className="absolute inset-0 w-full h-full object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 z-10 p-6 md:p-12 pb-5">
