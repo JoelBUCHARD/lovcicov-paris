@@ -385,177 +385,133 @@ const Index = () => {
       </section>
 
 
-      {/* CAMPAGNE SAC SAINT LAURENT */}
-      <section className="w-full bg-[#1A1A1A]">
-        <div className="grid grid-cols-1 md:grid-cols-2 relative">
-          {/* Vertical divider */}
-          <div
-            aria-hidden="true"
-            className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px bg-[#333333]"
-            style={{ height: '60%' }}
-          />
+      {/* CAMPAGNE SAC SAINT LAURENT — same DA as /campagne-sac */}
+      <section
+        className="w-full flex items-center justify-center text-center px-6"
+        style={{ backgroundColor: '#1A1A1A', padding: '100px 24px' }}
+      >
+        <div className="max-w-[720px] mx-auto">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 9,
+              color: '#B4A99A',
+              letterSpacing: '0.2em',
+              marginBottom: 24,
+            }}
+          >
+            Campagne lancement · Édition limitée
+          </p>
 
-          {/* LEFT — content */}
-          <div className="flex items-center" style={{ padding: '80px 40px' }}>
-            <div className="w-full max-w-[520px] mx-auto md:mx-0">
-              <p
-                className="uppercase"
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 9,
-                  color: '#C4714A',
-                  letterSpacing: '0.2em',
-                  marginBottom: 16,
-                }}
-              >
-                CAMPAGNE LANCEMENT · ÉDITION LIMITÉE
-              </p>
+          <h2
+            className="italic"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 'clamp(40px, 7vw, 90px)',
+              fontWeight: 200,
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+            }}
+          >
+            Un sac Saint Laurent
+          </h2>
+          <p
+            className="italic"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 'clamp(40px, 7vw, 90px)',
+              fontWeight: 200,
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+            }}
+          >
+            à gagner.
+          </p>
 
-              <h2
-                className="italic"
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 'clamp(32px, 5vw, 64px)',
-                  fontWeight: 200,
-                  color: '#FFFFFF',
-                  lineHeight: 1.1,
-                }}
-              >
-                Un sac Saint Laurent
-                <br />
-                <span style={{ color: '#C4714A' }}>à gagner.</span>
-              </h2>
-
-              <p
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 13,
-                  color: '#B4A99A',
-                  lineHeight: 1.9,
-                  marginTop: 16,
-                }}
-              >
-                Pour les 500 premiers t-shirts PowerLov vendus.
-                <br />
-                Achetez un t-shirt · Rejoignez le Cercle ·
-                <br />
-                Repartagez en story.
-              </p>
-
-              {/* Counter */}
-              <p
-                className="uppercase"
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 9,
-                  color: '#B4A99A',
-                  letterSpacing: '0.15em',
-                  marginTop: 32,
-                }}
-              >
-                T-SHIRTS VENDUS
-              </p>
-              <p
-                style={{
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 'clamp(40px, 6vw, 80px)',
-                  fontWeight: 200,
-                  color: '#FFFFFF',
-                  lineHeight: 1.1,
-                  marginTop: 8,
-                }}
-              >
-                {sold} / <span style={{ color: '#C4714A' }}>{target}</span>
-              </p>
-
-              {/* Progress bar */}
-              <div
-                style={{
-                  width: 240,
-                  height: 3,
-                  backgroundColor: '#333333',
-                  marginTop: 16,
-                }}
-              >
-                <div
-                  style={{
-                    height: '100%',
-                    width: `${pct}%`,
-                    backgroundColor: '#C4714A',
-                    transition: 'width 1s ease',
-                  }}
-                />
-              </div>
-
-              {/* CTA */}
-              <Link
-                to="/campagne-sac"
-                className="inline-block group"
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  color: '#1A1A1A',
-                  padding: '14px 32px',
-                  fontFamily: 'Arial, sans-serif',
-                  fontSize: 11,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.15em',
-                  marginTop: 32,
-                  transition: 'background-color 0.3s, color 0.3s',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#C4714A';
-                  e.currentTarget.style.color = '#FFFFFF';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#FFFFFF';
-                  e.currentTarget.style.color = '#1A1A1A';
-                }}
-              >
-                PARTICIPER →
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT — visual */}
-          <div className="relative w-full h-[300px] md:h-auto md:min-h-[600px] overflow-hidden bg-[#1A1A1A]">
-            <img
-              src={sacSaintLaurent}
-              alt="Sac Saint Laurent à gagner"
-              loading="lazy"
-              width={1024}
-              height={1280}
-              className="absolute inset-0 w-full h-full object-cover object-center"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{ backgroundColor: 'rgba(26,26,26,0.2)' }}
-            />
-          </div>
-        </div>
-
-        {/* Hashtag strip */}
-        <div
-          className="w-full text-center"
-          style={{
-            borderTop: '1px solid #333333',
-            padding: '20px 0',
-          }}
-        >
           <p
             style={{
               fontFamily: 'Arial, sans-serif',
-              fontSize: 'clamp(20px, 4vw, 48px)',
-              fontWeight: 200,
-              color: '#FFFFFF',
-              opacity: 0.3,
-              letterSpacing: '0.1em',
+              fontSize: 13,
+              color: '#B4A99A',
+              marginTop: 20,
             }}
           >
-            #LovcicovCercle
+            Pour les {target} premiers t-shirts vendus.
           </p>
+
+          {/* Counter */}
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 9,
+              color: '#B4A99A',
+              letterSpacing: '0.2em',
+              marginTop: 48,
+            }}
+          >
+            T-shirts vendus
+          </p>
+          <p
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 'clamp(60px, 12vw, 140px)',
+              fontWeight: 200,
+              color: '#FFFFFF',
+              lineHeight: 1.1,
+              marginTop: 12,
+            }}
+          >
+            {sold} / {target}
+          </p>
+
+          <div
+            className="mx-auto"
+            style={{
+              maxWidth: 600,
+              height: 4,
+              backgroundColor: '#333333',
+              marginTop: 24,
+              marginBottom: 16,
+            }}
+          >
+            <div
+              style={{
+                height: '100%',
+                width: `${pct}%`,
+                backgroundColor: '#FFFFFF',
+                transition: 'width 0.8s ease',
+              }}
+            />
+          </div>
+
+          <p
+            className="italic"
+            style={{ fontFamily: 'Arial, sans-serif', fontSize: 12, color: '#888780' }}
+          >
+            Chaque t-shirt vendu vous rapproche du tirage.
+          </p>
+
+          <Link
+            to="/campagne-sac"
+            className="inline-block mt-10 hover:opacity-90 transition-opacity"
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: '#1A1A1A',
+              padding: '14px 32px',
+              borderRadius: 0,
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 11,
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+            }}
+          >
+            Participer
+          </Link>
         </div>
       </section>
+
 
       {/* 4. COLLECTIONS BANNER */}
       <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
