@@ -11,7 +11,10 @@ export interface Product {
   colors?: { name: string; id: string }[];
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
   stoneMeaning?: string; // Signification des pierres (bijoux only)
+  shopifyHandle?: string; // Handle of matching Shopify product
+  shopifyColor?: string; // Color option value to match on Shopify variant
 }
+
 
 // Collection "PowerLov" — pièces à message fort
 export const standardProducts: Product[] = [
