@@ -182,8 +182,8 @@ const Index = () => {
       </section>
 
       {/* EDITORIAL — Zara-style oversized logo on the left of image */}
-      <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center">
-        <div className="relative inline-block">
+      <section className="w-full bg-white pt-4 md:pt-16 pb-4 md:pb-6 flex justify-center overflow-visible">
+        <div className="relative inline-block overflow-visible">
           {/* Image */}
           <img
             src={editorialStonelov}
@@ -194,7 +194,7 @@ const Index = () => {
           {/* Giant LOVCICOV fixed on the left side of the image */}
           <div
             aria-hidden="true"
-            className="absolute inset-y-0 left-0 z-[3] flex items-center pointer-events-none select-none pl-4 md:pl-10"
+            className="absolute left-0 top-1/2 z-[3] flex -translate-x-[34%] -translate-y-1/2 items-center pointer-events-none select-none"
           >
             <span
               className="text-[#1A1A1A]/25 leading-none whitespace-nowrap"
