@@ -20,6 +20,7 @@ export interface Product {
 export const standardProducts: Product[] = [
   {
     id: 'hoodie-signature',
+    shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'Hoodie Signature',
     price: 99,
     collection: 'standard',
@@ -31,6 +32,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'tshirt-statement',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-shirt Statement',
     price: 69,
     collection: 'standard',
@@ -42,6 +44,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'crewneck-standard',
+    shopifyHandle: 'sweat-col-rond-powerlov',
     name: 'Crewneck The Standard',
     price: 89,
     collection: 'standard',
@@ -67,6 +70,8 @@ export const standardProducts: Product[] = [
 export const mysticProducts: Product[] = [
   {
     id: 'mystic-tshirt-noir',
+    shopifyHandle: 't-shirt-mysticlov',
+    shopifyColor: 'Noir',
     name: 'T-Shirt Love',
     price: 70,
     collection: 'mystic',
@@ -89,6 +94,8 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-natural',
+    shopifyHandle: 't-shirt-mysticlov',
+    shopifyColor: 'Natural Raw',
     name: 'T-Shirt Love',
     price: 70,
     collection: 'mystic',
@@ -111,6 +118,8 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-green',
+    shopifyHandle: 't-shirt-mysticlov',
+    shopifyColor: 'Green Bottle',
     name: 'T-Shirt Love',
     price: 70,
     collection: 'mystic',
@@ -133,6 +142,8 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-rose',
+    shopifyHandle: 't-shirt-mysticlov',
+    shopifyColor: 'Rose',
     name: 'T-Shirt Love',
     price: 70,
     collection: 'mystic',
@@ -155,6 +166,8 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-hoodie-noir',
+    shopifyHandle: 'sweat-a-capuche-mysticlov',
+    shopifyColor: 'Noir',
     name: 'Hoodie Love',
     price: 180,
     collection: 'mystic',
@@ -170,6 +183,8 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-hoodie-natural',
+    shopifyHandle: 'sweat-a-capuche-mysticlov',
+    shopifyColor: 'Natural Raw',
     name: 'Hoodie Love',
     price: 180,
     collection: 'mystic',
@@ -190,6 +205,7 @@ export const mysticProducts: Product[] = [
   },
   {
     id: 'mystic-crewneck-noir',
+    shopifyHandle: 'sweat-col-rond-mysticlov',
     name: 'Crewneck Love',
     price: 120,
     collection: 'mystic',
@@ -303,6 +319,7 @@ export const mysticProducts: Product[] = [
 export const bijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
+    shopifyHandle: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
     price: 69,
     collection: 'bijoux',
@@ -314,6 +331,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-aventurine',
+    shopifyHandle: 'collier-quartz-rose-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
     price: 89,
     collection: 'bijoux',
@@ -325,6 +343,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-labradorite-amethyste',
+    shopifyHandle: 'collier-labradorite-amethyste',
     name: 'Collier Labradorite & Améthyste',
     price: 89,
     collection: 'bijoux',
@@ -336,6 +355,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-prehnite-malachite',
+    shopifyHandle: 'collier-prehnite-malachite',
     name: 'Collier Préhnite & Malachite',
     price: 89,
     collection: 'bijoux',
@@ -347,6 +367,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-croix-jade',
+    shopifyHandle: 'collier-quartz-rose-croix-de-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
     price: 69,
     collection: 'bijoux',
@@ -358,6 +379,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-corail',
+    shopifyHandle: 'collier-malachite-corail',
     name: 'Collier Malachite & Corail',
     price: 69,
     collection: 'bijoux',
@@ -380,6 +402,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-jade-nacre',
+    shopifyHandle: 'collier-trio-citrine-amethyste',
     name: 'Collier Jade & Nacre',
     price: 69,
     collection: 'bijoux',
@@ -391,6 +414,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-corail-multicolor',
+    shopifyHandle: 'collier-corail-pierres-multicolores',
     name: 'Collier Corail & Pierres Multicolores',
     price: 69,
     collection: 'bijoux',
@@ -402,6 +426,7 @@ export const bijouxProducts: Product[] = [
   },
   {
     id: 'collier-turquoise-or',
+    shopifyHandle: 'collier-turquoise-or',
     name: 'Collier Turquoise & Or',
     price: 69,
     collection: 'bijoux',
