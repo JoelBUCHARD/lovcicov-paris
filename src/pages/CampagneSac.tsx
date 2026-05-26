@@ -90,7 +90,7 @@ const CampagneSac = () => {
               fontSize: 'clamp(40px, 7vw, 90px)',
               fontWeight: 200,
               color: '#FFFFFF',
-              marginTop: 24,
+              marginTop: 80,
               lineHeight: 1.05,
             }}
           >
