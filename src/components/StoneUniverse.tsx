@@ -104,17 +104,6 @@ const StoneUniverse = () => {
           ))}
         </div>
 
-        <p
-          className="text-center mt-10"
-          style={{
-            fontFamily: "Arial, sans-serif",
-            fontSize: 12,
-            color: "#B4A99A",
-            fontStyle: "italic",
-          }}
-        >
-          Chaque pierre est sélectionnée à la main. Chaque pièce est unique.
-        </p>
       </div>
     </section>
   );
