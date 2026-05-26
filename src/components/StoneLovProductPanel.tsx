@@ -173,7 +173,8 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 6 — Add to cart */}
       <button
         onClick={handleAdd}
-        className="w-full transition-colors hover:opacity-90"
+        disabled={isAdding}
+        className="w-full transition-colors hover:opacity-90 flex items-center justify-center gap-2 disabled:opacity-60"
         style={{
           backgroundColor: TERRA,
           color: "#FFFFFF",
@@ -185,7 +186,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
           textTransform: "uppercase",
         }}
       >
-        Ajouter au panier
+        {isAdding ? <Loader2 size={14} className="animate-spin" /> : "Ajouter au panier"}
       </button>
 
       {/* BLOCK 11 — Cross-sell (remonté) */}
