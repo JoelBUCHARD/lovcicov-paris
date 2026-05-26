@@ -217,7 +217,7 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
-        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-[80vh] md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
           <img
             src={closingJoy}
             alt="Very Slow Fashion"
