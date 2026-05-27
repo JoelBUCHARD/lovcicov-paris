@@ -544,18 +544,6 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et accompagne les périodes de changement profond.',
   },
   {
-    id: 'bracelet-prehnite-malachite',
-    shopifyHandle: 'bracelet-prehnite-et-malachite',
-    name: 'Bracelet Préhnite & Malachite',
-    price: 39,
-    collection: 'bijoux',
-    description: 'Triple rang préhnite et cubes de malachite, intercalaires dorés. Poids : environ 30g.',
-    details: 'Fraîcheur minérale au poignet. Trois rangs de pierres brutes pour une présence végétale.',
-    image: 'stonelov-br-prehnite-malachite',
-    gallery: [],
-    stoneMeaning: 'Préhnite — Pierre de guérison et de renouveau, elle apaise l\'esprit et renforce la connexion à la nature. Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et favorise le changement profond.',
-  },
-  {
     id: 'bracelet-malachite-triple',
     shopifyHandle: 'bracelet-malachite-triple-rang',
     name: 'Bracelet Malachite Triple Rang',
