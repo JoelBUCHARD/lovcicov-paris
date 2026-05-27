@@ -532,18 +532,6 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
-    id: 'collier-amethyste-brute-labradorite',
-    shopifyHandle: 'collier-amethyste-brute-et-labradorite',
-    name: 'Collier Améthyste Brute & Labradorite',
-    price: 89,
-    collection: 'bijoux',
-    description: 'Améthyste brute et intercalaires dorés, double rang de labradorite en pendant.',
-    details: 'Brut et mystique. La force minérale de l\'améthyste rencontre les reflets profonds de la labradorite.',
-    image: 'stonelov-amethyste-brute-labradorite',
-    gallery: [],
-    stoneMeaning: 'Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle. Labradorite — Pierre de protection et d\'intuition, elle absorbe les énergies négatives et éveille la clairvoyance.',
-  },
-  {
     id: 'collier-malachite-lapis-double-pendentif',
     shopifyHandle: 'collier-malachite-et-lapis-double-pendentif',
     name: 'Collier Malachite & Lapis Double Pendentif',
