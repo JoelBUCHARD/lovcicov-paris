@@ -37,7 +37,7 @@ const MysticLovEditorial = () => {
           <Link
             to="/mysticlov"
             className="uppercase"
-            style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}
+            style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}
           >
             MYSTICLOV
           </Link>
@@ -71,7 +71,7 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
               MYSTICLOV
             </p>
             <h1
@@ -101,7 +101,7 @@ const MysticLovEditorial = () => {
         {/* BLOCK 2 — UNIVERSE INTRO */}
         <section className="w-full px-6 md:px-10 py-4 md:py-10" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
-            <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
+            <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
               MYSTICLOV
             </p>
             <p
@@ -124,7 +124,7 @@ const MysticLovEditorial = () => {
               style={{
                 color: ACCENT,
                 fontSize: 10,
-                letterSpacing: "0.18em",
+                letterSpacing: "0.2em",
                 lineHeight: 1.9,
               }}
             >
@@ -143,7 +143,7 @@ const MysticLovEditorial = () => {
             style={{ backgroundColor: BG }}
           >
             <div className="max-w-md text-center">
-              <p className="uppercase mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.18em" }}>
+              <p className="uppercase mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
                 L'HISTOIRE
               </p>
               <h2
@@ -175,7 +175,7 @@ const MysticLovEditorial = () => {
           />
           <div className="absolute inset-y-0 left-0 flex items-center px-6 md:pl-[60px] md:pr-6">
             <div className="max-w-md">
-              <p className="uppercase mb-5 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.18em" }}>
+              <p className="uppercase mb-5 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
                 LE CERCLE
               </p>
               <h2
@@ -241,7 +241,7 @@ const MysticLovEditorial = () => {
           <div className="w-full h-px mb-8" style={{ backgroundColor: SEP }} />
           <p
             className="text-center uppercase mb-4"
-            style={{ color: ACCENT, fontSize: 10, letterSpacing: "0.18em" }}
+            style={{ color: ACCENT, fontSize: 10, letterSpacing: "0.2em" }}
           >
             MYSTICLOV · Broderies dorées · Pièces uniques · Paris
           </p>

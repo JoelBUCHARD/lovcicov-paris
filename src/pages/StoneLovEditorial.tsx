@@ -49,7 +49,7 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px] inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.18em", backgroundColor: "rgba(255,255,255,0.4)" }}>
+            <p className="uppercase mb-3 text-[8px] md:text-[9px] inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.2em", backgroundColor: "rgba(255,255,255,0.4)" }}>
               STONELOV
             </p>
             <h1
@@ -97,7 +97,7 @@ const StoneLovEditorial = () => {
         <section className="flex flex-col md:flex-row w-full md:min-h-screen md:pt-5">
           <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-8 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
             <div className="max-w-md">
-              <p className="uppercase mb-6" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.18em" }}>
+              <p className="uppercase mb-6" style={{ color: TERRA, fontSize: 9, letterSpacing: "0.2em" }}>
                 LE SAVOIR-FAIRE
               </p>
               <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: WARM, lineHeight: 1.8 }}>
