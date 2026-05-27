@@ -359,8 +359,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
-    image: 'bijoux-labradorite-solo',
-    gallery: ['bijoux-labradorite-fleurs', 'bijoux-labradorite-tarot'],
+    image: 'collier-labradorite-amethyste-model',
+    gallery: ['bijoux-labradorite-solo', 'bijoux-labradorite-tarot'],
     stoneMeaning: 'Labradorite — Pierre de protection et d\'intuition. Elle absorbe les énergies négatives et éveille la clairvoyance. Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle.',
   },
   {
