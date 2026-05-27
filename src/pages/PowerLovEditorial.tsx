@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
-import lovcicovLogo from "@/assets/lovcicov-logo.png";
+import Footer from "@/components/Footer";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
 import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
 import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
