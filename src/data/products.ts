@@ -647,8 +647,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang goldstone, pierre de lune et perles d\'eau douce, détails dorés. Poids : environ 30g.',
     details: 'Éclat terrestre. La goldstone scintillante rencontre la lumière nacrée des perles.',
-    image: 'stonelov-br-goldstone-perles',
-    gallery: [],
+    image: 'bracelet-goldstone-perles-model',
+    gallery: ['stonelov-br-goldstone-perles', 'bracelet-goldstone-perles-tarot'],
     stoneMeaning: 'Goldstone — Pierre de vitalité et de motivation, elle renforce la confiance et attire l\'abondance. Pierre de lune — Pierre de l\'intuition féminine et de la douceur intérieure.',
   },
   {
