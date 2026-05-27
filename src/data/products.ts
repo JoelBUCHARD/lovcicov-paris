@@ -458,6 +458,7 @@ export const bijouxProducts: Product[] = [
     image: 'collier-tourmaline-multicolore-model',
     gallery: ['collier-tourmaline-multicolore-tarot'],
     stoneMeaning: 'Tourmaline multicolore — Pierre d\'équilibre et de protection, chaque nuance porte sa propre vibration : énergie, créativité, apaisement et harmonie.',
+  },
   {
     id: 'collier-malachite-double',
     shopifyHandle: 'collier-malachite-double-rang',
