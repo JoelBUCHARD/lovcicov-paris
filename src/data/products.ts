@@ -711,6 +711,18 @@ export const bijouxProducts: Product[] = [
     gallery: ['bracelet-turquoise-corail-original', 'bracelet-turquoise-corail-tarot'],
     stoneMeaning: 'Turquoise — Pierre de protection et de communication, elle favorise l\'expression de soi et apporte sérénité. Corail rouge — Symbole de vitalité, il stimule l\'énergie et la passion.',
   },
+  {
+    id: 'collier-amethyste-lariat',
+    shopifyHandle: 'collier-amethyste-lariat',
+    name: 'Collier Améthyste Lariat',
+    price: 69,
+    collection: 'bijoux',
+    description: 'Collier lariat en perles d\'améthyste violette et chips d\'améthyste lavande, intercalaires dorés, perle dorée centrale et anneaux martelés en pendants.',
+    details: 'Élégance fluide. Un lariat sculptural où l\'améthyste profonde danse avec l\'or pour une silhouette à la fois bohème et raffinée.',
+    image: 'collier-amethyste-lariat-model',
+    gallery: ['collier-amethyste-lariat-flat', 'collier-amethyste-lariat-tarot'],
+    stoneMeaning: 'Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation, l\'élévation spirituelle et l\'équilibre intérieur. Elle apaise l\'esprit et éveille l\'intuition.',
+  },
 ];
 
 export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts];
