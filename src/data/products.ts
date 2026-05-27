@@ -623,8 +623,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang sodalite et aventurine bleue, fermoir nacre serti d\'or. Poids : environ 30g.',
     details: 'Calme marin. Trois rangs de bleus profonds qui évoquent l\'eau et la clarté de l\'esprit.',
-    image: 'stonelov-br-sodalite',
-    gallery: [],
+    image: 'bracelet-sodalite-model',
+    gallery: ['stonelov-br-sodalite', 'bracelet-sodalite-tarot'],
     stoneMeaning: 'Sodalite — Pierre de communication et de logique, elle apaise l\'esprit et favorise la clarté mentale. Aventurine bleue — Pierre d\'équilibre émotionnel et de sérénité.',
   },
   {
