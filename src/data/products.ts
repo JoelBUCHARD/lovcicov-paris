@@ -671,8 +671,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang turquoise, corail rouge, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Contraste solaire. La turquoise vibrante rencontre l\'éclat du corail rouge.',
-    image: 'stonelov-br-turquoise-corail',
-    gallery: [],
+    image: 'bracelet-turquoise-corail-model',
+    gallery: ['bracelet-turquoise-corail-original', 'bracelet-turquoise-corail-tarot'],
     stoneMeaning: 'Turquoise — Pierre de protection et de communication, elle favorise l\'expression de soi et apporte sérénité. Corail rouge — Symbole de vitalité, il stimule l\'énergie et la passion.',
   },
 ];
