@@ -383,8 +383,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
-    image: 'bijoux-quartz-croix-fleurs',
-    gallery: ['bijoux-croix-tarot'],
+    image: 'collier-quartz-croix-jade-model',
+    gallery: ['bijoux-quartz-croix-fleurs', 'bijoux-croix-tarot'],
     stoneMeaning: 'Quartz rose — Pierre de l\'amour et de la tendresse, elle ouvre le chakra du cœur. Jade — Pierre d\'harmonie et d\'équilibre, symbole de pureté et de longévité dans de nombreuses cultures.',
   },
   {
