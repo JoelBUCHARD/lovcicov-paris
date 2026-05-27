@@ -3,13 +3,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
 import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
-import connectedFront from "@/assets/powerlov/powerlov-connected-front.png";
-import energyNeverLiesStreet from "@/assets/powerlov/powerlov-energy-never-lies-street.png";
-import godIsADancerStreet from "@/assets/powerlov/powerlov-god-is-a-dancer-street.png";
-import godDjBlackPortrait from "@/assets/powerlov/powerlov-god-dj-black-portrait.png";
-import protectedAlignedUnstoppable from "@/assets/powerlov/powerlov-protected-aligned-unstoppable.png";
-import godDjWhiteFront from "@/assets/powerlov/powerlov-god-dj-white-front.png";
-import boldBadassNoFilter from "@/assets/powerlov/powerlov-bold-badass-no-filter.png";
+import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
+import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
+import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
+import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
+import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
 
 type RevealProps = {
   children: ReactNode;
@@ -29,39 +27,39 @@ type MessageBlock = {
 const messages: MessageBlock[] = [
   {
     title: "Discipline is my luxury",
-    copy: "Le vrai luxe, c'est cette allure tranquille de celles qui n'ont rien à prouver.",
+    copy: "Le vrai flex, c'est de tenir ses promesses. À soi-même d'abord.",
     image: disciplineLounge,
     imageAlt: "Femme portant le t-shirt Discipline is my luxury dans un décor clair et solaire",
     theme: "light",
   },
   {
     title: "Connected. Disciplined. Empowered.",
-    copy: "Tout est là : le calme, la tenue, le petit supplément d'assurance qui fait le reste.",
-    image: connectedFront,
-    imageAlt: "Femme souriante dans une rue parisienne portant le t-shirt Connected. Disciplined. Empowered.",
+    copy: "Quand tout s'aligne, l'allure fait le reste. Pas besoin d'en faire trop.",
+    image: connectedNight,
+    imageAlt: "Silhouette de dos portant le message Connected. Disciplined. Empowered. de nuit",
     theme: "dark",
     reverse: true,
   },
   {
     title: "Energy never lies",
-    copy: "Une silhouette de dos, un message net, et Paris qui comprend très bien l'idée.",
-    image: energyNeverLiesStreet,
-    imageAlt: "Femme traversant une rue parisienne avec un sweat noir Energy never lies",
+    copy: "Votre sourire ment peut-être. Votre énergie, jamais.",
+    image: energyParis,
+    imageAlt: "Femme dans une rue parisienne portant le t-shirt Energy never lies",
     theme: "light",
   },
   {
     title: "God is a dancer",
-    copy: "Un peu d'instinct, beaucoup d'allure. Le tempo suit toujours celles qui avancent juste.",
-    image: godIsADancerStreet,
+    copy: "La vie a son rythme. Et visiblement, vous tenez la piste.",
+    image: dancerBack,
     imageAlt: "Femme de dos portant le message God is a dancer dans une rue parisienne",
     theme: "dark",
     reverse: true,
   },
   {
     title: "God is a DJ",
-    copy: "Version noire, plus urbaine, plus précise. Le genre de visuel qui tient la note sans hausser le ton.",
-    image: godDjBlackPortrait,
-    imageAlt: "Homme portant un t-shirt noir God is a DJ adossé à une façade parisienne",
+    copy: "Vous n'avez pas besoin de tout contrôler. Juste d'arriver au bon tempo.",
+    image: godDjBlack,
+    imageAlt: "Homme portant un t-shirt noir God is a DJ devant une façade parisienne",
     theme: "light",
   },
 ];
@@ -322,8 +320,8 @@ const PowerLovEditorial = () => {
             </div>
             <div className="overflow-hidden">
               <img
-                src={protectedAlignedUnstoppable}
-                alt="Femme assise en terrasse à Paris portant un t-shirt blanc Power Love"
+                src={disciplineAge}
+                alt="Femme souriante portant le message Discipline is my luxury dans une rue parisienne"
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
               />
@@ -338,8 +336,8 @@ const PowerLovEditorial = () => {
           <Reveal className="mx-auto grid max-w-[1450px] grid-cols-1 gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="overflow-hidden">
               <img
-                src={godDjWhiteFront}
-                alt="Homme portant un t-shirt blanc God is a DJ devant une façade parisienne"
+                src={connectedNight}
+                alt="Détail du t-shirt blanc Power Love avec le message Connected. Disciplined. Empowered."
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
                 style={{ objectPosition: "center 18%" }}
@@ -370,51 +368,6 @@ const PowerLovEditorial = () => {
                 Le reste, c'est vous qui l'apportez. L'allure. L'énergie. Le petit supplément d'âme qui
                 fait qu'un t-shirt blanc ne ressemble soudain à aucun autre.
               </p>
-            </div>
-          </Reveal>
-        </section>
-
-        <section
-          className="w-full"
-          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
-        >
-          <Reveal className="mx-auto max-w-[1450px]">
-            <div className="mb-10 max-w-3xl">
-              <p
-                className="mb-4 text-[11px] uppercase"
-                style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.2em" }}
-              >
-                Encore une nuance
-              </p>
-              <h2
-                style={{
-                  ...editorialTitleStyle,
-                  fontSize: "clamp(30px, 4.3vw, 58px)",
-                  lineHeight: 1.04,
-                }}
-                className="m-0 max-w-3xl"
-              >
-                Plus net. Plus libre. Toujours avec ce petit sens du timing bien à vous.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="overflow-hidden">
-                <img
-                  src={boldBadassNoFilter}
-                  alt="Homme portant un t-shirt blanc Power Love avec message au dos dans une rue parisienne"
-                  loading="lazy"
-                  className="h-full min-h-[420px] w-full object-cover"
-                />
-              </div>
-              <div className="overflow-hidden">
-                <img
-                  src={disciplineLounge}
-                  alt="Femme portant le t-shirt Discipline is my luxury dans une ambiance intérieure claire"
-                  loading="lazy"
-                  className="h-full min-h-[420px] w-full object-cover"
-                />
-              </div>
             </div>
           </Reveal>
         </section>
