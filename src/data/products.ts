@@ -575,8 +575,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang préhnite brute, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Douceur végétale. La préhnite brute sublimée par la lumière des perles d\'eau douce.',
-    image: 'stonelov-br-prehnite-perles',
-    gallery: [],
+    image: 'stonelov-br-prehnite-perles-model',
+    gallery: ['stonelov-br-prehnite-perles', 'stonelov-br-prehnite-perles-book'],
     stoneMeaning: 'Préhnite — Pierre de guérison et de renouveau, elle apaise l\'esprit et renforce la connexion à la nature. Perle d\'eau douce — Symbole de pureté et de douceur, elle apaise les émotions.',
   },
   {
