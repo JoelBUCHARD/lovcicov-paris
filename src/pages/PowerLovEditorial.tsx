@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import lovcicovLogo from "@/assets/lovcicov-logo.png";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
@@ -10,7 +10,7 @@ import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
 import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
 
 type RevealProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   delay?: number;
 };
