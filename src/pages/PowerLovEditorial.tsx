@@ -3,11 +3,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
 import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
-import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
-import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
-import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
-import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
-import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
+import connectedFront from "@/assets/powerlov/powerlov-connected-front.png";
+import energyNeverLiesStreet from "@/assets/powerlov/powerlov-energy-never-lies-street.png";
+import godIsADancerStreet from "@/assets/powerlov/powerlov-god-is-a-dancer-street.png";
+import godDjBlackPortrait from "@/assets/powerlov/powerlov-god-dj-black-portrait.png";
+import protectedAlignedUnstoppable from "@/assets/powerlov/powerlov-protected-aligned-unstoppable.png";
+import godDjWhiteFront from "@/assets/powerlov/powerlov-god-dj-white-front.png";
+import boldBadassNoFilter from "@/assets/powerlov/powerlov-bold-badass-no-filter.png";
 
 type RevealProps = {
   children: ReactNode;
