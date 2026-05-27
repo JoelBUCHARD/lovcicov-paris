@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import lovcicovLogo from "@/assets/lovcicov-logo.png";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
