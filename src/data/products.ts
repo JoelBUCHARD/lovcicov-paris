@@ -723,6 +723,18 @@ export const bijouxProducts: Product[] = [
     gallery: ['collier-amethyste-lariat-flat', 'collier-amethyste-lariat-tarot'],
     stoneMeaning: 'Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation, l\'élévation spirituelle et l\'équilibre intérieur. Elle apaise l\'esprit et éveille l\'intuition.',
   },
+  {
+    id: 'collier-turquoise-croix-perles',
+    shopifyHandle: 'collier-turquoise-croix-perles',
+    name: 'Collier Turquoise & Croix Perlée',
+    price: 69,
+    collection: 'bijoux',
+    description: 'Collier en perles de turquoise tubulaires, perles d\'eau douce baroques, intercalaires dorés et pendentif croix sertie de turquoises et de perles.',
+    details: 'Bleu solaire. La turquoise vibrante rencontre la lumière nacrée des perles, sublimée par une croix sculpturale dorée.',
+    image: 'collier-turquoise-croix-perles-model',
+    gallery: ['collier-turquoise-croix-perles-flat', 'collier-turquoise-croix-perles-tarot'],
+    stoneMeaning: 'Turquoise — Pierre de protection et de communication, elle favorise l\'expression de soi, apporte sérénité et apaise les émotions. Perles d\'eau douce — Symbole de pureté et de féminité, elles incarnent la douceur et l\'élégance intemporelle.',
+  },
 ];
 
 export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts];
