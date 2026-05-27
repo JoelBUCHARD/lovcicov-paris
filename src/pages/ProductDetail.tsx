@@ -138,9 +138,9 @@ const ProductDetail = () => {
       <main className="pt-36 pb-8 px-6 md:px-12">
         <Link
           to={backLink}
-          className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block"
+          className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
         >
-          ← Retour à {collectionLabel}
+          Retour à {collectionLabel}
         </Link>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 max-w-6xl">
