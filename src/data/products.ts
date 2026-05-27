@@ -520,18 +520,6 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie, protège et donne du courage dans l\'action.',
   },
   {
-    id: 'collier-citrine-malachite-amethyste',
-    shopifyHandle: 'collier-citrine-malachite-amethyste',
-    name: 'Collier Citrine, Malachite & Améthyste',
-    price: 89,
-    collection: 'bijoux',
-    description: 'Double rang citrine, malachite et améthyste, intercalaires dorés.',
-    details: 'Trois pierres, trois énergies. Un collier lumineux qui mêle abondance, transformation et sagesse.',
-    image: 'stonelov-citrine-malachite-amethyste',
-    gallery: [],
-    stoneMeaning: 'Citrine — Pierre solaire d\'abondance et de joie. Malachite — Pierre de transformation et de renouveau. Améthyste — Pierre de sagesse spirituelle et de sérénité.',
-  },
-  {
     id: 'collier-oeil-tigre-fuchsia',
     shopifyHandle: 'collier-oeil-de-tigre-fuchsia',
     name: 'Collier Œil de Tigre Fuchsia',
