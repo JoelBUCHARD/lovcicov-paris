@@ -320,10 +320,11 @@ const PowerLovEditorial = () => {
             </div>
             <div className="overflow-hidden">
               <img
-                src={disciplineAge}
-                alt="Femme souriante portant le message Discipline is my luxury dans une rue parisienne"
+                src={protectedAlignedUnstoppable}
+                alt="Femme élégante en terrasse portant un t-shirt blanc Power Love"
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
+                style={{ objectPosition: "center 24%" }}
               />
             </div>
           </Reveal>
@@ -336,11 +337,11 @@ const PowerLovEditorial = () => {
           <Reveal className="mx-auto grid max-w-[1450px] grid-cols-1 gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="overflow-hidden">
               <img
-                src={connectedNight}
-                alt="Détail du t-shirt blanc Power Love avec le message Connected. Disciplined. Empowered."
+                src={godDjWhite}
+                alt="Homme portant un t-shirt blanc God is a DJ devant une façade parisienne"
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
-                style={{ objectPosition: "center 18%" }}
+                style={{ objectPosition: "center 22%" }}
               />
             </div>
             <div>
