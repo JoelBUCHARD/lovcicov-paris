@@ -15,7 +15,18 @@ const fadeUp = {
   }),
 };
 
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
 const CollectionMystic = () => {
+  const shuffledProducts = shuffleArray(mysticProducts);
+
   return (
     <div className="min-h-screen bg-[#EFEDE8]">
       <Navbar />
@@ -70,7 +81,7 @@ const CollectionMystic = () => {
         {/* Products — gray background */}
         <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {mysticProducts.map((product, i) => (
+            {shuffledProducts.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
                 <ProductCard product={product} index={i} />
               </div>
