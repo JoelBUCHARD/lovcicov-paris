@@ -378,6 +378,51 @@ const PowerLovEditorial = () => {
           className="w-full"
           style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
+          <Reveal className="mx-auto max-w-[1450px]">
+            <div className="mb-10 max-w-3xl">
+              <p
+                className="mb-4 text-[11px] uppercase"
+                style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.2em" }}
+              >
+                Encore une nuance
+              </p>
+              <h2
+                style={{
+                  ...editorialTitleStyle,
+                  fontSize: "clamp(30px, 4.3vw, 58px)",
+                  lineHeight: 1.04,
+                }}
+                className="m-0 max-w-3xl"
+              >
+                Plus net. Plus libre. Toujours avec ce petit sens du timing bien à vous.
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              <div className="overflow-hidden">
+                <img
+                  src={boldBadassNoFilter}
+                  alt="Homme portant un t-shirt blanc Power Love avec message au dos dans une rue parisienne"
+                  loading="lazy"
+                  className="h-full min-h-[420px] w-full object-cover"
+                />
+              </div>
+              <div className="overflow-hidden">
+                <img
+                  src={disciplineLounge}
+                  alt="Femme portant le t-shirt Discipline is my luxury dans une ambiance intérieure claire"
+                  loading="lazy"
+                  className="h-full min-h-[420px] w-full object-cover"
+                />
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+        <section
+          className="w-full"
+          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+        >
           <Reveal className="mx-auto max-w-4xl text-center">
             <p
               className="mb-4 text-[11px] uppercase"
