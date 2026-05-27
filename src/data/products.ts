@@ -443,8 +443,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
-    image: 'bijoux-turquoise-solo',
-    gallery: ['bijoux-turquoise-fleurs', 'bijoux-turquoise-tarot'],
+    image: 'collier-turquoise-or-model',
+    gallery: ['bijoux-turquoise-solo', 'bijoux-turquoise-tarot'],
     stoneMeaning: 'Turquoise — Pierre de communication et de protection. Considérée comme sacrée par de nombreuses civilisations, elle favorise l\'expression de soi et apporte chance et sérénité.',
   },
   {
