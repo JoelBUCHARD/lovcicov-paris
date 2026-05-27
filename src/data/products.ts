@@ -611,8 +611,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang œil de tigre fuchsia, éclats multicolores, sphères dorées striées. Poids : environ 30g.',
     details: 'Caractère et éclat au poignet. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
-    image: 'stonelov-br-oeil-tigre-fuchsia',
-    gallery: [],
+    image: 'bracelet-oeil-tigre-fuchsia-model',
+    gallery: ['stonelov-br-oeil-tigre-fuchsia', 'bracelet-oeil-tigre-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
