@@ -193,7 +193,7 @@ const Index = () => {
           {/* LOVCICOV text overlay on second photo */}
           <div
             aria-hidden="true"
-            className="absolute left-2 md:left-6 top-1/2 z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
+            className="absolute left-2 md:left-6 top-[60%] z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
           >
             <span
               className="leading-none whitespace-nowrap"
