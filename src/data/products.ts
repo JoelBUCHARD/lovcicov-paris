@@ -659,8 +659,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang howlite blanche, amazonite et jaspe, fermoir serti d\'amazonite. Poids : environ 30g.',
     details: 'Sérénité minérale. Le blanc apaisant de la howlite ponctué de turquoises naturelles.',
-    image: 'stonelov-br-howlite-amazonite',
-    gallery: [],
+    image: 'bracelet-howlite-amazonite-model',
+    gallery: ['stonelov-br-howlite-amazonite', 'bracelet-howlite-amazonite-tarot'],
     stoneMeaning: 'Howlite — Pierre d\'apaisement et de patience, elle calme l\'esprit et favorise le lâcher-prise. Amazonite — Pierre d\'harmonie et de communication, elle équilibre les émotions.',
   },
   {
