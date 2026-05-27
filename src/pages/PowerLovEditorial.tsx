@@ -1,6 +1,6 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
-import lovcicovLogo from "@/assets/lovcicov-logo.png";
+import Footer from "@/components/Footer";
 import heroImage from "@/assets/powerlov/powerlov-hero.png";
 import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
 import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
@@ -423,52 +423,7 @@ const PowerLovEditorial = () => {
         </section>
       </main>
 
-      <footer
-        className="border-t"
-        style={{
-          backgroundColor: "#F4F0E8",
-          borderColor: "rgba(13,13,13,0.12)",
-          padding: "28px clamp(24px, 6vw, 88px) 36px",
-        }}
-      >
-        <div className="mx-auto flex max-w-[1450px] flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <div>
-            <div className="flex items-center gap-3">
-              <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-6 w-auto" />
-              <span className="text-[11px] uppercase" style={{ letterSpacing: "0.22em", color: "rgba(13,13,13,0.62)" }}>
-                Paris
-              </span>
-            </div>
-            <p
-              className="mt-4"
-              style={{ ...editorialTitleStyle, fontSize: "clamp(22px, 3vw, 34px)", lineHeight: 1.05 }}
-            >
-              Power Love
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-3 text-[12px] uppercase md:items-end" style={{ letterSpacing: "0.16em" }}>
-            <a
-              href="https://lovcicov.paris"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors duration-300"
-              style={{ color: "rgba(13,13,13,0.72)" }}
-            >
-              lovcicov.paris
-            </a>
-            <a
-              href="https://www.instagram.com/lovcicov.paris/"
-              target="_blank"
-              rel="noreferrer"
-              className="transition-colors duration-300"
-              style={{ color: "rgba(13,13,13,0.72)" }}
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
