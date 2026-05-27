@@ -1,13 +1,13 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import lovcicovLogo from "@/assets/lovcicov-logo.png";
-import heroImage from "@/assets/powerlov/powerlov-hero.png";
-import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
-import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
-import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
-import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
-import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
-import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
+import heroImage from "@/assets/powerlov/powerlov-hero-woman-dancer.png";
+import protectedAlignedUnstoppable from "@/assets/powerlov/powerlov-protected-aligned-unstoppable.png";
+import boldBadassNoFilter from "@/assets/powerlov/powerlov-bold-badass-no-filter.png";
+import energyNeverLiesStreet from "@/assets/powerlov/powerlov-energy-never-lies-street.png";
+import dancerBack from "@/assets/powerlov/powerlov-hero-woman-dancer.png";
+import godDjBlack from "@/assets/powerlov/powerlov-god-is-a-dj-black-front.png";
+import godDjWhite from "@/assets/powerlov/powerlov-god-is-a-dj-white-front.png";
 
 type RevealProps = {
   children: ReactNode;
@@ -26,38 +26,38 @@ type MessageBlock = {
 
 const messages: MessageBlock[] = [
   {
-    title: "Discipline is my luxury",
-    copy: "Le vrai flex, c'est de tenir ses promesses. À soi-même d'abord.",
-    image: disciplineLounge,
-    imageAlt: "Femme portant le t-shirt Discipline is my luxury dans un décor clair et solaire",
+    title: "Protected. Aligned. Unstoppable.",
+    copy: "Quand tout est clair à l'intérieur, l'allure n'a plus besoin de forcer.",
+    image: protectedAlignedUnstoppable,
+    imageAlt: "Femme assise en terrasse portant un t-shirt blanc Protected. Aligned. Unstoppable.",
     theme: "light",
   },
   {
-    title: "Connected. Disciplined. Empowered.",
-    copy: "Quand tout s'aligne, l'allure fait le reste. Pas besoin d'en faire trop.",
-    image: connectedNight,
-    imageAlt: "Silhouette de dos portant le message Connected. Disciplined. Empowered. de nuit",
+    title: "Bold. Badass. No filter.",
+    copy: "L'élégance n'exclut pas le mordant. Elle lui donne juste une meilleure coupe.",
+    image: boldBadassNoFilter,
+    imageAlt: "Homme de dos portant le message Bold. Badass. No filter. sur un t-shirt blanc",
     theme: "dark",
     reverse: true,
   },
   {
     title: "Energy never lies",
-    copy: "Votre sourire ment peut-être. Votre énergie, jamais.",
-    image: energyParis,
-    imageAlt: "Femme dans une rue parisienne portant le t-shirt Energy never lies",
+    copy: "Votre énergie parle avant vous. Et franchement, elle a souvent raison.",
+    image: energyNeverLiesStreet,
+    imageAlt: "Femme dans une rue parisienne portant le message Energy never lies au dos",
     theme: "light",
   },
   {
     title: "God is a dancer",
-    copy: "La vie a son rythme. Et visiblement, vous tenez la piste.",
+    copy: "Certaines avancent droit. D'autres avancent avec du rythme. Les deux imposent le respect.",
     image: dancerBack,
-    imageAlt: "Femme de dos portant le message God is a dancer dans une rue parisienne",
+    imageAlt: "Femme de dos dans une rue parisienne portant le message God is a dancer",
     theme: "dark",
     reverse: true,
   },
   {
     title: "God is a DJ",
-    copy: "Vous n'avez pas besoin de tout contrôler. Juste d'arriver au bon tempo.",
+    copy: "Le tempo est bon quand vous n'avez plus besoin de convaincre qui que ce soit.",
     image: godDjBlack,
     imageAlt: "Homme portant un t-shirt noir God is a DJ devant une façade parisienne",
     theme: "light",
