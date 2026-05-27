@@ -563,8 +563,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang agate jaune miel, intercalaires dorés. Poids : environ 30g.',
     details: 'Lumière solaire. Trois rangs d\'agate miel ponctués d\'or pour un éclat naturel au poignet.',
-    image: 'stonelov-br-agate-jaune',
-    gallery: [],
+    image: 'stonelov-br-agate-jaune-model',
+    gallery: ['stonelov-br-agate-jaune', 'stonelov-br-agate-jaune-book'],
     stoneMeaning: 'Agate jaune — Pierre d\'équilibre et de stabilité, elle réchauffe l\'esprit, favorise la confiance et attire une énergie solaire et apaisante.',
   },
   {
