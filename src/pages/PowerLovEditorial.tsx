@@ -48,7 +48,7 @@ const PowerLovEditorial = () => {
           <div className="absolute bottom-0 left-0 z-10" style={{ padding: 48 }}>
             <p
               className="uppercase"
-              style={{ color: LABEL, fontSize: 9, letterSpacing: "0.25em", marginBottom: 12 }}
+              style={{ color: LABEL, fontSize: 9, letterSpacing: "0.2em", marginBottom: 12 }}
             >
               POWERLOV
             </p>
