@@ -395,8 +395,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
-    image: 'bijoux-malachite-solo',
-    gallery: ['bijoux-malachite-fleurs', 'bijoux-malachite-tarot'],
+    image: 'collier-malachite-corail-model',
+    gallery: ['bijoux-malachite-solo', 'bijoux-malachite-tarot'],
     stoneMeaning: 'Malachite — Pierre de transformation, elle accompagne les périodes de changement et protège des influences extérieures. Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie et le courage.',
   },
   {
