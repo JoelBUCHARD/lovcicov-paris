@@ -460,6 +460,18 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Tourmaline multicolore — Pierre d\'équilibre et de protection, chaque nuance porte sa propre vibration : énergie, créativité, apaisement et harmonie.',
   },
   {
+    id: 'collier-amethyste-or',
+    shopifyHandle: 'collier-amethyste-et-or',
+    name: 'Collier Améthyste & Or',
+    price: 69,
+    collection: 'bijoux',
+    description: 'Éclats d\'améthyste violette, intercalaires dorés et pendentif sculptural doré serti de perles violettes.',
+    details: 'Violet profond et métal doré. Une pièce signature qui mêle matière brute et lumière chaude.',
+    image: 'collier-amethyste-or-model',
+    gallery: ['collier-amethyste-or-tarot'],
+    stoneMeaning: 'Améthyste — Pierre de sérénité et d\'intuition, elle apaise l\'esprit, favorise l\'équilibre intérieur et accompagne la clarté mentale.',
+  },
+  {
     id: 'collier-malachite-double',
     shopifyHandle: 'collier-malachite-double-rang',
     name: 'Collier Malachite Double Rang',
