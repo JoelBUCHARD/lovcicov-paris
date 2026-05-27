@@ -539,8 +539,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang de chips de malachite, œil de tigre vert et perles filigranées dorées.',
     details: 'Vert profond. Deux rangs sculptés où la malachite brute dialogue avec l\'or travaillé.',
-    image: 'stonelov-malachite-chips-double',
-    gallery: [],
+    image: 'stonelov-malachite-chips-double-model',
+    gallery: ['stonelov-malachite-chips-double', 'stonelov-malachite-chips-double-book'],
     stoneMeaning: 'Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et accompagne les périodes de changement profond.',
   },
   {
