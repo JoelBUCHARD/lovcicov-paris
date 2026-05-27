@@ -81,7 +81,7 @@ const CollectionMystic = () => {
         {/* Products — gray background */}
         <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {mysticProducts.map((product, i) => (
+            {shuffledProducts.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
                 <ProductCard product={product} index={i} />
               </div>
