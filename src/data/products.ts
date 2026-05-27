@@ -515,8 +515,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang de corail rouge, intercalaires dorés, maillon martelé en pendentif.',
     details: 'Vitalité et lumière. Trois rangs de corail rouge ponctués d\'or pour une présence solaire.',
-    image: 'stonelov-corail-rouge-or',
-    gallery: [],
+    image: 'collier-corail-rouge-or-model',
+    gallery: ['stonelov-corail-rouge-or', 'collier-corail-rouge-or-livre'],
     stoneMeaning: 'Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie, protège et donne du courage dans l\'action.',
   },
   {
