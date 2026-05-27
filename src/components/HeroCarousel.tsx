@@ -29,11 +29,11 @@ const HeroCarousel = () => {
             {slides.map((slide, i) => (
               <div key={i} className="w-full flex-shrink-0">
                 {slide.landscape ? (
-                  <div className="overflow-hidden bg-[#F0EBE3] w-full">
+                  <div className="overflow-hidden bg-[#F0EBE3] w-full aspect-[16/9]">
                     <img
                       src={slide.landscape}
                       alt={`Slide ${i + 1}`}
-                      className="w-full h-auto block"
+                      className="w-full h-full object-cover object-[center_30%] scale-110"
                     />
                   </div>
                 ) : (
