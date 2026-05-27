@@ -19,6 +19,7 @@ import CollectionStandards from "./pages/CollectionStandards";
 import CollectionMystic from "./pages/CollectionMystic";
 import MysticLovEditorial from "./pages/MysticLovEditorial";
 import StoneLovEditorial from "./pages/StoneLovEditorial";
+import PowerLovEditorial from "./pages/PowerLovEditorial";
 import CampagneSac from "./pages/CampagneSac";
 import CollectionBijoux from "./pages/CollectionBijoux";
 import CollectionTshirts from "./pages/CollectionTshirts";
@@ -98,7 +99,7 @@ const AppContent = () => {
         <Route path="/shop/:id" element={<ProductDetail />} />
         <Route path="/product/:handle" element={<ShopifyProductDetail />} />
         <Route path="/collections/standards" element={<CollectionStandards />} />
-        <Route path="/powerlov" element={<CollectionStandards />} />
+        <Route path="/powerlov" element={<PowerLovEditorial />} />
         <Route path="/collections/powerlov" element={<CollectionStandards />} />
         <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
         <Route path="/mysticlov" element={<MysticLovEditorial />} />
