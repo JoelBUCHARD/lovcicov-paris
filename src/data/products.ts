@@ -448,6 +448,17 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Turquoise — Pierre de communication et de protection. Considérée comme sacrée par de nombreuses civilisations, elle favorise l\'expression de soi et apporte chance et sérénité.',
   },
   {
+    id: 'collier-tourmaline-multicolore',
+    shopifyHandle: 'collier-tourmaline-multicolore-2',
+    name: 'Collier Tourmaline Multicolore',
+    price: 69,
+    collection: 'bijoux',
+    description: 'Sautoir d\'éclats de tourmaline multicolore, perles dorées martelées et gouttes dorées en pampille.',
+    details: 'Lariat solaire. Une cascade d\'éclats colorés ponctuée d\'or, à nouer ou à laisser tomber.',
+    image: 'collier-tourmaline-multicolore-model',
+    gallery: ['collier-tourmaline-multicolore-tarot'],
+    stoneMeaning: 'Tourmaline multicolore — Pierre d\'équilibre et de protection, chaque nuance porte sa propre vibration : énergie, créativité, apaisement et harmonie.',
+  {
     id: 'collier-malachite-double',
     shopifyHandle: 'collier-malachite-double-rang',
     name: 'Collier Malachite Double Rang',
