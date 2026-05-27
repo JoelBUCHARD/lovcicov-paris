@@ -472,6 +472,18 @@ export const bijouxProducts: Product[] = [
     stoneMeaning: 'Améthyste — Pierre de sérénité et d\'intuition, elle apaise l\'esprit, favorise l\'équilibre intérieur et accompagne la clarté mentale.',
   },
   {
+    id: 'collier-quartz-rose-amethyste',
+    shopifyHandle: 'collier-quartz-rose-amethyste',
+    name: 'Collier Quartz Rose & Améthyste',
+    price: 69,
+    collection: 'bijoux',
+    description: 'Perles de quartz rose, perles d\'eau douce, intercalaires dorés et pendentif sculptural en grappe d\'améthyste violette.',
+    details: 'Rose tendre et violet profond. Un ras-de-cou romantique sublimé par une grappe d\'améthyste rehaussée d\'or.',
+    image: 'collier-quartz-rose-amethyste-model',
+    gallery: ['collier-quartz-rose-amethyste-flat', 'collier-quartz-rose-amethyste-tarot'],
+    stoneMeaning: 'Quartz rose — Pierre de l\'amour et de la douceur, elle apaise le cœur et invite à la tendresse. Améthyste — Pierre de sérénité et d\'intuition, elle favorise l\'équilibre intérieur et la clarté mentale.',
+  },
+  {
     id: 'collier-malachite-double',
     shopifyHandle: 'collier-malachite-double-rang',
     name: 'Collier Malachite Double Rang',
