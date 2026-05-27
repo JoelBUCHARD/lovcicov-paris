@@ -1,13 +1,13 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import lovcicovLogo from "@/assets/lovcicov-logo.png";
-import heroImage from "@/assets/powerlov/powerlov-hero-woman-dancer.png";
-import protectedAlignedUnstoppable from "@/assets/powerlov/powerlov-protected-aligned-unstoppable.png";
-import boldBadassNoFilter from "@/assets/powerlov/powerlov-bold-badass-no-filter.png";
-import energyNeverLiesStreet from "@/assets/powerlov/powerlov-energy-never-lies-street.png";
-import dancerBack from "@/assets/powerlov/powerlov-hero-woman-dancer.png";
-import godDjBlack from "@/assets/powerlov/powerlov-god-is-a-dj-black-front.png";
-import godDjWhite from "@/assets/powerlov/powerlov-god-is-a-dj-white-front.png";
+import heroImage from "@/assets/powerlov/powerlov-hero.png";
+import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
+import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
+import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
+import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
+import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
+import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
 
 type RevealProps = {
   children: ReactNode;
@@ -26,38 +26,38 @@ type MessageBlock = {
 
 const messages: MessageBlock[] = [
   {
-    title: "Protected. Aligned. Unstoppable.",
-    copy: "Quand tout est clair à l'intérieur, l'allure n'a plus besoin de forcer.",
-    image: protectedAlignedUnstoppable,
-    imageAlt: "Femme assise en terrasse portant un t-shirt blanc Protected. Aligned. Unstoppable.",
+    title: "Discipline is my luxury",
+    copy: "Le vrai flex, c'est de tenir ses promesses. À soi-même d'abord.",
+    image: disciplineLounge,
+    imageAlt: "Femme portant le t-shirt Discipline is my luxury dans un décor clair et solaire",
     theme: "light",
   },
   {
-    title: "Bold. Badass. No filter.",
-    copy: "L'élégance n'exclut pas le mordant. Elle lui donne juste une meilleure coupe.",
-    image: boldBadassNoFilter,
-    imageAlt: "Homme de dos portant le message Bold. Badass. No filter. sur un t-shirt blanc",
+    title: "Connected. Disciplined. Empowered.",
+    copy: "Quand tout s'aligne, l'allure fait le reste. Pas besoin d'en faire trop.",
+    image: connectedNight,
+    imageAlt: "Silhouette de dos portant le message Connected. Disciplined. Empowered. de nuit",
     theme: "dark",
     reverse: true,
   },
   {
     title: "Energy never lies",
-    copy: "Votre énergie parle avant vous. Et franchement, elle a souvent raison.",
-    image: energyNeverLiesStreet,
-    imageAlt: "Femme dans une rue parisienne portant le message Energy never lies au dos",
+    copy: "Votre sourire ment peut-être. Votre énergie, jamais.",
+    image: energyParis,
+    imageAlt: "Femme dans une rue parisienne portant le t-shirt Energy never lies",
     theme: "light",
   },
   {
     title: "God is a dancer",
-    copy: "Certaines avancent droit. D'autres avancent avec du rythme. Les deux imposent le respect.",
+    copy: "La vie a son rythme. Et visiblement, vous tenez la piste.",
     image: dancerBack,
-    imageAlt: "Femme de dos dans une rue parisienne portant le message God is a dancer",
+    imageAlt: "Femme de dos portant le message God is a dancer dans une rue parisienne",
     theme: "dark",
     reverse: true,
   },
   {
     title: "God is a DJ",
-    copy: "Le tempo est bon quand vous n'avez plus besoin de convaincre qui que ce soit.",
+    copy: "Vous n'avez pas besoin de tout contrôler. Juste d'arriver au bon tempo.",
     image: godDjBlack,
     imageAlt: "Homme portant un t-shirt noir God is a DJ devant une façade parisienne",
     theme: "light",
@@ -320,11 +320,10 @@ const PowerLovEditorial = () => {
             </div>
             <div className="overflow-hidden">
               <img
-                src={protectedAlignedUnstoppable}
-                alt="Femme élégante en terrasse portant un t-shirt blanc Power Love"
+                src={disciplineAge}
+                alt="Femme souriante portant le message Discipline is my luxury dans une rue parisienne"
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
-                style={{ objectPosition: "center 24%" }}
               />
             </div>
           </Reveal>
@@ -337,11 +336,11 @@ const PowerLovEditorial = () => {
           <Reveal className="mx-auto grid max-w-[1450px] grid-cols-1 gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="overflow-hidden">
               <img
-                src={godDjWhite}
-                alt="Homme portant un t-shirt blanc God is a DJ devant une façade parisienne"
+                src={connectedNight}
+                alt="Détail du t-shirt blanc Power Love avec le message Connected. Disciplined. Empowered."
                 loading="lazy"
                 className="h-full min-h-[520px] w-full object-cover"
-                style={{ objectPosition: "center 22%" }}
+                style={{ objectPosition: "center 18%" }}
               />
             </div>
             <div>
