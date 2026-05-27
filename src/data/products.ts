@@ -468,7 +468,7 @@ export const bijouxProducts: Product[] = [
     description: 'Éclats d\'améthyste violette, intercalaires dorés et pendentif sculptural doré serti de perles violettes.',
     details: 'Violet profond et métal doré. Une pièce signature qui mêle matière brute et lumière chaude.',
     image: 'collier-amethyste-or-model',
-    gallery: ['collier-amethyste-or-tarot'],
+    gallery: ['collier-amethyste-or-detail', 'collier-amethyste-or-tarot'],
     stoneMeaning: 'Améthyste — Pierre de sérénité et d\'intuition, elle apaise l\'esprit, favorise l\'équilibre intérieur et accompagne la clarté mentale.',
   },
   {
