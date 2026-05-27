@@ -98,6 +98,8 @@ const AppContent = () => {
         <Route path="/shop/:id" element={<ProductDetail />} />
         <Route path="/product/:handle" element={<ShopifyProductDetail />} />
         <Route path="/collections/standards" element={<CollectionStandards />} />
+        <Route path="/powerlov" element={<CollectionStandards />} />
+        <Route path="/collections/powerlov" element={<CollectionStandards />} />
         <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
         <Route path="/mysticlov" element={<MysticLovEditorial />} />
         <Route path="/mysticlov/shop" element={<CollectionMystic />} />
