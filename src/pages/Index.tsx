@@ -9,6 +9,7 @@ import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
+import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
@@ -190,24 +191,21 @@ const Index = () => {
       {/* EDITORIAL */}
       <section className="w-full bg-white pt-4 md:pt-16 pb-0 md:pb-[20px] flex justify-center">
         <div className="relative inline-block">
-          {/* LOVCICOV text overlay on second photo */}
+          {/* LOVCICOV logo overlay on second photo */}
           <div
             aria-hidden="true"
             className="absolute left-2 md:left-6 top-[78%] z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
           >
-            <span
+            <img
+              src={lovcicovLogo}
+              alt="LOVCICOV"
               className="leading-none whitespace-nowrap"
               style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontSize: 'clamp(56px, 14vw, 160px)',
-                fontWeight: 700,
-                letterSpacing: '0.02em',
-                color: 'rgba(26, 26, 26, 0.42)',
-                textShadow: '0 0 1px rgba(255,255,255,0.08)',
+                width: 'clamp(180px, 42vw, 520px)',
+                opacity: 0.42,
+                filter: 'brightness(0)',
               }}
-            >
-              LOVCICOV
-            </span>
+            />
           </div>
           {/* Image */}
           <img
