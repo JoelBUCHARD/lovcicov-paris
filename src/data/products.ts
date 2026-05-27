@@ -347,8 +347,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
-    image: 'bijoux-quartz-solo',
-    gallery: ['bijoux-quartz-fleurs', 'bijoux-quartz-tarot'],
+    image: 'collier-quartz-aventurine-model',
+    gallery: ['bijoux-quartz-solo', 'bijoux-quartz-tarot'],
     stoneMeaning: 'Quartz rose — Pierre de l\'amour inconditionnel et de la paix intérieure. Aventurine — Pierre de chance et de prospérité, elle apaise le cœur et attire l\'abondance.',
   },
   {
