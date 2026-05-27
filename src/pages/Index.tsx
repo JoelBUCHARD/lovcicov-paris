@@ -9,6 +9,7 @@ import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
+import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
