@@ -431,8 +431,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
-    image: 'bijoux-corail-multicolor',
-    gallery: ['bijoux-corail-fleurs', 'bijoux-corail-tarot'],
+    image: 'collier-corail-multicolor-model',
+    gallery: ['bijoux-corail-multicolor', 'bijoux-corail-tarot'],
     stoneMeaning: 'Corail rouge — Pierre de vitalité, elle stimule l\'énergie et la passion. Les pierres multicolores apportent chacune leur vibration : équilibre, joie, protection et créativité.',
   },
   {
