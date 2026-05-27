@@ -456,7 +456,7 @@ export const bijouxProducts: Product[] = [
     description: 'Sautoir d\'éclats de tourmaline multicolore, perles dorées martelées et gouttes dorées en pampille.',
     details: 'Lariat solaire. Une cascade d\'éclats colorés ponctuée d\'or, à nouer ou à laisser tomber.',
     image: 'collier-tourmaline-multicolore-model',
-    gallery: ['collier-tourmaline-multicolore-tarot'],
+    gallery: ['collier-tourmaline-multicolore-detail', 'collier-tourmaline-multicolore-tarot'],
     stoneMeaning: 'Tourmaline multicolore — Pierre d\'équilibre et de protection, chaque nuance porte sa propre vibration : énergie, créativité, apaisement et harmonie.',
   },
   {
