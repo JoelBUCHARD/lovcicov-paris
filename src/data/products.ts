@@ -551,8 +551,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang malachite ronde, intercalaires dorés filigranés. Poids : environ 30g.',
     details: 'Profondeur minérale au poignet. Trois rangs vibrants où la malachite rencontre l\'or travaillé.',
-    image: 'stonelov-br-malachite-triple',
-    gallery: [],
+    image: 'stonelov-br-malachite-triple-model',
+    gallery: ['stonelov-br-malachite-triple', 'stonelov-br-malachite-triple-book'],
     stoneMeaning: 'Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et accompagne les périodes de changement profond.',
   },
   {
