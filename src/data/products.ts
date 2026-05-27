@@ -539,8 +539,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Double rang œil de tigre fuchsia, intercalaires dorés striés.',
     details: 'Caractère et éclat. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
-    image: 'stonelov-oeil-tigre-fuchsia',
-    gallery: [],
+    image: 'collier-oeil-tigre-fuchsia-model',
+    gallery: ['stonelov-oeil-tigre-fuchsia', 'collier-oeil-tigre-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
