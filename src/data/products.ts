@@ -635,8 +635,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang améthyste, quartz rose, intercalaires dorés, pendentif améthyste facetté. Poids : environ 30g.',
     details: 'Sagesse et douceur. Deux pierres complices liées par l\'or, pour une énergie apaisante.',
-    image: 'stonelov-br-amethyste-quartz',
-    gallery: [],
+    image: 'bracelet-amethyste-quartz-model',
+    gallery: ['stonelov-br-amethyste-quartz', 'bracelet-amethyste-quartz-tarot'],
     stoneMeaning: 'Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle. Quartz rose — Pierre de l\'amour inconditionnel et de la paix intérieure.',
   },
   {
