@@ -407,8 +407,8 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
-    image: 'bijoux-trio-solo',
-    gallery: ['bijoux-trio-fleurs', 'bijoux-trio-tarot'],
+    image: 'collier-trio-citrine-model',
+    gallery: ['bijoux-trio-solo', 'bijoux-trio-tarot'],
     stoneMeaning: 'Citrine — Pierre de joie et d\'abondance, elle rayonne d\'énergie solaire et attire la réussite. Améthyste — Pierre de sagesse spirituelle. Malachite — Pierre de transformation et de renouveau.',
   },
   {
