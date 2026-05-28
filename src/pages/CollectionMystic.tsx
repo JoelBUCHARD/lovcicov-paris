@@ -65,17 +65,6 @@ const CollectionMystic = () => {
               mystère, émotion et élégance minimaliste à travers des pièces pensées comme des talismans contemporains.
             </motion.p>
 
-            <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={3}
-              className="uppercase"
-              style={{ color: '#E66060', fontSize: 10, letterSpacing: '0.18em', lineHeight: 1.8 }}
-            >
-              Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
-            </motion.p>
           </div>
         </div>
 
