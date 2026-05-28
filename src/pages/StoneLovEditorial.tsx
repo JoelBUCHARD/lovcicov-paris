@@ -73,6 +73,45 @@ const StoneLovEditorial = () => {
         </section>
 
 
+        {/* DESCRIPTIF — harmonisé PowerLov / MysticLov */}
+        <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
+          <div className="max-w-[640px] mx-auto text-center">
+            <p
+              className="mb-5 text-[11px] uppercase"
+              style={{ color: "rgba(26,26,26,0.48)", letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
+            >
+              La collection
+            </p>
+            <h2
+              className="m-0 mb-3"
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 400, letterSpacing: 0, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1, color: INK }}
+            >
+              StoneLov
+            </h2>
+            <p
+              className="mb-10 italic"
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(18px, 2vw, 22px)", color: "rgba(26,26,26,0.7)" }}
+            >
+              Rooted in the earth.
+            </p>
+            <p
+              style={{
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
+                fontSize: 15,
+                color: "rgba(26,26,26,0.78)",
+                maxWidth: 600,
+                margin: "0 auto",
+                lineHeight: 1.9,
+              }}
+            >
+              StoneLov puise son inspiration dans la pierre, la terre et les matières brutes.
+              <br /><br />
+              Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où
+              la matière protège autant qu'elle révèle.
+            </p>
+          </div>
+        </section>
+
         {/* L'UNIVERS DES PIERRES */}
         <StoneUniverse />
 
