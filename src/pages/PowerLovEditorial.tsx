@@ -184,10 +184,7 @@ const PowerLovEditorial = () => {
               }}
               className="m-0"
             >
-              Power Love, c'est pour celles et ceux qui ont compris. Que la discipline est un luxe.
-              Que l'énergie ne ment jamais. Et qu'un basique blanc peut en dire plus long qu'un grand
-              discours. Pas de leçon de vie ici — juste des vérités qu'on assume, avec le sourire. Pas
-              juste un t-shirt. Une intention.
+              Power Love, c'est pour celles qui ont du cran. Et ceux qui assument. Pour la fille de 20 ans qui veut de l'audace. La femme de 60 qui veut du rock. La maman qui jongle. La rebelle qui aligne. Mille vies, une seule règle : porter sa vérité sans la murmurer. Pas juste un t-shirt. Une intention.
             </p>
           </Reveal>
         </section>
