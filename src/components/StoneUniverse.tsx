@@ -12,25 +12,7 @@ const StoneUniverse = () => {
       }}
     >
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-center mb-4">
-          <div style={{ backgroundColor: "rgba(250,247,242,0.6)", padding: "4px 10px", borderRadius: 1 }}>
-            <p className="text-[9px]" style={{ color: "#C4714A", letterSpacing: "0.25em" }}>
-              StoneLov
-            </p>
-          </div>
-        </div>
-        <p
-          className="text-center mx-auto mb-10"
-          style={{
-            fontFamily: "Arial, sans-serif",
-            fontSize: 13,
-            color: "#5F5E5A",
-            lineHeight: 1.8,
-            maxWidth: 580,
-          }}
-        >
-          StoneLov puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
-        </p>
+
 
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
