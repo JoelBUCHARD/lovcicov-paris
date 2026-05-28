@@ -123,6 +123,11 @@ const StoneLovEditorial = () => {
         {/* PHOTO GRID */}
         <StoneLovGrid />
 
+        {/* SAVOIR-FAIRE — image only */}
+        <section className="relative w-screen overflow-hidden h-[50vh] md:h-[70vh]" style={{ backgroundColor: BG }}>
+          <img src={savoirfaire} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center center" }} />
+        </section>
+
         {/* BLOCK 4 — CLOSING */}
         <div style={{ height: 20, backgroundColor: BG }} />
         <section className="relative w-screen h-auto md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
