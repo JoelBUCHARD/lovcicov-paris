@@ -62,7 +62,7 @@ const Index = () => {
             className="text-[15px] italic mb-5"
             style={{ color: '#888780' }}
           >
-            Clothes That Change How You Feel
+            LOVCICOV Paris
           </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
