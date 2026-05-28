@@ -105,7 +105,7 @@ const Index = () => {
             transition={{ duration: 1, delay: 1.4 }}
             className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
           >
-            Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
+            éditions limitées · slow fashion · éco-responsable
           </motion.p>
         </div>
       </section>
@@ -125,7 +125,7 @@ const Index = () => {
                   letterSpacing: '0.18em',
                 }}
               >
-                Présence · Énergie · Fréquence · Alignement · Luxe contemporain · Intuition · Transformation · Élégance instinctive · Émotion · Matière · Spiritualité moderne · Aura · Talisman · Luxe avec âme&nbsp;·&nbsp;
+                Clothes that change how you feel&nbsp;·&nbsp;
               </span>
             ))}
           </div>
