@@ -11,6 +11,7 @@ import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import ShopifyProductDetail from "./pages/ShopifyProductDetail";
 import Manifeste from "./pages/Manifeste";
+import LeCercle from "./pages/LeCercle";
 import Fondatrice from "./pages/Fondatrice";
 import Drops from "./pages/Drops";
 import Cart from "./pages/Cart";
@@ -112,6 +113,7 @@ const AppContent = () => {
         <Route path="/manifeste" element={<Manifeste />} />
         <Route path="/univers" element={<Fondatrice />} />
         <Route path="/drops" element={<Drops />} />
+        <Route path="/le-cercle" element={<LeCercle />} />
         <Route path="/fondatrice" element={<Fondatrice />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth" element={<Auth />} />
