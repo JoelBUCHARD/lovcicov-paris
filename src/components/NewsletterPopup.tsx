@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 import { toast } from 'sonner';
 import { z } from 'zod';
+import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 const STORAGE_KEY = 'lovcicov_newsletter';
 
@@ -54,8 +55,9 @@ const NewsletterPopup = () => {
           <X size={18} />
         </button>
 
+        <img src={lovcicovLogo} alt="LOVCICOV" className="h-8 md:h-10 w-auto mx-auto mb-6 brightness-0 invert" />
         <h2 className="text-brand text-[15px] md:text-[16px] tracking-[0.2em] mb-4">
-          REJOIGNEZ LE CERCLE LOVCICOV
+          REJOINS LE CERCLE
         </h2>
         <p className="text-[12px] md:text-[13px] text-white/70 leading-relaxed mb-8 max-w-xs mx-auto">
           Accédez en avant-première aux nouvelles collections et offres exclusives.
