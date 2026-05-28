@@ -396,7 +396,7 @@ const Index = () => {
               lineHeight: 1.05,
             }}
           >
-            Un sac Saint Laurent
+            Un sac de luxe
           </h2>
           <p
             className="italic"
@@ -416,63 +416,14 @@ const Index = () => {
               fontFamily: 'Arial, sans-serif',
               fontSize: 13,
               color: '#B4A99A',
-              marginTop: 20,
+              marginTop: 28,
+              maxWidth: 520,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              lineHeight: 1.6,
             }}
           >
-            Pour les {target} premiers t-shirts vendus.
-          </p>
-
-          {/* Counter */}
-          <p
-            className="uppercase"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 9,
-              color: '#B4A99A',
-              letterSpacing: '0.2em',
-              marginTop: 48,
-            }}
-          >
-            T-shirts vendus
-          </p>
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 'clamp(60px, 12vw, 140px)',
-              fontWeight: 200,
-              color: '#FFFFFF',
-              lineHeight: 1.1,
-              marginTop: 12,
-            }}
-          >
-            {sold} / {target}
-          </p>
-
-          <div
-            className="mx-auto"
-            style={{
-              maxWidth: 600,
-              height: 4,
-              backgroundColor: '#333333',
-              marginTop: 24,
-              marginBottom: 16,
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                width: `${pct}%`,
-                backgroundColor: '#FFFFFF',
-                transition: 'width 0.8s ease',
-              }}
-            />
-          </div>
-
-          <p
-            className="italic"
-            style={{ fontFamily: 'Arial, sans-serif', fontSize: 12, color: '#888780' }}
-          >
-            Chaque t-shirt vendu vous rapproche du tirage.
+            Un jeu confidentiel réservé à nos premières clientes. Chaque pièce achetée vous rapproche du tirage.
           </p>
 
           <Link
