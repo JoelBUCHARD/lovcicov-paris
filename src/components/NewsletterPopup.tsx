@@ -45,28 +45,21 @@ const NewsletterPopup = () => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4 animate-in fade-in duration-300">
-      <div
-        className="relative w-full max-w-md p-10 md:p-12 text-center animate-in zoom-in-95 duration-300"
-        style={{ backgroundColor: "#F4F0E8", color: "#0D0D0D" }}
-      >
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4 animate-in fade-in duration-300">
+      <div className="relative w-full max-w-md bg-black text-white p-10 md:p-12 text-center animate-in zoom-in-95 duration-300">
         <button
           onClick={close}
           aria-label="Fermer"
-          className="absolute top-4 right-4 transition-colors"
-          style={{ color: "rgba(13,13,13,0.5)" }}
+          className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
         >
           <X size={18} />
         </button>
 
-        <img src={lovcicovLogo} alt="LOVCICOV" className="h-8 md:h-10 w-auto mx-auto mb-6" />
+        <img src={lovcicovLogo} alt="LOVCICOV" className="h-8 md:h-10 w-auto mx-auto mb-6 brightness-0 invert" />
         <h2 className="text-brand text-[15px] md:text-[16px] tracking-[0.2em] mb-4">
           REJOINS LE CERCLE
         </h2>
-        <p
-          className="text-[12px] md:text-[13px] leading-relaxed mb-8 max-w-xs mx-auto"
-          style={{ color: "rgba(13,13,13,0.7)" }}
-        >
+        <p className="text-[12px] md:text-[13px] leading-relaxed text-white/70 mb-8 max-w-xs mx-auto">
           Accédez en avant-première aux nouvelles collections et offres exclusives.
         </p>
 
@@ -78,17 +71,12 @@ const NewsletterPopup = () => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="votre@email.com"
             maxLength={255}
-            className="w-full bg-transparent px-4 py-3 text-[12px] focus:outline-none transition-colors"
-            style={{
-              border: "1px solid rgba(13,13,13,0.3)",
-              color: "#0D0D0D",
-            }}
+            className="w-full bg-transparent border border-white/30 px-4 py-3 text-[12px] text-white placeholder:text-white/40 focus:outline-none focus:border-white transition-colors"
           />
           <button
             type="submit"
             disabled={submitting}
-            className="w-full py-3 text-[11px] tracking-[0.2em] uppercase transition-colors disabled:opacity-50"
-            style={{ backgroundColor: "#0D0D0D", color: "#F4F0E8" }}
+            className="w-full bg-white text-black py-3 text-[11px] tracking-[0.2em] uppercase hover:bg-white/90 transition-colors disabled:opacity-50"
           >
             Je rejoins
           </button>
@@ -96,8 +84,7 @@ const NewsletterPopup = () => {
 
         <button
           onClick={close}
-          className="mt-6 text-[10px] underline underline-offset-4 transition-colors tracking-[0.1em]"
-          style={{ color: "rgba(13,13,13,0.5)" }}
+          className="mt-6 text-[10px] text-white/50 hover:text-white/80 underline underline-offset-4 transition-colors tracking-[0.1em]"
         >
           Non merci
         </button>
