@@ -27,10 +27,10 @@ const CollectionBijoux = () => {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              className="text-[9px] uppercase tracking-[0.18em] text-[#C4714A] font-medium"
+              className="text-[9px] tracking-[0.18em] text-[#C4714A] font-medium"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              STONELOV
+              StoneLov
             </motion.p>
             <motion.h1
               variants={fadeUp}
@@ -50,7 +50,8 @@ const CollectionBijoux = () => {
               className="text-[#5F5E5A] mx-auto mt-5"
               style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, lineHeight: 1.8, maxWidth: 600 }}
             >
-              STONELOV puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
+              StoneLov puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
+
             </motion.p>
             <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#E8C9B5' }} />
             <motion.p

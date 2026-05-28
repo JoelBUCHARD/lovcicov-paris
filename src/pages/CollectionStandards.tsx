@@ -41,9 +41,9 @@ const CollectionStandards = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="text-[9px] uppercase tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium"
+            className="text-[9px] tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium"
           >
-            POWERLOV
+            PowerLov
           </motion.p>
           <motion.h1
             variants={fadeUp}
@@ -64,8 +64,9 @@ const CollectionStandards = () => {
             style={{ maxWidth: '600px' }}
           >
             <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#1A1A1A', lineHeight: 1.7 }}>
-              POWERLOV explore la puissance interieure a travers des pieces fortes, structurees et profondement alignees. Une energie calme. Une presence affirmee. Des vetements penses pour transformer la posture et reveler la confiance instinctive.
+              PowerLov explore la puissance interieure a travers des pieces fortes, structurees et profondement alignees. Une energie calme. Une presence affirmee. Des vetements penses pour transformer la posture et reveler la confiance instinctive.
             </p>
+
           </motion.div>
 
           {/* Keywords strip */}
@@ -130,11 +131,11 @@ const CollectionStandards = () => {
                     fontSize: '9px',
                     color: '#888780',
                     letterSpacing: '0.12em',
-                    textTransform: 'uppercase',
                   }}
                 >
-                  POWERLOV
+                  PowerLov
                 </p>
+
                 <h3
                   style={{
                     fontFamily: 'Arial, sans-serif',

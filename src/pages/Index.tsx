@@ -151,7 +151,7 @@ const Index = () => {
           <p>Inspirée par la pierre, la lumière et la noblesse des matières brutes, la maison développe une vision du vêtement où l'allure devient une forme d'élégance instinctive.</p>
           <p>Chaque création devient un talisman contemporain.</p>
           <p>Une sensation. Une posture. Une signature.</p>
-          <p className="text-foreground tracking-[0.15em] uppercase text-sm">PowerLov. MysticLov. StoneLov.</p>
+          <p className="text-foreground tracking-[0.15em] text-sm">PowerLov. MysticLov. StoneLov.</p>
           <p>Trois univers guidés par une même recherche : celle d'une élégance plus consciente, plus rare, plus incarnée.</p>
           <p>Le noir absolu. Le blanc sacré. Le rouge profond.</p>
           <p>Des lignes pures. Des mots comme des mantras. Une sophistication sans démonstration.</p>
@@ -194,9 +194,10 @@ const Index = () => {
       {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
       <section className="bg-[#FDF5EF] border-t-[3px] border-[#C4714A] pt-0 md:pt-14">
         <div className="text-center pt-3 pb-8">
-          <p className="font-sans text-[9px] tracking-[0.2em] uppercase text-[#C4714A] mb-2">
-            STONELOV
+          <p className="font-sans text-[9px] tracking-[0.2em] text-[#C4714A] mb-2">
+            StoneLov
           </p>
+
           <p className="font-sans italic text-[12px] text-[#888780]">
             Pierres naturelles
           </p>
@@ -219,7 +220,7 @@ const Index = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
+            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
             style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
@@ -227,6 +228,7 @@ const Index = () => {
             Découvrir StoneLov
             <ArrowRight size={12} />
           </Link>
+
         </motion.div>
       </section>
 
@@ -239,11 +241,12 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="uppercase mb-2"
+            className="mb-2"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
-            MYSTICLOV
+            MysticLov
           </motion.p>
+
           <motion.p
             variants={fadeUp}
             initial="hidden"

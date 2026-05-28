@@ -57,11 +57,12 @@ const LeCercle = () => {
               rituels contemporains, playlists, jeux, mantras et expériences pensées
               autour de l'énergie des collections.
             </p>
-            <p className="text-foreground tracking-[0.15em] uppercase text-sm">
-              POWERLOV.<br />
-              MYSTICLOV.<br />
-              STONELOV.
+            <p className="text-foreground tracking-[0.15em] text-sm">
+              PowerLov.<br />
+              MysticLov.<br />
+              StoneLov.
             </p>
+
             <p>Chaque univers y vit différemment.</p>
             <p>
               Comme une conversation continue entre style, présence et transformation.

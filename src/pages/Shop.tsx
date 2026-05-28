@@ -47,8 +47,8 @@ const Shop = () => {
           )}
           {active === 'standard' && (
             <motion.div key="standard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <p className="text-[9px] uppercase tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium">
-                POWERLOV
+              <p className="text-[9px] tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium">
+                PowerLov
               </p>
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.</p>
@@ -58,7 +58,8 @@ const Shop = () => {
           )}
           {active === 'mystic' && (
             <motion.div key="mystic" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <p className="text-[9px] uppercase tracking-[0.18em] text-[#E66060] mb-8 font-medium">MYSTICLOV</p>
+              <p className="text-[9px] tracking-[0.18em] text-[#E66060] mb-8 font-medium">MysticLov</p>
+
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">Pièces brodées main, symboles sacrés et énergie portée. Chaque création est un mantra à porter.</p>
               </div>
