@@ -114,7 +114,6 @@ const CampagneSac = () => {
         </div>
       </section>
 
-
       {/* RULES */}
       <section
         className="mx-auto"
