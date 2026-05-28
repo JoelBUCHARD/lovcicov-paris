@@ -373,9 +373,7 @@ const PowerLovEditorial = () => {
               chic de ne pas être seule à penser comme ça.
             </p>
             <a
-              href="https://lovcicov.paris/le-cercle"
-              target="_blank"
-              rel="noreferrer"
+              href="https://lovcicov.paris/collections/power-love"
               className="mt-9 inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase transition-colors duration-300"
               style={{
                 backgroundColor: "#0D0D0D",
@@ -383,13 +381,15 @@ const PowerLovEditorial = () => {
                 letterSpacing: "0.2em",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#C8102E";
+                e.currentTarget.style.backgroundColor = "#F4F0E8";
+                e.currentTarget.style.color = "#0D0D0D";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = "#0D0D0D";
+                e.currentTarget.style.color = "#F4F0E8";
               }}
             >
-              Rejoindre Le Cercle
+              Découvrir la collection
             </a>
           </Reveal>
         </section>
