@@ -36,10 +36,9 @@ const MysticLovEditorial = () => {
         >
           <Link
             to="/mysticlov"
-            className="uppercase"
             style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}
           >
-            MYSTICLOV
+            MysticLov
           </Link>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
           <Link
@@ -57,6 +56,7 @@ const MysticLovEditorial = () => {
             REJOINDRE LE CERCLE →
           </Link>
         </header>
+
 
         {/* BLOCK 1 — HERO */}
         <section className="relative w-screen h-auto md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
