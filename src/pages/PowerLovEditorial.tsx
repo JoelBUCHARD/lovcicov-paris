@@ -220,7 +220,9 @@ const PowerLovEditorial = () => {
               style={{
                 ...editorialTitleStyle,
                 color: "#F4F0E8",
-                fontSize: "clamp(30px, 4vw, 52px)",
+                fontStyle: "italic",
+                fontWeight: 300,
+                fontSize: "clamp(28px, 4vw, 44px)",
                 lineHeight: 1.1,
               }}
               className="m-0 mb-6"
@@ -236,22 +238,20 @@ const PowerLovEditorial = () => {
             </p>
             <a
               href="/le-cercle"
-              className="mt-9 inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase transition-colors duration-300"
+              className="mt-9 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
               style={{
-                backgroundColor: "#F4F0E8",
-                color: "#0D0D0D",
+                backgroundColor: "#C8102E",
+                color: "#F4F0E8",
                 letterSpacing: "0.2em",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#C8102E";
-                e.currentTarget.style.color = "#F4F0E8";
+                e.currentTarget.style.backgroundColor = "#9E0C24";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#F4F0E8";
-                e.currentTarget.style.color = "#0D0D0D";
+                e.currentTarget.style.backgroundColor = "#C8102E";
               }}
             >
-              Rejoindre Le Cercle
+              Rejoindre Le Cercle →
             </a>
           </Reveal>
         </section>
