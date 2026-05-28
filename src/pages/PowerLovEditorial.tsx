@@ -184,7 +184,7 @@ const PowerLovEditorial = () => {
               }}
               className="m-0"
             >
-              Power Love, c'est pour celles qui ont du cran. Et ceux qui assument. Pour la fille de 20 ans qui veut de l'audace. La femme de 60 qui veut du rock. La maman qui jongle. La rebelle qui aligne. Mille vies, une seule règle : porter sa vérité sans la murmurer. Pas juste un t-shirt. Une intention.
+              Power Love, c'est pour celles qui ont du cran. Et ceux qui assument. Pour la fille de 20 ans qui veut de l'audace. La femme de 60 qui veut du rock. La maman qui jongle. La rebelle qui aligne. Mille vies, une seule règle : porter sa vérité sans la murmurer.
             </p>
           </Reveal>
         </section>
