@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Instagram, Facebook } from 'lucide-react';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 interface FooterProps {
