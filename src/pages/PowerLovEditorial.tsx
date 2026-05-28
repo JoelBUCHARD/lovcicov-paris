@@ -207,19 +207,19 @@ const PowerLovEditorial = () => {
         {/* REJOINDRE LE CERCLE — version simple */}
         <section
           className="w-full"
-          style={{ backgroundColor: "#0D0D0D", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
           <Reveal className="mx-auto max-w-2xl text-center">
             <p
               className="mb-5 text-[11px] uppercase"
-              style={{ color: "rgba(244,240,232,0.6)", letterSpacing: "0.22em" }}
+              style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.22em" }}
             >
               Le Cercle
             </p>
             <h2
               style={{
                 ...editorialTitleStyle,
-                color: "#F4F0E8",
+                color: "#0D0D0D",
                 fontStyle: "italic",
                 fontWeight: 300,
                 fontSize: "clamp(28px, 4vw, 44px)",
@@ -231,7 +231,7 @@ const PowerLovEditorial = () => {
             </h2>
             <p
               className="mx-auto text-[15px] md:text-[16px]"
-              style={{ color: "rgba(244,240,232,0.78)", lineHeight: 1.9 }}
+              style={{ color: "rgba(13,13,13,0.78)", lineHeight: 1.9 }}
             >
               Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
               drops limités et invitations privées.
