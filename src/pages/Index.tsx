@@ -7,9 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
-import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
-import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
@@ -31,9 +29,7 @@ const fadeUp = {
 
 const Index = () => {
   const featured = bijouxProducts;
-  const { sold } = usePowerLovSalesCount();
-  const target = 1000;
-  const pct = Math.min(100, (sold / target) * 100);
+
 
 
   return (
