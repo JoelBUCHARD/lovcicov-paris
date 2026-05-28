@@ -116,7 +116,7 @@ const Drops = () => {
               viewport={{ once: true }}
               className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/50 mb-12"
             >
-              Prochain Drop
+              Le Drop
             </motion.p>
 
             <motion.h2
@@ -125,9 +125,9 @@ const Drops = () => {
               whileInView="visible"
               viewport={{ once: true }}
               custom={1}
-              className="text-brand-lg text-lg md:text-xl tracking-[0.15em] mb-16"
+              className="text-brand-lg text-lg md:text-xl tracking-[0.15em] mb-16 text-white/40 italic"
             >
-              JUILLET 2026
+              [ Titre du drop à venir ]
             </motion.h2>
 
             <motion.div
@@ -159,7 +159,7 @@ const Drops = () => {
               viewport={{ once: true }}
               className="text-brand text-sm text-muted-foreground mb-10"
             >
-              Soyez notifié en avant-première
+              Votre accès en avant-première
             </motion.p>
 
             {submitted ? (

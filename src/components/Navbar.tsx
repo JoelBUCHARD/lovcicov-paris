@@ -147,6 +147,12 @@ const Navbar = () => {
                 >
                   Drops
                 </Link>
+                <Link
+                  to="/le-cercle"
+                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                >
+                  Le Cercle
+                </Link>
               </motion.div>
             )}
           </AnimatePresence>
@@ -188,6 +194,9 @@ const Navbar = () => {
               </Link>
               <Link to="/drops" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
                 Drops
+              </Link>
+              <Link to="/le-cercle" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
+                Le Cercle
               </Link>
             </div>
           </motion.div>
