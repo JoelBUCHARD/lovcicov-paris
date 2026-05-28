@@ -71,9 +71,10 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
-              MYSTICLOV
+            <p className="mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
+              MysticLov
             </p>
+
             <h1
               className="text-white mb-3 text-[18px] md:text-[30px]"
               style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
@@ -99,10 +100,22 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
-        <section className="w-full px-6 md:px-10 py-4 md:py-10" style={{ backgroundColor: BG }}>
+        <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
-            <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
-              MYSTICLOV
+            <p className="mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
+              MysticLov
+            </p>
+            <h2
+              className="mb-3"
+              style={{ fontFamily: "Arial, sans-serif", fontSize: 30, fontWeight: 300, color: INK }}
+            >
+              MysticLov
+            </h2>
+            <p
+              className="mb-8 italic"
+              style={{ fontFamily: "Arial, sans-serif", fontSize: 16, color: MUTED }}
+            >
+              Love is my frequency.
             </p>
             <p
               style={{
@@ -111,27 +124,18 @@ const MysticLovEditorial = () => {
                 color: MUTED,
                 maxWidth: 600,
                 margin: "0 auto",
-                lineHeight: 1.8,
-              }}
-            >
-              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
-              Des créations inspirées par les fréquences, les symboles et l'invisible.
-              Chaque pièce devient un mantra, une vibration, une énergie à porter.
-            </p>
-            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
-            <p
-              className="uppercase"
-              style={{
-                color: ACCENT,
-                fontSize: 10,
-                letterSpacing: "0.2em",
                 lineHeight: 1.9,
               }}
             >
-              Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
+              MysticLov explore une esthétique instinctive, spirituelle et contemporaine.
+              <br /><br />
+              Inspirée par les symboles, l'énergie et les rituels modernes, la collection mélange
+              mystère, émotion et élégance minimaliste à travers des pièces pensées comme des
+              talismans contemporains.
             </p>
           </div>
         </section>
+
 
         {/* BLOCK 3 — SPLIT 50/50 */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "auto" }}>
