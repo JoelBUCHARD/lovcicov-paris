@@ -94,7 +94,7 @@ const StoneLovEditorial = () => {
             >
               Rooted in the earth.
             </p>
-            <p
+            <div
               style={{
                 fontFamily: "Instrument Sans, system-ui, sans-serif",
                 fontSize: 15,
@@ -103,12 +103,29 @@ const StoneLovEditorial = () => {
                 margin: "0 auto",
                 lineHeight: 1.9,
               }}
+              className="space-y-6 text-left md:text-center"
             >
-              StoneLov puise son inspiration dans la pierre, la terre et les matières brutes.
-              <br /><br />
-              Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où
-              la matière protège autant qu'elle révèle.
-            </p>
+              <p>
+                StoneLov puise son inspiration dans la pierre, la terre et les matières brutes.
+                Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où
+                la matière protège autant qu'elle révèle.
+              </p>
+              <p>
+                Chaque collier StoneLov est assemblé à la main. Chaque pierre est sélectionnée une
+                à une, pour sa qualité, son énergie, sa singularité.
+              </p>
+              <p>
+                Aucune pièce n'est identique. Aucune n'est anodine.
+              </p>
+              <p>
+                Ici, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
+              </p>
+              <p>
+                StoneLov mélange artisanat précieux, énergie minérale et élégance instinctive dans
+                une collection de bijoux conçus pour celles et ceux qui cherchent du sens dans la
+                matière, et de la profondeur dans le détail.
+              </p>
+            </div>
           </div>
         </section>
 
