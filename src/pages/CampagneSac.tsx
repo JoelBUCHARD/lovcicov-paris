@@ -78,7 +78,7 @@ const CampagneSac = () => {
               lineHeight: 1.05,
             }}
           >
-            Un sac Saint Laurent
+            Un sac de luxe
           </h1>
           <h2
             className="italic"
@@ -112,60 +112,6 @@ const CampagneSac = () => {
             Découvrir les t-shirts
           </Link>
         </div>
-      </section>
-
-      {/* COUNTDOWN */}
-      <section
-        className="w-full text-center px-6"
-        style={{ backgroundColor: BEIGE, padding: '60px 24px' }}
-      >
-        <p
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 9,
-            textTransform: 'uppercase',
-            color: SOFT,
-            letterSpacing: '0.2em',
-          }}
-        >
-          T-shirts vendus
-        </p>
-        <p
-          style={{
-            fontFamily: ARIAL,
-            fontSize: 'clamp(60px, 12vw, 160px)',
-            fontWeight: 200,
-            color: INK,
-            lineHeight: 1.1,
-            marginTop: 16,
-          }}
-        >
-          {sold} / {target}
-        </p>
-
-        <div
-          className="mx-auto"
-          style={{
-            maxWidth: 600,
-            height: 4,
-            backgroundColor: BEIGE_BORDER,
-            marginTop: 24,
-            marginBottom: 16,
-          }}
-        >
-          <div
-            style={{
-              height: '100%',
-              width: `${pct}%`,
-              backgroundColor: INK,
-              transition: 'width 0.8s ease',
-            }}
-          />
-        </div>
-
-        <p className="italic" style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED }}>
-          Chaque t-shirt vendu vous rapproche du tirage.
-        </p>
       </section>
 
       {/* RULES */}
