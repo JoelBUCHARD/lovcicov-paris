@@ -136,29 +136,7 @@ const PowerLovEditorial = () => {
                   letterSpacing: "0.22em",
                 }}
               >
-                LOVCICOV PARIS
-              </p>
-              <h1
-                style={{
-                  ...editorialTitleStyle,
-                  color: "#F4F0E8",
-                  fontSize: "clamp(52px, 10vw, 132px)",
-                  lineHeight: 0.9,
-                }}
-                className="m-0 max-w-4xl uppercase"
-              >
                 POWER LOVE
-              </h1>
-              <p
-                className="mt-6 max-w-2xl"
-                style={{
-                  ...editorialTitleStyle,
-                  color: "#F4F0E8",
-                  fontSize: "clamp(24px, 4vw, 42px)",
-                  lineHeight: 1.08,
-                }}
-              >
-                L'attitude est le vrai luxe.
               </p>
               <p
                 className="mt-4 max-w-xl text-[15px] md:text-[17px]"
