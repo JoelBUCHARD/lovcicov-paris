@@ -53,8 +53,8 @@ const pageStyle = {
 };
 
 const editorialTitleStyle = {
-  fontFamily: "'Playfair Display', Georgia, serif",
-  fontWeight: 500,
+  fontFamily: "Instrument Sans, system-ui, sans-serif",
+  fontWeight: 400,
   letterSpacing: 0,
 };
 
@@ -90,7 +90,7 @@ const PowerLovEditorial = () => {
           <div className="relative z-10 flex min-h-[calc(100vh-73px)] items-end" style={{ padding: sectionPadding }}>
             <Reveal className="max-w-3xl" delay={120}>
               <p
-                className="mb-5 text-[11px]"
+                className="mb-5 text-[11px] uppercase"
                 style={{
                   color: "rgba(244,240,232,0.82)",
                   letterSpacing: "0.22em",
@@ -101,23 +101,20 @@ const PowerLovEditorial = () => {
               <button
                 type="button"
                 onClick={scrollToManifesto}
-                className="mt-8 inline-flex items-center justify-center border px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+                className="mt-8 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
                 style={{
-                  borderColor: "rgba(244,240,232,0.5)",
+                  backgroundColor: "#C8102E",
                   color: "#F4F0E8",
-                  backgroundColor: "transparent",
                   letterSpacing: "0.2em",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C8102E";
-                  e.currentTarget.style.borderColor = "#C8102E";
+                  e.currentTarget.style.backgroundColor = "#9E0C24";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "transparent";
-                  e.currentTarget.style.borderColor = "rgba(244,240,232,0.5)";
+                  e.currentTarget.style.backgroundColor = "#C8102E";
                 }}
               >
-                Découvrir
+                Découvrir la collection →
               </button>
             </Reveal>
           </div>
@@ -131,7 +128,7 @@ const PowerLovEditorial = () => {
         >
           <Reveal className="mx-auto max-w-3xl text-center">
             <p
-              className="mb-5 text-[11px]"
+              className="mb-5 text-[11px] uppercase"
               style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.22em" }}
             >
               La collection
@@ -139,8 +136,8 @@ const PowerLovEditorial = () => {
             <h2
               style={{
                 ...editorialTitleStyle,
-                fontSize: "clamp(36px, 5vw, 64px)",
-                lineHeight: 1.05,
+                fontSize: "clamp(28px, 4vw, 44px)",
+                lineHeight: 1.1,
               }}
               className="m-0 mb-3"
             >
@@ -149,7 +146,8 @@ const PowerLovEditorial = () => {
             <p
               className="mb-10 italic"
               style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
+                fontWeight: 300,
                 fontSize: "clamp(18px, 2vw, 22px)",
                 color: "rgba(13,13,13,0.7)",
               }}
@@ -222,7 +220,9 @@ const PowerLovEditorial = () => {
               style={{
                 ...editorialTitleStyle,
                 color: "#F4F0E8",
-                fontSize: "clamp(30px, 4vw, 52px)",
+                fontStyle: "italic",
+                fontWeight: 300,
+                fontSize: "clamp(28px, 4vw, 44px)",
                 lineHeight: 1.1,
               }}
               className="m-0 mb-6"
@@ -238,22 +238,20 @@ const PowerLovEditorial = () => {
             </p>
             <a
               href="/le-cercle"
-              className="mt-9 inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase transition-colors duration-300"
+              className="mt-9 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
               style={{
-                backgroundColor: "#F4F0E8",
-                color: "#0D0D0D",
+                backgroundColor: "#C8102E",
+                color: "#F4F0E8",
                 letterSpacing: "0.2em",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#C8102E";
-                e.currentTarget.style.color = "#F4F0E8";
+                e.currentTarget.style.backgroundColor = "#9E0C24";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#F4F0E8";
-                e.currentTarget.style.color = "#0D0D0D";
+                e.currentTarget.style.backgroundColor = "#C8102E";
               }}
             >
-              Rejoindre Le Cercle
+              Rejoindre Le Cercle →
             </a>
           </Reveal>
         </section>
