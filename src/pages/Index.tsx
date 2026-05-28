@@ -58,15 +58,6 @@ const Index = () => {
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-[15px] italic mb-5"
-            style={{ color: '#888780' }}
-          >
-            LOVCICOV Paris
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.95 }}
             className="mx-auto mb-6 px-8 md:px-12"
             style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '640px', lineHeight: 1.6 }}
