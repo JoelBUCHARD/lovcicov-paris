@@ -138,12 +138,6 @@ const PowerLovEditorial = () => {
               >
                 POWER LOVE
               </p>
-              <p
-                className="mt-4 max-w-xl text-[15px] md:text-[17px]"
-                style={{ color: "rgba(244,240,232,0.86)", lineHeight: 1.7 }}
-              >
-                On n'a rien inventé. On l'a juste écrit dans le dos.
-              </p>
               <button
                 type="button"
                 onClick={scrollToManifesto}
