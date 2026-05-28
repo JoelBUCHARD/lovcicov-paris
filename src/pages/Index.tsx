@@ -7,9 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
-import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import editorialStonelov from '@/assets/editorial-stonelov.png';
-import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
@@ -31,9 +29,7 @@ const fadeUp = {
 
 const Index = () => {
   const featured = bijouxProducts;
-  const { sold } = usePowerLovSalesCount();
-  const target = 1000;
-  const pct = Math.min(100, (sold / target) * 100);
+
 
 
   return (
@@ -105,7 +101,7 @@ const Index = () => {
             transition={{ duration: 1, delay: 1.4 }}
             className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
           >
-            Pièces uniques · Artisanat du monde · Délai assumé, qualité irréprochable
+            éditions limitées · slow fashion · éco-responsable
           </motion.p>
         </div>
       </section>
@@ -125,7 +121,7 @@ const Index = () => {
                   letterSpacing: '0.18em',
                 }}
               >
-                Présence · Énergie · Fréquence · Alignement · Luxe contemporain · Intuition · Transformation · Élégance instinctive · Émotion · Matière · Spiritualité moderne · Aura · Talisman · Luxe avec âme&nbsp;·&nbsp;
+                Clothes that change how you feel&nbsp;·&nbsp;
               </span>
             ))}
           </div>
@@ -148,29 +144,30 @@ const Index = () => {
           viewport={{ once: true }}
           className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
         >
-          Le Manifeste
+          MANIFESTE
         </motion.p>
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={1}
-          className="text-brand text-lg md:text-2xl text-muted-foreground tracking-[0.3em] mb-8 max-w-3xl mx-auto"
-        >
-          Pas une tendance. Une manière d'être.
-        </motion.h2>
-        <motion.p
+        <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={2}
-          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
+          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 space-y-5"
         >
-          Des vêtements qui reflètent un état d'esprit. Pour ceux qui choisissent 
-          leur propre direction et imposent leurs standards.
-        </motion.p>
+          <p>LOVCICOV incarne une vision du luxe où la présence l'emporte sur l'apparence.</p>
+          <p>Une esthétique instinctive, silencieuse et profondément émotionnelle.</p>
+          <p>Des pièces pensées pour révéler une allure avant même une silhouette.</p>
+          <p>Inspirée par la pierre, la lumière et la noblesse des matières brutes, la maison développe une vision du vêtement où l'allure devient une forme d'élégance instinctive.</p>
+          <p>Chaque création devient un talisman contemporain.</p>
+          <p>Une sensation. Une posture. Une signature.</p>
+          <p className="text-foreground tracking-[0.15em] uppercase text-sm">PowerLov. MysticLov. StoneLov.</p>
+          <p>Trois univers guidés par une même recherche : celle d'une élégance plus consciente, plus rare, plus incarnée.</p>
+          <p>Le noir absolu. Le blanc sacré. Le rouge profond.</p>
+          <p>Des lignes pures. Des mots comme des mantras. Une sophistication sans démonstration.</p>
+          <p className="text-foreground tracking-[0.15em] uppercase text-sm">Love is my frequency.</p>
+          <p className="text-foreground tracking-[0.15em] uppercase text-sm">Protected. Guided. Unstoppable.</p>
+          <p>LOVCICOV s'adresse à celles et ceux qui comprennent que le véritable luxe réside dans le calme, la maîtrise de soi et la liberté d'être pleinement aligné·e avec ce que l'on est.</p>
+        </motion.div>
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -191,23 +188,6 @@ const Index = () => {
       {/* EDITORIAL */}
       <section className="w-full bg-white pt-4 md:pt-16 pb-0 md:pb-[20px] flex justify-center">
         <div className="relative inline-block">
-          {/* LOVCICOV logo overlay on second photo */}
-          <div
-            aria-hidden="true"
-            className="absolute left-2 md:left-6 top-[78%] z-10 flex -translate-y-1/2 items-center pointer-events-none select-none"
-          >
-            <img
-              src={lovcicovLogo}
-              alt="LOVCICOV"
-              className="leading-none whitespace-nowrap"
-              style={{
-                width: 'clamp(180px, 42vw, 520px)',
-                opacity: 0.42,
-                filter: 'brightness(0)',
-              }}
-            />
-          </div>
-          {/* Image */}
           <img
             src={editorialStonelov}
             alt="LOVCICOV — Collection 2026"
@@ -412,7 +392,7 @@ const Index = () => {
               lineHeight: 1.05,
             }}
           >
-            Un sac Saint Laurent
+            Un sac de luxe
           </h2>
           <p
             className="italic"
@@ -432,63 +412,14 @@ const Index = () => {
               fontFamily: 'Arial, sans-serif',
               fontSize: 13,
               color: '#B4A99A',
-              marginTop: 20,
+              marginTop: 28,
+              maxWidth: 520,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              lineHeight: 1.6,
             }}
           >
-            Pour les {target} premiers t-shirts vendus.
-          </p>
-
-          {/* Counter */}
-          <p
-            className="uppercase"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 9,
-              color: '#B4A99A',
-              letterSpacing: '0.2em',
-              marginTop: 48,
-            }}
-          >
-            T-shirts vendus
-          </p>
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 'clamp(60px, 12vw, 140px)',
-              fontWeight: 200,
-              color: '#FFFFFF',
-              lineHeight: 1.1,
-              marginTop: 12,
-            }}
-          >
-            {sold} / {target}
-          </p>
-
-          <div
-            className="mx-auto"
-            style={{
-              maxWidth: 600,
-              height: 4,
-              backgroundColor: '#333333',
-              marginTop: 24,
-              marginBottom: 16,
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                width: `${pct}%`,
-                backgroundColor: '#FFFFFF',
-                transition: 'width 0.8s ease',
-              }}
-            />
-          </div>
-
-          <p
-            className="italic"
-            style={{ fontFamily: 'Arial, sans-serif', fontSize: 12, color: '#888780' }}
-          >
-            Chaque t-shirt vendu vous rapproche du tirage.
+            Un jeu confidentiel réservé à nos premières clientes. Chaque pièce achetée vous rapproche du tirage.
           </p>
 
           <Link

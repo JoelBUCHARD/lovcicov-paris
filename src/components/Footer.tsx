@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { Instagram, Facebook } from 'lucide-react';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 interface FooterProps {
@@ -61,9 +62,29 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
             </Link>
           </div>
 
-          <p className="text-[10px] text-muted-foreground/60">
-            © LOVCICOV {new Date().getFullYear()}
-          </p>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/lovcicov.paris/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Instagram size={16} strokeWidth={1.5} />
+            </a>
+            <a
+              href="https://www.facebook.com/lovcicov"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Facebook size={16} strokeWidth={1.5} />
+            </a>
+            <span className="text-[10px] text-muted-foreground/60 ml-2">
+              © LOVCICOV {new Date().getFullYear()}
+            </span>
+          </div>
         </div>
       </div>
     </footer>
