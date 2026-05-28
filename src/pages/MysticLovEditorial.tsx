@@ -36,24 +36,25 @@ const MysticLovEditorial = () => {
         >
           <Link
             to="/mysticlov"
-            style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}
+            className="text-[11px] uppercase"
+            style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
           >
             MysticLov
           </Link>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
           <Link
-            to="/mysticlov/shop"
-            className="uppercase px-4 py-2 transition-colors"
+            to="/le-cercle"
+            className="uppercase px-7 py-3 transition-colors text-[11px]"
             style={{
               backgroundColor: ACCENT,
               color: "#FFFFFF",
-              fontSize: 10,
-              letterSpacing: "0.15em",
+              letterSpacing: "0.2em",
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
           >
-            REJOINDRE LE CERCLE →
+            Rejoindre Le Cercle →
           </Link>
         </header>
 
@@ -71,28 +72,29 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
+            <p className="mb-5 text-[11px] uppercase" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
               MysticLov
             </p>
 
             <h1
-              className="text-white mb-3 text-[18px] md:text-[30px]"
-              style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
+              className="text-white mb-3 italic"
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(28px, 4vw, 44px)" }}
             >
               Love is my frequency.
             </h1>
             <Link
               to="/mysticlov/shop"
-              className="inline-block mt-4 uppercase transition-colors text-[7px] md:text-[9px] px-3 py-1.5 md:px-6 md:py-2.5"
+              className="inline-block mt-8 uppercase transition-colors text-[11px] px-7 py-3"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
-                letterSpacing: "0.15em",
+                letterSpacing: "0.2em",
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
             >
-              DÉCOUVRIR LA COLLECTION →
+              Découvrir la collection →
             </Link>
           </div>
         </section>
@@ -103,14 +105,20 @@ const MysticLovEditorial = () => {
         <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
             <p
+              className="mb-5 text-[11px] uppercase"
+              style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
+            >
+              La collection
+            </p>
+            <p
               className="mb-8 italic"
-              style={{ fontFamily: "Arial, sans-serif", fontSize: 16, color: MUTED }}
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(18px, 2vw, 22px)", color: MUTED }}
             >
               Love is my frequency.
             </p>
             <p
               style={{
-                fontFamily: "Arial, sans-serif",
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
                 fontSize: 13,
                 color: MUTED,
                 maxWidth: 600,
@@ -138,15 +146,16 @@ const MysticLovEditorial = () => {
             style={{ backgroundColor: BG }}
           >
             <div className="max-w-md text-center">
-              <p className="uppercase mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
-                L'HISTOIRE
+              <p className="uppercase mb-5 text-[11px]" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+                L'histoire
               </p>
               <h2
-                style={{ fontFamily: "Arial, sans-serif", fontSize: 28, fontWeight: 300, color: INK, marginBottom: 24 }}
+                className="italic mb-6"
+                style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 300, color: INK, lineHeight: 1.1 }}
               >
                 Portez ce en quoi vous croyez.
               </h2>
-              <p style={{ fontFamily: "Arial, sans-serif", fontSize: 13, color: MUTED, lineHeight: 1.8 }}>
+              <p style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontSize: 13, color: MUTED, lineHeight: 1.8 }}>
                 Vierge Marie. Tarot. Symboles sacrés. Fréquences invisibles.
                 <br />
                 MysticLov ne se cache pas. MysticLov s'assume.
@@ -170,16 +179,16 @@ const MysticLovEditorial = () => {
           />
           <div className="absolute inset-y-0 left-0 flex items-center px-6 md:pl-[60px] md:pr-6">
             <div className="max-w-md">
-              <p className="uppercase mb-5 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
-                LE CERCLE
+              <p className="uppercase mb-5 text-[11px]" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+                Le Cercle
               </p>
               <h2
-                className="text-white mb-5 text-[22px] md:text-[30px]"
-                style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic" }}
+                className="text-white mb-5 italic"
+                style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1 }}
               >
                 Wear your energy.
               </h2>
-              <p className="text-white text-[11px] md:text-[12px]" style={{ fontFamily: "Arial, sans-serif", opacity: 0.8, lineHeight: 1.8 }}>
+              <p className="text-white text-[13px]" style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", opacity: 0.8, lineHeight: 1.8 }}>
                 MysticLov s'adresse à celles et ceux qui assument leurs symboles.
                 Qui savent ce qu'ils portent et pourquoi.
               </p>
@@ -217,17 +226,17 @@ const MysticLovEditorial = () => {
           <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
             <Link
               to="/mysticlov/shop"
-              className="uppercase transition-colors px-5 py-2.5 md:px-6 md:py-3"
+              className="uppercase transition-colors px-7 py-3 text-[11px]"
               style={{
-                backgroundColor: "#000000",
+                backgroundColor: ACCENT,
                 color: "#FFFFFF",
-                fontSize: 8,
-                letterSpacing: "0.15em",
+                letterSpacing: "0.2em",
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#333333")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#000000")}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
             >
-              DÉCOUVRIR LA COLLECTION
+              Découvrir la collection →
             </Link>
           </div>
         </section>
