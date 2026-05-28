@@ -142,36 +142,17 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 3 — SPLIT 50/50 */}
-        <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "auto" }}>
-          <div className="w-full md:w-1/2 h-[55vh] md:h-auto flex items-center justify-center p-0 md:p-6">
-            <img src={seatedRooftop} alt="L'histoire MysticLov" className="w-full h-full object-cover" style={{ objectPosition: "center 70%" }} />
-          </div>
-          <div
-            className="w-full md:w-1/2 flex items-center justify-center px-10 py-10 md:py-0"
-            style={{ backgroundColor: BG }}
-          >
-            <div className="max-w-md text-center">
-              <p className="uppercase mb-5 text-[11px]" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
-                L'histoire
-              </p>
-              <h2
-                className="italic mb-6"
-                style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 300, color: INK, lineHeight: 1.1 }}
-              >
-                Portez ce en quoi vous croyez.
-              </h2>
-              <p style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontSize: 13, color: MUTED, lineHeight: 1.8 }}>
-                Vierge Marie. Tarot. Symboles sacrés. Fréquences invisibles.
-                <br />
-                MysticLov ne se cache pas. MysticLov s'assume.
-              </p>
-              <div className="my-8 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
-            </div>
-          </div>
+        {/* BLOCK 3 — IMAGE */}
+        <section className="w-full overflow-hidden" style={{ backgroundColor: BG }}>
+          <img
+            src={seatedRooftop}
+            alt="L'histoire MysticLov"
+            className="w-full h-[55vh] md:h-[80vh] object-cover"
+            style={{ objectPosition: "center 70%" }}
+          />
         </section>
 
-        {/* BLOCK 4 — FULL WIDTH IMAGE WITH SIDE TEXT */}
+        {/* BLOCK 4 — FULL WIDTH IMAGE */}
         <section className="relative w-full overflow-hidden mt-2 mb-5 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
           <img
             src={groupShot}
@@ -179,27 +160,6 @@ const MysticLovEditorial = () => {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "65% center" }}
           />
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 45%, transparent 70%)" }}
-          />
-          <div className="absolute inset-y-0 left-0 flex items-center px-6 md:pl-[60px] md:pr-6">
-            <div className="max-w-md">
-              <p className="uppercase mb-5 text-[11px]" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
-                Le Cercle
-              </p>
-              <h2
-                className="text-white mb-5 italic"
-                style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1 }}
-              >
-                Wear your energy.
-              </h2>
-              <p className="text-white text-[13px]" style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", opacity: 0.8, lineHeight: 1.8 }}>
-                MysticLov s'adresse à celles et ceux qui assument leurs symboles.
-                Qui savent ce qu'ils portent et pourquoi.
-              </p>
-            </div>
-          </div>
         </section>
 
 
