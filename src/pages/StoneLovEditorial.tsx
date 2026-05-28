@@ -118,42 +118,10 @@ const StoneLovEditorial = () => {
         {/* BLOCK 2 — FULL WIDTH TALISMAN */}
         <section className="relative w-screen overflow-hidden h-[60vh] md:h-[80vh]" style={{ backgroundColor: BG }}>
           <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
-
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{ background: "linear-gradient(to bottom, rgba(26,26,26,0) 40%, rgba(26,26,26,0.5) 100%)" }}
-          />
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 pb-6 md:pb-10">
-            <p className="text-white text-[13px]" style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", opacity: 0.85, maxWidth: 480, lineHeight: 1.8, textShadow: "0 1px 4px rgba(0,0,0,0.5)" }}>
-              Chaque pierre est choisie pour son énergie, sa couleur, son histoire. Chez StoneLov, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
-            </p>
-          </div>
         </section>
 
         {/* PHOTO GRID */}
         <StoneLovGrid />
-
-        {/* BLOCK 3 — SPLIT */}
-        <div style={{ height: 20, backgroundColor: BG }} />
-        <section className="flex flex-col md:flex-row w-full md:min-h-screen md:pt-5">
-          <div className="w-full md:w-1/2 flex items-center justify-center px-10 py-8 md:py-0 order-2 md:order-1" style={{ backgroundColor: "#FDF5EF" }}>
-            <div className="max-w-md">
-              <p className="uppercase mb-5 text-[11px]" style={{ color: TERRA, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
-                Le savoir-faire
-              </p>
-              <p style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontSize: 13, color: WARM, lineHeight: 1.8 }}>
-                Chaque collier StoneLov est assemblé à la main. Nous sélectionnons chaque pierre une à une, pour sa qualité, son énergie et sa singularité. Aucune pièce n'est identique.
-              </p>
-              <div className="h-px" style={{ width: 40, backgroundColor: TERRA, margin: "24px 0" }} />
-              <p className="text-[11px]" style={{ color: TERRA, letterSpacing: "0.1em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
-                Pierres naturelles · Monture dorée · Paris
-              </p>
-            </div>
-          </div>
-          <div className="w-full md:w-1/2 h-[70vh] md:h-auto order-1 md:order-2">
-            <img src={savoirfaire} alt="Savoir-faire" className="w-full h-full object-cover" />
-          </div>
-        </section>
 
         {/* BLOCK 4 — CLOSING */}
         <div style={{ height: 20, backgroundColor: BG }} />
@@ -161,12 +129,6 @@ const StoneLovEditorial = () => {
           <img src={closing} alt="Very Slow Fashion" className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover" style={{ objectPosition: "center 30%" }} />
 
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
-            <h2
-              className="mb-6 italic"
-              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1, letterSpacing: "0.01em" }}
-            >
-              Protected. Guided. Unstoppable.
-            </h2>
             <Link
               to="/collections/bijoux"
               className="uppercase transition-colors px-7 py-3 text-[11px]"
