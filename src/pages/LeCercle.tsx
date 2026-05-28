@@ -75,18 +75,31 @@ const LeCercle = () => {
             </p>
 
             <div className="pt-6">
-              <p className="text-foreground mb-6">Le Cercle partage :</p>
-              <ul className="space-y-2 text-left max-w-sm mx-auto">
-                <li>— accès anticipés</li>
-                <li>— pièces exclusives</li>
-                <li>— contenus éditoriaux</li>
-                <li>— expériences interactives</li>
-                <li>— inspirations mode &amp; énergie</li>
-                <li>— messages privés de la fondatrice</li>
-                <li>— invitations confidentielles</li>
-                <li>— surprises et drops limités</li>
+              <p className="text-foreground mb-10">Le Cercle partage</p>
+              <ul className="max-w-md mx-auto divide-y divide-foreground/10 border-y border-foreground/10">
+                {[
+                  'Accès anticipés',
+                  'Pièces exclusives',
+                  'Contenus éditoriaux',
+                  'Expériences interactives',
+                  'Inspirations mode & énergie',
+                  'Messages privés de la fondatrice',
+                  'Invitations confidentielles',
+                  'Surprises et drops limités',
+                ].map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-baseline justify-between gap-6 py-4 text-foreground"
+                  >
+                    <span className="text-brand text-[10px] tracking-[0.2em] text-muted-foreground tabular-nums">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="flex-1 text-left text-sm md:text-base">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
+
 
             <p className="text-foreground italic pt-4">
               Un espace entre mode, intuition et désir.
