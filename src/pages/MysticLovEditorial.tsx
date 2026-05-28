@@ -197,21 +197,22 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
+        {/* BLOCK 5 — MOSAIQUE 6 IMAGES — mix de devant & dos (Sunshine + fond noir) */}
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[duoRooftop, greenTee, hoodieRooftop, rooftopArmsOpen, hoodieMadonnaParis, rooftopMadonna].map((img, i) => (
+            {[rooftopArmsOpen, greenTee, hoodieMadonnaParis, duoRooftop, hoodieRooftop, rooftopMadonna].map((img, i) => (
               <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
                 <img
                   src={img}
-                  alt={`MysticLov communauté ${i + 1}`}
+                  alt={`MysticLov ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: i === 1 || i === 2 || i === 3 || i === 4 || i === 5 ? "center 15%" : "center center" }}
+                  style={{ objectPosition: "center 15%" }}
                 />
               </div>
             ))}
           </div>
         </section>
+
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
         <section className="relative w-screen h-auto md:h-screen overflow-hidden mt-2 mb-0 md:my-5" style={{ backgroundColor: BG }}>
@@ -244,11 +245,12 @@ const MysticLovEditorial = () => {
         <section className="py-6 md:py-12 px-6" style={{ backgroundColor: BG }}>
           <div className="w-full h-px mb-8" style={{ backgroundColor: SEP }} />
           <p
-            className="text-center uppercase mb-4"
+            className="text-center mb-4"
             style={{ color: ACCENT, fontSize: 10, letterSpacing: "0.2em" }}
           >
-            MYSTICLOV · Broderies dorées · Pièces uniques · Paris
+            MysticLov · Broderies dorées · Pièces uniques · Paris
           </p>
+
           <div className="flex justify-center gap-6 uppercase" style={{ fontSize: 11, letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: SOFT }}>
               PowerLov
