@@ -102,9 +102,6 @@ const MysticLovEditorial = () => {
         {/* BLOCK 2 — UNIVERSE INTRO */}
         <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
-            <p className="mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
-              MysticLov
-            </p>
             <h2
               className="mb-3"
               style={{ fontFamily: "Arial, sans-serif", fontSize: 30, fontWeight: 300, color: INK }}
