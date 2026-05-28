@@ -53,11 +53,12 @@ const Manifeste = () => {
               Une posture.<br />
               Une signature.
             </p>
-            <p className="text-foreground tracking-[0.15em] uppercase text-sm">
-              POWERLOV.<br />
-              MYSTICLOV.<br />
-              STONELOV.
+            <p className="text-foreground tracking-[0.15em] text-sm">
+              PowerLov.<br />
+              MysticLov.<br />
+              StoneLov.
             </p>
+
             <p>Trois univers guidés par une même recherche : celle d'une élégance plus consciente, plus rare, plus incarnée.</p>
             <p className="text-foreground italic">
               Le noir absolu.<br />

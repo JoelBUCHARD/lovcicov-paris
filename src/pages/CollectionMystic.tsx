@@ -38,10 +38,10 @@ const CollectionMystic = () => {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="uppercase mb-2"
+            className="mb-2"
             style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
           >
-            MYSTICLOV
+            MysticLov
           </motion.p>
           <motion.p
             variants={fadeUp}
@@ -60,10 +60,11 @@ const CollectionMystic = () => {
               className="mx-auto"
               style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#5F5E5A', maxWidth: 600, lineHeight: 1.7 }}
             >
-              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
-              Des créations inspirées par les fréquences, les symboles et l'invisible.
-              Chaque pièce devient un mantra, une vibration, une énergie à porter.
+              MysticLov explore une esthétique instinctive, spirituelle et contemporaine.
+              Inspirée par les symboles, l'énergie et les rituels modernes, la collection mélange
+              mystère, émotion et élégance minimaliste à travers des pièces pensées comme des talismans contemporains.
             </motion.p>
+
             <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
             <motion.p
               variants={fadeUp}

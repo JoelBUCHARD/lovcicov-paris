@@ -7,7 +7,6 @@ import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
 import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
 import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
 import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
-import disciplineAge from "@/assets/powerlov/powerlov-discipline-age.png";
 
 type RevealProps = {
   children: ReactNode;
@@ -15,53 +14,13 @@ type RevealProps = {
   delay?: number;
 };
 
-type MessageBlock = {
-  title: string;
-  copy: string;
-  image: string;
-  imageAlt: string;
-  theme: "light" | "dark";
-  reverse?: boolean;
-};
-
-const messages: MessageBlock[] = [
-  {
-    title: "Discipline is my luxury",
-    copy: "Le vrai flex, c'est de tenir ses promesses. À soi-même d'abord.",
-    image: disciplineLounge,
-    imageAlt: "Femme portant le t-shirt Discipline is my luxury dans un décor clair et solaire",
-    theme: "light",
-  },
-  {
-    title: "Connected. Disciplined. Empowered.",
-    copy: "Quand tout s'aligne, l'allure fait le reste. Pas besoin d'en faire trop.",
-    image: connectedNight,
-    imageAlt: "Silhouette de dos portant le message Connected. Disciplined. Empowered. de nuit",
-    theme: "dark",
-    reverse: true,
-  },
-  {
-    title: "Energy never lies",
-    copy: "Votre sourire ment peut-être. Votre énergie, jamais.",
-    image: energyParis,
-    imageAlt: "Femme dans une rue parisienne portant le t-shirt Energy never lies",
-    theme: "light",
-  },
-  {
-    title: "God is a dancer",
-    copy: "La vie a son rythme. Et visiblement, vous tenez la piste.",
-    image: dancerBack,
-    imageAlt: "Femme de dos portant le message God is a dancer dans une rue parisienne",
-    theme: "dark",
-    reverse: true,
-  },
-  {
-    title: "God is a DJ",
-    copy: "Vous n'avez pas besoin de tout contrôler. Juste d'arriver au bon tempo.",
-    image: godDjBlack,
-    imageAlt: "Homme portant un t-shirt noir God is a DJ devant une façade parisienne",
-    theme: "light",
-  },
+// Designs Bertrand 01, 02, 03, 04, 07 — mix t-shirts blancs & noirs, message centré devant
+const products = [
+  { image: disciplineLounge, alt: "PowerLov — design 01" },
+  { image: connectedNight, alt: "PowerLov — design 02" },
+  { image: energyParis, alt: "PowerLov — design 03" },
+  { image: dancerBack, alt: "PowerLov — design 04" },
+  { image: godDjBlack, alt: "PowerLov — design 07" },
 ];
 
 const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
@@ -112,10 +71,11 @@ const PowerLovEditorial = () => {
       <Navbar />
 
       <main className="pt-[73px] overflow-hidden">
+        {/* HERO */}
         <section className="relative min-h-[calc(100vh-73px)] w-full">
           <img
             src={heroImage}
-            alt="Power Love par LOVCICOV Paris, femme portant un t-shirt Discipline is my luxury près d'une Porsche"
+            alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: "center center" }}
           />
@@ -130,13 +90,13 @@ const PowerLovEditorial = () => {
           <div className="relative z-10 flex min-h-[calc(100vh-73px)] items-end" style={{ padding: sectionPadding }}>
             <Reveal className="max-w-3xl" delay={120}>
               <p
-                className="mb-5 text-[11px] uppercase"
+                className="mb-5 text-[11px]"
                 style={{
                   color: "rgba(244,240,232,0.82)",
                   letterSpacing: "0.22em",
                 }}
               >
-                POWER LOVE
+                PowerLov
               </p>
               <button
                 type="button"
@@ -163,230 +123,137 @@ const PowerLovEditorial = () => {
           </div>
         </section>
 
+        {/* DESCRIPTIF */}
         <section
           id="powerlov-manifesto"
           className="w-full"
-          style={{ backgroundColor: "#0D0D0D", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
-          <Reveal className="mx-auto max-w-5xl text-center">
+          <Reveal className="mx-auto max-w-3xl text-center">
             <p
-              className="mb-5 text-[11px] uppercase"
-              style={{ color: "rgba(244,240,232,0.72)", letterSpacing: "0.22em" }}
+              className="mb-5 text-[11px]"
+              style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.22em" }}
             >
-              Le manifeste
+              La collection
             </p>
-            <p
+            <h2
               style={{
                 ...editorialTitleStyle,
-                color: "#F4F0E8",
-                fontSize: "clamp(26px, 4vw, 54px)",
-                lineHeight: 1.22,
+                fontSize: "clamp(36px, 5vw, 64px)",
+                lineHeight: 1.05,
               }}
-              className="m-0"
+              className="m-0 mb-3"
             >
-              Power Love, c'est pour celles qui ont du cran. Et ceux qui assument. Pour la fille de 20 ans qui veut de l'audace. La femme de 60 qui veut du rock. La maman qui jongle. La rebelle qui aligne. Mille vies, une seule règle : porter sa vérité sans la murmurer.
+              PowerLov
+            </h2>
+            <p
+              className="mb-10 italic"
+              style={{
+                fontFamily: "'Playfair Display', Georgia, serif",
+                fontSize: "clamp(18px, 2vw, 22px)",
+                color: "rgba(13,13,13,0.7)",
+              }}
+            >
+              Wear your power.
             </p>
+            <div
+              className="space-y-6 text-[15px] md:text-[16px]"
+              style={{ color: "rgba(13,13,13,0.78)", lineHeight: 1.9 }}
+            >
+              <p>
+                PowerLov incarne une vision contemporaine de la puissance parisienne : silencieuse,
+                instinctive et parfaitement maîtrisée.
+              </p>
+              <p>
+                Inspirée par l'allure effortless de la Parisienne, la collection explore cette capacité
+                unique à imposer une présence sans jamais en faire trop.
+              </p>
+              <p>
+                Des lignes fortes.<br />
+                Des silhouettes épurées.<br />
+                Des pièces pensées pour accompagner le mouvement, structurer l'allure et révéler une
+                confiance naturelle.
+              </p>
+              <p>
+                Ici, la puissance ne se montre pas.<br />
+                Elle se ressent dans une attitude, une démarche, une façon d'occuper l'espace.
+              </p>
+              <p>
+                PowerLov mélange sophistication minimaliste, énergie urbaine et élégance émotionnelle
+                dans un vestiaire conçu pour celles et ceux qui avancent avec calme, intensité et liberté.
+              </p>
+            </div>
           </Reveal>
         </section>
 
+        {/* PRODUITS — images seules, message centré sur le devant */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
-          {messages.map((message, index) => {
-            const isDark = message.theme === "dark";
-
-            return (
-              <section
-                key={message.title}
-                className="w-full"
-                style={{
-                  backgroundColor: isDark ? "#0D0D0D" : "#F4F0E8",
-                  color: isDark ? "#F4F0E8" : "#0D0D0D",
-                }}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ backgroundColor: "#0D0D0D" }}>
+            {products.map((product) => (
+              <div
+                key={product.alt}
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
-                <Reveal
-                  className={`mx-auto grid max-w-[1600px] grid-cols-1 items-stretch gap-0 md:grid-cols-2 ${
-                    message.reverse ? "md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1" : ""
-                  }`}
-                >
-                  <div className="min-h-[520px] md:min-h-[720px]">
-                    <img
-                      src={message.image}
-                      alt={message.imageAlt}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div
-                    className="flex items-center"
-                    style={{ padding: "clamp(28px, 6vw, 96px)" }}
-                  >
-                    <div className="max-w-xl">
-                      <p
-                        className="mb-4 text-[11px] uppercase"
-                        style={{
-                          color: isDark ? "rgba(244,240,232,0.68)" : "rgba(13,13,13,0.48)",
-                          letterSpacing: "0.2em",
-                        }}
-                      >
-                        Message {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <h2
-                        style={{
-                          ...editorialTitleStyle,
-                          fontSize: "clamp(36px, 5vw, 76px)",
-                          lineHeight: 0.96,
-                        }}
-                        className="m-0 max-w-lg uppercase"
-                      >
-                        {message.title}
-                      </h2>
-                      <p
-                        className="mt-6 max-w-md text-[16px] md:text-[18px]"
-                        style={{
-                          color: isDark ? "rgba(244,240,232,0.86)" : "rgba(13,13,13,0.76)",
-                          lineHeight: 1.8,
-                        }}
-                      >
-                        {message.copy}
-                      </p>
-                    </div>
-                  </div>
-                </Reveal>
-              </section>
-            );
-          })}
+                <img
+                  src={product.image}
+                  alt={product.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </section>
 
-        <section
-          className="w-full"
-          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
-        >
-          <Reveal className="mx-auto grid max-w-[1450px] grid-cols-1 gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div>
-              <p
-                className="mb-4 text-[11px] uppercase"
-                style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.2em" }}
-              >
-                Pour qui ?
-              </p>
-              <h2
-                style={{
-                  ...editorialTitleStyle,
-                  fontSize: "clamp(34px, 4.7vw, 68px)",
-                  lineHeight: 1,
-                }}
-                className="m-0 max-w-3xl"
-              >
-                20 ans ou 60 ans. La même audace.
-              </h2>
-              <p
-                className="mt-8 max-w-2xl text-[16px] md:text-[18px]"
-                style={{ color: "rgba(13,13,13,0.76)", lineHeight: 1.9 }}
-              >
-                Power Love ne demande pas votre âge. Juste votre cran. La fille qui démarre, la maman
-                qui jongle, la femme qui n'a plus rien à prouver — même blanc, même message, mille façons
-                de le porter.
-              </p>
-            </div>
-            <div className="overflow-hidden">
-              <img
-                src={disciplineAge}
-                alt="Femme souriante portant le message Discipline is my luxury dans une rue parisienne"
-                loading="lazy"
-                className="h-full min-h-[520px] w-full object-cover"
-              />
-            </div>
-          </Reveal>
-        </section>
-
+        {/* REJOINDRE LE CERCLE — version simple */}
         <section
           className="w-full"
           style={{ backgroundColor: "#0D0D0D", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
-          <Reveal className="mx-auto grid max-w-[1450px] grid-cols-1 gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
-            <div className="overflow-hidden">
-              <img
-                src={connectedNight}
-                alt="Détail du t-shirt blanc Power Love avec le message Connected. Disciplined. Empowered."
-                loading="lazy"
-                className="h-full min-h-[520px] w-full object-cover"
-                style={{ objectPosition: "center 18%" }}
-              />
-            </div>
-            <div>
-              <p
-                className="mb-4 text-[11px] uppercase"
-                style={{ color: "rgba(244,240,232,0.66)", letterSpacing: "0.2em" }}
-              >
-                La promesse premium
-              </p>
-              <h2
-                style={{
-                  ...editorialTitleStyle,
-                  color: "#F4F0E8",
-                  fontSize: "clamp(34px, 4.6vw, 64px)",
-                  lineHeight: 1.04,
-                }}
-                className="m-0 max-w-3xl"
-              >
-                Du beau coton, une coupe oversize parfaite, une fabrication soignée.
-              </h2>
-              <p
-                className="mt-7 max-w-xl text-[16px] md:text-[18px]"
-                style={{ color: "rgba(244,240,232,0.82)", lineHeight: 1.9 }}
-              >
-                Le reste, c'est vous qui l'apportez. L'allure. L'énergie. Le petit supplément d'âme qui
-                fait qu'un t-shirt blanc ne ressemble soudain à aucun autre.
-              </p>
-            </div>
-          </Reveal>
-        </section>
-
-        <section
-          className="w-full"
-          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
-        >
-          <Reveal className="mx-auto max-w-4xl text-center">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <p
-              className="mb-4 text-[11px] uppercase"
-              style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.2em" }}
+              className="mb-5 text-[11px] uppercase"
+              style={{ color: "rgba(244,240,232,0.6)", letterSpacing: "0.22em" }}
             >
               Le Cercle
             </p>
             <h2
               style={{
                 ...editorialTitleStyle,
-                fontSize: "clamp(34px, 4.8vw, 72px)",
-                lineHeight: 1,
+                color: "#F4F0E8",
+                fontSize: "clamp(30px, 4vw, 52px)",
+                lineHeight: 1.1,
               }}
-              className="m-0"
+              className="m-0 mb-6"
             >
-              Power Love, c'est plus qu'une collection. C'est une bande.
+              Rejoindre Le Cercle
             </h2>
             <p
-              className="mx-auto mt-6 max-w-2xl text-[16px] md:text-[18px]"
-              style={{ color: "rgba(13,13,13,0.76)", lineHeight: 1.9 }}
+              className="mx-auto text-[15px] md:text-[16px]"
+              style={{ color: "rgba(244,240,232,0.78)", lineHeight: 1.9 }}
             >
-              Rejoignez Le Cercle de Georgiana. Des pièces, des idées, des élans, et cette sensation très
-              chic de ne pas être seule à penser comme ça.
+              Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
+              drops limités et invitations privées.
             </p>
             <a
-              href="https://lovcicov.paris/collections/power-love"
+              href="/le-cercle"
               className="mt-9 inline-flex items-center justify-center px-8 py-4 text-[11px] uppercase transition-colors duration-300"
               style={{
-                backgroundColor: "#0D0D0D",
-                color: "#F4F0E8",
+                backgroundColor: "#F4F0E8",
+                color: "#0D0D0D",
                 letterSpacing: "0.2em",
               }}
               onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#C8102E";
+                e.currentTarget.style.color = "#F4F0E8";
+              }}
+              onMouseLeave={(e) => {
                 e.currentTarget.style.backgroundColor = "#F4F0E8";
                 e.currentTarget.style.color = "#0D0D0D";
               }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#0D0D0D";
-                e.currentTarget.style.color = "#F4F0E8";
-              }}
             >
-              Découvrir la collection
+              Rejoindre Le Cercle
             </a>
           </Reveal>
         </section>

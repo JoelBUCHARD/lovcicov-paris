@@ -36,10 +36,9 @@ const MysticLovEditorial = () => {
         >
           <Link
             to="/mysticlov"
-            className="uppercase"
             style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}
           >
-            MYSTICLOV
+            MysticLov
           </Link>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
           <Link
@@ -58,6 +57,7 @@ const MysticLovEditorial = () => {
           </Link>
         </header>
 
+
         {/* BLOCK 1 — HERO */}
         <section className="relative w-screen h-auto md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
           <img
@@ -71,9 +71,10 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
-              MYSTICLOV
+            <p className="mb-3 text-[8px] md:text-[9px]" style={{ color: ACCENT, letterSpacing: "0.2em" }}>
+              MysticLov
             </p>
+
             <h1
               className="text-white mb-3 text-[18px] md:text-[30px]"
               style={{ fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2 }}
@@ -99,10 +100,22 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 2 — UNIVERSE INTRO */}
-        <section className="w-full px-6 md:px-10 py-4 md:py-10" style={{ backgroundColor: BG }}>
+        <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
           <div className="max-w-[640px] mx-auto text-center">
-            <p className="uppercase mb-4" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
-              MYSTICLOV
+            <p className="mb-6" style={{ color: ACCENT, fontSize: 9, letterSpacing: "0.2em" }}>
+              MysticLov
+            </p>
+            <h2
+              className="mb-3"
+              style={{ fontFamily: "Arial, sans-serif", fontSize: 30, fontWeight: 300, color: INK }}
+            >
+              MysticLov
+            </h2>
+            <p
+              className="mb-8 italic"
+              style={{ fontFamily: "Arial, sans-serif", fontSize: 16, color: MUTED }}
+            >
+              Love is my frequency.
             </p>
             <p
               style={{
@@ -111,27 +124,18 @@ const MysticLovEditorial = () => {
                 color: MUTED,
                 maxWidth: 600,
                 margin: "0 auto",
-                lineHeight: 1.8,
-              }}
-            >
-              MYSTICLOV mélange spiritualité contemporaine, intuition et esthétique émotionnelle.
-              Des créations inspirées par les fréquences, les symboles et l'invisible.
-              Chaque pièce devient un mantra, une vibration, une énergie à porter.
-            </p>
-            <div className="my-6 h-px mx-auto" style={{ width: 60, backgroundColor: SEP }} />
-            <p
-              className="uppercase"
-              style={{
-                color: ACCENT,
-                fontSize: 10,
-                letterSpacing: "0.2em",
                 lineHeight: 1.9,
               }}
             >
-              Fréquence · Intuition · Énergie · Spiritualité · Rituel · Vibration · Mystère · Symboles · Protection · Guidance · Sacré · Oracle · Éveil
+              MysticLov explore une esthétique instinctive, spirituelle et contemporaine.
+              <br /><br />
+              Inspirée par les symboles, l'énergie et les rituels modernes, la collection mélange
+              mystère, émotion et élégance minimaliste à travers des pièces pensées comme des
+              talismans contemporains.
             </p>
           </div>
         </section>
+
 
         {/* BLOCK 3 — SPLIT 50/50 */}
         <section className="flex flex-col md:flex-row w-full" style={{ minHeight: "auto" }}>
@@ -193,21 +197,22 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
+        {/* BLOCK 5 — MOSAIQUE 6 IMAGES — mix de devant & dos (Sunshine + fond noir) */}
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[duoRooftop, greenTee, hoodieRooftop, rooftopArmsOpen, hoodieMadonnaParis, rooftopMadonna].map((img, i) => (
+            {[rooftopArmsOpen, greenTee, hoodieMadonnaParis, duoRooftop, hoodieRooftop, rooftopMadonna].map((img, i) => (
               <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
                 <img
                   src={img}
-                  alt={`MysticLov communauté ${i + 1}`}
+                  alt={`MysticLov ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: i === 1 || i === 2 || i === 3 || i === 4 || i === 5 ? "center 15%" : "center center" }}
+                  style={{ objectPosition: "center 15%" }}
                 />
               </div>
             ))}
           </div>
         </section>
+
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
         <section className="relative w-screen h-auto md:h-screen overflow-hidden mt-2 mb-0 md:my-5" style={{ backgroundColor: BG }}>
@@ -240,11 +245,12 @@ const MysticLovEditorial = () => {
         <section className="py-6 md:py-12 px-6" style={{ backgroundColor: BG }}>
           <div className="w-full h-px mb-8" style={{ backgroundColor: SEP }} />
           <p
-            className="text-center uppercase mb-4"
+            className="text-center mb-4"
             style={{ color: ACCENT, fontSize: 10, letterSpacing: "0.2em" }}
           >
-            MYSTICLOV · Broderies dorées · Pièces uniques · Paris
+            MysticLov · Broderies dorées · Pièces uniques · Paris
           </p>
+
           <div className="flex justify-center gap-6 uppercase" style={{ fontSize: 11, letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: SOFT }}>
               PowerLov

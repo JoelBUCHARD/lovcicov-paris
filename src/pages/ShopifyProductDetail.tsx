@@ -109,8 +109,9 @@ const ShopifyProductDetail = () => {
       <Navbar />
       <main className="pt-36 pb-8 px-6 md:px-12">
         <Link to={backLink} className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10">
-          RETOUR À MYSTICLOV
+          Retour à MysticLov
         </Link>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-24 max-w-6xl">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
@@ -139,9 +140,10 @@ const ShopifyProductDetail = () => {
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F7F5F0]">
-            <p className="text-[9px] uppercase tracking-[0.18em] font-medium text-[#8A8985] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
-              MYSTICLOV
+            <p className="text-[9px] tracking-[0.18em] font-medium text-[#8A8985] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
+              MysticLov
             </p>
+
             <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
               {product.title}
             </h1>

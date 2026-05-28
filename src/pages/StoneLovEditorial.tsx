@@ -25,9 +25,10 @@ const StoneLovEditorial = () => {
           className="sticky top-[73px] left-0 right-0 z-40 flex items-center justify-between px-6"
           style={{ backgroundColor: BG, height: 48, borderBottom: `0.5px solid ${BORDER}` }}
         >
-          <Link to="/stonelov" className="text-[10px] uppercase" style={{ color: INK, letterSpacing: "0.2em" }}>
-            STONELOV
+          <Link to="/stonelov" className="text-[10px]" style={{ color: INK, letterSpacing: "0.2em" }}>
+            StoneLov
           </Link>
+
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: BORDER }} />
           <Link
             to="/collections/bijoux"
@@ -49,9 +50,10 @@ const StoneLovEditorial = () => {
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
-            <p className="uppercase mb-3 text-[8px] md:text-[9px] inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.2em", backgroundColor: "rgba(255,255,255,0.4)" }}>
-              STONELOV
+            <p className="mb-3 text-[8px] md:text-[9px] inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.2em", backgroundColor: "rgba(255,255,255,0.4)" }}>
+              StoneLov
             </p>
+
             <h1
               className="mb-3 text-[18px] md:text-[30px]"
               style={{ color: INK, fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", lineHeight: 1.2, textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
@@ -140,9 +142,10 @@ const StoneLovEditorial = () => {
 
         {/* BOTTOM */}
         <section style={{ backgroundColor: BG, borderTop: `1px solid ${BORDER}`, padding: 40 }}>
-          <p className="text-center text-[9px] uppercase mb-4" style={{ color: "#B4A99A", letterSpacing: "0.2em" }}>
-            STONELOV · Pierres naturelles · Pièces uniques · Paris
+          <p className="text-center text-[9px] mb-4" style={{ color: "#B4A99A", letterSpacing: "0.2em" }}>
+            StoneLov · Pierres naturelles · Pièces uniques · Paris
           </p>
+
           <div className="flex justify-center gap-6 text-[11px] uppercase" style={{ letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: WARM, opacity: 0.8 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
               PowerLov

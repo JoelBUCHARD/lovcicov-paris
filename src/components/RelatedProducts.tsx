@@ -14,10 +14,11 @@ const resolveAsset = (key: string) => {
 export type Universe = "powerlov" | "mysticlov" | "stonelov";
 
 const UNIVERSE_LABEL: Record<Universe, string> = {
-  powerlov: "POWERLOV",
-  mysticlov: "MYSTICLOV",
-  stonelov: "STONELOV",
+  powerlov: "PowerLov",
+  mysticlov: "MysticLov",
+  stonelov: "StoneLov",
 };
+
 const UNIVERSE_COLOR: Record<Universe, string> = {
   powerlov: "#1A1A1A",
   mysticlov: "#E66060",
