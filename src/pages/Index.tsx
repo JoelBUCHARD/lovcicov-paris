@@ -106,33 +106,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* KEYWORDS STRIP */}
-      <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
-        <div className="whitespace-nowrap overflow-hidden">
-          <div className="inline-flex animate-[marquee_45s_linear_infinite]" style={{ animationName: 'marquee' }}>
-            {[0, 1].map((dup) => (
-              <span
-                key={dup}
-                className="inline-block px-6"
-                style={{
-                  fontSize: '10px',
-                  textTransform: 'uppercase',
-                  color: '#B4A99A',
-                  letterSpacing: '0.18em',
-                }}
-              >
-                Clothes that change how you feel&nbsp;·&nbsp;
-              </span>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-        `}</style>
-      </section>
 
 
       {/* 2. MANIFESTO */}
