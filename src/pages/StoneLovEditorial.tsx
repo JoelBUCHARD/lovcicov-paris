@@ -123,19 +123,19 @@ const StoneLovEditorial = () => {
 
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
             <h2
-              className="mb-5 text-[22px] md:text-[30px]"
-              style={{ color: INK, fontFamily: "Arial, sans-serif", fontWeight: 200, fontStyle: "italic", letterSpacing: "0.03em" }}
+              className="mb-6 italic"
+              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1, letterSpacing: "0.01em" }}
             >
               Protected. Guided. Unstoppable.
             </h2>
             <Link
               to="/collections/bijoux"
-              className="uppercase transition-colors px-4 py-2 md:px-6 md:py-3"
-              style={{ backgroundColor: TERRA, color: "#FFFFFF", fontSize: 7, letterSpacing: "0.15em" }}
+              className="uppercase transition-colors px-7 py-3 text-[11px]"
+              style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
-              DÉCOUVRIR LA COLLECTION
+              Découvrir la collection →
             </Link>
           </div>
         </section>
