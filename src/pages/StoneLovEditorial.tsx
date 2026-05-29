@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
-import savoirfaire from "@/assets/stonelov/savoirfaire.jpg";
+import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
 import StoneUniverse from "@/components/StoneUniverse";
 import StoneLovGrid from "@/components/StoneLovGrid";
