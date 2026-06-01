@@ -77,7 +77,7 @@ const PowerLovEditorial = () => {
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "70% 25%" }}
+            style={{ objectPosition: "70% 10%" }}
           />
           <div
             className="absolute inset-0"
