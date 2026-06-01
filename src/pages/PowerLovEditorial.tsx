@@ -73,12 +73,12 @@ const PowerLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section className="relative w-screen h-auto md:h-[78svh] md:min-h-[620px] md:max-h-[860px] overflow-hidden">
+        <section className="relative w-screen h-[70svh] md:h-[78svh] md:min-h-[620px] md:max-h-[860px] overflow-hidden">
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
-            style={{ objectPosition: "center center" }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: "center top" }}
           />
           <div
             className="absolute inset-0"
@@ -89,12 +89,12 @@ const PowerLovEditorial = () => {
           />
 
           <div
-            className="absolute inset-x-0 bottom-4 z-10 md:bottom-8"
+            className="absolute inset-x-0 bottom-3 z-10 md:bottom-8"
             style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
           >
             <Reveal className="max-w-[19rem] md:max-w-3xl" delay={120}>
               <p
-                className="mb-1.5 text-[9px] md:text-[11px] uppercase"
+                className="mb-1 text-[8px] md:text-[11px] uppercase"
                 style={{
                   color: "rgba(244,240,232,0.82)",
                   letterSpacing: "0.22em",
@@ -103,11 +103,11 @@ const PowerLovEditorial = () => {
                 PowerLov
               </p>
               <p
-                className="mb-3 md:mb-4 italic"
+                className="mb-2 md:mb-4 italic"
                 style={{
                   fontFamily: "Instrument Sans, system-ui, sans-serif",
                   fontWeight: 300,
-                  fontSize: "clamp(14px, 2vw, 22px)",
+                  fontSize: "clamp(13px, 2vw, 22px)",
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
@@ -116,7 +116,7 @@ const PowerLovEditorial = () => {
               <button
                 type="button"
                 onClick={scrollToManifesto}
-                className="mt-3 md:mt-6 inline-flex items-center justify-center px-5 py-2 md:px-7 md:py-3 text-[9px] md:text-[11px] uppercase transition-colors duration-300"
+                className="mt-2 md:mt-6 inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
                 style={{
                   backgroundColor: "#FFFFFF",
                   color: "#0D0D0D",
