@@ -1,7 +1,8 @@
 import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroImage from "@/assets/powerlov/powerlov-hero.png";
+import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
+const heroImage = heroAsset.url;
 import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
 import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
 import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
@@ -76,8 +77,8 @@ const PowerLovEditorial = () => {
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 h-full w-full object-cover scale-[1.1] md:scale-[1.14]"
-            style={{ objectPosition: "72% -18%", transformOrigin: "72% 0%" }}
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "center center" }}
           />
           <div
             className="absolute inset-0"
