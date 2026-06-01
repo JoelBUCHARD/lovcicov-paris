@@ -90,13 +90,24 @@ const PowerLovEditorial = () => {
           <div className="relative z-10 flex min-h-[calc(100vh-73px)] items-end" style={{ padding: sectionPadding }}>
             <Reveal className="max-w-3xl" delay={120}>
               <p
-                className="mb-5 text-[11px] uppercase"
+                className="mb-3 text-[11px] uppercase"
                 style={{
                   color: "rgba(244,240,232,0.82)",
                   letterSpacing: "0.22em",
                 }}
               >
                 PowerLov
+              </p>
+              <p
+                className="mb-6 italic"
+                style={{
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                  fontWeight: 300,
+                  fontSize: "clamp(18px, 2vw, 22px)",
+                  color: "rgba(244,240,232,0.82)",
+                }}
+              >
+                Wear your power.
               </p>
               <button
                 type="button"
