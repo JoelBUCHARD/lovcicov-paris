@@ -236,46 +236,23 @@ const PowerLovEditorial = () => {
               Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
               drops limités et invitations privées.
             </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="mt-9 mx-auto flex w-full max-w-md flex-col sm:flex-row items-stretch gap-2"
+            <a
+              href="/le-cercle"
+              className="mt-9 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+              style={{
+                backgroundColor: "#C8102E",
+                color: "#F4F0E8",
+                letterSpacing: "0.2em",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "#9E0C24";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "#C8102E";
+              }}
             >
-              <input
-                type="email"
-                required
-                placeholder="votre adresse mail"
-                className="flex-1 px-4 py-3 text-[13px] outline-none transition-colors"
-                style={{
-                  backgroundColor: "transparent",
-                  border: "1px solid rgba(13,13,13,0.25)",
-                  color: "#0D0D0D",
-                  fontFamily: "Instrument Sans, system-ui, sans-serif",
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "#0D0D0D";
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(13,13,13,0.25)";
-                }}
-              />
-              <button
-                type="submit"
-                className="px-7 py-3 text-[11px] uppercase transition-colors duration-300"
-                style={{
-                  backgroundColor: "#C8102E",
-                  color: "#F4F0E8",
-                  letterSpacing: "0.2em",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#9E0C24";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C8102E";
-                }}
-              >
-                Rejoindre →
-              </button>
-            </form>
+              Rejoindre Le Cercle →
+            </a>
           </Reveal>
         </section>
       </main>
