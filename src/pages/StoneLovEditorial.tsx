@@ -49,20 +49,20 @@ const StoneLovEditorial = () => {
             className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover md:scale-[1.2]"
             style={{ objectPosition: "center 42%", transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-8 md:pb-16">
-            <p className="mb-5 text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.22em", backgroundColor: "rgba(255,255,255,0.4)", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-6 md:pb-16">
+            <p className="mb-3 md:mb-5 text-[9px] md:text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.22em", backgroundColor: "rgba(255,255,255,0.4)", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
               StoneLov
             </p>
 
             <h1
               className="mb-3 italic"
-              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(28px, 4vw, 44px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
+              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(20px, 4vw, 44px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
             >
               Rooted in the earth.
             </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block mt-8 uppercase transition-colors text-[11px] px-7 py-3"
+              className="inline-block mt-4 md:mt-8 uppercase transition-colors text-[9px] md:text-[11px] px-5 py-2 md:px-7 md:py-3"
               style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}

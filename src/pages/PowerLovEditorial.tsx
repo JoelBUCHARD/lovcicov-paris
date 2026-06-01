@@ -73,11 +73,11 @@ const PowerLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section className="relative w-screen h-[68svh] min-h-[500px] max-h-[720px] md:h-[78svh] md:min-h-[620px] md:max-h-[860px] overflow-hidden">
+        <section className="relative w-screen h-auto md:h-[78svh] md:min-h-[620px] md:max-h-[860px] overflow-hidden">
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 h-full w-full object-cover"
+            className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full md:object-cover"
             style={{ objectPosition: "center center" }}
           />
           <div
@@ -89,12 +89,12 @@ const PowerLovEditorial = () => {
           />
 
           <div
-            className="absolute inset-x-0 bottom-6 z-10 md:bottom-8"
+            className="absolute inset-x-0 bottom-4 z-10 md:bottom-8"
             style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
           >
             <Reveal className="max-w-[19rem] md:max-w-3xl" delay={120}>
               <p
-                className="mb-2 text-[11px] uppercase"
+                className="mb-1.5 text-[9px] md:text-[11px] uppercase"
                 style={{
                   color: "rgba(244,240,232,0.82)",
                   letterSpacing: "0.22em",
@@ -103,11 +103,11 @@ const PowerLovEditorial = () => {
                 PowerLov
               </p>
               <p
-                className="mb-4 italic"
+                className="mb-3 md:mb-4 italic"
                 style={{
                   fontFamily: "Instrument Sans, system-ui, sans-serif",
                   fontWeight: 300,
-                  fontSize: "clamp(18px, 2vw, 22px)",
+                  fontSize: "clamp(14px, 2vw, 22px)",
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
@@ -116,7 +116,7 @@ const PowerLovEditorial = () => {
               <button
                 type="button"
                 onClick={scrollToManifesto}
-                className="mt-5 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300 md:mt-6"
+                className="mt-3 md:mt-6 inline-flex items-center justify-center px-5 py-2 md:px-7 md:py-3 text-[9px] md:text-[11px] uppercase transition-colors duration-300"
                 style={{
                   backgroundColor: "#FFFFFF",
                   color: "#0D0D0D",
