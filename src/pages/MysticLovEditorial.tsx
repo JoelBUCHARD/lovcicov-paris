@@ -60,7 +60,7 @@ const MysticLovEditorial = () => {
 
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[70svh] md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-[58svh] md:h-screen overflow-hidden mt-0 mb-5 md:my-5" style={{ backgroundColor: BG }}>
           <img
             src={heroSolo}
             alt="MysticLov hero"
