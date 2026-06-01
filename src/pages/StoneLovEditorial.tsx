@@ -42,7 +42,7 @@ const StoneLovEditorial = () => {
         </header>
 
         {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[58svh] md:h-screen overflow-hidden mt-[20px]" style={{ backgroundColor: BG }}>
+        <section className="relative w-screen h-[58svh] md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
           <img
             src={hero}
             alt="StoneLov hero"
