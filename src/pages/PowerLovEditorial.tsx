@@ -73,12 +73,11 @@ const PowerLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section className="relative w-screen h-[58svh] md:h-[78svh] md:min-h-[620px] md:max-h-[860px] overflow-hidden">
+        <section className="relative w-screen h-[58svh] md:h-[68svh] overflow-hidden">
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: "center top" }}
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
           />
           <div
             className="absolute inset-0"
@@ -89,7 +88,7 @@ const PowerLovEditorial = () => {
           />
 
           <div
-            className="absolute inset-x-0 bottom-3 z-10 md:bottom-8"
+            className="absolute inset-x-0 bottom-3 z-10 md:bottom-6"
             style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
           >
             <Reveal className="max-w-[19rem] md:max-w-3xl" delay={120}>
