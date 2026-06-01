@@ -114,15 +114,15 @@ const PowerLovEditorial = () => {
                 onClick={scrollToManifesto}
                 className="mt-8 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
                 style={{
-                  backgroundColor: "#C8102E",
-                  color: "#F4F0E8",
+                  backgroundColor: "#FFFFFF",
+                  color: "#0D0D0D",
                   letterSpacing: "0.2em",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#9E0C24";
+                  e.currentTarget.style.backgroundColor = "#E8E4DD";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#C8102E";
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
                 }}
               >
                 Découvrir la collection →
