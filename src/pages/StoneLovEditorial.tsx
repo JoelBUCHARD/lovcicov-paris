@@ -46,10 +46,10 @@ const StoneLovEditorial = () => {
           <img
             src={hero}
             alt="StoneLov hero"
-            className="absolute inset-0 w-full h-full object-cover md:scale-[1.2]"
-            style={{ objectPosition: "center top", transformOrigin: "center 42%" }}
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-center md:scale-[1.2]"
+            style={{ transformOrigin: "center 42%" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-5 md:pb-16">
+          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-5 md:pb-8">
             <p className="mb-2 md:mb-5 text-[8px] md:text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.22em", backgroundColor: "rgba(255,255,255,0.4)", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
               StoneLov
             </p>
