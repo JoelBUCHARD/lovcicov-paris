@@ -71,20 +71,20 @@ const MysticLovEditorial = () => {
             className="absolute inset-0 pointer-events-none"
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
-          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-8 md:pb-16 z-10">
-            <p className="mb-5 text-[11px] uppercase" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+          <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-6 md:pb-16 z-10">
+            <p className="mb-3 md:mb-5 text-[9px] md:text-[11px] uppercase" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
               MysticLov
             </p>
 
             <h1
               className="text-white mb-3 italic"
-              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(28px, 4vw, 44px)" }}
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(20px, 4vw, 44px)" }}
             >
               Love is my frequency.
             </h1>
             <Link
               to="/mysticlov/shop"
-              className="inline-block mt-8 uppercase transition-colors text-[11px] px-7 py-3"
+              className="inline-block mt-4 md:mt-8 uppercase transition-colors text-[9px] md:text-[11px] px-5 py-2 md:px-7 md:py-3"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
