@@ -55,14 +55,14 @@ const StoneLovEditorial = () => {
             </p>
 
             <h1
-              className="mb-2 md:mb-3 italic"
-              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 4vw, 44px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
+              className="mb-2 md:mb-4 italic"
+              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 2vw, 22px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
             >
               Rooted in the earth.
             </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block mt-2 md:mt-8 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
+              className="inline-block mt-2 md:mt-6 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
               style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
