@@ -2,12 +2,14 @@ import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
+import boldBadassAsset from "@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json";
+import godDjCafeAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
+import energyNeverLiesAsset from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
+import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
+import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
+import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
+import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
 const heroImage = heroAsset.url;
-import disciplineLounge from "@/assets/powerlov/powerlov-discipline-lounge.png";
-import connectedNight from "@/assets/powerlov/powerlov-connected-night.png";
-import energyParis from "@/assets/powerlov/powerlov-energy-paris.png";
-import dancerBack from "@/assets/powerlov/powerlov-dancer-back.png";
-import godDjBlack from "@/assets/powerlov/powerlov-god-dj-black.png";
 
 type RevealProps = {
   children: ReactNode;
@@ -15,13 +17,42 @@ type RevealProps = {
   delay?: number;
 };
 
-// Designs Bertrand 01, 02, 03, 04, 07 — mix t-shirts blancs & noirs, message centré devant
 const products = [
-  { image: disciplineLounge, alt: "PowerLov — design 01" },
-  { image: connectedNight, alt: "PowerLov — design 02" },
-  { image: energyParis, alt: "PowerLov — design 03" },
-  { image: dancerBack, alt: "PowerLov — design 04" },
-  { image: godDjBlack, alt: "PowerLov — design 07" },
+  {
+    image: boldBadassAsset.url,
+    alt: "PowerLov — mannequin en sweatshirt blanc Bold. Badass. No Filter.",
+    objectPosition: "center 22%",
+  },
+  {
+    image: godDjCafeAsset.url,
+    alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
+    objectPosition: "center 38%",
+  },
+  {
+    image: energyNeverLiesAsset.url,
+    alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
+    objectPosition: "center 34%",
+  },
+  {
+    image: connectedDisciplinedEmpoweredAsset.url,
+    alt: "PowerLov — mannequin en t-shirt blanc Connected. Disciplined. Empowered.",
+    objectPosition: "center 28%",
+  },
+  {
+    image: godIsADancerAsset.url,
+    alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
+    objectPosition: "center 30%",
+  },
+  {
+    image: godIsADjStreetAsset.url,
+    alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
+    objectPosition: "center 26%",
+  },
+  {
+    image: disciplineIsMyLuxuryAsset.url,
+    alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
+    objectPosition: "center 32%",
+  },
 ];
 
 const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
