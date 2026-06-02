@@ -43,40 +43,21 @@ const Manifeste = () => {
             custom={2}
             className="text-manifeste text-muted-foreground space-y-8"
           >
-            <p>LOVCICOV incarne une vision du luxe où la présence l'emporte sur l'apparence.</p>
-            <p>Une esthétique instinctive, silencieuse et profondément émotionnelle.</p>
-            <p>Des pièces pensées pour révéler une allure avant même une silhouette.</p>
-            <p>Inspirée par la pierre, la lumière et la noblesse des matières brutes, la maison développe une vision du vêtement où l'allure devient une forme d'élégance instinctive.</p>
-            <p>Chaque création devient un talisman contemporain.</p>
-            <p className="text-foreground italic">
-              Une sensation.<br />
-              Une posture.<br />
-              Une signature.
-            </p>
-            <p className="text-foreground tracking-[0.15em] text-sm">
-              PowerLov.<br />
-              MysticLov.<br />
-              StoneLov.
-            </p>
+            <p>LOVCICOV est né d'une conviction simple : Le style commence bien avant les vêtements.</p>
 
-            <p>Trois univers guidés par une même recherche : celle d'une élégance plus consciente, plus rare, plus incarnée.</p>
-            <p className="text-foreground italic">
-              Le noir absolu.<br />
-              Le blanc sacré.<br />
-              Le rouge profond.
+            <p>Il se révèle dans la manière dont on se tient. Dans la façon dont on occupe l'espace. Dans la confiance avec laquelle on choisit d'être soi-même.</p>
+
+            <p>Nos créations sont pensées pour accompagner cette présence. Des pièces qui expriment une attitude. Des symboles qui racontent une histoire. Des objets qui deviennent des signatures.</p>
+
+            <p>LOVCICOV célèbre celles et ceux qui avancent avec intention, caractère et confiance.</p>
+
+            <p>Non pour suivre les tendances. Mais pour exprimer une identité.</p>
+
+            <p>Car le véritable style ne cherche pas à transformer une personne. Il révèle ce qui était déjà là.</p>
+
+            <p className="text-foreground tracking-[0.15em] text-sm pt-4">
+              LOVCICOV Vision. Allure. Signature.
             </p>
-            <p className="text-foreground italic">
-              Des lignes pures.<br />
-              Des mots comme des mantras.<br />
-              Une sophistication sans démonstration.
-            </p>
-            <p className="text-foreground uppercase tracking-[0.2em] text-sm md:text-base mt-12">
-              LOVE IS MY FREQUENCY.
-            </p>
-            <p className="text-foreground uppercase tracking-[0.2em] text-sm md:text-base">
-              PROTECTED. GUIDED. UNSTOPPABLE.
-            </p>
-            <p className="pt-8">LOVCICOV s'adresse à celles et ceux qui comprennent que le véritable luxe réside dans le calme, la maîtrise de soi et la liberté d'être pleinement aligné·e avec ce que l'on est.</p>
           </motion.div>
         </div>
       </main>
