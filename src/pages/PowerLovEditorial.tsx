@@ -54,6 +54,11 @@ const products = [
     alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
     objectPosition: "center 32%",
   },
+  {
+    image: boldBadassStreetAsset.url,
+    alt: "PowerLov — t-shirt blanc Bold. Badass. No Filter. devant une devanture parisienne",
+    objectPosition: "center 28%",
+  },
 ];
 
 const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
