@@ -229,9 +229,12 @@ const PowerLovEditorial = () => {
           </Reveal>
         </section>
 
-        {/* PRODUITS — images seules, message centré sur le devant */}
+        {/* PRODUITS — mosaïque harmonisée */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ backgroundColor: "#0D0D0D" }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 gap-px"
+            style={{ backgroundColor: "#DDD6CB" }}
+          >
             {products.map((product) => (
               <div
                 key={product.alt}
@@ -243,6 +246,7 @@ const PowerLovEditorial = () => {
                   alt={product.alt}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
+                  style={{ objectPosition: product.objectPosition }}
                 />
               </div>
             ))}
