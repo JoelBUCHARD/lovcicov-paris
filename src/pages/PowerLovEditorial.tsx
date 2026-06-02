@@ -83,7 +83,7 @@ const PowerLovEditorial = () => {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(13,13,13,0.18) 0%, rgba(13,13,13,0.3) 48%, rgba(13,13,13,0.72) 100%)",
+                "linear-gradient(180deg, rgba(13,13,13,0.18) 0%, rgba(13,13,13,0.3) 48%, rgba(13,13,13,0.45) 100%)",
             }}
           />
 
