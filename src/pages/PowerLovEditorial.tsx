@@ -9,6 +9,7 @@ import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
 import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
+import boldBadassStreetAsset from "@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
@@ -52,6 +53,11 @@ const products = [
     image: disciplineIsMyLuxuryAsset.url,
     alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
     objectPosition: "center 32%",
+  },
+  {
+    image: boldBadassStreetAsset.url,
+    alt: "PowerLov — t-shirt blanc Bold. Badass. No Filter. devant une devanture parisienne",
+    objectPosition: "center 28%",
   },
 ];
 
