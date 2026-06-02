@@ -76,14 +76,14 @@ const MysticLovEditorial = () => {
             </p>
 
             <h1
-              className="text-white mb-2 md:mb-3 italic"
-              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 4vw, 44px)" }}
+              className="text-white mb-2 md:mb-4 italic"
+              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 2vw, 22px)" }}
             >
               Love is my frequency.
             </h1>
             <Link
               to="/mysticlov/shop"
-              className="inline-block mt-2 md:mt-8 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
+              className="inline-block mt-2 md:mt-6 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
