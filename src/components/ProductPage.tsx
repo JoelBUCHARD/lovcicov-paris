@@ -22,8 +22,7 @@ const getImage = (key: string) => {
 };
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
-const SERIF = "'Cormorant Garamond', 'Instrument Serif', Georgia, serif";
-const SANS = "'Inter', Arial, sans-serif";
+const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const universeConfig = {
   mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/shop?collection=mystic', backLabel: 'MysticLov' },
