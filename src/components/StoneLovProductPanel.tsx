@@ -160,7 +160,7 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
             textAlign: "center",
           }}
         >
-          Livraison offerte dès 100€&nbsp; · &nbsp;Retours 14 jours
+          Livraison 9,90€ — offerte dès 99€ d'achat&nbsp; · &nbsp;Retours 14 jours
         </p>
       </div>
 
