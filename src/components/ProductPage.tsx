@@ -16,9 +16,17 @@ const imageModules = {
   ...(import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>),
   ...(import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>),
 };
+const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: true }) as Record<string, { url?: string; default?: { url?: string } }>;
 const getImage = (key: string) => {
+  if (!key) return '';
   const m = Object.entries(imageModules).find(([p]) => p.includes(key));
-  return m ? m[1] : '';
+  if (m) return m[1];
+  const j = Object.entries(assetJsonModules).find(([p]) => p.includes(key));
+  if (j) {
+    const mod = j[1] as any;
+    return (mod.default?.url ?? mod.url) || '';
+  }
+  return '';
 };
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
