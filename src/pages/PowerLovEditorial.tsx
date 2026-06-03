@@ -335,25 +335,35 @@ const PowerLovEditorial = () => {
               Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
               drops limités et invitations privées.
             </p>
-            <input
-              type="email"
-              placeholder="Votre adresse e-mail"
-              className="mt-9 inline-block px-7 py-3 text-[11px] uppercase transition-colors duration-300 text-center"
-              style={{
-                backgroundColor: "#FFFFFF",
-                color: "#0D0D0D",
-                letterSpacing: "0.2em",
-                border: "none",
-                outline: "none",
-                fontFamily: "Instrument Sans, system-ui, sans-serif",
-              }}
-              onFocus={(e) => {
-                e.currentTarget.style.backgroundColor = "#E8E4DD";
-              }}
-              onBlur={(e) => {
-                e.currentTarget.style.backgroundColor = "#FFFFFF";
-              }}
-            />
+            <form
+              className="mt-9 flex items-stretch justify-center gap-3 mx-auto max-w-md"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                placeholder="Votre adresse e-mail"
+                className="flex-1 px-5 py-3 text-[13px]"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#0D0D0D",
+                  border: "1px solid rgba(13,13,13,0.18)",
+                  outline: "none",
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                }}
+              />
+              <button
+                type="submit"
+                className="px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+                style={{
+                  backgroundColor: "#0D0D0D",
+                  color: "#FFFFFF",
+                  letterSpacing: "0.2em",
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                }}
+              >
+                OK
+              </button>
+            </form>
           </Reveal>
         </section>
       </main>
