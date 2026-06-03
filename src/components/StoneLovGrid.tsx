@@ -24,7 +24,7 @@ const StoneLovGrid = () => {
 
   return (
     <section style={{ backgroundColor: "#FAF7F2", padding: "20px 0 0" }}>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-[4px] md:gap-[6px]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
         {images.map((img, i) => (
           <button
             key={i}
