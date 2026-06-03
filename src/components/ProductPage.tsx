@@ -319,7 +319,7 @@ const ProductPage = ({ product }: Props) => {
                   >
                     {s.name}
                   </p>
-                  <p className="italic m-0" style={{ fontFamily: SERIF, fontSize: 14, lineHeight: 1.7 }}>{s.meaning}</p>
+                  <p className="m-0" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400 }}>{s.meaning}</p>
                 </li>
               ))}
             </ul>
