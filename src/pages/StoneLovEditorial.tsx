@@ -5,6 +5,7 @@ import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
+import bookDesk from "@/assets/stonelov/book-lalune-desk.png.asset.json";
 import StoneUniverse from "@/components/StoneUniverse";
 import StoneLovGrid from "@/components/StoneLovGrid";
 
@@ -142,7 +143,8 @@ const StoneLovEditorial = () => {
 
         {/* SAVOIR-FAIRE — image only */}
         <section className="relative w-screen overflow-hidden h-[50vh] md:h-[70vh]" style={{ backgroundColor: BG, marginTop: 20 }}>
-          <img src={savoirfaire} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "center center" }} />
+          <img src={savoirfaire} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover md:hidden" style={{ objectPosition: "center center" }} />
+          <img src={bookDesk.url} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover hidden md:block" style={{ objectPosition: "center center" }} />
         </section>
 
         {/* BLOCK 4 — CLOSING */}
