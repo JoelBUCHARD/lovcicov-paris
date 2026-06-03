@@ -5,6 +5,8 @@ import grid3 from "@/assets/stonelov/grid-3.jpg";
 import grid4 from "@/assets/stonelov/grid-4.jpg";
 import grid5 from "@/assets/stonelov/grid-5.jpg";
 import grid6 from "@/assets/stonelov/grid-6.jpg";
+import gridSmall1 from "@/assets/stonelov/grid-small-1.jpg.asset.json";
+import gridSmall2 from "@/assets/stonelov/grid-small-2.jpg.asset.json";
 
 const images = [
   { src: grid1, alt: "Collier œil de tigre rose sur sable" },
@@ -13,6 +15,11 @@ const images = [
   { src: grid4, alt: "Colliers multicolores en pierres sur rocher" },
   { src: grid5, alt: "Collier corail rouge sur rocher" },
   { src: grid6, alt: "Collier turquoise et calcédoine bleue sur rocher" },
+];
+
+const smallImages = [
+  { src: gridSmall1.url, alt: "Collier améthyste, citrine et malachite sur rocher" },
+  { src: gridSmall2.url, alt: "Bracelets turquoise et corail sur sable" },
 ];
 
 const StoneLovGrid = () => {
@@ -35,6 +42,25 @@ const StoneLovGrid = () => {
             />
           </button>
         ))}
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-[4px] md:gap-[6px] mt-[4px] md:mt-[6px]">
+        <div className="hidden md:block" aria-hidden="true" />
+        {smallImages.map((img, i) => (
+          <button
+            key={i}
+            onClick={() => setLightbox(img.src)}
+            className="overflow-hidden block group p-0 border-0 bg-transparent cursor-pointer"
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              loading="lazy"
+              className="w-full aspect-[3/4] object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
+            />
+          </button>
+        ))}
+        <div className="hidden md:block" aria-hidden="true" />
       </div>
 
       {lightbox && (
