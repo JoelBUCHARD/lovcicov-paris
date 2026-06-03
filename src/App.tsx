@@ -18,7 +18,6 @@ import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import CollectionStandards from "./pages/CollectionStandards";
 import CollectionPower from "./pages/CollectionPower";
-import { Navigate } from "react-router-dom";
 import CollectionMystic from "./pages/CollectionMystic";
 import MysticLovEditorial from "./pages/MysticLovEditorial";
 import StoneLovEditorial from "./pages/StoneLovEditorial";
