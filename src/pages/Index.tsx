@@ -145,19 +145,9 @@ const Index = () => {
           custom={2}
           className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 space-y-5"
         >
-          <p>LOVCICOV incarne une vision du luxe où la présence l'emporte sur l'apparence.</p>
-          <p>Une esthétique instinctive, silencieuse et profondément émotionnelle.</p>
-          <p>Des pièces pensées pour révéler une allure avant même une silhouette.</p>
-          <p>Inspirée par la pierre, la lumière et la noblesse des matières brutes, la maison développe une vision du vêtement où l'allure devient une forme d'élégance instinctive.</p>
-          <p>Chaque création devient un talisman contemporain.</p>
-          <p>Une sensation. Une posture. Une signature.</p>
-          <p className="text-foreground tracking-[0.15em] text-sm">PowerLov. MysticLov. StoneLov.</p>
-          <p>Trois univers guidés par une même recherche : celle d'une élégance plus consciente, plus rare, plus incarnée.</p>
-          <p>Le noir absolu. Le blanc sacré. Le rouge profond.</p>
-          <p>Des lignes pures. Des mots comme des mantras. Une sophistication sans démonstration.</p>
-          <p className="text-foreground tracking-[0.15em] uppercase text-sm">Love is my frequency.</p>
-          <p className="text-foreground tracking-[0.15em] uppercase text-sm">Protected. Guided. Unstoppable.</p>
-          <p>LOVCICOV s'adresse à celles et ceux qui comprennent que le véritable luxe réside dans le calme, la maîtrise de soi et la liberté d'être pleinement aligné·e avec ce que l'on est.</p>
+          <p>Le véritable style ne cherche pas à transformer. Il révèle ce qui était déjà là.</p>
+          <p>Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.</p>
+          <p className="text-foreground tracking-[0.15em] text-sm">LOVCICOV — Vision. Allure. Signature.</p>
         </motion.div>
         <motion.div
           variants={fadeUp}
