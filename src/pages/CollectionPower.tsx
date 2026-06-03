@@ -41,7 +41,7 @@ const powerProducts: PowerProduct[] = [
     name: 'T-Shirt God Is A DJ',
     price: 59,
     image: godDjCafe.url,
-    hover: ifGodIsADj.url,
+    hover: godDjStreet.url,
     badge: 'UNISEX',
   },
   {
@@ -57,6 +57,13 @@ const powerProducts: PowerProduct[] = [
     price: 59,
     image: disciplineLuxuryGrid.url,
     hover: disciplineLuxury.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-if-god-dj-frequency',
+    name: 'T-Shirt If God Is A DJ, I Am The Frequency',
+    price: 59,
+    image: ifGodIsADj.url,
     badge: 'UNISEX',
   },
   {
@@ -90,9 +97,6 @@ const powerProducts: PowerProduct[] = [
     badge: 'UNISEX',
   },
 ];
-
-// suppress unused import warning
-void godDjStreet;
 
 const PowerProductCard = ({ product, index }: { product: PowerProduct; index: number }) => {
   const location = useLocation();
