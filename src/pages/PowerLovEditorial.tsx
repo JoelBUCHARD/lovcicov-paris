@@ -2,14 +2,12 @@ import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
-import boldBadassAsset from "@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json";
 import godDjCafeAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
 import energyNeverLiesAsset from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
 import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
 import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
-import boldBadassStreetAsset from "@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
@@ -18,17 +16,19 @@ type RevealProps = {
   delay?: number;
 };
 
-const products = [
-  {
-    image: boldBadassAsset.url,
-    alt: "PowerLov — mannequin en sweatshirt blanc Bold. Badass. No Filter.",
-    objectPosition: "center 22%",
-  },
-  {
-    image: godDjCafeAsset.url,
-    alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
-    objectPosition: "center 38%",
-  },
+const topWide = {
+  image: godDjCafeAsset.url,
+  alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
+  objectPosition: "center 38%",
+};
+
+const bottomWide = {
+  image: disciplineIsMyLuxuryAsset.url,
+  alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
+  objectPosition: "center 32%",
+};
+
+const midProducts = [
   {
     image: energyNeverLiesAsset.url,
     alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
@@ -49,17 +49,8 @@ const products = [
     alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
     objectPosition: "center 26%",
   },
-  {
-    image: disciplineIsMyLuxuryAsset.url,
-    alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
-    objectPosition: "center 32%",
-  },
-  {
-    image: boldBadassStreetAsset.url,
-    alt: "PowerLov — t-shirt blanc Bold. Badass. No Filter. devant une devanture parisienne",
-    objectPosition: "center 28%",
-  },
 ];
+
 
 const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
   const [visible, setVisible] = useState(false);
@@ -237,11 +228,26 @@ const PowerLovEditorial = () => {
 
         {/* PRODUITS — mosaïque harmonisée */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
+          {/* Top wide image */}
           <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-px"
-            style={{ backgroundColor: "#DDD6CB" }}
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
-            {products.map((product) => (
+            <img
+              src={topWide.image}
+              alt={topWide.alt}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: topWide.objectPosition }}
+            />
+          </div>
+
+          {/* Middle grid — smaller, like MysticLov / StoneLov */}
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            style={{ padding: "clamp(20px, 3vw, 40px)" }}
+          >
+            {midProducts.map((product) => (
               <div
                 key={product.alt}
                 className="relative w-full overflow-hidden"
@@ -257,7 +263,45 @@ const PowerLovEditorial = () => {
               </div>
             ))}
           </div>
+
+          {/* Bottom wide image with CTA overlay */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
+          >
+            <img
+              src={bottomWide.image}
+              alt={bottomWide.alt}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: bottomWide.objectPosition }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
+              style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
+            >
+              <button
+                type="button"
+                onClick={scrollToManifesto}
+                className="inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#0D0D0D",
+                  letterSpacing: "0.2em",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E8E4DD";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
+                }}
+              >
+                Découvrir la collection →
+              </button>
+            </div>
+          </div>
         </section>
+
 
         {/* REJOINDRE LE CERCLE — version simple */}
         <section
