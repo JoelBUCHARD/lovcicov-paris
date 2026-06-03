@@ -335,23 +335,25 @@ const PowerLovEditorial = () => {
               Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
               drops limités et invitations privées.
             </p>
-            <a
-              href="/le-cercle"
-              className="mt-9 inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+            <input
+              type="email"
+              placeholder="Votre adresse mail"
+              className="mt-9 inline-block px-7 py-3 text-[11px] uppercase transition-colors duration-300 text-center"
               style={{
-                backgroundColor: "#C8102E",
-                color: "#F4F0E8",
+                backgroundColor: "#FFFFFF",
+                color: "#0D0D0D",
                 letterSpacing: "0.2em",
+                border: "none",
+                outline: "none",
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#9E0C24";
+              onFocus={(e) => {
+                e.currentTarget.style.backgroundColor = "#E8E4DD";
               }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#C8102E";
+              onBlur={(e) => {
+                e.currentTarget.style.backgroundColor = "#FFFFFF";
               }}
-            >
-              Rejoindre Le Cercle →
-            </a>
+            />
           </Reveal>
         </section>
       </main>
