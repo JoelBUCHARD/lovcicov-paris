@@ -337,7 +337,7 @@ const ProductDetail = () => {
               className="text-[11px] text-[#888780] text-center mt-4"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours
+              Livraison 9,90€ — offerte dès 99€ d'achat &nbsp;·&nbsp; Retours 14 jours
             </p>
           </motion.div>
           )}
