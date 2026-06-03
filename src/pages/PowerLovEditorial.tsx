@@ -268,6 +268,33 @@ const PowerLovEditorial = () => {
             ))}
           </div>
 
+          {/* Second smaller grid — Bold Badass + Discipline + Frequency */}
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            style={{ padding: "0 clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px)" }}
+          >
+            {[
+              { src: boldBadassSweatAsset.url, alt: "PowerLov — sweat blanc Bold. Badass. No Filter. dans une rue parisienne", pos: "center 30%" },
+              { src: boldBadassTeeBackAsset.url, alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter.", pos: "center 35%" },
+              { src: disciplineLuxuryAsset.url, alt: "PowerLov — t-shirt noir Discipline Is My Luxury devant le Café de Flore", pos: "center 35%" },
+              { src: ifGodIsADjAsset.url, alt: "PowerLov — t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne", pos: "center 30%" },
+            ].map((p) => (
+              <div
+                key={p.alt}
+                className="relative w-full overflow-hidden"
+                style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
+              >
+                <img
+                  src={p.src}
+                  alt={p.alt}
+                  loading="lazy"
+                  className="absolute inset-0 h-full w-full object-cover"
+                  style={{ objectPosition: p.pos }}
+                />
+              </div>
+            ))}
+          </div>
+
           {/* Bottom wide image with CTA overlay */}
           <div
             className="relative w-full overflow-hidden"
@@ -306,50 +333,8 @@ const PowerLovEditorial = () => {
           </div>
         </section>
 
-        {/* DUO VISUELS — BOLD. BADASS. NO FILTER. */}
-        <section style={{ backgroundColor: "#F4F0E8" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 p-2 md:p-3">
-            <div className="relative w-full aspect-[3/4] overflow-hidden">
-              <img
-                src={boldBadassSweatAsset.url}
-                alt="PowerLov — sweat blanc Bold. Badass. No Filter. dans une rue parisienne"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-              />
-            </div>
-            <div className="relative w-full aspect-[3/4] overflow-hidden">
-              <img
-                src={boldBadassTeeBackAsset.url}
-                alt="PowerLov — dos du t-shirt blanc Bold, Badass, No Filter."
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "center 35%" }}
-              />
-            </div>
-            <div className="relative w-full aspect-[3/4] overflow-hidden">
-              <img
-                src={disciplineLuxuryAsset.url}
-                alt="PowerLov — t-shirt noir Discipline Is My Luxury devant le Café de Flore"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "center 35%" }}
-              />
-            </div>
-            <div className="relative w-full aspect-[3/4] overflow-hidden">
-              <img
-                src={ifGodIsADjAsset.url}
-                alt="PowerLov — t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: "center 30%" }}
-              />
-            </div>
-          </div>
-        </section>
-
-
       </main>
+
 
       <Footer />
     </div>
