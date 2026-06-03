@@ -237,15 +237,6 @@ const Index = () => {
             MysticLov
           </motion.p>
 
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="font-sans italic text-[12px] text-[#888780] mb-4"
-          >
-            sweats · t-shirt · message fort
-          </motion.p>
           <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
         </div>
 

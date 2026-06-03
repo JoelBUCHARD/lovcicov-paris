@@ -43,15 +43,6 @@ const CollectionMystic = () => {
           >
             MysticLov
           </motion.p>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={1}
-            className="font-sans italic text-[12px] text-[#888780] mb-3"
-          >
-            sweats · t-shirt · message fort
-          </motion.p>
             <motion.p
               variants={fadeUp}
               initial="hidden"
