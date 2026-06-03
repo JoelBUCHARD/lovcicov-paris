@@ -176,8 +176,8 @@ const ProductPage = ({ product }: Props) => {
             {product.name}
           </h1>
           <p
-            className="italic mb-8"
-            style={{ fontFamily: SERIF, fontSize: 16, color: '#5F5E5A', lineHeight: 1.5 }}
+            className="mb-8"
+            style={{ fontFamily: SANS, fontSize: 15, color: '#5F5E5A', lineHeight: 1.5, fontWeight: 400 }}
           >
             {product.details}
           </p>
