@@ -33,9 +33,9 @@ const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
 const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const universeConfig = {
-  mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/shop?collection=mystic', backLabel: 'MysticLov' },
-  standard: { label: 'POWERLOV', accent: '#E63946', back: '/shop?collection=standard', backLabel: 'PowerLov' },
-  bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/shop?collection=bijoux', backLabel: 'StoneLov' },
+  mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/mysticlov/shop', backLabel: 'MysticLov' },
+  standard: { label: 'POWERLOV', accent: '#E63946', back: '/powerlov/shop', backLabel: 'PowerLov' },
+  bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/stonelov/shop', backLabel: 'StoneLov' },
 } as const;
 
 interface AccordionProps {
