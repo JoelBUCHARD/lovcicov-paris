@@ -153,9 +153,24 @@ const Cart = () => {
             </div>
 
             <div className="mt-8 flex flex-col items-end gap-4">
+              {!isFreeShipping(total) && total > 0 && (
+                <div className="w-full md:w-72 text-[11px] text-muted-foreground text-center md:text-right">
+                  Plus que {formatEuro(getRemainingForFreeShipping(total))} pour bénéficier de la livraison offerte&nbsp;!
+                </div>
+              )}
               <div className="flex justify-between w-full md:w-72">
+                <span className="text-brand text-xs">Sous-total</span>
+                <span className="text-sm">{formatEuro(total)}</span>
+              </div>
+              <div className="flex justify-between w-full md:w-72">
+                <span className="text-brand text-xs">Livraison</span>
+                <span className="text-sm">
+                  {isFreeShipping(total) ? 'Frais de port offerts !' : formatEuro(SHIPPING_FEE)}
+                </span>
+              </div>
+              <div className="flex justify-between w-full md:w-72 border-t border-border pt-3">
                 <span className="text-brand text-xs">Total</span>
-                <span className="text-sm font-medium">€{total.toFixed(0)}</span>
+                <span className="text-sm font-medium">{formatEuro(total + getShippingFee(total))}</span>
               </div>
               <button
                 onClick={handleCheckout}
