@@ -1,353 +1,237 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Users, Share2 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
-import sacImage from '@/assets/campagne-sac-saint-laurent.jpg';
+import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 
-const INK = '#0A0A0A';
-const CREAM = '#FAF7F2';
-const BORDER = 'rgba(250,247,242,0.18)';
-const MUTED = 'rgba(250,247,242,0.6)';
+const ARIAL = 'Arial, sans-serif';
+const BEIGE = '#FAF7F2';
+const BEIGE_BORDER = '#E8E4DC';
+const MUTED = '#888780';
+const SOFT = '#B4A99A';
+const INK = '#1A1A1A';
 
-// Countdown target — adjust as needed
-const DRAW_DATE = new Date('2026-09-30T20:00:00+02:00');
+const isTshirt = (p: ShopifyProduct) => {
+  const t = (p.node.productType || '').toLowerCase();
+  const title = p.node.title.toLowerCase();
+  const tags = (p.node.tags || []).map((x) => x.toLowerCase());
+  return (
+    t.includes('t-shirt') ||
+    t.includes('tshirt') ||
+    t.includes('tee') ||
+    title.includes('t-shirt') ||
+    title.includes('tshirt') ||
+    tags.some((x) => x.includes('t-shirt') || x.includes('tshirt') || x.includes('tee'))
+  );
+};
 
-function useCountdown(target: Date) {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const diff = Math.max(0, target.getTime() - now.getTime());
-  const days = Math.floor(diff / 86_400_000);
-  const hours = Math.floor((diff / 3_600_000) % 24);
-  const minutes = Math.floor((diff / 60_000) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-  return { days, hours, minutes, seconds };
-}
-
-const TimeBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col items-center">
-    <span
-      className="tabular-nums"
-      style={{
-        fontFamily: 'Instrument Sans, sans-serif',
-        fontSize: 'clamp(38px, 6vw, 64px)',
-        fontWeight: 300,
-        color: CREAM,
-        lineHeight: 1,
-        letterSpacing: '-0.02em',
-      }}
-    >
-      {String(value).padStart(2, '0')}
-    </span>
-    <span
-      className="mt-2"
-      style={{
-        fontFamily: 'Instrument Sans, sans-serif',
-        fontSize: 10,
-        textTransform: 'uppercase',
-        letterSpacing: '0.25em',
-        color: MUTED,
-      }}
-    >
-      {label}
-    </span>
+const ProductGrid = ({ products }: { products: ShopifyProduct[] }) => (
+  <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl">
+    {products.map((p, i) => (
+      <ShopifyProductCard key={p.node.id} product={p} index={i} />
+    ))}
   </div>
 );
 
 const CampagneSac = () => {
-  const { days, hours, minutes, seconds } = useCountdown(DRAW_DATE);
-  const { sold } = usePowerLovSalesCount();
-  const target = 500;
+  const { sold, target } = usePowerLovSalesCount();
   const pct = Math.min(100, (sold / target) * 100);
+  const [participants, setParticipants] = useState<ShopifyProduct[]>([]);
+  const [allTees, setAllTees] = useState<ShopifyProduct[]>([]);
 
-  const conditions = [
-    {
-      n: '01',
-      icon: Instagram,
-      title: "S'abonner sur Instagram",
-      text: '@lovcicov.paris',
-    },
-    {
-      n: '02',
-      icon: Users,
-      title: 'Rejoindre Le Cercle',
-      text: 'lovcicov.com/le-cercle',
-    },
-    {
-      n: '03',
-      icon: Share2,
-      title: 'Repartager le post en story',
-      text: '#LovcicovCercle',
-    },
-  ];
+  useEffect(() => {
+    fetchShopifyProducts(12, 'tag:powerlov')
+      .then((p) => {
+        if (p.length) setParticipants(p);
+        else return fetchShopifyProducts(12).then(setParticipants);
+      })
+      .catch(() => setParticipants([]));
+
+    fetchShopifyProducts(100)
+      .then((all) => {
+        const tees = all.filter(isTshirt);
+        setAllTees(tees.length ? tees : all);
+      })
+      .catch(() => setAllTees([]));
+  }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: INK, color: CREAM }}>
+    <div className="min-h-screen" style={{ backgroundColor: BEIGE }}>
       <Navbar />
 
       {/* HERO */}
       <section
-        className="w-full flex flex-col items-center text-center px-6"
-        style={{ backgroundColor: INK, paddingTop: 140, paddingBottom: 80 }}
+        className="w-full flex items-center justify-center text-center px-6"
+        style={{ backgroundColor: INK, height: '75vh' }}
       >
-        <p
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 10,
-            textTransform: 'uppercase',
-            letterSpacing: '0.3em',
-            color: MUTED,
-            marginBottom: 24,
-          }}
-        >
-          Édition limitée · PowerLov
-        </p>
-
-        <h1
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 'clamp(36px, 6.5vw, 84px)',
-            fontWeight: 200,
-            color: CREAM,
-            lineHeight: 1.05,
-            letterSpacing: '-0.02em',
-            maxWidth: 1100,
-          }}
-        >
-          Un sac. Une chance.
-          <br />
-          Une communauté.
-        </h1>
-
-        <div className="w-full mt-16" style={{ maxWidth: 900 }}>
-          <img
-            src={sacImage}
-            alt="Sac Saint Laurent à gagner"
-            className="w-full h-auto object-contain"
-            style={{ maxHeight: '70vh' }}
-          />
-        </div>
-
-        {/* COUNTDOWN */}
-        <p
-          className="mt-16"
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 10,
-            textTransform: 'uppercase',
-            letterSpacing: '0.3em',
-            color: MUTED,
-            marginBottom: 24,
-          }}
-        >
-          Fin du tirage dans
-        </p>
-        <div className="flex items-start gap-6 md:gap-12">
-          <TimeBlock value={days} label="Jours" />
-          <span style={{ fontSize: 'clamp(38px, 6vw, 64px)', color: MUTED, lineHeight: 1, fontWeight: 200 }}>:</span>
-          <TimeBlock value={hours} label="Heures" />
-          <span style={{ fontSize: 'clamp(38px, 6vw, 64px)', color: MUTED, lineHeight: 1, fontWeight: 200 }}>:</span>
-          <TimeBlock value={minutes} label="Min" />
-          <span style={{ fontSize: 'clamp(38px, 6vw, 64px)', color: MUTED, lineHeight: 1, fontWeight: 200 }}>:</span>
-          <TimeBlock value={seconds} label="Sec" />
-        </div>
-      </section>
-
-      {/* CONDITIONS */}
-      <section className="w-full px-6" style={{ paddingTop: 100, paddingBottom: 80 }}>
-        <p
-          className="text-center"
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 10,
-            textTransform: 'uppercase',
-            letterSpacing: '0.3em',
-            color: MUTED,
-            marginBottom: 16,
-          }}
-        >
-          Comment participer
-        </p>
-        <h2
-          className="text-center"
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 'clamp(26px, 3.5vw, 40px)',
-            fontWeight: 200,
-            color: CREAM,
-            letterSpacing: '-0.01em',
-            marginBottom: 64,
-          }}
-        >
-          Trois étapes simples.
-        </h2>
-
-        <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-px" style={{ maxWidth: 1100, backgroundColor: BORDER }}>
-          {conditions.map((c) => {
-            const Icon = c.icon;
-            return (
-              <div
-                key={c.n}
-                className="flex flex-col items-center text-center px-8 py-12"
-                style={{ backgroundColor: INK }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'Instrument Sans, sans-serif',
-                    fontSize: 11,
-                    letterSpacing: '0.3em',
-                    color: MUTED,
-                    marginBottom: 28,
-                  }}
-                >
-                  {c.n}
-                </span>
-                <Icon size={32} strokeWidth={1} color={CREAM} />
-                <p
-                  className="mt-6"
-                  style={{
-                    fontFamily: 'Instrument Sans, sans-serif',
-                    fontSize: 17,
-                    fontWeight: 400,
-                    color: CREAM,
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {c.title}
-                </p>
-                <p
-                  className="mt-2"
-                  style={{
-                    fontFamily: 'Instrument Sans, sans-serif',
-                    fontSize: 13,
-                    color: MUTED,
-                  }}
-                >
-                  {c.text}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* CTA */}
-        <div className="flex justify-center mt-16">
-          <Link
-            to="/collections/t-shirts"
-            className="inline-block transition-opacity hover:opacity-80"
+        <div>
+          <h1
+            className="italic"
             style={{
-              backgroundColor: CREAM,
-              color: INK,
-              padding: '18px 44px',
-              borderRadius: 0,
-              fontFamily: 'Instrument Sans, sans-serif',
-              fontSize: 11,
-              fontWeight: 500,
-              textTransform: 'uppercase',
-              letterSpacing: '0.25em',
+              fontFamily: ARIAL,
+              fontSize: 'clamp(40px, 7vw, 90px)',
+              fontWeight: 200,
+              color: '#FFFFFF',
+              marginTop: 140,
+              lineHeight: 1.05,
             }}
           >
-            Je tente ma chance
+            Un sac de luxe
+          </h1>
+          <h2
+            className="italic"
+            style={{
+              fontFamily: ARIAL,
+              fontSize: 'clamp(40px, 7vw, 90px)',
+              fontWeight: 200,
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+            }}
+          >
+            à gagner.
+          </h2>
+          <p style={{ fontFamily: ARIAL, fontSize: 13, color: SOFT, marginTop: 16 }}>
+            Pour les 1000 premiers t-shirts vendus.
+          </p>
+          <Link
+            to="/collections/t-shirts"
+            className="inline-block mt-10 hover:opacity-90 transition-opacity"
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: INK,
+              padding: '14px 32px',
+              borderRadius: 0,
+              fontFamily: ARIAL,
+              fontSize: 11,
+              textTransform: 'uppercase',
+              letterSpacing: '0.15em',
+            }}
+          >
+            Découvrir les t-shirts
           </Link>
         </div>
       </section>
 
-      {/* PROGRESS */}
+      {/* RULES */}
       <section
-        className="w-full px-6"
-        style={{
-          paddingTop: 80,
-          paddingBottom: 120,
-          borderTop: `0.5px solid ${BORDER}`,
-        }}
+        className="mx-auto"
+        style={{ backgroundColor: '#FFFFFF', padding: '80px 40px', maxWidth: 700 }}
       >
-        <div className="mx-auto" style={{ maxWidth: 800 }}>
-          <p
-            className="text-center"
-            style={{
-              fontFamily: 'Instrument Sans, sans-serif',
-              fontSize: 10,
-              textTransform: 'uppercase',
-              letterSpacing: '0.3em',
-              color: MUTED,
-              marginBottom: 24,
-            }}
-          >
-            Progression de la campagne
-          </p>
-          <div className="flex items-baseline justify-between mb-5">
-            <span
-              style={{
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontSize: 'clamp(28px, 4vw, 44px)',
-                fontWeight: 300,
-                color: CREAM,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {sold}
-              <span style={{ color: MUTED }}> / {target}</span>
-            </span>
-            <span
-              style={{
-                fontFamily: 'Instrument Sans, sans-serif',
-                fontSize: 12,
-                textTransform: 'uppercase',
-                letterSpacing: '0.2em',
-                color: MUTED,
-              }}
-            >
-              t-shirts vendus
-            </span>
-          </div>
+        <p
+          className="text-center"
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 9,
+            textTransform: 'uppercase',
+            color: INK,
+            letterSpacing: '0.2em',
+            marginBottom: 40,
+          }}
+        >
+          Les 4 conditions
+        </p>
 
+        {[
+          { n: '01', title: 'Acheter un t-shirt', text: 'Sur lovcicov.com · PowerLov ou MysticLov' },
+          { n: '02', title: "S'abonner sur Instagram", text: '@lovcicov.paris · Compte public' },
+          { n: '03', title: 'Rejoindre Le Cercle', text: "S'inscrire sur lovcicov.com/le-cercle" },
+          { n: '04', title: 'Repartager le post en story', text: 'Avec le hashtag #LovcicovCercle' },
+        ].map((step, i) => (
           <div
-            className="w-full overflow-hidden"
-            style={{ height: 4, backgroundColor: BORDER }}
-          >
-            <div
-              className="h-full transition-all duration-700"
-              style={{ width: `${pct}%`, backgroundColor: CREAM }}
-            />
-          </div>
-
-          <p
-            className="text-center italic mt-8"
+            key={step.n}
             style={{
-              fontFamily: 'Instrument Sans, sans-serif',
-              fontSize: 14,
-              color: MUTED,
+              borderTop: i === 0 ? 'none' : `0.5px solid ${BEIGE_BORDER}`,
+              padding: '28px 0',
             }}
           >
-            {sold} t-shirts vendus sur {target} — continuez.
-          </p>
-        </div>
+            <p
+              style={{
+                fontFamily: ARIAL,
+                fontSize: 48,
+                fontWeight: 200,
+                color: BEIGE_BORDER,
+                lineHeight: 1,
+              }}
+            >
+              {step.n}
+            </p>
+            <p
+              style={{
+                fontFamily: ARIAL,
+                fontSize: 16,
+                fontWeight: 700,
+                color: INK,
+                marginTop: 8,
+              }}
+            >
+              {step.title}
+            </p>
+            <p
+              className="italic"
+              style={{ fontFamily: ARIAL, fontSize: 12, color: MUTED, marginTop: 4 }}
+            >
+              {step.text}
+            </p>
+          </div>
+        ))}
+      </section>
+
+      {/* PARTICIPANTS */}
+      <section className="w-full" style={{ backgroundColor: BEIGE, padding: '80px 24px' }}>
+        <p
+          className="text-center"
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 9,
+            textTransform: 'uppercase',
+            color: INK,
+            letterSpacing: '0.2em',
+            marginBottom: 40,
+          }}
+        >
+          Les t-shirts participants
+        </p>
+        <ProductGrid products={allTees} />
+      </section>
+
+      {/* HASHTAG */}
+      <section
+        className="w-full text-center"
+        style={{ backgroundColor: INK, padding: '60px 40px' }}
+      >
+        <p
+          style={{
+            fontFamily: ARIAL,
+            fontSize: 'clamp(32px, 6vw, 80px)',
+            fontWeight: 200,
+            color: '#FFFFFF',
+            letterSpacing: '0.05em',
+          }}
+        >
+          #LovcicovCercle
+        </p>
+        <p className="italic" style={{ fontFamily: ARIAL, fontSize: 13, color: SOFT, marginTop: 12 }}>
+          Rejoignez le mouvement. Taguez-nous.
+        </p>
       </section>
 
       {/* LEGAL */}
       <section
-        className="mx-auto px-6"
+        className="mx-auto"
         style={{
-          borderTop: `0.5px solid ${BORDER}`,
-          paddingTop: 40,
-          paddingBottom: 60,
-          maxWidth: 700,
+          backgroundColor: BEIGE,
+          borderTop: `0.5px solid ${BEIGE_BORDER}`,
+          padding: 40,
+          maxWidth: 600,
         }}
       >
         <p
           className="italic text-center"
-          style={{
-            fontFamily: 'Instrument Sans, sans-serif',
-            fontSize: 11,
-            color: MUTED,
-            lineHeight: 1.8,
-          }}
+          style={{ fontFamily: ARIAL, fontSize: 11, color: SOFT, lineHeight: 1.8 }}
         >
-          Tirage au sort effectué à la vente du 500ème t-shirt. Une voie d'accès gratuite est
+          Tirage au sort effectué à la vente du 1000ème t-shirt. Une voie d'accès gratuite est
           disponible sans obligation d'achat : envoyer un email à contact@lovcicov.com avec
           l'objet « Je rejoins le Cercle ». Règlement complet disponible sur demande.
         </p>
