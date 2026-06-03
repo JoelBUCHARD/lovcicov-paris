@@ -191,7 +191,7 @@ const MysticLovEditorial = () => {
           <div className="absolute bottom-6 md:bottom-16 left-0 right-0 flex flex-col items-center text-center px-6 z-10">
             <Link
               to="/mysticlov/shop"
-              className="uppercase transition-colors px-7 py-3 text-[11px]"
+              className="uppercase transition-colors px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px]"
               style={{
                 backgroundColor: ACCENT,
                 color: "#FFFFFF",
