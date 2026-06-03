@@ -303,63 +303,29 @@ const PowerLovEditorial = () => {
         </section>
 
 
-        {/* REJOINDRE LE CERCLE — version simple */}
+        {/* REJOINDRE LE CERCLE — version compacte */}
         <section
-          className="w-full"
-          style={{ backgroundColor: "#FFFFFF", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+          className="w-full px-6 md:px-10 py-16 md:py-20 text-center"
+          style={{ backgroundColor: "#FFFFFF" }}
         >
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p
-              className="mb-5 text-[11px] uppercase"
-              style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.22em" }}
-            >
-              Le Cercle
-            </p>
-            <h2
-              style={{
-                ...editorialTitleStyle,
-                color: "#0D0D0D",
-                fontStyle: "italic",
-                fontWeight: 300,
-                fontSize: "clamp(28px, 4vw, 44px)",
-                lineHeight: 1.1,
-              }}
-              className="m-0 mb-6"
-            >
-              Rejoindre Le Cercle
-            </h2>
-            <p
-              className="mx-auto text-[15px] md:text-[16px]"
-              style={{ color: "rgba(13,13,13,0.78)", lineHeight: 1.9 }}
-            >
-              Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts,
-              drops limités et invitations privées.
+          <Reveal className="mx-auto">
+            <p className="text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
+            <h3 className="text-2xl md:text-3xl font-medium mb-3 text-black">Rejoindre le cercle</h3>
+            <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
+              Soyez les premiers à découvrir les nouvelles collections et les sorties exclusives.
             </p>
             <form
-              className="mt-9 flex items-stretch justify-center gap-3 mx-auto max-w-md"
               onSubmit={(e) => e.preventDefault()}
+              className="flex max-w-sm mx-auto gap-2"
             >
               <input
                 type="email"
                 placeholder="Votre adresse e-mail"
-                className="flex-1 px-5 py-3 text-[13px]"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#0D0D0D",
-                  border: "1px solid rgba(13,13,13,0.18)",
-                  outline: "none",
-                  fontFamily: "Instrument Sans, system-ui, sans-serif",
-                }}
+                className="flex-1 py-3 px-3 bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary rounded-[2px]"
               />
               <button
                 type="submit"
-                className="px-7 py-3 text-[11px] uppercase transition-colors duration-300"
-                style={{
-                  backgroundColor: "#0D0D0D",
-                  color: "#FFFFFF",
-                  letterSpacing: "0.2em",
-                  fontFamily: "Instrument Sans, system-ui, sans-serif",
-                }}
+                className="text-[11px] px-6 py-3 bg-primary text-primary-foreground hover:bg-fuchsia transition-colors rounded-[2px]"
               >
                 OK
               </button>
@@ -368,7 +334,8 @@ const PowerLovEditorial = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer hideNewsletter />
+
     </div>
   );
 };
