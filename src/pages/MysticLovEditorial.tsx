@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroSolo from "@/assets/mysticlov/hero-solo.png";
-import seatedRooftop from "@/assets/mysticlov/seated-rooftop.png";
+import seatedRooftop from "@/assets/mysticlov/block2-new.jpg.asset.json";
 import groupShot from "@/assets/mysticlov/group.png";
 import closingJoy from "@/assets/mysticlov/closing-joy.png";
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
@@ -144,10 +144,10 @@ const MysticLovEditorial = () => {
         {/* BLOCK 3 — IMAGE */}
         <section className="w-full overflow-hidden" style={{ backgroundColor: BG }}>
           <img
-            src={seatedRooftop}
+            src={seatedRooftop.url}
             alt="L'histoire MysticLov"
-            className="w-full h-[55vh] object-cover md:h-auto md:max-h-screen md:object-contain"
-            style={{ objectPosition: "center top" }}
+            className="w-full h-[55vh] md:h-[85vh] object-cover"
+            style={{ objectPosition: "center 40%" }}
           />
         </section>
 
