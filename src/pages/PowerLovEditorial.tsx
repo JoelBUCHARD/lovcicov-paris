@@ -337,7 +337,7 @@ const PowerLovEditorial = () => {
             </p>
             <input
               type="email"
-              placeholder="Votre adresse mail"
+              placeholder="Votre adresse e-mail"
               className="mt-9 inline-block px-7 py-3 text-[11px] uppercase transition-colors duration-300 text-center"
               style={{
                 backgroundColor: "#FFFFFF",
