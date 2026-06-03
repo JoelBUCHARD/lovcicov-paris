@@ -17,7 +17,7 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
         <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
         <h3 className="text-2xl md:text-3xl font-medium mb-3 text-black">Rejoindre le cercle</h3>
         <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-          Soyez les premiers à découvrir les nouvelles collections et les sorties exclusives.
+          Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts, drops limités et invitations privées.
         </p>
         <form
           onSubmit={(e) => e.preventDefault()}
