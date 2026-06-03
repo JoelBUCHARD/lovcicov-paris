@@ -1,10 +1,21 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { standardProducts } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+
+import godDjCafe from '@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json';
+import godDjStreet from '@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json';
+import connectedEmpowered from '@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json';
+import boldBadassSweat from '@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json';
+import boldBadassTeeBack from '@/assets/powerlov/powerlov-bold-badass-no-filter-tee-back.png.asset.json';
+import boldBadassStreet from '@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json';
+import boldBadassGrid from '@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json';
+import ifGodIsADj from '@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json';
+import disciplineLuxury from '@/assets/powerlov/powerlov-discipline-is-my-luxury.png.asset.json';
+import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json';
+import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
+import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -15,18 +26,124 @@ const fadeUp = {
   }),
 };
 
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
+type PowerProduct = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  hover?: string;
+  badge?: string;
+};
+
+const powerProducts: PowerProduct[] = [
+  {
+    id: 'powerlov-god-is-a-dj',
+    name: 'T-Shirt God Is A DJ',
+    price: 59,
+    image: godDjCafe.url,
+    hover: godDjStreet.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-empowered',
+    name: 'T-Shirt Connected. Disciplined. Empowered.',
+    price: 59,
+    image: connectedEmpowered.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-discipline',
+    name: 'T-Shirt Discipline Is My Luxury',
+    price: 59,
+    image: disciplineLuxuryGrid.url,
+    hover: disciplineLuxury.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-if-god-dj-frequency',
+    name: 'T-Shirt If God Is A DJ, I Am The Frequency',
+    price: 59,
+    image: ifGodIsADj.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-bold-badass-tee',
+    name: 'T-Shirt Bold. Badass. No Filter.',
+    price: 59,
+    image: boldBadassGrid.url,
+    hover: boldBadassTeeBack.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-god-is-a-dancer',
+    name: 'T-Shirt God Is A Dancer',
+    price: 59,
+    image: godIsADancer.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-bold-badass-hoodie',
+    name: 'Sweat Capuche Bold. Badass. No Filter.',
+    price: 99,
+    image: boldBadassSweat.url,
+    hover: boldBadassStreet.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-energy-never-lies-hoodie',
+    name: 'Sweat Capuche Energy Never Lies',
+    price: 99,
+    image: energyNeverLies.url,
+    badge: 'UNISEX',
+  },
+];
+
+const PowerProductCard = ({ product, index }: { product: PowerProduct; index: number }) => {
+  const location = useLocation();
+  const from = `${location.pathname}${location.search}`;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.06 }}
+      className="h-full w-full"
+    >
+      <Link
+        to={`/shop/${product.id}`}
+        state={{ from }}
+        className="group flex flex-col h-full bg-white overflow-hidden"
+      >
+        <div className="aspect-[3/4] overflow-hidden bg-[#EFEDE8] relative shrink-0">
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            className={`w-full h-full object-cover transition-opacity duration-500 ${
+              product.hover ? 'group-hover:opacity-0' : 'group-hover:scale-105 transition-transform duration-700'
+            }`}
+          />
+          {product.hover && (
+            <img
+              src={product.hover}
+              alt={`${product.name} — vue alternative`}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            />
+          )}
+        </div>
+        <div className="space-y-1 text-center pb-3 pt-3 px-2 mt-auto">
+          <h3 className="text-brand uppercase" style={{ fontSize: 10, letterSpacing: '0.14em', color: '#0D0D0D' }}>
+            {product.name}
+          </h3>
+          <p style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#3D3D3B' }}>€{product.price}</p>
+        </div>
+      </Link>
+    </motion.div>
+  );
 };
 
 const CollectionPower = () => {
-  const shuffledProducts = shuffleArray(standardProducts);
-
   return (
     <div className="min-h-screen bg-[#EFEDE8]">
       <Navbar />
@@ -70,9 +187,9 @@ const CollectionPower = () => {
         {/* Products — gray background */}
         <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {shuffledProducts.map((product, i) => (
+            {powerProducts.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
-                <ProductCard product={product} index={i} />
+                <PowerProductCard product={product} index={i} />
               </div>
             ))}
           </div>
