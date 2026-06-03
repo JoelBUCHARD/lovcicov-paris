@@ -17,6 +17,7 @@ import Drops from "./pages/Drops";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import CollectionStandards from "./pages/CollectionStandards";
+import CollectionPower from "./pages/CollectionPower";
 import CollectionMystic from "./pages/CollectionMystic";
 import MysticLovEditorial from "./pages/MysticLovEditorial";
 import StoneLovEditorial from "./pages/StoneLovEditorial";
@@ -101,7 +102,8 @@ const AppContent = () => {
         <Route path="/product/:handle" element={<ShopifyProductDetail />} />
         <Route path="/collections/standards" element={<CollectionStandards />} />
         <Route path="/powerlov" element={<PowerLovEditorial />} />
-        <Route path="/collections/powerlov" element={<CollectionStandards />} />
+        <Route path="/collections/powerlov" element={<CollectionPower />} />
+        <Route path="/powerlov/shop" element={<CollectionPower />} />
         <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
         <Route path="/mysticlov" element={<MysticLovEditorial />} />
         <Route path="/mysticlov/shop" element={<CollectionMystic />} />
