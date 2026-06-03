@@ -2,9 +2,9 @@ import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
-import godDjCafeAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
+import godDjCafeWideAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe-wide.png.asset.json";
 import energyNeverLiesAsset from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
-import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered-v2.png.asset.json";
+import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
 import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
@@ -17,9 +17,9 @@ type RevealProps = {
 };
 
 const topWide = {
-  image: godDjCafeAsset.url,
-  alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
-  objectPosition: "center 38%",
+  image: godDjCafeWideAsset.url,
+  alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne, plan large",
+  objectPosition: "center center",
 };
 
 const bottomWide = {
@@ -36,8 +36,8 @@ const midProducts = [
   },
   {
     image: connectedDisciplinedEmpoweredAsset.url,
-    alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered., plan large",
-    objectPosition: "center center",
+    alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
+    objectPosition: "center 28%",
   },
   {
     image: godIsADancerAsset.url,
