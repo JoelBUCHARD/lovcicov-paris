@@ -306,7 +306,7 @@ const PowerLovEditorial = () => {
         {/* REJOINDRE LE CERCLE — version simple */}
         <section
           className="w-full"
-          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+          style={{ backgroundColor: "#FFFFFF", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
           <Reveal className="mx-auto max-w-2xl text-center">
             <p
