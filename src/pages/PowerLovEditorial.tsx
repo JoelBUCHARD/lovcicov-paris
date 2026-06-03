@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
@@ -167,9 +168,8 @@ const PowerLovEditorial = () => {
               >
                 Wear your power.
               </p>
-              <button
-                type="button"
-                onClick={scrollToManifesto}
+              <Link
+                to="/collections/powerlov"
                 className="mt-2 md:mt-6 inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
                 style={{
                   backgroundColor: "#FFFFFF",
@@ -184,7 +184,7 @@ const PowerLovEditorial = () => {
                 }}
               >
                 Découvrir la collection →
-              </button>
+              </Link>
             </Reveal>
           </div>
         </section>
