@@ -2,14 +2,12 @@ import { useEffect, useState, type ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
-import boldBadassAsset from "@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json";
 import godDjCafeAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
 import energyNeverLiesAsset from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
 import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
 import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
-import boldBadassStreetAsset from "@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
