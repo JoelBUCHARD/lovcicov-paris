@@ -23,8 +23,11 @@ const StoneLovGrid = () => {
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   return (
-    <section style={{ backgroundColor: "#FAF7F2", padding: "20px 0 0" }}>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+    <section style={{ backgroundColor: "#FAF7F2" }}>
+      <div
+        className="grid grid-cols-2 md:grid-cols-4 gap-5"
+        style={{ padding: "clamp(20px, 3vw, 40px)" }}
+      >
         {images.map((img, i) => (
           <button
             key={i}
