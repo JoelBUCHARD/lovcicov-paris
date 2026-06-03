@@ -170,7 +170,7 @@ const Index = () => {
       <section className="w-full bg-white pt-4 md:pt-16 pb-0 md:pb-[20px] flex justify-center">
         <div className="relative inline-block">
           <img
-            src={editorialStonelov}
+            src={editorialStonelov.url}
             alt="LOVCICOV — Collection 2026"
             className="relative z-[1] h-auto md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
