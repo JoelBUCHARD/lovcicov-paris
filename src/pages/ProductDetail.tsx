@@ -15,10 +15,10 @@ import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProduct
 import { SHIPPING_LINE_LABEL } from '@/lib/shipping';
 import { useEffect } from 'react';
 
-const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesJpeg = import.meta.glob('@/assets/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesPng = import.meta.glob('@/assets/*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesJpeg = import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesPng = import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng };
 
 const getImage = (key: string) => {
