@@ -69,26 +69,28 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-start gap-6">
             <a
               href="https://www.instagram.com/lovcicov.paris/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Instagram size={16} strokeWidth={1.5} />
+              <span className="text-brand text-[10px] tracking-[0.05em]">@lovcicov.paris</span>
             </a>
             <a
               href="https://www.facebook.com/lovcicov"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Facebook size={16} strokeWidth={1.5} />
+              <span className="text-brand text-[10px] tracking-[0.05em]">lovcicov</span>
             </a>
-            <span className="text-[10px] text-muted-foreground/60 ml-2">
+            <span className="text-[10px] text-muted-foreground/60 self-center ml-2">
               © LOVCICOV {new Date().getFullYear()}
             </span>
           </div>
