@@ -164,12 +164,12 @@ const StoneLovEditorial = () => {
         </section>
 
         {/* BOTTOM */}
-        <section style={{ backgroundColor: BG, borderTop: `1px solid ${BORDER}`, padding: 40 }}>
-          <p className="text-center text-[9px] mb-4" style={{ color: "#B4A99A", letterSpacing: "0.2em" }}>
+        <section className="py-8 md:py-12 px-6" style={{ backgroundColor: BG, borderTop: `1px solid ${BORDER}` }}>
+          <p className="text-center mb-3 md:mb-4 text-[9px] md:text-[10px]" style={{ color: TERRA, letterSpacing: "0.2em" }}>
             StoneLov · Pierres naturelles · Pièces uniques · Paris
           </p>
 
-          <div className="flex justify-center gap-6 text-[11px] uppercase" style={{ letterSpacing: "0.15em" }}>
+          <div className="flex justify-center gap-4 md:gap-6 uppercase text-[9px] md:text-[11px]" style={{ letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: WARM, opacity: 0.8 }} onMouseEnter={(e) => (e.currentTarget.style.color = TERRA)} onMouseLeave={(e) => (e.currentTarget.style.color = WARM)}>
               PowerLov
             </Link>
