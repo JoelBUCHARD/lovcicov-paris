@@ -11,6 +11,7 @@ import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-disciplin
 import boldBadassSweatAsset from "@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json";
 import boldBadassTeeBackAsset from "@/assets/powerlov/powerlov-bold-badass-no-filter-tee-back.png.asset.json";
 import disciplineLuxuryAsset from "@/assets/powerlov/powerlov-discipline-is-my-luxury.png.asset.json";
+import ifGodIsADjAsset from "@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
@@ -307,7 +308,7 @@ const PowerLovEditorial = () => {
 
         {/* DUO VISUELS — BOLD. BADASS. NO FILTER. */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 p-2 md:p-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 p-2 md:p-3">
             <div className="relative w-full aspect-[3/4] overflow-hidden">
               <img
                 src={boldBadassSweatAsset.url}
@@ -333,6 +334,15 @@ const PowerLovEditorial = () => {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
                 style={{ objectPosition: "center 35%" }}
+              />
+            </div>
+            <div className="relative w-full aspect-[3/4] overflow-hidden">
+              <img
+                src={ifGodIsADjAsset.url}
+                alt="PowerLov — t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: "center 30%" }}
               />
             </div>
           </div>
