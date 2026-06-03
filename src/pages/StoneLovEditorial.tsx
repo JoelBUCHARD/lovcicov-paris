@@ -38,7 +38,7 @@ const StoneLovEditorial = () => {
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
           >
-            Rejoindre Le Cercle →
+            Rejoindre Le Cercle
           </Link>
         </header>
 
@@ -68,7 +68,7 @@ const StoneLovEditorial = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
-              Découvrir la collection →
+              Découvrir la collection
             </Link>
           </div>
         </section>
@@ -160,7 +160,7 @@ const StoneLovEditorial = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
             >
-              Découvrir la collection →
+              Découvrir la collection
             </Link>
           </div>
         </section>

@@ -54,7 +54,7 @@ const MysticLovEditorial = () => {
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
           >
-            Rejoindre Le Cercle →
+            Rejoindre Le Cercle
           </Link>
         </header>
 
@@ -93,7 +93,7 @@ const MysticLovEditorial = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
             >
-              Découvrir la collection →
+              Découvrir la collection
             </Link>
           </div>
         </section>
@@ -202,7 +202,7 @@ const MysticLovEditorial = () => {
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
             >
-              Découvrir la collection →
+              Découvrir la collection
             </Link>
           </div>
         </section>

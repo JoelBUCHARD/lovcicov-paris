@@ -11,7 +11,7 @@ const CampaignBanner = () => {
         <span>Un sac de luxe à gagner</span>
         <span className="text-white/60">·</span>
         <Link to="/campagne-sac" className="text-white hover:underline">
-          Participer →
+          Participer
         </Link>
       </div>
 
@@ -26,7 +26,7 @@ const CampaignBanner = () => {
           className="text-white hover:underline"
           style={{ letterSpacing: '0.15em' }}
         >
-          Participer →
+          Participer
         </Link>
       </div>
     </div>

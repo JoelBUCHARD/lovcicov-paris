@@ -183,7 +183,7 @@ const PowerLovEditorial = () => {
                   e.currentTarget.style.backgroundColor = "#FFFFFF";
                 }}
               >
-                Découvrir la collection →
+                Découvrir la collection
               </Link>
             </Reveal>
           </div>
@@ -344,7 +344,7 @@ const PowerLovEditorial = () => {
                   e.currentTarget.style.backgroundColor = "#FFFFFF";
                 }}
               >
-                Découvrir la collection →
+                Découvrir la collection
               </Link>
             </div>
           </div>
