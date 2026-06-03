@@ -304,6 +304,31 @@ const PowerLovEditorial = () => {
           </div>
         </section>
 
+        {/* DUO VISUELS — BOLD. BADASS. NO FILTER. */}
+        <section style={{ backgroundColor: "#F4F0E8" }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3 p-2 md:p-3">
+            <div className="relative w-full aspect-[3/4] overflow-hidden">
+              <img
+                src={boldBadassSweatAsset.url}
+                alt="PowerLov — sweat blanc Bold. Badass. No Filter. dans une rue parisienne"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: "center 30%" }}
+              />
+            </div>
+            <div className="relative w-full aspect-[3/4] overflow-hidden">
+              <img
+                src={boldBadassTeeBackAsset.url}
+                alt="PowerLov — dos du t-shirt blanc Bold, Badass, No Filter."
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: "center 35%" }}
+              />
+            </div>
+          </div>
+        </section>
+
+
         {/* REJOINDRE LE CERCLE — version simple */}
         <section
           className="w-full"
