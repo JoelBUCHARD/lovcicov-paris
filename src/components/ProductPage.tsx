@@ -261,7 +261,7 @@ const ProductPage = ({ product }: Props) => {
           Le Récit
         </p>
         <p
-          style={{ fontFamily: SERIF, fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.7, color: '#2A2A2A', fontWeight: 300 }}
+          style={{ fontFamily: SANS, fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.7, color: '#2A2A2A', fontWeight: 400 }}
         >
           {product.description}
         </p>
