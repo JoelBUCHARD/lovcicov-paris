@@ -40,6 +40,9 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
           </button>
         </form>
       </div>
+      )}
+
+
 
       {/* Shipping note */}
       <div className="border-t border-border px-6 md:px-10 py-4 text-center">
