@@ -22,8 +22,7 @@ const getImage = (key: string) => {
 };
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
-const SERIF = "'Cormorant Garamond', 'Instrument Serif', Georgia, serif";
-const SANS = "'Inter', Arial, sans-serif";
+const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const universeConfig = {
   mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/shop?collection=mystic', backLabel: 'MysticLov' },
@@ -172,13 +171,13 @@ const ProductPage = ({ product }: Props) => {
           </p>
           <h1
             className="mb-4 leading-[1.05]"
-            style={{ fontFamily: SERIF, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 400, color: '#1A1A1A', letterSpacing: '-0.01em' }}
+            style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
           >
             {product.name}
           </h1>
           <p
-            className="italic mb-8"
-            style={{ fontFamily: SERIF, fontSize: 16, color: '#5F5E5A', lineHeight: 1.5 }}
+            className="mb-8"
+            style={{ fontFamily: SANS, fontSize: 15, color: '#5F5E5A', lineHeight: 1.5, fontWeight: 400 }}
           >
             {product.details}
           </p>
@@ -262,7 +261,7 @@ const ProductPage = ({ product }: Props) => {
           Le Récit
         </p>
         <p
-          style={{ fontFamily: SERIF, fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.7, color: '#2A2A2A', fontWeight: 300 }}
+          style={{ fontFamily: SANS, fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.7, color: '#2A2A2A', fontWeight: 400 }}
         >
           {product.description}
         </p>
@@ -320,7 +319,7 @@ const ProductPage = ({ product }: Props) => {
                   >
                     {s.name}
                   </p>
-                  <p className="italic m-0" style={{ fontFamily: SERIF, fontSize: 14, lineHeight: 1.7 }}>{s.meaning}</p>
+                  <p className="m-0" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400 }}>{s.meaning}</p>
                 </li>
               ))}
             </ul>
