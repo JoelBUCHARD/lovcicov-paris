@@ -147,7 +147,7 @@ const MysticLovEditorial = () => {
             src={seatedRooftop}
             alt="L'histoire MysticLov"
             className="w-full h-[55vh] md:h-[80vh] object-cover"
-            style={{ objectPosition: "center 30%" }}
+            style={{ objectPosition: "center top" }}
           />
         </section>
 
