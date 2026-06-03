@@ -5,17 +5,15 @@ import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 interface FooterProps {
   hideTopBorder?: boolean;
-  hideNewsletter?: boolean;
 }
 
-const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
+const Footer = ({ hideTopBorder }: FooterProps) => {
   const [email, setEmail] = useState('');
 
   return (
     <footer className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}>
-      {!hideNewsletter && (
+      {/* Newsletter */}
       <div className="px-6 md:px-10 py-16 md:py-20 text-center bg-background">
-
         <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
         <h3 className="text-2xl md:text-3xl font-medium mb-3 text-black">Rejoindre le cercle</h3>
         <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
@@ -40,9 +38,6 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
           </button>
         </form>
       </div>
-      )}
-
-
 
       {/* Shipping note */}
       <div className="border-t border-border px-6 md:px-10 py-4 text-center">
