@@ -82,7 +82,6 @@ const CollectionBijoux = () => {
               className="inline-flex items-center gap-3 bg-[#C4714A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#A55A35] transition-colors"
             >
               Voir tous les produits
-              <ArrowRight size={12} />
             </Link>
           </motion.div>
         </div>
