@@ -34,24 +34,47 @@ const bottomWide = {
 
 const midProducts = [
   {
-    image: energyNeverLiesAsset.url,
-    alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
-    objectPosition: "center 34%",
-  },
-  {
     image: connectedDisciplinedEmpoweredAsset.url,
     alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
     objectPosition: "center 28%",
   },
   {
-    image: godIsADancerAsset.url,
-    alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
+    image: boldBadassSweatAsset.url,
+    alt: "PowerLov — homme en sweat blanc Bold. Badass. No Filter. dans une rue parisienne",
     objectPosition: "center 30%",
   },
+  {
+    image: ifGodIsADjAsset.url,
+    alt: "PowerLov — femme en t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne",
+    objectPosition: "center 30%",
+  },
+  {
+    image: disciplineLuxuryAsset.url,
+    alt: "PowerLov — homme en t-shirt noir Discipline Is My Luxury devant le Café de Flore",
+    objectPosition: "center 35%",
+  },
+];
+
+const secondaryProducts = [
   {
     image: godIsADjStreetAsset.url,
     alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
     objectPosition: "center 26%",
+  },
+  {
+    image: boldBadassTeeBackAsset.url,
+    alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter. (homme)",
+    objectPosition: "center 35%",
+  },
+  {
+    image: energyNeverLiesAsset.url,
+    alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
+    objectPosition: "center 34%",
+  },
+  {
+    image: godIsADancerAsset.url,
+    alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
+    objectPosition: "center 30%",
   },
 ];
 
@@ -268,28 +291,23 @@ const PowerLovEditorial = () => {
             ))}
           </div>
 
-          {/* Second smaller grid — Bold Badass + Discipline + Frequency */}
+          {/* Second smaller grid — alternance homme / femme */}
           <div
             className="grid grid-cols-2 md:grid-cols-4 gap-5"
             style={{ padding: "0 clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px)" }}
           >
-            {[
-              { src: boldBadassSweatAsset.url, alt: "PowerLov — sweat blanc Bold. Badass. No Filter. dans une rue parisienne", pos: "center 30%" },
-              { src: boldBadassTeeBackAsset.url, alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter.", pos: "center 35%" },
-              { src: disciplineLuxuryAsset.url, alt: "PowerLov — t-shirt noir Discipline Is My Luxury devant le Café de Flore", pos: "center 35%" },
-              { src: ifGodIsADjAsset.url, alt: "PowerLov — t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne", pos: "center 30%" },
-            ].map((p) => (
+            {secondaryProducts.map((product) => (
               <div
-                key={p.alt}
+                key={product.alt}
                 className="relative w-full overflow-hidden"
                 style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
                 <img
-                  src={p.src}
-                  alt={p.alt}
+                  src={product.image}
+                  alt={product.alt}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
-                  style={{ objectPosition: p.pos }}
+                  style={{ objectPosition: product.objectPosition }}
                 />
               </div>
             ))}
