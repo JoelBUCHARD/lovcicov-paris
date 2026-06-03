@@ -7,7 +7,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CampaignBanner from '@/components/CampaignBanner';
 import HeroCarousel from '@/components/HeroCarousel';
-import editorialStonelov from '@/assets/editorial-stonelov.png';
+import editorialStonelov from '@/assets/editorial-powerlov.jpg.asset.json';
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
@@ -170,7 +170,7 @@ const Index = () => {
       <section className="w-full bg-white pt-4 md:pt-16 pb-0 md:pb-[20px] flex justify-center">
         <div className="relative inline-block">
           <img
-            src={editorialStonelov}
+            src={editorialStonelov.url}
             alt="LOVCICOV — Collection 2026"
             className="relative z-[1] h-auto md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
