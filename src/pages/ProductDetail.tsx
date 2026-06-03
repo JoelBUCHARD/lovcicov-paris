@@ -12,6 +12,7 @@ import StoneMeaningBlock from '@/components/StoneMeaningBlock';
 import StoneLovProductPanel from '@/components/StoneLovProductPanel';
 import ColorSwatches from '@/components/ColorSwatches';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
+import { SHIPPING_LINE_LABEL } from '@/lib/shipping';
 import { useEffect } from 'react';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
