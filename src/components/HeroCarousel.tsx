@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import slideHero from '@/assets/slide-hero.png';
+import slideHeroAsset from '@/assets/slide-hero.png.asset.json';
+const slideHero = slideHeroAsset.url;
 
 type Slide = { images: string[]; landscape?: string };
 
