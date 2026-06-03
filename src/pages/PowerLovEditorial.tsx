@@ -18,17 +18,19 @@ type RevealProps = {
   delay?: number;
 };
 
-const products = [
-  {
-    image: boldBadassAsset.url,
-    alt: "PowerLov — mannequin en sweatshirt blanc Bold. Badass. No Filter.",
-    objectPosition: "center 22%",
-  },
-  {
-    image: godDjCafeAsset.url,
-    alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
-    objectPosition: "center 38%",
-  },
+const topWide = {
+  image: godDjCafeAsset.url,
+  alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne",
+  objectPosition: "center 38%",
+};
+
+const bottomWide = {
+  image: disciplineIsMyLuxuryAsset.url,
+  alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
+  objectPosition: "center 32%",
+};
+
+const midProducts = [
   {
     image: energyNeverLiesAsset.url,
     alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
@@ -49,17 +51,8 @@ const products = [
     alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
     objectPosition: "center 26%",
   },
-  {
-    image: disciplineIsMyLuxuryAsset.url,
-    alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
-    objectPosition: "center 32%",
-  },
-  {
-    image: boldBadassStreetAsset.url,
-    alt: "PowerLov — t-shirt blanc Bold. Badass. No Filter. devant une devanture parisienne",
-    objectPosition: "center 28%",
-  },
 ];
+
 
 const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
   const [visible, setVisible] = useState(false);
