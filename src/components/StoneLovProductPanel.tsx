@@ -116,6 +116,9 @@ const StoneLovProductPanel = ({ product }: { product: Product }) => {
       {/* BLOCK 3 — Price + payment */}
       <p style={{ fontFamily: ARIAL, fontSize: 20, fontWeight: 700, color: "#1A1A1A", marginTop: 24 }}>€{product.price}</p>
       <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
+        Livraison 9,90€ — offerte dès 99€ d'achat
+      </p>
+      <p style={{ fontFamily: ARIAL, fontSize: 11, fontStyle: "italic", color: "#888780", marginTop: 4 }}>
         4x sans frais avec Alma
       </p>
 
