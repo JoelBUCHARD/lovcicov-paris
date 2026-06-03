@@ -230,11 +230,26 @@ const PowerLovEditorial = () => {
 
         {/* PRODUITS — mosaïque harmonisée */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
+          {/* Top wide image */}
           <div
-            className="grid grid-cols-1 md:grid-cols-2 gap-px"
-            style={{ backgroundColor: "#DDD6CB" }}
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
-            {products.map((product) => (
+            <img
+              src={topWide.image}
+              alt={topWide.alt}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: topWide.objectPosition }}
+            />
+          </div>
+
+          {/* Middle grid — smaller, like MysticLov / StoneLov */}
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            style={{ padding: "clamp(20px, 3vw, 40px)" }}
+          >
+            {midProducts.map((product) => (
               <div
                 key={product.alt}
                 className="relative w-full overflow-hidden"
@@ -250,7 +265,45 @@ const PowerLovEditorial = () => {
               </div>
             ))}
           </div>
+
+          {/* Bottom wide image with CTA overlay */}
+          <div
+            className="relative w-full overflow-hidden"
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
+          >
+            <img
+              src={bottomWide.image}
+              alt={bottomWide.alt}
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: bottomWide.objectPosition }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
+              style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
+            >
+              <button
+                type="button"
+                onClick={scrollToManifesto}
+                className="inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
+                style={{
+                  backgroundColor: "#FFFFFF",
+                  color: "#0D0D0D",
+                  letterSpacing: "0.2em",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "#E8E4DD";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "#FFFFFF";
+                }}
+              >
+                Découvrir la collection →
+              </button>
+            </div>
+          </div>
         </section>
+
 
         {/* REJOINDRE LE CERCLE — version simple */}
         <section
