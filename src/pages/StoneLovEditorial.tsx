@@ -153,7 +153,7 @@ const StoneLovEditorial = () => {
           <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
             <Link
               to="/collections/bijoux"
-              className="uppercase transition-colors px-7 py-3 text-[11px]"
+              className="uppercase transition-colors px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px]"
               style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
