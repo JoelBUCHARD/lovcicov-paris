@@ -171,7 +171,7 @@ const ProductPage = ({ product }: Props) => {
           </p>
           <h1
             className="mb-4 leading-[1.05]"
-            style={{ fontFamily: SERIF, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 400, color: '#1A1A1A', letterSpacing: '-0.01em' }}
+            style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
           >
             {product.name}
           </h1>
