@@ -86,7 +86,6 @@ const powerProducts: PowerProduct[] = [
     name: 'Sweat Capuche Bold. Badass. No Filter.',
     price: 99,
     image: boldBadassSweat.url,
-    hover: boldBadassStreet.url,
     badge: 'UNISEX',
   },
   {
