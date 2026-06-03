@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroSolo from "@/assets/mysticlov/hero-solo.png";
-import seatedRooftop from "@/assets/mysticlov/seated-rooftop.png";
+import seatedRooftop from "@/assets/mysticlov/block2-new.jpg.asset.json";
 import groupShot from "@/assets/mysticlov/group.png";
 import closingJoy from "@/assets/mysticlov/closing-joy.png";
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
