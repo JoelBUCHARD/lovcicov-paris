@@ -207,16 +207,16 @@ const MysticLovEditorial = () => {
         </section>
 
         {/* BOTTOM SECTION */}
-        <section className="py-6 md:py-12 px-6" style={{ backgroundColor: BG }}>
-          <div className="w-full h-px mb-8" style={{ backgroundColor: SEP }} />
+        <section className="py-8 md:py-12 px-6" style={{ backgroundColor: BG }}>
+          <div className="w-full h-px mb-6 md:mb-8" style={{ backgroundColor: SEP }} />
           <p
-            className="text-center mb-4"
-            style={{ color: ACCENT, fontSize: 10, letterSpacing: "0.2em" }}
+            className="text-center mb-3 md:mb-4 text-[9px] md:text-[10px]"
+            style={{ color: ACCENT, letterSpacing: "0.2em" }}
           >
             MysticLov · Broderies dorées · Pièces uniques · Paris
           </p>
 
-          <div className="flex justify-center gap-6 uppercase" style={{ fontSize: 11, letterSpacing: "0.15em" }}>
+          <div className="flex justify-center gap-4 md:gap-6 uppercase text-[9px] md:text-[11px]" style={{ letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: SOFT }}>
               PowerLov
             </Link>
