@@ -329,9 +329,8 @@ const PowerLovEditorial = () => {
               className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
               style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
             >
-              <button
-                type="button"
-                onClick={scrollToManifesto}
+              <Link
+                to="/collections/powerlov"
                 className="inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
                 style={{
                   backgroundColor: "#FFFFFF",
@@ -346,7 +345,7 @@ const PowerLovEditorial = () => {
                 }}
               >
                 Découvrir la collection →
-              </button>
+              </Link>
             </div>
           </div>
         </section>
