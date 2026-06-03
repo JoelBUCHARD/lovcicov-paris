@@ -31,28 +31,17 @@ const CollectionBijoux = () => {
             >
               StoneLov
             </motion.p>
-            <motion.h1
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-              className="italic text-[#1A1A1A] mt-4"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 'clamp(24px,3.4vw,32px)', fontWeight: 200 }}
-            >
-              StoneLov
-            </motion.h1>
             <motion.p
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={2}
+              custom={1}
               className="text-[#5F5E5A] mx-auto mt-5"
               style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, lineHeight: 1.8, maxWidth: 600 }}
             >
               StoneLov puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
 
             </motion.p>
-            <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#E8C9B5' }} />
           </div>
         </div>
 
