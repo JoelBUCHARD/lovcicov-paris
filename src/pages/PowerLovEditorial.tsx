@@ -36,8 +36,8 @@ const midProducts = [
   },
   {
     image: connectedDisciplinedEmpoweredAsset.url,
-    alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered., plan large",
-    objectPosition: "center center",
+    alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
+    objectPosition: "center 28%",
   },
   {
     image: godIsADancerAsset.url,
