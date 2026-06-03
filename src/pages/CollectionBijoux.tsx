@@ -40,7 +40,7 @@ const CollectionBijoux = () => {
               className="italic text-[#1A1A1A] mt-4"
               style={{ fontFamily: 'Arial, sans-serif', fontSize: 'clamp(24px,3.4vw,32px)', fontWeight: 200 }}
             >
-              Rooted in the earth.
+              StoneLov
             </motion.h1>
             <motion.p
               variants={fadeUp}
@@ -54,22 +54,6 @@ const CollectionBijoux = () => {
 
             </motion.p>
             <div className="my-5 h-px mx-auto" style={{ width: 60, backgroundColor: '#E8C9B5' }} />
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={3}
-              className="mx-auto uppercase"
-              style={{
-                fontFamily: 'Arial, sans-serif',
-                fontSize: 10,
-                color: '#C4714A',
-                letterSpacing: '0.18em',
-                lineHeight: 1.8,
-              }}
-            >
-              Pierre · Terre · Minéral · Matière · Ancrage · Nature · Brut · Silence · Protection · Mémoire · Force ancienne · Élégance organique · Talisman
-            </motion.p>
           </div>
         </div>
 
