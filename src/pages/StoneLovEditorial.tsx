@@ -5,6 +5,7 @@ import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
+import bookDesk from "@/assets/stonelov/book-lalune-desk.png.asset.json";
 import StoneUniverse from "@/components/StoneUniverse";
 import StoneLovGrid from "@/components/StoneLovGrid";
 
