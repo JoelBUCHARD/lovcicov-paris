@@ -147,8 +147,11 @@ const ShopifyProductDetail = () => {
             <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
               {product.title}
             </h1>
-            <p className="text-[16px] font-normal text-[#1A1A1A] mb-3" style={{ fontFamily: 'Arial, sans-serif' }}>
+            <p className="text-[16px] font-normal text-[#1A1A1A] mb-1" style={{ fontFamily: 'Arial, sans-serif' }}>
               €{price}
+            </p>
+            <p className="text-[11px] text-[#888780] mb-3" style={{ fontFamily: 'Arial, sans-serif', fontStyle: 'italic' }}>
+              Livraison 9,90€ — offerte dès 99€ d'achat
             </p>
 
             {/* Stock badge */}
@@ -222,7 +225,7 @@ const ShopifyProductDetail = () => {
             </button>
 
             <p className="text-[11px] text-[#B5B3AD] text-center mt-4" style={{ fontFamily: 'Arial, sans-serif' }}>
-              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
+              Livraison 9,90€ — offerte dès 99€ d'achat &nbsp;·&nbsp; Retours 14 jours &nbsp;·&nbsp; Made in France / Paris
             </p>
           </motion.div>
         </div>

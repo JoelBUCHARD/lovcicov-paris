@@ -12,6 +12,7 @@ import StoneMeaningBlock from '@/components/StoneMeaningBlock';
 import StoneLovProductPanel from '@/components/StoneLovProductPanel';
 import ColorSwatches from '@/components/ColorSwatches';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
+import { SHIPPING_LINE_LABEL } from '@/lib/shipping';
 import { useEffect } from 'react';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
@@ -241,18 +242,9 @@ const ProductDetail = () => {
             <p className="italic" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
               4x sans frais avec Alma
             </p>
-            {(() => {
-              const ship =
-                product.subcategory === 'tshirt' ? "Livraison 4.50€ · Offerte dès 250€ d'achat"
-                : product.subcategory === 'crewneck' ? "Livraison 5.50€ · Offerte dès 250€ d'achat"
-                : product.subcategory === 'hoodie' ? "Livraison 6.50€ · Offerte dès 250€ d'achat"
-                : null;
-              return ship && product.collection !== 'mystic' ? (
-                <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
-                  {ship}
-                </p>
-              ) : null;
-            })()}
+            <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+              {SHIPPING_LINE_LABEL}
+            </p>
             {product.collection === 'standard' ? (
               <>
                 <p
@@ -345,7 +337,7 @@ const ProductDetail = () => {
               className="text-[11px] text-[#888780] text-center mt-4"
               style={{ fontFamily: 'Arial, sans-serif' }}
             >
-              Livraison offerte dès 120€ &nbsp;·&nbsp; Retours 14 jours
+              Livraison 9,90€ — offerte dès 99€ d'achat &nbsp;·&nbsp; Retours 14 jours
             </p>
           </motion.div>
           )}
