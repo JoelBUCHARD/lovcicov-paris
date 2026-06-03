@@ -457,7 +457,7 @@ const Index = () => {
           Vu dans la presse
         </p>
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6">
-          {['Madame Figaro', 'ELLE', 'Vogue'].map((media) => (
+          {['Madame Figaro', 'Paris Match'].map((media) => (
             <span
               key={media}
               className="text-[13px] md:text-[14px] text-[#888780] tracking-[0.08em] font-light"
