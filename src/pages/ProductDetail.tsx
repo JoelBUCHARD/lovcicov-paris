@@ -241,18 +241,9 @@ const ProductDetail = () => {
             <p className="italic" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
               4x sans frais avec Alma
             </p>
-            {(() => {
-              const ship =
-                product.subcategory === 'tshirt' ? "Livraison 4.50€ · Offerte dès 250€ d'achat"
-                : product.subcategory === 'crewneck' ? "Livraison 5.50€ · Offerte dès 250€ d'achat"
-                : product.subcategory === 'hoodie' ? "Livraison 6.50€ · Offerte dès 250€ d'achat"
-                : null;
-              return ship && product.collection !== 'mystic' ? (
-                <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
-                  {ship}
-                </p>
-              ) : null;
-            })()}
+            <p className="italic mt-1" style={{ fontFamily: 'Arial, sans-serif', fontSize: '11px', color: '#888780' }}>
+              {SHIPPING_LINE_LABEL}
+            </p>
             {product.collection === 'standard' ? (
               <>
                 <p
