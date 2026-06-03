@@ -51,9 +51,19 @@ const StoneLovEditorial = () => {
             style={{ transformOrigin: "center 42%" }}
           />
           <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-5 md:pb-8">
+            <p className="mb-2 md:mb-5 text-[8px] md:text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.22em", backgroundColor: "rgba(255,255,255,0.4)", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+              StoneLov
+            </p>
+
+            <h1
+              className="mb-2 md:mb-4 italic"
+              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 2vw, 22px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
+            >
+              Rooted in the earth.
+            </h1>
             <Link
               to="/collections/bijoux"
-              className="inline-block uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
+              className="inline-block mt-2 md:mt-6 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
               style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
