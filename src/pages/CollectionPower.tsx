@@ -163,15 +163,6 @@ const CollectionPower = () => {
               variants={fadeUp}
               initial="hidden"
               animate="visible"
-              custom={1}
-              className="font-sans italic text-[12px] text-[#7A7A78] mb-3"
-            >
-              t-shirts · sweats · message fort
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
               custom={2}
               className="mx-auto"
               style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#3D3D3B', maxWidth: 600, lineHeight: 1.7 }}
