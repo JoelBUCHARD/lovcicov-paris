@@ -64,7 +64,7 @@ const MysticLovEditorial = () => {
           <img
             src={heroSolo}
             alt="MysticLov hero"
-            className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
           <div
             className="absolute inset-0 pointer-events-none"
@@ -147,7 +147,7 @@ const MysticLovEditorial = () => {
             src={seatedRooftop}
             alt="L'histoire MysticLov"
             className="w-full h-[55vh] md:h-[80vh] object-cover"
-            style={{ objectPosition: "center 30%" }}
+            style={{ objectPosition: "center top" }}
           />
         </section>
 
