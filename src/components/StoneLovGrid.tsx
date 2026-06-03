@@ -11,15 +11,12 @@ import gridSmall2 from "@/assets/stonelov/grid-small-2.jpg.asset.json";
 const images = [
   { src: grid1, alt: "Collier œil de tigre rose sur sable" },
   { src: grid2, alt: "Collier malachite verte avec pendentif corail rouge" },
+  { src: gridSmall1.url, alt: "Collier améthyste, citrine et malachite sur rocher" },
   { src: grid3, alt: "Collier jade vert avec pendentif pierre blanche" },
   { src: grid4, alt: "Colliers multicolores en pierres sur rocher" },
+  { src: gridSmall2.url, alt: "Bracelets turquoise et corail sur sable" },
   { src: grid5, alt: "Collier corail rouge sur rocher" },
   { src: grid6, alt: "Collier turquoise et calcédoine bleue sur rocher" },
-];
-
-const smallImages = [
-  { src: gridSmall1.url, alt: "Collier améthyste, citrine et malachite sur rocher" },
-  { src: gridSmall2.url, alt: "Bracelets turquoise et corail sur sable" },
 ];
 
 const StoneLovGrid = () => {
@@ -27,7 +24,7 @@ const StoneLovGrid = () => {
 
   return (
     <section style={{ backgroundColor: "#FAF7F2", padding: "20px 0 0" }}>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-[4px] md:gap-[6px]">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-[4px] md:gap-[6px]">
         {images.map((img, i) => (
           <button
             key={i}
@@ -42,25 +39,6 @@ const StoneLovGrid = () => {
             />
           </button>
         ))}
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-[4px] md:gap-[6px] mt-[4px] md:mt-[6px]">
-        <div className="hidden md:block" aria-hidden="true" />
-        {smallImages.map((img, i) => (
-          <button
-            key={i}
-            onClick={() => setLightbox(img.src)}
-            className="overflow-hidden block group p-0 border-0 bg-transparent cursor-pointer"
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              loading="lazy"
-              className="w-full aspect-[3/4] object-cover transition-transform duration-[400ms] ease-out group-hover:scale-[1.03]"
-            />
-          </button>
-        ))}
-        <div className="hidden md:block" aria-hidden="true" />
       </div>
 
       {lightbox && (
