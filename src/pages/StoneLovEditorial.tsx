@@ -103,7 +103,7 @@ const StoneLovEditorial = () => {
                 margin: "0 auto",
                 lineHeight: 1.9,
               }}
-              className="space-y-6 text-left md:text-center"
+              className="space-y-6 text-center"
             >
               <p>
                 StoneLov puise son inspiration dans la pierre, la terre et les matières brutes.
