@@ -27,7 +27,6 @@ import CollectionBijoux from "./pages/CollectionBijoux";
 import CollectionTshirts from "./pages/CollectionTshirts";
 import Auth from "./pages/Auth";
 import Account from "./pages/Account";
-import AdminTestimonials from "./pages/AdminTestimonials";
 import MentionsLegales from "./pages/MentionsLegales";
 import Confidentialite from "./pages/Confidentialite";
 import LivraisonRetours from "./pages/LivraisonRetours";
@@ -121,7 +120,6 @@ const AppContent = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/account" element={<Account />} />
-        <Route path="/admin/temoignages" element={<AdminTestimonials />} />
         <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="/confidentialite" element={<Confidentialite />} />
         <Route path="/livraison-retours" element={<LivraisonRetours />} />
