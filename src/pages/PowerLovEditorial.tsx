@@ -202,17 +202,6 @@ const PowerLovEditorial = () => {
             >
               La collection
             </p>
-            <p
-              className="mb-10 italic"
-              style={{
-                fontFamily: "Instrument Sans, system-ui, sans-serif",
-                fontWeight: 300,
-                fontSize: "clamp(18px, 2vw, 22px)",
-                color: "rgba(13,13,13,0.7)",
-              }}
-            >
-              Wear your power.
-            </p>
             <div
               className="space-y-6 text-[15px] md:text-[16px]"
               style={{ color: "rgba(13,13,13,0.78)", lineHeight: 1.9 }}
