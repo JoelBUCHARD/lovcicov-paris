@@ -83,7 +83,7 @@ const AdminTestimonials = () => {
     setSubmitting(true);
     const { error } = await supabase
       .from('testimonials')
-      .insert([parsed.data]);
+      .insert([{ author: parsed.data.author, content: parsed.data.content }]);
     setSubmitting(false);
     if (error) {
       toast.error('Erreur : ' + error.message);
