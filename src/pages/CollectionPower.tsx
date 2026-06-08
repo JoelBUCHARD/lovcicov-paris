@@ -157,7 +157,7 @@ const CollectionPower = () => {
               className="mb-2"
               style={{ color: '#0D0D0D', fontSize: 9, letterSpacing: '0.22em' }}
             >
-              PowerLov
+              {"\n"}
             </motion.p>
             <motion.p
               variants={fadeUp}
