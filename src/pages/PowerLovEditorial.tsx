@@ -155,7 +155,7 @@ const PowerLovEditorial = () => {
                   letterSpacing: "0.22em",
                 }}
               >
-                {"\n"}
+                PowerLov
               </p>
               <p
                 className="mb-2 md:mb-4 italic"
@@ -166,7 +166,7 @@ const PowerLovEditorial = () => {
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
-                {"\n"}
+                Wear your power.
               </p>
               <Link
                 to="/collections/powerlov"
@@ -210,7 +210,7 @@ const PowerLovEditorial = () => {
               }}
               className="m-0 mb-3"
             >
-              {"\n"}
+              PowerLov
             </h2>
             <p
               className="mb-10 italic"
@@ -221,7 +221,7 @@ const PowerLovEditorial = () => {
                 color: "rgba(13,13,13,0.7)",
               }}
             >
-              {"\n"}
+              Wear your power.
             </p>
             <div
               className="space-y-6 text-[15px] md:text-[16px]"

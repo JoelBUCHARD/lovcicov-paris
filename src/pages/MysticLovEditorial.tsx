@@ -219,7 +219,7 @@ const MysticLovEditorial = () => {
 
           <div className="flex justify-center gap-4 md:gap-6 uppercase text-[9px] md:text-[11px]" style={{ letterSpacing: "0.15em" }}>
             <Link to="/powerlov" style={{ color: SOFT }}>
-              {"\n"}
+              PowerLov
             </Link>
             <span style={{ color: SOFT }}>·</span>
             <Link to="/stonelov" style={{ color: SOFT }}>

@@ -81,7 +81,7 @@ const Navbar = () => {
           to="/powerlov"
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
         >
-          {"\n"}
+          PowerLov
         </Link>
 
         <Link
@@ -174,7 +174,7 @@ const Navbar = () => {
                 Accueil
               </Link>
               <Link to="/powerlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                {"\n"}
+                PowerLov
               </Link>
               <Link to="/mysticlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 MysticLov
