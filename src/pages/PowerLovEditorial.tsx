@@ -202,16 +202,6 @@ const PowerLovEditorial = () => {
             >
               La collection
             </p>
-            <h2
-              style={{
-                ...editorialTitleStyle,
-                fontSize: "clamp(28px, 4vw, 44px)",
-                lineHeight: 1.1,
-              }}
-              className="m-0 mb-3"
-            >
-              PowerLov
-            </h2>
             <p
               className="mb-10 italic"
               style={{
