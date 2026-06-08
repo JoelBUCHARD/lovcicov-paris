@@ -109,18 +109,6 @@ const MysticLovEditorial = () => {
             >
               La collection
             </p>
-            <h2
-              className="m-0 mb-3"
-              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 400, letterSpacing: 0, fontSize: "clamp(28px, 4vw, 44px)", lineHeight: 1.1, color: INK }}
-            >
-              MysticLov
-            </h2>
-            <p
-              className="mb-10 italic"
-              style={{ fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, fontSize: "clamp(18px, 2vw, 22px)", color: "rgba(26,26,26,0.7)" }}
-            >
-              Love is my frequency.
-            </p>
             <p
               style={{
                 fontFamily: "Instrument Sans, system-ui, sans-serif",
