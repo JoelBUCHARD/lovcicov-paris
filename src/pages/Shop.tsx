@@ -48,7 +48,7 @@ const Shop = () => {
           {active === 'standard' && (
             <motion.div key="standard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
               <p className="text-[9px] tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium">
-                PowerLov
+                {"\n"}
               </p>
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm leading-relaxed">La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.</p>
@@ -80,7 +80,7 @@ const Shop = () => {
             <>
               {standardProducts.length > 0 && (
                 <section className="mb-16">
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">PowerLov</h3>
+                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">{"\n"}</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
                     {standardProducts.map((product, i) => (
                       <ProductCard key={product.id} product={product} index={i} />

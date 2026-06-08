@@ -43,7 +43,7 @@ const CollectionStandards = () => {
             animate="visible"
             className="text-[9px] tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium"
           >
-            PowerLov
+            {"\n"}
           </motion.p>
           <motion.h1
             variants={fadeUp}
@@ -53,7 +53,7 @@ const CollectionStandards = () => {
             className="italic mb-10 text-[#1A1A1A]"
             style={{ fontFamily: 'Arial, sans-serif', fontSize: '36px', fontWeight: 200 }}
           >
-            Wear your power.
+            {"\n"}
           </motion.h1>
           <motion.div
             variants={fadeUp}
@@ -133,7 +133,7 @@ const CollectionStandards = () => {
                     letterSpacing: '0.12em',
                   }}
                 >
-                  PowerLov
+                  {"\n"}
                 </p>
 
                 <h3
