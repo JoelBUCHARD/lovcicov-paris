@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CampaignBanner from '@/components/CampaignBanner';
+import Testimonials from '@/components/Testimonials';
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-powerlov.jpg.asset.json';
 
@@ -441,6 +442,9 @@ const Index = () => {
         ))}
       </section>
 
+
+      {/* TÉMOIGNAGES */}
+      <Testimonials />
 
       {/* PRESS */}
       <section className="py-10 md:py-14 text-center bg-white border-t border-b border-[#E8E4DD]">
