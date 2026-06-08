@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle } from 'lucide-react';
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
@@ -33,10 +33,46 @@ const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
 const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const universeConfig = {
-  mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/mysticlov/shop', backLabel: 'MysticLov' },
-  standard: { label: 'POWERLOV', accent: '#E63946', back: '/powerlov/shop', backLabel: 'PowerLov' },
-  bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/stonelov/shop', backLabel: 'StoneLov' },
+  mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/mysticlov/shop', backLabel: 'MysticLov', recitBg: '#F8F5EE' },
+  standard: { label: 'POWERLOV', accent: '#E63946', back: '/powerlov/shop', backLabel: 'PowerLov', recitBg: '#FAF6F4' },
+  bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/stonelov/shop', backLabel: 'StoneLov', recitBg: '#F6F1EB' },
 } as const;
+
+// ─── Helpers: separate story (récit) from technical specs (material) ───
+// Reuses existing product fields. Never invents copy.
+
+const TECH_TAIL_RE = /(Broderie dor[ée]e main|Coton premium|Coton lourd|Sweat à capuche|Poids\s*:|Triple rang|Double rang|Sérigraphie|Intercalaires)/i;
+
+const splitStoryAndSpecs = (text: string): { story: string; specs: string } => {
+  if (!text) return { story: '', specs: '' };
+  const sentences = text.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean);
+  const storyParts: string[] = [];
+  const specParts: string[] = [];
+  for (const s of sentences) {
+    if (TECH_TAIL_RE.test(s)) specParts.push(s);
+    else storyParts.push(s);
+  }
+  return { story: storyParts.join(' '), specs: specParts.join(' ') };
+};
+
+const getRecit = (product: Product): string => {
+  const { story } = splitStoryAndSpecs(product.description);
+  // PowerLov: description is mostly tech → use details (already a real editorial line)
+  if (product.collection === 'standard') {
+    return product.details || story || product.description;
+  }
+  // Mystic / Bijoux: description IS the editorial story
+  return story || product.details || product.description;
+};
+
+const getMaterial = (product: Product): string => {
+  const { specs } = splitStoryAndSpecs(product.description);
+  if (specs) return specs;
+  // Fallbacks by universe (existing site copy, not invented)
+  if (product.collection === 'mystic') return 'Broderie dorée main · Coton premium · Fabriqué à Paris.';
+  if (product.collection === 'standard') return 'Coton lourd 280g, coupe oversize. Sérigraphie en France. Unisex.';
+  return product.description;
+};
 
 interface AccordionProps {
   title: string;
@@ -74,6 +110,8 @@ const ProductPage = ({ product }: Props) => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('M');
   const [isAdding, setIsAdding] = useState(false);
+  const [wishlisted, setWishlisted] = useState(false);
+  const [showStickyCta, setShowStickyCta] = useState(false);
   const { addToCart } = useCart();
   const addShopifyItem = useCartStore((s) => s.addItem);
 
@@ -82,8 +120,19 @@ const ProductPage = ({ product }: Props) => {
   const allImages = [product.image, ...(product.gallery || [])];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
+  const recit = getRecit(product);
+  const material = getMaterial(product);
+  const stones = isJewelry ? detectStones(`${product.name} ${product.description} ${product.details ?? ''}`) : [];
+
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
+
+  // Sticky mobile CTA: show after user scrolls past the primary buy button
+  useEffect(() => {
+    const onScroll = () => setShowStickyCta(window.scrollY > 600);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleAddToCart = async () => {
     if (!product.shopifyHandle) {
@@ -128,7 +177,12 @@ const ProductPage = ({ product }: Props) => {
     }
   };
 
-  const stones = isJewelry ? detectStones(`${product.name} ${product.description} ${product.details ?? ''}`) : [];
+  const reassurance = [
+    { Icon: Truck, label: 'Livraison offerte dès 99€' },
+    { Icon: ShieldCheck, label: 'Paiement sécurisé' },
+    { Icon: RotateCcw, label: 'Retours 14 jours' },
+    { Icon: MessageCircle, label: 'SAV Paris' },
+  ];
 
   return (
     <main className="bg-white pt-36 pb-16 px-6 md:px-12" style={{ fontFamily: SANS }}>
@@ -137,24 +191,47 @@ const ProductPage = ({ product }: Props) => {
         className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
         style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
       >
-        Retour à {cfg.backLabel}
+        ← Retour à {cfg.backLabel}
       </Link>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 max-w-6xl mx-auto">
-        {/* Gallery */}
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_minmax(0,460px)] gap-10 md:gap-20 max-w-6xl mx-auto">
+        {/* Gallery: vertical thumbs + main image (desktop) */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <div className="aspect-[3/4] overflow-hidden bg-[#FAFAF8] mb-3">
-            <img src={getImage(allImages[activeImage])} alt={product.name} className="w-full h-full object-cover" />
+          <div className="flex gap-4">
+            {allImages.length > 1 && (
+              <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
+                {allImages.map((img, i) => (
+                  <button
+                    key={img + i}
+                    onClick={() => setActiveImage(i)}
+                    className={`aspect-square overflow-hidden bg-[#FAFAF8] border transition-all ${
+                      activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
+                    aria-label={`Image ${i + 1}`}
+                  >
+                    <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group">
+              <img
+                src={getImage(allImages[activeImage])}
+                alt={product.name}
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+            </div>
           </div>
+          {/* Mobile thumbnails */}
           {allImages.length > 1 && (
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex md:hidden gap-2 mt-3 flex-wrap">
               {allImages.map((img, i) => (
                 <button
-                  key={img + i}
+                  key={img + i + '-m'}
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 md:w-20 overflow-hidden bg-[#FAFAF8] border transition-all ${
-                    activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60 hover:opacity-100'
+                  className={`aspect-square w-16 overflow-hidden bg-[#FAFAF8] border transition-all ${
+                    activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
                   <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
@@ -178,17 +255,11 @@ const ProductPage = ({ product }: Props) => {
             {cfg.label}
           </p>
           <h1
-            className="mb-4 leading-[1.05]"
+            className="mb-6 leading-[1.05]"
             style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
           >
             {product.name}
           </h1>
-          <p
-            className="mb-8"
-            style={{ fontFamily: SANS, fontSize: 15, color: '#5F5E5A', lineHeight: 1.5, fontWeight: 400 }}
-          >
-            {product.details}
-          </p>
 
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
             €{product.price}
@@ -201,9 +272,19 @@ const ProductPage = ({ product }: Props) => {
 
           {!isJewelry && (
             <div className="mb-3">
-              <p className="mb-3 uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
-                Taille
-              </p>
+              <div className="flex items-center justify-between mb-3">
+                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
+                  Taille
+                </p>
+                <button
+                  type="button"
+                  className="uppercase underline underline-offset-4 hover:opacity-70 transition-opacity"
+                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#1A1A1A' }}
+                  onClick={() => toast({ title: 'Guide des tailles', description: 'XS · S · M · L · XL — coupe oversize unisex.' })}
+                >
+                  Guide des tailles
+                </button>
+              </div>
               <div className="flex gap-2">
                 {SIZES.map((s) => (
                   <button
@@ -228,67 +309,99 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          <button
-            onClick={handleAddToCart}
-            disabled={isAdding}
-            className="w-full mt-6 transition-opacity hover:opacity-90 disabled:opacity-60"
-            style={{
-              backgroundColor: '#1A1A1A',
-              color: '#FFFFFF',
-              padding: '16px',
-              fontFamily: SANS,
-              fontSize: 11,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              fontWeight: 500,
-            }}
+          {/* CTA + wishlist */}
+          <div className="flex gap-2 mt-6">
+            <button
+              onClick={handleAddToCart}
+              disabled={isAdding}
+              className="flex-1 transition-opacity hover:opacity-90 disabled:opacity-60"
+              style={{
+                backgroundColor: '#1A1A1A',
+                color: '#FFFFFF',
+                padding: '16px',
+                fontFamily: SANS,
+                fontSize: 11,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+              }}
+            >
+              {isAdding ? 'Ajout en cours…' : 'Ajouter au panier'}
+            </button>
+            <button
+              onClick={() => setWishlisted((v) => !v)}
+              aria-label="Ajouter à la wishlist"
+              className="w-[52px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#FAFAF8] transition-colors"
+            >
+              <Heart
+                size={18}
+                strokeWidth={1.4}
+                style={{ color: '#1A1A1A', fill: wishlisted ? '#1A1A1A' : 'transparent' }}
+              />
+            </button>
+          </div>
+
+          {/* Short description — 2-3 lines under CTA */}
+          <p
+            className="mt-6"
+            style={{ fontFamily: SANS, fontSize: 14, color: '#5F5E5A', lineHeight: 1.6 }}
           >
-            {isAdding ? 'Ajout en cours…' : 'Ajouter au panier'}
-          </button>
+            {product.details}
+          </p>
 
           {/* Reassurance — single occurrence */}
-          <div
-            className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-6"
-            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.1em', color: '#888780', textTransform: 'uppercase' }}
-          >
-            <span>Livraison offerte dès 99€</span>
-            <span aria-hidden>·</span>
-            <span>Retours 14 jours</span>
-            <span aria-hidden>·</span>
-            <span>Paris</span>
+          <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#E8E4DD]">
+            {reassurance.map(({ Icon, label }) => (
+              <div key={label} className="flex items-center gap-2">
+                <Icon size={16} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
+                <span
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 10,
+                    letterSpacing: '0.1em',
+                    color: '#5F5E5A',
+                    textTransform: 'uppercase',
+                  }}
+                >
+                  {label}
+                </span>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
 
-      {/* Récit — full width below */}
-      <section className="max-w-3xl mx-auto mt-24 md:mt-32 text-center px-2">
-        <p
-          className="mb-6 uppercase"
-          style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.3em', color: cfg.accent, fontWeight: 500 }}
-        >
-          Le Récit
-        </p>
-        <p
-          style={{ fontFamily: SANS, fontSize: 'clamp(18px, 2vw, 22px)', lineHeight: 1.7, color: '#2A2A2A', fontWeight: 400 }}
-        >
-          {product.description}
-        </p>
+      {/* Récit — pleine largeur, fond contrasté */}
+      <section
+        className="mt-24 md:mt-32 py-20 md:py-28 px-6 -mx-6 md:-mx-12"
+        style={{ backgroundColor: cfg.recitBg }}
+      >
+        <div className="max-w-3xl mx-auto text-center">
+          <p
+            className="mb-6 uppercase"
+            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.3em', color: cfg.accent, fontWeight: 500 }}
+          >
+            Le Récit
+          </p>
+          <p
+            style={{
+              fontFamily: SANS,
+              fontSize: 'clamp(20px, 2.2vw, 26px)',
+              lineHeight: 1.6,
+              color: '#2A2A2A',
+              fontWeight: 400,
+              letterSpacing: '-0.005em',
+            }}
+          >
+            {recit}
+          </p>
+        </div>
       </section>
 
       {/* Details accordions */}
       <section className="max-w-3xl mx-auto mt-20">
         <Accordion title="Matière & fabrication" defaultOpen>
-          {isJewelry ? (
-            <ul className="list-none p-0 space-y-1">
-              <li>· Monture en laiton doré</li>
-              <li>· Pierre naturelle</li>
-              <li>· {product.name.toLowerCase().includes('bracelet') ? 'Poids : environ 30g' : 'Poids : environ 100g'}</li>
-            </ul>
-          ) : product.collection === 'mystic' ? (
-            <p>Broderie dorée main · Coton premium · Fabriqué à Paris.</p>
-          ) : (
-            <p>Coton lourd 280g, coupe oversize. Sérigraphie en France. Unisex.</p>
-          )}
+          <p>{material}</p>
         </Accordion>
 
         <Accordion title="Coupe & fit">
@@ -334,6 +447,39 @@ const ProductPage = ({ product }: Props) => {
           </Accordion>
         )}
       </section>
+
+      {/* Sticky mobile CTA */}
+      <div
+        className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 py-3 transition-transform duration-300 ${
+          showStickyCta ? 'translate-y-0' : 'translate-y-full'
+        }`}
+        style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.04)' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="truncate" style={{ fontFamily: SANS, fontSize: 12, fontWeight: 500, color: '#1A1A1A' }}>
+              {product.name}
+            </p>
+            <p style={{ fontFamily: SANS, fontSize: 12, color: '#5F5E5A' }}>€{product.price}</p>
+          </div>
+          <button
+            onClick={handleAddToCart}
+            disabled={isAdding}
+            className="px-5 py-3 disabled:opacity-60"
+            style={{
+              backgroundColor: '#1A1A1A',
+              color: '#FFFFFF',
+              fontFamily: SANS,
+              fontSize: 10,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
+            }}
+          >
+            {isAdding ? '…' : 'Ajouter'}
+          </button>
+        </div>
+      </div>
     </main>
   );
 };
