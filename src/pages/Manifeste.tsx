@@ -17,14 +17,6 @@ const Manifeste = () => {
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
-          >
-            LOVCICOV — MANIFESTE
-          </motion.p>
           <motion.div
             variants={fadeUp}
             initial="hidden"
