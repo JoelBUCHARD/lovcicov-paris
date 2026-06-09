@@ -69,6 +69,9 @@ const Cart = () => {
             className="max-w-3xl mx-auto"
           >
             <h1 className="text-2xl md:text-3xl font-medium mb-10 mt-8">Votre Panier</h1>
+            <p className="text-[11px] text-muted-foreground tracking-[0.05em] mb-6 -mt-6">
+              Livraison 9,90€ — offerte dès 99€ d'achat
+            </p>
 
             <div className="space-y-6 border-t border-border">
               {items.map((item) => {
