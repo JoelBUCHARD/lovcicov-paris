@@ -21,16 +21,21 @@ type RevealProps = {
   delay?: number;
 };
 
+const TSHIRT_LINK = "/product/t-shirt-powerlov";
+const HOODIE_LINK = "/product/sweat-a-capuche-powerlov";
+
 const topWide = {
   image: godDjCafeWideAsset.url,
   alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne, plan large",
   objectPosition: "center center",
+  link: TSHIRT_LINK,
 };
 
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
   objectPosition: "center 32%",
+  link: TSHIRT_LINK,
 };
 
 const midProducts = [
@@ -38,21 +43,25 @@ const midProducts = [
     image: connectedDisciplinedEmpoweredAsset.url,
     alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
     objectPosition: "center 28%",
+    link: TSHIRT_LINK,
   },
   {
     image: boldBadassSweatAsset.url,
     alt: "PowerLov — homme en sweat blanc Bold. Badass. No Filter. dans une rue parisienne",
     objectPosition: "center 30%",
+    link: HOODIE_LINK,
   },
   {
     image: ifGodIsADjAsset.url,
     alt: "PowerLov — femme en t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne",
     objectPosition: "center 30%",
+    link: TSHIRT_LINK,
   },
   {
     image: disciplineLuxuryAsset.url,
     alt: "PowerLov — homme en t-shirt noir Discipline Is My Luxury devant le Café de Flore",
     objectPosition: "center 35%",
+    link: TSHIRT_LINK,
   },
 ];
 
@@ -61,21 +70,25 @@ const secondaryProducts = [
     image: godIsADjStreetAsset.url,
     alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
     objectPosition: "center 26%",
+    link: TSHIRT_LINK,
   },
   {
     image: boldBadassTeeBackAsset.url,
     alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter. (homme)",
     objectPosition: "center 35%",
+    link: TSHIRT_LINK,
   },
   {
     image: energyNeverLiesAsset.url,
     alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
     objectPosition: "center 34%",
+    link: HOODIE_LINK,
   },
   {
     image: godIsADancerAsset.url,
     alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
     objectPosition: "center 30%",
+    link: TSHIRT_LINK,
   },
 ];
 
@@ -235,18 +248,19 @@ const PowerLovEditorial = () => {
         {/* PRODUITS — mosaïque harmonisée */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
           {/* Top wide image */}
-          <div
-            className="relative w-full overflow-hidden"
+          <Link
+            to={topWide.link}
+            className="relative w-full overflow-hidden block group"
             style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
             <img
               src={topWide.image}
               alt={topWide.alt}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
               style={{ objectPosition: topWide.objectPosition }}
             />
-          </div>
+          </Link>
 
           {/* Middle grid — smaller, like MysticLov / StoneLov */}
           <div
@@ -254,19 +268,20 @@ const PowerLovEditorial = () => {
             style={{ padding: "clamp(20px, 3vw, 40px)" }}
           >
             {midProducts.map((product) => (
-              <div
+              <Link
                 key={product.alt}
-                className="relative w-full overflow-hidden"
+                to={product.link}
+                className="relative w-full overflow-hidden block group"
                 style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
                 <img
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: product.objectPosition }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -276,19 +291,20 @@ const PowerLovEditorial = () => {
             style={{ padding: "0 clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px)" }}
           >
             {secondaryProducts.map((product) => (
-              <div
+              <Link
                 key={product.alt}
-                className="relative w-full overflow-hidden"
+                to={product.link}
+                className="relative w-full overflow-hidden block group"
                 style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
                 <img
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: product.objectPosition }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -297,13 +313,16 @@ const PowerLovEditorial = () => {
             className="relative w-full overflow-hidden"
             style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
-            <img
-              src={bottomWide.image}
-              alt={bottomWide.alt}
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{ objectPosition: bottomWide.objectPosition }}
-            />
+            <Link to={bottomWide.link} className="block absolute inset-0 group">
+              <img
+                src={bottomWide.image}
+                alt={bottomWide.alt}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
+                style={{ objectPosition: bottomWide.objectPosition }}
+              />
+            </Link>
+
             <div
               className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
               style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
