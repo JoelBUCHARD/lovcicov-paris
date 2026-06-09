@@ -155,22 +155,21 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
         Vous aimerez aussi
       </h2>
 
-      <div className="px-6 md:px-12">
+      <div className="px-6 md:px-3">
         <div
           className="
-            flex md:grid md:grid-cols-4 gap-2
+            flex md:grid md:grid-cols-4
             overflow-x-auto md:overflow-visible
             snap-x snap-mandatory md:snap-none
             -mx-6 px-6 md:mx-0 md:px-0
           "
-          style={{ gap: "8px" }}
+          style={{ gap: "4px" }}
         >
           {recommendations.map((p) => (
             <Link
               key={p.key}
               to={p.link}
-              className="group flex flex-col snap-start shrink-0 md:shrink bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] overflow-hidden"
-              style={{ width: "70%", maxWidth: "100%" }}
+              className="group flex flex-col snap-start shrink-0 md:shrink md:w-auto bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] overflow-hidden w-[70%]"
             >
               <div
                 className="overflow-hidden bg-secondary relative shrink-0"
@@ -183,14 +182,16 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
                   loading="lazy"
                 />
               </div>
-              <div className="space-y-1 text-center pb-3 px-2 mt-3">
+              <div className="flex flex-col flex-1 text-center pb-3 px-2 mt-3">
                 <h3
+                  className="flex-1"
                   style={{
                     fontFamily: "Arial, sans-serif",
                     fontSize: "11px",
                     color: "#1A1A1A",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
+                    marginBottom: "8px",
                   }}
                 >
                   {p.name}
@@ -203,6 +204,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
           ))}
         </div>
       </div>
+
     </section>
   );
 };
