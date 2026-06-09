@@ -33,7 +33,7 @@ const Manifeste = () => {
             className="mb-20"
           >
             <h1 className="text-brand-lg text-lg md:text-xl">LOVCICOV</h1>
-            <p className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">PARIS</p>
+            <p className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">MANIFEST</p>
           </motion.div>
 
           <motion.div
