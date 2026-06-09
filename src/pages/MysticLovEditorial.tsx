@@ -154,18 +154,31 @@ const MysticLovEditorial = () => {
         {/* BLOCK 5 — MOSAIQUE 6 IMAGES — mix de devant & dos (Sunshine + fond noir) */}
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
-            {[rooftopArmsOpen, greenTee, hoodieMadonnaParis, duoRooftop, hoodieRooftop, rooftopMadonna].map((img, i) => (
-              <div key={i} className="relative w-full overflow-hidden" style={{ aspectRatio: "1 / 1" }}>
+            {[
+              { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov" },
+              { img: greenTee, link: "/product/t-shirt-sunshine" },
+              { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov" },
+              { img: duoRooftop, link: "/product/t-shirt-mysticlov" },
+              { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov" },
+              { img: rooftopMadonna, link: "/product/t-shirt-madonna" },
+            ].map((item, i) => (
+              <Link
+                key={i}
+                to={item.link}
+                className="relative w-full overflow-hidden block group"
+                style={{ aspectRatio: "1 / 1" }}
+              >
                 <img
-                  src={img}
+                  src={item.img}
                   alt={`MysticLov ${i + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: "center 15%" }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </section>
+
 
 
         {/* BLOCK 6 — CLOSING FULL SCREEN */}
