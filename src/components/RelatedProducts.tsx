@@ -97,38 +97,38 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
 
     // Priority 1: recently viewed (any universe)
     for (const v of viewed) {
-      if (out.length >= 3) break;
+      if (out.length >= 4) break;
       if (seen.has(v.key)) continue;
       out.push(v);
       seen.add(v.key);
     }
 
     // Priority 2: same universe from local products
-    if (out.length < 3) {
+    if (out.length < 4) {
       const sameUni = localProducts
         .filter((p) => collectionToUniverse(p.collection) === currentUniverse)
         .map(localProductToViewed)
         .filter((p) => !seen.has(p.key));
       for (const p of sameUni) {
-        if (out.length >= 3) break;
+        if (out.length >= 4) break;
         out.push(p);
         seen.add(p.key);
       }
     }
 
     // Priority 3: fallback — any universe from local products
-    if (out.length < 3) {
+    if (out.length < 4) {
       const rest = localProducts
         .map(localProductToViewed)
         .filter((p) => !seen.has(p.key));
       for (const p of rest) {
-        if (out.length >= 3) break;
+        if (out.length >= 4) break;
         out.push(p);
         seen.add(p.key);
       }
     }
 
-    return out.slice(0, 3);
+    return out.slice(0, 4);
   }, [viewed, currentKey, currentUniverse]);
 
   if (recommendations.length === 0) return null;
