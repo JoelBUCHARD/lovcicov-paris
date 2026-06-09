@@ -138,7 +138,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
       style={{
         backgroundColor: UNIVERSE_BG[currentUniverse],
         borderTop: "0.5px solid #E8E4DC",
-        padding: "40px 0",
+        padding: "40px 0 20px",
       }}
     >
       <h2
@@ -158,12 +158,12 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
       <div className="px-6 md:px-12">
         <div
           className="
-            flex md:grid md:grid-cols-4 gap-6
+            flex md:grid md:grid-cols-4 gap-4
             overflow-x-auto md:overflow-visible
             snap-x snap-mandatory md:snap-none
             -mx-6 px-6 md:mx-0 md:px-0
           "
-          style={{ gap: "24px" }}
+          style={{ gap: "16px" }}
         >
           {recommendations.map((p) => (
             <Link
