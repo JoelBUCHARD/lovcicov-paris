@@ -21,16 +21,21 @@ type RevealProps = {
   delay?: number;
 };
 
+const TSHIRT_LINK = "/product/t-shirt-powerlov";
+const HOODIE_LINK = "/product/sweat-a-capuche-powerlov";
+
 const topWide = {
   image: godDjCafeWideAsset.url,
   alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne, plan large",
   objectPosition: "center center",
+  link: TSHIRT_LINK,
 };
 
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
   objectPosition: "center 32%",
+  link: TSHIRT_LINK,
 };
 
 const midProducts = [
@@ -38,21 +43,25 @@ const midProducts = [
     image: connectedDisciplinedEmpoweredAsset.url,
     alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
     objectPosition: "center 28%",
+    link: TSHIRT_LINK,
   },
   {
     image: boldBadassSweatAsset.url,
     alt: "PowerLov — homme en sweat blanc Bold. Badass. No Filter. dans une rue parisienne",
     objectPosition: "center 30%",
+    link: HOODIE_LINK,
   },
   {
     image: ifGodIsADjAsset.url,
     alt: "PowerLov — femme en t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne",
     objectPosition: "center 30%",
+    link: TSHIRT_LINK,
   },
   {
     image: disciplineLuxuryAsset.url,
     alt: "PowerLov — homme en t-shirt noir Discipline Is My Luxury devant le Café de Flore",
     objectPosition: "center 35%",
+    link: TSHIRT_LINK,
   },
 ];
 
@@ -61,21 +70,25 @@ const secondaryProducts = [
     image: godIsADjStreetAsset.url,
     alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
     objectPosition: "center 26%",
+    link: TSHIRT_LINK,
   },
   {
     image: boldBadassTeeBackAsset.url,
     alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter. (homme)",
     objectPosition: "center 35%",
+    link: TSHIRT_LINK,
   },
   {
     image: energyNeverLiesAsset.url,
     alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
     objectPosition: "center 34%",
+    link: HOODIE_LINK,
   },
   {
     image: godIsADancerAsset.url,
     alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
     objectPosition: "center 30%",
+    link: TSHIRT_LINK,
   },
 ];
 
