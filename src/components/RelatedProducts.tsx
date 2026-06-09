@@ -63,12 +63,24 @@ const localProductToViewed = (p: Product): ViewedItem => ({
   inStock: true,
 });
 
+const rehydrateViewed = (v: ViewedItem): ViewedItem => {
+  if (v.image && v.image.length > 0) return v;
+  // Try to re-resolve from local products (image may have been cached empty before resolver fix)
+  if (v.key.startsWith("local:")) {
+    const id = v.key.slice("local:".length);
+    const p = localProducts.find((lp) => lp.id === id);
+    if (p) return { ...v, image: resolveAsset(p.image) };
+  }
+  return v;
+};
+
 const readStorage = (): ViewedItem[] => {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
     const arr = JSON.parse(raw);
-    return Array.isArray(arr) ? arr : [];
+    if (!Array.isArray(arr)) return [];
+    return arr.map(rehydrateViewed).filter((v: ViewedItem) => v.image && v.image.length > 0);
   } catch {
     return [];
   }
