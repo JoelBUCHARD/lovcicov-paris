@@ -248,18 +248,19 @@ const PowerLovEditorial = () => {
         {/* PRODUITS — mosaïque harmonisée */}
         <section style={{ backgroundColor: "#F4F0E8" }}>
           {/* Top wide image */}
-          <div
-            className="relative w-full overflow-hidden"
+          <Link
+            to={topWide.link}
+            className="relative w-full overflow-hidden block group"
             style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
             <img
               src={topWide.image}
               alt={topWide.alt}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
               style={{ objectPosition: topWide.objectPosition }}
             />
-          </div>
+          </Link>
 
           {/* Middle grid — smaller, like MysticLov / StoneLov */}
           <div
@@ -267,19 +268,20 @@ const PowerLovEditorial = () => {
             style={{ padding: "clamp(20px, 3vw, 40px)" }}
           >
             {midProducts.map((product) => (
-              <div
+              <Link
                 key={product.alt}
-                className="relative w-full overflow-hidden"
+                to={product.link}
+                className="relative w-full overflow-hidden block group"
                 style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
                 <img
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: product.objectPosition }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -289,19 +291,20 @@ const PowerLovEditorial = () => {
             style={{ padding: "0 clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px)" }}
           >
             {secondaryProducts.map((product) => (
-              <div
+              <Link
                 key={product.alt}
-                className="relative w-full overflow-hidden"
+                to={product.link}
+                className="relative w-full overflow-hidden block group"
                 style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
               >
                 <img
                   src={product.image}
                   alt={product.alt}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: product.objectPosition }}
                 />
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -310,13 +313,16 @@ const PowerLovEditorial = () => {
             className="relative w-full overflow-hidden"
             style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
-            <img
-              src={bottomWide.image}
-              alt={bottomWide.alt}
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover"
-              style={{ objectPosition: bottomWide.objectPosition }}
-            />
+            <Link to={bottomWide.link} className="block absolute inset-0 group">
+              <img
+                src={bottomWide.image}
+                alt={bottomWide.alt}
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
+                style={{ objectPosition: bottomWide.objectPosition }}
+              />
+            </Link>
+
             <div
               className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
               style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
