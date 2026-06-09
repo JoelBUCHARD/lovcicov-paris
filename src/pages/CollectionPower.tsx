@@ -196,7 +196,6 @@ const CollectionPower = () => {
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#0D0D0D')}
             >
               Voir tous les produits
-              <ArrowRight size={12} />
             </Link>
           </motion.div>
         </div>
