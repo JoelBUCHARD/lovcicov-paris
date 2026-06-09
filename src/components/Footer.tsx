@@ -39,14 +39,6 @@ const Footer = ({ hideTopBorder }: FooterProps) => {
         </form>
       </div>
 
-      {/* Shipping note */}
-      <div className="border-t border-border px-6 md:px-10 py-4 text-center">
-        <p className="text-[11px] text-muted-foreground tracking-[0.05em]">
-          Livraison 9,90€ — offerte dès 99€ d'achat
-        </p>
-      </div>
-
-      {/* Links */}
       <div className="border-t border-border px-6 md:px-10 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/"><img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" /></Link>
