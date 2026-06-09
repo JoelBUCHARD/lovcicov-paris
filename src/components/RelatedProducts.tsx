@@ -158,7 +158,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
       <div className="px-6 md:px-12">
         <div
           className="
-            flex md:grid md:grid-cols-3 gap-6
+            flex md:grid md:grid-cols-4 gap-6
             overflow-x-auto md:overflow-visible
             snap-x snap-mandatory md:snap-none
             -mx-6 px-6 md:mx-0 md:px-0
