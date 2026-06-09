@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { bijouxProducts, mysticProducts } from '@/data/products';
+import { bijouxProducts, mysticProducts, standardProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -180,6 +180,45 @@ const Index = () => {
 
 
 
+
+      {/* POWERLOV */}
+      <section className="bg-[#F7F5F0] border-t-[3px] border-[#1A1A1A] pt-0 md:pt-14">
+        <div className="text-center pt-3 pb-8">
+          <p className="font-sans text-[9px] tracking-[0.2em] text-[#1A1A1A] mb-2">
+            PowerLov
+          </p>
+          <p className="font-sans italic text-[12px] text-[#888780]">
+            Présence. Discipline. Impact.
+          </p>
+          <div className="w-[60px] h-px bg-[#1A1A1A] mx-auto mt-3 opacity-60" />
+        </div>
+        <div className="px-6 md:px-10 pb-2 md:pb-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+            {standardProducts.slice(0, 4).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
+        >
+          <Link
+            to="/collections/powerlov"
+            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
+            style={{ backgroundColor: '#1A1A1A', fontSize: 10, letterSpacing: '0.15em' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#333333')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}
+          >
+            Découvrir PowerLov
+            <ArrowRight size={12} />
+          </Link>
+        </motion.div>
+      </section>
 
       {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
       <section className="bg-[#FDF5EF] border-t-[3px] border-[#C4714A] pt-0 md:pt-14">
