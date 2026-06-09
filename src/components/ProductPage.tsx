@@ -371,84 +371,58 @@ const ProductPage = ({ product }: Props) => {
         </motion.div>
       </div>
 
-      {/* Récit + Détails — split éditorial asymétrique */}
+      {/* Détails produits — accordéons pleine largeur */}
       <section
-        className="mt-24 md:mt-32 max-w-6xl mx-auto"
+        className="mt-24 md:mt-32 max-w-3xl mx-auto"
         style={{ ['--accent' as any]: cfg.accent }}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-          {/* Le Récit — colonne gauche */}
-          <div className="lg:col-span-5 lg:pt-4 lg:sticky lg:top-32">
-            <span
-              className="block mb-8 uppercase"
-              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.2em', color: '#A8A6A0', fontWeight: 500 }}
-            >
-              Le Récit
-            </span>
-            <p
-              className="italic"
-              style={{
-                fontFamily: SANS,
-                fontSize: 'clamp(22px, 2vw, 28px)',
-                lineHeight: 1.35,
-                color: '#1A1A1A',
-                fontWeight: 400,
-                letterSpacing: '-0.01em',
-              }}
-            >
-              {recit}
-            </p>
-          </div>
+        <div className="border-t border-[#EFEDE8]">
+          <Accordion title="Matière & fabrication" defaultOpen>
+            <p>{material}</p>
+          </Accordion>
 
-          {/* Accordéons — colonne droite */}
-          <div className="lg:col-span-7 border-t border-[#EFEDE8]">
-            <Accordion title="Matière & fabrication" defaultOpen>
-              <p>{material}</p>
-            </Accordion>
+          <Accordion title="Coupe & fit">
+            {isJewelry ? (
+              <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet.' : 'Longueur ajustable : 42 — 48 cm.'}</p>
+            ) : (
+              <p>Coupe oversize unisex. Tailles XS à XL.</p>
+            )}
+          </Accordion>
 
-            <Accordion title="Coupe & fit">
-              {isJewelry ? (
-                <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet.' : 'Longueur ajustable : 42 — 48 cm.'}</p>
-              ) : (
-                <p>Coupe oversize unisex. Tailles XS à XL.</p>
-              )}
-            </Accordion>
+          <Accordion title="Entretien">
+            {isJewelry ? (
+              <p>Éviter le contact avec l'eau, les parfums et les produits chimiques. Ranger à plat dans la pochette d'origine.</p>
+            ) : (
+              <p>Lavage à 30°C sur l'envers. Ne pas utiliser de sèche-linge. Repasser à l'envers, sans toucher la broderie ou la sérigraphie.</p>
+            )}
+          </Accordion>
 
-            <Accordion title="Entretien">
-              {isJewelry ? (
-                <p>Éviter le contact avec l'eau, les parfums et les produits chimiques. Ranger à plat dans la pochette d'origine.</p>
-              ) : (
-                <p>Lavage à 30°C sur l'envers. Ne pas utiliser de sèche-linge. Repasser à l'envers, sans toucher la broderie ou la sérigraphie.</p>
-              )}
-            </Accordion>
+          <Accordion title="Livraison & retours">
+            <ul className="list-none p-0 space-y-1">
+              <li>· Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
+              <li>· Livraison offerte dès 99€ d'achat</li>
+              <li>· Retours acceptés sous 14 jours</li>
+              <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
+            </ul>
+          </Accordion>
 
-            <Accordion title="Livraison & retours">
-              <ul className="list-none p-0 space-y-1">
-                <li>· Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
-                <li>· Livraison offerte dès 99€ d'achat</li>
-                <li>· Retours acceptés sous 14 jours</li>
-                <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
+          {isJewelry && stones.length > 0 && (
+            <Accordion title="L'énergie de la pierre">
+              <ul className="list-none p-0 m-0 space-y-4">
+                {stones.map((s) => (
+                  <li key={s.key}>
+                    <p
+                      className="mb-1"
+                      style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: cfg.accent, fontWeight: 600, textTransform: 'uppercase' }}
+                    >
+                      {s.name}
+                    </p>
+                    <p className="m-0" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400 }}>{s.meaning}</p>
+                  </li>
+                ))}
               </ul>
             </Accordion>
-
-            {isJewelry && stones.length > 0 && (
-              <Accordion title="L'énergie de la pierre">
-                <ul className="list-none p-0 m-0 space-y-4">
-                  {stones.map((s) => (
-                    <li key={s.key}>
-                      <p
-                        className="mb-1"
-                        style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: cfg.accent, fontWeight: 600, textTransform: 'uppercase' }}
-                      >
-                        {s.name}
-                      </p>
-                      <p className="m-0" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400 }}>{s.meaning}</p>
-                    </li>
-                  ))}
-                </ul>
-              </Accordion>
-            )}
-          </div>
+          )}
         </div>
       </section>
 
