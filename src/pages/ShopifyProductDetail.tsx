@@ -141,7 +141,7 @@ const ShopifyProductDetail = () => {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F7F5F0]">
             <p className="text-[9px] tracking-[0.18em] font-medium text-[#8A8985] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
-              MysticLov
+              {universe}
             </p>
 
             <h1 className="text-[22px] font-light text-[#1A1A1A] mb-4" style={{ fontFamily: 'Arial, sans-serif' }}>
