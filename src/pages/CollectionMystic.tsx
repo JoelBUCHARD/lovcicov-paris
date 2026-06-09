@@ -81,7 +81,6 @@ const CollectionMystic = () => {
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
             >
               Voir tous les produits
-              <ArrowRight size={12} />
             </Link>
           </motion.div>
         </div>
