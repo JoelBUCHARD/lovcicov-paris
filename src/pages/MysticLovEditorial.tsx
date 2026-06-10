@@ -74,7 +74,7 @@ const MysticLovEditorial = () => {
             style={{ background: "linear-gradient(to bottom, transparent 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.9) 100%)" }}
           />
           <div className="absolute bottom-0 left-0 right-0 px-6 md:px-12 pb-5 md:pb-8 z-10">
-            <p className="mb-2 md:mb-5 text-[8px] md:text-[11px] uppercase" style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
+            <p className="mb-2 md:mb-5 text-[8px] md:text-[11px] uppercase" style={{ color: "#FFFFFF", letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
               MysticLov
             </p>
 
