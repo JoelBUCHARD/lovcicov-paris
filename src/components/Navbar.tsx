@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, User, ChevronDown } from 'lucide-react';
+import { ShoppingBag, Menu, X, User, ChevronDown, Search } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
@@ -47,6 +47,9 @@ const Navbar = () => {
           <div className="flex items-center gap-4 w-40 justify-end">
             <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
               <User size={18} strokeWidth={1.5} />
+            </Link>
+            <Link to="/shop" className="hidden md:block hover:opacity-60 transition-opacity">
+              <Search size={18} strokeWidth={1.5} />
             </Link>
             <Link to="/cart" className="hover:opacity-60 transition-opacity relative">
               <ShoppingBag size={18} strokeWidth={1.5} />
