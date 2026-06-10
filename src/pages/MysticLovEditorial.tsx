@@ -136,7 +136,7 @@ const MysticLovEditorial = () => {
             <img
               src={seatedRooftop.url}
               alt="L'histoire MysticLov"
-              className="w-full h-full object-cover object-[center_25%] scale-125"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         </section>
