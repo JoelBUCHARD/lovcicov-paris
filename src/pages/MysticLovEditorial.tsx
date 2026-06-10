@@ -198,7 +198,7 @@ const MysticLovEditorial = () => {
               className="uppercase transition-colors px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px]"
               style={{
                 backgroundColor: "#FFFFFF",
-                color: INK,
+                color: "#000000",
                 letterSpacing: "0.2em",
                 fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
