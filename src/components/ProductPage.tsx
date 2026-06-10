@@ -117,7 +117,9 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
-  const allImages = [product.image, ...(product.gallery || [])].filter((_, i) => i !== 1);
+  const allImages = isJewelry
+    ? [product.image, ...(product.gallery || [])]
+    : [product.image, ...(product.gallery || [])].filter((_, i) => i !== 1);
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
   const recit = getRecit(product);
