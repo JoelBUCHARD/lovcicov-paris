@@ -88,7 +88,7 @@ const MysticLovEditorial = () => {
               className="inline-block mt-2 md:mt-6 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
               style={{
                 backgroundColor: "#FFFFFF",
-                color: INK,
+                color: "#000000",
                 letterSpacing: "0.2em",
                 fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
