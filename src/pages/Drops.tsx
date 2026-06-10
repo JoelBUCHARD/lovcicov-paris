@@ -200,7 +200,7 @@ const Drops = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer hideNewsletter />
     </div>
   );
 };
