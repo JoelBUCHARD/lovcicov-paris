@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroSolo from "@/assets/mysticlov/hero-solo.png";
+import heroSoloAsset from "@/assets/mysticlov/mysticlov-hero-trio.png.asset.json";
+const heroSolo = heroSoloAsset.url;
 import seatedRooftop from "@/assets/mysticlov/block2-new.jpg.asset.json";
 import groupShot from "@/assets/mysticlov/group.png";
 import closingJoy from "@/assets/mysticlov/closing-joy.png";
