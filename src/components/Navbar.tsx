@@ -130,7 +130,8 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 4 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-3 bg-background border border-border shadow-lg min-w-[180px]"
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-3 min-w-[180px]"
+                style={{ background: 'transparent' }}
               >
                 <Link
                   to="/manifeste"
