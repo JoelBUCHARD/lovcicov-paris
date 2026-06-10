@@ -3,6 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 import { useEffect } from "react";
 import { useCartSync } from "./hooks/useCartSync";
 import { CartProvider } from "./context/CartContext";
@@ -134,15 +135,17 @@ const AppContent = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <CartProvider>
-          <AppContent />
-        </CartProvider>
-      </BrowserRouter>
-    </TooltipProvider>
+    <MotionConfig reducedMotion="always" transition={{ duration: 0 }}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <CartProvider>
+            <AppContent />
+          </CartProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </MotionConfig>
   </QueryClientProvider>
 );
 
