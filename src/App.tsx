@@ -135,15 +135,17 @@ const AppContent = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <CartProvider>
-          <AppContent />
-        </CartProvider>
-      </BrowserRouter>
-    </TooltipProvider>
+    <MotionConfig reducedMotion="always" transition={{ duration: 0 }}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <CartProvider>
+            <AppContent />
+          </CartProvider>
+        </BrowserRouter>
+      </TooltipProvider>
+    </MotionConfig>
   </QueryClientProvider>
 );
 
