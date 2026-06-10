@@ -93,27 +93,10 @@ const secondaryProducts = [
 ];
 
 
-const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => setVisible(true), delay);
-    return () => window.clearTimeout(timer);
-  }, [delay]);
-
-  return (
-    <div
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0px)" : "translateY(28px)",
-        transition: "opacity 900ms ease, transform 900ms ease",
-      }}
-    >
-      {children}
-    </div>
-  );
+const Reveal = ({ children, className }: RevealProps) => {
+  return <div className={className}>{children}</div>;
 };
+
 
 const sectionPadding = "clamp(28px, 5vw, 72px)";
 const pageStyle = {
