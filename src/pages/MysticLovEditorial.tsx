@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroSoloAsset from "@/assets/mysticlov/mysticlov-hero-trio.png.asset.json";
 const heroSolo = heroSoloAsset.url;
-import seatedRooftop from "@/assets/mysticlov/mysticlov-block3-paris.png.asset.json";
+import seatedRooftop from "@/assets/mysticlov/mysticlov-block3-turbigo.png.asset.json";
 import groupShot from "@/assets/mysticlov/group.png";
 import closingJoy from "@/assets/mysticlov/closing-joy.png";
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
