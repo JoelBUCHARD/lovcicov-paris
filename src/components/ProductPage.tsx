@@ -339,13 +339,6 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
-          {/* Short description — 2-3 lines under CTA */}
-          <p
-            className="mt-6"
-            style={{ fontFamily: SANS, fontSize: 14, color: '#5F5E5A', lineHeight: 1.6 }}
-          >
-            {product.details}
-          </p>
 
           {/* Reassurance — single occurrence */}
           <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#E8E4DD]">
