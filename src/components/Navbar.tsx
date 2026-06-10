@@ -48,6 +48,9 @@ const Navbar = () => {
             <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
               <User size={18} strokeWidth={1.5} />
             </Link>
+            <Link to="/shop" className="hidden md:block hover:opacity-60 transition-opacity">
+              <Search size={18} strokeWidth={1.5} />
+            </Link>
             <Link to="/cart" className="hover:opacity-60 transition-opacity relative">
               <ShoppingBag size={18} strokeWidth={1.5} />
               {totalItems > 0 && (
