@@ -197,13 +197,13 @@ const MysticLovEditorial = () => {
               to="/mysticlov/shop"
               className="uppercase transition-colors px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px]"
               style={{
-                backgroundColor: ACCENT,
-                color: "#FFFFFF",
+                backgroundColor: "#FFFFFF",
+                color: INK,
                 letterSpacing: "0.2em",
                 fontFamily: "Instrument Sans, system-ui, sans-serif",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F0F0F0")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#FFFFFF")}
             >
               Découvrir la collection
             </Link>
