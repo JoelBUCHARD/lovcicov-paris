@@ -34,7 +34,7 @@ const HeroCarousel = () => {
                     <img
                       src={slide.landscape}
                       alt={`Slide ${i + 1}`}
-                      className="w-full h-full object-cover object-[center_30%]"
+                      className="w-full h-full object-cover object-[center_5%]"
                     />
                   </div>
                 ) : (
