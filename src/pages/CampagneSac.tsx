@@ -30,7 +30,7 @@ const isTshirt = (p: ShopifyProduct) => {
 const ProductGrid = ({ products }: { products: ShopifyProduct[] }) => (
   <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl">
     {products.map((p, i) => (
-      <ShopifyProductCard key={p.node.id} product={p} index={i} />
+      <ShopifyProductCard key={p.node.id} product={p} index={i} preferLocalVisuals />
     ))}
   </div>
 );

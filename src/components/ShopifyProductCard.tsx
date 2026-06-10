@@ -1,17 +1,67 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ShopifyProduct } from '@/lib/shopify';
+import { products } from '@/data/products';
+
+const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesJpeg = import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesWebp = import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
+const imageModulesPng = import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>;
+const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: true }) as Record<string, { url?: string; default?: { url?: string } }>;
+
+const assetJsonAsImages: Record<string, string> = {};
+for (const [path, mod] of Object.entries(assetJsonModules)) {
+  const url = mod?.url ?? mod?.default?.url;
+  if (url) assetJsonAsImages[path.replace(/\.asset\.json$/, '')] = url;
+}
+
+const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng, ...assetJsonAsImages };
+
+const getImage = (key?: string | null) => {
+  if (!key) return '';
+  const match = Object.entries(imageModules).find(([path]) => path.includes(key));
+  return match ? match[1] : '';
+};
+
+const normalize = (value: string) => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+const getLocalVisuals = (product: ShopifyProduct['node']) => {
+  const localProduct = products.find((item) => item.shopifyHandle === product.handle);
+  if (localProduct) {
+    return {
+      mainImage: getImage(localProduct.image),
+      hoverImage: getImage(localProduct.gallery?.[0]),
+    };
+  }
+
+  const normalizedTitle = normalize(product.title);
+  if (normalizedTitle === 't-shirt powerlov') {
+    return {
+      mainImage: getImage('powerlov-hero-new'),
+      hoverImage: getImage('powerlov-grid-bold-badass-street'),
+    };
+  }
+
+  return {
+    mainImage: '',
+    hoverImage: '',
+  };
+};
 
 interface ShopifyProductCardProps {
   product: ShopifyProduct;
   index?: number;
+  preferLocalVisuals?: boolean;
 }
 
-const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => {
+const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: ShopifyProductCardProps) => {
   const location = useLocation();
   const node = product.node;
-  const mainImage = node.images.edges[0]?.node.url;
-  const hoverImage = node.images.edges[1]?.node.url;
+  const storefrontMainImage = node.images.edges[0]?.node.url;
+  const storefrontHoverImage = node.images.edges[1]?.node.url;
+  const localVisuals = getLocalVisuals(node);
+  const mainImage = preferLocalVisuals ? localVisuals.mainImage || storefrontMainImage : storefrontMainImage || localVisuals.mainImage;
+  const hoverImage = preferLocalVisuals ? localVisuals.hoverImage || storefrontHoverImage : storefrontHoverImage || localVisuals.hoverImage;
   const price = parseFloat(node.priceRange.minVariantPrice.amount).toFixed(0);
   const currency = node.priceRange.minVariantPrice.currencyCode === 'EUR' ? '€' : node.priceRange.minVariantPrice.currencyCode;
   const from = `${location.pathname}${location.search}`;
