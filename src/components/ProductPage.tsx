@@ -180,8 +180,6 @@ const ProductPage = ({ product }: Props) => {
   const reassurance = [
     { Icon: Truck, label: 'Livraison offerte dès 99€' },
     { Icon: ShieldCheck, label: 'Paiement sécurisé' },
-    { Icon: RotateCcw, label: 'Retours 14 jours' },
-    { Icon: MessageCircle, label: 'SAV Paris' },
   ];
 
   return (
@@ -373,7 +371,7 @@ const ProductPage = ({ product }: Props) => {
 
       {/* Détails produits — accordéons pleine largeur */}
       <section
-        className="mt-24 md:mt-32 max-w-3xl mx-auto"
+        className="mt-12 md:mt-16 max-w-3xl mx-auto"
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
