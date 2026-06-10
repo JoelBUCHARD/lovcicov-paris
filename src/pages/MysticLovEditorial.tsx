@@ -132,11 +132,11 @@ const MysticLovEditorial = () => {
 
         {/* BLOCK 3 — IMAGE */}
         <section className="w-full overflow-hidden" style={{ backgroundColor: BG }}>
-          <div className="w-full h-[55vh] md:h-[85vh] overflow-hidden">
+          <div className="w-full h-[40vh] md:h-[85vh] overflow-hidden">
             <img
               src={seatedRooftop.url}
               alt="L'histoire MysticLov"
-              className="w-full h-full object-cover object-center scale-150 md:scale-100"
+              className="w-full h-full object-cover object-[center_30%] scale-125 md:object-center md:scale-100"
             />
           </div>
         </section>
