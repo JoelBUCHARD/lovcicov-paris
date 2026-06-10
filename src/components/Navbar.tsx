@@ -131,32 +131,33 @@ const Navbar = () => {
                 exit={{ opacity: 0, y: 4 }}
                 transition={{ duration: 0.2 }}
                 className="absolute top-full left-1/2 -translate-x-1/2 pt-3 min-w-[180px]"
-                style={{ background: 'transparent' }}
               >
-                <Link
-                  to="/manifeste"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Manifeste
-                </Link>
-                <Link
-                  to="/fondatrice"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  La Fondatrice
-                </Link>
-                <Link
-                  to="/drops"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Drops
-                </Link>
-                <Link
-                  to="/le-cercle"
-                  className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                >
-                  Le Cercle
-                </Link>
+                <div className="bg-background border border-border shadow-lg">
+                  <Link
+                    to="/manifeste"
+                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  >
+                    Manifeste
+                  </Link>
+                  <Link
+                    to="/fondatrice"
+                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  >
+                    La Fondatrice
+                  </Link>
+                  <Link
+                    to="/drops"
+                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  >
+                    Drops
+                  </Link>
+                  <Link
+                    to="/le-cercle"
+                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
+                  >
+                    Le Cercle
+                  </Link>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
