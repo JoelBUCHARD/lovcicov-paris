@@ -5,9 +5,8 @@ import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 interface FooterProps {
   hideTopBorder?: boolean;
+  hideNewsletter?: boolean;
 }
-
-const Footer = ({ hideTopBorder }: FooterProps) => {
   const [email, setEmail] = useState('');
 
   return (
