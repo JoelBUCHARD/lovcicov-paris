@@ -8,6 +8,7 @@ import { useCartSync } from "./hooks/useCartSync";
 import { CartProvider } from "./context/CartContext";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
+import SearchPage from "./pages/Search";
 import ProductDetail from "./pages/ProductDetail";
 import ShopifyProductDetail from "./pages/ShopifyProductDetail";
 import Manifeste from "./pages/Manifeste";
@@ -98,6 +99,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/shop/:id" element={<ProductDetail />} />
         <Route path="/product/:handle" element={<ShopifyProductDetail />} />
         <Route path="/collections/standards" element={<CollectionStandards />} />
