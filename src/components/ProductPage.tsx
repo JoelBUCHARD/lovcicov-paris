@@ -213,7 +213,7 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[760px]">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[640px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
