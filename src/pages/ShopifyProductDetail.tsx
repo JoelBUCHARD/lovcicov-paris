@@ -126,21 +126,6 @@ const ShopifyProductDetail = () => {
                 <div className="w-full h-full flex items-center justify-center text-muted-foreground">Pas d'image</div>
               )}
             </div>
-            {images.length > 1 && (
-              <div className="flex gap-2">
-                {images.map((img, i) => (
-                  <button
-                    key={img.url}
-                    onClick={() => setActiveImage(i)}
-                    className={`aspect-square w-16 md:w-20 overflow-hidden bg-secondary border-2 transition-all ${
-                      activeImage === i ? 'border-foreground' : 'border-transparent opacity-60 hover:opacity-100'
-                    }`}
-                  >
-                    <img src={img.url} alt={`${product.title} - vue ${i + 1}`} className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            )}
           </motion.div>
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-col justify-center p-8 md:p-12 bg-[#F7F5F0]">
