@@ -305,7 +305,7 @@ const Index = () => {
 
 
       {/* INSTAGRAM FEED */}
-      <section className="pt-[60px] pb-[60px] text-center bg-background">
+      <section className="pt-[60px] pb-[60px] text-center bg-background border-t-[3px] border-black">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
