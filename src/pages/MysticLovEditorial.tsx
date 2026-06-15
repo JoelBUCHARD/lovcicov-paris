@@ -13,7 +13,8 @@ import noRiskNoMagicAsset from "@/assets/mysticlov/mysticlov-no-risk-no-magic-ca
 const greenTee = noRiskNoMagicAsset.url;
 import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
 import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
-import hoodieMadonnaParis from "@/assets/mysticlov/hoodie-madonna-paris.png";
+import quaiBourbonAsset from "@/assets/mysticlov/mysticlov-quai-de-bourbon.png.asset.json";
+const hoodieMadonnaParis = quaiBourbonAsset.url;
 import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
 
 const BG = "#FFF5F5";
