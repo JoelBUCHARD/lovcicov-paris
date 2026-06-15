@@ -9,21 +9,27 @@ import { products as localProducts } from '@/data/products';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 import {
   useProductVisibility,
-  setProductVisible,
+  setProductsVisible,
   localKey,
   shopifyKey,
   type VisibilityKey,
 } from '@/hooks/useProductVisibility';
 
 type Row = {
-  key: VisibilityKey;
+  id: string;
+  keys: VisibilityKey[];
   name: string;
   collection: string;
-  source: 'Locale' | 'Shopify';
+  source: 'Locale' | 'Shopify' | 'Locale + Shopify';
   link: string;
 };
 
 const ARIAL = 'Arial, sans-serif';
+const formatCollection = (collection: string) => (
+  collection === 'mystic' ? 'MysticLov'
+  : collection === 'bijoux' ? 'StoneLov'
+  : 'PowerLov'
+);
 
 const AdminProducts = () => {
   const navigate = useNavigate();
@@ -56,33 +62,53 @@ const AdminProducts = () => {
   }, []);
 
   const rows: Row[] = useMemo(() => {
-    const result: Row[] = [];
-    const seen = new Set<string>();
+    const localRows = new Map<string, Row & { shopifyHandle?: string }>();
+    const handleToLocalRows = new Map<string, Set<string>>();
+    const shopifyOnlyRows = new Map<string, Row>();
 
     for (const p of localProducts) {
-      const k = localKey(p.id);
-      seen.add(k);
-      result.push({
-        key: k,
-        name: p.name,
-        collection:
-          p.collection === 'mystic' ? 'MysticLov'
-          : p.collection === 'bijoux' ? 'StoneLov'
-          : 'PowerLov',
-        source: 'Locale',
-        link: `/shop/${p.id}`,
-      });
+      const rowId = `local:${p.collection}:${p.name}`;
+      const current = localRows.get(rowId);
+      const nextKey = localKey(p.id);
+
+      if (current) {
+        if (!current.keys.includes(nextKey)) current.keys.push(nextKey);
+      } else {
+        localRows.set(rowId, {
+          id: rowId,
+          keys: [nextKey],
+          name: p.name,
+          collection: formatCollection(p.collection),
+          source: 'Locale',
+          link: `/shop/${p.id}`,
+          shopifyHandle: p.shopifyHandle,
+        });
+      }
+
+      if (p.shopifyHandle) {
+        const linkedRows = handleToLocalRows.get(p.shopifyHandle) ?? new Set<string>();
+        linkedRows.add(rowId);
+        handleToLocalRows.set(p.shopifyHandle, linkedRows);
+      }
     }
 
     for (const sp of shopifyProducts) {
       const handle = sp.node.handle;
-      // If a local product already covers this handle as its detail page,
-      // we still expose the Shopify entry separately for shopify-only detail visibility.
-      const k = shopifyKey(handle);
-      if (seen.has(k)) continue;
-      seen.add(k);
-      result.push({
-        key: k,
+      const linkedRows = [...(handleToLocalRows.get(handle) ?? [])];
+
+      if (linkedRows.length === 1) {
+        const row = localRows.get(linkedRows[0]);
+        const visibilityKey = shopifyKey(handle);
+        if (row && !row.keys.includes(visibilityKey)) {
+          row.keys.push(visibilityKey);
+          row.source = 'Locale + Shopify';
+        }
+        continue;
+      }
+
+      shopifyOnlyRows.set(handle, {
+        id: `shopify:${handle}`,
+        keys: [shopifyKey(handle)],
         name: sp.node.title,
         collection: sp.node.productType || '—',
         source: 'Shopify',
@@ -90,7 +116,7 @@ const AdminProducts = () => {
       });
     }
 
-    return result.sort((a, b) => a.name.localeCompare(b.name));
+    return [...localRows.values(), ...shopifyOnlyRows.values()].sort((a, b) => a.name.localeCompare(b.name));
   }, [shopifyProducts]);
 
   const filtered = useMemo(() => {
@@ -100,14 +126,15 @@ const AdminProducts = () => {
       (r) =>
         r.name.toLowerCase().includes(q) ||
         r.collection.toLowerCase().includes(q) ||
-        r.key.toLowerCase().includes(q)
+        r.source.toLowerCase().includes(q) ||
+        r.keys.some((key) => key.toLowerCase().includes(q))
     );
   }, [rows, filter]);
 
-  const handleToggle = async (key: VisibilityKey, next: boolean) => {
-    setUpdating(key);
+   const handleToggle = async (row: Row, next: boolean) => {
+    setUpdating(row.id);
     try {
-      await setProductVisible(key, next);
+      await setProductsVisible(row.keys, next);
       toast.success(next ? 'Produit visible' : 'Produit masqué');
     } catch (e: any) {
       toast.error('Erreur', { description: e?.message ?? 'Impossible de mettre à jour.' });
@@ -178,10 +205,10 @@ const AdminProducts = () => {
               <span className="text-right">Visible</span>
             </div>
             {filtered.map((r) => {
-              const visible = isVisible(r.key);
+              const visible = r.keys.every((key) => isVisible(key));
               return (
                 <div
-                  key={r.key}
+                  key={r.id}
                   className="grid grid-cols-1 md:grid-cols-[1fr_140px_100px_120px] gap-2 md:gap-4 px-4 py-4 border-b border-border last:border-b-0 items-center"
                 >
                   <div>
@@ -195,7 +222,7 @@ const AdminProducts = () => {
                       {r.name}
                     </a>
                     <p className="text-[10px] text-muted-foreground mt-0.5" style={{ fontFamily: ARIAL }}>
-                      {r.key}
+                      {r.keys.length === 1 ? r.keys[0] : `${r.keys.length} entrées liées`}
                     </p>
                   </div>
                   <span className="text-[11px] text-muted-foreground" style={{ fontFamily: ARIAL }}>
@@ -210,8 +237,8 @@ const AdminProducts = () => {
                     </span>
                     <Switch
                       checked={visible}
-                      disabled={updating === r.key}
-                      onCheckedChange={(v) => handleToggle(r.key, v)}
+                      disabled={updating === r.id}
+                      onCheckedChange={(v) => handleToggle(r, v)}
                     />
                   </div>
                 </div>

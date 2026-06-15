@@ -32,6 +32,23 @@ function notify() {
   for (const l of listeners) l(cachedMap);
 }
 
+async function upsertVisibility(keys: VisibilityKey[], visible: boolean) {
+  const uniqueKeys = [...new Set(keys)];
+  const { error } = await supabase
+    .from('product_visibility')
+    .upsert(
+      uniqueKeys.map((product_handle) => ({ product_handle, visible })),
+      { onConflict: 'product_handle' }
+    );
+
+  if (error) throw error;
+
+  if (cachedMap) {
+    for (const key of uniqueKeys) cachedMap[key] = visible;
+    notify();
+  }
+}
+
 export function invalidateVisibilityCache() {
   cachedMap = null;
 }
@@ -66,14 +83,11 @@ export function useProductVisibility() {
 }
 
 export async function setProductVisible(key: VisibilityKey, visible: boolean) {
-  const { error } = await supabase
-    .from('product_visibility')
-    .upsert({ product_handle: key, visible }, { onConflict: 'product_handle' });
-  if (error) throw error;
-  if (cachedMap) {
-    cachedMap[key] = visible;
-    notify();
-  }
+  await upsertVisibility([key], visible);
+}
+
+export async function setProductsVisible(keys: VisibilityKey[], visible: boolean) {
+  await upsertVisibility(keys, visible);
 }
 
 export const localKey = (id: string) => `local:${id}`;
