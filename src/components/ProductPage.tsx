@@ -117,9 +117,7 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
-  const allImages = isJewelry
-    ? [product.image, ...(product.gallery || [])]
-    : [product.image, ...(product.gallery || [])].filter((_, i) => i !== 1);
+  const allImages = [product.image, ...(product.gallery || [])];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
   const recit = getRecit(product);
@@ -215,11 +213,12 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[760px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="w-full h-full object-contain md:object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
           </div>
