@@ -67,6 +67,10 @@ const getRecit = (product: Product): string => {
 
 const getMaterial = (product: Product): string => {
   const { specs } = splitStoryAndSpecs(product.description);
+  // Love t-shirts (MysticLov) : description matière enrichie
+  if (product.collection === 'mystic' && product.subcategory === 'tshirt') {
+    return "Coton 100% premium peigné, tissé dans un grammage lourd de 240 g/m² pour une tenue structurée qui ne se déforme pas au fil des lavages. Un toucher dense et soyeux, une opacité parfaite et une coupe oversize unisexe qui tombe droite sur le corps. Encolure côtelée renforcée, épaules tombées, finitions surpiquées. Broderie LOVE dorée réalisée à la main, fil par fil, dans nos ateliers à Paris.";
+  }
   if (specs) return specs;
   // Fallbacks by universe (existing site copy, not invented)
   if (product.collection === 'mystic') return 'Broderie dorée main · Coton premium · Fabriqué à Paris.';
