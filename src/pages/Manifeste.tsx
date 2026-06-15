@@ -24,8 +24,7 @@ const Manifeste = () => {
             custom={1}
             className="mb-20"
           >
-            <h1 className="text-brand-lg text-lg md:text-xl">LOVCICOV</h1>
-            <p className="text-[8px] md:text-[9px] tracking-[0.4em] text-muted-foreground mt-[-2px]">MANIFEST</p>
+            <h1 className="text-brand-lg text-4xl md:text-6xl">MANIFESTE</h1>
           </motion.div>
 
           <motion.div
