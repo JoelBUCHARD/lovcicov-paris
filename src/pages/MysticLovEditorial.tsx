@@ -164,7 +164,7 @@ const MysticLovEditorial = () => {
               { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov", pos: "center 15%" },
               { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 70%" },
               { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
-              { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 5%" },
+              { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 35%" },
               { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
               { img: rooftopMadonna, link: "/product/t-shirt-madonna", pos: "center 15%" },
             ].map((item, i) => (
