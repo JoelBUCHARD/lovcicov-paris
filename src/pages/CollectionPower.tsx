@@ -71,7 +71,6 @@ const powerProducts: PowerProduct[] = [
     name: 'T-Shirt Bold. Badass. No Filter.',
     price: 59,
     image: boldBadassGrid.url,
-    hover: boldBadassTeeBack.url,
     badge: 'UNISEX',
   },
   {
