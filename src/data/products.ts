@@ -204,10 +204,10 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'LOVE brodé or sur rose, la teinte de la tendresse sacrée et du quartz rose. Georgiana a choisi cette couleur pour son pouvoir doux : aimer sans condition, à commencer par soi. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : compassion, féminité universelle, paix intérieure.',
-    image: 'mystic-tshirt-love-rose-man',
+    image: 'mystic-tshirt-love-rose-woman-street',
     gallery: [
-      'mystic-tshirt-love-rose-back',
-      'mystic-tshirt-love-rose-woman',
+      'mystic-tshirt-love-rose-man-street',
+      'mystic-tshirt-love-rose-flat',
       'mystic-tshirt-love-rose-detail-1',
       'mystic-tshirt-love-rose-detail-2',
     ],
