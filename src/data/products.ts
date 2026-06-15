@@ -255,6 +255,8 @@ export const mysticProducts: Product[] = [
     gallery: [
       'mystic-hoodie-love-natural-man-street',
       'mystic-hoodie-love-natural-flat',
+      'mystic-hoodie-love-natural-back-red',
+      'mystic-hoodie-love-natural-detail-red-embroidery',
       'mystic-hoodie-love-natural-detail-5',
     ],
     colors: [
