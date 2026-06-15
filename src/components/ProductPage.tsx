@@ -278,7 +278,15 @@ const ProductPage = ({ product }: Props) => {
               Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée signature.
             </p>
           )}
-          {!(product.collection === 'mystic' && product.subcategory === 'tshirt') && (
+          {product.collection === 'mystic' && product.subcategory === 'hoodie' && (
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
+              style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
+            >
+              Molleton de coton brossé 400&nbsp;g/m², doux à l'intérieur et structuré à l'extérieur. Coupe oversize unisexe, épaules tombées, capuche doublée, cordons plats, poche kangourou. Bords-côtes renforcés au col, poignets et ourlet. Broderie LOVE dorée signature.
+            </p>
+          )}
+          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && (
             <div className="mb-8" />
           )}
 
