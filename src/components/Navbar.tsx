@@ -105,7 +105,7 @@ const Navbar = () => {
           to="/campagne-sac"
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4714A]"
         >
-          Le Sac
+          LOVSAC
         </Link>
 
         {/* Univers dropdown */}
