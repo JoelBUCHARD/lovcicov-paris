@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Instagram, Facebook } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 interface FooterProps {
@@ -10,6 +12,31 @@ interface FooterProps {
 
 const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
   const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || loading) return;
+    setLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke('subscribe-newsletter', {
+        body: { email },
+      });
+      if (error || (data && (data as any).error)) {
+        throw new Error(error?.message || (data as any).error);
+      }
+      toast.success('Bienvenue dans Le Cercle ✦', {
+        description: 'Vérifiez votre boîte mail pour confirmer votre inscription.',
+      });
+      setEmail('');
+    } catch (err) {
+      toast.error('Inscription impossible', {
+        description: (err as Error).message || 'Veuillez réessayer.',
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <footer className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}>
@@ -22,11 +49,12 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts, drops limités et invitations privées.
           </p>
           <form
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="flex max-w-sm mx-auto gap-2"
           >
             <input
               type="email"
+              required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Votre adresse e-mail"
@@ -34,13 +62,15 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             />
             <button
               type="submit"
-              className="text-brand text-[11px] px-6 py-3 bg-primary text-primary-foreground hover:bg-fuchsia transition-colors rounded-[2px]"
+              disabled={loading}
+              className="text-brand text-[11px] px-6 py-3 bg-primary text-primary-foreground hover:bg-fuchsia transition-colors rounded-[2px] disabled:opacity-60"
             >
-              OK
+              {loading ? '...' : 'OK'}
             </button>
           </form>
         </div>
       )}
+
 
       {/* Service Client */}
       <div className="border-t border-border px-6 md:px-10 py-10 text-center">
