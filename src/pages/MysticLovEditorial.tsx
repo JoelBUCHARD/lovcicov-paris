@@ -158,12 +158,12 @@ const MysticLovEditorial = () => {
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov" },
-              { img: greenTee, link: "/product/t-shirt-sunshine" },
-              { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov" },
-              { img: duoRooftop, link: "/product/t-shirt-mysticlov" },
-              { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov" },
-              { img: rooftopMadonna, link: "/product/t-shirt-madonna" },
+              { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov", pos: "center 15%" },
+              { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 15%" },
+              { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
+              { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 5%" },
+              { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
+              { img: rooftopMadonna, link: "/product/t-shirt-madonna", pos: "center 15%" },
             ].map((item, i) => (
               <Link
                 key={i}
@@ -175,7 +175,7 @@ const MysticLovEditorial = () => {
                   src={item.img}
                   alt={`MysticLov ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
-                  style={{ objectPosition: "center 15%" }}
+                  style={{ objectPosition: item.pos }}
                 />
               </Link>
             ))}
