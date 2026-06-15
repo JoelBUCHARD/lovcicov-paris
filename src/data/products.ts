@@ -228,8 +228,14 @@ export const mysticProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Hoodie LOVE noir avec broderie or et icône Vierge Marie au dos. La Vierge Marie incarne la protection, la grâce et la guidance maternelle universelle. Georgiana l\'a choisie comme figure-talisman : douce mais inébranlable. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : protection, ancrage, foi tranquille. Une armure douce pour traverser le monde.',
-    image: 'mystic-hoodie-love-front',
-    gallery: ['mystic-hoodie-love-back', 'mystic-hoodie-love-detail-1', 'mystic-hoodie-love-detail-4', 'mystic-hoodie-love-detail-5'],
+    image: 'mystic-hoodie-love-noir-woman-street',
+    gallery: [
+      'mystic-hoodie-love-noir-man-street',
+      'mystic-hoodie-love-noir-flat-front',
+      'mystic-hoodie-love-noir-flat-back',
+      'mystic-hoodie-love-detail-1',
+      'mystic-hoodie-love-detail-4',
+    ],
     colors: [
       { name: 'Noir', id: 'mystic-hoodie-noir' },
       { name: 'Natural Raw', id: 'mystic-hoodie-natural' },
