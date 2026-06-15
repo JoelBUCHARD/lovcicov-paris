@@ -117,9 +117,7 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
-  const allImages = isJewelry
-    ? [product.image, ...(product.gallery || [])]
-    : [product.image, ...(product.gallery || [])].filter((_, i) => i !== 1);
+  const allImages = [product.image, ...(product.gallery || [])];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
   const recit = getRecit(product);
@@ -195,7 +193,7 @@ const ProductPage = ({ product }: Props) => {
       </Link>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_minmax(0,460px)] gap-10 md:gap-20 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.15fr)_minmax(360px,420px)] gap-10 md:gap-16 max-w-[1380px] mx-auto">
         {/* Gallery: vertical thumbs + main image (desktop) */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
@@ -215,11 +213,12 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[840px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="w-full h-full object-contain md:object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                style={{ objectPosition: 'center top' }}
               />
             </div>
           </div>
