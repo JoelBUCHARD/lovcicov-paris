@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { products } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,6 +20,13 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+
+  // Option 1: when the local product is linked to a Shopify product,
+  // redirect to the Shopify-backed page so checkout works through the Storefront API.
+  if (product?.shopifyHandle) {
+    return <Navigate to={`/product/${product.shopifyHandle}`} replace />;
+  }
+
 
   const universe =
     product?.collection === 'mystic' ? 'mysticlov'
