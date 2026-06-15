@@ -273,12 +273,11 @@ export const mysticProducts: Product[] = [
     subcategory: 'crewneck',
     description: 'Crewneck LOVE, mantra brodé or, symbole universel d\'ouverture du cœur. Georgiana a choisi le crewneck pour sa simplicité monastique : un vêtement quotidien transformé en talisman. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : conscience douce, rituel discret, amour porté au quotidien.',
-    image: 'mystic-crewneck-love-front',
+    image: 'mystic-crewneck-love-noir-man-street',
     gallery: [
-      'mystic-crewneck-love-back',
+      'mystic-crewneck-love-noir-flat',
       'mystic-crewneck-love-detail-1',
-      'mystic-crewneck-love-detail-4',
-      'mystic-crewneck-love-detail-3',
+      'mystic-crewneck-love-noir-woman-street',
     ],
   },
   {
