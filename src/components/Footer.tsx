@@ -42,6 +42,27 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
         </div>
       )}
 
+      {/* Service Client */}
+      <div className="border-t border-border px-6 md:px-10 py-10 text-center">
+        <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">SERVICE CLIENT</p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
+          <a
+            href="https://wa.me/33786386782"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand text-[11px] text-foreground hover:text-fuchsia transition-colors tracking-[0.08em]"
+          >
+            WhatsApp · +33 7 86 38 67 82
+          </a>
+          <a
+            href="mailto:contact@lovcicov.com"
+            className="text-brand text-[11px] text-foreground hover:text-fuchsia transition-colors tracking-[0.08em]"
+          >
+            contact@lovcicov.com
+          </a>
+        </div>
+      </div>
+
       <div className="border-t border-border px-6 md:px-10 py-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <Link to="/"><img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" /></Link>
