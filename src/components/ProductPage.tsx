@@ -290,9 +290,6 @@ const ProductPage = ({ product }: Props) => {
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
                   Taille
                 </p>
-                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
-                  Oversize · Unisexe
-                </p>
               </div>
 
               <div className="flex gap-2">
