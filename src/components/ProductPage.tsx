@@ -69,7 +69,7 @@ const getMaterial = (product: Product): string => {
   const { specs } = splitStoryAndSpecs(product.description);
   // Love t-shirts (MysticLov) : description matière enrichie
   if (product.collection === 'mystic' && product.subcategory === 'tshirt') {
-    return "Coton 100% premium peigné, tissé dans un grammage lourd de 240 g/m² pour une tenue structurée qui ne se déforme pas au fil des lavages. Un toucher dense et soyeux, une opacité parfaite et une coupe oversize unisexe qui tombe droite sur le corps. Encolure côtelée renforcée, épaules tombées, finitions surpiquées. Broderie LOVE dorée réalisée à la main, fil par fil, dans nos ateliers à Paris.";
+    return "Coton 100% premium peigné, tissé dans un grammage lourd de 240 g/m² pour une tenue structurée qui ne se déforme pas au fil des lavages. Un toucher dense et soyeux, une opacité parfaite et une coupe oversize unisexe qui tombe droite sur le corps. Encolure côtelée renforcée, épaules tombées, finitions surpiquées. Broderie LOVE dorée signature, fil doré métallisé.";
   }
   if (specs) return specs;
   // Fallbacks by universe (existing site copy, not invented)
@@ -275,7 +275,7 @@ const ProductPage = ({ product }: Props) => {
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
-              Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée brodée main à Paris.
+              Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée signature.
             </p>
           )}
           {!(product.collection === 'mystic' && product.subcategory === 'tshirt') && (
