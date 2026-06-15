@@ -20,6 +20,7 @@ export interface Product {
 export const standardProducts: Product[] = [
   {
     id: 'powerlov-god-is-a-dj',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt God Is A DJ',
     price: 59,
     collection: 'standard',
@@ -32,6 +33,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-empowered',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt Connected. Disciplined. Empowered.',
     price: 59,
     collection: 'standard',
@@ -43,6 +45,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-discipline',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt Discipline Is My Luxury',
     price: 59,
     collection: 'standard',
@@ -55,6 +58,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-if-god-dj-frequency',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt If God Is A DJ, I Am The Frequency',
     price: 59,
     collection: 'standard',
@@ -66,6 +70,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-bold-badass-tee',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt Bold. Badass. No Filter.',
     price: 59,
     collection: 'standard',
@@ -78,6 +83,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-god-is-a-dancer',
+    shopifyHandle: 't-shirt-powerlov',
     name: 'T-Shirt God Is A Dancer',
     price: 59,
     collection: 'standard',
@@ -89,6 +95,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-bold-badass-hoodie',
+    shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'Sweat Capuche Bold. Badass. No Filter.',
     price: 99,
     collection: 'standard',
@@ -100,6 +107,7 @@ export const standardProducts: Product[] = [
   },
   {
     id: 'powerlov-energy-never-lies-hoodie',
+    shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'Sweat Capuche Energy Never Lies',
     price: 99,
     collection: 'standard',
@@ -110,6 +118,7 @@ export const standardProducts: Product[] = [
     badge: 'UNISEX',
   },
 ];
+
 
 // Collection "MysticLov" — produits du site mysticlov.com
 export const mysticProducts: Product[] = [
