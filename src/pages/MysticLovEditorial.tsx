@@ -161,7 +161,7 @@ const MysticLovEditorial = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
               { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov", pos: "center 15%" },
-              { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 45%" },
+              { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 70%" },
               { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
               { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 5%" },
               { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
