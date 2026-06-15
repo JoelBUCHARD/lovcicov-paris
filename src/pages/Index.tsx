@@ -453,9 +453,9 @@ const Index = () => {
       <section className="grid grid-cols-3 border-t border-border">
 
         {[
-          { label: 'PowerLov', desc: 'Présence. Discipline. Impact.', path: '/collections/powerlov', hoverBg: 'hover:bg-[#F7F5F0]' },
-          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/collection/mysticlov', hoverBg: 'hover:bg-[#FDE8E8]' },
-          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/shop', hoverBg: 'hover:bg-orange-50' },
+          { label: 'PowerLov', desc: 'Présence. Discipline. Impact.', path: '/powerlov', hoverBg: 'hover:bg-[#F7F5F0]' },
+          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/mysticlov', hoverBg: 'hover:bg-[#FDE8E8]' },
+          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/stonelov', hoverBg: 'hover:bg-orange-50' },
         ].map((col, i) => (
           <Link
             key={col.label}
