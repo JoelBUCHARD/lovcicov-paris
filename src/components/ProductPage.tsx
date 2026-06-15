@@ -275,7 +275,7 @@ const ProductPage = ({ product }: Props) => {
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
-              Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée brodée main à Paris.
+              Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée signature.
             </p>
           )}
           {!(product.collection === 'mystic' && product.subcategory === 'tshirt') && (
