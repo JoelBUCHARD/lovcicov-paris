@@ -218,47 +218,7 @@ const Index = () => {
         </motion.div>
       </section>
 
-      {/* 3. FEATURED PRODUCTS — STONELOV Lancement */}
-      <section className="bg-[#FDF5EF] border-t-[3px] border-[#C4714A] pt-0 md:pt-14">
-        <div className="text-center pt-3 pb-8">
-          <p className="font-sans text-[9px] tracking-[0.2em] text-[#C4714A] mb-2">
-            StoneLov
-          </p>
-
-          <div className="w-[60px] h-px bg-[#C4714A] mx-auto mt-3 opacity-60" />
-
-        </div>
-        <div className="px-6 md:px-10 pb-2 md:pb-3">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
-            {featured.slice(0, 4).map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
-          </div>
-        </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
-        >
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
-          >
-            Découvrir StoneLov
-            <ArrowRight size={12} />
-          </Link>
-
-        </motion.div>
-      </section>
-
-
-      {/* 4. MYSTICLOV — section in MysticLov DA */}
+      {/* 3. MYSTICLOV — section in MysticLov DA */}
       <section className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#E66060] pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center px-6 md:px-10 pt-3 pb-3 max-w-[640px] mx-auto">
           <motion.p
@@ -302,6 +262,46 @@ const Index = () => {
             Découvrir MysticLov
             <ArrowRight size={12} />
           </Link>
+        </motion.div>
+      </section>
+
+
+      {/* 4. FEATURED PRODUCTS — STONELOV Lancement */}
+      <section className="bg-[#FDF5EF] border-t-[3px] border-[#C4714A] pt-0 md:pt-14">
+        <div className="text-center pt-3 pb-8">
+          <p className="font-sans text-[9px] tracking-[0.2em] text-[#C4714A] mb-2">
+            StoneLov
+          </p>
+
+          <div className="w-[60px] h-px bg-[#C4714A] mx-auto mt-3 opacity-60" />
+
+        </div>
+        <div className="px-6 md:px-10 pb-2 md:pb-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+            {featured.slice(0, 4).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
+        >
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
+            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
+          >
+            Découvrir StoneLov
+            <ArrowRight size={12} />
+          </Link>
+
         </motion.div>
       </section>
 
