@@ -22,6 +22,7 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+  const { isVisible, loading: visLoading } = useProductVisibility();
 
 
 
@@ -55,6 +56,10 @@ const ProductDetail = () => {
       </div>
     );
   }
+  if (!visLoading && !isVisible(localKey(product.id))) {
+    return <ProductUnavailable />;
+  }
+
 
   return (
     <div className="min-h-screen bg-white">
