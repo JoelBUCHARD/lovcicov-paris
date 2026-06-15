@@ -464,11 +464,8 @@ const Index = () => {
               i < 2 ? 'border-r' : ''
             } ${col.hoverBg} transition-colors`}
           >
-            <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em]">{col.label}</p>
+            <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em] group-hover:opacity-60 transition-opacity">{col.label}</p>
             <p className="text-sm text-muted-foreground/70">{col.desc}</p>
-            <span className="inline-block mt-4 text-brand text-[11px] border-b border-foreground pb-0.5 group-hover:opacity-60 transition-opacity">
-              {col.label}
-            </span>
           </Link>
         ))}
       </section>
