@@ -10,11 +10,17 @@ import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
 import { products as localProducts } from '@/data/products';
+import ProductUnavailable from '@/components/ProductUnavailable';
+import { useProductVisibility, localKey, shopifyKey } from '@/hooks/useProductVisibility';
 
 const ShopifyProductDetail = () => {
   const { handle } = useParams<{ handle: string }>();
+  const { isVisible, loading: visLoading } = useProductVisibility();
   const localProduct = localProducts.find((p) => p.shopifyHandle === handle);
   if (localProduct) {
+    if (!visLoading && !isVisible(localKey(localProduct.id))) {
+      return <ProductUnavailable />;
+    }
     const universe =
       localProduct.collection === 'mystic' ? 'mysticlov'
       : localProduct.collection === 'bijoux' ? 'stonelov'
@@ -30,6 +36,9 @@ const ShopifyProductDetail = () => {
         <Footer />
       </div>
     );
+  }
+  if (handle && !visLoading && !isVisible(shopifyKey(handle))) {
+    return <ProductUnavailable />;
   }
   return <ShopifyOnlyDetail key={`shopify-${handle}`} />;
 };
