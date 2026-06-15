@@ -1,8 +1,19 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 
-const KLAVIYO_API_KEY = Deno.env.get('KLAVIYO_PRIVATE_API_KEY');
+const rawKlaviyoApiKey = Deno.env.get('KLAVIYO_PRIVATE_API_KEY');
 const LIST_ID = 'TRgxeg';
 const KLAVIYO_REVISION = '2024-10-15';
+
+const normalizeKlaviyoApiKey = (value: string | undefined) => {
+  if (!value) return undefined;
+
+  return value
+    .trim()
+    .replace(/^['"]|['"]$/g, '')
+    .replace(/^Klaviyo-API-Key\s+/i, '');
+};
+
+const KLAVIYO_API_KEY = normalizeKlaviyoApiKey(rawKlaviyoApiKey);
 
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -10,7 +21,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    if (!KLAVIYO_API_KEY) {
+    if (!KLAVIYO_API_KEY || !KLAVIYO_API_KEY.startsWith('pk_')) {
       return new Response(JSON.stringify({ error: 'KLAVIYO_PRIVATE_API_KEY not configured' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
