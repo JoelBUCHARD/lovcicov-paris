@@ -5,6 +5,7 @@ import { mysticProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +26,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 const CollectionMystic = () => {
-  const shuffledProducts = shuffleArray(mysticProducts);
+  const { isVisible } = useProductVisibility();
+  const shuffledProducts = shuffleArray(mysticProducts.filter((p) => isVisible(localKey(p.id))));
 
   return (
     <div className="min-h-screen bg-[#EFEDE8]">
