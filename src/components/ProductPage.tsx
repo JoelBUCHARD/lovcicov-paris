@@ -276,15 +276,11 @@ const ProductPage = ({ product }: Props) => {
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
                   Taille
                 </p>
-                <button
-                  type="button"
-                  className="uppercase underline underline-offset-4 hover:opacity-70 transition-opacity"
-                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#1A1A1A' }}
-                  onClick={() => toast({ title: 'Guide des tailles', description: 'XS · S · M · L · XL — coupe oversize unisex.' })}
-                >
-                  Guide des tailles
-                </button>
+                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
+                  Oversize · Unisexe
+                </p>
               </div>
+
               <div className="flex gap-2">
                 {SIZES.map((s) => (
                   <button
