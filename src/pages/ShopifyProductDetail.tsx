@@ -21,6 +21,8 @@ const ShopifyProductDetail = () => {
   useEffect(() => {
     if (!handle) return;
     setLoading(true);
+    setActiveImage(0);
+    setSelectedVariantIdx(0);
     fetchShopifyProductByHandle(handle)
       .then((p) => setProduct(p))
       .catch(console.error)
