@@ -20,7 +20,7 @@ const ShopifyProductDetail = () => {
       : localProduct.collection === 'bijoux' ? 'stonelov'
       : 'powerlov';
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white" key={`local-${localProduct.id}`}>
         <Navbar />
         <ProductPage product={localProduct} />
         <RelatedProducts
@@ -31,7 +31,17 @@ const ShopifyProductDetail = () => {
       </div>
     );
   }
+  return <ShopifyOnlyDetail key={`shopify-${handle}`} />;
+};
+
+const ShopifyOnlyDetail = () => {
+  const { handle } = useParams<{ handle: string }>();
   const location = useLocation();
+  const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [activeImage, setActiveImage] = useState(0);
+  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
+  const { addItem, isLoading: cartLoading } = useCartStore();
   const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
