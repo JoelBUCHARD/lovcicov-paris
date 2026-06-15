@@ -191,7 +191,7 @@ const ProductPage = ({ product }: Props) => {
         className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
         style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
       >
-        ← Retour à {cfg.backLabel}
+        Retour à {cfg.backLabel}
       </Link>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
