@@ -8,7 +8,8 @@ import groupShotAsset from "@/assets/mysticlov/mysticlov-block4-cafedeflore.png.
 const groupShot = groupShotAsset.url;
 import closingJoyAsset from "@/assets/mysticlov/mysticlov-closing-cafedeflore.png.asset.json";
 const closingJoy = closingJoyAsset.url;
-import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
+import duoRooftopAsset from "@/assets/mysticlov/mysticlov-sunshine-rue-saint-guillaume.png.asset.json";
+const duoRooftop = duoRooftopAsset.url;
 import noRiskNoMagicAsset from "@/assets/mysticlov/mysticlov-no-risk-no-magic-cafe-flore-v2.png.asset.json";
 const greenTee = noRiskNoMagicAsset.url;
 import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
