@@ -74,7 +74,7 @@ const Index = () => {
             className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 mt-3 px-6"
           >
             <Link
-              to="/collections/powerlov"
+              to="/shop"
               className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors w-full sm:w-auto"
             >
               Découvrir la collection
