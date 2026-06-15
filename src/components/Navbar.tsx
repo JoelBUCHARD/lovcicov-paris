@@ -125,6 +125,9 @@ const Navbar = () => {
         >
           LOVSAC
         </Link>
+
+        {/* Univers dropdown */}
+        <div
           className="relative"
           onMouseEnter={() => setUniversOpen(true)}
           onMouseLeave={() => setUniversOpen(false)}
