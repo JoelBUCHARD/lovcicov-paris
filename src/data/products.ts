@@ -180,10 +180,10 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'LOVE en or sur vert bouteille, couleur du chakra du cœur. Georgiana a choisi ce vert profond comme symbole de guérison et d\'abondance émotionnelle. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : soin de soi, équilibre, renouveau. Une pièce qui aligne le cœur et apaise.',
-    image: 'mystic-tshirt-love-green-front',
+    image: 'mystic-tshirt-love-green-woman-street',
     gallery: [
-      'mystic-tshirt-love-green-back',
-      'mystic-tshirt-love-green-woman',
+      'mystic-tshirt-love-green-man-street',
+      'mystic-tshirt-love-green-flat',
       'mystic-tshirt-love-green-detail-1',
       'mystic-tshirt-love-green-detail-2',
     ],
