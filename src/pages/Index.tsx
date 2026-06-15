@@ -100,8 +100,8 @@ const Index = () => {
       {/* KEYWORDS STRIP */}
       <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
         <div className="whitespace-nowrap overflow-hidden">
-          <div className="inline-flex animate-[marquee_30s_linear_infinite]" style={{ animationName: 'marquee' }}>
-            {[0, 1].map((dup) => (
+          <div className="inline-flex animate-[marquee_60s_linear_infinite]" style={{ animationName: 'marquee' }}>
+            {Array.from({ length: 20 }).map((_, dup) => (
               <span
                 key={dup}
                 className="inline-block px-6"
