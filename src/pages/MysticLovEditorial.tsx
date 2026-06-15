@@ -9,7 +9,7 @@ const groupShot = groupShotAsset.url;
 import closingJoyAsset from "@/assets/mysticlov/mysticlov-closing-cafedeflore.png.asset.json";
 const closingJoy = closingJoyAsset.url;
 import duoRooftop from "@/assets/mysticlov/duo-rooftop.png";
-import noRiskNoMagicAsset from "@/assets/mysticlov/mysticlov-no-risk-no-magic-cafe-flore.png.asset.json";
+import noRiskNoMagicAsset from "@/assets/mysticlov/mysticlov-no-risk-no-magic-cafe-flore-v2.png.asset.json";
 const greenTee = noRiskNoMagicAsset.url;
 import hoodieRooftop from "@/assets/mysticlov/hoodie-rooftop.png";
 import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
