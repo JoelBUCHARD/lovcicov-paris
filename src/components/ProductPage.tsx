@@ -193,7 +193,7 @@ const ProductPage = ({ product }: Props) => {
       </Link>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1240px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
         {/* Gallery: vertical thumbs + main image (desktop) */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
