@@ -15,6 +15,14 @@ const normalizeKlaviyoApiKey = (value: string | undefined) => {
 
 const KLAVIYO_API_KEY = normalizeKlaviyoApiKey(rawKlaviyoApiKey);
 
+const getKeyDebugSummary = () => ({
+  hasRawValue: Boolean(rawKlaviyoApiKey),
+  rawLength: rawKlaviyoApiKey?.length ?? 0,
+  normalizedLength: KLAVIYO_API_KEY?.length ?? 0,
+  normalizedPrefix: KLAVIYO_API_KEY?.slice(0, 4) ?? null,
+  startsWithPk: KLAVIYO_API_KEY?.startsWith('pk_') ?? false,
+});
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders });
@@ -22,6 +30,7 @@ Deno.serve(async (req) => {
 
   try {
     if (!KLAVIYO_API_KEY || !KLAVIYO_API_KEY.startsWith('pk_')) {
+      console.error('Invalid Klaviyo key format', getKeyDebugSummary());
       return new Response(JSON.stringify({ error: 'KLAVIYO_PRIVATE_API_KEY not configured' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
