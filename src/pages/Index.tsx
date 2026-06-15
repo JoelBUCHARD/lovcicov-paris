@@ -207,13 +207,12 @@ const Index = () => {
         >
           <Link
             to="/collections/powerlov"
-            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
+            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
             style={{ backgroundColor: '#1A1A1A', fontSize: 10, letterSpacing: '0.15em' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#333333')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}
           >
             Découvrir PowerLov
-            <ArrowRight size={12} />
           </Link>
         </motion.div>
       </section>
@@ -226,8 +225,8 @@ const Index = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mb-2"
-            style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
+            className="font-sans text-[9px] tracking-[0.2em] mb-2"
+            style={{ color: '#E66060' }}
           >
             MysticLov
           </motion.p>
@@ -254,13 +253,12 @@ const Index = () => {
         >
           <Link
             to="/collection/mysticlov"
-            className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
+            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
             style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
           >
             Découvrir MysticLov
-            <ArrowRight size={12} />
           </Link>
         </motion.div>
       </section>
@@ -293,13 +291,12 @@ const Index = () => {
         >
           <Link
             to="/shop"
-            className="inline-flex items-center gap-3 text-white px-8 py-3 transition-colors"
+            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
             style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
           >
             Découvrir StoneLov
-            <ArrowRight size={12} />
           </Link>
 
         </motion.div>
