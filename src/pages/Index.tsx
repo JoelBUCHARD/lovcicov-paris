@@ -450,7 +450,7 @@ const Index = () => {
 
 
       {/* 4. COLLECTIONS BANNER */}
-      <section className="grid grid-cols-1 md:grid-cols-3 border-t border-border">
+      <section className="grid grid-cols-3 border-t border-border">
 
         {[
           { label: 'PowerLov', desc: 'Présence. Discipline. Impact.', path: '/collections/powerlov', hoverBg: 'hover:bg-[#F7F5F0]' },
@@ -460,8 +460,8 @@ const Index = () => {
           <Link
             key={col.label}
             to={col.path}
-            className={`group py-14 md:py-20 px-8 md:px-12 text-center border-b md:border-b-0 border-border ${
-              i < 2 ? 'md:border-r' : ''
+            className={`group py-10 md:py-20 px-4 md:px-12 text-center border-border ${
+              i < 2 ? 'border-r' : ''
             } ${col.hoverBg} transition-colors`}
           >
             <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em]">{col.label}</p>
