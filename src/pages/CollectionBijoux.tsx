@@ -4,6 +4,7 @@ import { bijouxProducts } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -15,6 +16,8 @@ const fadeUp = {
 };
 
 const CollectionBijoux = () => {
+  const { isVisible } = useProductVisibility();
+  const visibleBijoux = bijouxProducts.filter((p) => isVisible(localKey(p.id)));
   return (
     <div className="min-h-screen bg-[#EFEDE8]">
       <Navbar />
@@ -48,7 +51,7 @@ const CollectionBijoux = () => {
         {/* Products — gray background */}
         <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {bijouxProducts.map((product, i) => (
+            {visibleBijoux.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
                 <ProductCard product={product} index={i} />
               </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import tshirtDiscipline from '@/assets/powerlov-tshirt-discipline.png';
 import tshirtEmpowered from '@/assets/powerlov-tshirt-empowered.png';
 
@@ -31,6 +32,8 @@ const powerlovProducts = [
 ];
 
 const CollectionStandards = () => {
+  const { isVisible } = useProductVisibility();
+  const visibleProducts = powerlovProducts.filter((p) => isVisible(localKey(p.id)));
   return (
     <div className="min-h-screen bg-[#F5F3F0]">
       <Navbar />
@@ -107,7 +110,7 @@ const CollectionStandards = () => {
         {/* Products — tight editorial 2-col grid */}
         <div className="bg-[#ECECEA] py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px] max-w-[1400px] mx-auto px-0">
-            {powerlovProducts.map((product, i) => (
+            {visibleProducts.map((product, i) => (
               <motion.div
                 key={product.id}
                 variants={fadeUp}

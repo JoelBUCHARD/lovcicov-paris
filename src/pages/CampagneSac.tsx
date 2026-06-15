@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { usePowerLovSalesCount } from '@/hooks/usePowerLovSalesCount';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
+import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
 
 const ARIAL = 'Arial, sans-serif';
 const BEIGE = '#FAF7F2';
@@ -40,6 +41,8 @@ const CampagneSac = () => {
   const pct = Math.min(100, (sold / target) * 100);
   const [participants, setParticipants] = useState<ShopifyProduct[]>([]);
   const [allTees, setAllTees] = useState<ShopifyProduct[]>([]);
+  const { isVisible } = useProductVisibility();
+  const visibleTees = allTees.filter((p) => isVisible(shopifyKey(p.node.handle)));
 
   useEffect(() => {
     fetchShopifyProducts(12, 'tag:powerlov')
@@ -193,7 +196,7 @@ const CampagneSac = () => {
         >
           Les t-shirts participants
         </p>
-        <ProductGrid products={allTees} />
+        <ProductGrid products={visibleTees} />
       </section>
 
       {/* HASHTAG */}

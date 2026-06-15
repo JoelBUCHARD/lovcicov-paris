@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 import godDjCafe from '@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json';
 import godDjStreet from '@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json';
@@ -148,6 +149,8 @@ const PowerProductCard = ({ product, index }: { product: PowerProduct; index: nu
 };
 
 const CollectionPower = () => {
+  const { isVisible } = useProductVisibility();
+  const visiblePower = powerProducts.filter((p) => isVisible(localKey(p.id)));
   return (
     <div className="min-h-screen bg-[#EFEDE8]">
       <Navbar />
@@ -182,7 +185,7 @@ const CollectionPower = () => {
         {/* Products — gray background */}
         <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {powerProducts.map((product, i) => (
+            {visiblePower.map((product, i) => (
               <div key={product.id} className="bg-white p-3">
                 <PowerProductCard product={product} index={i} />
               </div>

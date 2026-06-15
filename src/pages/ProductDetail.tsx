@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
+import ProductUnavailable from '@/components/ProductUnavailable';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
@@ -20,6 +22,7 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
+  const { isVisible, loading: visLoading } = useProductVisibility();
 
 
 
@@ -53,6 +56,10 @@ const ProductDetail = () => {
       </div>
     );
   }
+  if (!visLoading && !isVisible(localKey(product.id))) {
+    return <ProductUnavailable />;
+  }
+
 
   return (
     <div className="min-h-screen bg-white">

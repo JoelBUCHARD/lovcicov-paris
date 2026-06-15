@@ -14,6 +14,27 @@ export type Database = {
   }
   public: {
     Tables: {
+      product_visibility: {
+        Row: {
+          created_at: string
+          product_handle: string
+          updated_at: string
+          visible: boolean
+        }
+        Insert: {
+          created_at?: string
+          product_handle: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Update: {
+          created_at?: string
+          product_handle?: string
+          updated_at?: string
+          visible?: boolean
+        }
+        Relationships: []
+      }
       testimonials: {
         Row: {
           author: string

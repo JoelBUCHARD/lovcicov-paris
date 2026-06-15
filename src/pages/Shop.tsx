@@ -5,6 +5,7 @@ import { standardProducts, mysticProducts, bijouxProducts } from '@/data/product
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
 
@@ -25,12 +26,18 @@ const Shop = () => {
     setActive('all');
   }, [collectionParam]);
 
+  const { isVisible } = useProductVisibility();
+  const visibleStandard = useMemo(() => standardProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleMystic = useMemo(() => mysticProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleBijoux = useMemo(() => bijouxProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+
   const localProducts = useMemo(() => {
-    if (active === 'standard') return standardProducts;
-    if (active === 'mystic') return mysticProducts;
-    if (active === 'bijoux') return bijouxProducts;
-    return [...standardProducts, ...mysticProducts, ...bijouxProducts];
-  }, [active]);
+    if (active === 'standard') return visibleStandard;
+    if (active === 'mystic') return visibleMystic;
+    if (active === 'bijoux') return visibleBijoux;
+    return [...visibleStandard, ...visibleMystic, ...visibleBijoux];
+  }, [active, visibleStandard, visibleMystic, visibleBijoux]);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,33 +85,33 @@ const Shop = () => {
           {/* All view: grouped by universe */}
           {active === 'all' ? (
             <>
-              {standardProducts.length > 0 && (
+              {visibleStandard.length > 0 && (
                 <section className="mb-16">
                   <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">PowerLov</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {standardProducts.map((product, i) => (
+                    {visibleStandard.map((product, i) => (
                       <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </section>
               )}
 
-              {mysticProducts.length > 0 && (
+              {visibleMystic.length > 0 && (
                 <section className="mb-16">
                   <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">MysticLov</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {mysticProducts.map((product, i) => (
+                    {visibleMystic.map((product, i) => (
                       <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </section>
               )}
 
-              {bijouxProducts.length > 0 && (
+              {visibleBijoux.length > 0 && (
                 <section>
                   <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">StoneLov</h3>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {bijouxProducts.map((product, i) => (
+                    {visibleBijoux.map((product, i) => (
                       <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>

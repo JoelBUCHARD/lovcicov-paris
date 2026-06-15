@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
+import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
 
 const SearchPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,6 +15,8 @@ const SearchPage = () => {
   const [results, setResults] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
+  const { isVisible } = useProductVisibility();
+  const visibleResults = results.filter((p) => isVisible(shopifyKey(p.node.handle)));
 
   useEffect(() => {
     setInput(initialQ);
@@ -76,16 +79,16 @@ const SearchPage = () => {
           {loading && (
             <p className="text-center text-xs tracking-[0.15em] text-muted-foreground">Recherche en cours…</p>
           )}
-          {!loading && searched && results.length === 0 && (
+          {!loading && searched && visibleResults.length === 0 && (
             <p className="text-center text-xs tracking-[0.15em] text-muted-foreground">Aucun produit trouvé pour « {query} »</p>
           )}
-          {!loading && results.length > 0 && (
+          {!loading && visibleResults.length > 0 && (
             <>
               <p className="text-center text-[10px] tracking-[0.18em] text-muted-foreground mb-8">
-                {results.length} RÉSULTAT{results.length > 1 ? 'S' : ''}
+                {visibleResults.length} RÉSULTAT{visibleResults.length > 1 ? 'S' : ''}
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                {results.map((product, i) => (
+                {visibleResults.map((product, i) => (
                   <ShopifyProductCard key={product.node.id} product={product} index={i} />
                 ))}
               </div>
