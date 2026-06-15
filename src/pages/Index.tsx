@@ -231,7 +231,7 @@ const Index = () => {
             MysticLov
           </motion.p>
 
-          <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#F5D0D0' }} />
+          <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#C4714A' }} />
         </div>
 
         <div className="px-6 md:px-10">
