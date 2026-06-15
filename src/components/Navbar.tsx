@@ -5,6 +5,7 @@ import { ShoppingBag, Menu, X, User, ChevronDown, Search } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
+import { prefetchRoute } from '@/lib/prefetch';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
 const Navbar = () => {
@@ -45,13 +46,26 @@ const Navbar = () => {
 
           {/* Right icons */}
           <div className="flex items-center gap-4 w-40 justify-end">
-            <Link to={isLoggedIn ? '/account' : '/auth'} className="hidden md:block hover:opacity-60 transition-opacity">
+            <Link
+              to={isLoggedIn ? '/account' : '/auth'}
+              onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
+              className="hidden md:block hover:opacity-60 transition-opacity"
+            >
               <User size={18} strokeWidth={1.5} />
             </Link>
-            <Link to="/search" className="hidden md:block hover:opacity-60 transition-opacity" aria-label="Rechercher">
+            <Link
+              to="/search"
+              onMouseEnter={() => prefetchRoute('/search')}
+              className="hidden md:block hover:opacity-60 transition-opacity"
+              aria-label="Rechercher"
+            >
               <Search size={18} strokeWidth={1.5} />
             </Link>
-            <Link to="/cart" className="hover:opacity-60 transition-opacity relative">
+            <Link
+              to="/cart"
+              onMouseEnter={() => prefetchRoute('/cart')}
+              className="hover:opacity-60 transition-opacity relative"
+            >
               <ShoppingBag size={18} strokeWidth={1.5} />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
@@ -82,6 +96,7 @@ const Navbar = () => {
 
         <Link
           to="/powerlov"
+          onMouseEnter={() => prefetchRoute('/powerlov')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
         >
           PowerLov
@@ -89,6 +104,7 @@ const Navbar = () => {
 
         <Link
           to="/mysticlov"
+          onMouseEnter={() => prefetchRoute('/mysticlov')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#E66060]"
         >
           MysticLov
@@ -96,6 +112,7 @@ const Navbar = () => {
 
         <Link
           to="/stonelov"
+          onMouseEnter={() => prefetchRoute('/stonelov')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4654A]"
         >
           StoneLov
@@ -103,13 +120,11 @@ const Navbar = () => {
 
         <Link
           to="/campagne-sac"
+          onMouseEnter={() => prefetchRoute('/campagne-sac')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4714A]"
         >
           LOVSAC
         </Link>
-
-        {/* Univers dropdown */}
-        <div
           className="relative"
           onMouseEnter={() => setUniversOpen(true)}
           onMouseLeave={() => setUniversOpen(false)}
