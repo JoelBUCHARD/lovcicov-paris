@@ -275,9 +275,9 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : conscience douce, rituel discret, amour porté au quotidien.',
     image: 'mystic-crewneck-love-noir-man-street',
     gallery: [
+      'mystic-crewneck-love-noir-woman-street',
       'mystic-crewneck-love-noir-flat',
       'mystic-crewneck-love-detail-1',
-      'mystic-crewneck-love-noir-woman-street',
     ],
   },
   {
