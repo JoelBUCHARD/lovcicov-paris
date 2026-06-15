@@ -7,9 +7,34 @@ import { useCartStore } from '@/stores/cartStore';
 import { toast } from '@/hooks/use-toast';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
+import { products as localProducts } from '@/data/products';
 
 const ShopifyProductDetail = () => {
+  const { handle } = useParams<{ handle: string }>();
+  const localProduct = localProducts.find((p) => p.shopifyHandle === handle);
+  if (localProduct) {
+    const universe =
+      localProduct.collection === 'mystic' ? 'mysticlov'
+      : localProduct.collection === 'bijoux' ? 'stonelov'
+      : 'powerlov';
+    return (
+      <div className="min-h-screen bg-white" key={`local-${localProduct.id}`}>
+        <Navbar />
+        <ProductPage product={localProduct} />
+        <RelatedProducts
+          currentKey={`local:${localProduct.id}`}
+          currentUniverse={universe as 'powerlov' | 'mysticlov' | 'stonelov'}
+        />
+        <Footer />
+      </div>
+    );
+  }
+  return <ShopifyOnlyDetail key={`shopify-${handle}`} />;
+};
+
+const ShopifyOnlyDetail = () => {
   const { handle } = useParams<{ handle: string }>();
   const location = useLocation();
   const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
