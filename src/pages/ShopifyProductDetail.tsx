@@ -42,11 +42,6 @@ const ShopifyOnlyDetail = () => {
   const [activeImage, setActiveImage] = useState(0);
   const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
   const { addItem, isLoading: cartLoading } = useCartStore();
-  const [product, setProduct] = useState<ShopifyProduct['node'] | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [activeImage, setActiveImage] = useState(0);
-  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
-  const { addItem, isLoading: cartLoading } = useCartStore();
 
   useEffect(() => {
     if (!handle) return;
