@@ -188,7 +188,7 @@ const Navbar = () => {
                 StoneLov
               </Link>
               <Link to="/campagne-sac" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                Le Sac
+                LOVSAC
               </Link>
               <p className="text-brand text-[10px] text-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
