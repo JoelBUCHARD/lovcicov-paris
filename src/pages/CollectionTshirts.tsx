@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
+import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
 
 const ARIAL = 'Arial, sans-serif';
 
@@ -23,6 +24,8 @@ const isTshirt = (p: ShopifyProduct) => {
 const CollectionTshirts = () => {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState(true);
+  const { isVisible } = useProductVisibility();
+  const visibleProducts = products.filter((p) => isVisible(shopifyKey(p.node.handle)));
 
   useEffect(() => {
     fetchShopifyProducts(100)
@@ -51,13 +54,13 @@ const CollectionTshirts = () => {
           <p className="text-center text-[12px] text-[#888780]" style={{ fontFamily: ARIAL }}>
             Chargement…
           </p>
-        ) : products.length === 0 ? (
+        ) : visibleProducts.length === 0 ? (
           <p className="text-center text-[12px] text-[#888780]" style={{ fontFamily: ARIAL }}>
             Aucun t-shirt disponible.
           </p>
         ) : (
           <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-6xl px-6 md:px-10">
-            {products.map((p, i) => (
+            {visibleProducts.map((p, i) => (
               <ShopifyProductCard key={p.node.id} product={p} index={i} />
             ))}
           </div>
