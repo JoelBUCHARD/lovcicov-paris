@@ -135,9 +135,6 @@ export const mysticProducts: Product[] = [
     image: 'mystic-tshirt-love-noir-lifestyle-woman',
     gallery: [
       'mystic-tshirt-love-noir-lifestyle-man',
-      'mystic-tshirt-love-noir-flat-front',
-
-      
       'mystic-tshirt-love-back',
       'mystic-tshirt-love-detail-2',
       'mystic-tshirt-love-detail-3',
