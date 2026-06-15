@@ -97,7 +97,8 @@ const ShopifyProductDetail = () => {
   };
 
   const price = parseFloat(selectedVariant.price.amount).toFixed(0);
-  const backLink = typeof location.state?.from === 'string' ? location.state.from : '/collections/mystic-lov';
+  const editorialPath = `/${universeKey}`;
+  const backLink = typeof location.state?.from === 'string' ? location.state.from : editorialPath;
 
 
   const qty = selectedVariant.quantityAvailable;
@@ -108,9 +109,10 @@ const ShopifyProductDetail = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main className="pt-36 pb-8 px-6 md:px-12">
-        <Link to={backLink} className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10">
-          Retour à MysticLov
+        <Link to={editorialPath} className="text-brand text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-flex items-center gap-2 mt-8 md:mt-10">
+          ← Retour à {universe}
         </Link>
+
 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-24 max-w-6xl">
