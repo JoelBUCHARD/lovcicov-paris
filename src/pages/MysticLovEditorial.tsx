@@ -17,7 +17,8 @@ const hoodieRooftop = hoodieRooftopAsset.url;
 import rooftopMadonna from "@/assets/mysticlov/rooftop-madonna.png";
 import quaiBourbonAsset from "@/assets/mysticlov/mysticlov-quai-de-bourbon-v2.png.asset.json";
 const hoodieMadonnaParis = quaiBourbonAsset.url;
-import rooftopArmsOpen from "@/assets/mysticlov/rooftop-arms-open.png";
+import rooftopArmsOpenAsset from "@/assets/mysticlov-new-world-system-rue-saint-placide.png.asset.json";
+const rooftopArmsOpen = rooftopArmsOpenAsset.url;
 
 const BG = "#FFF5F5";
 const ACCENT = "#E66060";
