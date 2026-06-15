@@ -93,55 +93,63 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
         </div>
       </div>
 
-      <div className="border-t border-border px-6 md:px-10 py-10 pb-28 md:pb-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link to="/"><img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" /></Link>
-          
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-            <a href="mailto:contact@lovcicov.com" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+      <div className="border-t border-border px-6 md:px-10 pt-10 pb-28 md:pb-8">
+        {/* Top row: logo + links + socials */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-6">
+          <Link to="/" className="flex justify-center md:justify-start">
+            <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" />
+          </Link>
+
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            <a href="mailto:contact@lovcicov.com" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.08em]">
               Contact
             </a>
-            <Link to="/livraison-retours" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/livraison-retours" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.08em]">
               Livraison & Retours
             </Link>
-            <Link to="/mentions-legales" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/mentions-legales" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.08em]">
               Mentions Légales
             </Link>
-            <Link to="/confidentialite" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/confidentialite" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.08em]">
               Confidentialité
             </Link>
-            <Link to="/cgv" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/cgv" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.08em]">
               CGV
             </Link>
-          </div>
+          </nav>
 
-          <div className="flex items-start gap-6">
+          <div className="flex items-center justify-center gap-5">
             <a
               href="https://www.instagram.com/lovcicov.paris/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Instagram size={16} strokeWidth={1.5} />
-              <span className="text-brand text-[10px] tracking-[0.05em]">@lovcicov.paris</span>
+              <span className="text-brand text-[10px] tracking-[0.08em]">@lovcicov.paris</span>
             </a>
             <a
               href="https://www.facebook.com/lovcicov"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="flex flex-col items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Facebook size={16} strokeWidth={1.5} />
-              <span className="text-brand text-[10px] tracking-[0.05em]">lovcicov</span>
+              <span className="text-brand text-[10px] tracking-[0.08em]">lovcicov</span>
             </a>
-            <span className="text-[10px] text-muted-foreground/60 self-center ml-2">
-              © LOVCICOV {new Date().getFullYear()}
-            </span>
           </div>
         </div>
+
+        {/* Bottom: copyright centered */}
+        <div className="mt-8 pt-6 border-t border-border/60 text-center">
+          <span className="text-brand text-[10px] tracking-[0.18em] uppercase text-muted-foreground/70">
+            © LOVCICOV {new Date().getFullYear()} — Paris
+          </span>
+        </div>
       </div>
+
     </footer>
   );
 };
