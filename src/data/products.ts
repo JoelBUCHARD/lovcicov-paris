@@ -326,7 +326,7 @@ export const mysticProducts: Product[] = [
     price: 70,
     collection: 'mystic',
     subcategory: 'tshirt',
-    description: 'Carte du Tarot : L\'Amoureux. Intention : choix du cœur, alignement entre désir et conscience. À porter quand il faut écouter l\'intuition amoureuse, au sens large. L\'œil dans le cœur est un symbole ancien de clairvoyance émotionnelle ; Georgiana l\'a brodé main en patch rouge sacré. Broderie dorée · Coton premium · Paris.',
+    description: 'Carte du Tarot : L\'Amoureux. Intention : choix du cœur, alignement entre désir et conscience. À porter quand il faut écouter l\'intuition amoureuse, au sens large. L\'œil dans le cœur est un symbole ancien de clairvoyance émotionnelle ; Georgiana l\'a brodé en patch rouge sacré. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : intuition du cœur, vérité ressentie, amour lucide.',
     image: 'mystic-tshirt-heart-model',
   },
