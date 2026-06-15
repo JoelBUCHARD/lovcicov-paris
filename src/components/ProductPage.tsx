@@ -193,7 +193,7 @@ const ProductPage = ({ product }: Props) => {
       </Link>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1240px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
         {/* Gallery: vertical thumbs + main image (desktop) */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
@@ -213,7 +213,7 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[760px]">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[640px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
