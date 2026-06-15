@@ -32,11 +32,23 @@ const SearchPage = () => {
     let cancelled = false;
     setLoading(true);
     setSearched(true);
-    const q = query.trim();
-    const shopifyQuery = `title:*${q}* OR tag:*${q}* OR product_type:*${q}*`;
-    fetchShopifyProducts(50, shopifyQuery)
+    const q = query.trim().toLowerCase();
+    fetchShopifyProducts(250)
       .then((data) => {
-        if (!cancelled) setResults(data);
+        if (cancelled) return;
+        const filtered = data.filter((p) => {
+          const node: any = p.node;
+          const haystacks: string[] = [
+            node.title ?? '',
+            node.description ?? '',
+            node.productType ?? '',
+            node.vendor ?? '',
+            node.handle ?? '',
+            ...(Array.isArray(node.tags) ? node.tags : []),
+          ];
+          return haystacks.some((s) => String(s).toLowerCase().includes(q));
+        });
+        setResults(filtered);
       })
       .catch(() => {
         if (!cancelled) setResults([]);
