@@ -267,9 +267,20 @@ const ProductPage = ({ product }: Props) => {
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
             €{product.price}
           </p>
-          <p className="italic mb-8" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
+          <p className="italic mb-3" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
             4x sans frais avec Alma
           </p>
+          {product.collection === 'mystic' && product.subcategory === 'tshirt' && (
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
+              style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
+            >
+              Coton 100% peigné, grammage lourd 240&nbsp;g/m². Coupe oversize unisexe, épaules tombées, encolure côtelée. Broderie LOVE dorée brodée main à Paris.
+            </p>
+          )}
+          {!(product.collection === 'mystic' && product.subcategory === 'tshirt') && (
+            <div className="mb-8" />
+          )}
 
           <ColorSwatches product={product} />
 
