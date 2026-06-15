@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
+import ProductUnavailable from '@/components/ProductUnavailable';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
