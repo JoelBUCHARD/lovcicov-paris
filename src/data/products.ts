@@ -245,10 +245,10 @@ export const mysticProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Hoodie LOVE natural raw avec broderie or et Vierge Marie au dos. La Vierge incarne la guidance et la protection. Georgiana l\'a posée sur coton brut pour rappeler que le sacré vit aussi dans la matière la plus simple. Broderie dorée · Coton premium · Paris.',
     details: 'L\'énergie : douceur protectrice, lumière intérieure, présence calme.',
-    image: 'mystic-hoodie-love-natural-front',
+    image: 'mystic-hoodie-love-natural-woman-street',
     gallery: [
-      'mystic-hoodie-love-natural-back',
-      'mystic-hoodie-love-natural-detail-4',
+      'mystic-hoodie-love-natural-man-street',
+      'mystic-hoodie-love-natural-flat',
       'mystic-hoodie-love-natural-detail-7',
       'mystic-hoodie-love-natural-detail-5',
     ],
