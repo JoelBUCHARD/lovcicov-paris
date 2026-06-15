@@ -67,7 +67,7 @@ const MysticLovEditorial = () => {
           <img
             src={heroSolo}
             alt="MysticLov hero"
-            className="absolute inset-0 w-full h-full object-cover object-top md:object-contain md:object-center"
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
           />
           <div
             className="absolute inset-0 pointer-events-none"
