@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
@@ -9,6 +9,7 @@ import type { User } from '@supabase/supabase-js';
 const Account = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,13 +22,18 @@ const Account = () => {
       }
     });
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(async ({ data: { session } }) => {
       if (!session) {
         navigate('/auth');
-      } else {
-        setUser(session.user);
-        setLoading(false);
+        return;
       }
+      setUser(session.user);
+      setLoading(false);
+      const { data: roles } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', session.user.id);
+      setIsAdmin(!!roles?.some((r) => r.role === 'admin'));
     });
 
     return () => subscription.unsubscribe();
@@ -75,6 +81,15 @@ const Account = () => {
               {user?.created_at ? new Date(user.created_at).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) : '—'}
             </p>
           </div>
+
+          {isAdmin && (
+            <Link
+              to="/admin/products"
+              className="block w-full text-center border border-border py-3 mb-4 text-brand text-[11px] tracking-[0.15em] text-muted-foreground hover:text-foreground hover:border-foreground transition-all"
+            >
+              Administration — Visibilité produits
+            </Link>
+          )}
 
           <button
             onClick={handleLogout}

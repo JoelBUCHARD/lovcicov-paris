@@ -42,6 +42,7 @@ const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
 const Confidentialite = lazy(() => import("./pages/Confidentialite"));
 const LivraisonRetours = lazy(() => import("./pages/LivraisonRetours"));
 const CGV = lazy(() => import("./pages/CGV"));
+const AdminProducts = lazy(() => import("./pages/AdminProducts"));
 
 const queryClient = new QueryClient();
 
@@ -130,6 +131,7 @@ const AppContent = () => {
           <Route path="/confidentialite" element={<Confidentialite />} />
           <Route path="/livraison-retours" element={<LivraisonRetours />} />
           <Route path="/cgv" element={<CGV />} />
+          <Route path="/admin/products" element={<AdminProducts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
