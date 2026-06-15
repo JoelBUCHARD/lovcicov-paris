@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
+import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
 
 const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesJpeg = import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
@@ -51,7 +52,13 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       transition={{ duration: 0.6, delay: index * 0.08 }}
       className="h-full w-full"
     >
-      <Link to={`/shop/${product.id}`} state={{ from }} className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
+      <Link
+        to={`/shop/${product.id}`}
+        state={{ from }}
+        onMouseEnter={() => { prefetchRoute('/shop/item'); prefetchImage(mainImage); prefetchImage(hoverImage); }}
+        onTouchStart={() => { prefetchRoute('/shop/item'); }}
+        className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden"
+      >
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-3 relative shrink-0">
           <img
             src={mainImage}
@@ -60,6 +67,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105 transition-transform duration-700'
             }`}
             loading="lazy"
+            decoding="async"
           />
           {hoverImage && (
             <img
@@ -67,6 +75,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
               alt={`${product.name} — vue alternative`}
               className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               loading="lazy"
+              decoding="async"
             />
           )}
         </div>

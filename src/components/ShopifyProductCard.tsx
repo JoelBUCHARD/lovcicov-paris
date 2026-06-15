@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { ShopifyProduct } from '@/lib/shopify';
+import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
 import { products } from '@/data/products';
 
 const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
@@ -73,7 +74,13 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
     >
-      <Link to={`/product/${node.handle}`} state={{ from }} className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden">
+      <Link
+        to={`/product/${node.handle}`}
+        state={{ from }}
+        onMouseEnter={() => { prefetchRoute('/product'); prefetchImage(storefrontMainImage); prefetchImage(storefrontHoverImage); }}
+        onTouchStart={() => { prefetchRoute('/product'); }}
+        className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden"
+      >
         <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
           {mainImage ? (
             <img
@@ -83,6 +90,7 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
                 hoverImage ? 'group-hover:opacity-0' : 'group-hover:scale-105 transition-transform duration-700'
               }`}
               loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-muted-foreground text-xs">
@@ -95,6 +103,7 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
               alt={`${node.title} — vue alternative`}
               className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
               loading="lazy"
+              decoding="async"
             />
           )}
         </div>

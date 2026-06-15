@@ -6,42 +6,45 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { MotionConfig, MotionGlobalConfig } from "framer-motion";
 
 MotionGlobalConfig.skipAnimations = true;
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useCartSync } from "./hooks/useCartSync";
 import { CartProvider } from "./context/CartContext";
+
+// Eager: homepage + always-visible UI for fastest first paint
 import Index from "./pages/Index";
-import Shop from "./pages/Shop";
-import SearchPage from "./pages/Search";
-import ProductDetail from "./pages/ProductDetail";
-import ShopifyProductDetail from "./pages/ShopifyProductDetail";
-import Manifeste from "./pages/Manifeste";
-import LeCercle from "./pages/LeCercle";
-import Fondatrice from "./pages/Fondatrice";
-import Drops from "./pages/Drops";
-import Cart from "./pages/Cart";
-import NotFound from "./pages/NotFound";
-import CollectionStandards from "./pages/CollectionStandards";
-import CollectionPower from "./pages/CollectionPower";
-import CollectionMystic from "./pages/CollectionMystic";
-import MysticLovEditorial from "./pages/MysticLovEditorial";
-import StoneLovEditorial from "./pages/StoneLovEditorial";
-import PowerLovEditorial from "./pages/PowerLovEditorial";
-import CampagneSac from "./pages/CampagneSac";
-import CollectionBijoux from "./pages/CollectionBijoux";
-import CollectionTshirts from "./pages/CollectionTshirts";
-import Auth from "./pages/Auth";
-import Account from "./pages/Account";
-import MentionsLegales from "./pages/MentionsLegales";
-import Confidentialite from "./pages/Confidentialite";
-import LivraisonRetours from "./pages/LivraisonRetours";
-import CGV from "./pages/CGV";
 import NewsletterPopup from "./components/NewsletterPopup";
 import CookieBanner from "./components/CookieBanner";
 
+// Lazy: all secondary routes are split into separate chunks.
+// They will be fetched on demand (and prefetched on hover via src/lib/prefetch.ts).
+const Shop = lazy(() => import("./pages/Shop"));
+const SearchPage = lazy(() => import("./pages/Search"));
+const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const ShopifyProductDetail = lazy(() => import("./pages/ShopifyProductDetail"));
+const Manifeste = lazy(() => import("./pages/Manifeste"));
+const LeCercle = lazy(() => import("./pages/LeCercle"));
+const Fondatrice = lazy(() => import("./pages/Fondatrice"));
+const Drops = lazy(() => import("./pages/Drops"));
+const Cart = lazy(() => import("./pages/Cart"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const CollectionStandards = lazy(() => import("./pages/CollectionStandards"));
+const CollectionPower = lazy(() => import("./pages/CollectionPower"));
+const CollectionMystic = lazy(() => import("./pages/CollectionMystic"));
+const MysticLovEditorial = lazy(() => import("./pages/MysticLovEditorial"));
+const StoneLovEditorial = lazy(() => import("./pages/StoneLovEditorial"));
+const PowerLovEditorial = lazy(() => import("./pages/PowerLovEditorial"));
+const CampagneSac = lazy(() => import("./pages/CampagneSac"));
+const CollectionBijoux = lazy(() => import("./pages/CollectionBijoux"));
+const CollectionTshirts = lazy(() => import("./pages/CollectionTshirts"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Account = lazy(() => import("./pages/Account"));
+const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
+const Confidentialite = lazy(() => import("./pages/Confidentialite"));
+const LivraisonRetours = lazy(() => import("./pages/LivraisonRetours"));
+const CGV = lazy(() => import("./pages/CGV"));
+
 const queryClient = new QueryClient();
 
-// Pages whose scroll position should be remembered when navigating away
-// (e.g. clicking a product) and restored on return (e.g. browser back).
 const SCROLL_MEMORY_PATHS = [
   '/mysticlov',
   '/stonelov',
@@ -63,7 +66,6 @@ const ScrollToTop = () => {
   const prevPathname = (ScrollToTop as any)._prev as string | undefined;
 
   useEffect(() => {
-    // Save scroll position of the page we are leaving, if it's tracked.
     if (prevPathname && prevPathname !== pathname && SCROLL_MEMORY_PATHS.includes(prevPathname)) {
       try {
         sessionStorage.setItem(scrollKey(prevPathname), String(window.scrollY));
@@ -71,14 +73,12 @@ const ScrollToTop = () => {
     }
     (ScrollToTop as any)._prev = pathname;
 
-    // If the new page is tracked and has a saved position, restore it.
     if (SCROLL_MEMORY_PATHS.includes(pathname)) {
       const saved = (() => {
         try { return sessionStorage.getItem(scrollKey(pathname)); } catch { return null; }
       })();
       if (saved !== null) {
         const y = parseInt(saved, 10) || 0;
-        // Defer to next frame so content has a chance to mount.
         requestAnimationFrame(() => {
           window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior });
           try { sessionStorage.removeItem(scrollKey(pathname)); } catch {}
@@ -99,38 +99,40 @@ const AppContent = () => {
       <ScrollToTop />
       <NewsletterPopup />
       <CookieBanner />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/shop/:id" element={<ProductDetail />} />
-        <Route path="/product/:handle" element={<ShopifyProductDetail />} />
-        <Route path="/collections/standards" element={<CollectionStandards />} />
-        <Route path="/powerlov" element={<PowerLovEditorial />} />
-        <Route path="/collections/powerlov" element={<CollectionPower />} />
-        <Route path="/powerlov/shop" element={<CollectionPower />} />
-        <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
-        <Route path="/mysticlov" element={<MysticLovEditorial />} />
-        <Route path="/mysticlov/shop" element={<CollectionMystic />} />
-        <Route path="/stonelov" element={<StoneLovEditorial />} />
-        <Route path="/stonelov/shop" element={<Shop />} />
-        <Route path="/campagne-sac" element={<CampagneSac />} />
-        <Route path="/collections/bijoux" element={<CollectionBijoux />} />
-        <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
-        <Route path="/manifeste" element={<Manifeste />} />
-        <Route path="/univers" element={<Fondatrice />} />
-        <Route path="/drops" element={<Drops />} />
-        <Route path="/le-cercle" element={<LeCercle />} />
-        <Route path="/fondatrice" element={<Fondatrice />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/mentions-legales" element={<MentionsLegales />} />
-        <Route path="/confidentialite" element={<Confidentialite />} />
-        <Route path="/livraison-retours" element={<LivraisonRetours />} />
-        <Route path="/cgv" element={<CGV />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/shop/:id" element={<ProductDetail />} />
+          <Route path="/product/:handle" element={<ShopifyProductDetail />} />
+          <Route path="/collections/standards" element={<CollectionStandards />} />
+          <Route path="/powerlov" element={<PowerLovEditorial />} />
+          <Route path="/collections/powerlov" element={<CollectionPower />} />
+          <Route path="/powerlov/shop" element={<CollectionPower />} />
+          <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
+          <Route path="/mysticlov" element={<MysticLovEditorial />} />
+          <Route path="/mysticlov/shop" element={<CollectionMystic />} />
+          <Route path="/stonelov" element={<StoneLovEditorial />} />
+          <Route path="/stonelov/shop" element={<Shop />} />
+          <Route path="/campagne-sac" element={<CampagneSac />} />
+          <Route path="/collections/bijoux" element={<CollectionBijoux />} />
+          <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
+          <Route path="/manifeste" element={<Manifeste />} />
+          <Route path="/univers" element={<Fondatrice />} />
+          <Route path="/drops" element={<Drops />} />
+          <Route path="/le-cercle" element={<LeCercle />} />
+          <Route path="/fondatrice" element={<Fondatrice />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/confidentialite" element={<Confidentialite />} />
+          <Route path="/livraison-retours" element={<LivraisonRetours />} />
+          <Route path="/cgv" element={<CGV />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };
