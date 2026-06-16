@@ -200,7 +200,7 @@ const PowerLovEditorial = () => {
               alt={topWide.alt}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
-              style={{ objectPosition: "center center" }}
+              style={{ objectPosition: "center bottom" }}
             />
           </Link>
 
