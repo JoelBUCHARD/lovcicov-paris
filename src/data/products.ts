@@ -736,4 +736,44 @@ export const bijouxProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts];
+// Collection "Sacs" — cuir tressé, Big LOV & Small LOV
+export const sacsProducts: Product[] = [
+  {
+    id: 'big-lov',
+    name: 'Sac Big LOV',
+    price: 290,
+    collection: 'sacs',
+    description: 'Sac cabas en cuir tressé à la main. Format généreux, anses souples, doublure intérieure. Pièce signature à porter au quotidien.',
+    details: 'Le compagnon du quotidien. Une silhouette ample, un tressage patient, une couleur choisie comme une émotion.',
+    image: 'placeholder-big-lov',
+    colors: [
+      { name: 'Noir', id: 'noir' },
+      { name: 'Camel', id: 'camel' },
+      { name: 'Crème', id: 'creme' },
+      { name: 'Cognac', id: 'cognac' },
+      { name: 'Rouge', id: 'rouge' },
+      { name: 'Chocolat', id: 'chocolat' },
+    ],
+    badge: 'NOUVEAU',
+  },
+  {
+    id: 'small-lov',
+    name: 'Sac Small LOV',
+    price: 220,
+    collection: 'sacs',
+    description: 'Petit sac en cuir tressé à la main. Format compact, bandoulière ajustable, finitions soignées.',
+    details: 'La version intime du Big LOV. Petit format, même intention. Une pièce à porter près du corps.',
+    image: 'placeholder-small-lov',
+    colors: [
+      { name: 'Noir', id: 'noir' },
+      { name: 'Camel', id: 'camel' },
+      { name: 'Crème', id: 'creme' },
+      { name: 'Cognac', id: 'cognac' },
+      { name: 'Rouge', id: 'rouge' },
+      { name: 'Chocolat', id: 'chocolat' },
+    ],
+    badge: 'NOUVEAU',
+  },
+];
+
+export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts];
