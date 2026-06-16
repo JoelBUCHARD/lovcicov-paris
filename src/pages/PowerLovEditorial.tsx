@@ -26,7 +26,7 @@ const topWide = {
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
-  objectPosition: "center bottom",
+  objectPosition: "center 30%",
   link: "/shop/powerlov-discipline",
 };
 
