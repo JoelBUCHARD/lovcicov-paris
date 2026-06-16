@@ -193,13 +193,13 @@ const PowerLovEditorial = () => {
           <Link
             to={topWide.link}
             className="relative w-full overflow-hidden block group"
-            style={{ aspectRatio: "5 / 4", backgroundColor: "#F4F0E8" }}
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
           >
             <img
               src={topWide.image}
               alt={topWide.alt}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
+              className="absolute inset-0 h-full w-full object-contain transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
               style={{ objectPosition: "center center" }}
             />
           </Link>
