@@ -56,7 +56,7 @@ const Sacs = () => {
             className="text-[11px] uppercase"
             style={{ color: ACCENT, letterSpacing: '0.22em', fontFamily: 'Instrument Sans, system-ui, sans-serif' }}
           >
-            Sacs LOVCICOV
+            LOVBAG
           </span>
           <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
           <Link
