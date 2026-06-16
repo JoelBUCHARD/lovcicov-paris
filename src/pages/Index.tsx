@@ -389,7 +389,7 @@ const Index = () => {
               marginBottom: 24,
             }}
           >
-            Nouveau · Sacs LOVCICOV
+            Nouveau · LOVBAG
           </p>
 
           <h2
