@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  collection: 'standard' | 'mystic' | 'bijoux';
+  collection: 'standard' | 'mystic' | 'bijoux' | 'sacs';
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie';
   description: string;
   details: string;
