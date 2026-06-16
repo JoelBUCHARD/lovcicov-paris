@@ -5,7 +5,7 @@ import { bijouxProducts, mysticProducts, standardProducts } from '@/data/product
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CampaignBanner from '@/components/CampaignBanner';
+
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-powerlov-v2.png.asset.json';
 
