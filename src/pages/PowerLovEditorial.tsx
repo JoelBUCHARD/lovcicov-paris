@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
-import godDjCafeWideAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe-wide.png.asset.json";
+import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
 import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
