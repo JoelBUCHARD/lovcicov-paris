@@ -19,14 +19,14 @@ type RevealProps = {
 const topWide = {
   image: godDjCafeWideAsset.url,
   alt: "PowerLov — femme en t-shirt blanc LOVCICOV devant le Café de Flore à Paris",
-  objectPosition: "center 35%",
+  objectPosition: "center bottom",
   link: "/shop/powerlov-discipline",
 };
 
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
-  objectPosition: "center bottom",
+  objectPosition: "center 30%",
   link: "/shop/powerlov-discipline",
 };
 
@@ -34,7 +34,7 @@ const midProducts = [
   {
     image: disciplineLuxuryBackAsset.url,
     alt: "PowerLov — femme de dos en t-shirt blanc Discipline Is My Luxury dans une rue parisienne",
-  objectPosition: "center bottom",
+    objectPosition: "center 30%",
     link: "/shop/powerlov-discipline",
   },
   {
