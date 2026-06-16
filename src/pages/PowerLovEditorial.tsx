@@ -199,7 +199,7 @@ const PowerLovEditorial = () => {
               src={topWide.image}
               alt={topWide.alt}
               loading="lazy"
-              className="absolute inset-0 h-full w-full object-contain transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
               style={{ objectPosition: "center center" }}
             />
           </Link>
