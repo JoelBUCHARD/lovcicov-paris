@@ -120,7 +120,12 @@ const AppContent = () => {
           <Route path="/mysticlov/shop" element={<CollectionMystic />} />
           <Route path="/stonelov" element={<StoneLovEditorial />} />
           <Route path="/stonelov/shop" element={<Shop />} />
-          <Route path="/campagne-sac" element={<CampagneSac />} />
+          {/* /campagne-sac (LOVSAC) — temporairement masqué, redirection vers l'accueil. Réactivation prévue en septembre. */}
+          <Route path="/campagne-sac" element={<Navigate to="/" replace />} />
+          <Route path="/sacs" element={<Sacs />} />
+          <Route path="/journal/sacs-cuir-tresse" element={<ArticleSacsCuirTresse />} />
+          <Route path="/journal/sacs-choisir-couleur" element={<ArticleSacsChoisirCouleur />} />
+          <Route path="/journal/sacs-histoire-big-lov" element={<ArticleSacsHistoireBigLov />} />
           <Route path="/collections/bijoux" element={<CollectionBijoux />} />
           <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
           <Route path="/manifeste" element={<Manifeste />} />
