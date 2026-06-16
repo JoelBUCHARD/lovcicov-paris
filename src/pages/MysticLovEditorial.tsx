@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import heroSoloAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 const heroSolo = heroSoloAsset.url;
 import seatedRooftop from "@/assets/mysticlov/mysticlov-block3-turbigo-v2.png.asset.json";
-import groupShotAsset from "@/assets/mysticlov/mysticlov-block4-cafedeflore.png.asset.json";
+import groupShotAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 const groupShot = groupShotAsset.url;
 import closingJoyAsset from "@/assets/mysticlov/mysticlov-closing-cafedeflore.png.asset.json";
 const closingJoy = closingJoyAsset.url;
