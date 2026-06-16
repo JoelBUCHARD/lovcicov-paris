@@ -119,11 +119,11 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/campagne-sac"
-          onMouseEnter={() => prefetchRoute('/campagne-sac')}
+          to="/sacs"
+          onMouseEnter={() => prefetchRoute('/sacs')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4714A]"
         >
-          LOVSAC
+          Sacs
         </Link>
 
         {/* Univers dropdown */}
@@ -205,8 +205,8 @@ const Navbar = () => {
               <Link to="/stonelov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
                 StoneLov
               </Link>
-              <Link to="/campagne-sac" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                LOVSAC
+              <Link to="/sacs" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
+                Sacs
               </Link>
               <p className="text-brand text-[10px] text-foreground/50 tracking-[0.2em] mt-2">Univers</p>
               <Link to="/manifeste" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>

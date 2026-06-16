@@ -13,6 +13,12 @@ const COLOR_HEX: Record<string, string> = {
   vert: '#2A6670',
   rose: '#F4C9C9',
   pink: '#F4C9C9',
+  camel: '#B47B4A',
+  'crème': '#E8DCC8',
+  creme: '#E8DCC8',
+  cognac: '#8B4A2E',
+  rouge: '#A02828',
+  chocolat: '#3F2818',
 };
 
 const getHex = (name: string) => COLOR_HEX[name.toLowerCase()] ?? '#CCCCCC';
