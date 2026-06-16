@@ -373,7 +373,7 @@ const Index = () => {
       </section>
 
 
-      {/* CAMPAGNE SAC SAINT LAURENT — same DA as /campagne-sac */}
+      {/* SACS LOVCICOV — nouvelle page édito */}
       <section
         className="w-full flex items-center justify-center text-center px-6"
         style={{ backgroundColor: '#1A1A1A', padding: '100px 24px' }}
@@ -389,7 +389,7 @@ const Index = () => {
               marginBottom: 24,
             }}
           >
-            Campagne lancement · Édition limitée
+            Nouveau · Sacs LOVCICOV
           </p>
 
           <h2
@@ -402,7 +402,7 @@ const Index = () => {
               lineHeight: 1.05,
             }}
           >
-            Un sac de luxe
+            Big LOV.
           </h2>
           <p
             className="italic"
@@ -414,7 +414,7 @@ const Index = () => {
               lineHeight: 1.05,
             }}
           >
-            à gagner.
+            Small LOV.
           </p>
 
           <p
@@ -429,11 +429,11 @@ const Index = () => {
               lineHeight: 1.6,
             }}
           >
-            Un jeu confidentiel réservé à nos premières clientes. Chaque pièce achetée vous rapproche du tirage.
+            Cuir tressé à la main. Une palette de couleurs pensée comme une émotion. Une silhouette qui devient signature.
           </p>
 
           <Link
-            to="/campagne-sac"
+            to="/sacs"
             className="inline-block mt-10 hover:opacity-90 transition-opacity"
             style={{
               backgroundColor: '#FFFFFF',
@@ -446,7 +446,7 @@ const Index = () => {
               letterSpacing: '0.15em',
             }}
           >
-            Participer
+            Découvrir les sacs
           </Link>
         </div>
       </section>
