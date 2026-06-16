@@ -25,8 +25,8 @@ const topWide = {
 
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
-  alt: "PowerLov — t-shirt blanc Discipline Is My Luxury devant une voiture vintage",
-  objectPosition: "center 32%",
+  alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
+  objectPosition: "center 30%",
   link: "/shop/powerlov-discipline",
 };
 
