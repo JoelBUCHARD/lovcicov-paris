@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
-import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-bottomwide-lovcicov-paris-back.png.asset.json";
+import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-benoit.png.asset.json";
 import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
 import protectedAlignedAsset from "@/assets/powerlov/powerlov-grid-protected-aligned-v2.png.asset.json";
@@ -26,7 +26,7 @@ const topWide = {
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
-  objectPosition: "center 30%",
+  objectPosition: "center bottom",
   link: "/shop/powerlov-discipline",
 };
 
