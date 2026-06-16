@@ -19,7 +19,7 @@ type RevealProps = {
 const topWide = {
   image: godDjCafeWideAsset.url,
   alt: "PowerLov — femme en t-shirt blanc LOVCICOV devant le Café de Flore à Paris",
-  objectPosition: "center bottom",
+  objectPosition: "center 35%",
   link: "/shop/powerlov-discipline",
 };
 
@@ -34,7 +34,7 @@ const midProducts = [
   {
     image: disciplineLuxuryBackAsset.url,
     alt: "PowerLov — femme de dos en t-shirt blanc Discipline Is My Luxury dans une rue parisienne",
-    objectPosition: "center 30%",
+  objectPosition: "center bottom",
     link: "/shop/powerlov-discipline",
   },
   {
@@ -200,7 +200,7 @@ const PowerLovEditorial = () => {
               alt={topWide.alt}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
-              style={{ objectPosition: "center 35%" }}
+              style={{ objectPosition: topWide.objectPosition }}
             />
           </Link>
 
