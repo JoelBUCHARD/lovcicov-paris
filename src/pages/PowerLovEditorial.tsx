@@ -19,7 +19,7 @@ type RevealProps = {
 const topWide = {
   image: godDjCafeWideAsset.url,
   alt: "PowerLov — femme en t-shirt blanc LOVCICOV devant le Café de Flore à Paris",
-  objectPosition: "center 65%",
+  objectPosition: "center 85%",
   link: "/shop/powerlov-discipline",
 };
 
