@@ -4,9 +4,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe-wide.png.asset.json";
-import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
-import boldBadassSweatAsset from "@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json";
+import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
+import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
+import protectedAlignedAsset from "@/assets/powerlov/powerlov-grid-protected-aligned.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
@@ -31,22 +32,22 @@ const bottomWide = {
 
 const midProducts = [
   {
-    image: connectedDisciplinedEmpoweredAsset.url,
-    alt: "PowerLov — femme en t-shirt blanc Connected. Disciplined. Empowered.",
-    objectPosition: "center 28%",
-    link: "/shop/powerlov-empowered",
-  },
-  {
-    image: boldBadassSweatAsset.url,
-    alt: "PowerLov — homme en sweat blanc Bold. Badass. No Filter. dans une rue parisienne",
+    image: disciplineLuxuryBackAsset.url,
+    alt: "PowerLov — femme de dos en t-shirt blanc Discipline Is My Luxury dans une rue parisienne",
     objectPosition: "center 30%",
-    link: "/shop/powerlov-bold-badass-hoodie",
+    link: "/shop/powerlov-discipline",
   },
   {
-    image: disciplineIsMyLuxuryAsset.url,
-    alt: "PowerLov — t-shirt Discipline Is My Luxury",
-    objectPosition: "center 32%",
-    link: "/shop/powerlov-discipline",
+    image: godIsADancerAsset.url,
+    alt: "PowerLov — femme de dos en t-shirt blanc God Is A Dancer dans une rue parisienne",
+    objectPosition: "center 30%",
+    link: "/shop/powerlov-god-is-a-dancer",
+  },
+  {
+    image: protectedAlignedAsset.url,
+    alt: "PowerLov — femme en t-shirt blanc Protected. Aligned. Unstoppable. devant le Café de Flore",
+    objectPosition: "center 30%",
+    link: "/shop/powerlov-protected-aligned",
   },
 ];
 
