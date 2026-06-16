@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
-import godDjCafeWideAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe-wide.png.asset.json";
+import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
 import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
@@ -18,9 +18,9 @@ type RevealProps = {
 
 const topWide = {
   image: godDjCafeWideAsset.url,
-  alt: "PowerLov — femme en t-shirt noir God is a DJ. en terrasse parisienne, plan large",
-  objectPosition: "center center",
-  link: "/shop/powerlov-god-is-a-dj",
+  alt: "PowerLov — femme en t-shirt blanc LOVCICOV devant le Café de Flore à Paris",
+  objectPosition: "center 30%",
+  link: "/shop/powerlov-discipline",
 };
 
 const bottomWide = {
