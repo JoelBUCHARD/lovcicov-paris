@@ -26,7 +26,7 @@ const topWide = {
 const bottomWide = {
   image: disciplineIsMyLuxuryAsset.url,
   alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
-  objectPosition: "center bottom",
+  objectPosition: "center 30%",
   link: "/shop/powerlov-discipline",
 };
 
@@ -200,7 +200,7 @@ const PowerLovEditorial = () => {
               alt={topWide.alt}
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
-              style={{ objectPosition: "center 35%" }}
+              style={{ objectPosition: topWide.objectPosition }}
             />
           </Link>
 
