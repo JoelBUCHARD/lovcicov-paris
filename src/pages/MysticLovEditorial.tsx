@@ -160,16 +160,16 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 5 — MOSAIQUE 6 IMAGES — mix de devant & dos (Sunshine + fond noir) */}
+        {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov", pos: "center 15%" },
-              { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 70%" },
-              { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
-              { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 35%" },
-              { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov", pos: "center 40%" },
-              { img: rooftopMadonna, link: "/product/t-shirt-madonna", pos: "center 15%" },
+              { img: mosaicOne, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicTwo, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicThree, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicFour, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicFive, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicSix, link: "/product/t-shirt-mysticlov", pos: "center center" },
             ].map((item, i) => (
               <Link
                 key={i}
