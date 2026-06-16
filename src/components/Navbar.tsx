@@ -119,11 +119,11 @@ const Navbar = () => {
         </Link>
 
         <Link
-          to="/campagne-sac"
-          onMouseEnter={() => prefetchRoute('/campagne-sac')}
+          to="/sacs"
+          onMouseEnter={() => prefetchRoute('/sacs')}
           className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4714A]"
         >
-          LOVSAC
+          Sacs
         </Link>
 
         {/* Univers dropdown */}
