@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroSoloAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 const heroSolo = heroSoloAsset.url;
-import seatedRooftop from "@/assets/mysticlov/mysticlov-block3-turbigo-v2.png.asset.json";
+
 import groupShotAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 const groupShot = groupShotAsset.url;
 import closingJoyAsset from "@/assets/mysticlov/mysticlov-closing-cafedeflore.png.asset.json";
@@ -138,16 +138,6 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 3 — IMAGE */}
-        <section className="w-full overflow-hidden" style={{ backgroundColor: BG }}>
-          <div className="w-full h-[40vh] md:h-[85vh] overflow-hidden">
-            <img
-              src={seatedRooftop.url}
-              alt="L'histoire MysticLov"
-              className="w-full h-full object-cover object-[center_5%] scale-[1.7] md:object-center md:scale-100"
-            />
-          </div>
-        </section>
 
         {/* BLOCK 4 — FULL WIDTH IMAGE */}
         <section className="relative w-full overflow-hidden mt-2 mb-1 h-[70vh] md:h-screen" style={{ backgroundColor: BG }}>
