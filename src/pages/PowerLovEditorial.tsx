@@ -4,15 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import heroAsset from "@/assets/powerlov/powerlov-hero-new.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-grid-god-dj-cafe-wide.png.asset.json";
-import energyNeverLiesAsset from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
 import connectedDisciplinedEmpoweredAsset from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
-import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
-import godIsADjStreetAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
 import boldBadassSweatAsset from "@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json";
-import boldBadassTeeBackAsset from "@/assets/powerlov/powerlov-bold-badass-no-filter-tee-back.png.asset.json";
-import disciplineLuxuryAsset from "@/assets/powerlov/powerlov-discipline-is-my-luxury.png.asset.json";
-import ifGodIsADjAsset from "@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
@@ -49,43 +43,10 @@ const midProducts = [
     link: "/shop/powerlov-bold-badass-hoodie",
   },
   {
-    image: ifGodIsADjAsset.url,
-    alt: "PowerLov — femme en t-shirt noir If God Is A DJ, I Am The Frequency en terrasse parisienne",
-    objectPosition: "center 30%",
-    link: "/shop/powerlov-if-god-dj-frequency",
-  },
-  {
-    image: disciplineLuxuryAsset.url,
-    alt: "PowerLov — homme en t-shirt noir Discipline Is My Luxury devant le Café de Flore",
-    objectPosition: "center 35%",
-    link: "/shop/powerlov-discipline-noir",
-  },
-];
-
-const secondaryProducts = [
-  {
-    image: godIsADjStreetAsset.url,
-    alt: "PowerLov — femme en t-shirt noir God is a DJ. devant une vitrine parisienne",
-    objectPosition: "center 26%",
-    link: "/shop/powerlov-god-is-a-dj",
-  },
-  {
-    image: boldBadassTeeBackAsset.url,
-    alt: "PowerLov — dos du t-shirt blanc Bold, Badass, No Filter. (homme)",
-    objectPosition: "center 35%",
-    link: "/shop/powerlov-bold-badass-tee",
-  },
-  {
-    image: energyNeverLiesAsset.url,
-    alt: "PowerLov — hoodie noir Energy Never Lies sur balcon parisien",
-    objectPosition: "center 34%",
-    link: "/shop/powerlov-energy-never-lies-hoodie",
-  },
-  {
-    image: godIsADancerAsset.url,
-    alt: "PowerLov — dos du t-shirt blanc God is a Dancer dans la rue",
-    objectPosition: "center 30%",
-    link: "/shop/powerlov-god-is-a-dancer",
+    image: disciplineIsMyLuxuryAsset.url,
+    alt: "PowerLov — t-shirt Discipline Is My Luxury",
+    objectPosition: "center 32%",
+    link: "/shop/powerlov-discipline",
   },
 ];
 
@@ -242,9 +203,9 @@ const PowerLovEditorial = () => {
             />
           </Link>
 
-          {/* Middle grid — smaller, like MysticLov / StoneLov */}
+          {/* Produits — 3 pièces */}
           <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-5"
+            className="grid grid-cols-1 md:grid-cols-3 gap-5"
             style={{ padding: "clamp(20px, 3vw, 40px)" }}
           >
             {midProducts.map((product) => (
@@ -265,28 +226,6 @@ const PowerLovEditorial = () => {
             ))}
           </div>
 
-          {/* Second smaller grid — alternance homme / femme */}
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-5"
-            style={{ padding: "0 clamp(20px, 3vw, 40px) clamp(20px, 3vw, 40px)" }}
-          >
-            {secondaryProducts.map((product) => (
-              <Link
-                key={product.alt}
-                to={product.link}
-                className="relative w-full overflow-hidden block group"
-                style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
-                  style={{ objectPosition: product.objectPosition }}
-                />
-              </Link>
-            ))}
-          </div>
 
           {/* Bottom wide image with CTA overlay */}
           <div
