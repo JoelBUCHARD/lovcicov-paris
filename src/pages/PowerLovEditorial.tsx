@@ -7,7 +7,7 @@ import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore.pn
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json";
 import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
 import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
-import protectedAlignedAsset from "@/assets/powerlov/powerlov-grid-protected-aligned.png.asset.json";
+import protectedAlignedAsset from "@/assets/powerlov/powerlov-grid-protected-aligned-v2.png.asset.json";
 const heroImage = heroAsset.url;
 
 type RevealProps = {
