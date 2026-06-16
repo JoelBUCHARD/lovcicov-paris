@@ -8,18 +8,18 @@ import groupShotAsset from "@/assets/mysticlov/mysticlov-block4-cafedeflore.png.
 const groupShot = groupShotAsset.url;
 import closingJoyAsset from "@/assets/mysticlov/mysticlov-closing-cafedeflore.png.asset.json";
 const closingJoy = closingJoyAsset.url;
-import duoRooftopAsset from "@/assets/mysticlov/mysticlov-sunshine-rue-saint-guillaume.png.asset.json";
-const duoRooftop = duoRooftopAsset.url;
-import noRiskNoMagicAsset from "@/assets/mysticlov/mysticlov-no-risk-no-magic-cafe-flore-v2.png.asset.json";
-const greenTee = noRiskNoMagicAsset.url;
-import hoodieRooftopAsset from "@/assets/mysticlov/mysticlov-man-rue-saint-guillaume.png.asset.json";
-const hoodieRooftop = hoodieRooftopAsset.url;
-import rooftopMadonnaAsset from "@/assets/mysticlov-switch-off-rue-ancienne-comedie.png.asset.json";
-const rooftopMadonna = rooftopMadonnaAsset.url;
-import quaiBourbonAsset from "@/assets/mysticlov/mysticlov-quai-de-bourbon-v2.png.asset.json";
-const hoodieMadonnaParis = quaiBourbonAsset.url;
-import rooftopArmsOpenAsset from "@/assets/mysticlov-new-world-system-rue-saint-placide.png.asset.json";
-const rooftopArmsOpen = rooftopArmsOpenAsset.url;
+import mosaicOneAsset from "@/assets/mysticlov/mysticlov-mosaic-1.png.asset.json";
+const mosaicOne = mosaicOneAsset.url;
+import mosaicTwoAsset from "@/assets/mysticlov/mysticlov-mosaic-2.png.asset.json";
+const mosaicTwo = mosaicTwoAsset.url;
+import mosaicThreeAsset from "@/assets/mysticlov/mysticlov-mosaic-3.png.asset.json";
+const mosaicThree = mosaicThreeAsset.url;
+import mosaicFourAsset from "@/assets/mysticlov/mysticlov-mosaic-4.png.asset.json";
+const mosaicFour = mosaicFourAsset.url;
+import mosaicFiveAsset from "@/assets/mysticlov/mysticlov-mosaic-5.png.asset.json";
+const mosaicFive = mosaicFiveAsset.url;
+import mosaicSixAsset from "@/assets/mysticlov/mysticlov-mosaic-6.png.asset.json";
+const mosaicSix = mosaicSixAsset.url;
 
 const BG = "#FFF5F5";
 const ACCENT = "#E66060";
@@ -160,16 +160,16 @@ const MysticLovEditorial = () => {
         </section>
 
 
-        {/* BLOCK 5 — MOSAIQUE 6 IMAGES — mix de devant & dos (Sunshine + fond noir) */}
+        {/* BLOCK 5 — MOSAIQUE 6 IMAGES */}
         <section className="w-full mt-0 mb-0 md:my-5" style={{ backgroundColor: BG }}>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
             {[
-              { img: rooftopArmsOpen, link: "/product/t-shirt-mysticlov", pos: "center 15%" },
-              { img: greenTee, link: "/product/t-shirt-sunshine", pos: "center 70%" },
-              { img: hoodieMadonnaParis, link: "/product/sweat-a-capuche-mysticlov", pos: "center 15%" },
-              { img: duoRooftop, link: "/product/t-shirt-mysticlov", pos: "center 35%" },
-              { img: hoodieRooftop, link: "/product/sweat-a-capuche-mysticlov", pos: "center 40%" },
-              { img: rooftopMadonna, link: "/product/t-shirt-madonna", pos: "center 15%" },
+              { img: mosaicOne, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicTwo, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicThree, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicFour, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicFive, link: "/product/t-shirt-mysticlov", pos: "center center" },
+              { img: mosaicSix, link: "/product/t-shirt-mysticlov", pos: "center center" },
             ].map((item, i) => (
               <Link
                 key={i}
