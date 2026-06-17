@@ -115,6 +115,7 @@ const AppContent = () => {
           <Route path="/powerlov" element={<PowerLovEditorial />} />
           <Route path="/collections/powerlov" element={<CollectionPower />} />
           <Route path="/powerlov/shop" element={<CollectionPower />} />
+          <Route path="/collection/mysticlov" element={<Navigate to="/mysticlov" replace />} />
           <Route path="/collections/mystic-lov" element={<CollectionMystic />} />
           <Route path="/mysticlov" element={<MysticLovEditorial />} />
           <Route path="/mysticlov/shop" element={<CollectionMystic />} />
