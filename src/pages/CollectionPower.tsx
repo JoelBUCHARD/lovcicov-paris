@@ -54,16 +54,9 @@ const powerProducts: PowerProduct[] = [
   },
   {
     id: 'powerlov-discipline',
-    name: 'T-Shirt Discipline Is My Luxury — Blanc',
+    name: 'T-Shirt Discipline Is My Luxury',
     price: 59,
     image: disciplineLuxuryGrid.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-discipline-noir',
-    name: 'T-Shirt Discipline Is My Luxury — Noir',
-    price: 59,
-    image: disciplineLuxury.url,
     badge: 'UNISEX',
   },
   {
