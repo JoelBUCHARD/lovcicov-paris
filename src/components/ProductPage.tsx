@@ -189,16 +189,19 @@ const ProductPage = ({ product }: Props) => {
 
   return (
     <main className="bg-white pt-36 pb-16 px-6 md:px-12" style={{ fontFamily: SANS }}>
-      <Link
-        to={backLink}
-        className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
-        style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
-      >
-        Retour à {cfg.backLabel}
-      </Link>
+      <div className="max-w-[1100px] mx-auto">
+        <Link
+          to={backLink}
+          className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
+          style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
+        >
+          Retour à {cfg.backLabel}
+        </Link>
+      </div>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
+
         {/* Gallery: vertical thumbs + main image (desktop) */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
