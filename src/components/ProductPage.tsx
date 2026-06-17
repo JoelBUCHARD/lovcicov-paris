@@ -288,7 +288,16 @@ const ProductPage = ({ product }: Props) => {
             </p>
           )}
           {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && (
-            <div className="mb-8" />
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
+              style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
+            >
+              {product.collection === 'bijoux'
+                ? 'Pièce unique. Pierres naturelles sélectionnées et montées à la main dans notre atelier parisien.'
+                : product.collection === 'mystic'
+                ? 'Signature LOVE brodée à la main. Coton premium, coupe oversize unisexe. Fabriqué à Paris.'
+                : 'Pièce d\u2019archive du vestiaire LOVCICOV. Coupe oversize, matières lourdes, façonné en France.'}
+            </p>
           )}
 
           <ColorSwatches product={product} />
