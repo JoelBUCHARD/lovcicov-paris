@@ -80,7 +80,17 @@ const readStorage = (): ViewedItem[] => {
     if (!raw) return [];
     const arr = JSON.parse(raw);
     if (!Array.isArray(arr)) return [];
-    return arr.map(rehydrateViewed).filter((v: ViewedItem) => v.image && v.image.length > 0);
+    return arr
+      .map(rehydrateViewed)
+      .filter((v: ViewedItem) => {
+        if (!v.image || v.image.length === 0) return false;
+        // Drop viewed items that no longer exist in the catalog
+        if (v.key.startsWith("local:")) {
+          const id = v.key.slice("local:".length);
+          return localProducts.some((lp) => lp.id === id);
+        }
+        return true;
+      });
   } catch {
     return [];
   }
