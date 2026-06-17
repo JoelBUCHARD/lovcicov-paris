@@ -17,6 +17,8 @@ import disciplineLuxury from '@/assets/powerlov/powerlov-discipline-is-my-luxury
 import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png.asset.json';
 import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
 import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
+import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -78,6 +80,13 @@ const powerProducts: PowerProduct[] = [
     name: 'T-Shirt God Is A Dancer',
     price: 59,
     image: godIsADancer.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-protected-aligned-unstoppable',
+    name: 'T-Shirt Protected. Aligned. Unstoppable.',
+    price: 59,
+    image: protectedAlignedUnstoppable.url,
     badge: 'UNISEX',
   },
   {
