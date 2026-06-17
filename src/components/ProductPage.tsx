@@ -293,10 +293,10 @@ const ProductPage = ({ product }: Props) => {
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
               {product.collection === 'bijoux'
-                ? 'Pièce unique. Pierres naturelles sélectionnées et montées à la main dans notre atelier parisien.'
+                ? 'Pierres naturelles montées à la main. Fermoir ajustable, finitions soignées.'
                 : product.collection === 'mystic'
-                ? 'Signature LOVE brodée à la main. Coton premium, coupe oversize unisexe. Fabriqué à Paris.'
-                : 'Pièce d\u2019archive du vestiaire LOVCICOV. Coupe oversize, matières lourdes, façonné en France.'}
+                ? 'Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.'
+                : 'Coton lourd 280\u00a0g/m², coupe oversize unisexe. Sérigraphie haute densité, col bord-côte renforcé.'}
             </p>
           )}
 
