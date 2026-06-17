@@ -14,7 +14,7 @@ import boldBadassStreet from '@/assets/powerlov/powerlov-grid-bold-badass-street
 import boldBadassGrid from '@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json';
 import ifGodIsADj from '@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json';
 import disciplineLuxury from '@/assets/powerlov/powerlov-discipline-is-my-luxury.png.asset.json';
-import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-grid-discipline-is-my-luxury.png.asset.json';
+import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png.asset.json';
 import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
 import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
 
