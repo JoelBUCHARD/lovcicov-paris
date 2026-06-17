@@ -18,6 +18,8 @@ import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png
 import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
 import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
 import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
+import sacredHeartFront from '@/assets/powerlov/powerlov-sacred-heart-front.png.asset.json';
+import sacredHeartBack from '@/assets/powerlov/powerlov-sacred-heart-back.png.asset.json';
 
 
 const fadeUp = {
@@ -87,6 +89,14 @@ const powerProducts: PowerProduct[] = [
     name: 'T-Shirt Protected. Aligned. Unstoppable.',
     price: 59,
     image: protectedAlignedUnstoppable.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-sacred-heart-sweat',
+    name: 'Sweat Sacred Heart',
+    price: 99,
+    image: sacredHeartFront.url,
+    hover: sacredHeartBack.url,
     badge: 'UNISEX',
   },
   {
