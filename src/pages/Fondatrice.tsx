@@ -44,10 +44,12 @@ const Fondatrice = () => {
             custom={2}
             className="w-full max-w-md mx-auto mb-20"
           >
-            <div className="aspect-[3/4] bg-secondary border border-border flex items-center justify-center">
-              <p className="text-brand text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                Photo à venir
-              </p>
+            <div className="aspect-[3/4] overflow-hidden">
+              <img
+                src={fondatricePortrait.url}
+                alt="Georgiana Lovcicov, fondatrice de Lovcicov Paris"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 
