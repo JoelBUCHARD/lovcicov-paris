@@ -45,7 +45,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-[100px] md:pt-[140px] pb-8 md:pb-10 text-center relative overflow-hidden">
+      <section className="w-full bg-[#FAF7F2] pt-[160px] md:pt-[200px] pb-8 md:pb-10 text-center relative overflow-hidden">
 
 
 
