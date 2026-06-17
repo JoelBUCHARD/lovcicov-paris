@@ -293,7 +293,7 @@ const Index = () => {
           className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
         >
           <Link
-            to="/shop"
+            to="/stonelov"
             className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
             style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
