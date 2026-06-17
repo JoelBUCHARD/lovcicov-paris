@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import fondatricePortrait from '@/assets/fondatrice-portrait.png.asset.json';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
