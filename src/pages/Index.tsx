@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { bijouxProducts, mysticProducts, standardProducts } from '@/data/products';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -29,6 +30,9 @@ const fadeUp = {
 
 const Index = () => {
   const featured = bijouxProducts;
+  const { isVisible } = useProductVisibility();
+  const visibleStandardProducts = standardProducts.filter((p) => isVisible(localKey(p.id)));
+
 
 
 
@@ -195,7 +199,7 @@ const Index = () => {
         </div>
         <div className="px-6 md:px-10 pb-2 md:pb-3">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
-            {standardProducts.slice(0, 4).map((product, i) => (
+            {visibleStandardProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
