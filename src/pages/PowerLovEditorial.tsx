@@ -88,8 +88,8 @@ const PowerLovEditorial = () => {
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 w-full h-full object-cover object-top md:object-contain"
-            style={{ filter: "brightness(1.15) contrast(0.98)", backgroundColor: "#0d0d0d" }}
+            className="absolute inset-0 w-full h-full object-cover object-top"
+            style={{ filter: "brightness(1.15) contrast(0.98)" }}
           />
           <div
             className="absolute inset-0"
