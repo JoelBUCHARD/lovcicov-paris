@@ -84,12 +84,12 @@ const PowerLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section className="relative w-screen h-[58svh] md:h-screen overflow-hidden">
+        <section className="relative w-screen h-[58svh] md:h-[78vh] overflow-hidden">
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 w-full h-full object-cover object-top md:object-center"
-            style={{ filter: "brightness(1.15) contrast(0.98)" }}
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-contain"
+            style={{ filter: "brightness(1.15) contrast(0.98)", backgroundColor: "#0d0d0d" }}
           />
           <div
             className="absolute inset-0"
