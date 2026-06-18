@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { products as localProducts, Product } from "@/data/products";
+import { useProductVisibility, localKey } from "@/hooks/useProductVisibility";
 
 const imageModulesJpg = import.meta.glob("@/assets/**/*.jpg", { eager: true, import: "default" }) as Record<string, string>;
 const imageModulesJpeg = import.meta.glob("@/assets/**/*.jpeg", { eager: true, import: "default" }) as Record<string, string>;
@@ -115,6 +116,7 @@ interface Props {
 
 const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
   const [viewed, setViewed] = useState<ViewedItem[]>([]);
+  const { isVisible } = useProductVisibility();
 
   useEffect(() => {
     setViewed(readStorage());
@@ -124,10 +126,19 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
     const out: ViewedItem[] = [];
     const seen = new Set<string>([currentKey]);
 
+    const keep = (v: ViewedItem) => {
+      if (v.key.startsWith("local:")) {
+        const id = v.key.slice("local:".length);
+        return isVisible(localKey(id));
+      }
+      return true;
+    };
+
     // Priority 1: recently viewed (any universe)
     for (const v of viewed) {
       if (out.length >= 4) break;
       if (seen.has(v.key)) continue;
+      if (!keep(v)) continue;
       out.push(v);
       seen.add(v.key);
     }
@@ -137,7 +148,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
       const sameUni = localProducts
         .filter((p) => collectionToUniverse(p.collection) === currentUniverse)
         .map(localProductToViewed)
-        .filter((p) => !seen.has(p.key));
+        .filter((p) => !seen.has(p.key) && keep(p));
       for (const p of sameUni) {
         if (out.length >= 4) break;
         out.push(p);
@@ -149,7 +160,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
     if (out.length < 4) {
       const rest = localProducts
         .map(localProductToViewed)
-        .filter((p) => !seen.has(p.key));
+        .filter((p) => !seen.has(p.key) && keep(p));
       for (const p of rest) {
         if (out.length >= 4) break;
         out.push(p);
@@ -158,7 +169,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
     }
 
     return out.slice(0, 4);
-  }, [viewed, currentKey, currentUniverse]);
+  }, [viewed, currentKey, currentUniverse, isVisible]);
 
   if (recommendations.length === 0) return null;
 
