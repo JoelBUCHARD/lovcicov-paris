@@ -211,7 +211,7 @@ const ProductPage = ({ product }: Props) => {
                   <button
                     key={img + i}
                     onClick={() => setActiveImage(i)}
-                    className={`aspect-square overflow-hidden bg-[#F0ECE4] border transition-all ${
+                    className={`aspect-square overflow-hidden bg-white border transition-all ${
                       activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                     aria-label={`Image ${i + 1}`}
@@ -221,7 +221,7 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#F0ECE4] group md:min-h-[640px]">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
@@ -237,7 +237,7 @@ const ProductPage = ({ product }: Props) => {
                 <button
                   key={img + i + '-m'}
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 overflow-hidden bg-[#F0ECE4] border transition-all ${
+                  className={`aspect-square w-16 overflow-hidden bg-white border transition-all ${
                     activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
