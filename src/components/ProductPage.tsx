@@ -216,7 +216,7 @@ const ProductPage = ({ product }: Props) => {
                     }`}
                     aria-label={`Image ${i + 1}`}
                   >
-                    <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
+                  <img src={getImage(img)} alt="" className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
@@ -225,7 +225,7 @@ const ProductPage = ({ product }: Props) => {
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 style={{ objectPosition: 'center center' }}
               />
             </div>
