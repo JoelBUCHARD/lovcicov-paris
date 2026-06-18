@@ -47,7 +47,7 @@ const midProducts = [
     image: protectedAlignedAsset.url,
     alt: "PowerLov — femme en t-shirt blanc Protected. Aligned. Unstoppable. devant le Café de Flore",
     objectPosition: "center 30%",
-    link: "/shop/powerlov-protected-aligned",
+    link: "/shop/powerlov-protected-aligned-unstoppable",
   },
 ];
 
