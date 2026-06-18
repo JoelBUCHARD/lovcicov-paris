@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import heroAsset from "@/assets/powerlov/powerlov-hero-chanel-living-room.png.asset.json";
+import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
 import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
