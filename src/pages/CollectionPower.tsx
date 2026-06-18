@@ -20,6 +20,9 @@ import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.as
 import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
 import sacredHeartFront from '@/assets/powerlov/powerlov-sacred-heart-front.png.asset.json';
 import sacredHeartBack from '@/assets/powerlov/powerlov-sacred-heart-back.png.asset.json';
+import sacredHeartStreet from '@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json';
+import sacredHeartStreetBack from '@/assets/powerlov/powerlov-sacred-heart-street-back.png.asset.json';
+import sacredHeartGreyFront from '@/assets/powerlov/powerlov-sacred-heart-grey-front.png.asset.json';
 
 
 const fadeUp = {
@@ -95,8 +98,16 @@ const powerProducts: PowerProduct[] = [
     id: 'powerlov-sacred-heart-sweat',
     name: 'Sweat Sacred Heart',
     price: 99,
-    image: sacredHeartFront.url,
-    hover: sacredHeartBack.url,
+    image: sacredHeartStreet.url,
+    hover: sacredHeartStreetBack.url,
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-sacred-heart-hoodie',
+    name: 'Sweat Capuche Sacred Heart',
+    price: 109,
+    image: sacredHeartGreyFront.url,
+    hover: sacredHeartStreet.url,
     badge: 'UNISEX',
   },
   {
