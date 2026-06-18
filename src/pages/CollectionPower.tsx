@@ -108,8 +108,8 @@ const powerProducts: PowerProduct[] = [
     id: 'powerlov-sacred-heart-hoodie',
     name: 'Sweat Capuche Sacred Heart',
     price: 109,
-    image: sacredHeartGreyFront.url,
-    hover: sacredHeartStreet.url,
+    image: sacredHeartHoodieStreetFront.url,
+    hover: sacredHeartHoodieStreetBack.url,
     badge: 'UNISEX',
   },
   {
