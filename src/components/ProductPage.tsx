@@ -211,7 +211,7 @@ const ProductPage = ({ product }: Props) => {
                   <button
                     key={img + i}
                     onClick={() => setActiveImage(i)}
-                    className={`aspect-square overflow-hidden bg-[#FAFAF8] border transition-all ${
+                    className={`aspect-square overflow-hidden bg-[#F0ECE4] border transition-all ${
                       activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                     aria-label={`Image ${i + 1}`}
@@ -221,7 +221,7 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#FAFAF8] group md:min-h-[640px]">
+            <div className="flex-1 aspect-[3/4] overflow-hidden bg-[#F0ECE4] group md:min-h-[640px]">
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
@@ -237,7 +237,7 @@ const ProductPage = ({ product }: Props) => {
                 <button
                   key={img + i + '-m'}
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 overflow-hidden bg-[#FAFAF8] border transition-all ${
+                  className={`aspect-square w-16 overflow-hidden bg-[#F0ECE4] border transition-all ${
                     activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
@@ -359,7 +359,7 @@ const ProductPage = ({ product }: Props) => {
             <button
               onClick={() => setWishlisted((v) => !v)}
               aria-label="Ajouter à la wishlist"
-              className="w-[52px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#FAFAF8] transition-colors"
+              className="w-[52px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#F0ECE4] transition-colors"
             >
               <Heart
                 size={18}
