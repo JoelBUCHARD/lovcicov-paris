@@ -30,6 +30,9 @@ const fadeUp = {
 
 const Index = () => {
   const featured = bijouxProducts;
+  const { isVisible } = useProductVisibility();
+  const visibleStandardProducts = standardProducts.filter((p) => isVisible(localKey(p.id)));
+
 
 
 
