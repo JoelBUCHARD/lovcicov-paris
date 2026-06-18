@@ -104,8 +104,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PROTECTED. ALIGNED. UNSTOPPABLE. ». Unisex.',
     details: 'Une ligne nette. Une allure calme. Une présence affirmée.',
-    image: 'powerlov-protected-aligned-unstoppable-front',
-    gallery: ['powerlov-protected-aligned-unstoppable-street'],
+    image: 'powerlov-protected-aligned-unstoppable-street',
+    gallery: ['powerlov-protected-aligned-unstoppable-packshot'],
     badge: 'UNISEX',
   },
   {
