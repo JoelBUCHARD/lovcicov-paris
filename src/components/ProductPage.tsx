@@ -220,11 +220,11 @@ const ProductPage = ({ product }: Props) => {
 
 
   return (
-    <main className="bg-white pt-36 pb-16 px-6 md:px-12" style={{ fontFamily: SANS }}>
+    <main className="bg-white pt-28 md:pt-36 pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
       <div className="max-w-[1100px] mx-auto">
         <Link
           to={backLink}
-          className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
+          className="text-[12px] md:text-xs opacity-60 hover:opacity-100 transition-opacity mb-6 md:mb-8 inline-block mt-6 md:mt-10 min-h-11 flex items-center"
           style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
         >
           Retour à {cfg.backLabel}
@@ -232,7 +232,8 @@ const ProductPage = ({ product }: Props) => {
       </div>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-8 md:gap-16 max-w-[1100px] mx-auto">
+
 
         {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
