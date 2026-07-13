@@ -53,7 +53,7 @@ const CollectionPower = () => {
         />
 
         <section aria-label="Produits PowerLov" className="px-6 md:px-12">
-          <div className="mx-auto max-w-[1360px] grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+          <div className="mx-auto max-w-[1360px] grid grid-cols-2 md:grid-cols-4 gap-x-3 md:gap-x-5 gap-y-8 md:gap-y-12">
             {first.map((p, i) => (
               <EditorialProductCard key={p.id} product={p} index={i} eager={i < 2} />
             ))}
