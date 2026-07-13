@@ -38,119 +38,160 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
     }
   };
 
+  const year = new Date().getFullYear();
+
   return (
-    <footer className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}>
-      {/* Newsletter */}
+    <footer
+      className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}
+      aria-labelledby="footer-heading"
+    >
+      <h2 id="footer-heading" className="sr-only">Pied de page LOVCICOV Paris</h2>
+
+      {/* Newsletter — invitation into Le Cercle */}
       {!hideNewsletter && (
-        <div className="px-6 md:px-10 py-16 md:py-20 text-center bg-background">
-          <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">NEWSLETTER</p>
-          <h3 className="text-2xl md:text-3xl font-medium mb-3 text-black">Rejoindre le cercle</h3>
-          <p className="text-sm text-muted-foreground mb-8 max-w-md mx-auto">
-            Recevez nos newsletters confidentielles et accédez en avant-première à nos gifts, drops limités et invitations privées.
+        <section
+          aria-label="Newsletter"
+          className="px-6 md:px-10 py-20 md:py-28 text-center"
+        >
+          <p className="text-brand text-[10px] text-muted-foreground mb-6 tracking-[0.32em]">
+            LE CERCLE LOVCICOV
+          </p>
+          <h3 className="text-[26px] md:text-[34px] font-normal tracking-[-0.01em] mb-4 text-foreground">
+            Une invitation à l'intime
+          </h3>
+          <p className="text-[13px] md:text-sm text-muted-foreground mb-10 max-w-md mx-auto leading-relaxed">
+            Nouvelles collections, drops confidentiels et rendez-vous privés —
+            adressés à celles et ceux qui portent la maison.
           </p>
           <form
             onSubmit={handleSubmit}
-            className="flex max-w-sm mx-auto gap-2"
+            className="flex flex-col sm:flex-row max-w-md mx-auto gap-2"
           >
+            <label htmlFor="footer-newsletter-email" className="sr-only">
+              Adresse e-mail
+            </label>
             <input
+              id="footer-newsletter-email"
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Votre adresse e-mail"
-              className="flex-1 py-3 px-3 bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary rounded-[2px]"
+              className="flex-1 py-3 px-4 bg-transparent border-b border-border text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:border-foreground transition-colors text-center sm:text-left"
             />
             <button
               type="submit"
               disabled={loading}
-              className="text-brand text-[11px] px-6 py-3 bg-primary text-primary-foreground hover:bg-fuchsia transition-colors rounded-[2px] disabled:opacity-60"
+              className="text-brand text-[10px] px-8 py-3 bg-foreground text-background hover:bg-foreground/85 transition-colors tracking-[0.28em] disabled:opacity-60"
             >
-              {loading ? '...' : 'OK'}
+              {loading ? '...' : 'Rejoindre'}
             </button>
           </form>
-        </div>
+        </section>
       )}
 
+      {/* Main footer grid */}
+      <div className="border-t border-border/70">
+        <div className="container-luxury py-16 md:py-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 text-center md:text-left">
+            {/* Maison */}
+            <nav aria-label="La Maison">
+              <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
+                La Maison
+              </p>
+              <ul className="space-y-3">
+                <li><Link to="/manifeste" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Manifeste</Link></li>
+                <li><Link to="/fondatrice" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">La Fondatrice</Link></li>
+                <li><Link to="/le-cercle" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Le Cercle</Link></li>
+              </ul>
+            </nav>
 
-      {/* Service Client */}
-      <div className="border-t border-border px-6 md:px-10 py-10 text-center">
-        <p className="text-brand text-[11px] text-muted-foreground mb-4 tracking-[0.2em]">SERVICE CLIENT</p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-8">
-          <a
-            href="https://wa.me/33786386782"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-brand text-[11px] text-foreground hover:text-fuchsia transition-colors tracking-[0.08em]"
-          >
-            WhatsApp · +33 7 86 38 67 82
-          </a>
-          <a
-            href="mailto:contact@lovcicov.com"
-            className="text-brand text-[11px] text-foreground hover:text-fuchsia transition-colors tracking-[0.08em]"
-          >
-            contact@lovcicov.com
-          </a>
+            {/* Univers */}
+            <nav aria-label="Univers">
+              <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
+                Univers
+              </p>
+              <ul className="space-y-3">
+                <li><Link to="/powerlov" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">PowerLov</Link></li>
+                <li><Link to="/mysticlov" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">MysticLov</Link></li>
+                <li><Link to="/stonelov" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">StoneLov</Link></li>
+                <li><Link to="/shop" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">La Boutique</Link></li>
+              </ul>
+            </nav>
+
+            {/* Service */}
+            <nav aria-label="Service">
+              <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
+                Service
+              </p>
+              <ul className="space-y-3">
+                <li>
+                  <a href="mailto:contact@lovcicov.com" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
+                    Nous écrire
+                  </a>
+                </li>
+                <li>
+                  <a href="https://wa.me/33786386782" target="_blank" rel="noopener noreferrer" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
+                    WhatsApp
+                  </a>
+                </li>
+                <li><Link to="/livraison-retours" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Livraison & Retours</Link></li>
+              </ul>
+            </nav>
+
+            {/* Légal */}
+            <nav aria-label="Informations légales">
+              <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
+                Informations
+              </p>
+              <ul className="space-y-3">
+                <li><Link to="/mentions-legales" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Mentions Légales</Link></li>
+                <li><Link to="/confidentialite" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Confidentialité</Link></li>
+                <li><Link to="/cgv" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">CGV</Link></li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-border px-6 md:px-10 pt-8 pb-24 md:pb-8 text-center">
-        {/* Logo */}
-        <Link to="/" className="inline-flex mb-5">
-          <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" />
-        </Link>
+      {/* Closing — brand signature */}
+      <div className="border-t border-border/70">
+        <div className="container-luxury py-14 md:py-16 text-center">
+          <Link to="/" aria-label="LOVCICOV Paris — Accueil" className="inline-flex mb-6">
+            <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-9 w-auto" />
+          </Link>
 
-        {/* Navigation links */}
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-5">
-          <a href="mailto:contact@lovcicov.com" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
-            Contact
-          </a>
-          <Link to="/livraison-retours" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
-            Livraison & Retours
-          </Link>
-          <Link to="/mentions-legales" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
-            Mentions Légales
-          </Link>
-          <Link to="/confidentialite" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
-            Confidentialité
-          </Link>
-          <Link to="/cgv" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
-            CGV
-          </Link>
-        </nav>
+          <p className="text-brand-lg text-[10px] md:text-[11px] text-muted-foreground mb-8">
+            Paris — Maison Française
+          </p>
 
-        {/* Socials */}
-        <div className="flex items-center justify-center gap-8 mb-6">
-          <a
-            href="https://www.instagram.com/lovcicov.paris/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Instagram size={16} strokeWidth={1.5} />
-            <span className="text-brand text-[11px] tracking-[0.18em] uppercase">@lovcicov.paris</span>
-          </a>
-          <a
-            href="https://www.facebook.com/lovcicov"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Facebook size={16} strokeWidth={1.5} />
-            <span className="text-brand text-[11px] tracking-[0.18em] uppercase">lovcicov</span>
-          </a>
-        </div>
+          <div className="flex items-center justify-center gap-8 mb-10">
+            <a
+              href="https://www.instagram.com/lovcicov.paris/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram — @lovcicov.paris"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Instagram size={18} strokeWidth={1.25} />
+            </a>
+            <span aria-hidden className="w-px h-4 bg-border" />
+            <a
+              href="https://www.facebook.com/lovcicov"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook — LOVCICOV"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Facebook size={18} strokeWidth={1.25} />
+            </a>
+          </div>
 
-        {/* Copyright */}
-        <div className="pt-4 border-t border-border/60">
-          <span className="text-brand text-[11px] tracking-[0.18em] uppercase text-muted-foreground/70">
-            © LOVCICOV {new Date().getFullYear()} — Paris
-          </span>
+          <p className="text-[10px] tracking-[0.28em] uppercase text-muted-foreground/70 pb-20 md:pb-0">
+            © {year} LOVCICOV · Tous droits réservés
+          </p>
         </div>
       </div>
-
-
     </footer>
   );
 };
