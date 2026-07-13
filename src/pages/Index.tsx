@@ -592,57 +592,6 @@ const Index = () => {
       </section>
 
 
-      {/* ————————————————————————————————————————————————————— */}
-      {/* 10. FINAL INVITATION */}
-      {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-background py-28 md:py-40 px-6 md:px-10 text-center">
-        <div className="max-w-[640px] mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
-          >
-            Prolonger l'expérience
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-[#1A1A1A] font-light mb-12"
-            style={{ fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-          >
-            La suite se lit{' '}
-            <em className="italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-              en la portant.
-            </em>
-          </motion.h2>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4"
-          >
-            <Link
-              to="/shop"
-              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 w-full sm:w-auto sm:min-w-[240px]"
-            >
-              Découvrir la collection
-            </Link>
-            <Link
-              to="/manifeste"
-              className="inline-flex items-center justify-center border border-[#1A1A1A] text-[#1A1A1A] text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-[#1A1A1A] hover:text-white transition-colors duration-500 w-full sm:w-auto sm:min-w-[240px]"
-            >
-              Lire le manifeste
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
       <Footer />
     </div>
