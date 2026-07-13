@@ -221,8 +221,45 @@ const ProductPage = ({ product }: Props) => {
   ];
 
 
+  const seoImage = getImage(allImages[0]);
+  const seoTitle = `${product.name} — LOVCICOV Paris`;
+  const seoDesc = (product.description || product.details || `${product.name} — pièce ${cfg.backLabel} par LOVCICOV Paris.`).slice(0, 158);
+  const seoPath = product.shopifyHandle ? `/product/${product.shopifyHandle}` : `/shop/${product.id}`;
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: seoDesc,
+    image: seoImage ? [seoImage] : undefined,
+    brand: { "@type": "Brand", name: "LOVCICOV Paris" },
+    offers: {
+      "@type": "Offer",
+      price: String(product.price),
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+      url: `https://lovcicov.com${seoPath}`,
+    },
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: "https://lovcicov.com/" },
+      { "@type": "ListItem", position: 2, name: cfg.backLabel, item: `https://lovcicov.com${cfg.back}` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://lovcicov.com${seoPath}` },
+    ],
+  };
+
   return (
     <main className="bg-white pt-28 md:pt-36 pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
+      <SEO
+        title={seoTitle}
+        description={seoDesc}
+        path={seoPath}
+        image={seoImage}
+        type="product"
+        jsonLd={[productJsonLd, breadcrumbJsonLd]}
+      />
       <div className="max-w-[1100px] mx-auto">
         <Link
           to={backLink}
