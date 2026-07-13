@@ -334,7 +334,51 @@ const Index = () => {
 
 
       {/* ————————————————————————————————————————————————————— */}
-      {/* 6. CRAFTSMANSHIP — LOVBAG editorial */}
+      {/* 6. EDITORIAL INSPIRATION — StoneLov */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-[#FDF5EF] pt-20 md:pt-28 pb-20 md:pb-28">
+        <div className="text-center mb-14 md:mb-20 px-6">
+          <h2
+            className="font-light"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
+          >
+            StoneLov
+          </h2>
+          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+            La pierre choisie comme un signe. La matière comme une mémoire.
+          </p>
+        </div>
+
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+            {featured.slice(0, 4).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mt-16 md:mt-20"
+        >
+          <Link
+            to="/stonelov"
+            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
+            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
+          >
+            Découvrir StoneLov
+          </Link>
+        </motion.div>
+      </section>
+
+
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 7. CRAFTSMANSHIP — LOVBAG editorial */}
       {/* ————————————————————————————————————————————————————— */}
       <section
         className="w-full flex items-center justify-center text-center px-6"
@@ -412,49 +456,6 @@ const Index = () => {
         </div>
       </section>
 
-
-      {/* ————————————————————————————————————————————————————— */}
-      {/* 7. EDITORIAL INSPIRATION — StoneLov */}
-      {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FDF5EF] pt-20 md:pt-28 pb-20 md:pb-28">
-        <div className="text-center mb-14 md:mb-20 px-6">
-          <h2
-            className="font-light"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
-          >
-            StoneLov
-          </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
-            La pierre choisie comme un signe. La matière comme une mémoire.
-          </p>
-        </div>
-
-        <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
-            {featured.slice(0, 4).map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
-          </div>
-        </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-center mt-16 md:mt-20"
-        >
-          <Link
-            to="/stonelov"
-            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
-          >
-            Découvrir StoneLov
-          </Link>
-        </motion.div>
-      </section>
 
 
       {/* ————————————————————————————————————————————————————— */}
