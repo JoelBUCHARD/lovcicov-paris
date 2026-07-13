@@ -249,7 +249,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 4. SIGNATURE PIECES — PowerLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#F7F5F0] pt-20 md:pt-28 pb-20 md:pb-28">
+      <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center mb-14 md:mb-20 px-6">
           <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-6">
             Chapitre I
