@@ -202,7 +202,7 @@ const ProductPage = ({ product }: Props) => {
       {/* Top: 2 columns desktop, 1 column mobile */}
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
 
-        {/* Gallery: vertical thumbs + main image (desktop) */}
+        {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
             {allImages.length > 1 && (
@@ -221,14 +221,23 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px]">
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              className="relative flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px] cursor-zoom-in text-left"
+              aria-label="Agrandir l'image"
+            >
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
-                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 style={{ objectPosition: 'center center' }}
+                loading="eager"
               />
-            </div>
+              <span className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm p-2 rounded-full">
+                <ZoomIn size={14} strokeWidth={1.2} className="text-[#1A1A1A]" />
+              </span>
+            </button>
           </div>
           {/* Mobile thumbnails */}
           {allImages.length > 1 && (
