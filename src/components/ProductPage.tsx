@@ -501,29 +501,6 @@ const ProductPage = ({ product }: Props) => {
         </div>
       </section>
 
-      {/* ─── Editorial Story ─────────────────────────────────── */}
-      <section className="mt-24 md:mt-32 px-6" style={{ backgroundColor: cfg.recitBg }}>
-        <div className="max-w-[820px] mx-auto py-20 md:py-28 text-center">
-          <p
-            className="mb-6"
-            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
-          >
-            Le Récit
-          </p>
-          <p
-            style={{
-              fontFamily: SANS,
-              fontSize: 'clamp(17px, 1.8vw, 21px)',
-              lineHeight: 1.75,
-              color: '#1A1A1A',
-              fontWeight: 300,
-              letterSpacing: '0.005em',
-            }}
-          >
-            {recit}
-          </p>
-        </div>
-      </section>
 
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
       <section className="mt-0 px-6 md:px-12 bg-white">
