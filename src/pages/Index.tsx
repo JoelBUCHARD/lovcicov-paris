@@ -280,7 +280,9 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 5. BRAND UNIVERSE — MysticLov */}
       {/* ————————————————————————————————————————————————————— */}
+      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
@@ -312,13 +314,11 @@ const Index = () => {
         >
           <Link
             to="/mysticlov"
-            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
-            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 min-w-[240px]"
           >
             Découvrir MysticLov
           </Link>
+
         </motion.div>
       </section>
 
@@ -326,7 +326,9 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
+      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
@@ -356,13 +358,11 @@ const Index = () => {
         >
           <Link
             to="/stonelov"
-            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 min-w-[240px]"
           >
             Découvrir StoneLov
           </Link>
+
         </motion.div>
       </section>
 
