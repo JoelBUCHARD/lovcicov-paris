@@ -135,30 +135,6 @@ const Cart = () => {
               </p>
             </header>
 
-            {/* Free shipping bar */}
-            <div className="max-w-2xl mx-auto mb-14 md:mb-20">
-              <div className="flex justify-between items-baseline text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
-                <span>Livraison Offerte</span>
-                <span>
-                  {isFreeShipping(subtotal)
-                    ? 'Débloquée'
-                    : `${formatEuro(remaining)} restants`}
-                </span>
-              </div>
-              <div className="h-px bg-border relative overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${freeShippingProgress}%` }}
-                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-y-0 left-0 bg-foreground"
-                />
-              </div>
-              {isFreeShipping(subtotal) && (
-                <p className="text-[11px] text-center mt-4 tracking-wide">
-                  Votre commande est offerte en livraison.
-                </p>
-              )}
-            </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-20">
               {/* ————————— PRODUCTS ————————— */}
