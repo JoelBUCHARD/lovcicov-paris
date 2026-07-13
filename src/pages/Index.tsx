@@ -51,7 +51,7 @@ const Index = () => {
 
 
       {/* 1. HERO — Editorial luxury split */}
-      <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-16 md:pb-24 relative overflow-hidden">
+      <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-6 md:pb-8 relative overflow-hidden">
         <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
@@ -124,20 +124,9 @@ const Index = () => {
               </p>
             </motion.div>
           </div>
-
-          {/* Scroll cue */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 1.4 }}
-            className="hidden md:flex items-center justify-center gap-3 mt-20"
-          >
-            <span className="h-px w-10 bg-[#1A1A1A]/40" />
-            <span className="text-[9px] tracking-[0.32em] uppercase text-[#8B7D6B]">Découvrir</span>
-            <span className="h-px w-10 bg-[#1A1A1A]/40" />
-          </motion.div>
         </div>
       </section>
+
 
 
 
