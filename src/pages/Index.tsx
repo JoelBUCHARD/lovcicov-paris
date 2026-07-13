@@ -206,6 +206,36 @@ const Index = () => {
 
 
       {/* ————————————————————————————————————————————————————— */}
+      {/* PRESS — early social proof */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="py-10 md:py-14 text-center bg-white border-t border-[#EFE9DF]">
+        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-6">
+          Vu dans la presse
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 px-6">
+          {['Madame Figaro', 'Paris Match'].map((media) => (
+            <span
+              key={media}
+              className="text-[16px] md:text-[18px] text-[#888780] tracking-[0.04em] font-light italic"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            >
+              {media}
+            </span>
+          ))}
+          <span
+            className="text-[14px] text-[#B4A99A] tracking-[0.04em] font-light italic"
+            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          >
+            — et d&apos;autres
+          </span>
+        </div>
+      </section>
+
+
+
+
+
+      {/* ————————————————————————————————————————————————————— */}
       {/* 3. FEATURED COLLECTION — Editorial image */}
       {/* ————————————————————————————————————————————————————— */}
       <section className="w-full bg-white pt-4 md:pt-12 pb-4 md:pb-16 flex flex-col items-center">
