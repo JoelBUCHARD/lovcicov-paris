@@ -134,12 +134,38 @@ const ProductPage = ({ product }: Props) => {
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
 
+  // Complete the look — up to 3 sibling pieces from the same universe
+  const completeTheLook = useMemo(
+    () =>
+      allProducts
+        .filter((p) => p.collection === product.collection && p.id !== product.id)
+        .slice(0, 3),
+    [product.id, product.collection]
+  );
+
   // Sticky mobile CTA: show after user scrolls past the primary buy button
   useEffect(() => {
     const onScroll = () => setShowStickyCta(window.scrollY > 600);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Lightbox keyboard: Esc to close, arrows to navigate
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowRight') setActiveImage((i) => (i + 1) % allImages.length);
+      if (e.key === 'ArrowLeft') setActiveImage((i) => (i - 1 + allImages.length) % allImages.length);
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxOpen, allImages.length]);
+
 
   const handleAddToCart = async () => {
     if (!product.shopifyHandle) {
