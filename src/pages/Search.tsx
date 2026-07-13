@@ -7,6 +7,11 @@ import ShopifyProductCard from '@/components/ShopifyProductCard';
 import SEO from '@/components/SEO';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
+import { products as siteProducts } from '@/data/products';
+
+const siteHandles = new Set(
+  siteProducts.map((p) => p.shopifyHandle).filter((h): h is string => !!h)
+);
 
 const UNIVERSES = [
   { to: '/powerlov', label: 'PowerLov', tagline: 'Force · Discipline · Énergie' },
