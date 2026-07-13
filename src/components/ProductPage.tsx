@@ -350,14 +350,14 @@ const ProductPage = ({ product }: Props) => {
           {!isJewelry && (
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
-                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
+                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
                   Taille — {selectedSize}
                 </p>
                 <button
                   type="button"
                   onClick={() => setSizeGuideOpen(true)}
-                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors"
-                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.14em', color: '#888780' }}
+                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors min-h-11 flex items-center px-1"
+                  style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.14em', color: '#888780' }}
                 >
                   Guide des tailles
                 </button>
@@ -369,7 +369,7 @@ const ProductPage = ({ product }: Props) => {
                     key={s}
                     onClick={() => setSelectedSize(s)}
                     aria-pressed={selectedSize === s}
-                    className={`w-11 h-11 text-[11px] border transition-all ${
+                    className={`flex-1 md:flex-none md:w-12 h-12 md:h-11 text-[12px] md:text-[11px] border transition-all active:scale-[0.97] ${
                       selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
@@ -393,13 +393,13 @@ const ProductPage = ({ product }: Props) => {
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
-              className="flex-1 transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="flex-1 transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60 min-h-[56px]"
               style={{
                 backgroundColor: '#1A1A1A',
                 color: '#FFFFFF',
-                padding: '16px',
+                padding: '18px',
                 fontFamily: SANS,
-                fontSize: 11,
+                fontSize: 12,
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 fontWeight: 500,
@@ -410,15 +410,16 @@ const ProductPage = ({ product }: Props) => {
             <button
               onClick={() => setWishlisted((v) => !v)}
               aria-label="Ajouter à la wishlist"
-              className="w-[52px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#F0ECE4] transition-colors"
+              className="w-[56px] min-h-[56px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#F0ECE4] active:scale-[0.97] transition-all"
             >
               <Heart
-                size={18}
+                size={20}
                 strokeWidth={1.4}
                 style={{ color: '#1A1A1A', fill: wishlisted ? '#1A1A1A' : 'transparent' }}
               />
             </button>
           </div>
+
 
 
           {/* Reassurance — single occurrence */}
