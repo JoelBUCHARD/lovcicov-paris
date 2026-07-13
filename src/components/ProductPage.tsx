@@ -622,29 +622,6 @@ const ProductPage = ({ product }: Props) => {
       )}
 
 
-      <section className="px-6 border-t border-[#EFEDE8] bg-white">
-        <div className="max-w-[720px] mx-auto py-20 md:py-24 text-center">
-          <p
-            className="mb-5"
-            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: '#1A1A1A', textTransform: 'uppercase' }}
-          >
-            LOVCICOV Paris
-          </p>
-          <p
-            style={{
-              fontFamily: SANS,
-              fontSize: 'clamp(15px, 1.5vw, 17px)',
-              lineHeight: 1.85,
-              color: '#5F5E5A',
-              fontWeight: 300,
-              fontStyle: 'italic',
-            }}
-          >
-            Nous croyons à la pièce que l'on garde. Au geste que l'on transmet. À la qualité qui traverse le temps.
-            Chaque LOVCICOV est pensée pour durer — dans la matière, dans le style, dans la mémoire.
-          </p>
-        </div>
-      </section>
 
       {/* ─── Lightbox / Image zoom ────────────────────────── */}
       <AnimatePresence>
