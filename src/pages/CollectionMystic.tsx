@@ -34,14 +34,6 @@ const CollectionMystic = () => {
                 eager={i < 2}
               />
             ))}
-            {rest.length > 0 && (
-              <EditorialPause
-                kicker="Symbole"
-                line1="Un vêtement porté comme un mantra."
-                line2="Une intention devenue matière."
-                accent="#C94A4A"
-              />
-            )}
             {rest.map((p, i) => (
               <EditorialProductCard
                 key={p.id}
