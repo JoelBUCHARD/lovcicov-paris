@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle } from 'lucide-react';
-import { Product } from '@/data/products';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle, X, ZoomIn } from 'lucide-react';
+import { Product, products as allProducts } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
 import { fetchShopifyProductByHandle } from '@/lib/shopify';
@@ -117,6 +117,8 @@ const ProductPage = ({ product }: Props) => {
   const [isAdding, setIsAdding] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
   const [showStickyCta, setShowStickyCta] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const { addToCart } = useCart();
   const addShopifyItem = useCartStore((s) => s.addItem);
 
@@ -132,12 +134,38 @@ const ProductPage = ({ product }: Props) => {
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
 
+  // Complete the look — up to 3 sibling pieces from the same universe
+  const completeTheLook = useMemo(
+    () =>
+      allProducts
+        .filter((p) => p.collection === product.collection && p.id !== product.id)
+        .slice(0, 3),
+    [product.id, product.collection]
+  );
+
   // Sticky mobile CTA: show after user scrolls past the primary buy button
   useEffect(() => {
     const onScroll = () => setShowStickyCta(window.scrollY > 600);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  // Lightbox keyboard: Esc to close, arrows to navigate
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowRight') setActiveImage((i) => (i + 1) % allImages.length);
+      if (e.key === 'ArrowLeft') setActiveImage((i) => (i - 1 + allImages.length) % allImages.length);
+    };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+    };
+  }, [lightboxOpen, allImages.length]);
+
 
   const handleAddToCart = async () => {
     if (!product.shopifyHandle) {
@@ -202,7 +230,7 @@ const ProductPage = ({ product }: Props) => {
       {/* Top: 2 columns desktop, 1 column mobile */}
       <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
 
-        {/* Gallery: vertical thumbs + main image (desktop) */}
+        {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <div className="flex gap-4">
             {allImages.length > 1 && (
@@ -221,14 +249,23 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
-            <div className="flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px]">
+            <button
+              type="button"
+              onClick={() => setLightboxOpen(true)}
+              className="relative flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px] cursor-zoom-in text-left"
+              aria-label="Agrandir l'image"
+            >
               <img
                 src={getImage(allImages[activeImage])}
                 alt={product.name}
-                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                 style={{ objectPosition: 'center center' }}
+                loading="eager"
               />
-            </div>
+              <span className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm p-2 rounded-full">
+                <ZoomIn size={14} strokeWidth={1.2} className="text-[#1A1A1A]" />
+              </span>
+            </button>
           </div>
           {/* Mobile thumbnails */}
           {allImages.length > 1 && (
@@ -309,8 +346,16 @@ const ProductPage = ({ product }: Props) => {
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
-                  Taille
+                  Taille — {selectedSize}
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setSizeGuideOpen(true)}
+                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors"
+                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.14em', color: '#888780' }}
+                >
+                  Guide des tailles
+                </button>
               </div>
 
               <div className="flex gap-2">
@@ -318,7 +363,8 @@ const ProductPage = ({ product }: Props) => {
                   <button
                     key={s}
                     onClick={() => setSelectedSize(s)}
-                    className={`w-11 h-11 text-[11px] border transition-colors ${
+                    aria-pressed={selectedSize === s}
+                    className={`w-11 h-11 text-[11px] border transition-all ${
                       selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
@@ -329,8 +375,11 @@ const ProductPage = ({ product }: Props) => {
                   </button>
                 ))}
               </div>
+              <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
+                Coupe oversize — nous recommandons votre taille habituelle.
+              </p>
               {stock !== null && stock <= 5 && (
-                <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
+                <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
                   Plus que {stock} en stock
                 </p>
               )}
@@ -538,7 +587,57 @@ const ProductPage = ({ product }: Props) => {
         </div>
       </section>
 
-      {/* ─── Brand philosophy closing ────────────────────────── */}
+      {/* ─── Complete the look ───────────────────────────────── */}
+      {completeTheLook.length > 0 && (
+        <section className="px-6 md:px-12 bg-white border-t border-[#EFEDE8]">
+          <div className="max-w-[1100px] mx-auto py-20 md:py-24">
+            <p
+              className="text-center mb-3"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
+            >
+              Le vestiaire
+            </p>
+            <h2
+              className="text-center mb-12"
+              style={{ fontFamily: SANS, fontSize: 'clamp(22px, 2.4vw, 28px)', fontWeight: 400, color: '#1A1A1A', letterSpacing: '-0.005em' }}
+            >
+              Complétez la pièce
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+              {completeTheLook.map((p) => (
+                <Link
+                  key={p.id}
+                  to={`/shop/${p.id}`}
+                  className="group block"
+                >
+                  <div className="aspect-[3/4] overflow-hidden bg-[#F8F6F1] mb-4">
+                    <img
+                      src={getImage(p.image)}
+                      alt={p.name}
+                      loading="lazy"
+                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p
+                    className="text-center"
+                    style={{ fontFamily: SANS, fontSize: 13, color: '#1A1A1A', fontWeight: 400 }}
+                  >
+                    {p.name}
+                  </p>
+                  <p
+                    className="text-center mt-1"
+                    style={{ fontFamily: SANS, fontSize: 12, color: '#888780' }}
+                  >
+                    €{p.price}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
       <section className="px-6 border-t border-[#EFEDE8] bg-white">
         <div className="max-w-[720px] mx-auto py-20 md:py-24 text-center">
           <p
@@ -562,6 +661,122 @@ const ProductPage = ({ product }: Props) => {
           </p>
         </div>
       </section>
+
+      {/* ─── Lightbox / Image zoom ────────────────────────── */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-white/98 backdrop-blur-sm flex items-center justify-center"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+              className="absolute top-6 right-6 md:top-8 md:right-8 p-2 hover:opacity-60 transition-opacity z-10"
+              aria-label="Fermer"
+            >
+              <X size={22} strokeWidth={1.2} className="text-[#1A1A1A]" />
+            </button>
+            <div
+              className="max-w-[90vw] max-h-[88vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={getImage(allImages[activeImage])}
+                alt={product.name}
+                className="max-w-full max-h-[88vh] object-contain"
+              />
+            </div>
+            {allImages.length > 1 && (
+              <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+                {allImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
+                    className={`h-[3px] transition-all ${activeImage === i ? 'w-8 bg-[#1A1A1A]' : 'w-4 bg-[#B5B3AD]'}`}
+                    aria-label={`Voir image ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ─── Size guide modal ─────────────────────────────── */}
+      <AnimatePresence>
+        {sizeGuideOpen && !isJewelry && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4"
+            onClick={() => setSizeGuideOpen(false)}
+          >
+            <motion.div
+              initial={{ y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 16, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="bg-white max-w-[520px] w-full p-8 md:p-10 relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSizeGuideOpen(false)}
+                className="absolute top-4 right-4 p-1 hover:opacity-60"
+                aria-label="Fermer"
+              >
+                <X size={18} strokeWidth={1.2} />
+              </button>
+              <p
+                className="mb-3"
+                style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.28em', color: cfg.accent, textTransform: 'uppercase' }}
+              >
+                Guide des tailles
+              </p>
+              <h3
+                className="mb-6"
+                style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}
+              >
+                Coupe oversize unisexe
+              </h3>
+              <table className="w-full text-left" style={{ fontFamily: SANS, fontSize: 12 }}>
+                <thead>
+                  <tr className="border-b border-[#EFEDE8]">
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Taille</th>
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Poitrine</th>
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Longueur</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#5F5E5A]">
+                  {[
+                    ['XS', '96 cm', '68 cm'],
+                    ['S', '104 cm', '70 cm'],
+                    ['M', '112 cm', '72 cm'],
+                    ['L', '120 cm', '74 cm'],
+                    ['XL', '128 cm', '76 cm'],
+                  ].map((r) => (
+                    <tr key={r[0]} className="border-b border-[#F5F2EC]">
+                      <td className="py-3">{r[0]}</td>
+                      <td className="py-3">{r[1]}</td>
+                      <td className="py-3">{r[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
+                Coupe unisexe volontairement ample. Pour un tomber plus près du corps, choisissez la taille en dessous.
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Sticky mobile CTA */}
       <div
