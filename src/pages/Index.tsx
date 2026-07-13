@@ -50,61 +50,95 @@ const Index = () => {
 
 
 
-      {/* 1. HERO — Clean text over warm cream */}
-      <section className="w-full bg-[#FAF7F2] pt-[160px] md:pt-[200px] pb-8 md:pb-10 text-center relative overflow-hidden">
+      {/* 1. HERO — Editorial luxury split */}
+      <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-16 md:pb-24 relative overflow-hidden">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
 
+            {/* Text column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left"
+            >
+              <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-8 md:mb-10">
+                Maison LOVCICOV — Paris
+              </p>
 
+              <h1
+                className="text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mb-10 md:mb-12"
+                style={{ fontSize: 'clamp(44px, 6vw, 88px)' }}
+              >
+                Presence
+                <br />
+                over
+                <br />
+                <em className="italic font-light" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                  appearance.
+                </em>
+              </h1>
 
-        <div className="relative z-[1]">
-          <motion.h1
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-            className="text-[26px] font-light text-[#1A1A1A] leading-tight mb-3"
-          >
-            Presence over appearance.
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.95 }}
-            className="mx-auto mb-6 px-8 md:px-12"
-            style={{ fontFamily: 'Arial, sans-serif', fontSize: '13px', color: '#5F5E5A', maxWidth: '640px', lineHeight: 1.6 }}
-          >
-            LOVCICOV explore le lien entre la mode, l'énergie, l'émotion et la transformation intérieure à travers des pièces pensées comme des talismans contemporains.
-          </motion.p>
+              <p
+                className="mx-auto lg:mx-0 mb-12 md:mb-14 text-[#5F5E5A] font-light"
+                style={{ fontSize: '15px', maxWidth: '460px', lineHeight: 1.75, letterSpacing: '0.005em' }}
+              >
+                LOVCICOV explore le lien entre la mode, l'énergie et la transformation intérieure — des pièces pensées comme des talismans contemporains.
+              </p>
 
-          <HeroCarousel />
+              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+                <Link
+                  to="/shop"
+                  className="group inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-[#000] transition-colors duration-500"
+                >
+                  Découvrir la collection
+                </Link>
+                <Link
+                  to="/fondatrice"
+                  className="inline-flex items-center gap-2 text-[#1A1A1A] text-[10px] tracking-[0.28em] uppercase px-2 py-4 border-b border-[#1A1A1A]/40 hover:border-[#1A1A1A] transition-colors duration-500"
+                >
+                  Notre histoire
+                </Link>
+              </div>
+            </motion.div>
 
+            {/* Image column */}
+            <motion.div
+              initial={{ opacity: 0, scale: 1.02 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
+              className="lg:col-span-7 order-1 lg:order-2 relative"
+            >
+              <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
+                <img
+                  src={slideHeroAsset.url}
+                  alt="LOVCICOV Paris — campagne"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+              <p className="hidden lg:block absolute -bottom-2 right-0 text-[9px] tracking-[0.32em] uppercase text-[#8B7D6B] rotate-90 origin-bottom-right translate-x-full translate-y-8">
+                Édition · Paris · MMXXVI
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Scroll cue */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-3 mt-3 px-6"
-          >
-            <Link
-              to="/shop"
-              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#333333] transition-colors w-full sm:w-auto"
-            >
-              Découvrir la collection
-            </Link>
-            <Link
-              to="/fondatrice"
-              className="inline-flex items-center justify-center bg-transparent text-[#1A1A1A] text-[10px] tracking-[0.12em] uppercase px-8 py-3 border border-[#5F5E5A] hover:bg-[#1A1A1A] hover:text-white hover:border-[#1A1A1A] transition-colors w-full sm:w-auto"
-            >
-              Notre histoire
-            </Link>
-          </motion.div>
-          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.4 }}
-            className="text-[10px] text-[#B4A99A] tracking-[0.08em]"
+            transition={{ duration: 1.2, delay: 1.4 }}
+            className="hidden md:flex items-center justify-center gap-3 mt-20"
           >
-            éditions limitées · slow fashion · éco-responsable
-          </motion.p>
+            <span className="h-px w-10 bg-[#1A1A1A]/40" />
+            <span className="text-[9px] tracking-[0.32em] uppercase text-[#8B7D6B]">Découvrir</span>
+            <span className="h-px w-10 bg-[#1A1A1A]/40" />
+          </motion.div>
         </div>
       </section>
+
+
 
       {/* KEYWORDS STRIP */}
       <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
