@@ -59,7 +59,10 @@ const SearchPage = () => {
   }, []);
 
   const visibleAll = useMemo(
-    () => allProducts.filter((p) => isVisible(shopifyKey(p.node.handle))),
+    () =>
+      allProducts
+        .filter((p) => siteHandles.has(p.node.handle))
+        .filter((p) => isVisible(shopifyKey(p.node.handle))),
     [allProducts, isVisible]
   );
 
