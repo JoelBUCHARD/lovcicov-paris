@@ -186,7 +186,7 @@ const Index = () => {
             className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
           >
             Lire le manifeste
-            <ArrowRight size={12} />
+
           </Link>
         </motion.div>
       </section>
