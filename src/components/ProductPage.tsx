@@ -447,6 +447,122 @@ const ProductPage = ({ product }: Props) => {
         </div>
       </section>
 
+      {/* ─── Editorial Story ─────────────────────────────────── */}
+      <section className="mt-24 md:mt-32 px-6" style={{ backgroundColor: cfg.recitBg }}>
+        <div className="max-w-[820px] mx-auto py-20 md:py-28 text-center">
+          <p
+            className="mb-6"
+            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
+          >
+            Le Récit
+          </p>
+          <p
+            style={{
+              fontFamily: SANS,
+              fontSize: 'clamp(17px, 1.8vw, 21px)',
+              lineHeight: 1.75,
+              color: '#1A1A1A',
+              fontWeight: 300,
+              letterSpacing: '0.005em',
+            }}
+          >
+            {recit}
+          </p>
+        </div>
+      </section>
+
+      {/* ─── Craftsmanship pillars ───────────────────────────── */}
+      <section className="mt-0 px-6 md:px-12 bg-white">
+        <div className="max-w-[1100px] mx-auto py-20 md:py-28">
+          <p
+            className="text-center mb-14"
+            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: '#1A1A1A', textTransform: 'uppercase' }}
+          >
+            Savoir-faire
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+            {[
+              {
+                title: isJewelry ? 'Pierres naturelles' : 'Matière',
+                body: isJewelry
+                  ? 'Chaque pierre est sélectionnée pour son grain, sa densité et son unicité. Aucune ne ressemble à une autre.'
+                  : product.collection === 'mystic'
+                  ? 'Coton peigné premium, tissé dans un grammage lourd pour une tenue structurée qui traverse les saisons.'
+                  : 'Coton lourd 280 g/m², sélectionné pour sa densité et sa tenue dans le temps.',
+              },
+              {
+                title: isJewelry ? 'Monture main' : 'Confection',
+                body: isJewelry
+                  ? 'Sertissage et montage réalisés à la main. Fermoir ajustable, finitions soignées à chaque étape.'
+                  : product.collection === 'mystic'
+                  ? 'Coupe oversize unisexe, épaules tombées, encolure côtelée renforcée. Chaque pièce est finie à Paris.'
+                  : 'Coupe oversize unisex. Sérigraphie haute densité réalisée en France, col bord-côte renforcé.',
+              },
+              {
+                title: 'Signature',
+                body: isJewelry
+                  ? "Chaque pièce est numérotée et livrée dans son écrin d'origine — une pièce, une histoire."
+                  : product.collection === 'mystic'
+                  ? 'Broderie LOVE dorée signature, réalisée au fil métallisé — le geste qui fait la pièce.'
+                  : 'Impression signature LOVCICOV, garantie résistante aux lavages successifs.',
+              },
+            ].map((p) => (
+              <div key={p.title} className="text-center">
+                <p
+                  className="mb-4"
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 10,
+                    letterSpacing: '0.22em',
+                    color: cfg.accent,
+                    textTransform: 'uppercase',
+                    fontWeight: 500,
+                  }}
+                >
+                  {p.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 13.5,
+                    lineHeight: 1.85,
+                    color: '#5F5E5A',
+                    fontWeight: 300,
+                  }}
+                >
+                  {p.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Brand philosophy closing ────────────────────────── */}
+      <section className="px-6 border-t border-[#EFEDE8] bg-white">
+        <div className="max-w-[720px] mx-auto py-20 md:py-24 text-center">
+          <p
+            className="mb-5"
+            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: '#1A1A1A', textTransform: 'uppercase' }}
+          >
+            LOVCICOV Paris
+          </p>
+          <p
+            style={{
+              fontFamily: SANS,
+              fontSize: 'clamp(15px, 1.5vw, 17px)',
+              lineHeight: 1.85,
+              color: '#5F5E5A',
+              fontWeight: 300,
+              fontStyle: 'italic',
+            }}
+          >
+            Nous croyons à la pièce que l'on garde. Au geste que l'on transmet. À la qualité qui traverse le temps.
+            Chaque LOVCICOV est pensée pour durer — dans la matière, dans le style, dans la mémoire.
+          </p>
+        </div>
+      </section>
+
       {/* Sticky mobile CTA */}
       <div
         className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 py-3 transition-transform duration-300 ${
