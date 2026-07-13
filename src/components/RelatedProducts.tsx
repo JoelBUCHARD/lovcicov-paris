@@ -33,9 +33,9 @@ const UNIVERSE_COLOR: Record<Universe, string> = {
   stonelov: "#C4714A",
 };
 const UNIVERSE_BG: Record<Universe, string> = {
-  powerlov: "#FAF7F2",
-  mysticlov: "#FAF7F2",
-  stonelov: "#FDF5EF",
+  powerlov: "#EDEAE4",
+  mysticlov: "#EDEAE4",
+  stonelov: "#EDEAE4",
 };
 
 const STORAGE_KEY = "lovcicov_recently_viewed";
