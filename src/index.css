@@ -55,6 +55,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
@@ -62,7 +65,15 @@
     font-family: var(--font-sans);
     font-feature-settings: "kern", "liga", "calt";
     line-height: 1.6;
+    overscroll-behavior-y: none;
   }
+
+  button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+  input, textarea, select { font-size: 16px; } /* prevents iOS zoom on focus */
+  @media (min-width: 768px) {
+    input, textarea, select { font-size: inherit; }
+  }
+
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
