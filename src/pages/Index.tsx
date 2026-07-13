@@ -525,10 +525,10 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
             {[
-              { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 150 €.' },
+              { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 99 €.' },
               { title: 'Paiement sécurisé', desc: 'Transactions cryptées, protection intégrale.' },
-              { title: 'Retours 14 jours', desc: 'Simples, gratuits, sans justification.' },
-              { title: 'Service dédié', desc: 'Une conseillère répond personnellement.' },
+              { title: 'Retours 14 jours', desc: 'Simples et sans justification.' },
+              { title: 'Conseil personnel', desc: 'Une conseillère vous répond directement.' },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
