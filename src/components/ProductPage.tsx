@@ -423,7 +423,7 @@ const ProductPage = ({ product }: Props) => {
 
 
           {/* Reassurance — single occurrence */}
-          <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-[#E8E4DD]">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-8 pt-6 border-t border-[#E8E4DD]">
             {reassurance.map(({ Icon, label }) => (
               <div key={label} className="flex items-center gap-2">
                 <Icon size={16} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
