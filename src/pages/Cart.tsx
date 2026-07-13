@@ -192,17 +192,17 @@ const Cart = () => {
                               <button
                                 onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
                                 aria-label="Diminuer la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
                               >
-                                <Minus size={11} strokeWidth={1.5} />
+                                <Minus size={13} strokeWidth={1.5} />
                               </button>
                               <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
                                 aria-label="Augmenter la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
                               >
-                                <Plus size={11} strokeWidth={1.5} />
+                                <Plus size={13} strokeWidth={1.5} />
                               </button>
                             </div>
                             <div className="flex items-center gap-5">
@@ -212,7 +212,7 @@ const Cart = () => {
                               <button
                                 onClick={() => removeItem(item.variantId)}
                                 aria-label={`Retirer ${title}`}
-                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 min-h-11 min-w-11 flex items-center justify-center"
                               >
                                 <Trash2 size={14} strokeWidth={1.3} />
                               </button>
@@ -265,17 +265,17 @@ const Cart = () => {
                               <button
                                 onClick={() => updateLocalQty(item.product.id, item.quantity - 1)}
                                 aria-label="Diminuer la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all"
                               >
-                                <Minus size={11} strokeWidth={1.5} />
+                                <Minus size={13} strokeWidth={1.5} />
                               </button>
                               <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
                               <button
                                 onClick={() => updateLocalQty(item.product.id, item.quantity + 1)}
                                 aria-label="Augmenter la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all"
                               >
-                                <Plus size={11} strokeWidth={1.5} />
+                                <Plus size={13} strokeWidth={1.5} />
                               </button>
                             </div>
                             <div className="flex items-center gap-5">
@@ -285,7 +285,7 @@ const Cart = () => {
                               <button
                                 onClick={() => removeFromCart(item.product.id)}
                                 aria-label={`Retirer ${item.product.name}`}
-                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 min-h-11 min-w-11 flex items-center justify-center"
                               >
                                 <Trash2 size={14} strokeWidth={1.3} />
                               </button>
