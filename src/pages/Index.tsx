@@ -469,7 +469,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 8. LIFESTYLE — Instagram universe */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="pt-24 md:pt-32 pb-24 md:pb-32 text-center bg-background">
+      <section className="pt-24 md:pt-32 pb-10 md:pb-14 text-center bg-background">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
