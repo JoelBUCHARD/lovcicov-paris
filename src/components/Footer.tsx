@@ -93,7 +93,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
         </div>
       </div>
 
-      <div className="border-t border-border px-6 md:px-10 pt-12 pb-28 md:pb-12 text-center">
+      <div className="border-t border-border px-6 md:px-10 pt-8 pb-24 md:pb-8 text-center">
         {/* Logo */}
         <Link to="/" className="inline-flex mb-8">
           <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" />
