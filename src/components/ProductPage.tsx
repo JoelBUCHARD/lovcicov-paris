@@ -334,18 +334,17 @@ const ProductPage = ({ product }: Props) => {
               Molleton de coton brossé 400&nbsp;g/m², doux à l'intérieur et structuré à l'extérieur. Coupe oversize unisexe, épaules tombées, capuche doublée, cordons plats, poche kangourou. Bords-côtes renforcés au col, poignets et ourlet. Broderie LOVE dorée signature.
             </p>
           )}
-          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && (
+          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
               {product.collection === 'bijoux'
                 ? 'Pierres naturelles montées à la main. Fermoir ajustable, finitions soignées.'
-                : product.collection === 'mystic'
-                ? 'Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.'
-                : 'Coton lourd 280\u00a0g/m², coupe oversize unisexe. Sérigraphie haute densité, col bord-côte renforcé.'}
+                : 'Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.'}
             </p>
           )}
+
 
           <ColorSwatches product={product} />
 
