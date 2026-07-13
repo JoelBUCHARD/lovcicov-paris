@@ -49,13 +49,14 @@ const CollectionBijoux = () => {
         <div className="mt-24 md:mt-32 text-center px-6">
           <Link
             to="/shop"
-            className="inline-flex items-center justify-center text-white uppercase transition-colors duration-500"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', padding: '18px 44px', minWidth: 260 }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A55A35')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white uppercase transition-colors duration-500 hover:bg-black"
+            style={{ fontSize: 10, letterSpacing: '0.28em', padding: '18px 44px', minWidth: 260 }}
           >
             Explorer toutes les pièces
           </Link>
+        </div>
+        <div className="mt-24 md:mt-32 max-w-[1360px] mx-auto px-6 md:px-12">
+          <div className="border-t border-[#E5DFD3]" />
         </div>
       </main>
       <Footer hideTopBorder />
