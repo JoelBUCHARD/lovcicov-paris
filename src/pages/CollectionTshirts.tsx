@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
@@ -39,6 +40,11 @@ const CollectionTshirts = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#FAF7F2' }}>
+      <SEO
+        title="Tous les t-shirts — LOVCICOV Paris"
+        description="Tous les t-shirts LOVCICOV Paris : coton lourd, coupes oversize, sérigraphies signatures. PowerLov, MysticLov."
+        path="/collections/t-shirts"
+      />
       <Navbar />
       <main className="pt-40 md:pt-52 pb-20 px-6">
         <div className="text-center mb-12">

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
@@ -19,6 +20,11 @@ const BORDER = "#E8D8C8";
 const StoneLovEditorial = () => {
   return (
     <div style={{ backgroundColor: BG, scrollBehavior: "smooth" }} className="min-h-screen">
+      <SEO
+        title="StoneLov — Wear the stone. | LOVCICOV Paris"
+        description="StoneLov par LOVCICOV Paris : bijoux en pierres naturelles. La matière comme mémoire, la pierre comme signature."
+        path="/stonelov"
+      />
       <Navbar />
       <div className="pt-[73px]">
 

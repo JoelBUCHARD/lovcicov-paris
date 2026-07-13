@@ -4,6 +4,7 @@ import { Trash2, Minus, Plus, Loader2, ShieldCheck, Truck, RotateCcw, Sparkles }
 import { useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
 import { toast } from '@/hooks/use-toast';
@@ -75,7 +76,9 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Panier — LOVCICOV Paris" description="Votre panier LOVCICOV Paris." path="/cart" noindex />
       <Navbar />
+
 
       <main className="pt-28 md:pt-40 pb-32 px-4 md:px-12">
         {count === 0 ? (

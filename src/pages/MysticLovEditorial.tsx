@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import heroSoloAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 const heroSolo = heroSoloAsset.url;
 
@@ -32,6 +33,11 @@ const SEP = "#F5D0D0";
 const MysticLovEditorial = () => {
   return (
     <div style={{ backgroundColor: BG, scrollBehavior: "smooth" }} className="min-h-screen">
+      <SEO
+        title="MysticLov — Wear your intention. | LOVCICOV Paris"
+        description="MysticLov par LOVCICOV Paris : talismans contemporains brodés main. Chaque pièce porte un signe, une intention."
+        path="/mysticlov"
+      />
       <Navbar />
       <div className="pt-[73px]">
 

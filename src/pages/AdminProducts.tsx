@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
 import { products as localProducts } from '@/data/products';
@@ -167,6 +168,7 @@ const AdminProducts = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Admin produits — LOVCICOV Paris" description="Espace administration." path="/admin/products" noindex />
       <Navbar />
       <main className="pt-32 md:pt-40 pb-24 px-6 md:px-10 max-w-5xl mx-auto">
         <div className="text-center mb-10">

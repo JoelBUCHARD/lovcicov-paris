@@ -6,6 +6,7 @@ import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-powerlov-v2.png.asset.json';
@@ -43,6 +44,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="LOVCICOV Paris — Maison de mode contemporaine"
+        description="LOVCICOV Paris — maison de mode contemporaine. Pièces éditoriales pensées pour la posture, la présence et la confiance. Découvrez PowerLov, MysticLov et StoneLov."
+        path="/"
+      />
       <Navbar />
 
 

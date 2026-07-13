@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import type { User } from '@supabase/supabase-js';
 
 const Account = () => {
@@ -55,6 +56,7 @@ const Account = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Mon compte — LOVCICOV Paris" description="Votre espace personnel LOVCICOV Paris." path="/account" noindex />
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <motion.div
