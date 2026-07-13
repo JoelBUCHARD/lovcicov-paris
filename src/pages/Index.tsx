@@ -479,26 +479,8 @@ const Index = () => {
       </section>
 
 
-      {/* 4. COLLECTIONS BANNER */}
-      <section className="grid grid-cols-3 border-t border-border">
 
-        {[
-          { label: 'PowerLov', desc: 'Présence. Discipline. Impact.', path: '/powerlov', hoverBg: 'hover:bg-[#F7F5F0]' },
-          { label: 'MysticLov', desc: 'Symboles. Guidance. Intuition.', path: '/mysticlov', hoverBg: 'hover:bg-[#FDE8E8]' },
-          { label: 'StoneLov', desc: 'Pierres naturelles. Pièces singulières.', path: '/stonelov', hoverBg: 'hover:bg-orange-50' },
-        ].map((col, i) => (
-          <Link
-            key={col.label}
-            to={col.path}
-            className={`group py-10 md:py-20 px-4 md:px-12 text-center border-border ${
-              i < 2 ? 'border-r' : ''
-            } ${col.hoverBg} transition-colors`}
-          >
-            <p className="text-brand text-[11px] text-muted-foreground mb-3 tracking-[0.15em] group-hover:opacity-60 transition-opacity">{col.label}</p>
-            <p className="text-sm text-muted-foreground/70">{col.desc}</p>
-          </Link>
-        ))}
-      </section>
+
 
 
       {/* PRESS */}
