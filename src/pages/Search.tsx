@@ -115,6 +115,7 @@ const SearchPage = () => {
       <SEO
         title="Recherche — LOVCICOV Paris"
         description="Explorez l'univers LOVCICOV Paris : PowerLov, MysticLov, StoneLov, sacs en cuir tressé."
+        path="/search"
       />
       <Navbar />
 
