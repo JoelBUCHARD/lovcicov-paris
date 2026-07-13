@@ -220,11 +220,11 @@ const ProductPage = ({ product }: Props) => {
 
 
   return (
-    <main className="bg-white pt-36 pb-16 px-6 md:px-12" style={{ fontFamily: SANS }}>
+    <main className="bg-white pt-28 md:pt-36 pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
       <div className="max-w-[1100px] mx-auto">
         <Link
           to={backLink}
-          className="text-xs opacity-50 hover:opacity-100 transition-opacity mb-8 inline-block mt-8 md:mt-10"
+          className="text-[12px] md:text-xs opacity-60 hover:opacity-100 transition-opacity mb-6 md:mb-8 inline-block mt-6 md:mt-10 min-h-11 flex items-center"
           style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
         >
           Retour à {cfg.backLabel}
@@ -232,7 +232,8 @@ const ProductPage = ({ product }: Props) => {
       </div>
 
       {/* Top: 2 columns desktop, 1 column mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-10 md:gap-16 max-w-[1100px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(380px,440px)] gap-8 md:gap-16 max-w-[1100px] mx-auto">
+
 
         {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
@@ -273,12 +274,12 @@ const ProductPage = ({ product }: Props) => {
           </div>
           {/* Mobile thumbnails */}
           {allImages.length > 1 && (
-            <div className="flex md:hidden gap-2 mt-3 flex-wrap">
+            <div className="flex md:hidden gap-2 mt-4 overflow-x-auto scrollbar-hide -mx-4 px-4 snap-x">
               {allImages.map((img, i) => (
                 <button
                   key={img + i + '-m'}
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 overflow-hidden bg-white border transition-all ${
+                  className={`aspect-square w-[68px] shrink-0 overflow-hidden bg-white border transition-all snap-start ${
                     activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
@@ -287,6 +288,7 @@ const ProductPage = ({ product }: Props) => {
               ))}
             </div>
           )}
+
         </motion.div>
 
         {/* Purchase block */}
@@ -349,14 +351,14 @@ const ProductPage = ({ product }: Props) => {
           {!isJewelry && (
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
-                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
+                <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
                   Taille — {selectedSize}
                 </p>
                 <button
                   type="button"
                   onClick={() => setSizeGuideOpen(true)}
-                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors"
-                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.14em', color: '#888780' }}
+                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors min-h-11 flex items-center px-1"
+                  style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.14em', color: '#888780' }}
                 >
                   Guide des tailles
                 </button>
@@ -368,7 +370,7 @@ const ProductPage = ({ product }: Props) => {
                     key={s}
                     onClick={() => setSelectedSize(s)}
                     aria-pressed={selectedSize === s}
-                    className={`w-11 h-11 text-[11px] border transition-all ${
+                    className={`flex-1 md:flex-none md:w-12 h-12 md:h-11 text-[12px] md:text-[11px] border transition-all active:scale-[0.97] ${
                       selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
@@ -392,13 +394,13 @@ const ProductPage = ({ product }: Props) => {
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
-              className="flex-1 transition-opacity hover:opacity-90 disabled:opacity-60"
+              className="flex-1 transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60 min-h-[56px]"
               style={{
                 backgroundColor: '#1A1A1A',
                 color: '#FFFFFF',
-                padding: '16px',
+                padding: '18px',
                 fontFamily: SANS,
-                fontSize: 11,
+                fontSize: 12,
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 fontWeight: 500,
@@ -409,10 +411,10 @@ const ProductPage = ({ product }: Props) => {
             <button
               onClick={() => setWishlisted((v) => !v)}
               aria-label="Ajouter à la wishlist"
-              className="w-[52px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#F0ECE4] transition-colors"
+              className="w-[56px] min-h-[56px] flex items-center justify-center border border-[#1A1A1A] hover:bg-[#F0ECE4] active:scale-[0.97] transition-all"
             >
               <Heart
-                size={18}
+                size={20}
                 strokeWidth={1.4}
                 style={{ color: '#1A1A1A', fill: wishlisted ? '#1A1A1A' : 'transparent' }}
               />
@@ -420,15 +422,16 @@ const ProductPage = ({ product }: Props) => {
           </div>
 
 
+
           {/* Reassurance — single occurrence */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-8 pt-6 border-t border-[#E8E4DD]">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-10 pt-8 border-t border-[#E8E4DD]">
             {reassurance.map(({ Icon, label }) => (
-              <div key={label} className="flex items-center gap-2">
-                <Icon size={16} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
+              <div key={label} className="flex items-center gap-2.5">
+                <Icon size={18} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
                 <span
+                  className="text-[11px] md:text-[10px]"
                   style={{
                     fontFamily: SANS,
-                    fontSize: 10,
                     letterSpacing: '0.1em',
                     color: '#5F5E5A',
                     textTransform: 'uppercase',
@@ -439,6 +442,7 @@ const ProductPage = ({ product }: Props) => {
               </div>
             ))}
           </div>
+
         </motion.div>
       </div>
 
@@ -781,27 +785,27 @@ const ProductPage = ({ product }: Props) => {
 
       {/* Sticky mobile CTA */}
       <div
-        className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 py-3 transition-transform duration-300 ${
+        className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 pt-3 pb-3 safe-bottom transition-transform duration-300 ${
           showStickyCta ? 'translate-y-0' : 'translate-y-full'
         }`}
         style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.04)' }}
       >
         <div className="flex items-center gap-3">
           <div className="flex-1 min-w-0">
-            <p className="truncate" style={{ fontFamily: SANS, fontSize: 12, fontWeight: 500, color: '#1A1A1A' }}>
+            <p className="truncate" style={{ fontFamily: SANS, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>
               {product.name}
             </p>
-            <p style={{ fontFamily: SANS, fontSize: 12, color: '#5F5E5A' }}>€{product.price}</p>
+            <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>€{product.price}</p>
           </div>
           <button
             onClick={handleAddToCart}
             disabled={isAdding}
-            className="px-5 py-3 disabled:opacity-60"
+            className="px-6 min-h-[48px] active:scale-[0.98] transition-transform disabled:opacity-60"
             style={{
               backgroundColor: '#1A1A1A',
               color: '#FFFFFF',
               fontFamily: SANS,
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               fontWeight: 500,
@@ -811,6 +815,7 @@ const ProductPage = ({ product }: Props) => {
           </button>
         </div>
       </div>
+
     </main>
   );
 };

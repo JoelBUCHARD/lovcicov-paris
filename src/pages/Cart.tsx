@@ -77,7 +77,7 @@ const Cart = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-40 pb-32 px-6 md:px-12">
+      <main className="pt-28 md:pt-40 pb-32 px-4 md:px-12">
         {count === 0 ? (
           // ————————————————————— EMPTY STATE —————————————————————
           <motion.section
@@ -192,17 +192,17 @@ const Cart = () => {
                               <button
                                 onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
                                 aria-label="Diminuer la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
                               >
-                                <Minus size={11} strokeWidth={1.5} />
+                                <Minus size={13} strokeWidth={1.5} />
                               </button>
                               <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
                               <button
                                 onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
                                 aria-label="Augmenter la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
                               >
-                                <Plus size={11} strokeWidth={1.5} />
+                                <Plus size={13} strokeWidth={1.5} />
                               </button>
                             </div>
                             <div className="flex items-center gap-5">
@@ -212,7 +212,7 @@ const Cart = () => {
                               <button
                                 onClick={() => removeItem(item.variantId)}
                                 aria-label={`Retirer ${title}`}
-                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 min-h-11 min-w-11 flex items-center justify-center"
                               >
                                 <Trash2 size={14} strokeWidth={1.3} />
                               </button>
@@ -265,17 +265,17 @@ const Cart = () => {
                               <button
                                 onClick={() => updateLocalQty(item.product.id, item.quantity - 1)}
                                 aria-label="Diminuer la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all"
                               >
-                                <Minus size={11} strokeWidth={1.5} />
+                                <Minus size={13} strokeWidth={1.5} />
                               </button>
                               <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
                               <button
                                 onClick={() => updateLocalQty(item.product.id, item.quantity + 1)}
                                 aria-label="Augmenter la quantité"
-                                className="p-2.5 hover:bg-secondary transition-colors"
+                                className="p-3 min-h-11 min-w-11 flex items-center justify-center hover:bg-secondary active:scale-[0.96] transition-all"
                               >
-                                <Plus size={11} strokeWidth={1.5} />
+                                <Plus size={13} strokeWidth={1.5} />
                               </button>
                             </div>
                             <div className="flex items-center gap-5">
@@ -285,7 +285,7 @@ const Cart = () => {
                               <button
                                 onClick={() => removeFromCart(item.product.id)}
                                 aria-label={`Retirer ${item.product.name}`}
-                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                                className="text-muted-foreground hover:text-foreground transition-colors p-2 min-h-11 min-w-11 flex items-center justify-center"
                               >
                                 <Trash2 size={14} strokeWidth={1.3} />
                               </button>
@@ -331,17 +331,18 @@ const Cart = () => {
                   <button
                     onClick={handleCheckout}
                     disabled={isLoading}
-                    className="w-full bg-primary text-primary-foreground py-4 text-[11px] tracking-[0.25em] uppercase hover:opacity-80 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                    className="w-full bg-primary text-primary-foreground py-5 min-h-[56px] text-[12px] tracking-[0.25em] uppercase hover:opacity-90 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                   >
                     {isLoading ? <Loader2 className="animate-spin" size={14} /> : 'Passer la Commande'}
                   </button>
 
                   <Link
                     to="/shop"
-                    className="block text-center mt-5 text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-center mt-5 py-3 min-h-11 text-[11px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Continuer mes Achats
                   </Link>
+
 
                   <div className="mt-8 pt-6 border-t border-border/60 space-y-2.5 text-[11px] leading-relaxed text-muted-foreground">
                     <p><span className="text-foreground">Livraison</span> — expédié sous 24 à 48 h depuis Paris, offert dès 99 €.</p>
