@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ShoppingBag, Trash2, Minus, Plus, ExternalLink, Loader2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Trash2, Minus, Plus, Loader2, ShieldCheck, Truck, RotateCcw, Sparkles } from 'lucide-react';
+import { useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
 import { toast } from '@/hooks/use-toast';
-import { getShippingFee, getRemainingForFreeShipping, isFreeShipping, formatEuro, SHIPPING_FEE, FREE_SHIPPING_THRESHOLD } from '@/lib/shipping';
+import {
+  getShippingFee,
+  getRemainingForFreeShipping,
+  isFreeShipping,
+  formatEuro,
+  SHIPPING_FEE,
+  FREE_SHIPPING_THRESHOLD,
+} from '@/lib/shipping';
+import { standardProducts } from '@/data/products';
+import { resolveProductImage } from '@/lib/productImage';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -18,10 +28,35 @@ const getLocalImage = (key: string) => {
 };
 
 const Cart = () => {
-  const { items, removeItem, updateQuantity, isLoading, getCheckoutUrl, totalPrice, totalItems } = useCartStore();
-  const { items: localItems, removeFromCart, updateQuantity: updateLocalQty, totalItems: localTotal, totalPrice: localPriceTotal } = useCart();
-  const total = totalPrice() + localPriceTotal;
+  const {
+    items,
+    removeItem,
+    updateQuantity,
+    isLoading,
+    getCheckoutUrl,
+    totalPrice,
+    totalItems,
+  } = useCartStore();
+  const {
+    items: localItems,
+    removeFromCart,
+    updateQuantity: updateLocalQty,
+    totalItems: localTotal,
+    totalPrice: localPriceTotal,
+  } = useCart();
+
+  const subtotal = totalPrice() + localPriceTotal;
   const count = totalItems() + localTotal;
+  const shipping = getShippingFee(subtotal);
+  const grandTotal = subtotal + shipping;
+  const freeShippingProgress = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
+  const remaining = getRemainingForFreeShipping(subtotal);
+
+  // Curated cross-sell — max 3 pieces, avoid what's already in the cart
+  const suggestions = useMemo(() => {
+    const inCartIds = new Set(localItems.map(i => i.product.id));
+    return standardProducts.filter(p => !inCartIds.has(p.id)).slice(0, 3);
+  }, [localItems]);
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
@@ -31,9 +66,10 @@ const Cart = () => {
     }
     toast({
       title: 'Commande indisponible',
-      description: localItems.length > 0
-        ? "Certains articles ne sont pas synchronisés. Retirez-les et ré-ajoutez-les depuis la fiche produit."
-        : 'Ajoutez un article au panier pour passer commande.',
+      description:
+        localItems.length > 0
+          ? "Certains articles ne sont pas synchronisés. Retirez-les et ré-ajoutez-les depuis la fiche produit."
+          : 'Ajoutez un article au panier pour passer commande.',
     });
   };
 
@@ -41,158 +77,352 @@ const Cart = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-36 pb-24 px-6 md:px-12 min-h-[60vh]">
+      <main className="pt-36 pb-32 px-6 md:px-12">
         {count === 0 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto pt-12 md:pt-24 text-center"
+          // ————————————————————— EMPTY STATE —————————————————————
+          <motion.section
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-xl mx-auto pt-16 md:pt-28 text-center"
+            aria-labelledby="empty-cart-heading"
           >
-            <ShoppingBag size={32} strokeWidth={1} className="mx-auto mb-6 text-muted-foreground" />
-            <h1 className="text-3xl md:text-4xl font-medium mb-4">Votre panier est vide</h1>
-            <p className="text-muted-foreground text-sm mb-10">
-              Découvrez des pièces conçues pour changer ce que vous ressentez.
+            <p className="text-[10px] tracking-[0.35em] text-muted-foreground uppercase mb-8">
+              Votre Sélection
+            </p>
+            <h1
+              id="empty-cart-heading"
+              className="text-3xl md:text-[42px] font-light leading-tight mb-6"
+            >
+              Aucune pièce<br />ne vous accompagne encore.
+            </h1>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto mb-12">
+              Chaque création LOVCICOV est pensée comme un talisman.
+              Découvrez la pièce qui vous ressemble.
             </p>
             <Link
               to="/shop"
-              className="inline-block bg-primary text-primary-foreground px-8 py-3 text-brand text-xs hover:opacity-80 transition-opacity"
+              className="inline-block bg-primary text-primary-foreground px-10 py-4 text-[11px] tracking-[0.25em] uppercase hover:opacity-80 transition-opacity"
             >
-              Continuer mes Achats
+              Découvrir la Boutique
             </Link>
-          </motion.div>
+            <div className="mt-16 flex items-center justify-center gap-8 text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+              <Link to="/collection/powerlov" className="hover:text-foreground transition-colors">PowerLov</Link>
+              <span className="w-px h-3 bg-border" />
+              <Link to="/collection/mysticlov" className="hover:text-foreground transition-colors">MysticLov</Link>
+              <span className="w-px h-3 bg-border" />
+              <Link to="/collection/stonelov" className="hover:text-foreground transition-colors">StoneLov</Link>
+            </div>
+          </motion.section>
         ) : (
+          // ————————————————————— CART WITH ITEMS —————————————————————
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-6xl mx-auto"
           >
-            <h1 className="text-2xl md:text-3xl font-medium mb-10 mt-8">Votre Panier</h1>
-            <p className="text-[11px] text-muted-foreground tracking-[0.05em] mb-6 -mt-6">
-              Livraison 9,90€ — offerte dès 99€ d'achat
-            </p>
+            {/* Header */}
+            <header className="text-center mb-16 md:mb-20">
+              <p className="text-[10px] tracking-[0.35em] text-muted-foreground uppercase mb-4">
+                Votre Sélection
+              </p>
+              <h1 className="text-3xl md:text-[38px] font-light leading-tight">
+                Panier
+              </h1>
+              <p className="text-xs text-muted-foreground mt-3">
+                {count} {count > 1 ? 'pièces' : 'pièce'}
+              </p>
+            </header>
 
-            <div className="space-y-6 border-t border-border">
-              {items.map((item) => {
-                const image = item.product.node.images?.edges?.[0]?.node?.url;
-                const title = item.product.node.title;
-                const price = parseFloat(item.price.amount).toFixed(0);
-                const optionsLabel = item.selectedOptions.map(o => o.value).join(' / ');
-
-                return (
-                  <div key={item.variantId} className="flex gap-4 md:gap-6 py-6 border-b border-border">
-                    <Link to={`/product/${item.product.node.handle}`} className="w-20 md:w-28 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0">
-                      {image ? (
-                        <img src={image} alt={title} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-secondary" />
-                      )}
-                    </Link>
-
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <Link to={`/product/${item.product.node.handle}`} className="text-brand text-[11px] hover:opacity-70 transition-opacity">
-                          {title}
-                        </Link>
-                        {optionsLabel && (
-                          <p className="text-[10px] text-muted-foreground mt-0.5">{optionsLabel}</p>
-                        )}
-                        <p className="text-sm text-muted-foreground mt-1">€{price}</p>
-                      </div>
-
-                      <div className="flex items-center justify-between mt-4">
-                        <div className="flex items-center gap-3 border border-border">
-                          <button onClick={() => updateQuantity(item.variantId, item.quantity - 1)} className="p-2 hover:opacity-60 transition-opacity">
-                            <Minus size={12} />
-                          </button>
-                          <span className="text-xs w-4 text-center">{item.quantity}</span>
-                          <button onClick={() => updateQuantity(item.variantId, item.quantity + 1)} className="p-2 hover:opacity-60 transition-opacity">
-                            <Plus size={12} />
-                          </button>
-                        </div>
-
-                        <button onClick={() => removeItem(item.variantId)} className="text-muted-foreground hover:text-foreground transition-colors">
-                          <Trash2 size={14} strokeWidth={1.5} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-
-              {localItems.map((item) => {
-                const image = getLocalImage(item.product.image);
-                return (
-                  <div key={item.product.id} className="flex gap-4 md:gap-6 py-6 border-b border-border">
-                    <Link to={`/shop/${item.product.id}`} className="w-20 md:w-28 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0">
-                      {image ? <img src={image} alt={item.product.name} className="w-full h-full object-cover" /> : <div className="w-full h-full bg-secondary" />}
-                    </Link>
-                    <div className="flex-1 flex flex-col justify-between">
-                      <div>
-                        <Link to={`/shop/${item.product.id}`} className="text-brand text-[11px] hover:opacity-70 transition-opacity">
-                          {item.product.name}
-                        </Link>
-                        <p className="text-sm text-muted-foreground mt-1">€{item.product.price}</p>
-                      </div>
-                      <div className="flex items-center justify-between mt-4">
-                        <div className="flex items-center gap-3 border border-border">
-                          <button onClick={() => updateLocalQty(item.product.id, item.quantity - 1)} className="p-2 hover:opacity-60 transition-opacity">
-                            <Minus size={12} />
-                          </button>
-                          <span className="text-xs w-4 text-center">{item.quantity}</span>
-                          <button onClick={() => updateLocalQty(item.product.id, item.quantity + 1)} className="p-2 hover:opacity-60 transition-opacity">
-                            <Plus size={12} />
-                          </button>
-                        </div>
-                        <button onClick={() => removeFromCart(item.product.id)} className="text-muted-foreground hover:text-foreground transition-colors">
-                          <Trash2 size={14} strokeWidth={1.5} />
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="mt-8 flex flex-col items-end gap-4">
-              {!isFreeShipping(total) && total > 0 && (
-                <div className="w-full md:w-72 text-[11px] text-muted-foreground text-center md:text-right">
-                  Plus que {formatEuro(getRemainingForFreeShipping(total))} pour bénéficier de la livraison offerte&nbsp;!
-                </div>
-              )}
-              <div className="flex justify-between w-full md:w-72">
-                <span className="text-brand text-xs">Sous-total</span>
-                <span className="text-sm">{formatEuro(total)}</span>
-              </div>
-              <div className="flex justify-between w-full md:w-72">
-                <span className="text-brand text-xs">Livraison</span>
-                <span className="text-sm">
-                  {isFreeShipping(total) ? 'Frais de port offerts !' : formatEuro(SHIPPING_FEE)}
+            {/* Free shipping bar */}
+            <div className="max-w-2xl mx-auto mb-14 md:mb-20">
+              <div className="flex justify-between items-baseline text-[10px] tracking-[0.2em] uppercase text-muted-foreground mb-3">
+                <span>Livraison Offerte</span>
+                <span>
+                  {isFreeShipping(subtotal)
+                    ? 'Débloquée'
+                    : `${formatEuro(remaining)} restants`}
                 </span>
               </div>
-              <div className="flex justify-between w-full md:w-72 border-t border-border pt-3">
-                <span className="text-brand text-xs">Total</span>
-                <span className="text-sm font-medium">{formatEuro(total + getShippingFee(total))}</span>
+              <div className="h-px bg-border relative overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${freeShippingProgress}%` }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-y-0 left-0 bg-foreground"
+                />
               </div>
-              <button
-                onClick={handleCheckout}
-                disabled={isLoading}
-                className="bg-primary text-primary-foreground px-8 py-4 text-brand text-xs hover:opacity-80 transition-opacity w-full md:w-72 flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                {isLoading ? (
-                  <Loader2 className="animate-spin" size={14} />
-                ) : (
-                  <>
-                    <ExternalLink size={12} />
-                    Passer la Commande
-                  </>
-                )}
-              </button>
-              <Link to="/shop" className="text-brand text-[10px] text-muted-foreground hover:text-foreground transition-colors">
-                Continuer mes Achats
-              </Link>
+              {isFreeShipping(subtotal) && (
+                <p className="text-[11px] text-center mt-4 tracking-wide">
+                  Votre commande est offerte en livraison.
+                </p>
+              )}
             </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-12 lg:gap-20">
+              {/* ————————— PRODUCTS ————————— */}
+              <section aria-label="Articles du panier">
+                <AnimatePresence mode="popLayout">
+                  {items.map((item) => {
+                    const image = item.product.node.images?.edges?.[0]?.node?.url;
+                    const title = item.product.node.title;
+                    const price = parseFloat(item.price.amount);
+                    const size = item.selectedOptions.find(o => o.name.toLowerCase().includes('taille') || o.name.toLowerCase().includes('size'))?.value;
+                    const color = item.selectedOptions.find(o => o.name.toLowerCase().includes('couleur') || o.name.toLowerCase().includes('color'))?.value;
+
+                    return (
+                      <motion.article
+                        key={item.variantId}
+                        layout
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex gap-6 md:gap-8 py-10 border-b border-border first:pt-0"
+                      >
+                        <Link
+                          to={`/product/${item.product.node.handle}`}
+                          className="w-24 md:w-32 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0 group"
+                        >
+                          {image ? (
+                            <img
+                              src={image}
+                              alt={title}
+                              loading="lazy"
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-secondary" />
+                          )}
+                        </Link>
+
+                        <div className="flex-1 flex flex-col justify-between min-w-0">
+                          <div>
+                            <Link
+                              to={`/product/${item.product.node.handle}`}
+                              className="text-sm md:text-base font-light tracking-wide hover:opacity-70 transition-opacity block leading-snug"
+                            >
+                              {title}
+                            </Link>
+                            <div className="mt-2 space-y-0.5 text-[11px] tracking-wide text-muted-foreground">
+                              {color && <p>Coloris — {color}</p>}
+                              {size && <p>Taille — {size}</p>}
+                            </div>
+                          </div>
+
+                          <div className="flex items-end justify-between mt-6 gap-4">
+                            <div className="inline-flex items-center border border-border">
+                              <button
+                                onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                                aria-label="Diminuer la quantité"
+                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                              >
+                                <Minus size={11} strokeWidth={1.5} />
+                              </button>
+                              <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
+                              <button
+                                onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                                aria-label="Augmenter la quantité"
+                                className="p-2.5 hover:bg-secondary transition-colors focus-visible:outline focus-visible:outline-1 focus-visible:outline-foreground"
+                              >
+                                <Plus size={11} strokeWidth={1.5} />
+                              </button>
+                            </div>
+                            <div className="flex items-center gap-5">
+                              <p className="text-sm font-light tabular-nums">
+                                {formatEuro(price * item.quantity)}
+                              </p>
+                              <button
+                                onClick={() => removeItem(item.variantId)}
+                                aria-label={`Retirer ${title}`}
+                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                              >
+                                <Trash2 size={14} strokeWidth={1.3} />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.article>
+                    );
+                  })}
+
+                  {localItems.map((item) => {
+                    const image = getLocalImage(item.product.image);
+                    return (
+                      <motion.article
+                        key={item.product.id}
+                        layout
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex gap-6 md:gap-8 py-10 border-b border-border"
+                      >
+                        <Link
+                          to={`/shop/${item.product.id}`}
+                          className="w-24 md:w-32 aspect-[3/4] bg-secondary overflow-hidden flex-shrink-0 group"
+                        >
+                          {image ? (
+                            <img
+                              src={image}
+                              alt={item.product.name}
+                              loading="lazy"
+                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-secondary" />
+                          )}
+                        </Link>
+                        <div className="flex-1 flex flex-col justify-between min-w-0">
+                          <div>
+                            <Link
+                              to={`/shop/${item.product.id}`}
+                              className="text-sm md:text-base font-light tracking-wide hover:opacity-70 transition-opacity block leading-snug"
+                            >
+                              {item.product.name}
+                            </Link>
+                            <p className="mt-2 text-[11px] tracking-wide text-muted-foreground">Édition Signature</p>
+                          </div>
+                          <div className="flex items-end justify-between mt-6 gap-4">
+                            <div className="inline-flex items-center border border-border">
+                              <button
+                                onClick={() => updateLocalQty(item.product.id, item.quantity - 1)}
+                                aria-label="Diminuer la quantité"
+                                className="p-2.5 hover:bg-secondary transition-colors"
+                              >
+                                <Minus size={11} strokeWidth={1.5} />
+                              </button>
+                              <span className="text-xs w-8 text-center tabular-nums">{item.quantity}</span>
+                              <button
+                                onClick={() => updateLocalQty(item.product.id, item.quantity + 1)}
+                                aria-label="Augmenter la quantité"
+                                className="p-2.5 hover:bg-secondary transition-colors"
+                              >
+                                <Plus size={11} strokeWidth={1.5} />
+                              </button>
+                            </div>
+                            <div className="flex items-center gap-5">
+                              <p className="text-sm font-light tabular-nums">
+                                {formatEuro(item.product.price * item.quantity)}
+                              </p>
+                              <button
+                                onClick={() => removeFromCart(item.product.id)}
+                                aria-label={`Retirer ${item.product.name}`}
+                                className="text-muted-foreground hover:text-foreground transition-colors p-1"
+                              >
+                                <Trash2 size={14} strokeWidth={1.3} />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.article>
+                    );
+                  })}
+                </AnimatePresence>
+              </section>
+
+              {/* ————————— ORDER SUMMARY ————————— */}
+              <aside className="lg:sticky lg:top-32 h-fit" aria-label="Récapitulatif de la commande">
+                <div className="bg-secondary/40 p-8 md:p-10">
+                  <h2 className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground mb-8">
+                    Récapitulatif
+                  </h2>
+
+                  <div className="space-y-4 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Sous-total</span>
+                      <span className="tabular-nums">{formatEuro(subtotal)}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Livraison</span>
+                      <span className="tabular-nums">
+                        {isFreeShipping(subtotal) ? 'Offerte' : formatEuro(SHIPPING_FEE)}
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-muted-foreground">
+                      TVA incluse. Taxes calculées à la validation.
+                    </p>
+                  </div>
+
+                  <div className="h-px bg-border my-6" />
+
+                  <div className="flex justify-between items-baseline mb-8">
+                    <span className="text-xs tracking-[0.2em] uppercase">Total</span>
+                    <span className="text-xl font-light tabular-nums">{formatEuro(grandTotal)}</span>
+                  </div>
+
+                  <button
+                    onClick={handleCheckout}
+                    disabled={isLoading}
+                    className="w-full bg-primary text-primary-foreground py-4 text-[11px] tracking-[0.25em] uppercase hover:opacity-80 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                  >
+                    {isLoading ? <Loader2 className="animate-spin" size={14} /> : 'Passer la Commande'}
+                  </button>
+
+                  <Link
+                    to="/shop"
+                    className="block text-center mt-5 text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Continuer mes Achats
+                  </Link>
+                </div>
+
+                {/* Reassurance */}
+                <ul className="mt-10 space-y-5 text-[11px] text-muted-foreground">
+                  <li className="flex items-start gap-3">
+                    <ShieldCheck size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
+                    <span>Paiement sécurisé — cryptage SSL.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Truck size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
+                    <span>Livraison suivie sous 2 à 4 jours ouvrés.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <RotateCcw size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
+                    <span>Retours simplifiés sous 14 jours.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Sparkles size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
+                    <span>Un conseil ? Écrivez-nous, une personne vous répond.</span>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+
+            {/* ————————— CROSS-SELL ————————— */}
+            {suggestions.length > 0 && (
+              <section className="mt-32 md:mt-40" aria-labelledby="curation-heading">
+                <div className="text-center mb-14">
+                  <p className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground mb-3">
+                    Notre Sélection
+                  </p>
+                  <h2 id="curation-heading" className="text-2xl md:text-3xl font-light">
+                    Complétez votre écrin
+                  </h2>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+                  {suggestions.map((product) => (
+                    <Link
+                      key={product.id}
+                      to={`/shop/${product.id}`}
+                      className="group text-center"
+                    >
+                      <div className="aspect-[3/4] bg-secondary overflow-hidden mb-5">
+                        <img
+                          src={resolveProductImage(product.image)}
+                          alt={product.name}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                      <p className="text-xs tracking-[0.15em] uppercase font-light">{product.name}</p>
+                      <p className="text-xs text-muted-foreground mt-2 tabular-nums">{formatEuro(product.price)}</p>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
           </motion.div>
         )}
       </main>
