@@ -251,7 +251,7 @@ const ProductPage = ({ product }: Props) => {
                     }`}
                     aria-label={`Image ${i + 1}`}
                   >
-                  <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
+                  <img src={getImage(img)} alt="" className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
