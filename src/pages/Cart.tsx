@@ -349,7 +349,7 @@ const Cart = () => {
 
             {/* ————————— CROSS-SELL ————————— */}
             {suggestions.length > 0 && (
-              <section className="mt-32 md:mt-40" aria-labelledby="curation-heading">
+              <section className="mt-16 md:mt-20" aria-labelledby="curation-heading">
                 <div className="text-center mb-14">
                   <p className="text-[10px] tracking-[0.35em] uppercase text-muted-foreground mb-3">
                     Notre Sélection
