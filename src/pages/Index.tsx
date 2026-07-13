@@ -9,6 +9,8 @@ import Footer from '@/components/Footer';
 
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-powerlov-v2.png.asset.json';
+import slideHeroAsset from '@/assets/slide-hero-paris-trio-v2.png.asset.json';
+
 
 import ig1 from '@/assets/instagram/ig-1.png';
 import ig2 from '@/assets/instagram/ig-2.jpg';
