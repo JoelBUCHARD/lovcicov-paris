@@ -174,9 +174,7 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
           >
-            <Link to="/manifeste" className="hover:text-foreground transition-colors">
-              Manifeste
-            </Link>
+            Manifeste
           </motion.p>
           <motion.div
             variants={fadeUp}
@@ -205,36 +203,6 @@ const Index = () => {
           </motion.p>
         </div>
       </section>
-
-
-      {/* ————————————————————————————————————————————————————— */}
-      {/* PRESS — early social proof */}
-      {/* ————————————————————————————————————————————————————— */}
-      <section className="py-10 md:py-14 text-center bg-white border-t border-b border-[#EFE9DF]">
-        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-6">
-          Vu dans la presse
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 px-6">
-          {['Madame Figaro', 'Paris Match'].map((media) => (
-            <span
-              key={media}
-              className="text-[16px] md:text-[18px] text-[#888780] tracking-[0.04em] font-light italic"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-            >
-              {media}
-            </span>
-          ))}
-          <span
-            className="text-[14px] text-[#B4A99A] tracking-[0.04em] font-light italic"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-          >
-            — et d&apos;autres
-          </span>
-        </div>
-      </section>
-
-
-
 
 
       {/* ————————————————————————————————————————————————————— */}
@@ -303,11 +271,7 @@ const Index = () => {
           >
             Découvrir PowerLov
           </Link>
-          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
-            Coton lourd · Confection portugaise
-          </p>
         </motion.div>
-
       </section>
 
 
@@ -353,11 +317,7 @@ const Index = () => {
           >
             Découvrir MysticLov
           </Link>
-          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
-            Coton peigné · Broderie main
-          </p>
         </motion.div>
-
       </section>
 
 
@@ -401,11 +361,7 @@ const Index = () => {
           >
             Découvrir StoneLov
           </Link>
-          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
-            Pierres semi-précieuses · Sertissage main
-          </p>
         </motion.div>
-
       </section>
 
 
@@ -558,26 +514,60 @@ const Index = () => {
 
 
       {/* ————————————————————————————————————————————————————— */}
-      {/* 9. QUIET REASSURANCE — slim editorial strip */}
+      {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] py-10 md:py-12 px-6">
-        <div className="max-w-[1080px] mx-auto flex flex-wrap items-center justify-center gap-x-10 md:gap-x-16 gap-y-4">
-          {[
-            'Livraison offerte dès 150 €',
-            'Retours 14 jours',
-            'Paiement sécurisé',
-            'Conseillère dédiée',
-          ].map((label, i) => (
-            <div key={label} className="flex items-center gap-6 md:gap-10">
-              {i > 0 && <span className="hidden md:inline-block w-px h-3 bg-[#C9B99A]" />}
-              <span className="text-[10px] tracking-[0.28em] uppercase text-[#8B7D6B] font-light">
-                {label}
-              </span>
-            </div>
-          ))}
+      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
+        <div className="max-w-[1080px] mx-auto">
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
+            {[
+              { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 150 €.' },
+              { title: 'Paiement sécurisé', desc: 'Transactions cryptées, protection intégrale.' },
+              { title: 'Retours 14 jours', desc: 'Simples, gratuits, sans justification.' },
+              { title: 'Service dédié', desc: 'Une conseillère répond personnellement.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+              >
+                
+                <h3 className="text-[11px] tracking-[0.28em] uppercase text-[#1A1A1A] font-medium mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-[13px] text-[#5F5E5A] font-light leading-relaxed max-w-[220px] mx-auto">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
+
+      {/* PRESS */}
+      <section className="py-16 md:py-20 text-center bg-white border-t border-b border-[#E8E4DD]">
+        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-8">
+          Vu dans la presse
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6">
+          {['Madame Figaro', 'Paris Match'].map((media) => (
+            <span
+              key={media}
+              className="text-[15px] md:text-[16px] text-[#888780] tracking-[0.06em] font-light"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic' }}
+            >
+              {media}
+            </span>
+          ))}
+          <span className="text-[14px] text-[#B4A99A] tracking-[0.06em] font-light italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+            — et d&apos;autres
+          </span>
+        </div>
+      </section>
 
 
 
