@@ -160,16 +160,8 @@ const Index = () => {
 
 
       {/* 2. MANIFESTO */}
-      <section className="px-6 md:px-10 pt-4 md:pt-6 pb-8 md:pb-10 text-center">
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="text-brand text-[11px] text-muted-foreground mb-8 tracking-[0.2em]"
-        >
-          MANIFESTE
-        </motion.p>
+      <section className="px-6 md:px-10 pt-2 md:pt-3 pb-8 md:pb-10 text-center">
+
         <motion.div
           variants={fadeUp}
           initial="hidden"
