@@ -237,14 +237,14 @@ const ProductPage = ({ product }: Props) => {
 
         {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-stretch">
             {allImages.length > 1 && (
-              <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
+              <div className="hidden md:flex flex-col justify-between gap-2 w-16 shrink-0 self-stretch">
                 {allImages.map((img, i) => (
                   <button
                     key={img + i}
                     onClick={() => setActiveImage(i)}
-                    className={`aspect-square overflow-hidden bg-white border transition-all ${
+                    className={`flex-1 min-h-0 overflow-hidden bg-white border transition-all ${
                       activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60 hover:opacity-100'
                     }`}
                     aria-label={`Image ${i + 1}`}
@@ -254,6 +254,7 @@ const ProductPage = ({ product }: Props) => {
                 ))}
               </div>
             )}
+
             <button
               type="button"
               onClick={() => setLightboxOpen(true)}
