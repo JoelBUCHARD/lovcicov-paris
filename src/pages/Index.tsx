@@ -302,13 +302,12 @@ const Index = () => {
 
         <div className="px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
-            {mysticProducts.slice(0, 4).map((product, i) => (
-              <div key={product.id} className="bg-white p-3">
-                <ProductCard product={product} index={i} />
-              </div>
+            {visibleMysticProducts.slice(0, 4).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
         </div>
+
 
         <motion.div
           variants={fadeUp}
