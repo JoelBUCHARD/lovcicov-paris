@@ -57,17 +57,10 @@ const CollectionPower = () => {
             {first.map((p, i) => (
               <EditorialProductCard key={p.id} product={p} index={i} eager={i < 2} />
             ))}
-            {rest.length > 0 && (
-              <EditorialPause
-                kicker="Manifeste"
-                line1="La puissance n'a pas besoin de crier."
-                line2="Elle avance."
-                accent="#1A1A1A"
-              />
-            )}
             {rest.map((p, i) => (
               <EditorialProductCard key={p.id} product={p} index={i} />
             ))}
+
           </div>
 
           {visiblePower.length === 0 && <EmptyState />}
