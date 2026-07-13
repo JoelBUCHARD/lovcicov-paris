@@ -556,7 +556,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 custom={i}
               >
-                <div className="w-6 h-px bg-[#1A1A1A] mx-auto mb-6 opacity-60" />
+                
                 <h3 className="text-[11px] tracking-[0.28em] uppercase text-[#1A1A1A] font-medium mb-4">
                   {item.title}
                 </h3>
