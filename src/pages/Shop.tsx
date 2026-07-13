@@ -1,22 +1,34 @@
 import { useState, useMemo, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link, useSearchParams } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CollectionHeader from '@/components/CollectionHeader';
+import EditorialProductCard from '@/components/EditorialProductCard';
+import EditorialPause from '@/components/EditorialPause';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
+type SortKey = 'featured' | 'price-asc' | 'price-desc';
 
 const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
 
+const filterMeta: Record<Collection, { label: string; accent: string }> = {
+  all: { label: 'Tout', accent: '#1A1A1A' },
+  standard: { label: 'PowerLov', accent: '#1A1A1A' },
+  mystic: { label: 'MysticLov', accent: '#C94A4A' },
+  bijoux: { label: 'StoneLov', accent: '#A55A35' },
+};
+
 const Shop = () => {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const collectionParam = searchParams.get('collection') as Collection | null;
-  const initialCollection = collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
+  const initialCollection =
+    collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
 
   const [active, setActive] = useState<Collection>(initialCollection);
+  const [sort, setSort] = useState<SortKey>('featured');
 
   useEffect(() => {
     if (collectionParam && validCollections.includes(collectionParam)) {
@@ -31,103 +43,204 @@ const Shop = () => {
   const visibleMystic = useMemo(() => mysticProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
   const visibleBijoux = useMemo(() => bijouxProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
 
-  const localProducts = useMemo(() => {
-    if (active === 'standard') return visibleStandard;
-    if (active === 'mystic') return visibleMystic;
-    if (active === 'bijoux') return visibleBijoux;
-    return [...visibleStandard, ...visibleMystic, ...visibleBijoux];
-  }, [active, visibleStandard, visibleMystic, visibleBijoux]);
+  const products = useMemo(() => {
+    const base =
+      active === 'standard'
+        ? visibleStandard
+        : active === 'mystic'
+        ? visibleMystic
+        : active === 'bijoux'
+        ? visibleBijoux
+        : [...visibleStandard, ...visibleMystic, ...visibleBijoux];
 
+    const sorted = [...base];
+    if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
+    if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    return sorted;
+  }, [active, sort, visibleStandard, visibleMystic, visibleBijoux]);
+
+  const setCollection = (c: Collection) => {
+    setActive(c);
+    const next = new URLSearchParams(searchParams);
+    if (c === 'all') next.delete('collection');
+    else next.set('collection', c);
+    setSearchParams(next, { replace: true });
+  };
+
+  const accent = filterMeta[active].accent;
+  const headerCopy = {
+    all: {
+      title: 'La boutique.',
+      intro: "Toutes les pièces LOVCICOV, réunies. Une sélection restreinte, portée avec intention.",
+    },
+    standard: {
+      title: 'Wear your power.',
+      intro: 'Des silhouettes affirmées, pensées comme une posture.',
+    },
+    mystic: {
+      title: 'Wear your intention.',
+      intro: 'Des talismans contemporains, brodés à la main.',
+    },
+    bijoux: {
+      title: 'Wear the stone.',
+      intro: 'La pierre choisie comme un signe. La matière comme mémoire.',
+    },
+  }[active];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FAF7F2]">
       <Navbar />
 
-      <main className="pt-52 md:pt-56 pb-24 px-6 md:px-10">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+      <main className="pt-32 md:pt-40 pb-24">
+        <CollectionHeader
+          kicker="Maison LOVCICOV · Boutique"
+          title={headerCopy.title}
+          intro={headerCopy.intro}
+          accent={accent}
+        />
 
-          {/* Collection headers */}
-          {active === 'all' && (
-            <motion.div key="all-header" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">Toutes les pièces</h2>
-            </motion.div>
-          )}
-          {active === 'standard' && (
-            <motion.div key="standard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <p className="text-[9px] tracking-[0.18em] text-[#1A1A1A] mb-8 font-medium">
-                PowerLov
-              </p>
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-sm leading-relaxed">La collection rassemble des pièces aux lignes épurées et affirmées, pensées pour accompagner une présence et une attitude.</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">Des créations conçues pour celles et ceux qui avancent avec intention et définissent leur propre direction.</p>
-              </div>
-            </motion.div>
-          )}
-          {active === 'mystic' && (
-            <motion.div key="mystic" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <p className="text-[9px] tracking-[0.18em] text-[#E66060] mb-8 font-medium">MysticLov</p>
+        {/* Filters + sort */}
+        <div className="px-6 md:px-12 mb-14 md:mb-20">
+          <div className="mx-auto max-w-[1360px] flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-b border-[#E8E1D5] py-5">
+            <nav aria-label="Filtres collection" className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-3">
+              {(Object.keys(filterMeta) as Collection[]).map((key) => {
+                const isActive = active === key;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setCollection(key)}
+                    className="uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-4 focus-visible:ring-offset-[#FAF7F2] pb-1 border-b"
+                    style={{
+                      fontSize: 10,
+                      letterSpacing: '0.28em',
+                      color: isActive ? filterMeta[key].accent : '#8B7D6B',
+                      borderBottomColor: isActive ? filterMeta[key].accent : 'transparent',
+                    }}
+                    aria-pressed={isActive}
+                  >
+                    {filterMeta[key].label}
+                  </button>
+                );
+              })}
+            </nav>
 
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-sm leading-relaxed">Pièces brodées main, symboles sacrés et énergie portée. Chaque création est un mantra à porter.</p>
-              </div>
-            </motion.div>
-          )}
-          {active === 'bijoux' && (
-            <motion.div key="bijoux" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mb-12 max-w-lg mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-medium mb-4">StoneLov</h2>
-              <div className="space-y-4">
-                <p className="text-muted-foreground text-sm leading-relaxed">La collection StoneLov rassemble des créations composées de pierres naturelles choisies pour leur caractère et leur beauté.</p>
-                <p className="text-muted-foreground text-sm leading-relaxed">Chaque bijou est pensé comme un objet personnel, où la matière devient signature.</p>
-              </div>
-            </motion.div>
-          )}
+            <div className="flex items-center justify-center md:justify-end gap-3">
+              <label
+                htmlFor="sort"
+                className="uppercase text-[#8B7D6B] font-light"
+                style={{ fontSize: 10, letterSpacing: '0.28em' }}
+              >
+                Tri
+              </label>
+              <select
+                id="sort"
+                value={sort}
+                onChange={(e) => setSort(e.target.value as SortKey)}
+                className="bg-transparent border-b border-[#E8E1D5] pb-1 pr-6 uppercase text-[#1A1A1A] focus:outline-none focus:border-[#1A1A1A] cursor-pointer"
+                style={{ fontSize: 10, letterSpacing: '0.22em' }}
+              >
+                <option value="featured">Sélection</option>
+                <option value="price-asc">Prix croissant</option>
+                <option value="price-desc">Prix décroissant</option>
+              </select>
+            </div>
+          </div>
+        </div>
 
-          {/* All view: grouped by universe */}
-          {active === 'all' ? (
-            <>
-              {visibleStandard.length > 0 && (
-                <section className="mb-16">
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">PowerLov</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {visibleStandard.map((product, i) => (
-                      <ProductCard key={product.id} product={product} index={i} />
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {visibleMystic.length > 0 && (
-                <section className="mb-16">
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">MysticLov</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {visibleMystic.map((product, i) => (
-                      <ProductCard key={product.id} product={product} index={i} />
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {visibleBijoux.length > 0 && (
-                <section>
-                  <h3 className="text-brand text-[11px] tracking-[0.15em] text-muted-foreground mb-6 text-center">StoneLov</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                    {visibleBijoux.map((product, i) => (
-                      <ProductCard key={product.id} product={product} index={i} />
-                    ))}
-                  </div>
-                </section>
-              )}
-            </>
-          ) : (
-            localProducts.length > 0 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-                {localProducts.map((product, i) => (
-                  <ProductCard key={product.id} product={product} index={i} />
+        {/* Grid */}
+        <section aria-label="Produits" className="px-6 md:px-12">
+          <div className="mx-auto max-w-[1360px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active + sort}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24"
+              >
+                {products.slice(0, 4).map((p, i) => (
+                  <EditorialProductCard
+                    key={p.id}
+                    product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                    index={i}
+                    eager={i < 2}
+                  />
                 ))}
-              </div>
-            )
-          )}
-        </motion.div>
+
+                {products.length > 4 && (
+                  <EditorialPause
+                    kicker="Maison LOVCICOV"
+                    line1="Peu de pièces."
+                    line2="Chacune pensée pour durer."
+                    accent={accent}
+                  />
+                )}
+
+                {products.slice(4).map((p, i) => (
+                  <EditorialProductCard
+                    key={p.id}
+                    product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                    index={i}
+                  />
+                ))}
+
+                {products.length === 0 && (
+                  <div className="col-span-2 md:col-span-4 py-24 text-center">
+                    <p
+                      className="uppercase font-light mb-4"
+                      style={{ fontSize: 10, letterSpacing: '0.32em', color: accent }}
+                    >
+                      Aucune pièce
+                    </p>
+                    <p
+                      className="italic font-light text-[#1A1A1A] mx-auto"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontSize: 'clamp(22px, 2.4vw, 28px)',
+                        lineHeight: 1.4,
+                        maxWidth: 480,
+                      }}
+                    >
+                      Rien à afficher dans cette sélection.
+                    </p>
+                    <button
+                      onClick={() => setCollection('all')}
+                      className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+                      style={{ fontSize: 10, letterSpacing: '0.28em' }}
+                    >
+                      Voir toutes les pièces
+                    </button>
+                  </div>
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </section>
+
+        {/* Closing editorial line */}
+        {products.length > 0 && (
+          <div className="mt-24 md:mt-32 text-center px-6">
+            <p
+              className="italic font-light text-[#1A1A1A] mx-auto"
+              style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: 'clamp(22px, 2.6vw, 30px)',
+                lineHeight: 1.4,
+                maxWidth: 520,
+              }}
+            >
+              Presence over appearance.
+            </p>
+            <Link
+              to="/fondatrice"
+              className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+              style={{ fontSize: 10, letterSpacing: '0.28em' }}
+            >
+              Notre histoire
+            </Link>
+          </div>
+        )}
       </main>
 
       <Footer />
