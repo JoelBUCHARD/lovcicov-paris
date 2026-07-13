@@ -164,7 +164,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 2. BRAND PHILOSOPHY — Manifeste */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-background py-24 md:py-36 px-6 md:px-10">
+      <section className="bg-background py-12 md:py-16 px-6 md:px-10">
         <div className="max-w-[720px] mx-auto text-center">
           <motion.p
             variants={fadeUp}
