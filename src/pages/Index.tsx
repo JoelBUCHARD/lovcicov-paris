@@ -83,7 +83,7 @@ const Index = () => {
                 className="mx-auto lg:mx-0 mb-12 md:mb-14 text-[#5F5E5A] font-light"
                 style={{ fontSize: '15px', maxWidth: '460px', lineHeight: 1.75, letterSpacing: '0.005em' }}
               >
-                LOVCICOV explore le lien entre la mode, l'énergie et la transformation intérieure — des pièces pensées comme des talismans contemporains.
+                LOVCICOV explore le lien entre la mode, l'énergie et la transformation intérieure. Des pièces pensées comme des talismans contemporains.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
