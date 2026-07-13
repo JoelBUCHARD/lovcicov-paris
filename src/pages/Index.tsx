@@ -201,21 +201,6 @@ const Index = () => {
           >
             Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.
           </motion.p>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={3}
-            className="mt-14"
-          >
-            <Link
-              to="/manifeste"
-              className="inline-flex items-center text-[10px] tracking-[0.28em] uppercase text-[#1A1A1A] border-b border-[#1A1A1A] pb-1 hover:opacity-60 transition-opacity"
-            >
-              Lire le manifeste
-            </Link>
-          </motion.div>
         </div>
       </section>
 
