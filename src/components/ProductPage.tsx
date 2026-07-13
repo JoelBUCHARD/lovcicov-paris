@@ -9,6 +9,7 @@ import { fetchShopifyProductByHandle } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
 import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
@@ -122,6 +123,7 @@ const ProductPage = ({ product }: Props) => {
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const { addToCart } = useCart();
   const addShopifyItem = useCartStore((s) => s.addItem);
+  const { isVisible } = useProductVisibility();
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
@@ -135,13 +137,13 @@ const ProductPage = ({ product }: Props) => {
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
 
-  // Complete the look — up to 3 sibling pieces from the same universe
+  // Complete the look — up to 3 sibling pieces from the same universe (visible only)
   const completeTheLook = useMemo(
     () =>
       allProducts
-        .filter((p) => p.collection === product.collection && p.id !== product.id)
+        .filter((p) => p.collection === product.collection && p.id !== product.id && isVisible(localKey(p.id)))
         .slice(0, 3),
-    [product.id, product.collection]
+    [product.id, product.collection, isVisible]
   );
 
   // Sticky mobile CTA: show after user scrolls past the primary buy button
@@ -572,7 +574,7 @@ const ProductPage = ({ product }: Props) => {
       {/* ─── Complete the look ───────────────────────────────── */}
       {completeTheLook.length > 0 && (
         <section className="px-6 md:px-12 bg-white border-t border-[#EFEDE8]">
-          <div className="max-w-[1100px] mx-auto py-20 md:py-24">
+          <div className="max-w-[1100px] mx-auto pt-8 md:pt-10 pb-20 md:pb-24">
             <p
               className="text-center mb-3"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
