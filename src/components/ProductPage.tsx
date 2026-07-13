@@ -274,12 +274,12 @@ const ProductPage = ({ product }: Props) => {
           </div>
           {/* Mobile thumbnails */}
           {allImages.length > 1 && (
-            <div className="flex md:hidden gap-2 mt-3 flex-wrap">
+            <div className="flex md:hidden gap-2 mt-4 overflow-x-auto scrollbar-hide -mx-4 px-4 snap-x">
               {allImages.map((img, i) => (
                 <button
                   key={img + i + '-m'}
                   onClick={() => setActiveImage(i)}
-                  className={`aspect-square w-16 overflow-hidden bg-white border transition-all ${
+                  className={`aspect-square w-[68px] shrink-0 overflow-hidden bg-white border transition-all snap-start ${
                     activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
@@ -288,6 +288,7 @@ const ProductPage = ({ product }: Props) => {
               ))}
             </div>
           )}
+
         </motion.div>
 
         {/* Purchase block */}
