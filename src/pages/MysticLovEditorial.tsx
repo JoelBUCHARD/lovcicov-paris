@@ -21,7 +21,7 @@ const mosaicFive = mosaicFiveAsset.url;
 import mosaicSixAsset from "@/assets/mysticlov/mysticlov-mosaic-6.png.asset.json";
 const mosaicSix = mosaicSixAsset.url;
 
-const BG = "#FFF5F5";
+const BG = "#FAF8F4";
 const ACCENT = "#E66060";
 const ACCENT_HOVER = "#C94A4A";
 const INK = "#1A1A1A";

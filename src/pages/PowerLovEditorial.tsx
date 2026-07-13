@@ -59,7 +59,7 @@ const Reveal = ({ children, className }: RevealProps) => {
 
 const sectionPadding = "clamp(28px, 5vw, 72px)";
 const pageStyle = {
-  backgroundColor: "#F4F0E8",
+  backgroundColor: "#FAF8F4",
   color: "#0D0D0D",
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
@@ -149,7 +149,7 @@ const PowerLovEditorial = () => {
         <section
           id="powerlov-manifesto"
           className="w-full"
-          style={{ backgroundColor: "#F4F0E8", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
+          style={{ backgroundColor: "#FAF8F4", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
         >
           <Reveal className="mx-auto max-w-3xl text-center">
             <p
@@ -189,12 +189,12 @@ const PowerLovEditorial = () => {
         </section>
 
         {/* PRODUITS — mosaïque harmonisée */}
-        <section style={{ backgroundColor: "#F4F0E8" }}>
+        <section style={{ backgroundColor: "#FAF8F4" }}>
           {/* Top wide image */}
           <Link
             to={topWide.link}
             className="relative w-full overflow-hidden block group"
-            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}
           >
             <img
               src={topWide.image}
@@ -215,7 +215,7 @@ const PowerLovEditorial = () => {
                 key={product.alt}
                 to={product.link}
                 className="relative w-full overflow-hidden block group"
-                style={{ aspectRatio: "4 / 5", backgroundColor: "#F4F0E8" }}
+                style={{ aspectRatio: "4 / 5", backgroundColor: "#FAF8F4" }}
               >
                 <img
                   src={product.image}
@@ -232,7 +232,7 @@ const PowerLovEditorial = () => {
           {/* Bottom wide image with CTA overlay */}
           <div
             className="relative w-full overflow-hidden"
-            style={{ aspectRatio: "16 / 9", backgroundColor: "#F4F0E8" }}
+            style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}
           >
             <Link to={bottomWide.link} className="block absolute inset-0 group">
               <img
