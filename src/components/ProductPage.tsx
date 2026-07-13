@@ -379,9 +379,6 @@ const ProductPage = ({ product }: Props) => {
                   </button>
                 ))}
               </div>
-              <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
-                Coupe oversize — nous recommandons votre taille habituelle.
-              </p>
               {stock !== null && stock <= 5 && (
                 <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
                   Plus que {stock} en stock
