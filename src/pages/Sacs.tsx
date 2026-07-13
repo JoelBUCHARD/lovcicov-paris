@@ -47,33 +47,6 @@ const Sacs = () => {
       <Navbar />
 
       <div className="pt-[73px]">
-        {/* STICKY HEADER STRIP */}
-        <header
-          className="sticky top-[73px] left-0 right-0 z-40 flex items-center justify-between px-6"
-          style={{ backgroundColor: INK, height: 48, borderBottom: `3px solid ${ACCENT}` }}
-        >
-          <span
-            className="text-[11px] uppercase"
-            style={{ color: ACCENT, letterSpacing: '0.22em', fontFamily: 'Instrument Sans, system-ui, sans-serif' }}
-          >
-            LOVBAG
-          </span>
-          <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
-          <Link
-            to="/shop/big-lov"
-            className="uppercase px-7 py-3 transition-colors text-[11px]"
-            style={{
-              backgroundColor: ACCENT,
-              color: '#FFFFFF',
-              letterSpacing: '0.2em',
-              fontFamily: 'Instrument Sans, system-ui, sans-serif',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
-          >
-            Découvrir les sacs
-          </Link>
-        </header>
 
         {/* HERO */}
         <section
