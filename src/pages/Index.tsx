@@ -221,6 +221,8 @@ const Index = () => {
           >
             Découvrir PowerLov
           </Link>
+          <div className="mx-auto mt-8 h-1 w-24 bg-red-600" />
+
         </motion.div>
       </section>
 
