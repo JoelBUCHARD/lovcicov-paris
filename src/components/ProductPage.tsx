@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle } from 'lucide-react';
-import { Product } from '@/data/products';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle, X, ZoomIn } from 'lucide-react';
+import { Product, products as allProducts } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
 import { fetchShopifyProductByHandle } from '@/lib/shopify';
