@@ -33,9 +33,9 @@ const UNIVERSE_COLOR: Record<Universe, string> = {
   stonelov: "#C4714A",
 };
 const UNIVERSE_BG: Record<Universe, string> = {
-  powerlov: "#FAF7F2",
-  mysticlov: "#FAF7F2",
-  stonelov: "#FDF5EF",
+  powerlov: "#EDEAE4",
+  mysticlov: "#EDEAE4",
+  stonelov: "#EDEAE4",
 };
 
 const STORAGE_KEY = "lovcicov_recently_viewed";
@@ -178,7 +178,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
       style={{
         backgroundColor: UNIVERSE_BG[currentUniverse],
         borderTop: "0.5px solid #E8E4DC",
-        padding: "40px 0 20px",
+        padding: "56px 0 56px",
       }}
     >
       <h2
@@ -246,6 +246,15 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
         </div>
       </div>
 
+      <div className="mt-12 flex justify-center">
+        <Link
+          to="/shop"
+          className="inline-block text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+          style={{ fontFamily: "Arial, sans-serif" }}
+        >
+          Voir tous les produits
+        </Link>
+      </div>
     </section>
   );
 };
