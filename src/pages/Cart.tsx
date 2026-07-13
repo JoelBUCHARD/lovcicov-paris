@@ -331,17 +331,18 @@ const Cart = () => {
                   <button
                     onClick={handleCheckout}
                     disabled={isLoading}
-                    className="w-full bg-primary text-primary-foreground py-4 text-[11px] tracking-[0.25em] uppercase hover:opacity-80 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                    className="w-full bg-primary text-primary-foreground py-5 min-h-[56px] text-[12px] tracking-[0.25em] uppercase hover:opacity-90 active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
                   >
                     {isLoading ? <Loader2 className="animate-spin" size={14} /> : 'Passer la Commande'}
                   </button>
 
                   <Link
                     to="/shop"
-                    className="block text-center mt-5 text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                    className="block text-center mt-5 py-3 min-h-11 text-[11px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Continuer mes Achats
                   </Link>
+
 
                   <div className="mt-8 pt-6 border-t border-border/60 space-y-2.5 text-[11px] leading-relaxed text-muted-foreground">
                     <p><span className="text-foreground">Livraison</span> — expédié sous 24 à 48 h depuis Paris, offert dès 99 €.</p>
