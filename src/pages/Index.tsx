@@ -130,8 +130,7 @@ const Index = () => {
 
 
 
-
-      {/* KEYWORDS STRIP */}
+      {/* KEYWORDS STRIP — ambient transition */}
       <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
         <div className="whitespace-nowrap overflow-hidden">
           <div className="inline-flex animate-[marquee_60s_linear_infinite]" style={{ animationName: 'marquee' }}>
@@ -160,64 +159,114 @@ const Index = () => {
       </section>
 
 
-      {/* 2. MANIFESTO */}
-      <section className="px-6 md:px-10 pt-2 md:pt-3 pb-8 md:pb-10 text-center">
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={2}
-          className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 space-y-5"
-        >
-          <p>Le véritable style ne cherche pas à transformer. Il révèle ce qui était déjà là.</p>
-          <p>Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.</p>
-          <p className="text-foreground tracking-[0.15em] text-sm">Vision. Allure. Signature.</p>
-        </motion.div>
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={3}
-        >
-          <Link
-            to="/manifeste"
-            className="inline-flex items-center gap-3 text-brand text-[11px] border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 2. BRAND PHILOSOPHY — Manifeste */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-background py-24 md:py-36 px-6 md:px-10">
+        <div className="max-w-[720px] mx-auto text-center">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
           >
-            Lire le manifeste
-
-          </Link>
-        </motion.div>
+            Manifeste
+          </motion.p>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+            className="text-[#1A1A1A] font-light space-y-8"
+            style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', lineHeight: 1.55, letterSpacing: '-0.005em' }}
+          >
+            <p>Le véritable style ne cherche pas à transformer.</p>
+            <p>
+              Il révèle <em className="italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>ce qui était déjà là</em>.
+            </p>
+          </motion.div>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+            className="mt-10 text-[#5F5E5A] font-light max-w-[520px] mx-auto"
+            style={{ fontSize: 15, lineHeight: 1.8 }}
+          >
+            Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.
+          </motion.p>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={3}
+            className="mt-14"
+          >
+            <Link
+              to="/manifeste"
+              className="inline-flex items-center text-[10px] tracking-[0.28em] uppercase text-[#1A1A1A] border-b border-[#1A1A1A] pb-1 hover:opacity-60 transition-opacity"
+            >
+              Lire le manifeste
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
-      {/* EDITORIAL */}
-      <section className="w-full bg-white pt-4 md:pt-16 pb-0 md:pb-[20px] flex justify-center">
-        <div className="relative inline-block">
+
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 3. FEATURED COLLECTION — Editorial image */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="w-full bg-white pt-4 md:pt-12 pb-4 md:pb-16 flex flex-col items-center">
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10 md:mb-14"
+        >
+          Collection 2026
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          className="relative inline-block"
+        >
           <img
             src={editorialStonelov.url}
             alt="LOVCICOV — Collection 2026"
-            className="relative z-[1] h-auto md:h-[90vh] w-auto max-w-full object-contain md:object-cover object-top block"
+            className="relative z-[1] h-auto md:h-[85vh] w-auto max-w-full object-contain md:object-cover object-top block"
           />
-        </div>
+        </motion.div>
       </section>
 
 
-
-
-
-      {/* POWERLOV */}
-      <section className="bg-[#F7F5F0] border-t-[3px] border-[#1A1A1A] pt-0 md:pt-14">
-        <div className="text-center pt-3 pb-8">
-          <p className="font-sans text-[9px] tracking-[0.2em] text-[#1A1A1A] mb-2">
-            PowerLov
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 4. SIGNATURE PIECES — PowerLov */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-[#F7F5F0] pt-20 md:pt-28 pb-20 md:pb-28">
+        <div className="text-center mb-14 md:mb-20 px-6">
+          <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-6">
+            Chapitre I
           </p>
-          <div className="w-[60px] h-px bg-[#1A1A1A] mx-auto mt-3 opacity-60" />
-
+          <h2
+            className="text-[#1A1A1A] font-light"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1 }}
+          >
+            PowerLov
+          </h2>
+          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+            Silhouettes affirmées. Coupes précises. L'énergie d'une allure choisie.
+          </p>
         </div>
-        <div className="px-6 md:px-10 pb-2 md:pb-3">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
             {visibleStandardProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -229,44 +278,39 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
+          className="text-center mt-16 md:mt-20"
         >
           <Link
             to="/collections/powerlov"
-            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
-            style={{ backgroundColor: '#1A1A1A', fontSize: 10, letterSpacing: '0.15em' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#333333')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#1A1A1A')}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 min-w-[240px]"
           >
             Découvrir PowerLov
           </Link>
-
         </motion.div>
       </section>
 
-      <div className="mx-auto h-1 w-full bg-red-600" />
 
-
-
-      {/* 3. MYSTICLOV — section in MysticLov DA */}
-      <section className="bg-[#FFF5F5] pt-10 md:pt-14 pb-10 md:pb-14">
-        <div className="text-center px-6 md:px-10 pt-3 pb-3 max-w-[640px] mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="font-sans text-[9px] tracking-[0.2em] mb-2"
-            style={{ color: '#E66060' }}
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 5. BRAND UNIVERSE — MysticLov */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-[#FFF5F5] pt-20 md:pt-28 pb-20 md:pb-28">
+        <div className="text-center mb-14 md:mb-20 px-6">
+          <p className="text-[10px] tracking-[0.32em] uppercase mb-6" style={{ color: '#E66060' }}>
+            Chapitre II
+          </p>
+          <h2
+            className="font-light"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
           >
             MysticLov
-          </motion.p>
-
-          <div className="my-4 h-px mx-auto" style={{ width: 60, backgroundColor: '#C4714A' }} />
+          </h2>
+          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+            Des talismans contemporains, portés comme une intention.
+          </p>
         </div>
 
         <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
             {mysticProducts.slice(0, 4).map((product, i) => (
               <div key={product.id} className="bg-white p-3">
                 <ProductCard product={product} index={i} />
@@ -280,12 +324,12 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-8 md:mt-10"
+          className="text-center mt-16 md:mt-20"
         >
           <Link
             to="/mysticlov"
-            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
-            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
+            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
+            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
           >
@@ -295,18 +339,107 @@ const Index = () => {
       </section>
 
 
-      {/* 4. FEATURED PRODUCTS — STONELOV Lancement */}
-      <section className="bg-[#FDF5EF] border-t-[3px] border-[#C4714A] pt-0 md:pt-14">
-        <div className="text-center pt-3 pb-8">
-          <p className="font-sans text-[9px] tracking-[0.2em] text-[#C4714A] mb-2">
-            StoneLov
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 6. CRAFTSMANSHIP — LOVBAG editorial */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section
+        className="w-full flex items-center justify-center text-center px-6"
+        style={{ backgroundColor: '#1A1A1A', padding: '120px 24px' }}
+      >
+        <div className="max-w-[720px] mx-auto">
+          <p
+            className="uppercase"
+            style={{
+              fontFamily: 'Arial, sans-serif',
+              fontSize: 9,
+              color: '#B4A99A',
+              letterSpacing: '0.32em',
+              marginBottom: 28,
+            }}
+          >
+            Savoir-faire · LOVBAG
           </p>
 
-          <div className="w-[60px] h-px bg-[#C4714A] mx-auto mt-3 opacity-60" />
+          <h2
+            className="italic font-light"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(44px, 7vw, 92px)',
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Big LOV.
+          </h2>
+          <p
+            className="italic font-light"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontSize: 'clamp(44px, 7vw, 92px)',
+              color: '#FFFFFF',
+              lineHeight: 1.05,
+              letterSpacing: '-0.01em',
+            }}
+          >
+            Small LOV.
+          </p>
 
+          <p
+            style={{
+              fontSize: 14,
+              color: '#B4A99A',
+              marginTop: 32,
+              maxWidth: 520,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+              lineHeight: 1.75,
+              fontWeight: 300,
+            }}
+          >
+            Cuir tressé à la main. Une palette de couleurs pensée comme une émotion. Une silhouette qui devient signature.
+          </p>
+
+          <Link
+            to="/sacs"
+            className="inline-block mt-12 hover:opacity-90 transition-opacity"
+            style={{
+              backgroundColor: '#FFFFFF',
+              color: '#1A1A1A',
+              padding: '16px 40px',
+              borderRadius: 0,
+              fontSize: 10,
+              textTransform: 'uppercase',
+              letterSpacing: '0.28em',
+            }}
+          >
+            Découvrir les sacs
+          </Link>
         </div>
-        <div className="px-6 md:px-10 pb-2 md:pb-3">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-4xl mx-auto">
+      </section>
+
+
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 7. EDITORIAL INSPIRATION — StoneLov */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-[#FDF5EF] pt-20 md:pt-28 pb-20 md:pb-28">
+        <div className="text-center mb-14 md:mb-20 px-6">
+          <p className="text-[10px] tracking-[0.32em] uppercase mb-6" style={{ color: '#C4714A' }}>
+            Chapitre III
+          </p>
+          <h2
+            className="font-light"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
+          >
+            StoneLov
+          </h2>
+          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+            La pierre choisie comme un signe. La matière comme une mémoire.
+          </p>
+        </div>
+
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
             {featured.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -318,33 +451,33 @@ const Index = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center pt-4 pb-8 md:pt-6 md:pb-12"
+          className="text-center mt-16 md:mt-20"
         >
           <Link
             to="/stonelov"
-            className="inline-flex items-center justify-center text-white px-8 py-3 transition-colors min-w-[220px]"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.15em' }}
+            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
+            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
             onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
             onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
           >
             Découvrir StoneLov
           </Link>
-
         </motion.div>
       </section>
 
 
-
-      {/* INSTAGRAM FEED */}
-      <section className="pt-[60px] pb-[60px] text-center bg-background border-t-[3px] border-black">
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 8. LIFESTYLE — Instagram universe */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="pt-24 md:pt-32 pb-24 md:pb-32 text-center bg-background">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-[11px] uppercase tracking-[0.2em] text-[#B4A99A] mb-4"
+          className="text-[10px] uppercase tracking-[0.32em] text-[#8B7D6B] mb-6"
         >
-          Suivez l'univers Lovcicov
+          L'univers Lovcicov
         </motion.p>
         <motion.a
           initial={{ opacity: 0, y: 12 }}
@@ -354,7 +487,7 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[16px] tracking-[0.1em] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-10"
+          className="text-[18px] font-light tracking-[0.05em] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-14"
         >
           @lovcicov.paris
         </motion.a>
@@ -363,7 +496,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-3 md:grid-cols-6 gap-1 px-2 md:px-4 mb-10"
+          className="grid grid-cols-3 md:grid-cols-6 gap-1 px-2 md:px-4 mb-14"
         >
           {instagramImages.map((src, i) => (
             <a
@@ -377,11 +510,11 @@ const Index = () => {
                 src={src}
                 alt={`Instagram @lovcicov.paris ${i + 1}`}
                 loading="lazy"
-                className={`h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
                   i === 2 ? 'object-[center_30%]' : i === 3 ? 'object-[center_75%]' : 'object-[center_20%]'
                 }`}
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors" />
             </a>
           ))}
         </motion.div>
@@ -393,114 +526,121 @@ const Index = () => {
           href="https://www.instagram.com/lovcicov.paris/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-0.5 hover:text-[#666666] hover:border-[#666666] transition-colors"
+          className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-1 hover:opacity-60 transition-opacity"
         >
           Voir notre Instagram
-          <ArrowRight size={10} />
         </motion.a>
       </section>
 
 
-      {/* SACS LOVCICOV — nouvelle page édito */}
-      <section
-        className="w-full flex items-center justify-center text-center px-6"
-        style={{ backgroundColor: '#1A1A1A', padding: '100px 24px' }}
-      >
-        <div className="max-w-[720px] mx-auto">
-          <p
-            className="uppercase"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 9,
-              color: '#B4A99A',
-              letterSpacing: '0.2em',
-              marginBottom: 24,
-            }}
-          >
-            Nouveau · LOVBAG
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 9. TRUST & REASSURANCE */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] py-20 md:py-28 px-6 md:px-10">
+        <div className="max-w-[1080px] mx-auto">
+          <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-14 md:mb-20 text-center">
+            La maison
           </p>
-
-          <h2
-            className="italic"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 'clamp(40px, 7vw, 90px)',
-              fontWeight: 200,
-              color: '#FFFFFF',
-              lineHeight: 1.05,
-            }}
-          >
-            Big LOV.
-          </h2>
-          <p
-            className="italic"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 'clamp(40px, 7vw, 90px)',
-              fontWeight: 200,
-              color: '#FFFFFF',
-              lineHeight: 1.05,
-            }}
-          >
-            Small LOV.
-          </p>
-
-          <p
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 13,
-              color: '#B4A99A',
-              marginTop: 28,
-              maxWidth: 520,
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              lineHeight: 1.6,
-            }}
-          >
-            Cuir tressé à la main. Une palette de couleurs pensée comme une émotion. Une silhouette qui devient signature.
-          </p>
-
-          <Link
-            to="/sacs"
-            className="inline-block mt-10 hover:opacity-90 transition-opacity"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#1A1A1A',
-              padding: '14px 32px',
-              borderRadius: 0,
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 11,
-              textTransform: 'uppercase',
-              letterSpacing: '0.15em',
-            }}
-          >
-            Découvrir les sacs
-          </Link>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
+            {[
+              { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 150 €.' },
+              { title: 'Paiement sécurisé', desc: 'Transactions cryptées, protection intégrale.' },
+              { title: 'Retours 14 jours', desc: 'Simples, gratuits, sans justification.' },
+              { title: 'Service dédié', desc: 'Une conseillère répond personnellement.' },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+              >
+                <div className="w-6 h-px bg-[#1A1A1A] mx-auto mb-6 opacity-60" />
+                <h3 className="text-[11px] tracking-[0.28em] uppercase text-[#1A1A1A] font-medium mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-[13px] text-[#5F5E5A] font-light leading-relaxed max-w-[220px] mx-auto">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
 
-
-
-
-
       {/* PRESS */}
-      <section className="py-10 md:py-14 text-center bg-white border-t border-b border-[#E8E4DD]">
-        <p className="text-[9px] uppercase tracking-[0.2em] text-[#B4A99A] mb-6">
+      <section className="py-16 md:py-20 text-center bg-white border-t border-b border-[#E8E4DD]">
+        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-8">
           Vu dans la presse
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-6">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6">
           {['Madame Figaro', 'Paris Match'].map((media) => (
             <span
               key={media}
-              className="text-[13px] md:text-[14px] text-[#888780] tracking-[0.08em] font-light"
+              className="text-[15px] md:text-[16px] text-[#888780] tracking-[0.06em] font-light"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic' }}
             >
               {media}
             </span>
           ))}
-          <span className="text-[13px] md:text-[14px] text-[#B4A99A] tracking-[0.08em] font-light italic">
+          <span className="text-[14px] text-[#B4A99A] tracking-[0.06em] font-light italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
             — et d&apos;autres
           </span>
+        </div>
+      </section>
+
+
+      {/* ————————————————————————————————————————————————————— */}
+      {/* 10. FINAL INVITATION */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="bg-background py-28 md:py-40 px-6 md:px-10 text-center">
+        <div className="max-w-[640px] mx-auto">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
+          >
+            Prolonger l'expérience
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={1}
+            className="text-[#1A1A1A] font-light mb-12"
+            style={{ fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
+          >
+            La suite se lit{' '}
+            <em className="italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+              en la portant.
+            </em>
+          </motion.h2>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4"
+          >
+            <Link
+              to="/shop"
+              className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 w-full sm:w-auto sm:min-w-[240px]"
+            >
+              Découvrir la collection
+            </Link>
+            <Link
+              to="/manifeste"
+              className="inline-flex items-center justify-center border border-[#1A1A1A] text-[#1A1A1A] text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-[#1A1A1A] hover:text-white transition-colors duration-500 w-full sm:w-auto sm:min-w-[240px]"
+            >
+              Lire le manifeste
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -508,5 +648,6 @@ const Index = () => {
     </div>
   );
 };
+
 
 export default Index;
