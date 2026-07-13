@@ -73,15 +73,16 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.08 }}
+      className="h-full w-full"
     >
       <Link
         to={`/product/${node.handle}`}
         state={{ from }}
         onMouseEnter={() => { prefetchRoute('/product'); prefetchImage(storefrontMainImage); prefetchImage(storefrontHoverImage); }}
         onTouchStart={() => { prefetchRoute('/product'); }}
-        className="group block bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden"
+        className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden"
       >
-        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative">
+        <div className="aspect-[3/4] overflow-hidden bg-secondary mb-4 relative shrink-0">
           {mainImage ? (
             <img
               src={mainImage}
@@ -107,7 +108,7 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
             />
           )}
         </div>
-        <div className="space-y-1 text-center pb-4 px-3">
+        <div className="space-y-1 text-center pb-4 px-3 mt-auto">
           <h3 className="text-brand text-[11px]">{node.title}</h3>
           <p className="text-sm font-sans text-muted-foreground">{currency}{price}</p>
         </div>
