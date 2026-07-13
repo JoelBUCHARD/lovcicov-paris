@@ -662,6 +662,122 @@ const ProductPage = ({ product }: Props) => {
         </div>
       </section>
 
+      {/* ─── Lightbox / Image zoom ────────────────────────── */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-white/98 backdrop-blur-sm flex items-center justify-center"
+            onClick={() => setLightboxOpen(false)}
+          >
+            <button
+              type="button"
+              onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
+              className="absolute top-6 right-6 md:top-8 md:right-8 p-2 hover:opacity-60 transition-opacity z-10"
+              aria-label="Fermer"
+            >
+              <X size={22} strokeWidth={1.2} className="text-[#1A1A1A]" />
+            </button>
+            <div
+              className="max-w-[90vw] max-h-[88vh] flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={getImage(allImages[activeImage])}
+                alt={product.name}
+                className="max-w-full max-h-[88vh] object-contain"
+              />
+            </div>
+            {allImages.length > 1 && (
+              <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+                {allImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
+                    className={`h-[3px] transition-all ${activeImage === i ? 'w-8 bg-[#1A1A1A]' : 'w-4 bg-[#B5B3AD]'}`}
+                    aria-label={`Voir image ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ─── Size guide modal ─────────────────────────────── */}
+      <AnimatePresence>
+        {sizeGuideOpen && !isJewelry && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center px-4"
+            onClick={() => setSizeGuideOpen(false)}
+          >
+            <motion.div
+              initial={{ y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 16, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="bg-white max-w-[520px] w-full p-8 md:p-10 relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSizeGuideOpen(false)}
+                className="absolute top-4 right-4 p-1 hover:opacity-60"
+                aria-label="Fermer"
+              >
+                <X size={18} strokeWidth={1.2} />
+              </button>
+              <p
+                className="mb-3"
+                style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.28em', color: cfg.accent, textTransform: 'uppercase' }}
+              >
+                Guide des tailles
+              </p>
+              <h3
+                className="mb-6"
+                style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}
+              >
+                Coupe oversize unisexe
+              </h3>
+              <table className="w-full text-left" style={{ fontFamily: SANS, fontSize: 12 }}>
+                <thead>
+                  <tr className="border-b border-[#EFEDE8]">
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Taille</th>
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Poitrine</th>
+                    <th className="py-2 font-normal uppercase text-[10px] tracking-[0.14em] text-[#888780]">Longueur</th>
+                  </tr>
+                </thead>
+                <tbody className="text-[#5F5E5A]">
+                  {[
+                    ['XS', '96 cm', '68 cm'],
+                    ['S', '104 cm', '70 cm'],
+                    ['M', '112 cm', '72 cm'],
+                    ['L', '120 cm', '74 cm'],
+                    ['XL', '128 cm', '76 cm'],
+                  ].map((r) => (
+                    <tr key={r[0]} className="border-b border-[#F5F2EC]">
+                      <td className="py-3">{r[0]}</td>
+                      <td className="py-3">{r[1]}</td>
+                      <td className="py-3">{r[2]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
+                Coupe unisexe volontairement ample. Pour un tomber plus près du corps, choisissez la taille en dessous.
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Sticky mobile CTA */}
       <div
         className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 py-3 transition-transform duration-300 ${
