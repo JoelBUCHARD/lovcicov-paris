@@ -530,11 +530,9 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-10 md:pt-14 pb-20 md:pb-28 px-6 md:px-10">
+      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-[1080px] mx-auto">
-          <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-14 md:mb-20 text-center">
-            La maison
-          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
             {[
               { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 150 €.' },
