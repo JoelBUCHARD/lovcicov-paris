@@ -117,6 +117,8 @@ const ProductPage = ({ product }: Props) => {
   const [isAdding, setIsAdding] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
   const [showStickyCta, setShowStickyCta] = useState(false);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const { addToCart } = useCart();
   const addShopifyItem = useCartStore((s) => s.addItem);
 
