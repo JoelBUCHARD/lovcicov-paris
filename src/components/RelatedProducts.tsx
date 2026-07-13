@@ -220,6 +220,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
                   alt={p.name}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="flex flex-col flex-1 text-center pb-3 px-2 mt-3">

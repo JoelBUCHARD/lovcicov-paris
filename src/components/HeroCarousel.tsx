@@ -35,6 +35,9 @@ const HeroCarousel = () => {
                       src={slide.landscape}
                       alt={`Slide ${i + 1}`}
                       className="w-full h-full object-cover object-[center_15%]"
+                      loading={i === 0 ? 'eager' : 'lazy'}
+                      fetchPriority={i === 0 ? 'high' : 'auto'}
+                      decoding="async"
                     />
                   </div>
                 ) : (
@@ -46,6 +49,8 @@ const HeroCarousel = () => {
                             src={src}
                             alt={`Slide ${i + 1} visuel ${j + 1}`}
                             className={`w-full h-full ${i === 1 ? 'object-contain' : 'object-cover'}`}
+                            loading={i === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
                           />
                         </div>
                       ))

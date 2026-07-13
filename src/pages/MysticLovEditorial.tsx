@@ -48,6 +48,9 @@ const MysticLovEditorial = () => {
             src={heroSolo}
             alt="MysticLov hero"
             className="absolute inset-0 w-full h-full object-cover object-top"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
           <div
             className="absolute inset-0 pointer-events-none"
@@ -120,6 +123,8 @@ const MysticLovEditorial = () => {
             alt="La communauté MysticLov"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "65% center" }}
+            loading="lazy"
+            decoding="async"
           />
         </section>
 
@@ -146,6 +151,8 @@ const MysticLovEditorial = () => {
                   alt={`MysticLov ${i + 1}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
                   style={{ objectPosition: item.pos }}
+                  loading="lazy"
+                  decoding="async"
                 />
               </Link>
             ))}
@@ -160,6 +167,8 @@ const MysticLovEditorial = () => {
             src={closingJoy}
             alt="Very Slow Fashion"
             className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover"
+            loading="lazy"
+            decoding="async"
           />
 
 
