@@ -55,7 +55,7 @@ const CollectionMystic = () => {
             Explorer toutes les pièces
           </Link>
         </div>
-        <div className="mt-24 md:mt-32 max-w-[1360px] mx-auto px-6 md:px-12">
+        <div className="mt-16 md:mt-20 -mb-10 md:-mb-14 max-w-[1360px] mx-auto px-6 md:px-12 relative z-10">
           <div className="border-t border-[#E5DFD3]" />
         </div>
       </main>
