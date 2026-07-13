@@ -536,7 +536,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] py-20 md:py-28 px-6 md:px-10">
+      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-10 md:pt-14 pb-20 md:pb-28 px-6 md:px-10">
         <div className="max-w-[1080px] mx-auto">
           <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-14 md:mb-20 text-center">
             La maison
