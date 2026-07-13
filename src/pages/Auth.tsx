@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -59,6 +60,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Connexion — LOVCICOV Paris" description="Accédez à votre compte LOVCICOV Paris." path="/auth" noindex />
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <motion.div
