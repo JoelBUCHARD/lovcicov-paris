@@ -66,7 +66,7 @@ const CollectionPower = () => {
           {visiblePower.length === 0 && <EmptyState />}
         </section>
 
-        <div className="mt-24 md:mt-32 text-center px-6">
+        <div className="mt-14 md:mt-20 text-center px-6">
           <Link
             to="/shop"
             className="inline-flex items-center justify-center bg-[#1A1A1A] text-white uppercase transition-colors duration-500 hover:bg-black"
@@ -75,7 +75,7 @@ const CollectionPower = () => {
             Explorer toutes les pièces
           </Link>
         </div>
-        <div className="mt-16 md:mt-20 -mb-10 md:-mb-14 max-w-[1360px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="mt-8 md:mt-10 -mb-16 md:-mb-20 max-w-[1360px] mx-auto px-6 md:px-12 relative z-10">
           <div className="border-t border-[#E5DFD3]" />
         </div>
       </main>
