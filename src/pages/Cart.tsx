@@ -344,25 +344,6 @@ const Cart = () => {
                   </Link>
                 </div>
 
-                {/* Reassurance */}
-                <ul className="mt-10 space-y-5 text-[11px] text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <ShieldCheck size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
-                    <span>Paiement sécurisé — cryptage SSL.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Truck size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
-                    <span>Livraison suivie sous 2 à 4 jours ouvrés.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <RotateCcw size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
-                    <span>Retours simplifiés sous 14 jours.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Sparkles size={14} strokeWidth={1.3} className="mt-0.5 flex-shrink-0" />
-                    <span>Un conseil ? Écrivez-nous, une personne vous répond.</span>
-                  </li>
-                </ul>
               </aside>
             </div>
 
