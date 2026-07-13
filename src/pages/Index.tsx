@@ -174,7 +174,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
           >
-            Manifeste
+            <Link to="/manifeste" className="hover:text-foreground transition-colors">
+              Manifeste
+            </Link>
           </motion.p>
           <motion.div
             variants={fadeUp}
