@@ -1,17 +1,31 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, User, ChevronDown, Search } from 'lucide-react';
+import { ShoppingBag, Menu, X, User, Search } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
 import { prefetchRoute } from '@/lib/prefetch';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
 
+const primaryLinks = [
+  { to: '/powerlov', label: 'PowerLov' },
+  { to: '/mysticlov', label: 'MysticLov' },
+  { to: '/stonelov', label: 'StoneLov' },
+  { to: '/sacs', label: 'LOVBAG' },
+];
+
+const universLinks = [
+  { to: '/manifeste', label: 'Manifeste' },
+  { to: '/fondatrice', label: 'La Fondatrice' },
+  { to: '/drops', label: 'Drops' },
+  { to: '/le-cercle', label: 'Le Cercle' },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
-  const [shopOpen, setShopOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   const shopifyItems = useCartStore(state => state.items);
@@ -29,102 +43,124 @@ const Navbar = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+    setUniversOpen(false);
+  }, [location.pathname]);
+
+  const iconClass = 'hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:opacity-60';
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-card">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm transition-[padding,box-shadow,border-color] duration-500 ease-out ${
+        scrolled ? 'border-b border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)]' : 'border-b border-transparent'
+      }`}
+    >
       {/* Top bar */}
-      <div className="border-b border-border">
-        <div className="flex items-center justify-between px-6 md:px-10 py-4">
-          {/* Left icons */}
-          <div className="hidden md:flex items-center gap-4 w-40">
-          </div>
-
-          {/* Center logo */}
-          <Link to="/" className="flex items-center justify-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-10 w-auto" />
+      <div
+        className={`flex items-center justify-between px-6 md:px-12 lg:px-16 transition-[padding] duration-500 ease-out ${
+          scrolled ? 'py-3 md:py-4' : 'py-5 md:py-7'
+        }`}
+      >
+        {/* Left icons */}
+        <div className="flex items-center gap-6 flex-1">
+          <button
+            className={`md:hidden ${iconClass}`}
+            onClick={() => setIsOpen(true)}
+            aria-label="Ouvrir le menu"
+          >
+            <Menu size={18} strokeWidth={1.25} />
+          </button>
+          <Link
+            to="/search"
+            onMouseEnter={() => prefetchRoute('/search')}
+            className={`hidden md:block ${iconClass}`}
+            aria-label="Rechercher"
+          >
+            <Search size={17} strokeWidth={1.25} />
           </Link>
+        </div>
 
+        {/* Center logo */}
+        <Link
+          to="/"
+          className="flex items-center justify-center focus-visible:outline-none"
+          aria-label="LOVCICOV Paris — Accueil"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <img
+            src={lovcicovLogo}
+            alt="LOVCICOV Paris"
+            className={`w-auto transition-[height] duration-500 ease-out ${
+              scrolled ? 'h-7 md:h-8' : 'h-9 md:h-11'
+            }`}
+          />
+        </Link>
 
-          {/* Right icons */}
-          <div className="flex items-center gap-4 w-40 justify-end">
-            <Link
-              to={isLoggedIn ? '/account' : '/auth'}
-              onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
-              className="hidden md:block hover:opacity-60 transition-opacity"
-            >
-              <User size={18} strokeWidth={1.5} />
-            </Link>
-            <Link
-              to="/search"
-              onMouseEnter={() => prefetchRoute('/search')}
-              className="hidden md:block hover:opacity-60 transition-opacity"
-              aria-label="Rechercher"
-            >
-              <Search size={18} strokeWidth={1.5} />
-            </Link>
-            <Link
-              to="/cart"
-              onMouseEnter={() => prefetchRoute('/cart')}
-              className="hover:opacity-60 transition-opacity relative"
-            >
-              <ShoppingBag size={18} strokeWidth={1.5} />
-              {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-[9px] w-4 h-4 rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-            <button
-              className="md:hidden hover:opacity-60 transition-opacity"
-              onClick={() => setIsOpen(!isOpen)}
-            >
-              {isOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
-            </button>
-          </div>
+        {/* Right icons */}
+        <div className="flex items-center gap-5 md:gap-6 flex-1 justify-end">
+          <Link
+            to={isLoggedIn ? '/account' : '/auth'}
+            onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
+            className={`hidden md:block ${iconClass}`}
+            aria-label={isLoggedIn ? 'Mon compte' : 'Se connecter'}
+          >
+            <User size={17} strokeWidth={1.25} />
+          </Link>
+          <Link
+            to="/cart"
+            onMouseEnter={() => prefetchRoute('/cart')}
+            className={`relative ${iconClass}`}
+            aria-label={`Panier${totalItems > 0 ? ` (${totalItems} articles)` : ''}`}
+          >
+            <ShoppingBag size={17} strokeWidth={1.25} />
+            {totalItems > 0 && (
+              <span className="absolute -top-1.5 -right-2 text-[9px] tracking-normal text-foreground font-light">
+                {totalItems}
+              </span>
+            )}
+          </Link>
         </div>
       </div>
 
       {/* Desktop navigation */}
-      <nav className="hidden md:flex items-center justify-center gap-10 py-3 border-b border-border/50">
-        <Link
-          to="/"
-          className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-black ${
-            location.pathname === '/' ? 'opacity-100' : 'opacity-70'
-          }`}
-        >
-          Accueil
-        </Link>
-
-        <Link
-          to="/powerlov"
-          onMouseEnter={() => prefetchRoute('/powerlov')}
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-gray-400"
-        >
-          PowerLov
-        </Link>
-
-        <Link
-          to="/mysticlov"
-          onMouseEnter={() => prefetchRoute('/mysticlov')}
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#E66060]"
-        >
-          MysticLov
-        </Link>
-
-        <Link
-          to="/stonelov"
-          onMouseEnter={() => prefetchRoute('/stonelov')}
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4654A]"
-        >
-          StoneLov
-        </Link>
-
-        <Link
-          to="/sacs"
-          onMouseEnter={() => prefetchRoute('/sacs')}
-          className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground transition-colors hover:text-[#C4714A]"
-        >
-          LOVBAG
-        </Link>
+      <nav
+        aria-label="Navigation principale"
+        className={`hidden md:flex items-center justify-center gap-12 lg:gap-16 transition-[padding,opacity] duration-500 ease-out ${
+          scrolled ? 'pb-3 opacity-90' : 'pb-5 opacity-100'
+        }`}
+      >
+        {primaryLinks.map(({ to, label }) => {
+          const isActive = location.pathname === to;
+          return (
+            <Link
+              key={to}
+              to={to}
+              onMouseEnter={() => prefetchRoute(to)}
+              className="group relative py-1"
+            >
+              <span
+                className={`text-[10px] tracking-[0.24em] uppercase font-medium transition-colors ${
+                  isActive ? 'text-foreground' : 'text-foreground/60 hover:text-foreground'
+                }`}
+              >
+                {label}
+              </span>
+              <span
+                className={`pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-0.5 h-px bg-foreground transition-[width] duration-500 ease-out ${
+                  isActive ? 'w-6' : 'w-0 group-hover:w-6'
+                }`}
+              />
+            </Link>
+          );
+        })}
 
         {/* Univers dropdown */}
         <div
@@ -133,118 +169,101 @@ const Navbar = () => {
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
-            className={`text-brand text-[10px] tracking-[0.12em] text-foreground transition-colors hover:text-black flex items-center gap-1 ${
-              location.pathname === '/manifeste' || location.pathname === '/fondatrice' || location.pathname === '/drops' ? 'opacity-100' : 'opacity-70'
-            }`}
+            className="text-[10px] tracking-[0.24em] uppercase font-medium text-foreground/60 hover:text-foreground transition-colors py-1"
+            aria-haspopup="true"
+            aria-expanded={universOpen}
           >
             Univers
-            <ChevronDown size={10} strokeWidth={2} className={`transition-transform ${universOpen ? 'rotate-180' : ''}`} />
           </button>
 
           <AnimatePresence>
             {universOpen && (
               <motion.div
-                initial={{ opacity: 0, y: 4 }}
+                initial={{ opacity: 0, y: 2 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 4 }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-full left-1/2 -translate-x-1/2 pt-3 min-w-[180px]"
+                exit={{ opacity: 0, y: 2 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-4 min-w-[200px]"
               >
-                <div className="bg-background border border-border shadow-lg">
-                  <Link
-                    to="/manifeste"
-                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  >
-                    Manifeste
-                  </Link>
-                  <Link
-                    to="/fondatrice"
-                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  >
-                    La Fondatrice
-                  </Link>
-                  <Link
-                    to="/drops"
-                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  >
-                    Drops
-                  </Link>
-                  <Link
-                    to="/le-cercle"
-                    className="block px-6 py-3 text-brand text-[11px] tracking-[0.1em] text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-all"
-                  >
-                    Le Cercle
-                  </Link>
+                <div className="bg-card border border-border/60 py-2">
+                  {universLinks.map(({ to, label }) => (
+                    <Link
+                      key={to}
+                      to={to}
+                      className="block px-6 py-2.5 text-[10px] tracking-[0.2em] uppercase font-medium text-foreground/60 hover:text-foreground transition-colors text-center"
+                    >
+                      {label}
+                    </Link>
+                  ))}
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
-
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — full screen overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 z-50 bg-card"
           >
-            <div className="flex flex-col px-6 py-8 gap-5">
-              <Link to="/" className="text-brand text-[10px] tracking-[0.12em] text-foreground hover:text-black transition-colors" onClick={() => setIsOpen(false)}>
-                Accueil
+            <div className="flex items-center justify-between px-6 py-5 border-b border-border/60">
+              <Link to="/search" onClick={() => setIsOpen(false)} aria-label="Rechercher">
+                <Search size={18} strokeWidth={1.25} />
               </Link>
-              <Link to="/powerlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                PowerLov
-              </Link>
-              <Link to="/mysticlov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                MysticLov
-              </Link>
-              <Link to="/stonelov" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                StoneLov
-              </Link>
-              <Link to="/sacs" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors" onClick={() => setIsOpen(false)}>
-                LOVBAG
-              </Link>
-              <p className="text-brand text-[10px] text-foreground/50 tracking-[0.2em] mt-2">Univers</p>
-              <Link to="/manifeste" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
-                Manifeste
-              </Link>
-              <Link to="/fondatrice" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
-                La Fondatrice
-              </Link>
-              <Link to="/drops" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
-                Drops
-              </Link>
-              <Link to="/le-cercle" className="text-brand text-[10px] tracking-[0.12em] text-muted-foreground hover:text-fuchsia transition-colors pl-4" onClick={() => setIsOpen(false)}>
-                Le Cercle
-              </Link>
+              <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 w-auto" />
+              <button onClick={() => setIsOpen(false)} aria-label="Fermer le menu">
+                <X size={20} strokeWidth={1.25} />
+              </button>
             </div>
+
+            <nav
+              aria-label="Navigation mobile"
+              className="flex flex-col items-center gap-8 pt-16 pb-10 px-6"
+            >
+              {primaryLinks.map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  onClick={() => setIsOpen(false)}
+                  className="text-[13px] tracking-[0.28em] uppercase font-medium text-foreground min-h-11 flex items-center"
+                >
+                  {label}
+                </Link>
+              ))}
+
+              <span className="w-8 h-px bg-border my-2" />
+
+              {universLinks.map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  onClick={() => setIsOpen(false)}
+                  className="text-[11px] tracking-[0.22em] uppercase font-light text-foreground/70 min-h-11 flex items-center"
+                >
+                  {label}
+                </Link>
+              ))}
+
+              <span className="w-8 h-px bg-border my-2" />
+
+              <Link
+                to={isLoggedIn ? '/account' : '/auth'}
+                onClick={() => setIsOpen(false)}
+                className="text-[11px] tracking-[0.22em] uppercase font-light text-foreground/70 min-h-11 flex items-center gap-2"
+              >
+                <User size={14} strokeWidth={1.25} />
+                {isLoggedIn ? 'Mon compte' : 'Se connecter'}
+              </Link>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-      {/* Trust bar */}
-      <div className="w-full bg-[#F5F0E8] border-b border-[#E8E4DD]">
-        <div className="flex items-center justify-center gap-3 md:gap-6 py-2.5 px-4 flex-wrap">
-          {[
-            'Livraison offerte dès 150€',
-            'Paiement sécurisé',
-            'Retours sous 14 jours',
-            'Service client disponible',
-          ].map((item, i) => (
-            <div key={item} className="flex items-center gap-3 md:gap-6">
-              {i > 0 && (
-                <span className="hidden md:inline-block w-px h-3 bg-[#C9B99A]" />
-              )}
-              <span className="text-[9px] tracking-[0.15em] uppercase text-[#8B7D6B] font-light whitespace-nowrap">
-                ✦ {item}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
     </header>
   );
 };
