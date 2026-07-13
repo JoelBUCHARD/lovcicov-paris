@@ -123,6 +123,7 @@ const ProductPage = ({ product }: Props) => {
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
   const { addToCart } = useCart();
   const addShopifyItem = useCartStore((s) => s.addItem);
+  const { isVisible } = useProductVisibility();
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
@@ -136,13 +137,13 @@ const ProductPage = ({ product }: Props) => {
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
 
-  // Complete the look — up to 3 sibling pieces from the same universe
+  // Complete the look — up to 3 sibling pieces from the same universe (visible only)
   const completeTheLook = useMemo(
     () =>
       allProducts
-        .filter((p) => p.collection === product.collection && p.id !== product.id)
+        .filter((p) => p.collection === product.collection && p.id !== product.id && isVisible(localKey(p.id)))
         .slice(0, 3),
-    [product.id, product.collection]
+    [product.id, product.collection, isVisible]
   );
 
   // Sticky mobile CTA: show after user scrolls past the primary buy button
