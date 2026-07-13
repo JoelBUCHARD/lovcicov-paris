@@ -9,7 +9,7 @@ interface Props {
 
 const CollectionHeader = ({ kicker, title, intro, accent = '#8B7D6B' }: Props) => {
   return (
-    <header className="px-6 md:px-10 pt-4 md:pt-8 pb-14 md:pb-20">
+    <header className="px-6 md:px-10 pt-2 md:pt-4 pb-8 md:pb-12">
       <div className="mx-auto max-w-[720px] text-center">
         <motion.p
           initial={{ opacity: 0, y: 8 }}
@@ -29,7 +29,7 @@ const CollectionHeader = ({ kicker, title, intro, accent = '#8B7D6B' }: Props) =
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-6 md:mt-7 italic font-light text-[#1A1A1A]"
+          className="mt-4 md:mt-5 italic font-light text-[#1A1A1A]"
           style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize: 'clamp(44px, 6.4vw, 88px)',
@@ -45,7 +45,7 @@ const CollectionHeader = ({ kicker, title, intro, accent = '#8B7D6B' }: Props) =
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.15 }}
-            className="mx-auto mt-8 md:mt-10 text-[#5F5E5A] font-light"
+            className="mx-auto mt-5 md:mt-6 text-[#5F5E5A] font-light"
             style={{
               fontSize: 15,
               lineHeight: 1.8,
@@ -56,15 +56,6 @@ const CollectionHeader = ({ kicker, title, intro, accent = '#8B7D6B' }: Props) =
             {intro}
           </motion.p>
         )}
-
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="mx-auto mt-12 h-px w-16 origin-center"
-          style={{ backgroundColor: accent, opacity: 0.5 }}
-          aria-hidden="true"
-        />
       </div>
     </header>
   );
