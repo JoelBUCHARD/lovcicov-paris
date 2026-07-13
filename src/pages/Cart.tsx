@@ -124,7 +124,7 @@ const Cart = () => {
           >
             {/* Header */}
             <header className="text-center mb-16 md:mb-20">
-              <p className="text-[10px] tracking-[0.35em] text-muted-foreground uppercase mb-4">
+              <p className="text-[10px] tracking-[0.35em] text-muted-foreground uppercase mb-4 pl-[0.35em]">
                 Votre Sélection
               </p>
               <h1 className="text-3xl md:text-[38px] font-light leading-tight">
