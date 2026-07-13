@@ -358,13 +358,11 @@ const Index = () => {
         >
           <Link
             to="/stonelov"
-            className="inline-flex items-center justify-center text-white px-10 py-4 transition-colors min-w-[240px]"
-            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', textTransform: 'uppercase' }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A85D3A')}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 min-w-[240px]"
           >
             Découvrir StoneLov
           </Link>
+
         </motion.div>
       </section>
 
