@@ -95,10 +95,11 @@ const Index = () => {
                 </Link>
                 <Link
                   to="/fondatrice"
-                  className="inline-flex items-center gap-2 text-[#1A1A1A] text-[10px] tracking-[0.28em] uppercase px-2 py-4 border-b border-[#1A1A1A]/40 hover:border-[#1A1A1A] transition-colors duration-500"
+                  className="group inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-[#000] transition-colors duration-500"
                 >
                   Notre histoire
                 </Link>
+
               </div>
             </motion.div>
 
