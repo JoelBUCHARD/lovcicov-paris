@@ -574,7 +574,7 @@ const ProductPage = ({ product }: Props) => {
       {/* ─── Complete the look ───────────────────────────────── */}
       {completeTheLook.length > 0 && (
         <section className="px-6 md:px-12 bg-white border-t border-[#EFEDE8]">
-          <div className="max-w-[1100px] mx-auto py-20 md:py-24">
+          <div className="max-w-[1100px] mx-auto pt-8 md:pt-10 pb-20 md:pb-24">
             <p
               className="text-center mb-3"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
