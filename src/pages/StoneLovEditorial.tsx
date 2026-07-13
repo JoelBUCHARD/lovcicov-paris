@@ -9,7 +9,7 @@ import bookDesk from "@/assets/stonelov/book-lalune-desk.png.asset.json";
 import StoneUniverse from "@/components/StoneUniverse";
 import StoneLovGrid from "@/components/StoneLovGrid";
 
-const BG = "#FDF5EF";
+const BG = "#FAF8F4";
 const INK = "#1A1A1A";
 const WARM = "#5F5E5A";
 const TERRA = "#C4714A";
