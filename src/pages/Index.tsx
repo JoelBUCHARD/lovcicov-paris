@@ -280,7 +280,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 5. BRAND UNIVERSE — MysticLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FFF5F5] pt-20 md:pt-28 pb-20 md:pb-28">
+      <section className="bg-[#FFF5F5] pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
@@ -326,7 +326,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FDF5EF] pt-20 md:pt-28 pb-20 md:pb-28">
+      <section className="bg-[#FDF5EF] pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
