@@ -271,7 +271,11 @@ const Index = () => {
           >
             Découvrir PowerLov
           </Link>
+          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
+            Coton lourd · Confection portugaise
+          </p>
         </motion.div>
+
       </section>
 
 
@@ -317,7 +321,11 @@ const Index = () => {
           >
             Découvrir MysticLov
           </Link>
+          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
+            Coton peigné · Broderie main
+          </p>
         </motion.div>
+
       </section>
 
 
@@ -361,7 +369,11 @@ const Index = () => {
           >
             Découvrir StoneLov
           </Link>
+          <p className="mt-5 text-[10px] tracking-[0.24em] uppercase text-[#8B7D6B] font-light">
+            Pierres semi-précieuses · Sertissage main
+          </p>
         </motion.div>
+
       </section>
 
 
