@@ -53,14 +53,14 @@ const Index = () => {
       {/* 1. HERO — Editorial luxury split */}
       <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-6 md:pb-8 relative overflow-hidden">
         <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Text column */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 order-2 lg:order-1 text-center lg:text-left"
+              className="lg:col-span-6 order-2 lg:order-1 text-center lg:text-left"
             >
               <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-8 md:mb-10">
                 Maison LOVCICOV — Paris
@@ -86,21 +86,22 @@ const Index = () => {
                 LOVCICOV explore le lien entre la mode, l'énergie et la transformation intérieure. Des pièces pensées comme des talismans contemporains.
               </p>
 
-              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center lg:items-start justify-center lg:justify-start gap-3">
+              <div className="flex flex-row items-stretch sm:items-center lg:items-start justify-center lg:justify-start gap-3">
                 <Link
                   to="/shop"
-                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-6 py-4 hover:bg-[#000] transition-colors duration-500 w-full sm:w-[210px]"
+                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 flex-1 sm:flex-none sm:w-[210px]"
                 >
                   Découvrir la collection
                 </Link>
                 <Link
                   to="/fondatrice"
-                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-6 py-4 hover:bg-[#000] transition-colors duration-500 w-full sm:w-[210px]"
+                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 flex-1 sm:flex-none sm:w-[210px]"
                 >
                   Notre histoire
                 </Link>
 
               </div>
+
 
 
 
