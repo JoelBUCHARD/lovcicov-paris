@@ -212,9 +212,16 @@ const Shop = () => {
           </div>
         </section>
 
+        {/* Discreet reassurance */}
+        {products.length > 0 && (
+          <div className="mt-20 md:mt-28 border-t border-[#EFE9DF] pt-10">
+            <TrustLine />
+          </div>
+        )}
+
         {/* Closing editorial line */}
         {products.length > 0 && (
-          <div className="mt-24 md:mt-32 text-center px-6">
+          <div className="mt-16 md:mt-20 text-center px-6">
             <p
               className="italic font-light text-[#1A1A1A] mx-auto"
               style={{
