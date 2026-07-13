@@ -19,6 +19,7 @@ const imageModules = {
 const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: true }) as Record<string, { url?: string; default?: { url?: string } }>;
 const getImage = (key: string) => {
   if (!key) return '';
+  if (/^https?:\/\//i.test(key) || key.startsWith('/')) return key;
   const m = Object.entries(imageModules).find(([p]) => p.includes(key));
   if (m) return m[1];
   const j = Object.entries(assetJsonModules).find(([p]) => p.includes(key));
