@@ -423,14 +423,14 @@ const ProductPage = ({ product }: Props) => {
 
 
           {/* Reassurance — single occurrence */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-8 pt-6 border-t border-[#E8E4DD]">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-10 pt-8 border-t border-[#E8E4DD]">
             {reassurance.map(({ Icon, label }) => (
-              <div key={label} className="flex items-center gap-2">
-                <Icon size={16} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
+              <div key={label} className="flex items-center gap-2.5">
+                <Icon size={18} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
                 <span
+                  className="text-[11px] md:text-[10px]"
                   style={{
                     fontFamily: SANS,
-                    fontSize: 10,
                     letterSpacing: '0.1em',
                     color: '#5F5E5A',
                     textTransform: 'uppercase',
@@ -441,6 +441,7 @@ const ProductPage = ({ product }: Props) => {
               </div>
             ))}
           </div>
+
         </motion.div>
       </div>
 
