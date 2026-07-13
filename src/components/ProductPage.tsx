@@ -320,8 +320,16 @@ const ProductPage = ({ product }: Props) => {
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780' }}>
-                  Taille
+                  Taille — {selectedSize}
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setSizeGuideOpen(true)}
+                  className="uppercase underline underline-offset-4 hover:text-[#1A1A1A] transition-colors"
+                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.14em', color: '#888780' }}
+                >
+                  Guide des tailles
+                </button>
               </div>
 
               <div className="flex gap-2">
@@ -329,7 +337,8 @@ const ProductPage = ({ product }: Props) => {
                   <button
                     key={s}
                     onClick={() => setSelectedSize(s)}
-                    className={`w-11 h-11 text-[11px] border transition-colors ${
+                    aria-pressed={selectedSize === s}
+                    className={`w-11 h-11 text-[11px] border transition-all ${
                       selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
@@ -340,8 +349,11 @@ const ProductPage = ({ product }: Props) => {
                   </button>
                 ))}
               </div>
+              <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
+                Coupe oversize — nous recommandons votre taille habituelle.
+              </p>
               {stock !== null && stock <= 5 && (
-                <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
+                <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
                   Plus que {stock} en stock
                 </p>
               )}
