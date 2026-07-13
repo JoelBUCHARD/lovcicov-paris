@@ -251,9 +251,6 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center mb-14 md:mb-20 px-6">
-          <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-6">
-            Chapitre I
-          </p>
           <h2
             className="text-[#1A1A1A] font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1 }}
@@ -295,9 +292,6 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       <section className="bg-[#FFF5F5] pt-20 md:pt-28 pb-20 md:pb-28">
         <div className="text-center mb-14 md:mb-20 px-6">
-          <p className="text-[10px] tracking-[0.32em] uppercase mb-6" style={{ color: '#E66060' }}>
-            Chapitre II
-          </p>
           <h2
             className="font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
@@ -424,9 +418,6 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       <section className="bg-[#FDF5EF] pt-20 md:pt-28 pb-20 md:pb-28">
         <div className="text-center mb-14 md:mb-20 px-6">
-          <p className="text-[10px] tracking-[0.32em] uppercase mb-6" style={{ color: '#C4714A' }}>
-            Chapitre III
-          </p>
           <h2
             className="font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
