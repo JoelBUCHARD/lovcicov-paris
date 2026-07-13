@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import TrustLine from '@/components/TrustLine';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
