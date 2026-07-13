@@ -112,7 +112,7 @@ const Index = () => {
               initial={{ opacity: 0, scale: 1.02 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-7 order-1 lg:order-2 relative"
+              className="lg:col-span-6 order-1 lg:order-2 relative"
             >
               <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
