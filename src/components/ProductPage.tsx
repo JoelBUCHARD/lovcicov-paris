@@ -561,7 +561,57 @@ const ProductPage = ({ product }: Props) => {
         </div>
       </section>
 
-      {/* ─── Brand philosophy closing ────────────────────────── */}
+      {/* ─── Complete the look ───────────────────────────────── */}
+      {completeTheLook.length > 0 && (
+        <section className="px-6 md:px-12 bg-white border-t border-[#EFEDE8]">
+          <div className="max-w-[1100px] mx-auto py-20 md:py-24">
+            <p
+              className="text-center mb-3"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: cfg.accent, textTransform: 'uppercase' }}
+            >
+              Le vestiaire
+            </p>
+            <h2
+              className="text-center mb-12"
+              style={{ fontFamily: SANS, fontSize: 'clamp(22px, 2.4vw, 28px)', fontWeight: 400, color: '#1A1A1A', letterSpacing: '-0.005em' }}
+            >
+              Complétez la pièce
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+              {completeTheLook.map((p) => (
+                <Link
+                  key={p.id}
+                  to={`/shop/${p.id}`}
+                  className="group block"
+                >
+                  <div className="aspect-[3/4] overflow-hidden bg-[#F8F6F1] mb-4">
+                    <img
+                      src={getImage(p.image)}
+                      alt={p.name}
+                      loading="lazy"
+                      className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <p
+                    className="text-center"
+                    style={{ fontFamily: SANS, fontSize: 13, color: '#1A1A1A', fontWeight: 400 }}
+                  >
+                    {p.name}
+                  </p>
+                  <p
+                    className="text-center mt-1"
+                    style={{ fontFamily: SANS, fontSize: 12, color: '#888780' }}
+                  >
+                    €{p.price}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+
       <section className="px-6 border-t border-[#EFEDE8] bg-white">
         <div className="max-w-[720px] mx-auto py-20 md:py-24 text-center">
           <p
