@@ -9,6 +9,7 @@ import { fetchShopifyProductByHandle } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
 import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
