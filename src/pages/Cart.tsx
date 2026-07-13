@@ -77,7 +77,7 @@ const Cart = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-28 pb-32 px-6 md:px-12">
+      <main className="pt-40 pb-32 px-6 md:px-12">
         {count === 0 ? (
           // ————————————————————— EMPTY STATE —————————————————————
           <motion.section
