@@ -180,7 +180,7 @@ const Account = () => {
               Bienvenue{firstName ? `, ${firstName}` : ''}
             </motion.h1>
             <p className="text-[12px] md:text-[13px] text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              Votre univers personnel LOVCICOV — vos pièces favorites, vos commandes,
+              Votre univers personnel LOVCICOV. Vos pièces favorites, vos commandes,
               votre histoire avec la Maison.
             </p>
           </div>
