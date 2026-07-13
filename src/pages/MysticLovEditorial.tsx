@@ -40,7 +40,6 @@ const MysticLovEditorial = () => {
           style={{
             backgroundColor: INK,
             height: 48,
-            borderBottom: `3px solid ${ACCENT}`,
           }}
         >
           <Link
