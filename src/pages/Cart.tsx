@@ -4,6 +4,7 @@ import { Trash2, Minus, Plus, Loader2, ShieldCheck, Truck, RotateCcw, Sparkles }
 import { useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import TrustLine from '@/components/TrustLine';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
 import { toast } from '@/hooks/use-toast';
