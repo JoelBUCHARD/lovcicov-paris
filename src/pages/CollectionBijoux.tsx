@@ -1,85 +1,100 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { bijouxProducts } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CollectionHeader from '@/components/CollectionHeader';
+import EditorialProductCard from '@/components/EditorialProductCard';
+import EditorialPause from '@/components/EditorialPause';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.12 },
-  }),
-};
 
 const CollectionBijoux = () => {
   const { isVisible } = useProductVisibility();
-  const visibleBijoux = bijouxProducts.filter((p) => isVisible(localKey(p.id)));
+  const visible = bijouxProducts.filter((p) => isVisible(localKey(p.id)));
+  const first = visible.slice(0, 4);
+  const rest = visible.slice(4);
+
   return (
-    <div className="min-h-screen bg-[#EFEDE8]">
+    <div className="min-h-screen bg-[#FDF5EF]">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-0">
-        {/* Hero — StoneLov identity (terracotta strip) */}
-        <div className="bg-[#FDF5EF] border-t-[3px] border-b-[3px] border-[#A55A35] px-6 md:px-10 py-10 md:py-14">
-          <div className="text-center max-w-[760px] mx-auto">
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="text-[9px] tracking-[0.18em] text-[#C4714A] font-medium"
-              style={{ fontFamily: 'Arial, sans-serif' }}
-            >
-              StoneLov
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-              className="text-[#5F5E5A] mx-auto mt-5"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, lineHeight: 1.8, maxWidth: 600 }}
-            >
-              StoneLov puise son inspiration dans la pierre, la terre et les matières brutes. Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où la matière protège autant qu'elle révèle.
+      <main className="pt-32 md:pt-40 pb-24">
+        <CollectionHeader
+          kicker="Collection · StoneLov"
+          title="Wear the stone."
+          intro="La pierre choisie comme un signe. La matière devient signature, l'ancrage devient élégance."
+          accent="#A55A35"
+        />
 
-            </motion.p>
-          </div>
-        </div>
-
-        {/* Products — gray background */}
-        <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {visibleBijoux.map((product, i) => (
-              <div key={product.id} className="bg-white p-3">
-                <ProductCard product={product} index={i} />
-              </div>
+        <section aria-label="Bijoux StoneLov" className="px-6 md:px-12">
+          <div className="mx-auto max-w-[1360px] grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+            {first.map((p, i) => (
+              <EditorialProductCard
+                key={p.id}
+                product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                index={i}
+                eager={i < 2}
+              />
+            ))}
+            {rest.length > 0 && (
+              <EditorialPause
+                kicker="Matière"
+                line1="Chaque pierre est unique."
+                line2="Aucun bijou ne se ressemble."
+                accent="#A55A35"
+              />
+            )}
+            {rest.map((p, i) => (
+              <EditorialProductCard
+                key={p.id}
+                product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                index={i}
+              />
             ))}
           </div>
-        </div>
 
-        {/* CTA strip — terracotta */}
-        <div className="bg-[#FDF5EF] border-t-[3px] border-[#A55A35] px-6 md:px-10 py-12">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-center"
+          {visible.length === 0 && <EmptyState />}
+        </section>
+
+        <div className="mt-24 md:mt-32 text-center px-6">
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center text-white uppercase transition-colors duration-500"
+            style={{ backgroundColor: '#C4714A', fontSize: 10, letterSpacing: '0.28em', padding: '18px 44px', minWidth: 260 }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#A55A35')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C4714A')}
           >
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 bg-[#C4714A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#A55A35] transition-colors"
-            >
-              Voir tous les produits
-            </Link>
-          </motion.div>
+            Explorer toutes les pièces
+          </Link>
         </div>
       </main>
       <Footer hideTopBorder />
     </div>
   );
 };
+
+const EmptyState = () => (
+  <div className="col-span-2 md:col-span-4 py-24 text-center">
+    <p className="uppercase font-light mb-4" style={{ fontSize: 10, letterSpacing: '0.32em', color: '#A55A35' }}>
+      La sélection évolue
+    </p>
+    <p
+      className="italic font-light text-[#1A1A1A] mx-auto"
+      style={{
+        fontFamily: "'Cormorant Garamond', Georgia, serif",
+        fontSize: 'clamp(22px, 2.4vw, 28px)',
+        lineHeight: 1.4,
+        maxWidth: 480,
+      }}
+    >
+      Aucune pièce à afficher pour le moment.
+    </p>
+    <Link
+      to="/shop"
+      className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+      style={{ fontSize: 10, letterSpacing: '0.28em' }}
+    >
+      Découvrir la boutique
+    </Link>
+  </div>
+);
 
 export default CollectionBijoux;

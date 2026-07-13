@@ -1,96 +1,100 @@
-import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import { mysticProducts } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CollectionHeader from '@/components/CollectionHeader';
+import EditorialProductCard from '@/components/EditorialProductCard';
+import EditorialPause from '@/components/EditorialPause';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.12 },
-  }),
-};
-
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
 
 const CollectionMystic = () => {
   const { isVisible } = useProductVisibility();
-  const shuffledProducts = shuffleArray(mysticProducts.filter((p) => isVisible(localKey(p.id))));
+  const visible = mysticProducts.filter((p) => isVisible(localKey(p.id)));
+  const first = visible.slice(0, 4);
+  const rest = visible.slice(4);
 
   return (
-    <div className="min-h-screen bg-[#EFEDE8]">
+    <div className="min-h-screen bg-[#FDF7F5]">
       <Navbar />
-      <main className="pt-32 md:pt-36 pb-0">
-        {/* Hero Header strip — pale red */}
-        <div className="bg-[#FFF5F5] border-t-[3px] border-b-[3px] border-[#C94A4A] px-6 md:px-10 py-10 md:py-14">
-          <div className="text-center max-w-[640px] mx-auto">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            className="mb-2"
-            style={{ color: '#E66060', fontSize: 9, letterSpacing: '0.18em' }}
-          >
-            MysticLov
-          </motion.p>
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={2}
-              className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#5F5E5A', maxWidth: 600, lineHeight: 1.7 }}
-            >
-              MysticLov explore une esthétique instinctive, spirituelle et contemporaine.
-              Inspirée par les symboles, l'énergie et les rituels modernes, la collection mélange
-              mystère, émotion et élégance minimaliste à travers des pièces pensées comme des talismans contemporains.
-            </motion.p>
+      <main className="pt-32 md:pt-40 pb-24">
+        <CollectionHeader
+          kicker="Collection · MysticLov"
+          title="Wear your intention."
+          intro="Des talismans contemporains, brodés à la main. Chaque pièce porte un signe, une intention, une présence."
+          accent="#C94A4A"
+        />
 
-          </div>
-        </div>
-
-        {/* Products — gray background */}
-        <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {shuffledProducts.map((product, i) => (
-              <div key={product.id} className="bg-white p-3">
-                <ProductCard product={product} index={i} />
-              </div>
+        <section aria-label="Produits MysticLov" className="px-6 md:px-12">
+          <div className="mx-auto max-w-[1360px] grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+            {first.map((p, i) => (
+              <EditorialProductCard
+                key={p.id}
+                product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                index={i}
+                eager={i < 2}
+              />
+            ))}
+            {rest.length > 0 && (
+              <EditorialPause
+                kicker="Symbole"
+                line1="Un vêtement porté comme un mantra."
+                line2="Une intention devenue matière."
+                accent="#C94A4A"
+              />
+            )}
+            {rest.map((p, i) => (
+              <EditorialProductCard
+                key={p.id}
+                product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                index={i}
+              />
             ))}
           </div>
-        </div>
 
-        {/* CTA strip — pale red */}
-        <div className="bg-[#FFF5F5] border-t-[3px] border-[#C94A4A] px-6 md:px-10 py-12">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center">
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
-              style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.15em' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
-            >
-              Voir tous les produits
-            </Link>
-          </motion.div>
-        </div>
+          {visible.length === 0 && <EmptyState />}
+        </section>
 
+        <div className="mt-24 md:mt-32 text-center px-6">
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center text-white uppercase transition-colors duration-500"
+            style={{ backgroundColor: '#E66060', fontSize: 10, letterSpacing: '0.28em', padding: '18px 44px', minWidth: 260 }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#C94A4A')}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E66060')}
+          >
+            Explorer toutes les pièces
+          </Link>
+        </div>
       </main>
       <Footer hideTopBorder />
     </div>
   );
 };
+
+const EmptyState = () => (
+  <div className="col-span-2 md:col-span-4 py-24 text-center">
+    <p className="uppercase font-light mb-4" style={{ fontSize: 10, letterSpacing: '0.32em', color: '#C94A4A' }}>
+      La sélection évolue
+    </p>
+    <p
+      className="italic font-light text-[#1A1A1A] mx-auto"
+      style={{
+        fontFamily: "'Cormorant Garamond', Georgia, serif",
+        fontSize: 'clamp(22px, 2.4vw, 28px)',
+        lineHeight: 1.4,
+        maxWidth: 480,
+      }}
+    >
+      Aucune pièce à afficher pour le moment.
+    </p>
+    <Link
+      to="/shop"
+      className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+      style={{ fontSize: 10, letterSpacing: '0.28em' }}
+    >
+      Découvrir la boutique
+    </Link>
+  </div>
+);
 
 export default CollectionMystic;

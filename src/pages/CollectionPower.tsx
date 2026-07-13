@@ -1,242 +1,117 @@
-import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CollectionHeader from '@/components/CollectionHeader';
+import EditorialProductCard, { EditorialProduct } from '@/components/EditorialProductCard';
+import EditorialPause from '@/components/EditorialPause';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 import godDjCafe from '@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json';
 import godDjStreet from '@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json';
 import connectedEmpowered from '@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json';
 import boldBadassSweat from '@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json';
-import boldBadassTeeBack from '@/assets/powerlov/powerlov-bold-badass-no-filter-tee-back.png.asset.json';
-import boldBadassStreet from '@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json';
 import boldBadassGrid from '@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json';
 import ifGodIsADj from '@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json';
-import disciplineLuxury from '@/assets/powerlov/powerlov-discipline-is-my-luxury.png.asset.json';
 import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png.asset.json';
 import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
 import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
 import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
-import sacredHeartFront from '@/assets/powerlov/powerlov-sacred-heart-front.png.asset.json';
-import sacredHeartBack from '@/assets/powerlov/powerlov-sacred-heart-back.png.asset.json';
 import sacredHeartStreet from '@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json';
 import sacredHeartStreetBack from '@/assets/powerlov/powerlov-sacred-heart-street-back.png.asset.json';
-import sacredHeartGreyFront from '@/assets/powerlov/powerlov-sacred-heart-grey-front.png.asset.json';
 import sacredHeartHoodieStreetFront from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-front.png.asset.json';
 import sacredHeartHoodieStreetBack from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-back.png.asset.json';
 
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (i: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: i * 0.12 },
-  }),
-};
-
-type PowerProduct = {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  hover?: string;
-  badge?: string;
-};
-
-const powerProducts: PowerProduct[] = [
-  {
-    id: 'powerlov-god-is-a-dj',
-    name: 'T-Shirt God Is A DJ',
-    price: 59,
-    image: godDjCafe.url,
-    hover: godDjStreet.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-empowered',
-    name: 'T-Shirt Connected. Disciplined. Empowered.',
-    price: 59,
-    image: connectedEmpowered.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-discipline',
-    name: 'T-Shirt Discipline Is My Luxury',
-    price: 59,
-    image: disciplineLuxuryGrid.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-if-god-dj-frequency',
-    name: 'T-Shirt If God Is A DJ, I Am The Frequency',
-    price: 59,
-    image: ifGodIsADj.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-bold-badass-tee',
-    name: 'T-Shirt Bold. Badass. No Filter.',
-    price: 59,
-    image: boldBadassGrid.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-god-is-a-dancer',
-    name: 'T-Shirt God Is A Dancer',
-    price: 59,
-    image: godIsADancer.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-protected-aligned-unstoppable',
-    name: 'T-Shirt Protected. Aligned. Unstoppable.',
-    price: 59,
-    image: protectedAlignedUnstoppable.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-sacred-heart-sweat',
-    name: 'Sweat Sacred Heart',
-    price: 99,
-    image: sacredHeartStreet.url,
-    hover: sacredHeartStreetBack.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-sacred-heart-hoodie',
-    name: 'Sweat Capuche Sacred Heart',
-    price: 109,
-    image: sacredHeartHoodieStreetFront.url,
-    hover: sacredHeartHoodieStreetBack.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-bold-badass-hoodie',
-    name: 'Sweat Capuche Bold. Badass. No Filter.',
-    price: 99,
-    image: boldBadassSweat.url,
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-energy-never-lies-hoodie',
-    name: 'Sweat Capuche Energy Never Lies',
-    price: 99,
-    image: energyNeverLies.url,
-    badge: 'UNISEX',
-  },
+const powerProducts: EditorialProduct[] = [
+  { id: 'powerlov-god-is-a-dj', name: 'God Is A DJ', price: 59, image: godDjCafe.url, hover: godDjStreet.url },
+  { id: 'powerlov-empowered', name: 'Connected. Disciplined. Empowered.', price: 59, image: connectedEmpowered.url },
+  { id: 'powerlov-discipline', name: 'Discipline Is My Luxury', price: 59, image: disciplineLuxuryGrid.url },
+  { id: 'powerlov-if-god-dj-frequency', name: 'If God Is A DJ', price: 59, image: ifGodIsADj.url },
+  { id: 'powerlov-bold-badass-tee', name: 'Bold. Badass. No Filter.', price: 59, image: boldBadassGrid.url },
+  { id: 'powerlov-god-is-a-dancer', name: 'God Is A Dancer', price: 59, image: godIsADancer.url },
+  { id: 'powerlov-protected-aligned-unstoppable', name: 'Protected. Aligned. Unstoppable.', price: 59, image: protectedAlignedUnstoppable.url },
+  { id: 'powerlov-sacred-heart-sweat', name: 'Sacred Heart — Sweat', price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url },
+  { id: 'powerlov-sacred-heart-hoodie', name: 'Sacred Heart — Hoodie', price: 109, image: sacredHeartHoodieStreetFront.url, hover: sacredHeartHoodieStreetBack.url },
+  { id: 'powerlov-bold-badass-hoodie', name: 'Bold. Badass. — Hoodie', price: 99, image: boldBadassSweat.url },
+  { id: 'powerlov-energy-never-lies-hoodie', name: 'Energy Never Lies — Hoodie', price: 99, image: energyNeverLies.url },
 ];
-
-const PowerProductCard = ({ product, index }: { product: PowerProduct; index: number }) => {
-  const location = useLocation();
-  const from = `${location.pathname}${location.search}`;
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      className="h-full w-full"
-    >
-      <Link
-        to={`/shop/${product.id}`}
-        state={{ from }}
-        className="group flex flex-col h-full bg-white overflow-hidden"
-      >
-        <div className="aspect-[3/4] overflow-hidden bg-[#EFEDE8] relative shrink-0">
-          <img
-            src={product.image}
-            alt={product.name}
-            loading="lazy"
-            className={`w-full h-full object-cover transition-opacity duration-500 ${
-              product.hover ? 'group-hover:opacity-0' : 'group-hover:scale-105 transition-transform duration-700'
-            }`}
-          />
-          {product.hover && (
-            <img
-              src={product.hover}
-              alt={`${product.name} — vue alternative`}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-          )}
-        </div>
-        <div className="space-y-1 text-center pb-3 pt-3 px-2 mt-auto">
-          <h3 className="text-brand uppercase" style={{ fontSize: 10, letterSpacing: '0.14em', color: '#0D0D0D' }}>
-            {product.name}
-          </h3>
-          <p style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#3D3D3B' }}>€{product.price}</p>
-        </div>
-      </Link>
-    </motion.div>
-  );
-};
 
 const CollectionPower = () => {
   const { isVisible } = useProductVisibility();
   const visiblePower = powerProducts.filter((p) => isVisible(localKey(p.id)));
-  return (
-    <div className="min-h-screen bg-[#EFEDE8]">
-      <Navbar />
-      <main className="pt-32 md:pt-36 pb-0">
-        {/* Hero Header strip — off-white / noir sobre */}
-        <div className="bg-[#F4F2EE] border-t-[3px] border-b-[3px] border-[#0D0D0D] px-6 md:px-10 py-10 md:py-14">
-          <div className="text-center max-w-[640px] mx-auto">
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              className="mb-2"
-              style={{ color: '#0D0D0D', fontSize: 9, letterSpacing: '0.22em' }}
-            >
-              PowerLov
-            </motion.p>
-            <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              custom={2}
-              className="mx-auto"
-              style={{ fontFamily: 'Arial, sans-serif', fontSize: 13, color: '#3D3D3B', maxWidth: 600, lineHeight: 1.7 }}
-            >
-              PowerLov incarne une vision contemporaine de la puissance parisienne : silencieuse,
-              instinctive et parfaitement maîtrisée. Des lignes fortes, des silhouettes épurées,
-              des pièces pensées pour structurer l'allure et révéler une confiance naturelle.
-            </motion.p>
-          </div>
-        </div>
+  const first = visiblePower.slice(0, 4);
+  const rest = visiblePower.slice(4);
 
-        {/* Products — gray background */}
-        <div className="bg-[#EFEDE8] px-6 md:px-10 py-12 md:py-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
-            {visiblePower.map((product, i) => (
-              <div key={product.id} className="bg-white p-3">
-                <PowerProductCard product={product} index={i} />
-              </div>
+  return (
+    <div className="min-h-screen bg-[#FAF7F2]">
+      <Navbar />
+      <main className="pt-32 md:pt-40 pb-24">
+        <CollectionHeader
+          kicker="Collection · PowerLov"
+          title="Wear your power."
+          intro="Des silhouettes affirmées, pensées comme une posture. Une allure calme, une intention claire."
+          accent="#1A1A1A"
+        />
+
+        <section aria-label="Produits PowerLov" className="px-6 md:px-12">
+          <div className="mx-auto max-w-[1360px] grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+            {first.map((p, i) => (
+              <EditorialProductCard key={p.id} product={p} index={i} eager={i < 2} />
+            ))}
+            {rest.length > 0 && (
+              <EditorialPause
+                kicker="Manifeste"
+                line1="La puissance n'a pas besoin de crier."
+                line2="Elle avance."
+                accent="#1A1A1A"
+              />
+            )}
+            {rest.map((p, i) => (
+              <EditorialProductCard key={p.id} product={p} index={i} />
             ))}
           </div>
-        </div>
 
-        {/* CTA strip — noir sobre */}
-        <div className="bg-[#F4F2EE] border-t-[3px] border-[#0D0D0D] px-6 md:px-10 py-12">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center">
-            <Link
-              to="/shop"
-              className="inline-flex items-center gap-3 text-white uppercase px-8 py-3 transition-colors"
-              style={{ backgroundColor: '#0D0D0D', fontSize: 10, letterSpacing: '0.18em' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#2E2E2E')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#0D0D0D')}
-            >
-              Voir tous les produits
-            </Link>
-          </motion.div>
-        </div>
+          {visiblePower.length === 0 && <EmptyState />}
+        </section>
 
+        <div className="mt-24 md:mt-32 text-center px-6">
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white uppercase transition-colors duration-500 hover:bg-black"
+            style={{ fontSize: 10, letterSpacing: '0.28em', padding: '18px 44px', minWidth: 260 }}
+          >
+            Explorer toutes les pièces
+          </Link>
+        </div>
       </main>
       <Footer hideTopBorder />
     </div>
   );
 };
+
+const EmptyState = () => (
+  <div className="col-span-2 md:col-span-4 py-24 text-center">
+    <p className="uppercase font-light mb-4" style={{ fontSize: 10, letterSpacing: '0.32em', color: '#8B7D6B' }}>
+      La sélection évolue
+    </p>
+    <p
+      className="italic font-light text-[#1A1A1A] mx-auto"
+      style={{
+        fontFamily: "'Cormorant Garamond', Georgia, serif",
+        fontSize: 'clamp(22px, 2.4vw, 28px)',
+        lineHeight: 1.4,
+        maxWidth: 480,
+      }}
+    >
+      Aucune pièce à afficher pour le moment.
+    </p>
+    <Link
+      to="/shop"
+      className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+      style={{ fontSize: 10, letterSpacing: '0.28em' }}
+    >
+      Découvrir la boutique
+    </Link>
+  </div>
+);
 
 export default CollectionPower;
