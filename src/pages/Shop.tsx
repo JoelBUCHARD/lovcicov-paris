@@ -168,14 +168,7 @@ const Shop = () => {
                   />
                 ))}
 
-                {products.length > 4 && (
-                  <EditorialPause
-                    kicker="Maison LOVCICOV"
-                    line1="Peu de pièces."
-                    line2="Chacune pensée pour durer."
-                    accent={accent}
-                  />
-                )}
+
 
                 {products.slice(4).map((p, i) => (
                   <EditorialProductCard
