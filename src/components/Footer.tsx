@@ -92,10 +92,10 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
 
       {/* Main footer grid */}
       <div className="border-t border-border/70">
-        <div className="container-luxury py-14 md:py-20">
-          <div className="flex flex-col md:grid md:grid-cols-4 md:gap-8 text-center md:text-left divide-y divide-border/60 md:divide-y-0">
+        <div className="container-luxury py-16 md:py-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 text-center md:text-left">
             {/* Maison */}
-            <nav aria-label="La Maison" className="py-8 md:py-0">
+            <nav aria-label="La Maison">
               <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
                 La Maison
               </p>
@@ -107,7 +107,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             </nav>
 
             {/* Univers */}
-            <nav aria-label="Univers" className="py-8 md:py-0">
+            <nav aria-label="Univers">
               <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
                 Univers
               </p>
@@ -120,7 +120,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             </nav>
 
             {/* Service */}
-            <nav aria-label="Service" className="py-8 md:py-0">
+            <nav aria-label="Service">
               <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
                 Service
               </p>
@@ -140,7 +140,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             </nav>
 
             {/* Légal */}
-            <nav aria-label="Informations légales" className="py-8 md:py-0">
+            <nav aria-label="Informations légales">
               <p className="text-brand text-[10px] text-muted-foreground mb-5 tracking-[0.28em]">
                 Informations
               </p>
