@@ -95,12 +95,12 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
 
       <div className="border-t border-border px-6 md:px-10 pt-8 pb-24 md:pb-8 text-center">
         {/* Logo */}
-        <Link to="/" className="inline-flex mb-8">
+        <Link to="/" className="inline-flex mb-5">
           <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-7 w-auto" />
         </Link>
 
         {/* Navigation links */}
-        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-8">
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-5">
           <a href="mailto:contact@lovcicov.com" className="text-brand text-[11px] text-muted-foreground hover:text-foreground transition-colors tracking-[0.18em] uppercase">
             Contact
           </a>
@@ -119,7 +119,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
         </nav>
 
         {/* Socials */}
-        <div className="flex items-center justify-center gap-8 mb-10">
+        <div className="flex items-center justify-center gap-8 mb-6">
           <a
             href="https://www.instagram.com/lovcicov.paris/"
             target="_blank"
@@ -143,7 +143,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-6 border-t border-border/60">
+        <div className="pt-4 border-t border-border/60">
           <span className="text-brand text-[11px] tracking-[0.18em] uppercase text-muted-foreground/70">
             © LOVCICOV {new Date().getFullYear()} — Paris
           </span>
