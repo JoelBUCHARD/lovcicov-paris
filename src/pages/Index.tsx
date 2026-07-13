@@ -154,7 +154,7 @@ const Index = () => {
         >
           <p>Le véritable style ne cherche pas à transformer. Il révèle ce qui était déjà là.</p>
           <p>Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.</p>
-          <p className="text-foreground tracking-[0.15em] text-sm">LOVCICOV — Vision. Allure. Signature.</p>
+          <p className="text-foreground tracking-[0.15em] text-sm">Vision. Allure. Signature.</p>
         </motion.div>
         <motion.div
           variants={fadeUp}
