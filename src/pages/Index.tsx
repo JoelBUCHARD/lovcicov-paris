@@ -239,18 +239,19 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 4. SIGNATURE PIECES — PowerLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+      <section className="bg-black pt-10 md:pt-14 pb-10 md:pb-14">
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
-            className="text-[#1A1A1A] font-light"
+            className="text-white font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1 }}
           >
             PowerLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#A8A29E] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             Silhouettes affirmées. Coupes précises. L'énergie d'une allure choisie.
           </p>
         </div>
+
 
         <div className="px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
@@ -280,18 +281,19 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 5. BRAND UNIVERSE — MysticLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+      <section className="bg-black pt-10 md:pt-14 pb-10 md:pb-14 border-t border-[#2A2A2A]">
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#FFFFFF' }}
           >
             MysticLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#A8A29E] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             Des talismans contemporains, portés comme une intention.
           </p>
         </div>
+
 
         <div className="px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
@@ -326,18 +328,19 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+      <section className="bg-black pt-10 md:pt-14 pb-10 md:pb-14 border-t border-[#2A2A2A]">
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#FFFFFF' }}
           >
             StoneLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#A8A29E] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             La pierre choisie comme un signe. La matière comme une mémoire.
           </p>
         </div>
+
 
         <div className="px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
