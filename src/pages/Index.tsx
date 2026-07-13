@@ -210,7 +210,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* PRESS — early social proof */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="py-10 md:py-14 text-center bg-white border-t border-[#EFE9DF]">
+      <section className="py-10 md:py-14 text-center bg-white border-t border-b border-[#EFE9DF]">
         <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-6">
           Vu dans la presse
         </p>
