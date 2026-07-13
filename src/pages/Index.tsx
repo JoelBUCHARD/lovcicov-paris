@@ -326,7 +326,9 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
+      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
+
         <div className="text-center mb-14 md:mb-20 px-6">
           <h2
             className="font-light"
