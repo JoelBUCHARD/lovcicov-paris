@@ -34,37 +34,6 @@ const MysticLovEditorial = () => {
     <div style={{ backgroundColor: BG, scrollBehavior: "smooth" }} className="min-h-screen">
       <Navbar />
       <div className="pt-[73px]">
-        {/* STICKY HEADER STRIP */}
-        <header
-          className="sticky top-[73px] left-0 right-0 z-40 flex items-center justify-between px-6"
-          style={{
-            backgroundColor: INK,
-            height: 48,
-          }}
-        >
-          <Link
-            to="/mysticlov"
-            className="text-[11px] uppercase"
-            style={{ color: ACCENT, letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
-          >
-            MysticLov
-          </Link>
-          <div className="hidden md:block flex-1 mx-8 h-px" style={{ backgroundColor: ACCENT, opacity: 0.5 }} />
-          <Link
-            to="/le-cercle"
-            className="uppercase px-7 py-3 transition-colors text-[11px]"
-            style={{
-              backgroundColor: ACCENT,
-              color: "#FFFFFF",
-              letterSpacing: "0.2em",
-              fontFamily: "Instrument Sans, system-ui, sans-serif",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = ACCENT_HOVER)}
-            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = ACCENT)}
-          >
-            Rejoindre Le Cercle
-          </Link>
-        </header>
 
 
         {/* BLOCK 1 — HERO */}
