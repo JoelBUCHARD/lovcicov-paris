@@ -221,10 +221,13 @@ const Index = () => {
           >
             Découvrir PowerLov
           </Link>
-          <div className="mx-auto mt-8 h-1 w-24 bg-red-600" />
 
         </motion.div>
       </section>
+
+      <div className="mx-auto h-1 w-full bg-red-600" />
+
+
 
       {/* 3. MYSTICLOV — section in MysticLov DA */}
       <section className="bg-[#FFF5F5] pt-10 md:pt-14 pb-10 md:pb-14">
