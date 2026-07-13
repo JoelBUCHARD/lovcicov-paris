@@ -224,43 +224,56 @@ const Navbar = () => {
 
             <nav
               aria-label="Navigation mobile"
-              className="flex flex-col items-center gap-8 pt-16 pb-10 px-6"
+              className="flex flex-col px-8 pt-12 pb-10 overflow-y-auto h-[calc(100vh-73px)]"
             >
-              {primaryLinks.map(({ to, label }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[13px] tracking-[0.28em] uppercase font-medium text-foreground min-h-11 flex items-center"
-                >
-                  {label}
-                </Link>
-              ))}
+              {/* Collections */}
+              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mb-6">
+                Collections
+              </p>
+              <div className="flex flex-col">
+                {primaryLinks.map(({ to, label }) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={() => setIsOpen(false)}
+                    className="text-[15px] tracking-[0.18em] uppercase font-medium text-foreground py-4 border-b border-border/40 hover:text-fuchsia transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
 
-              <span className="w-8 h-px bg-border my-2" />
+              {/* Univers */}
+              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mt-10 mb-6">
+                Univers
+              </p>
+              <div className="flex flex-col">
+                {universLinks.map(({ to, label }) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    onClick={() => setIsOpen(false)}
+                    className="text-[13px] tracking-[0.16em] uppercase font-normal text-foreground/80 py-3.5 border-b border-border/40 hover:text-fuchsia transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
 
-              {universLinks.map(({ to, label }) => (
-                <Link
-                  key={to}
-                  to={to}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[11px] tracking-[0.22em] uppercase font-light text-foreground/70 min-h-11 flex items-center"
-                >
-                  {label}
-                </Link>
-              ))}
-
-              <span className="w-8 h-px bg-border my-2" />
-
+              {/* Compte */}
+              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mt-10 mb-6">
+                Compte
+              </p>
               <Link
                 to={isLoggedIn ? '/account' : '/auth'}
                 onClick={() => setIsOpen(false)}
-                className="text-[11px] tracking-[0.22em] uppercase font-light text-foreground/70 min-h-11 flex items-center gap-2"
+                className="text-[13px] tracking-[0.16em] uppercase font-normal text-foreground/80 py-3.5 border-b border-border/40 hover:text-fuchsia transition-colors flex items-center gap-3"
               >
                 <User size={14} strokeWidth={1.25} />
                 {isLoggedIn ? 'Mon compte' : 'Se connecter'}
               </Link>
             </nav>
+
           </motion.div>
         )}
       </AnimatePresence>
