@@ -34,14 +34,6 @@ const CollectionBijoux = () => {
                 eager={i < 2}
               />
             ))}
-            {rest.length > 0 && (
-              <EditorialPause
-                kicker="Matière"
-                line1="Chaque pierre est unique."
-                line2="Aucun bijou ne se ressemble."
-                accent="#A55A35"
-              />
-            )}
             {rest.map((p, i) => (
               <EditorialProductCard
                 key={p.id}
