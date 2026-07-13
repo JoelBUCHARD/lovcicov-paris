@@ -7,6 +7,11 @@ import ShopifyProductCard from '@/components/ShopifyProductCard';
 import SEO from '@/components/SEO';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
+import { products as siteProducts } from '@/data/products';
+
+const siteHandles = new Set(
+  siteProducts.map((p) => p.shopifyHandle).filter((h): h is string => !!h)
+);
 
 const UNIVERSES = [
   { to: '/powerlov', label: 'PowerLov', tagline: 'Force · Discipline · Énergie' },
@@ -54,7 +59,10 @@ const SearchPage = () => {
   }, []);
 
   const visibleAll = useMemo(
-    () => allProducts.filter((p) => isVisible(shopifyKey(p.node.handle))),
+    () =>
+      allProducts
+        .filter((p) => siteHandles.has(p.node.handle))
+        .filter((p) => isVisible(shopifyKey(p.node.handle))),
     [allProducts, isVisible]
   );
 
