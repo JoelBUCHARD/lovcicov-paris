@@ -528,35 +528,10 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] py-6 md:pt-8 md:pb-20 px-0 md:px-10">
+      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-[1080px] mx-auto">
 
-          {/* MOBILE — bandeau horizontal scrollable */}
-          <div className="md:hidden overflow-x-auto no-scrollbar px-4">
-            <ul className="flex items-center justify-start gap-6 whitespace-nowrap text-center min-w-full w-max mx-auto">
-              {[
-                { title: 'Livraison offerte', desc: 'Dès 99 €' },
-                { title: 'Paiement sécurisé', desc: 'Transactions cryptées' },
-                { title: 'Retours 14 jours', desc: 'Sans justification' },
-                { title: 'Conseil personnel', desc: 'Une conseillère dédiée' },
-              ].map((item, i, arr) => (
-                <li key={item.title} className="flex items-center gap-6 shrink-0">
-                  <div>
-                    <h3 className="text-[10px] tracking-[0.24em] uppercase text-[#1A1A1A] font-medium mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-[11px] text-[#5F5E5A] font-light">
-                      {item.desc}
-                    </p>
-                  </div>
-                  {i < arr.length - 1 && <span aria-hidden className="w-px h-6 bg-[#E4DDD1]" />}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* DESKTOP — grille 4 colonnes */}
-          <div className="hidden md:grid grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
             {[
               { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 99 €.' },
               { title: 'Paiement sécurisé', desc: 'Transactions cryptées, protection intégrale.' },
@@ -571,6 +546,7 @@ const Index = () => {
                 viewport={{ once: true }}
                 custom={i}
               >
+                
                 <h3 className="text-[11px] tracking-[0.28em] uppercase text-[#1A1A1A] font-medium mb-4">
                   {item.title}
                 </h3>
@@ -582,7 +558,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
 
 
       {/* PRESS */}
