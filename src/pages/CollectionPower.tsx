@@ -75,6 +75,9 @@ const CollectionPower = () => {
             Explorer toutes les pièces
           </Link>
         </div>
+        <div className="mt-24 md:mt-32 max-w-[1360px] mx-auto px-6 md:px-12">
+          <div className="border-t border-[#E5DFD3]" />
+        </div>
       </main>
       <Footer hideTopBorder />
     </div>
