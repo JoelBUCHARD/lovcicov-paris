@@ -46,7 +46,7 @@ const CollectionMystic = () => {
           {visible.length === 0 && <EmptyState />}
         </section>
 
-        <div className="mt-14 md:mt-20 text-center px-6">
+        <div className="mt-8 md:mt-10 text-center px-6">
           <Link
             to="/shop"
             className="inline-flex items-center justify-center bg-[#1A1A1A] text-white uppercase transition-colors duration-500 hover:bg-black"
@@ -55,7 +55,7 @@ const CollectionMystic = () => {
             Explorer toutes les pièces
           </Link>
         </div>
-        <div className="mt-8 md:mt-10 -mb-16 md:-mb-20 max-w-[1360px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="mt-6 md:mt-8 -mb-24 md:-mb-28 max-w-[1360px] mx-auto px-6 md:px-12 relative z-10">
           <div className="border-t border-[#E5DFD3]" />
         </div>
       </main>
