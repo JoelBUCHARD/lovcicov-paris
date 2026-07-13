@@ -345,7 +345,7 @@ const Account = () => {
                 <EmptyState
                   eyebrow="Votre premier chapitre"
                   title="Aucune commande pour l'instant"
-                  body="Chaque pièce LOVCICOV est une intention. Lorsque vous choisirez la vôtre, elle apparaîtra ici — soigneusement archivée."
+                  body="Chaque pièce LOVCICOV est une intention. Lorsque vous choisirez la vôtre, elle apparaîtra ici, soigneusement archivée."
                   ctaLabel="Entrer dans l'univers"
                   ctaTo="/shop"
                 />
