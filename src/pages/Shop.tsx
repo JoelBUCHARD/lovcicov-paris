@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
+import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 import TrustLine from '@/components/TrustLine';
 import CollectionHeader from '@/components/CollectionHeader';
@@ -90,6 +91,11 @@ const Shop = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
+      <SEO
+        title="Boutique — LOVCICOV Paris"
+        description="Découvrez la boutique LOVCICOV Paris : t-shirts, sweats et bijoux PowerLov, MysticLov et StoneLov. Pièces éditoriales, matières nobles."
+        path={active === 'all' ? '/shop' : `/shop?collection=${active}`}
+      />
       <Navbar />
 
       <main className="pt-32 md:pt-40 pb-24">

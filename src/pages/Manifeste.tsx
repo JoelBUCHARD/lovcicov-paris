@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -14,6 +15,11 @@ const fadeUp = {
 const Manifeste = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Manifeste — LOVCICOV Paris"
+        description="Le manifeste LOVCICOV Paris : une maison de mode contemporaine pensée pour la posture, la présence et la confiance."
+        path="/manifeste"
+      />
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto text-center">

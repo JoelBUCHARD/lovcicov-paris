@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { bijouxProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
@@ -15,6 +16,11 @@ const CollectionBijoux = () => {
 
   return (
     <div className="min-h-screen bg-[#FDF5EF]">
+      <SEO
+        title="StoneLov — Bijoux en pierres naturelles | LOVCICOV Paris"
+        description="La collection StoneLov : bijoux LOVCICOV Paris en pierres naturelles. Signature minérale, ancrage et élégance."
+        path="/collections/bijoux"
+      />
       <Navbar />
       <main className="pt-32 md:pt-40 pb-24">
         <CollectionHeader

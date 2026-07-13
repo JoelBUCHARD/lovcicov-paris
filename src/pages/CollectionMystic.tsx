@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { mysticProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
@@ -15,6 +16,11 @@ const CollectionMystic = () => {
 
   return (
     <div className="min-h-screen bg-[#FDF7F5]">
+      <SEO
+        title="MysticLov — Talismans brodés | LOVCICOV Paris"
+        description="La collection MysticLov : talismans contemporains brodés main par LOVCICOV Paris. Wear your intention."
+        path="/collections/mystic-lov"
+      />
       <Navbar />
       <main className="pt-32 md:pt-40 pb-24">
         <CollectionHeader

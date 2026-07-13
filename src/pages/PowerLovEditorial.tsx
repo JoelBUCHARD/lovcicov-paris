@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
 import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
@@ -80,6 +81,11 @@ const PowerLovEditorial = () => {
 
   return (
     <div style={pageStyle} className="min-h-screen">
+      <SEO
+        title="PowerLov — Wear your power. | LOVCICOV Paris"
+        description="PowerLov par LOVCICOV Paris : silhouettes affirmées, coton lourd, sérigraphies manifestes. Wear your power."
+        path="/powerlov"
+      />
       <Navbar />
 
       <main className="pt-[73px] overflow-hidden">

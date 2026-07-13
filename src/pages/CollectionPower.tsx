@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard, { EditorialProduct } from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
@@ -43,6 +44,11 @@ const CollectionPower = () => {
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
+      <SEO
+        title="PowerLov — T-shirts, sweats, hoodies | LOVCICOV Paris"
+        description="La collection PowerLov : pièces manifestes en coton lourd, sérigraphies signatures. Wear your power."
+        path="/collections/powerlov"
+      />
       <Navbar />
       <main className="pt-32 md:pt-40 pb-24">
         <CollectionHeader

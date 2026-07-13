@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const BG = '#FAF7F2';
 const INK = '#1A1A1A';
@@ -44,6 +45,11 @@ const ARTICLES = [
 const Sacs = () => {
   return (
     <div style={{ backgroundColor: BG }} className="min-h-screen">
+      <SEO
+        title="Sacs LOVCICOV — Cuir tressé pleine fleur | LOVCICOV Paris"
+        description="Les sacs LOVCICOV Paris : cuir pleine fleur tressé à la main. Big LOV et Small LOV, six teintes signatures."
+        path="/sacs"
+      />
       <Navbar />
 
       <div className="pt-[73px]">
