@@ -12,3 +12,9 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /account
+Disallow: /cart
+Disallow: /auth
+
+Sitemap: https://lovcicov.com/sitemap.xml
