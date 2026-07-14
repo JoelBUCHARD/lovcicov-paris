@@ -6,38 +6,17 @@ import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
+import { standardProducts } from "@/data/products";
+import { resolveProductImage } from "@/lib/productImage";
 
-// Hero & lifestyle
+// Lifestyle images — exclusivement celles déjà présentes sur la page PowerLov actuelle
 import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
 import lifeCafeFlore from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
 import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
-import lifePorscheSaintBenoit from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-benoit-v2.png.asset.json";
-import lifeLovcicovParisBack from "@/assets/powerlov/powerlov-bottomwide-lovcicov-paris-back.png.asset.json";
-
-// Product packshots / worn
-import godDjCafe from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
-import godDjStreet from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
-import connectedEmpowered from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
-import disciplineFront from "@/assets/powerlov/powerlov-discipline-front.png.asset.json";
-import disciplineBack from "@/assets/powerlov/powerlov-discipline-back.png.asset.json";
-import ifGodIsADj from "@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json";
-import ifGodDjFront from "@/assets/powerlov/powerlov-if-god-dj-front.png.asset.json";
-import boldBadassGrid from "@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json";
-import boldBadassStreet from "@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json";
-import boldBadassSweat from "@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json";
-import godIsADancerGrid from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
-import godIsADancerStreet from "@/assets/powerlov/powerlov-god-is-a-dancer-street-cafe.png.asset.json";
-import protectedAlignedFront from "@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json";
-import protectedAlignedStreet from "@/assets/powerlov/powerlov-protected-aligned-unstoppable-street.png.asset.json";
-import sacredHeartStreet from "@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json";
-import sacredHeartStreetBack from "@/assets/powerlov/powerlov-sacred-heart-street-back.png.asset.json";
-import sacredHeartHoodieFront from "@/assets/powerlov/powerlov-sacred-heart-hoodie-street-front.png.asset.json";
-import sacredHeartHoodieBack from "@/assets/powerlov/powerlov-sacred-heart-hoodie-street-back.png.asset.json";
-import energyNeverLies from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
 
 type Category = "all" | "tshirts" | "sweats" | "new";
 
-type Product = {
+type ProductCard = {
   id: string;
   name: string;
   price: number;
@@ -46,24 +25,27 @@ type Product = {
   categories: Exclude<Category, "all">[];
 };
 
-const products: Product[] = [
-  { id: "powerlov-god-is-a-dj", name: "God Is A DJ", price: 59, image: godDjCafe.url, hover: godDjStreet.url, categories: ["tshirts"] },
-  { id: "powerlov-empowered", name: "Connected. Disciplined. Empowered.", price: 59, image: connectedEmpowered.url, categories: ["tshirts"] },
-  { id: "powerlov-discipline", name: "Discipline Is My Luxury", price: 59, image: disciplineFront.url, hover: disciplineBack.url, categories: ["tshirts"] },
-  { id: "powerlov-if-god-dj-frequency", name: "If God Is A DJ", price: 59, image: ifGodIsADj.url, hover: ifGodDjFront.url, categories: ["tshirts"] },
-  { id: "powerlov-bold-badass-tee", name: "Bold. Badass. No Filter.", price: 59, image: boldBadassGrid.url, hover: boldBadassStreet.url, categories: ["tshirts"] },
-  { id: "powerlov-god-is-a-dancer", name: "God Is A Dancer", price: 59, image: godIsADancerGrid.url, hover: godIsADancerStreet.url, categories: ["tshirts"] },
-  { id: "powerlov-protected-aligned-unstoppable", name: "Protected. Aligned. Unstoppable.", price: 59, image: protectedAlignedFront.url, hover: protectedAlignedStreet.url, categories: ["tshirts"] },
-  { id: "powerlov-sacred-heart-sweat", name: "Sacred Heart — Sweat", price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url, categories: ["sweats", "new"] },
-  { id: "powerlov-sacred-heart-hoodie", name: "Sacred Heart — Hoodie", price: 109, image: sacredHeartHoodieFront.url, hover: sacredHeartHoodieBack.url, categories: ["sweats", "new"] },
-  { id: "powerlov-bold-badass-hoodie", name: "Bold. Badass. — Hoodie", price: 99, image: boldBadassSweat.url, categories: ["sweats"] },
-  { id: "powerlov-energy-never-lies-hoodie", name: "Energy Never Lies — Hoodie", price: 99, image: energyNeverLies.url, categories: ["sweats"] },
-];
+// Nouveautés = derniers ajouts (les 2 pièces Sacred Heart les plus récentes)
+const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
 
+const products: ProductCard[] = standardProducts.map((p) => {
+  const cats: Exclude<Category, "all">[] = [];
+  if (p.subcategory === "tshirt") cats.push("tshirts");
+  if (p.subcategory === "hoodie" || p.subcategory === "crewneck") cats.push("sweats");
+  if (NEW_IDS.has(p.id)) cats.push("new");
+  return {
+    id: p.id,
+    name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
+    price: p.price,
+    image: resolveProductImage(p.image),
+    hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
+    categories: cats,
+  };
+});
+
+// Lifestyle inserts : seulement des images qui figuraient déjà sur la page PowerLov
 const lifestyleImages = [
   { image: lifeCafeFlore.url, alt: "PowerLov — Café de Flore, Paris", objectPosition: "center 60%" },
-  { image: lifePorscheSaintBenoit.url, alt: "PowerLov — Porsche rue Saint-Benoît, Paris", objectPosition: "center 40%" },
-  { image: lifeLovcicovParisBack.url, alt: "PowerLov — LOVCICOV PARIS de dos", objectPosition: "center 30%" },
 ];
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
@@ -78,6 +60,7 @@ const pageStyle = {
   color: "#0D0D0D",
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
+
 
 const PowerLovEditorial = () => {
   const location = useLocation();
