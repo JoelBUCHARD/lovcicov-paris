@@ -73,7 +73,17 @@ const CollectionTshirts = () => {
             ))}
           </div>
         )}
+
+        <div className="text-center mt-20 md:mt-24">
+          <Link
+            to="/shop"
+            className="inline-flex items-center gap-3 bg-[#1A1A1A] text-white text-[10px] tracking-[0.12em] uppercase px-8 py-3 hover:bg-[#2C2C2A] transition-colors"
+          >
+            Explorer toutes les pièces
+          </Link>
+        </div>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );
