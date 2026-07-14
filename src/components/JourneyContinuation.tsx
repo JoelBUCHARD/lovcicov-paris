@@ -87,9 +87,9 @@ const JourneyContinuation = ({
             className="text-[#1A1A1A] uppercase"
             style={{
               fontFamily: "Instrument Sans, system-ui, sans-serif",
-              fontSize: "clamp(13px, 1.6vw, 16px)",
+              fontSize: "clamp(15px, 1.8vw, 19px)",
               fontWeight: 500,
-              letterSpacing: "0.28em",
+              letterSpacing: "0.32em",
             }}
           >
             {title}
