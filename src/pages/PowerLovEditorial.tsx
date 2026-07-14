@@ -116,7 +116,6 @@ const PowerLovEditorial = () => {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 30%" }}
             loading="eager"
-            fetchPriority="high"
             decoding="async"
           />
           <div
