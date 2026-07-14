@@ -551,7 +551,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
+      <section className="bg-white border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
         <div className="max-w-[1080px] mx-auto">
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
