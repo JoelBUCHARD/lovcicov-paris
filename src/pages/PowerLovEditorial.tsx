@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
 import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
