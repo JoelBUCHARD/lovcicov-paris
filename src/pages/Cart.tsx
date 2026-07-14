@@ -54,11 +54,19 @@ const Cart = () => {
   const freeShippingProgress = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
   const remaining = getRemainingForFreeShipping(subtotal);
 
-  // Curated cross-sell — max 3 pieces, avoid what's already in the cart
+  const { isVisible } = useProductVisibility();
+
+  // Curated cross-sell — same catalog as the shop, only currently online pieces,
+  // avoid what's already in the cart, cap at 3.
   const suggestions = useMemo(() => {
     const inCartIds = new Set(localItems.map(i => i.product.id));
-    return standardProducts.filter(p => !inCartIds.has(p.id)).slice(0, 3);
-  }, [localItems]);
+    const all = [...standardProducts, ...mysticProducts, ...bijouxProducts];
+    return all
+      .filter(p => isVisible(localKey(p.id)))
+      .filter(p => !inCartIds.has(p.id))
+      .slice(0, 3);
+  }, [localItems, isVisible]);
+
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
