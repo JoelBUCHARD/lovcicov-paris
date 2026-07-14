@@ -84,12 +84,12 @@ const JourneyContinuation = ({
             </p>
           )}
           <h2
-            className="italic text-[#1A1A1A]"
+            className="text-[#1A1A1A] uppercase"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(22px, 3.2vw, 30px)",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontSize: "clamp(13px, 1.6vw, 16px)",
+              fontWeight: 500,
+              letterSpacing: "0.28em",
             }}
           >
             {title}
