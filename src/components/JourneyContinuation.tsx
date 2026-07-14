@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import powerAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
-import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafedeflore-v2.png.asset.json";
-import stoneAsset from "@/assets/stonelov/book-lalune-desk.png.asset.json";
+import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
+import stoneHero from "@/assets/stonelov/hero.png";
 
 type UniverseKey = "power" | "mystic" | "stone";
 
