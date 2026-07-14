@@ -319,9 +319,6 @@ const PowerLovEditorial = () => {
                           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
                         />
                       </div>
-                      <p className="pt-3 text-center uppercase font-light" style={{ fontSize: 10, letterSpacing: "0.2em", color: "rgba(13,13,13,0.5)" }}>
-                        Packshot
-                      </p>
                     </Link>
                   </motion.div>
                 );
