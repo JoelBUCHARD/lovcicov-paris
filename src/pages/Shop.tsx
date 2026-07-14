@@ -251,6 +251,7 @@ const Shop = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

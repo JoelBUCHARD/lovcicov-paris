@@ -393,6 +393,7 @@ const Account = () => {
         </div>
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

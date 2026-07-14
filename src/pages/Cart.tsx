@@ -417,6 +417,7 @@ const Cart = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

@@ -333,6 +333,7 @@ const SearchPage = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

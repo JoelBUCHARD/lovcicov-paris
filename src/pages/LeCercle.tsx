@@ -131,6 +131,7 @@ const LeCercle = () => {
           </motion.div>
         </div>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );
