@@ -16,8 +16,9 @@ import {
   SHIPPING_FEE,
   FREE_SHIPPING_THRESHOLD,
 } from '@/lib/shipping';
-import { standardProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
@@ -53,11 +54,19 @@ const Cart = () => {
   const freeShippingProgress = Math.min(100, (subtotal / FREE_SHIPPING_THRESHOLD) * 100);
   const remaining = getRemainingForFreeShipping(subtotal);
 
-  // Curated cross-sell — max 3 pieces, avoid what's already in the cart
+  const { isVisible } = useProductVisibility();
+
+  // Curated cross-sell — same catalog as the shop, only currently online pieces,
+  // avoid what's already in the cart, cap at 3.
   const suggestions = useMemo(() => {
     const inCartIds = new Set(localItems.map(i => i.product.id));
-    return standardProducts.filter(p => !inCartIds.has(p.id)).slice(0, 3);
-  }, [localItems]);
+    const all = [...standardProducts, ...mysticProducts, ...bijouxProducts];
+    return all
+      .filter(p => isVisible(localKey(p.id)))
+      .filter(p => !inCartIds.has(p.id))
+      .slice(0, 3);
+  }, [localItems, isVisible]);
+
 
   const handleCheckout = () => {
     const checkoutUrl = getCheckoutUrl();
