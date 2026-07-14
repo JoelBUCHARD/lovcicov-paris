@@ -227,7 +227,7 @@ const SearchPage = () => {
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12">
                     {results.map((product, i) => (
-                      <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </>
@@ -249,7 +249,7 @@ const SearchPage = () => {
                       </p>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12 mb-16 text-left">
                         {bestSellers.map((product, i) => (
-                          <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                          <ProductCard key={product.id} product={product} index={i} />
                         ))}
                       </div>
                     </>
@@ -303,7 +303,7 @@ const SearchPage = () => {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12">
                     {bestSellers.map((product, i) => (
-                      <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </div>
