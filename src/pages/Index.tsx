@@ -526,6 +526,29 @@ const Index = () => {
 
 
       {/* ————————————————————————————————————————————————————— */}
+      {/* PRESS */}
+      {/* ————————————————————————————————————————————————————— */}
+      <section className="py-16 md:py-20 text-center bg-white border-t border-b border-[#E8E4DD]">
+        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-8">
+          Vu dans la presse
+        </p>
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6">
+          {['Madame Figaro', 'Paris Match'].map((media) => (
+            <span
+              key={media}
+              className="text-[15px] md:text-[16px] text-[#888780] tracking-[0.06em] font-light"
+              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic' }}
+            >
+              {media}
+            </span>
+          ))}
+          <span className="text-[14px] text-[#B4A99A] tracking-[0.06em] font-light italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+            — et d&apos;autres
+          </span>
+        </div>
+      </section>
+
+      {/* ————————————————————————————————————————————————————— */}
       {/* 9. TRUST & REASSURANCE */}
       {/* ————————————————————————————————————————————————————— */}
       <section className="bg-[#FAF7F2] border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
@@ -559,27 +582,6 @@ const Index = () => {
         </div>
       </section>
 
-
-      {/* PRESS */}
-      <section className="py-16 md:py-20 text-center bg-white border-t border-b border-[#E8E4DD]">
-        <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-8">
-          Vu dans la presse
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 px-6">
-          {['Madame Figaro', 'Paris Match'].map((media) => (
-            <span
-              key={media}
-              className="text-[15px] md:text-[16px] text-[#888780] tracking-[0.06em] font-light"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic' }}
-            >
-              {media}
-            </span>
-          ))}
-          <span className="text-[14px] text-[#B4A99A] tracking-[0.06em] font-light italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
-            — et d&apos;autres
-          </span>
-        </div>
-      </section>
 
 
 
