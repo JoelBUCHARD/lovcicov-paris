@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import powerAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
-import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafedeflore-v2.png.asset.json";
-import stoneAsset from "@/assets/stonelov/book-lalune-desk.png.asset.json";
+import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
+import stoneHero from "@/assets/stonelov/hero.png";
 
 type UniverseKey = "power" | "mystic" | "stone";
 
@@ -34,8 +34,8 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     caption: "L'intention devient présence.",
     to: "/mysticlov",
     image: mysticAsset.url,
-    alt: "MysticLov — Café de Flore, Paris",
-    objectPosition: "center 40%",
+    alt: "MysticLov — Café de Paris",
+    objectPosition: "center 35%",
   },
   stone: {
     key: "stone",
@@ -43,8 +43,8 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     title: "StoneLov",
     caption: "La pierre devient signature.",
     to: "/stonelov",
-    image: stoneAsset.url,
-    alt: "StoneLov — savoir-faire lithothérapie",
+    image: stoneHero,
+    alt: "StoneLov — hero savoir-faire",
     objectPosition: "center center",
   },
 };
@@ -84,12 +84,12 @@ const JourneyContinuation = ({
             </p>
           )}
           <h2
-            className="italic text-[#1A1A1A]"
+            className="text-[#1A1A1A] uppercase"
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: "clamp(22px, 3.2vw, 30px)",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontSize: "clamp(13px, 1.6vw, 16px)",
+              fontWeight: 500,
+              letterSpacing: "0.28em",
             }}
           >
             {title}
