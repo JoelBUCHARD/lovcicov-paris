@@ -34,8 +34,8 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     caption: "L'intention devient présence.",
     to: "/mysticlov",
     image: mysticAsset.url,
-    alt: "MysticLov — Café de Flore, Paris",
-    objectPosition: "center 40%",
+    alt: "MysticLov — Café de Paris",
+    objectPosition: "center 35%",
   },
   stone: {
     key: "stone",
@@ -43,8 +43,8 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     title: "StoneLov",
     caption: "La pierre devient signature.",
     to: "/stonelov",
-    image: stoneAsset.url,
-    alt: "StoneLov — savoir-faire lithothérapie",
+    image: stoneHero,
+    alt: "StoneLov — hero savoir-faire",
     objectPosition: "center center",
   },
 };
