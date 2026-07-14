@@ -206,21 +206,6 @@ const PowerLovEditorial = () => {
           >
             POWERLOV
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mx-auto mt-6 md:mt-10 max-w-2xl"
-            style={{
-              fontSize: "clamp(13px, 1.3vw, 16px)",
-              color: "rgba(13,13,13,0.7)",
-              letterSpacing: "0.02em",
-              lineHeight: 1.7,
-            }}
-          >
-            Silhouettes affirmées. Coupes précises. L'énergie d'une allure choisie.
-          </motion.p>
         </section>
 
         {/* STICKY FILTER BAR */}
