@@ -264,99 +264,81 @@ const PowerLovEditorial = () => {
           </div>
         </div>
 
-        {/* PRODUCT GRID WITH LIFESTYLE INSERTS */}
+        {/* PRODUCT GRID — Rouje-style: large lifestyle hero + small product tiles */}
         <section aria-label="Sélection PowerLov" style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px)" }}>
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
-          <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14" style={{ maxWidth: 1600 }}>
-            {gridItems.map((item) => {
-              if (item.kind === "packshot") {
-                return (
-                  <motion.div
-                    key={`${item.product.id}-packshot-${item.imageIndex}`}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.75, delay: Math.min(item.index, 6) * 0.035 }}
-                    className={item.emphasis === "tall" ? "col-span-1 md:col-span-2" : "col-span-1"}
-                  >
-                    <Link
-                      to={`/shop/${item.product.id}`}
-                      state={{ from }}
-                      onMouseEnter={() => {
-                        prefetchRoute("/shop/item");
-                        prefetchImage(item.image);
-                      }}
-                      onTouchStart={() => prefetchRoute("/shop/item")}
-                      className="group block h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
-                    >
-                      <div
-                        className="relative w-full overflow-hidden"
-                        style={{ backgroundColor: "#F0EDE7", aspectRatio: item.emphasis === "tall" ? "3 / 4" : "4 / 5" }}
-                      >
-                        <img
-                          src={item.image}
-                          alt={`${item.product.name} — packshot`}
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-contain transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
-                        />
-                      </div>
-                      <p className="pt-3 text-center uppercase font-light" style={{ fontSize: 10, letterSpacing: "0.2em", color: "rgba(13,13,13,0.5)" }}>
-                        Packshot
-                      </p>
-                    </Link>
-                  </motion.div>
-                );
-              }
+          <div
+            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-3 md:gap-x-4 gap-y-6 md:gap-y-8 md:[grid-auto-flow:dense]"
+            style={{ maxWidth: 1600 }}
+          >
+            {gridItems.map((item, i) => {
+              const isProduct = item.kind === "product";
+              const product = item.product;
+              const image = isProduct ? product.image : item.image;
+              const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
+              // Every 7th tile becomes a large lifestyle hero (2×2) on desktop
+              const isHero = isProduct && i % 7 === 0;
+              const spanClass = isHero
+                ? "col-span-2 row-span-2 md:col-span-2 md:row-span-2"
+                : "col-span-1";
+              const objectFit = isProduct ? "object-cover" : "object-contain";
 
-              const { product, index, emphasis } = item;
               return (
                 <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 16 }}
+                  key={key}
+                  initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.7, delay: Math.min(index, 6) * 0.04 }}
-                  className={emphasis === "large" ? "col-span-2 h-full w-full" : "col-span-1 h-full w-full"}
+                  transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
+                  className={spanClass}
                 >
                   <Link
                     to={`/shop/${product.id}`}
                     state={{ from }}
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
-                      prefetchImage(product.image);
+                      prefetchImage(image);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
                     className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
-                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: emphasis === "large" ? "3 / 4" : "4 / 5" }}>
+                    <div
+                      className="relative w-full overflow-hidden flex-1"
+                      style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
+                    >
                       <img
-                        src={product.image}
+                        src={image}
                         alt={product.name}
                         loading="lazy"
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
+                        className={`absolute inset-0 h-full w-full ${objectFit} transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]`}
                       />
                     </div>
-                    <div className="pt-4 md:pt-5 pb-2 text-center">
-                      <h3
-                        className="text-[#0D0D0D] font-light"
-                        style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
-                      >
-                        {product.name}
-                      </h3>
-                      <p className="mt-2 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
-                        €{product.price}
-                      </p>
-                    </div>
+                    {isProduct ? (
+                      <div className="pt-3 md:pt-4 pb-2 text-center">
+                        <h3
+                          className="text-[#0D0D0D] font-light"
+                          style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
+                        >
+                          {product.name}
+                        </h3>
+                        <p className="mt-1.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                          €{product.price}
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="pt-3 pb-2" />
+                    )}
                   </Link>
                 </motion.div>
               );
             })}
           </div>
+
+
 
           {filtered.length === 0 && (
             <p
