@@ -74,7 +74,7 @@ const PowerLovEditorial = () => {
   // Build grid items: alternate 2 products then 1 lifestyle tile (spans 2 rows).
   // Every 6th product slot inserts a lifestyle image so it never breaks the rhythm.
   type GridItem =
-    | { kind: "product"; product: Product; index: number }
+    | { kind: "product"; product: ProductCard; index: number }
     | { kind: "lifestyle"; image: string; alt: string; objectPosition?: string; key: string };
 
   const gridItems: GridItem[] = useMemo(() => {
