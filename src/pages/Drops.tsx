@@ -199,8 +199,21 @@ const Drops = () => {
             )}
           </div>
         </section>
+
+        <section className="pb-24 md:pb-32 px-6 md:px-10 text-center">
+          <p className="text-[11px] tracking-[0.24em] uppercase text-muted-foreground mb-4">
+            En attendant le prochain drop
+          </p>
+          <Link
+            to="/shop"
+            className="text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground/40 pb-0.5 hover:border-foreground transition-colors"
+          >
+            Explorer l&apos;univers LOVCICOV
+          </Link>
+        </section>
       </main>
 
+      <JourneyContinuation />
       <Footer hideNewsletter />
     </div>
   );
