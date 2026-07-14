@@ -42,7 +42,8 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
 
   return (
     <footer
-      className={`bg-background ${hideTopBorder ? '' : 'border-t border-border'}`}
+      className={`${hideTopBorder ? '' : 'border-t border-border'}`}
+      style={{ backgroundColor: '#FFFFFF' }}
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">Pied de page LOVCICOV Paris</h2>
