@@ -280,8 +280,10 @@ const PowerLovEditorial = () => {
 
       </main>
 
+      <JourneyContinuation current="power" />
 
       <Footer />
+
     </div>
   );
 };
