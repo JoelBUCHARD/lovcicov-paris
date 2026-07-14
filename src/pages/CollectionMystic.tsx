@@ -66,6 +66,7 @@ const CollectionMystic = () => {
           <div className="border-t border-[#E5DFD3]" />
         </div>
       </main>
+      <JourneyContinuation />
       <Footer hideTopBorder />
     </div>
   );
