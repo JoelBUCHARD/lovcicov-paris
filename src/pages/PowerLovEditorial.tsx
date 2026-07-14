@@ -295,7 +295,7 @@ const PowerLovEditorial = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.75, delay: Math.min(item.index, 6) * 0.035 }}
-                    className={item.emphasis === "tall" ? "col-span-1 md:col-span-2" : "col-span-1"}
+                    className="col-span-1"
                   >
                     <Link
                       to={`/shop/${item.product.id}`}
@@ -309,14 +309,14 @@ const PowerLovEditorial = () => {
                     >
                       <div
                         className="relative w-full overflow-hidden"
-                        style={{ backgroundColor: "#F0EDE7", aspectRatio: item.emphasis === "tall" ? "3 / 4" : "4 / 5" }}
+                        style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
                       >
                         <img
                           src={item.image}
                           alt={`${item.product.name} — packshot`}
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 h-full w-full object-contain transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
                         />
                       </div>
                       <p className="pt-3 text-center uppercase font-light" style={{ fontSize: 10, letterSpacing: "0.2em", color: "rgba(13,13,13,0.5)" }}>
