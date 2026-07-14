@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Search as SearchIcon, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import ProductCard from '@/components/ProductCard';
 import SEO from '@/components/SEO';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
@@ -332,6 +333,7 @@ const SearchPage = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

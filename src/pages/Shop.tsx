@@ -5,6 +5,7 @@ import { standardProducts, mysticProducts, bijouxProducts } from '@/data/product
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import TrustLine from '@/components/TrustLine';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
@@ -250,6 +251,7 @@ const Shop = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );

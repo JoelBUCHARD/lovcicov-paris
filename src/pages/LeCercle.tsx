@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -130,6 +131,7 @@ const LeCercle = () => {
           </motion.div>
         </div>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );

@@ -4,6 +4,7 @@ import { Trash2, Minus, Plus, Loader2, ShieldCheck, Truck, RotateCcw, Sparkles }
 import { useMemo } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import SEO from '@/components/SEO';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
@@ -416,6 +417,7 @@ const Cart = () => {
         )}
       </main>
 
+      <JourneyContinuation />
       <Footer />
     </div>
   );
