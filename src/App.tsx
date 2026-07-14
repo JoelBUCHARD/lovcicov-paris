@@ -47,6 +47,8 @@ const Confidentialite = lazy(() => import("./pages/Confidentialite"));
 const LivraisonRetours = lazy(() => import("./pages/LivraisonRetours"));
 const CGV = lazy(() => import("./pages/CGV"));
 const AdminProducts = lazy(() => import("./pages/AdminProducts"));
+const Magazine = lazy(() => import("./pages/Magazine"));
+const MagazineArticle = lazy(() => import("./pages/MagazineArticle"));
 
 const queryClient = new QueryClient();
 
