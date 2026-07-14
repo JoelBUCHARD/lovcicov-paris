@@ -48,65 +48,62 @@ const SearchPage = () => {
   const initialQ = searchParams.get('q') ?? '';
   const [input, setInput] = useState(initialQ);
   const [query, setQuery] = useState(initialQ);
-  const [allProducts, setAllProducts] = useState<ShopifyProduct[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [initialLoading, setInitialLoading] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { isVisible } = useProductVisibility();
+  const { isVisible, loading: visibilityLoading } = useProductVisibility();
 
   useEffect(() => {
     setInput(initialQ);
     setQuery(initialQ);
   }, [initialQ]);
 
-  // Fetch products once — used for both suggestions grid and search results
-  useEffect(() => {
-    let cancelled = false;
-    setInitialLoading(true);
-    fetchShopifyProducts(250)
-      .then((data) => { if (!cancelled) setAllProducts(data); })
-      .catch(() => { if (!cancelled) setAllProducts([]); })
-      .finally(() => { if (!cancelled) setInitialLoading(false); });
-    return () => { cancelled = true; };
-  }, []);
-
+  // Base catalogue — the exact pieces displayed on the site (same visibility filter as the shop).
   const visibleAll = useMemo(
-    () =>
-      allProducts
-        .filter((p) => siteHandles.has(p.node.handle))
-        .filter((p) => isVisible(shopifyKey(p.node.handle))),
-    [allProducts, isVisible]
+    () => siteProducts.filter((p) => isVisible(localKey(p.id))),
+    [isVisible]
   );
+
+  const buildHaystack = (p: Product): string => {
+    const parts: string[] = [
+      p.name,
+      p.description ?? '',
+      p.collection,
+      p.subcategory ?? '',
+      ...(p.colors?.map((c) => c.name) ?? []),
+      ...(COLLECTION_ALIASES[p.collection] ?? []),
+      ...(p.subcategory ? SUBCATEGORY_ALIASES[p.subcategory] ?? [] : []),
+    ];
+    return normalize(parts.join(' | '));
+  };
 
   const trimmed = query.trim();
   const results = useMemo(() => {
     if (!trimmed) return [];
-    const q = normalize(trimmed);
+    // Split query into tokens — every token must match somewhere in the haystack.
+    const tokens = normalize(trimmed).split(/\s+/).filter(Boolean);
     return visibleAll.filter((p) => {
-      const node: any = p.node;
-      const haystacks: string[] = [
-        node.title ?? '',
-        node.description ?? '',
-        node.productType ?? '',
-        node.vendor ?? '',
-        node.handle ?? '',
-        ...(Array.isArray(node.tags) ? node.tags : []),
-      ];
-      return haystacks.some((s) => normalize(String(s)).includes(q));
+      const hay = buildHaystack(p);
+      return tokens.every((t) => hay.includes(t));
     });
   }, [trimmed, visibleAll]);
 
-  // Live-typed suggestions (top 4 matches)
+  // Live-typed suggestions (top 5 matches) — same logic, based on the current input.
   const liveSuggestions = useMemo(() => {
     const v = input.trim();
     if (!v || v === query) return [];
-    const q = normalize(v);
+    const tokens = normalize(v).split(/\s+/).filter(Boolean);
     return visibleAll
-      .filter((p) => normalize(p.node.title).includes(q))
-      .slice(0, 4);
+      .filter((p) => {
+        const hay = buildHaystack(p);
+        return tokens.every((t) => hay.includes(t));
+      })
+      .slice(0, 5);
   }, [input, query, visibleAll]);
 
   const bestSellers = visibleAll.slice(0, 4);
+
+  const loading = false;
+  const initialLoading = visibilityLoading;
+
 
   useEffect(() => { inputRef.current?.focus(); }, []);
 
