@@ -8,7 +8,15 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 );
 
 const LivraisonRetours = () => (
-  <LegalPage eyebrow="INFORMATIONS PRATIQUES" title="Livraison & Retours">
+  <LegalPage
+    eyebrow="INFORMATIONS PRATIQUES"
+    title="Livraison & Retours"
+    seo={{
+      title: "Livraison & Retours — LOVCICOV Paris",
+      description: "Délais, tarifs, suivi et retours. Livraison offerte en France dès 150 €, expéditions Europe et international depuis nos ateliers.",
+      path: "/livraison-retours",
+    }}
+  >
     <Section title="1. Préparation de votre commande">
       <p>
         Chaque commande est préparée avec soin dans nos ateliers à Marseille sous 1 à 3 jours

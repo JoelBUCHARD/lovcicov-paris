@@ -8,7 +8,15 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 );
 
 const CGV = () => (
-  <LegalPage eyebrow="CONDITIONS DE VENTE" title="Conditions Générales de Vente">
+  <LegalPage
+    eyebrow="CONDITIONS DE VENTE"
+    title="Conditions Générales de Vente"
+    seo={{
+      title: "CGV — LOVCICOV Paris",
+      description: "Conditions Générales de Vente de LOVCICOV Paris : commande, paiement, livraison, rétractation et service client.",
+      path: "/cgv",
+    }}
+  >
     <p className="text-sm text-muted-foreground">
       En vigueur au <strong className="text-foreground">26 mai 2026</strong>
     </p>

@@ -46,7 +46,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="LOVCICOV Paris — Maison de mode contemporaine"
-        description="LOVCICOV Paris — maison de mode contemporaine. Pièces éditoriales pensées pour la posture, la présence et la confiance. Découvrez PowerLov, MysticLov et StoneLov."
+        description="Maison de mode contemporaine à Paris. Pièces éditoriales pensées pour la posture, la présence et la confiance — PowerLov, MysticLov, StoneLov."
         path="/"
       />
       <Navbar />
