@@ -191,6 +191,7 @@ const MysticLovEditorial = () => {
         </section>
 
       </div>
+      <JourneyContinuation current="mystic" />
       <Footer />
     </div>
   );
