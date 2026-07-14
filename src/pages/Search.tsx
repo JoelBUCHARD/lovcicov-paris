@@ -3,15 +3,27 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Search as SearchIcon, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ShopifyProductCard from '@/components/ShopifyProductCard';
+import ProductCard from '@/components/ProductCard';
 import SEO from '@/components/SEO';
-import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
-import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
-import { products as siteProducts } from '@/data/products';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
+import { products as siteProducts, type Product } from '@/data/products';
 
-const siteHandles = new Set(
-  siteProducts.map((p) => p.shopifyHandle).filter((h): h is string => !!h)
-);
+// Human keywords mapped to collections/universes so a search on "PowerLov",
+// "mystique", "bijou"… returns the right pieces even if the word is not in
+// the product name.
+const COLLECTION_ALIASES: Record<Product['collection'], string[]> = {
+  standard: ['powerlov', 'power', 'force', 'discipline', 'énergie', 'energie'],
+  mystic: ['mysticlov', 'mystic', 'mystique', 'intuition', 'douceur', 'mystere', 'mystère'],
+  bijoux: ['stonelov', 'stone', 'pierre', 'pierres', 'bijou', 'bijoux', 'talisman', 'rituel'],
+  sacs: ['lovbag', 'sac', 'sacs', 'cuir', 'tressé', 'tresse', 'bag'],
+};
+
+const SUBCATEGORY_ALIASES: Record<string, string[]> = {
+  tshirt: ['t-shirt', 'tshirt', 'tee'],
+  crewneck: ['crewneck', 'sweat', 'sweatshirt', 'pull'],
+  hoodie: ['hoodie', 'sweat à capuche', 'sweat a capuche', 'capuche'],
+};
+
 
 const UNIVERSES = [
   { to: '/powerlov', label: 'PowerLov', tagline: 'Force · Discipline · Énergie' },
