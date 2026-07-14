@@ -51,7 +51,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
       {!hideNewsletter && (
         <section
           aria-label="Newsletter"
-          className="px-6 md:px-10 py-20 md:py-28 text-center"
+          className="px-6 md:px-10 py-10 md:py-14 text-center"
         >
           <p className="text-brand text-[10px] text-muted-foreground mb-6 tracking-[0.32em]">
             LE CERCLE LOVCICOV
