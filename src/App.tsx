@@ -126,9 +126,10 @@ const AppContent = () => {
           {/* /campagne-sac (LOVSAC) — temporairement masqué, redirection vers l'accueil. Réactivation prévue en septembre. */}
           <Route path="/campagne-sac" element={<Navigate to="/" replace />} />
           <Route path="/sacs" element={<Sacs />} />
-          <Route path="/journal/sacs-cuir-tresse" element={<ArticleSacsCuirTresse />} />
-          <Route path="/journal/sacs-choisir-couleur" element={<ArticleSacsChoisirCouleur />} />
-          <Route path="/journal/sacs-histoire-big-lov" element={<ArticleSacsHistoireBigLov />} />
+          {/* Legacy /journal/* article routes redirect to Magazine equivalents */}
+          <Route path="/journal/sacs-cuir-tresse" element={<Navigate to="/magazine/le-geste-du-cuir-tresse" replace />} />
+          <Route path="/journal/sacs-choisir-couleur" element={<Navigate to="/magazine/comment-choisir-sa-couleur" replace />} />
+          <Route path="/journal/sacs-histoire-big-lov" element={<Navigate to="/magazine/histoire-du-big-lov" replace />} />
           <Route path="/collections/bijoux" element={<CollectionBijoux />} />
           <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
           <Route path="/manifeste" element={<Manifeste />} />
