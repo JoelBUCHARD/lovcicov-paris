@@ -144,6 +144,12 @@ const AppContent = () => {
           <Route path="/livraison-retours" element={<LivraisonRetours />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/magazine" element={<Magazine />} />
+          <Route path="/magazine/:slug" element={<MagazineArticle />} />
+          {/* Legacy /journal/* article routes redirect to their magazine equivalents */}
+          <Route path="/journal/sacs-cuir-tresse" element={<Navigate to="/magazine/le-geste-du-cuir-tresse" replace />} />
+          <Route path="/journal/sacs-choisir-couleur" element={<Navigate to="/magazine/comment-choisir-sa-couleur" replace />} />
+          <Route path="/journal/sacs-histoire-big-lov" element={<Navigate to="/magazine/histoire-du-big-lov" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
