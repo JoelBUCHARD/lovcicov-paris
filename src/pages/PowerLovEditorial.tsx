@@ -272,24 +272,14 @@ const PowerLovEditorial = () => {
 
         {/* PRODUCT GRID WITH LIFESTYLE INSERTS */}
         <section aria-label="Sélection PowerLov" style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px)" }}>
+          <style>{`
+            .no-scrollbar::-webkit-scrollbar { display: none; }
+            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+          `}</style>
           <div
-            className="mx-auto grid gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14"
-            style={{
-              maxWidth: 1600,
-              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-              gridAutoRows: "auto",
-            }}
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14"
+            style={{ maxWidth: 1600, gridAutoRows: "auto" }}
           >
-            <style>{`
-              @media (min-width: 768px) {
-                #powerlov-grid ~ section > div.mx-auto {
-                  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-                }
-              }
-              .no-scrollbar::-webkit-scrollbar { display: none; }
-              .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            `}</style>
-
             {gridItems.map((item) => {
               if (item.kind === "lifestyle") {
                 return (
