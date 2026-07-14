@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import tshirtDiscipline from '@/assets/powerlov-tshirt-discipline.png';
 import tshirtEmpowered from '@/assets/powerlov-tshirt-empowered.png';
@@ -194,7 +195,7 @@ const CollectionStandards = () => {
           className="italic text-center mt-16"
           style={{ fontSize: '11px', color: '#888780', letterSpacing: '0.04em' }}
         >
-          Wear your truth.
+          Wear your truth. Protected. Guided. Unstoppable.
         </p>
 
         {/* CTA */}
@@ -203,7 +204,7 @@ const CollectionStandards = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-10 mb-4"
         >
           <Link
             to="/shop"
@@ -213,15 +214,8 @@ const CollectionStandards = () => {
             <ArrowRight size={12} />
           </Link>
         </motion.div>
-
-        {/* Secondary claim */}
-        <p
-          className="italic text-center mt-16"
-          style={{ fontSize: '11px', color: '#888780', letterSpacing: '0.04em' }}
-        >
-          Protected. Guided. Unstoppable.
-        </p>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );

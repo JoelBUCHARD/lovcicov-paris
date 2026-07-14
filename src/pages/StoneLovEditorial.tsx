@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
@@ -145,6 +146,7 @@ const StoneLovEditorial = () => {
         </section>
 
       </div>
+      <JourneyContinuation current="stone" />
       <Footer />
     </div>
   );
