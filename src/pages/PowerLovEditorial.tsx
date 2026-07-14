@@ -279,10 +279,12 @@ const PowerLovEditorial = () => {
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              // Every 7th tile becomes a large lifestyle hero (2×2) on desktop
-              const isHero = isProduct && i % 7 === 0;
+              // Rouje-style rhythm: a large hero every 5 tiles, alternating sides
+              const heroIndex = Math.floor(i / 5);
+              const isHero = isProduct && i % 5 === 0;
+              const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? "col-span-2 row-span-2 md:col-span-2 md:row-span-2"
+                ? `col-span-2 row-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : "col-span-1";
               const objectFit = isProduct ? "object-cover" : "object-contain";
 
