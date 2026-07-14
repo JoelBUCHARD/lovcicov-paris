@@ -102,6 +102,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
               <ul className="space-y-3">
                 <li><Link to="/manifeste" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Manifeste</Link></li>
                 <li><Link to="/fondatrice" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">La Fondatrice</Link></li>
+                <li><Link to="/magazine" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Magazine</Link></li>
                 <li><Link to="/le-cercle" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Le Cercle</Link></li>
               </ul>
             </nav>
