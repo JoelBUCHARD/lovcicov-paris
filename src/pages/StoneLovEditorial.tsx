@@ -146,6 +146,7 @@ const StoneLovEditorial = () => {
         </section>
 
       </div>
+      <JourneyContinuation current="stone" />
       <Footer />
     </div>
   );
