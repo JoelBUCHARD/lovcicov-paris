@@ -24,11 +24,20 @@ LOVCICOV Paris est une maison indépendante fondée à Paris. Chaque collection 
 - [Bijoux StoneLov](/collections/bijoux) : la sélection bijoux.
 - [T-shirts](/collections/t-shirts) : t-shirts signature.
 
-## Journal
+## Magazine
 
-- [Sacs — Cuir tressé](/journal/sacs-cuir-tresse) : le savoir-faire du cuir tressé.
-- [Sacs — Choisir sa couleur](/journal/sacs-choisir-couleur) : guide couleur des sacs LOVCICOV.
-- [Sacs — Histoire du Big Lov](/journal/sacs-histoire-big-lov) : la genèse du modèle Big Lov.
+Éditorial de la maison — style, symbolisme, pierres, savoir-faire et portraits.
+
+- [Magazine](/magazine) : accueil éditorial.
+- [La posture comme vêtement](/magazine/la-posture-comme-vetement) : sur la présence et l'élégance.
+- [La discipline comme luxe](/magazine/discipline-comme-luxe) : croissance personnelle et vestiaire.
+- [Porter son intention](/magazine/porter-son-intention) : le sens des broderies MysticLov.
+- [Le langage des pierres](/magazine/langage-des-pierres) : guide des pierres naturelles StoneLov.
+- [Guide cadeaux — l'essentiel LOVCICOV](/magazine/guide-cadeaux-fetes) : sélection lente pour offrir.
+- [Georgiana Lovcicov — portrait](/magazine/georgiana-lovcicov-portrait) : la fondatrice et son geste.
+- [Le geste du cuir tressé](/magazine/le-geste-du-cuir-tresse) : savoir-faire des sacs LOVBAG.
+- [Comment choisir sa couleur](/magazine/comment-choisir-sa-couleur) : guide couleur des sacs.
+- [L'histoire du Big LOV](/magazine/histoire-du-big-lov) : la genèse du modèle Big LOV.
 
 ## Optional
 
