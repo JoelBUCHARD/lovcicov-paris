@@ -61,8 +61,8 @@ interface JourneyContinuationProps {
 
 const JourneyContinuation = ({
   current,
-  eyebrow = "Continuer le voyage",
-  title = "Trois chapitres, une même maison",
+  eyebrow,
+  title = "Trois univers, une même maison",
   background = "#EDEAE4",
 }: JourneyContinuationProps) => {
   const order: UniverseKey[] = ["power", "mystic", "stone"];
@@ -78,9 +78,11 @@ const JourneyContinuation = ({
     >
       <div className="max-w-[1180px] mx-auto">
         <div className="text-center mb-10 md:mb-14">
-          <p className="text-[10px] tracking-[0.28em] uppercase text-[#8A857C] mb-4">
-            {eyebrow}
-          </p>
+          {eyebrow && (
+            <p className="text-[10px] tracking-[0.28em] uppercase text-[#8A857C] mb-4">
+              {eyebrow}
+            </p>
+          )}
           <h2
             className="italic text-[#1A1A1A]"
             style={{
@@ -119,15 +121,12 @@ const JourneyContinuation = ({
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0) 70%)",
+                    "linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0) 75%)",
                 }}
               />
               <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 text-center">
-                <p className="text-[9px] md:text-[10px] tracking-[0.28em] uppercase text-white/75 mb-2">
-                  {c.eyebrow}
-                </p>
                 <h3
-                  className="text-white mb-2"
+                  className="text-white mb-4"
                   style={{
                     fontFamily: "Instrument Sans, system-ui, sans-serif",
                     fontSize: "clamp(20px, 2.4vw, 26px)",
@@ -138,15 +137,6 @@ const JourneyContinuation = ({
                 >
                   {c.title}
                 </h3>
-                <p
-                  className="italic text-white/85 mb-4"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    fontSize: "14px",
-                  }}
-                >
-                  {c.caption}
-                </p>
                 <span
                   className="inline-block text-[10px] tracking-[0.24em] uppercase text-white border-b border-white/60 pb-0.5 transition-colors group-hover:border-white"
                 >
@@ -158,6 +148,7 @@ const JourneyContinuation = ({
         </div>
       </div>
     </section>
+
   );
 };
 
