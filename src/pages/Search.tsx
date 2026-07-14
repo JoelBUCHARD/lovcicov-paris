@@ -178,14 +178,14 @@ const SearchPage = () => {
             {liveSuggestions.length > 0 && (
               <ul className="mt-2 text-left bg-card border border-border/60 divide-y divide-border/40">
                 {liveSuggestions.map((p) => (
-                  <li key={p.node.id}>
+                  <li key={p.id}>
                     <button
                       type="button"
-                      onClick={() => { setInput(p.node.title); runSearch(p.node.title); }}
+                      onClick={() => { setInput(p.name); runSearch(p.name); }}
                       className="w-full flex items-center gap-2 px-4 py-3 text-[12px] tracking-[0.08em] hover:bg-foreground/[0.03] transition-colors"
                     >
                       <SearchIcon size={12} strokeWidth={1.25} className="text-foreground/40" />
-                      <span className="truncate">{p.node.title}</span>
+                      <span className="truncate">{p.name}</span>
                     </button>
                   </li>
                 ))}
