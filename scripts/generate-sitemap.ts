@@ -105,7 +105,11 @@ function xml(entries: SitemapEntry[]) {
 }
 
 (async () => {
-  const entries = [...staticEntries, ...(await loadProductEntries())];
+  const entries = [
+    ...staticEntries,
+    ...(await loadProductEntries()),
+    ...(await loadMagazineEntries()),
+  ];
   writeFileSync(resolve("public/sitemap.xml"), xml(entries));
   console.log(`sitemap.xml written (${entries.length} entries)`);
 })();
