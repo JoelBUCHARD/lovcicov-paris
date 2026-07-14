@@ -215,6 +215,7 @@ const CollectionStandards = () => {
           </Link>
         </motion.div>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );
