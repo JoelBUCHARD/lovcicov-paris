@@ -58,8 +58,30 @@ const Manifeste = () => {
               LOVCICOV Vision. Allure. Signature.
             </p>
           </motion.div>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+            className="mt-20 flex flex-col items-center gap-4"
+          >
+            <Link
+              to="/fondatrice"
+              className="text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground/40 pb-0.5 hover:border-foreground transition-colors"
+            >
+              Lire la genèse — La Fondatrice
+            </Link>
+            <Link
+              to="/shop"
+              className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Découvrir les collections
+            </Link>
+          </motion.div>
         </div>
       </main>
+      <JourneyContinuation />
       <Footer />
     </div>
   );
