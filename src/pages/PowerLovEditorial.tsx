@@ -1,84 +1,120 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
+import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
+
+// Hero & lifestyle
 import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
-import godDjCafeWideAsset from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
-import disciplineIsMyLuxuryAsset from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
-import disciplineLuxuryBackAsset from "@/assets/powerlov/powerlov-grid-discipline-luxury-back.png.asset.json";
-import godIsADancerAsset from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
-import protectedAlignedAsset from "@/assets/powerlov/powerlov-grid-protected-aligned-v2.png.asset.json";
-const heroImage = heroAsset.url;
+import lifeCafeFlore from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
+import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
+import lifePorscheSaintBenoit from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-benoit-v2.png.asset.json";
+import lifeLovcicovParisBack from "@/assets/powerlov/powerlov-bottomwide-lovcicov-paris-back.png.asset.json";
 
-type RevealProps = {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
+// Product packshots / worn
+import godDjCafe from "@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json";
+import godDjStreet from "@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json";
+import connectedEmpowered from "@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json";
+import disciplineFront from "@/assets/powerlov/powerlov-discipline-front.png.asset.json";
+import disciplineBack from "@/assets/powerlov/powerlov-discipline-back.png.asset.json";
+import ifGodIsADj from "@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json";
+import ifGodDjFront from "@/assets/powerlov/powerlov-if-god-dj-front.png.asset.json";
+import boldBadassGrid from "@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json";
+import boldBadassStreet from "@/assets/powerlov/powerlov-grid-bold-badass-street.png.asset.json";
+import boldBadassSweat from "@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json";
+import godIsADancerGrid from "@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json";
+import godIsADancerStreet from "@/assets/powerlov/powerlov-god-is-a-dancer-street-cafe.png.asset.json";
+import protectedAlignedFront from "@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json";
+import protectedAlignedStreet from "@/assets/powerlov/powerlov-protected-aligned-unstoppable-street.png.asset.json";
+import sacredHeartStreet from "@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json";
+import sacredHeartStreetBack from "@/assets/powerlov/powerlov-sacred-heart-street-back.png.asset.json";
+import sacredHeartHoodieFront from "@/assets/powerlov/powerlov-sacred-heart-hoodie-street-front.png.asset.json";
+import sacredHeartHoodieBack from "@/assets/powerlov/powerlov-sacred-heart-hoodie-street-back.png.asset.json";
+import energyNeverLies from "@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json";
+
+type Category = "all" | "tshirts" | "sweats" | "new";
+
+type Product = {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+  hover?: string;
+  categories: Exclude<Category, "all">[];
 };
 
-const topWide = {
-  image: godDjCafeWideAsset.url,
-  alt: "PowerLov — femme en t-shirt blanc LOVCICOV devant le Café de Flore à Paris",
-  objectPosition: "center 85%",
-  link: "/shop/powerlov-discipline",
-};
-
-const bottomWide = {
-  image: disciplineIsMyLuxuryAsset.url,
-  alt: "PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Benoît, Paris",
-  objectPosition: "center 30%",
-  link: "/shop/powerlov-discipline",
-};
-
-const midProducts = [
-  {
-    image: disciplineLuxuryBackAsset.url,
-    alt: "PowerLov — femme de dos en t-shirt blanc Discipline Is My Luxury dans une rue parisienne",
-    objectPosition: "center 30%",
-    link: "/shop/powerlov-discipline",
-  },
-  {
-    image: godIsADancerAsset.url,
-    alt: "PowerLov — femme de dos en t-shirt blanc God Is A Dancer dans une rue parisienne",
-    objectPosition: "center 30%",
-    link: "/shop/powerlov-god-is-a-dancer",
-  },
-  {
-    image: protectedAlignedAsset.url,
-    alt: "PowerLov — femme en t-shirt blanc Protected. Aligned. Unstoppable. devant le Café de Flore",
-    objectPosition: "center 30%",
-    link: "/shop/powerlov-protected-aligned-unstoppable",
-  },
+const products: Product[] = [
+  { id: "powerlov-god-is-a-dj", name: "God Is A DJ", price: 59, image: godDjCafe.url, hover: godDjStreet.url, categories: ["tshirts"] },
+  { id: "powerlov-empowered", name: "Connected. Disciplined. Empowered.", price: 59, image: connectedEmpowered.url, categories: ["tshirts"] },
+  { id: "powerlov-discipline", name: "Discipline Is My Luxury", price: 59, image: disciplineFront.url, hover: disciplineBack.url, categories: ["tshirts"] },
+  { id: "powerlov-if-god-dj-frequency", name: "If God Is A DJ", price: 59, image: ifGodIsADj.url, hover: ifGodDjFront.url, categories: ["tshirts"] },
+  { id: "powerlov-bold-badass-tee", name: "Bold. Badass. No Filter.", price: 59, image: boldBadassGrid.url, hover: boldBadassStreet.url, categories: ["tshirts"] },
+  { id: "powerlov-god-is-a-dancer", name: "God Is A Dancer", price: 59, image: godIsADancerGrid.url, hover: godIsADancerStreet.url, categories: ["tshirts"] },
+  { id: "powerlov-protected-aligned-unstoppable", name: "Protected. Aligned. Unstoppable.", price: 59, image: protectedAlignedFront.url, hover: protectedAlignedStreet.url, categories: ["tshirts"] },
+  { id: "powerlov-sacred-heart-sweat", name: "Sacred Heart — Sweat", price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url, categories: ["sweats", "new"] },
+  { id: "powerlov-sacred-heart-hoodie", name: "Sacred Heart — Hoodie", price: 109, image: sacredHeartHoodieFront.url, hover: sacredHeartHoodieBack.url, categories: ["sweats", "new"] },
+  { id: "powerlov-bold-badass-hoodie", name: "Bold. Badass. — Hoodie", price: 99, image: boldBadassSweat.url, categories: ["sweats"] },
+  { id: "powerlov-energy-never-lies-hoodie", name: "Energy Never Lies — Hoodie", price: 99, image: energyNeverLies.url, categories: ["sweats"] },
 ];
 
+const lifestyleImages = [
+  { image: lifeCafeFlore.url, alt: "PowerLov — Café de Flore, Paris", objectPosition: "center 60%" },
+  { image: lifePorscheSaintBenoit.url, alt: "PowerLov — Porsche rue Saint-Benoît, Paris", objectPosition: "center 40%" },
+  { image: lifeLovcicovParisBack.url, alt: "PowerLov — LOVCICOV PARIS de dos", objectPosition: "center 30%" },
+];
 
-const Reveal = ({ children, className }: RevealProps) => {
-  return <div className={className}>{children}</div>;
-};
+const CATEGORY_LABELS: { key: Category; label: string }[] = [
+  { key: "all", label: "Tout voir" },
+  { key: "tshirts", label: "T-shirts" },
+  { key: "sweats", label: "Sweats" },
+  { key: "new", label: "Nouveautés" },
+];
 
-
-const sectionPadding = "clamp(28px, 5vw, 72px)";
 const pageStyle = {
   backgroundColor: "#FAF8F4",
   color: "#0D0D0D",
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
 
-const editorialTitleStyle = {
-  fontFamily: "Instrument Sans, system-ui, sans-serif",
-  fontWeight: 400,
-  letterSpacing: 0,
-};
-
 const PowerLovEditorial = () => {
-  const scrollToManifesto = () => {
-    document.getElementById("powerlov-manifesto")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
+  const location = useLocation();
+  const [category, setCategory] = useState<Category>("all");
+
+  const filtered = useMemo(
+    () => (category === "all" ? products : products.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
+    [category]
+  );
+
+  // Build grid items: alternate 2 products then 1 lifestyle tile (spans 2 rows).
+  // Every 6th product slot inserts a lifestyle image so it never breaks the rhythm.
+  type GridItem =
+    | { kind: "product"; product: Product; index: number }
+    | { kind: "lifestyle"; image: string; alt: string; objectPosition?: string; key: string };
+
+  const gridItems: GridItem[] = useMemo(() => {
+    const items: GridItem[] = [];
+    let lifestyleCursor = 0;
+    filtered.forEach((product, i) => {
+      items.push({ kind: "product", product, index: i });
+      // After every 4 products (i.e. two rows of 2 on a 3-col grid where 1 col is lifestyle),
+      // insert a lifestyle tile.
+      if ((i + 1) % 4 === 0 && lifestyleCursor < lifestyleImages.length) {
+        const life = lifestyleImages[lifestyleCursor % lifestyleImages.length];
+        items.push({ kind: "lifestyle", ...life, key: `life-${lifestyleCursor}` });
+        lifestyleCursor += 1;
+      }
     });
+    return items;
+  }, [filtered]);
+
+  const scrollToGrid = () => {
+    document.getElementById("powerlov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  const from = `${location.pathname}${location.search}`;
 
   return (
     <div style={pageStyle} className="min-h-screen">
@@ -90,10 +126,10 @@ const PowerLovEditorial = () => {
       <Navbar />
 
       <main className="pt-[73px] overflow-hidden">
-        {/* HERO */}
+        {/* HERO — unchanged */}
         <section className="relative w-screen h-[58svh] md:h-[78vh] overflow-hidden">
           <img
-            src={heroImage}
+            src={heroAsset.url}
             alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 30%" }}
@@ -108,25 +144,20 @@ const PowerLovEditorial = () => {
                 "linear-gradient(180deg, rgba(13,13,13,0.18) 0%, rgba(13,13,13,0.3) 48%, rgba(13,13,13,0.22) 100%)",
             }}
           />
-
           <div
             className="absolute inset-x-0 bottom-3 z-10 md:bottom-6"
             style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
           >
-            <Reveal className="max-w-[19rem] md:max-w-3xl" delay={120}>
+            <div className="max-w-[19rem] md:max-w-3xl">
               <p
                 className="mb-1 text-[8px] md:text-[11px] uppercase"
-                style={{
-                  color: "rgba(244,240,232,0.82)",
-                  letterSpacing: "0.22em",
-                }}
+                style={{ color: "rgba(244,240,232,0.82)", letterSpacing: "0.22em" }}
               >
                 PowerLov
               </p>
               <p
                 className="mb-2 md:mb-4 italic"
                 style={{
-                  fontFamily: "Instrument Sans, system-ui, sans-serif",
                   fontWeight: 300,
                   fontSize: "clamp(13px, 2vw, 22px)",
                   color: "rgba(244,240,232,0.82)",
@@ -134,160 +165,314 @@ const PowerLovEditorial = () => {
               >
                 Wear your power.
               </p>
-              <Link
-                to="/collections/powerlov"
+              <button
+                type="button"
+                onClick={scrollToGrid}
                 className="mt-2 md:mt-6 inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#0D0D0D",
-                  letterSpacing: "0.2em",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#E8E4DD";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#FFFFFF";
-                }}
+                style={{ backgroundColor: "#FFFFFF", color: "#0D0D0D", letterSpacing: "0.2em" }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#E8E4DD"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#FFFFFF"; }}
               >
                 Découvrir la collection
-              </Link>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* DESCRIPTIF */}
-        <section
-          id="powerlov-manifesto"
-          className="w-full"
-          style={{ backgroundColor: "#FAF8F4", padding: `${sectionPadding} clamp(24px, 6vw, 88px)` }}
-        >
-          <Reveal className="mx-auto max-w-3xl text-center">
-            <p
-              className="mb-5 text-[11px] uppercase"
-              style={{ color: "rgba(13,13,13,0.48)", letterSpacing: "0.22em" }}
-            >
-              La collection
-            </p>
-            <div
-              className="space-y-6 text-[15px] md:text-[16px]"
-              style={{ color: "rgba(13,13,13,0.78)", lineHeight: 1.9 }}
-            >
-              <p>
-                PowerLov incarne une vision contemporaine de la puissance parisienne : silencieuse,
-                instinctive et parfaitement maîtrisée.
-              </p>
-              <p>
-                Inspirée par l'allure effortless de la Parisienne, la collection explore cette capacité
-                unique à imposer une présence sans jamais en faire trop.
-              </p>
-              <p>
-                Des lignes fortes.<br />
-                Des silhouettes épurées.<br />
-                Des pièces pensées pour accompagner le mouvement, structurer l'allure et révéler une
-                confiance naturelle.
-              </p>
-              <p>
-                Ici, la puissance ne se montre pas.<br />
-                Elle se ressent dans une attitude, une démarche, une façon d'occuper l'espace.
-              </p>
-              <p>
-                PowerLov mélange sophistication minimaliste, énergie urbaine et élégance émotionnelle
-                dans un vestiaire conçu pour celles et ceux qui avancent avec calme, intensité et liberté.
-              </p>
+              </button>
             </div>
-          </Reveal>
+          </div>
         </section>
 
-        {/* PRODUITS — mosaïque harmonisée */}
-        <section style={{ backgroundColor: "#FAF8F4" }}>
-          {/* Top wide image */}
-          <Link
-            to={topWide.link}
-            className="relative w-full overflow-hidden block group"
-            style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}
+        {/* GIANT TITLE */}
+        <section className="w-full text-center" style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(24px, 4vw, 48px)" }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="uppercase leading-[0.9]"
+            style={{
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(64px, 15vw, 260px)",
+              letterSpacing: "-0.02em",
+              color: "#0D0D0D",
+            }}
           >
-            <img
-              src={topWide.image}
-              alt={topWide.alt}
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
-              style={{ objectPosition: topWide.objectPosition }}
-            />
-          </Link>
+            POWERLOV
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mx-auto mt-6 md:mt-10 max-w-2xl"
+            style={{
+              fontSize: "clamp(13px, 1.3vw, 16px)",
+              color: "rgba(13,13,13,0.7)",
+              letterSpacing: "0.02em",
+              lineHeight: 1.7,
+            }}
+          >
+            Silhouettes affirmées. Coupes précises. L'énergie d'une allure choisie.
+          </motion.p>
+        </section>
 
-          {/* Produits — 3 pièces */}
+        {/* STICKY FILTER BAR */}
+        <div
+          className="sticky z-30 border-y border-[rgba(13,13,13,0.08)] backdrop-blur"
+          style={{ top: 73, backgroundColor: "rgba(250,248,244,0.92)" }}
+          id="powerlov-grid"
+        >
           <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-5"
-            style={{ padding: "clamp(20px, 3vw, 40px)" }}
+            className="mx-auto flex items-center justify-between gap-4"
+            style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            {midProducts.map((product) => (
-              <Link
-                key={product.alt}
-                to={product.link}
-                className="relative w-full overflow-hidden block group"
-                style={{ aspectRatio: "4 / 5", backgroundColor: "#FAF8F4" }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.alt}
-                  loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.03]"
-                  style={{ objectPosition: product.objectPosition }}
-                />
-              </Link>
-            ))}
+            <p
+              className="uppercase whitespace-nowrap"
+              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
+            >
+              {filtered.length} {filtered.length > 1 ? "pièces" : "pièce"}
+            </p>
+
+            <nav
+              aria-label="Catégories PowerLov"
+              className="flex-1 overflow-x-auto no-scrollbar"
+            >
+              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
+                {CATEGORY_LABELS.map(({ key, label }) => {
+                  const active = category === key;
+                  return (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setCategory(key)}
+                        className="uppercase transition-colors duration-200"
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.24em",
+                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+                          paddingBottom: 4,
+                        }}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+
+            <button
+              type="button"
+              className="uppercase whitespace-nowrap"
+              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
+            >
+              Filtres
+            </button>
+          </div>
+        </div>
+
+        {/* PRODUCT GRID WITH LIFESTYLE INSERTS */}
+        <section aria-label="Sélection PowerLov" style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px)" }}>
+          <div
+            className="mx-auto grid gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14"
+            style={{
+              maxWidth: 1600,
+              gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+              gridAutoRows: "auto",
+            }}
+          >
+            <style>{`
+              @media (min-width: 768px) {
+                #powerlov-grid ~ section > div.mx-auto {
+                  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+                }
+              }
+              .no-scrollbar::-webkit-scrollbar { display: none; }
+              .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            `}</style>
+
+            {gridItems.map((item) => {
+              if (item.kind === "lifestyle") {
+                return (
+                  <motion.div
+                    key={item.key}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.8 }}
+                    className="hidden md:block row-span-2"
+                    style={{ height: "100%" }}
+                  >
+                    <div className="relative w-full h-full overflow-hidden bg-[#F0EDE7]" style={{ minHeight: 640 }}>
+                      <img
+                        src={item.image}
+                        alt={item.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover"
+                        style={{ objectPosition: item.objectPosition ?? "center center" }}
+                      />
+                    </div>
+                  </motion.div>
+                );
+              }
+
+              const { product, index } = item;
+              return (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.7, delay: Math.min(index, 6) * 0.04 }}
+                  className="h-full w-full"
+                >
+                  <Link
+                    to={`/shop/${product.id}`}
+                    state={{ from }}
+                    onMouseEnter={() => {
+                      prefetchRoute("/shop/item");
+                      prefetchImage(product.image);
+                      if (product.hover) prefetchImage(product.hover);
+                    }}
+                    onTouchStart={() => prefetchRoute("/shop/item")}
+                    className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  >
+                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F0EDE7]">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        loading="lazy"
+                        decoding="async"
+                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-[700ms] ease-out ${
+                          product.hover ? "group-hover:opacity-0" : "group-hover:scale-[1.02]"
+                        }`}
+                      />
+                      {product.hover && (
+                        <img
+                          src={product.hover}
+                          alt=""
+                          aria-hidden
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[700ms] ease-out group-hover:opacity-100 group-hover:scale-[1.02]"
+                        />
+                      )}
+                    </div>
+                    <div className="pt-4 md:pt-5 pb-2 text-center">
+                      <h3
+                        className="text-[#0D0D0D] font-light"
+                        style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
+                      >
+                        {product.name}
+                      </h3>
+                      <p className="mt-2 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        €{product.price}
+                      </p>
+                    </div>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
 
+          {filtered.length === 0 && (
+            <p
+              className="text-center uppercase mt-10"
+              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}
+            >
+              Aucune pièce dans cette catégorie
+            </p>
+          )}
+        </section>
 
-          {/* Bottom wide image with CTA overlay */}
-          <div
-            className="relative w-full overflow-hidden"
-            style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}
+        {/* FULL-WIDTH EDITORIAL QUOTE */}
+        <section
+          className="w-full text-center"
+          style={{ padding: "clamp(64px, 10vw, 140px) clamp(24px, 6vw, 96px)", backgroundColor: "#FAF8F4" }}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.9 }}
+            className="mx-auto max-w-5xl uppercase"
+            style={{
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(28px, 5vw, 72px)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.05,
+              color: "#0D0D0D",
+            }}
           >
-            <Link to={bottomWide.link} className="block absolute inset-0 group">
-              <img
-                src={bottomWide.image}
-                alt={bottomWide.alt}
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.02]"
-                style={{ objectPosition: bottomWide.objectPosition }}
-              />
-            </Link>
+            La discipline devient allure.
+          </motion.p>
+        </section>
 
+        {/* BOTTOM WIDE IMAGE + MYSTICLOV CTA */}
+        <section style={{ backgroundColor: "#FAF8F4" }}>
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}>
+            <img
+              src={lifePorscheSaintDominique.url}
+              alt="PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Dominique, Paris"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: "center 30%" }}
+            />
             <div
               className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
               style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
             >
               <Link
-                to="/collections/powerlov"
+                to="/mysticlov"
+                onMouseEnter={() => prefetchRoute("/mysticlov")}
                 className="inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
-                style={{
-                  backgroundColor: "#FFFFFF",
-                  color: "#0D0D0D",
-                  letterSpacing: "0.2em",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = "#E8E4DD";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = "#FFFFFF";
-                }}
+                style={{ backgroundColor: "#FFFFFF", color: "#0D0D0D", letterSpacing: "0.2em" }}
+                onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#E8E4DD"; }}
+                onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#FFFFFF"; }}
               >
-                Découvrir la collection
+                Découvrir MysticLov
               </Link>
             </div>
           </div>
         </section>
 
+        {/* TRUST BAND */}
+        <section
+          aria-label="Nos engagements"
+          style={{ padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)", backgroundColor: "#FAF8F4" }}
+        >
+          <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 max-w-5xl text-center">
+            {[
+              { title: "Livraison offerte", text: "En France métropolitaine dès 150 € d'achat. Expédition Europe et international depuis Marseille." },
+              { title: "Paiement sécurisé", text: "Cartes bancaires, Apple Pay et Google Pay. Transactions chiffrées, données jamais conservées." },
+              { title: "Retours faciles", text: "14 jours pour changer d'avis. Articles non portés dans leur emballage d'origine." },
+            ].map((b) => (
+              <div key={b.title}>
+                <p
+                  className="uppercase mb-4"
+                  style={{ fontSize: 11, letterSpacing: "0.24em", color: "#0D0D0D" }}
+                >
+                  {b.title}
+                </p>
+                <p
+                  className="mx-auto max-w-xs"
+                  style={{ fontSize: 13, lineHeight: 1.7, color: "rgba(13,13,13,0.65)" }}
+                >
+                  {b.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       <JourneyContinuation current="power" />
 
       <Footer />
-
     </div>
   );
 };
 
 export default PowerLovEditorial;
-
