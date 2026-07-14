@@ -218,12 +218,8 @@ const PowerLovEditorial = () => {
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <p
-              className="uppercase whitespace-nowrap"
-              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
-            >
-              {filtered.length} {filtered.length > 1 ? "pièces" : "pièce"}
-            </p>
+            <span className="whitespace-nowrap" aria-hidden="true" />
+
 
             <nav
               aria-label="Catégories PowerLov"
