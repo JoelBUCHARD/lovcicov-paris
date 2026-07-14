@@ -35,9 +35,6 @@ const StoneLovEditorial = lazy(() => import("./pages/StoneLovEditorial"));
 const PowerLovEditorial = lazy(() => import("./pages/PowerLovEditorial"));
 const CampagneSac = lazy(() => import("./pages/CampagneSac")); // hidden — kept for september reactivation
 const Sacs = lazy(() => import("./pages/Sacs"));
-const ArticleSacsCuirTresse = lazy(() => import("./pages/articles/SacsCuirTresse"));
-const ArticleSacsChoisirCouleur = lazy(() => import("./pages/articles/SacsChoisirCouleur"));
-const ArticleSacsHistoireBigLov = lazy(() => import("./pages/articles/SacsHistoireBigLov"));
 const CollectionBijoux = lazy(() => import("./pages/CollectionBijoux"));
 const CollectionTshirts = lazy(() => import("./pages/CollectionTshirts"));
 const Auth = lazy(() => import("./pages/Auth"));
