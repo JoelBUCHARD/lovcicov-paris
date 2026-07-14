@@ -105,7 +105,7 @@ const PowerLovEditorial = () => {
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
     filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 3 || i === 4 ? "large" : "standard" });
+      items.push({ kind: "product", product, index: i, emphasis: "standard" });
       product.packshots.forEach((image, imageIndex) => {
         items.push({
           kind: "packshot",
@@ -113,7 +113,7 @@ const PowerLovEditorial = () => {
           image,
           imageIndex,
           index: i,
-          emphasis: imageIndex === 0 && (i === 2 || i === 4) ? "tall" : "standard",
+          emphasis: "standard",
         });
       });
     });
@@ -295,7 +295,7 @@ const PowerLovEditorial = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
                     transition={{ duration: 0.75, delay: Math.min(item.index, 6) * 0.035 }}
-                    className={item.emphasis === "tall" ? "col-span-1 md:col-span-2" : "col-span-1"}
+                    className="col-span-1"
                   >
                     <Link
                       to={`/shop/${item.product.id}`}
@@ -309,14 +309,14 @@ const PowerLovEditorial = () => {
                     >
                       <div
                         className="relative w-full overflow-hidden"
-                        style={{ backgroundColor: "#F0EDE7", aspectRatio: item.emphasis === "tall" ? "3 / 4" : "4 / 5" }}
+                        style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
                       >
                         <img
                           src={item.image}
                           alt={`${item.product.name} — packshot`}
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 h-full w-full object-contain transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
                         />
                       </div>
                       <p className="pt-3 text-center uppercase font-light" style={{ fontSize: 10, letterSpacing: "0.2em", color: "rgba(13,13,13,0.5)" }}>
@@ -335,7 +335,7 @@ const PowerLovEditorial = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: Math.min(index, 6) * 0.04 }}
-                  className={emphasis === "large" ? "col-span-2 h-full w-full" : "col-span-1 h-full w-full"}
+                  className="col-span-1 h-full w-full"
                 >
                   <Link
                     to={`/shop/${product.id}`}
@@ -347,7 +347,7 @@ const PowerLovEditorial = () => {
                     onTouchStart={() => prefetchRoute("/shop/item")}
                     className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
-                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: emphasis === "large" ? "3 / 4" : "4 / 5" }}>
+                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}>
                       <img
                         src={product.image}
                         alt={product.name}
