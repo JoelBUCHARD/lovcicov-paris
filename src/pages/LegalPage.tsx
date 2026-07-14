@@ -1,16 +1,23 @@
 import { ReactNode } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 interface LegalPageProps {
   eyebrow: string;
   title: string;
   children: ReactNode;
+  seo?: {
+    title: string;
+    description: string;
+    path: string;
+  };
 }
 
-const LegalPage = ({ eyebrow, title, children }: LegalPageProps) => {
+const LegalPage = ({ eyebrow, title, children, seo }: LegalPageProps) => {
   return (
     <div className="min-h-screen bg-background">
+      {seo && <SEO title={seo.title} description={seo.description} path={seo.path} />}
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto">

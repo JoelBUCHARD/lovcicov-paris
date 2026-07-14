@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JourneyContinuation from '@/components/JourneyContinuation';
+import SEO from '@/components/SEO';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +17,11 @@ const fadeUp = {
 const LeCercle = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Le Cercle — Espace privé | LOVCICOV Paris"
+        description="Le Cercle LOVCICOV : drops confidentiels, rendez-vous privés et nouvelles collections adressés à celles et ceux qui portent la maison."
+        path="/le-cercle"
+      />
       <Navbar />
       <main className="pt-40 md:pt-44 pb-24 px-6 md:px-10">
         <div className="max-w-3xl mx-auto text-center">

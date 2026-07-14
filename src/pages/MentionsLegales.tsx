@@ -8,7 +8,15 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 );
 
 const MentionsLegales = () => (
-  <LegalPage eyebrow="INFORMATIONS LÉGALES" title="Mentions Légales">
+  <LegalPage
+    eyebrow="INFORMATIONS LÉGALES"
+    title="Mentions Légales"
+    seo={{
+      title: "Mentions Légales — LOVCICOV Paris",
+      description: "Éditeur, hébergeur et informations légales du site LOVCICOV Paris.",
+      path: "/mentions-legales",
+    }}
+  >
     <Section title="1. Identification de l'éditeur">
       <p>
         Le site MYSTIC LOV est édité par la société NATELSOL INVEST, société à responsabilité

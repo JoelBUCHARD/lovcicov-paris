@@ -8,7 +8,15 @@ const Section = ({ title, children }: { title: string; children: React.ReactNode
 );
 
 const Confidentialite = () => (
-  <LegalPage eyebrow="RGPD" title="Politique de Confidentialité">
+  <LegalPage
+    eyebrow="RGPD"
+    title="Politique de Confidentialité"
+    seo={{
+      title: "Confidentialité — LOVCICOV Paris",
+      description: "Politique de confidentialité LOVCICOV Paris : données collectées, finalités, cookies et droits RGPD.",
+      path: "/confidentialite",
+    }}
+  >
     <Section title="1. Responsable du traitement">
       <p>
         Le responsable du traitement des données collectées sur le site MYSTIC LOV est :<br />

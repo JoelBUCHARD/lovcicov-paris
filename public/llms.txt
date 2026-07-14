@@ -1,0 +1,38 @@
+# LOVCICOV Paris
+
+> Maison de mode contemporaine française. Pièces éditoriales — vêtements, bijoux et accessoires — pensées pour la posture, la présence et la confiance. Trois univers, une même maison : PowerLov, MysticLov, StoneLov.
+
+LOVCICOV Paris est une maison indépendante fondée à Paris. Chaque collection s'inscrit dans un standard éditorial cohérent : coupes structurées, matières nobles, tirages limités.
+
+## La Maison
+
+- [Manifeste](/manifeste) : la vision et le standard LOVCICOV.
+- [La Fondatrice](/fondatrice) : le portrait de Georgiana Lovcicov, fondatrice de la maison.
+- [Le Cercle](/le-cercle) : le programme privé — drops confidentiels et rendez-vous.
+
+## Univers
+
+- [PowerLov](/powerlov) : pièces essentielles au caractère affirmé — la discipline comme luxe.
+- [MysticLov](/mysticlov) : talismans contemporains brodés main — porter son intention.
+- [StoneLov](/stonelov) : bijoux en pierres naturelles — la matière comme signature.
+
+## Boutique
+
+- [La Boutique](/shop) : l'intégralité des collections.
+- [PowerLov — Boutique](/powerlov/shop) : la sélection PowerLov.
+- [MysticLov — Boutique](/mysticlov/shop) : la sélection MysticLov.
+- [Bijoux StoneLov](/collections/bijoux) : la sélection bijoux.
+- [T-shirts](/collections/t-shirts) : t-shirts signature.
+
+## Journal
+
+- [Sacs — Cuir tressé](/journal/sacs-cuir-tresse) : le savoir-faire du cuir tressé.
+- [Sacs — Choisir sa couleur](/journal/sacs-choisir-couleur) : guide couleur des sacs LOVCICOV.
+- [Sacs — Histoire du Big Lov](/journal/sacs-histoire-big-lov) : la genèse du modèle Big Lov.
+
+## Optional
+
+- [Livraison & Retours](/livraison-retours) : délais, tarifs et rétractation.
+- [CGV](/cgv) : conditions générales de vente.
+- [Mentions Légales](/mentions-legales) : éditeur et hébergeur.
+- [Confidentialité](/confidentialite) : politique RGPD.
