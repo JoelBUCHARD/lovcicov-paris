@@ -9,11 +9,6 @@ import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 
-// Lifestyle images — exclusivement celles déjà présentes sur la page PowerLov actuelle
-import heroAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
-import lifeCafeFlore from "@/assets/powerlov/powerlov-topwide-cafe-flore-v3.png.asset.json";
-import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
-
 type Category = "all" | "tshirts" | "sweats" | "new";
 
 type ProductCard = {
@@ -21,32 +16,36 @@ type ProductCard = {
   name: string;
   price: number;
   image: string;
-  hover?: string;
+  packshots: string[];
   categories: Exclude<Category, "all">[];
 };
 
 // Nouveautés = derniers ajouts (les 2 pièces Sacred Heart les plus récentes)
 const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
+const PACKSHOT_PATTERN = /(front|back|packshot|grey|white)/i;
 
 const products: ProductCard[] = standardProducts.map((p) => {
   const cats: Exclude<Category, "all">[] = [];
   if (p.subcategory === "tshirt") cats.push("tshirts");
   if (p.subcategory === "hoodie" || p.subcategory === "crewneck") cats.push("sweats");
   if (NEW_IDS.has(p.id)) cats.push("new");
+  const packshots = (p.gallery ?? [])
+    .filter((imageKey) => PACKSHOT_PATTERN.test(imageKey))
+    .map((imageKey) => resolveProductImage(imageKey))
+    .filter(Boolean);
+
   return {
     id: p.id,
     name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
     price: p.price,
     image: resolveProductImage(p.image),
-    hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
+    packshots: Array.from(new Set(packshots)),
     categories: cats,
   };
 });
 
-// Lifestyle inserts : seulement des images qui figuraient déjà sur la page PowerLov
-const lifestyleImages = [
-  { image: lifeCafeFlore.url, alt: "PowerLov — Café de Flore, Paris", objectPosition: "center 60%" },
-];
+const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
+const closingImage = products.find((product) => product.id === "powerlov-god-is-a-dj")?.image ?? products[0]?.image ?? "";
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
@@ -71,24 +70,24 @@ const PowerLovEditorial = () => {
     [category]
   );
 
-  // Build grid items: alternate 2 products then 1 lifestyle tile (spans 2 rows).
-  // Every 6th product slot inserts a lifestyle image so it never breaks the rhythm.
   type GridItem =
-    | { kind: "product"; product: ProductCard; index: number }
-    | { kind: "lifestyle"; image: string; alt: string; objectPosition?: string; key: string };
+    | { kind: "product"; product: ProductCard; index: number; emphasis: "standard" | "large" }
+    | { kind: "packshot"; product: ProductCard; image: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
-    let lifestyleCursor = 0;
     filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i });
-      // After every 4 products (i.e. two rows of 2 on a 3-col grid where 1 col is lifestyle),
-      // insert a lifestyle tile.
-      if ((i + 1) % 4 === 0 && lifestyleCursor < lifestyleImages.length) {
-        const life = lifestyleImages[lifestyleCursor % lifestyleImages.length];
-        items.push({ kind: "lifestyle", ...life, key: `life-${lifestyleCursor}` });
-        lifestyleCursor += 1;
-      }
+      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 4 || i === 7 ? "large" : "standard" });
+      product.packshots.slice(0, i === 2 || i === 7 ? 2 : 1).forEach((image, imageIndex) => {
+        items.push({
+          kind: "packshot",
+          product,
+          image,
+          imageIndex,
+          index: i,
+          emphasis: imageIndex === 0 && (i === 2 || i === 7) ? "tall" : "standard",
+        });
+      });
     });
     return items;
   }, [filtered]);
@@ -112,12 +111,11 @@ const PowerLovEditorial = () => {
         {/* HERO — unchanged */}
         <section className="relative w-screen h-[58svh] md:h-[78vh] overflow-hidden">
           <img
-            src={heroAsset.url}
+            src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 30%" }}
             loading="eager"
-            fetchPriority="high"
             decoding="async"
           />
           <div
@@ -259,37 +257,49 @@ const PowerLovEditorial = () => {
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
-          <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14"
-            style={{ maxWidth: 1600, gridAutoRows: "auto" }}
-          >
+          <div className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-3 md:gap-x-5 gap-y-10 md:gap-y-14" style={{ maxWidth: 1600 }}>
             {gridItems.map((item) => {
-              if (item.kind === "lifestyle") {
+              if (item.kind === "packshot") {
                 return (
                   <motion.div
-                    key={item.key}
+                    key={`${item.product.id}-packshot-${item.imageIndex}`}
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.8 }}
-                    className="hidden md:block row-span-2"
-                    style={{ height: "100%" }}
+                    transition={{ duration: 0.75, delay: Math.min(item.index, 6) * 0.035 }}
+                    className={item.emphasis === "tall" ? "col-span-1 md:col-span-2" : "col-span-1"}
                   >
-                    <div className="relative w-full h-full overflow-hidden bg-[#F0EDE7]" style={{ minHeight: 640 }}>
-                      <img
-                        src={item.image}
-                        alt={item.alt}
-                        loading="lazy"
-                        decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
-                        style={{ objectPosition: item.objectPosition ?? "center center" }}
-                      />
-                    </div>
+                    <Link
+                      to={`/shop/${item.product.id}`}
+                      state={{ from }}
+                      onMouseEnter={() => {
+                        prefetchRoute("/shop/item");
+                        prefetchImage(item.image);
+                      }}
+                      onTouchStart={() => prefetchRoute("/shop/item")}
+                      className="group block h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                    >
+                      <div
+                        className="relative w-full overflow-hidden"
+                        style={{ backgroundColor: "#F0EDE7", aspectRatio: item.emphasis === "tall" ? "3 / 4" : "4 / 5" }}
+                      >
+                        <img
+                          src={item.image}
+                          alt={`${item.product.name} — packshot`}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-contain transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
+                        />
+                      </div>
+                      <p className="pt-3 text-center uppercase font-light" style={{ fontSize: 10, letterSpacing: "0.2em", color: "rgba(13,13,13,0.5)" }}>
+                        Packshot
+                      </p>
+                    </Link>
                   </motion.div>
                 );
               }
 
-              const { product, index } = item;
+              const { product, index, emphasis } = item;
               return (
                 <motion.div
                   key={product.id}
@@ -297,7 +307,7 @@ const PowerLovEditorial = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: Math.min(index, 6) * 0.04 }}
-                  className="h-full w-full"
+                  className={emphasis === "large" ? "col-span-2 h-full w-full" : "col-span-1 h-full w-full"}
                 >
                   <Link
                     to={`/shop/${product.id}`}
@@ -305,31 +315,18 @@ const PowerLovEditorial = () => {
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
                       prefetchImage(product.image);
-                      if (product.hover) prefetchImage(product.hover);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
                     className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
-                    <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F0EDE7]">
+                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: emphasis === "large" ? "3 / 4" : "4 / 5" }}>
                       <img
                         src={product.image}
                         alt={product.name}
                         loading="lazy"
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full object-cover transition-all duration-[700ms] ease-out ${
-                          product.hover ? "group-hover:opacity-0" : "group-hover:scale-[1.02]"
-                        }`}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]"
                       />
-                      {product.hover && (
-                        <img
-                          src={product.hover}
-                          alt=""
-                          aria-hidden
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[700ms] ease-out group-hover:opacity-100 group-hover:scale-[1.02]"
-                        />
-                      )}
                     </div>
                     <div className="pt-4 md:pt-5 pb-2 text-center">
                       <h3
@@ -386,8 +383,8 @@ const PowerLovEditorial = () => {
         <section style={{ backgroundColor: "#FAF8F4" }}>
           <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4" }}>
             <img
-              src={lifePorscheSaintDominique.url}
-              alt="PowerLov — femme de dos en sweat gris LOVCICOV PARIS rue Saint-Dominique, Paris"
+              src={closingImage}
+              alt="PowerLov par LOVCICOV Paris"
               loading="lazy"
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
