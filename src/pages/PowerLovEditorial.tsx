@@ -105,7 +105,7 @@ const PowerLovEditorial = () => {
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
     filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 3 || i === 4 ? "large" : "standard" });
+      items.push({ kind: "product", product, index: i, emphasis: "standard" });
       product.packshots.forEach((image, imageIndex) => {
         items.push({
           kind: "packshot",
@@ -113,7 +113,7 @@ const PowerLovEditorial = () => {
           image,
           imageIndex,
           index: i,
-          emphasis: imageIndex === 0 && (i === 2 || i === 4) ? "tall" : "standard",
+          emphasis: "standard",
         });
       });
     });
