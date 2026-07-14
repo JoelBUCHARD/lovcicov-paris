@@ -35,9 +35,6 @@ const StoneLovEditorial = lazy(() => import("./pages/StoneLovEditorial"));
 const PowerLovEditorial = lazy(() => import("./pages/PowerLovEditorial"));
 const CampagneSac = lazy(() => import("./pages/CampagneSac")); // hidden — kept for september reactivation
 const Sacs = lazy(() => import("./pages/Sacs"));
-const ArticleSacsCuirTresse = lazy(() => import("./pages/articles/SacsCuirTresse"));
-const ArticleSacsChoisirCouleur = lazy(() => import("./pages/articles/SacsChoisirCouleur"));
-const ArticleSacsHistoireBigLov = lazy(() => import("./pages/articles/SacsHistoireBigLov"));
 const CollectionBijoux = lazy(() => import("./pages/CollectionBijoux"));
 const CollectionTshirts = lazy(() => import("./pages/CollectionTshirts"));
 const Auth = lazy(() => import("./pages/Auth"));
@@ -47,6 +44,8 @@ const Confidentialite = lazy(() => import("./pages/Confidentialite"));
 const LivraisonRetours = lazy(() => import("./pages/LivraisonRetours"));
 const CGV = lazy(() => import("./pages/CGV"));
 const AdminProducts = lazy(() => import("./pages/AdminProducts"));
+const Magazine = lazy(() => import("./pages/Magazine"));
+const MagazineArticle = lazy(() => import("./pages/MagazineArticle"));
 
 const queryClient = new QueryClient();
 
@@ -124,9 +123,10 @@ const AppContent = () => {
           {/* /campagne-sac (LOVSAC) — temporairement masqué, redirection vers l'accueil. Réactivation prévue en septembre. */}
           <Route path="/campagne-sac" element={<Navigate to="/" replace />} />
           <Route path="/sacs" element={<Sacs />} />
-          <Route path="/journal/sacs-cuir-tresse" element={<ArticleSacsCuirTresse />} />
-          <Route path="/journal/sacs-choisir-couleur" element={<ArticleSacsChoisirCouleur />} />
-          <Route path="/journal/sacs-histoire-big-lov" element={<ArticleSacsHistoireBigLov />} />
+          {/* Legacy /journal/* article routes redirect to Magazine equivalents */}
+          <Route path="/journal/sacs-cuir-tresse" element={<Navigate to="/magazine/le-geste-du-cuir-tresse" replace />} />
+          <Route path="/journal/sacs-choisir-couleur" element={<Navigate to="/magazine/comment-choisir-sa-couleur" replace />} />
+          <Route path="/journal/sacs-histoire-big-lov" element={<Navigate to="/magazine/histoire-du-big-lov" replace />} />
           <Route path="/collections/bijoux" element={<CollectionBijoux />} />
           <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
           <Route path="/manifeste" element={<Manifeste />} />
@@ -142,6 +142,8 @@ const AppContent = () => {
           <Route path="/livraison-retours" element={<LivraisonRetours />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/admin/products" element={<AdminProducts />} />
+          <Route path="/magazine" element={<Magazine />} />
+          <Route path="/magazine/:slug" element={<MagazineArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

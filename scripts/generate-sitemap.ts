@@ -31,6 +31,7 @@ const staticEntries: SitemapEntry[] = [
   { path: "/le-cercle", changefreq: "monthly", priority: "0.5" },
   { path: "/drops", changefreq: "monthly", priority: "0.5" },
   { path: "/search", changefreq: "weekly", priority: "0.4" },
+  { path: "/magazine", changefreq: "weekly", priority: "0.8" },
   { path: "/journal/sacs-cuir-tresse", changefreq: "monthly", priority: "0.5" },
   { path: "/journal/sacs-choisir-couleur", changefreq: "monthly", priority: "0.5" },
   { path: "/journal/sacs-histoire-big-lov", changefreq: "monthly", priority: "0.5" },
@@ -67,6 +68,21 @@ async function loadProductEntries(): Promise<SitemapEntry[]> {
   }
 }
 
+// Magazine article entries
+async function loadMagazineEntries(): Promise<SitemapEntry[]> {
+  try {
+    const mod = await import("../src/data/magazine");
+    const articles = (mod as any).magazineArticles as Array<{ slug: string }>;
+    return (articles || []).map(a => ({
+      path: `/magazine/${a.slug}`,
+      changefreq: "monthly" as const,
+      priority: "0.6",
+    }));
+  } catch {
+    return [];
+  }
+}
+
 function xml(entries: SitemapEntry[]) {
   const urls = entries.map((e) =>
     [
@@ -89,7 +105,11 @@ function xml(entries: SitemapEntry[]) {
 }
 
 (async () => {
-  const entries = [...staticEntries, ...(await loadProductEntries())];
+  const entries = [
+    ...staticEntries,
+    ...(await loadProductEntries()),
+    ...(await loadMagazineEntries()),
+  ];
   writeFileSync(resolve("public/sitemap.xml"), xml(entries));
   console.log(`sitemap.xml written (${entries.length} entries)`);
 })();

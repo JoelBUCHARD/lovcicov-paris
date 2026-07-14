@@ -18,6 +18,7 @@ const primaryLinks = [
 const universLinks = [
   { to: '/manifeste', label: 'Manifeste' },
   { to: '/fondatrice', label: 'La Fondatrice' },
+  { to: '/magazine', label: 'Magazine' },
   { to: '/drops', label: 'Drops' },
   { to: '/le-cercle', label: 'Le Cercle' },
 ];
