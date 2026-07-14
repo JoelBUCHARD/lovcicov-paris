@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { mysticProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import SEO from '@/components/SEO';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';

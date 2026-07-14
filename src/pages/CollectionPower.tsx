@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import SEO from '@/components/SEO';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard, { EditorialProduct } from '@/components/EditorialProductCard';

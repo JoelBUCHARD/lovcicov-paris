@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { supabase } from '@/integrations/supabase/client';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import JourneyContinuation from '@/components/JourneyContinuation';
 import SEO from '@/components/SEO';
 import ShopifyProductCard from '@/components/ShopifyProductCard';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
