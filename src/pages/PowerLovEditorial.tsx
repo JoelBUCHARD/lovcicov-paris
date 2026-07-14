@@ -335,7 +335,7 @@ const PowerLovEditorial = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: Math.min(index, 6) * 0.04 }}
-                  className={emphasis === "large" ? "col-span-2 h-full w-full" : "col-span-1 h-full w-full"}
+                  className="col-span-1 h-full w-full"
                 >
                   <Link
                     to={`/shop/${product.id}`}
@@ -347,7 +347,7 @@ const PowerLovEditorial = () => {
                     onTouchStart={() => prefetchRoute("/shop/item")}
                     className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
-                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: emphasis === "large" ? "3 / 4" : "4 / 5" }}>
+                    <div className="relative w-full overflow-hidden" style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}>
                       <img
                         src={product.image}
                         alt={product.name}
