@@ -31,6 +31,7 @@ const staticEntries: SitemapEntry[] = [
   { path: "/le-cercle", changefreq: "monthly", priority: "0.5" },
   { path: "/drops", changefreq: "monthly", priority: "0.5" },
   { path: "/search", changefreq: "weekly", priority: "0.4" },
+  { path: "/magazine", changefreq: "weekly", priority: "0.8" },
   { path: "/journal/sacs-cuir-tresse", changefreq: "monthly", priority: "0.5" },
   { path: "/journal/sacs-choisir-couleur", changefreq: "monthly", priority: "0.5" },
   { path: "/journal/sacs-histoire-big-lov", changefreq: "monthly", priority: "0.5" },
