@@ -3,15 +3,27 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Search as SearchIcon, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ShopifyProductCard from '@/components/ShopifyProductCard';
+import ProductCard from '@/components/ProductCard';
 import SEO from '@/components/SEO';
-import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
-import { useProductVisibility, shopifyKey } from '@/hooks/useProductVisibility';
-import { products as siteProducts } from '@/data/products';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
+import { products as siteProducts, type Product } from '@/data/products';
 
-const siteHandles = new Set(
-  siteProducts.map((p) => p.shopifyHandle).filter((h): h is string => !!h)
-);
+// Human keywords mapped to collections/universes so a search on "PowerLov",
+// "mystique", "bijou"… returns the right pieces even if the word is not in
+// the product name.
+const COLLECTION_ALIASES: Record<Product['collection'], string[]> = {
+  standard: ['powerlov', 'power', 'force', 'discipline', 'énergie', 'energie'],
+  mystic: ['mysticlov', 'mystic', 'mystique', 'intuition', 'douceur', 'mystere', 'mystère'],
+  bijoux: ['stonelov', 'stone', 'pierre', 'pierres', 'bijou', 'bijoux', 'talisman', 'rituel'],
+  sacs: ['lovbag', 'sac', 'sacs', 'cuir', 'tressé', 'tresse', 'bag'],
+};
+
+const SUBCATEGORY_ALIASES: Record<string, string[]> = {
+  tshirt: ['t-shirt', 'tshirt', 'tee'],
+  crewneck: ['crewneck', 'sweat', 'sweatshirt', 'pull'],
+  hoodie: ['hoodie', 'sweat à capuche', 'sweat a capuche', 'capuche'],
+};
+
 
 const UNIVERSES = [
   { to: '/powerlov', label: 'PowerLov', tagline: 'Force · Discipline · Énergie' },
@@ -36,65 +48,62 @@ const SearchPage = () => {
   const initialQ = searchParams.get('q') ?? '';
   const [input, setInput] = useState(initialQ);
   const [query, setQuery] = useState(initialQ);
-  const [allProducts, setAllProducts] = useState<ShopifyProduct[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [initialLoading, setInitialLoading] = useState(true);
   const inputRef = useRef<HTMLInputElement>(null);
-  const { isVisible } = useProductVisibility();
+  const { isVisible, loading: visibilityLoading } = useProductVisibility();
 
   useEffect(() => {
     setInput(initialQ);
     setQuery(initialQ);
   }, [initialQ]);
 
-  // Fetch products once — used for both suggestions grid and search results
-  useEffect(() => {
-    let cancelled = false;
-    setInitialLoading(true);
-    fetchShopifyProducts(250)
-      .then((data) => { if (!cancelled) setAllProducts(data); })
-      .catch(() => { if (!cancelled) setAllProducts([]); })
-      .finally(() => { if (!cancelled) setInitialLoading(false); });
-    return () => { cancelled = true; };
-  }, []);
-
+  // Base catalogue — the exact pieces displayed on the site (same visibility filter as the shop).
   const visibleAll = useMemo(
-    () =>
-      allProducts
-        .filter((p) => siteHandles.has(p.node.handle))
-        .filter((p) => isVisible(shopifyKey(p.node.handle))),
-    [allProducts, isVisible]
+    () => siteProducts.filter((p) => isVisible(localKey(p.id))),
+    [isVisible]
   );
+
+  const buildHaystack = (p: Product): string => {
+    const parts: string[] = [
+      p.name,
+      p.description ?? '',
+      p.collection,
+      p.subcategory ?? '',
+      ...(p.colors?.map((c) => c.name) ?? []),
+      ...(COLLECTION_ALIASES[p.collection] ?? []),
+      ...(p.subcategory ? SUBCATEGORY_ALIASES[p.subcategory] ?? [] : []),
+    ];
+    return normalize(parts.join(' | '));
+  };
 
   const trimmed = query.trim();
   const results = useMemo(() => {
     if (!trimmed) return [];
-    const q = normalize(trimmed);
+    // Split query into tokens — every token must match somewhere in the haystack.
+    const tokens = normalize(trimmed).split(/\s+/).filter(Boolean);
     return visibleAll.filter((p) => {
-      const node: any = p.node;
-      const haystacks: string[] = [
-        node.title ?? '',
-        node.description ?? '',
-        node.productType ?? '',
-        node.vendor ?? '',
-        node.handle ?? '',
-        ...(Array.isArray(node.tags) ? node.tags : []),
-      ];
-      return haystacks.some((s) => normalize(String(s)).includes(q));
+      const hay = buildHaystack(p);
+      return tokens.every((t) => hay.includes(t));
     });
   }, [trimmed, visibleAll]);
 
-  // Live-typed suggestions (top 4 matches)
+  // Live-typed suggestions (top 5 matches) — same logic, based on the current input.
   const liveSuggestions = useMemo(() => {
     const v = input.trim();
     if (!v || v === query) return [];
-    const q = normalize(v);
+    const tokens = normalize(v).split(/\s+/).filter(Boolean);
     return visibleAll
-      .filter((p) => normalize(p.node.title).includes(q))
-      .slice(0, 4);
+      .filter((p) => {
+        const hay = buildHaystack(p);
+        return tokens.every((t) => hay.includes(t));
+      })
+      .slice(0, 5);
   }, [input, query, visibleAll]);
 
   const bestSellers = visibleAll.slice(0, 4);
+
+  const loading = false;
+  const initialLoading = visibilityLoading;
+
 
   useEffect(() => { inputRef.current?.focus(); }, []);
 
@@ -169,14 +178,14 @@ const SearchPage = () => {
             {liveSuggestions.length > 0 && (
               <ul className="mt-2 text-left bg-card border border-border/60 divide-y divide-border/40">
                 {liveSuggestions.map((p) => (
-                  <li key={p.node.id}>
+                  <li key={p.id}>
                     <button
                       type="button"
-                      onClick={() => { setInput(p.node.title); runSearch(p.node.title); }}
+                      onClick={() => { setInput(p.name); runSearch(p.name); }}
                       className="w-full flex items-center gap-2 px-4 py-3 text-[12px] tracking-[0.08em] hover:bg-foreground/[0.03] transition-colors"
                     >
                       <SearchIcon size={12} strokeWidth={1.25} className="text-foreground/40" />
-                      <span className="truncate">{p.node.title}</span>
+                      <span className="truncate">{p.name}</span>
                     </button>
                   </li>
                 ))}
@@ -218,7 +227,7 @@ const SearchPage = () => {
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12">
                     {results.map((product, i) => (
-                      <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </>
@@ -240,7 +249,7 @@ const SearchPage = () => {
                       </p>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12 mb-16 text-left">
                         {bestSellers.map((product, i) => (
-                          <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                          <ProductCard key={product.id} product={product} index={i} />
                         ))}
                       </div>
                     </>
@@ -294,7 +303,7 @@ const SearchPage = () => {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-12">
                     {bestSellers.map((product, i) => (
-                      <ShopifyProductCard key={product.node.id} product={product} index={i} />
+                      <ProductCard key={product.id} product={product} index={i} />
                     ))}
                   </div>
                 </div>
