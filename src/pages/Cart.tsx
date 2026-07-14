@@ -16,8 +16,9 @@ import {
   SHIPPING_FEE,
   FREE_SHIPPING_THRESHOLD,
 } from '@/lib/shipping';
-import { standardProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
+import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
