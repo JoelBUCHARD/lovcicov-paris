@@ -68,6 +68,21 @@ async function loadProductEntries(): Promise<SitemapEntry[]> {
   }
 }
 
+// Magazine article entries
+async function loadMagazineEntries(): Promise<SitemapEntry[]> {
+  try {
+    const mod = await import("../src/data/magazine");
+    const articles = (mod as any).magazineArticles as Array<{ slug: string }>;
+    return (articles || []).map(a => ({
+      path: `/magazine/${a.slug}`,
+      changefreq: "monthly" as const,
+      priority: "0.6",
+    }));
+  } catch {
+    return [];
+  }
+}
+
 function xml(entries: SitemapEntry[]) {
   const urls = entries.map((e) =>
     [
