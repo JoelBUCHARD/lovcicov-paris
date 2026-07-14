@@ -22,26 +22,54 @@ type ProductCard = {
 
 // Nouveautés = derniers ajouts (les 2 pièces Sacred Heart les plus récentes)
 const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
-const PACKSHOT_PATTERN = /(front|back|packshot|grey|white)/i;
+const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: string[] }> = {
+  "powerlov-discipline": {
+    image: "powerlov-discipline-back",
+    packshots: ["powerlov-discipline-front", "powerlov-discipline-white-front"],
+  },
+  "powerlov-if-god-dj-frequency": {
+    image: "powerlov-if-god-dj-front",
+    packshots: [],
+  },
+  "powerlov-god-is-a-dancer": {
+    image: "powerlov-grid-god-is-a-dancer",
+    packshots: ["powerlov-god-is-a-dancer-front"],
+  },
+  "powerlov-protected-aligned-unstoppable": {
+    image: "powerlov-protected-aligned-unstoppable-street",
+    packshots: ["powerlov-protected-aligned-unstoppable-packshot"],
+  },
+  "powerlov-sacred-heart-sweat": {
+    image: "powerlov-sacred-heart-street",
+    packshots: ["powerlov-sacred-heart-street-back", "powerlov-sacred-heart-grey-front"],
+  },
+  "powerlov-sacred-heart-hoodie": {
+    image: "powerlov-sacred-heart-hoodie-street-front",
+    packshots: ["powerlov-sacred-heart-hoodie-street-back"],
+  },
+};
 
-const products: ProductCard[] = standardProducts.map((p) => {
+const products: ProductCard[] = standardProducts.flatMap((p) => {
+  const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
+  if (!selectedImages) return [];
+
   const cats: Exclude<Category, "all">[] = [];
   if (p.subcategory === "tshirt") cats.push("tshirts");
   if (p.subcategory === "hoodie" || p.subcategory === "crewneck") cats.push("sweats");
   if (NEW_IDS.has(p.id)) cats.push("new");
-  const packshots = (p.gallery ?? [])
-    .filter((imageKey) => PACKSHOT_PATTERN.test(imageKey))
+
+  const packshots = selectedImages.packshots
     .map((imageKey) => resolveProductImage(imageKey))
     .filter(Boolean);
 
-  return {
+  return [{
     id: p.id,
     name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
     price: p.price,
-    image: resolveProductImage(p.image),
+    image: resolveProductImage(selectedImages.image),
     packshots: Array.from(new Set(packshots)),
     categories: cats,
-  };
+  }];
 });
 
 const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
@@ -77,15 +105,15 @@ const PowerLovEditorial = () => {
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
     filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 4 || i === 7 ? "large" : "standard" });
-      product.packshots.slice(0, i === 2 || i === 7 ? 2 : 1).forEach((image, imageIndex) => {
+      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 3 || i === 4 ? "large" : "standard" });
+      product.packshots.forEach((image, imageIndex) => {
         items.push({
           kind: "packshot",
           product,
           image,
           imageIndex,
           index: i,
-          emphasis: imageIndex === 0 && (i === 2 || i === 7) ? "tall" : "standard",
+          emphasis: imageIndex === 0 && (i === 2 || i === 4) ? "tall" : "standard",
         });
       });
     });
