@@ -53,7 +53,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « DISCIPLINE IS MY LUXURY ». Unisex.',
     details: 'Pour celles et ceux qui font de la discipline leur plus grand luxe.',
     image: 'powerlov-discipline-back',
-    gallery: ['powerlov-discipline-front', 'powerlov-discipline-white-front', 'powerlov-discipline-white-back'],
+    gallery: ['powerlov-discipline-front'],
     badge: 'UNISEX',
   },
   {
@@ -92,7 +92,6 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « GOD IS A DANCER ». Unisex.',
     details: 'Le mouvement comme prière. Le rythme comme rituel.',
     image: 'powerlov-grid-god-is-a-dancer',
-    gallery: ['powerlov-god-is-a-dancer-street-cafe', 'powerlov-god-is-a-dancer-front', 'powerlov-god-is-a-dancer-back'],
     badge: 'UNISEX',
   },
   {
@@ -105,7 +104,6 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PROTECTED. ALIGNED. UNSTOPPABLE. ». Unisex.',
     details: 'Une ligne nette. Une allure calme. Une présence affirmée.',
     image: 'powerlov-protected-aligned-unstoppable-street',
-    gallery: ['powerlov-protected-aligned-unstoppable-packshot'],
     badge: 'UNISEX',
   },
   {
@@ -117,8 +115,7 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat-shirt coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
-    image: 'powerlov-sacred-heart-street',
-    gallery: ['powerlov-sacred-heart-street-back', 'powerlov-sacred-heart-grey-front', 'powerlov-sacred-heart-grey-back'],
+    image: 'powerlov-my-own-muse-street-v2',
     badge: 'UNISEX',
   },
   {
@@ -130,8 +127,7 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Le même emblème, capuche relevée. Une silhouette de rue, une présence affirmée.',
-    image: 'powerlov-sacred-heart-hoodie-street-front',
-    gallery: ['powerlov-sacred-heart-hoodie-street-back', 'powerlov-sacred-heart-hoodie-front', 'powerlov-sacred-heart-hoodie-back'],
+    image: 'powerlov-lovcicov-hoodie-cap-studio',
     badge: 'UNISEX',
   },
   {
@@ -179,7 +175,7 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
-    image: 'powerlov-mom-boss-crisis-manager-street',
+    image: 'powerlov-lovcicov-heart-pocket-studio',
     badge: 'UNISEX',
   },
   {
@@ -191,7 +187,7 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
-    image: 'powerlov-lovcicov-2019-paris-hoodie-street',
+    image: 'powerlov-lovcicov-heart-tee-paris-street',
     badge: 'UNISEX',
   },
   {
