@@ -328,7 +328,16 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: "#F0EDE7", aspectRatio: isHero ? undefined : isLandscape ? "8 / 5" : "4 / 5" }}
+                      style={{
+                        backgroundColor: "#F0EDE7",
+                        aspectRatio: isHero
+                          ? undefined
+                          : isLandscape
+                          ? "8 / 5"
+                          : image.includes("my-own-muse")
+                          ? "3 / 5"
+                          : "4 / 5",
+                      }}
                     >
                       <img
                         src={image}
@@ -336,6 +345,7 @@ const PowerLovEditorial = () => {
                         loading="lazy"
                         decoding="async"
                         className={`absolute inset-0 h-full w-full ${objectFit}`}
+                        style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
                       />
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }}>
