@@ -77,16 +77,21 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-less-drama-champagne-rue-de-seine",
     packshots: [],
   },
+  "powerlov-energy-never-lies-hoodie": {
+    image: "powerlov-perfectly-imperfect-hoodie-brick",
+    packshots: [],
+  },
   "powerlov-god-is-a-dj": {
     image: "powerlov-lovcicov-2019-bird-market-street",
     packshots: [],
   },
 };
 
-// Ordre d'affichage: on garde l'ordre existant, et on ajoute les nouveaux à la fin
+// Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
 const APPENDED_IDS = [
   "powerlov-empowered",
   "powerlov-bold-badass-tee",
+  "powerlov-energy-never-lies-hoodie",
   "powerlov-god-is-a-dj",
 ];
 
