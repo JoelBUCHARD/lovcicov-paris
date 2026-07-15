@@ -116,22 +116,14 @@ const PowerLovEditorial = () => {
     | { kind: "packshot"; product: ProductCard; image: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
-    const items: GridItem[] = [];
-    filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 3 || i === 4 ? "large" : "standard" });
-      product.packshots.forEach((image, imageIndex) => {
-        items.push({
-          kind: "packshot",
-          product,
-          image,
-          imageIndex,
-          index: i,
-          emphasis: imageIndex === 0 && (i === 2 || i === 4) ? "tall" : "standard",
-        });
-      });
-    });
-    return items;
+    return filtered.map((product, i) => ({
+      kind: "product" as const,
+      product,
+      index: i,
+      emphasis: "standard" as const,
+    }));
   }, [filtered]);
+
 
   const scrollToGrid = () => {
     document.getElementById("powerlov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -280,7 +272,7 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
+            className="mx-auto grid grid-cols-2 md:grid-cols-5 gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1600 }}
           >
             {gridItems.map((item, i) => {
@@ -288,14 +280,15 @@ const PowerLovEditorial = () => {
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              // Rouje-style rhythm: a large hero every 5 tiles, alternating sides
+              // Rouje-style: 1 landscape hero (3 cols x 2 rows) + 4 portrait tiles (2x2), alternating sides
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-2 row-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-2 row-span-2 md:col-span-3 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : "col-span-1";
               const objectFit = isProduct ? "object-cover" : "object-contain";
+              const aspect = isHero ? "6 / 5" : "4 / 5";
 
               return (
                 <motion.div
@@ -318,7 +311,7 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: isProduct ? "#F0EDE7" : "#FFFFFF", aspectRatio: "4 / 5" }}
+                      style={{ backgroundColor: isProduct ? "#F0EDE7" : "#FFFFFF", aspectRatio: aspect }}
                     >
                       <img
                         src={image}
