@@ -48,6 +48,10 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-protected-aligned-unstoppable-street",
     packshots: ["powerlov-protected-aligned-unstoppable-packshot"],
   },
+  "powerlov-sacred-heart-sweat": {
+    image: "powerlov-sacred-heart-street",
+    packshots: ["powerlov-sacred-heart-street-back", "powerlov-my-own-muse-street-v2"],
+  },
 
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-street-front",
