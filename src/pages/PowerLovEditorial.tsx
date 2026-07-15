@@ -77,8 +77,8 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-less-drama-champagne-rue-de-seine",
     packshots: [],
   },
-  "powerlov-energy-never-lies-hoodie": {
-    image: "powerlov-perfectly-imperfect-hoodie-brick",
+  "powerlov-god-is-a-dj": {
+    image: "powerlov-lovcicov-2019-bird-market-street",
     packshots: [],
   },
 };
@@ -87,7 +87,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
 const APPENDED_IDS = [
   "powerlov-empowered",
   "powerlov-bold-badass-tee",
-  "powerlov-energy-never-lies-hoodie",
+  "powerlov-god-is-a-dj",
 ];
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
