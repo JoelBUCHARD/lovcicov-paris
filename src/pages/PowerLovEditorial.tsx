@@ -15,6 +15,7 @@ type Category = "all" | "tshirts" | "sweats" | "new";
 type ProductCard = {
   id: string;
   name: string;
+  typeLabel: string;
   price: number;
   image: string;
   packshots: string[];
@@ -108,9 +109,13 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
     .map((imageKey) => resolveProductImage(imageKey))
     .filter(Boolean);
 
+  const typeLabel =
+    p.subcategory === "tshirt" ? "T-shirt" : p.subcategory === "hoodie" ? "Sweat capuche" : "Sweat";
+
   return {
     id: p.id,
-    name: p.name,
+    name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
+    typeLabel,
     price: p.price,
     image: resolveProductImage(selectedImages.image),
     packshots: Array.from(new Set(packshots)),
@@ -391,7 +396,13 @@ const PowerLovEditorial = () => {
 
                       />
                     </div>
-                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }}>
+                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
+                      <p
+                        className="font-light"
+                        style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
+                      >
+                        {product.typeLabel}
+                      </p>
                       <h3
                         className="text-[#0D0D0D] font-light"
                         style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
@@ -402,6 +413,7 @@ const PowerLovEditorial = () => {
                         €{product.price}
                       </p>
                     </div>
+
                   </Link>
                 </motion.div>
               );
