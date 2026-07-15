@@ -69,9 +69,22 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-lovcicov-heart-tee-paris-street",
     packshots: [],
   },
-
-
-
+  "powerlov-empowered": {
+    image: "powerlov-lovcicov-cream-sweat-nyc-street",
+    packshots: [],
+  },
+  "powerlov-bold-badass-tee": {
+    image: "powerlov-less-drama-champagne-rue-de-seine",
+    packshots: [],
+  },
+  "powerlov-energy-never-lies-hoodie": {
+    image: "powerlov-perfectly-imperfect-hoodie-brick",
+    packshots: [],
+  },
+  "powerlov-god-is-a-dj": {
+    image: "powerlov-lovcicov-2019-bird-market-street",
+    packshots: [],
+  },
 };
 
 const products: ProductCard[] = standardProducts.flatMap((p) => {
