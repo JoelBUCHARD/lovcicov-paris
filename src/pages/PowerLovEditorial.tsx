@@ -109,9 +109,13 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
     .map((imageKey) => resolveProductImage(imageKey))
     .filter(Boolean);
 
+  const typeLabel =
+    p.subcategory === "tshirt" ? "T-shirt" : p.subcategory === "hoodie" ? "Sweat capuche" : "Sweat";
+
   return {
     id: p.id,
-    name: p.name,
+    name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
+    typeLabel,
     price: p.price,
     image: resolveProductImage(selectedImages.image),
     packshots: Array.from(new Set(packshots)),
