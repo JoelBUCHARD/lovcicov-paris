@@ -283,12 +283,12 @@ const PowerLovEditorial = () => {
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              // Layout: hero (2 cols x 2 rows) + 4 tiles (2x2), alternating sides
-              const heroIndex = Math.floor(i / 5);
-              const isHero = isProduct && i % 5 === 0;
+              // Rouje-style: hero on 2 cols × 1 row (landscape), rest on 1 col portrait
+              const heroIndex = Math.floor(i / 6);
+              const isHero = isProduct && i % 6 === 0;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-2 row-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-2 md:col-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : "col-span-1";
               const objectFit = "object-cover";
 
@@ -313,7 +313,7 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
+                      style={{ backgroundColor: "#F0EDE7", aspectRatio: isHero ? "8 / 5" : "4 / 5" }}
                     >
                       <img
                         src={image}
