@@ -299,9 +299,12 @@ const PowerLovEditorial = () => {
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
               const isLandscape = i === 9;
+              const isMyOwnMuse = image.includes("my-own-muse");
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : isMyOwnMuse
+                ? "col-span-2 md:col-span-2 md:row-span-2"
                 : isLandscape
                 ? "col-span-2 md:col-span-2"
                 : "col-span-1";
@@ -331,12 +334,10 @@ const PowerLovEditorial = () => {
                       className="relative w-full overflow-hidden flex-1"
                       style={{
                         backgroundColor: "#F0EDE7",
-                        aspectRatio: isHero
+                        aspectRatio: isHero || isMyOwnMuse
                           ? undefined
                           : isLandscape
                           ? "8 / 5"
-                          : image.includes("my-own-muse")
-                          ? "1 / 2"
                           : "4 / 5",
                       }}
                     >
