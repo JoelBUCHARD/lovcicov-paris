@@ -290,7 +290,7 @@ const PowerLovEditorial = () => {
               const spanClass = isHero
                 ? `col-span-2 row-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : "col-span-1";
-              const objectFit = isHero ? "object-contain" : isProduct ? "object-cover" : "object-contain";
+              const objectFit = "object-cover";
 
               return (
                 <motion.div
@@ -313,14 +313,14 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: isProduct && !isHero ? "#F0EDE7" : "#FFFFFF", aspectRatio: isHero ? undefined : "4 / 5" }}
+                      style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
                     >
                       <img
                         src={image}
                         alt={product.name}
                         loading="lazy"
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full ${objectFit} transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]`}
+                        className={`absolute inset-0 h-full w-full ${objectFit}`}
                       />
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center">
