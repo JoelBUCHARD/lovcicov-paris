@@ -326,7 +326,7 @@ const PowerLovEditorial = () => {
         </div>
 
         {/* PRODUCT GRID — Rouje-style: large lifestyle hero + small product tiles */}
-        <section aria-label="Sélection PowerLov" style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px)" }}>
+        <section aria-label="Sélection PowerLov" style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}>
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
