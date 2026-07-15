@@ -272,7 +272,7 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-5 gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
+            className="mx-auto grid grid-cols-2 md:grid-cols-5 md:auto-rows-fr gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1600 }}
           >
             {gridItems.map((item, i) => {
