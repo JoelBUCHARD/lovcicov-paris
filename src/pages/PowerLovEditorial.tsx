@@ -34,7 +34,15 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
-    packshots: ["powerlov-my-own-muse-street"],
+    packshots: [],
+  },
+  "powerlov-my-own-muse": {
+    image: "powerlov-my-own-muse-street",
+    packshots: [],
+  },
+  "powerlov-lovcicov-heart-tee": {
+    image: "powerlov-lovcicov-heart-tee-street",
+    packshots: [],
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
@@ -60,6 +68,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-lovcicov-2019-paris-hoodie-street",
     packshots: [],
   },
+
 
 };
 
