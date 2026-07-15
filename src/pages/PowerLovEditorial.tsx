@@ -297,7 +297,7 @@ const PowerLovEditorial = () => {
               const objectFit = "object-cover";
 
               return (
-                <>
+                <Fragment key={key}>
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 14 }}
