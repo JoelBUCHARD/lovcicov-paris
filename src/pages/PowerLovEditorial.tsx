@@ -34,7 +34,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
-    packshots: ["powerlov-god-is-a-dancer-front"],
+    packshots: ["powerlov-my-own-muse-street"],
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
