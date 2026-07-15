@@ -116,22 +116,14 @@ const PowerLovEditorial = () => {
     | { kind: "packshot"; product: ProductCard; image: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
-    const items: GridItem[] = [];
-    filtered.forEach((product, i) => {
-      items.push({ kind: "product", product, index: i, emphasis: i === 0 || i === 3 || i === 4 ? "large" : "standard" });
-      product.packshots.forEach((image, imageIndex) => {
-        items.push({
-          kind: "packshot",
-          product,
-          image,
-          imageIndex,
-          index: i,
-          emphasis: imageIndex === 0 && (i === 2 || i === 4) ? "tall" : "standard",
-        });
-      });
-    });
-    return items;
+    return filtered.map((product, i) => ({
+      kind: "product" as const,
+      product,
+      index: i,
+      emphasis: "standard" as const,
+    }));
   }, [filtered]);
+
 
   const scrollToGrid = () => {
     document.getElementById("powerlov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
