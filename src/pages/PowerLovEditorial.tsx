@@ -322,7 +322,7 @@ const PowerLovEditorial = () => {
                       />
                     </div>
                     {isProduct ? (
-                      <div className="pt-3 md:pt-4 pb-2 text-center">
+                      <div className="pt-1 md:pt-1.5 pb-1 text-center">
                         <h3
                           className="text-[#0D0D0D] font-light"
                           style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
