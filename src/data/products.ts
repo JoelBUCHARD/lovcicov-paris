@@ -194,6 +194,30 @@ export const standardProducts: Product[] = [
     image: 'powerlov-lovcicov-2019-paris-hoodie-street',
     badge: 'UNISEX',
   },
+  {
+    id: 'powerlov-my-own-muse',
+    shopifyHandle: 't-shirt-powerlov',
+    name: 'T-Shirt My Own Muse',
+    price: 59,
+    collection: 'standard',
+    subcategory: 'tshirt',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MY OWN MUSE ». Unisex.',
+    details: 'Sa propre muse. Sa propre source. Sa propre lumière.',
+    image: 'powerlov-my-own-muse-street',
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-lovcicov-heart-tee',
+    shopifyHandle: 't-shirt-powerlov',
+    name: 'T-Shirt LOVCICOV Heart',
+    price: 59,
+    collection: 'standard',
+    subcategory: 'tshirt',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie cœur « LOVCICOV » en façade. Unisex.',
+    details: 'Le cœur comme signature. Une pièce manifeste, portée comme une évidence.',
+    image: 'powerlov-lovcicov-heart-tee-street',
+    badge: 'UNISEX',
+  },
 ];
 
 

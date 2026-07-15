@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import editorialHeartTeeStreet from "@/assets/powerlov/powerlov-lovcicov-heart-tee-street.png.asset.json";
+
 
 type Category = "all" | "tshirts" | "sweats" | "new";
 
@@ -34,7 +34,15 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
-    packshots: ["powerlov-my-own-muse-street"],
+    packshots: [],
+  },
+  "powerlov-my-own-muse": {
+    image: "powerlov-my-own-muse-street",
+    packshots: [],
+  },
+  "powerlov-lovcicov-heart-tee": {
+    image: "powerlov-lovcicov-heart-tee-street",
+    packshots: [],
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
@@ -60,6 +68,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-lovcicov-2019-paris-hoodie-street",
     packshots: [],
   },
+
 
 };
 
@@ -341,33 +350,8 @@ const PowerLovEditorial = () => {
                     </div>
                   </Link>
                 </motion.div>
-                {i === 14 && (
-                  <motion.div
-                    key="editorial-heart-tee-street"
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.7 }}
-                    className="col-span-1"
-                  >
-                    <div className="flex flex-col h-full">
-                      <div
-                        className="relative w-full overflow-hidden flex-1"
-                        style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
-                      >
-                        <img
-                          src={editorialHeartTeeStreet.url}
-                          alt="LOVCICOV Paris — Heart tee street"
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }} />
-                    </div>
-                  </motion.div>
-                )}
                 </Fragment>
+
               );
             })}
           </div>
