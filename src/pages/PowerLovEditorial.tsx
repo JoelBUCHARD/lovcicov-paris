@@ -350,6 +350,22 @@ const PowerLovEditorial = () => {
                         style={image.includes("my-own-muse") ? { objectPosition: "center 15%" } : undefined}
                       />
                     </div>
+                    {isProduct && (
+                      <div className="mt-2 md:mt-3 text-center">
+                        <h3
+                          className="uppercase"
+                          style={{ fontSize: 11, letterSpacing: "0.18em", color: "#0D0D0D" }}
+                        >
+                          {product.name}
+                        </h3>
+                        <p
+                          className="mt-1"
+                          style={{ fontSize: 11, letterSpacing: "0.12em", color: "rgba(13,13,13,0.7)" }}
+                        >
+                          {product.price} €
+                        </p>
+                      </div>
+                    )}
                   </Link>
                 </motion.div>
                 </Fragment>
