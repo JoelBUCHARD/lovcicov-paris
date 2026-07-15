@@ -350,33 +350,8 @@ const PowerLovEditorial = () => {
                     </div>
                   </Link>
                 </motion.div>
-                {i === 14 && (
-                  <motion.div
-                    key="editorial-heart-tee-street"
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.7 }}
-                    className="col-span-1"
-                  >
-                    <div className="flex flex-col h-full">
-                      <div
-                        className="relative w-full overflow-hidden flex-1"
-                        style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
-                      >
-                        <img
-                          src={editorialHeartTeeStreet.url}
-                          alt="LOVCICOV Paris — Heart tee street"
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }} />
-                    </div>
-                  </motion.div>
-                )}
                 </Fragment>
+
               );
             })}
           </div>
