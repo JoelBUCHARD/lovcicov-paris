@@ -50,7 +50,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-pretty-smart-dangerous-street", "powerlov-my-own-muse-street-v2"],
+    packshots: ["powerlov-pretty-smart-dangerous-white-street", "powerlov-my-own-muse-street-v2"],
   },
 
   "powerlov-sacred-heart-hoodie": {
