@@ -87,9 +87,17 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
 };
 
-const products: ProductCard[] = standardProducts.flatMap((p) => {
+// Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
+const APPENDED_IDS = [
+  "powerlov-empowered",
+  "powerlov-bold-badass-tee",
+  "powerlov-energy-never-lies-hoodie",
+  "powerlov-god-is-a-dj",
+];
+
+const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
-  if (!selectedImages) return [];
+  if (!selectedImages) return null;
 
   const cats: Exclude<Category, "all">[] = [];
   if (p.subcategory === "tshirt") cats.push("tshirts");
@@ -100,15 +108,32 @@ const products: ProductCard[] = standardProducts.flatMap((p) => {
     .map((imageKey) => resolveProductImage(imageKey))
     .filter(Boolean);
 
-  return [{
+  return {
     id: p.id,
     name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
     price: p.price,
     image: resolveProductImage(selectedImages.image),
     packshots: Array.from(new Set(packshots)),
     categories: cats,
-  }];
+  };
+};
+
+const baseProducts: ProductCard[] = standardProducts
+  .filter((p) => !APPENDED_IDS.includes(p.id))
+  .flatMap((p) => {
+    const card = buildCard(p);
+    return card ? [card] : [];
+  });
+
+const appendedProducts: ProductCard[] = APPENDED_IDS.flatMap((id) => {
+  const p = standardProducts.find((sp) => sp.id === id);
+  if (!p) return [];
+  const card = buildCard(p);
+  return card ? [card] : [];
 });
+
+const products: ProductCard[] = [...baseProducts, ...appendedProducts];
+
 
 const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
 const closingImage = products.find((product) => product.id === "powerlov-god-is-a-dj")?.image ?? products[0]?.image ?? "";
