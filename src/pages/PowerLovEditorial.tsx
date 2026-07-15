@@ -318,7 +318,7 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
+                      style={{ backgroundColor: isProduct ? "#F0EDE7" : "#FFFFFF", aspectRatio: "4 / 5" }}
                     >
                       <img
                         src={image}
