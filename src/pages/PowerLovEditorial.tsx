@@ -323,14 +323,14 @@ const PowerLovEditorial = () => {
                         className={`absolute inset-0 h-full w-full ${objectFit}`}
                       />
                     </div>
-                    <div className="pt-1 md:pt-1.5 pb-1 text-center">
+                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }}>
                       <h3
                         className="text-[#0D0D0D] font-light"
-                        style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
+                        style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                       >
                         {product.name}
                       </h3>
-                      <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                      <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
                         €{product.price}
                       </p>
                     </div>
