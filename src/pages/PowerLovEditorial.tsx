@@ -47,6 +47,19 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-sacred-heart-hoodie-street-front",
     packshots: ["powerlov-sacred-heart-hoodie-street-back"],
   },
+  "powerlov-less-drama-champagne": {
+    image: "powerlov-less-drama-more-champagne-street",
+    packshots: [],
+  },
+  "powerlov-mom-boss-crisis-manager": {
+    image: "powerlov-mom-boss-crisis-manager-street",
+    packshots: [],
+  },
+  "powerlov-lovcicov-2019-hoodie": {
+    image: "powerlov-lovcicov-2019-paris-hoodie-street",
+    packshots: [],
+  },
+
 };
 
 const products: ProductCard[] = standardProducts.flatMap((p) => {
