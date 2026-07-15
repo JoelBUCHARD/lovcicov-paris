@@ -324,20 +324,20 @@ const PowerLovEditorial = () => {
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
-          <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
-            style={{ maxWidth: 1400 }}
-          >
-            {gridItems.filter((item, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16 && item.product.id !== "powerlov-god-is-a-dj").map((item, i) => {
+          {(() => {
+            const visibleItems = gridItems.filter((item, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16 && item.product.id !== "powerlov-god-is-a-dj");
+            const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
+            const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
+
+            const renderCard = (item: GridItem, i: number, opts: { appendedRow?: boolean }) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              // Rouje-style: large portrait hero (2 cols × 2 rows) + 4 small tiles beside it
               const heroIndex = Math.floor(i / 5);
-              const isAppended = APPENDED_IDS.includes(product.id);
-              const isHero = isProduct && i % 5 === 0 && !isAppended;
-              const isLandscape = i === 9 && !isAppended;
+              const isAppended = !!opts.appendedRow;
+              const isHero = !isAppended && isProduct && i % 5 === 0;
+              const isLandscape = !isAppended && i === 9;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isAppended
                 ? "col-span-1"
@@ -346,10 +346,8 @@ const PowerLovEditorial = () => {
                 : isLandscape
                 ? "col-span-2 md:col-span-2"
                 : "col-span-1";
-              const objectFit = "object-cover";
 
               return (
-                <Fragment key={key}>
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 14 }}
@@ -388,7 +386,7 @@ const PowerLovEditorial = () => {
                         alt={product.name}
                         loading="lazy"
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full ${objectFit}`}
+                        className="absolute inset-0 h-full w-full object-cover"
                         style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
                       />
                     </div>
@@ -405,11 +403,29 @@ const PowerLovEditorial = () => {
                     </div>
                   </Link>
                 </motion.div>
-                </Fragment>
-
               );
-            })}
-          </div>
+            };
+
+            return (
+              <>
+                <div
+                  className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
+                  style={{ maxWidth: 1400 }}
+                >
+                  {baseItems.map((item, i) => renderCard(item, i, {}))}
+                </div>
+                {appendedItems.length > 0 && (
+                  <div
+                    className="mx-auto grid grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full"
+                  >
+                    {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
+                  </div>
+                )}
+              </>
+            );
+          })()}
+
+
 
 
 
