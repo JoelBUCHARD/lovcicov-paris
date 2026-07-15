@@ -15,6 +15,7 @@ type Category = "all" | "tshirts" | "sweats" | "new";
 type ProductCard = {
   id: string;
   name: string;
+  typeLabel: string;
   price: number;
   image: string;
   packshots: string[];
