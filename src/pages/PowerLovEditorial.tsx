@@ -26,7 +26,7 @@ const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-h
 const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: string[] }> = {
   "powerlov-discipline": {
     image: "powerlov-discipline-back",
-    packshots: ["powerlov-discipline-front", "powerlov-discipline-white-front"],
+    packshots: ["powerlov-discipline-front", "powerlov-sacred-heart-hoodie-cafe-croissant"],
   },
   "powerlov-if-god-dj-frequency": {
     image: "powerlov-pretty-smart-dangerous-white-street",
