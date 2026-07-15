@@ -341,18 +341,7 @@ const PowerLovEditorial = () => {
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              const heroIndex = Math.floor(i / 5);
-              const isAppended = !!opts.appendedRow;
-              const isHero = !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = !isAppended && i === 9;
-              const heroOnRight = isHero && heroIndex % 2 === 1;
-              const spanClass = isAppended
-                ? "col-span-1"
-                : isHero
-                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
-                : isLandscape
-                ? "col-span-2 md:col-span-2"
-                : "col-span-1";
+              const spanClass = "col-span-1";
 
               return (
                 <motion.div
@@ -376,16 +365,8 @@ const PowerLovEditorial = () => {
                     <div
                       className="relative w-full overflow-hidden flex-1"
                       style={{
-                        backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7",
-                        aspectRatio: isAppended
-                          ? "4 / 5"
-                          : isHero
-                          ? undefined
-                          : isLandscape
-                          ? "8 / 5"
-                          : image.includes("my-own-muse")
-                          ? "3 / 5"
-                          : "4 / 5",
+                        backgroundColor: "#F0EDE7",
+                        aspectRatio: "4 / 5",
                       }}
                     >
                       <img
