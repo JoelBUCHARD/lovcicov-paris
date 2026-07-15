@@ -62,13 +62,14 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     packshots: [],
   },
   "powerlov-mom-boss-crisis-manager": {
-    image: "powerlov-mom-boss-crisis-manager-street",
+    image: "powerlov-lovcicov-heart-tee-studio",
     packshots: [],
   },
   "powerlov-lovcicov-2019-hoodie": {
-    image: "powerlov-lovcicov-2019-paris-hoodie-street",
+    image: "powerlov-lovcicov-heart-tee-paris-street",
     packshots: [],
   },
+
 
 
 };
