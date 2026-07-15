@@ -290,7 +290,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {gridItems.filter((_, i) => i !== 12).map((item, i) => {
+            {gridItems.filter((_, i) => i !== 12 && i !== 10).map((item, i) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
