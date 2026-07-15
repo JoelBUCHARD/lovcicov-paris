@@ -386,8 +386,9 @@ const PowerLovEditorial = () => {
                         alt={product.name}
                         loading="lazy"
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className={`absolute inset-0 h-full w-full ${image.includes("cream-sweat-nyc-street") ? "object-contain" : "object-cover"}`}
                         style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
+
                       />
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }}>
