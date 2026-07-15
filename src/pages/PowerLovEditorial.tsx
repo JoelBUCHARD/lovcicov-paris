@@ -41,7 +41,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     packshots: [],
   },
   "powerlov-lovcicov-heart-tee": {
-    image: "powerlov-lovcicov-heart-tee-street",
+    image: "powerlov-lovcicov-sacred-heart-stairs-red-boots",
     packshots: [],
   },
   "powerlov-protected-aligned-unstoppable": {
