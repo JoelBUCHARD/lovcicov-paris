@@ -322,23 +322,23 @@ const PowerLovEditorial = () => {
                       />
                     </div>
                     {isProduct ? (
-                      <div className="pt-3 md:pt-4 pb-2 text-center">
+                      <div className="pt-1 md:pt-1.5 pb-1 text-center">
                         <h3
                           className="text-[#0D0D0D] font-light"
                           style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
                         >
                           {product.name}
                         </h3>
-                        <p className="mt-1.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
                           €{product.price}
                         </p>
                       </div>
                     ) : (
-                      <div className="pt-3 md:pt-4 pb-2 text-center" aria-hidden="true">
+                      <div className="pt-1 md:pt-1.5 pb-1 text-center" aria-hidden="true">
                         <h3 className="font-light invisible" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}>
                           &nbsp;
                         </h3>
-                        <p className="mt-1.5 font-light invisible" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        <p className="mt-0.5 font-light invisible" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
                           &nbsp;
                         </p>
                       </div>
