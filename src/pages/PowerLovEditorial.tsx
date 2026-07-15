@@ -50,7 +50,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-sacred-heart-street",
-    packshots: ["powerlov-sacred-heart-street-back", "powerlov-my-own-muse-street-v2"],
+    packshots: ["powerlov-sacred-heart-street-back", "powerlov-lovcicov-hoodie-cap-studio"],
   },
 
   "powerlov-sacred-heart-hoodie": {
@@ -62,11 +62,11 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     packshots: [],
   },
   "powerlov-mom-boss-crisis-manager": {
-    image: "powerlov-lovcicov-hoodie-cap-studio",
+    image: "powerlov-mom-boss-crisis-manager-street",
     packshots: [],
   },
   "powerlov-lovcicov-2019-hoodie": {
-    image: "powerlov-lovcicov-heart-tee-paris-street",
+    image: "powerlov-lovcicov-2019-paris-hoodie-street",
     packshots: [],
   },
 
