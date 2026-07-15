@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
+import editorialHeartTeeStreet from "@/assets/powerlov/powerlov-lovcicov-heart-tee-street.png.asset.json";
 
 type Category = "all" | "tshirts" | "sweats" | "new";
 
