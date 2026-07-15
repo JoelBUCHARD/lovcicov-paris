@@ -298,9 +298,8 @@ const PowerLovEditorial = () => {
               // Rouje-style: large portrait hero (2 cols × 2 rows) + 4 small tiles beside it
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
-              const isLandscape = i === 9 && !isMyOwnMuse;
               const isMyOwnMuse = image.includes("my-own-muse");
-              const isFeaturedTile = isHero || isMyOwnMuse;
+              const isLandscape = i === 9 && !isMyOwnMuse;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
