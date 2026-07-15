@@ -92,7 +92,6 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « GOD IS A DANCER ». Unisex.',
     details: 'Le mouvement comme prière. Le rythme comme rituel.',
     image: 'powerlov-grid-god-is-a-dancer',
-    gallery: ['powerlov-god-is-a-dancer-street-cafe', 'powerlov-god-is-a-dancer-front', 'powerlov-god-is-a-dancer-back'],
     badge: 'UNISEX',
   },
   {
