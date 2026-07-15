@@ -425,8 +425,7 @@ const PowerLovEditorial = () => {
             );
           })()}
 
-            })}
-          </div>
+
 
 
 
