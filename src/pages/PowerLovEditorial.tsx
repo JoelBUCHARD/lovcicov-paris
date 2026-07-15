@@ -116,13 +116,16 @@ const PowerLovEditorial = () => {
     | { kind: "packshot"; product: ProductCard; image: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
-    return filtered.map((product, i) => ({
-      kind: "product" as const,
-      product,
-      index: i,
-      emphasis: "standard" as const,
-    }));
+    const items: GridItem[] = [];
+    filtered.forEach((product, i) => {
+      items.push({ kind: "product", product, index: i, emphasis: "standard" });
+      product.packshots.forEach((image, imageIndex) => {
+        items.push({ kind: "packshot", product, image, imageIndex, index: i, emphasis: "standard" });
+      });
+    });
+    return items;
   }, [filtered]);
+
 
 
   const scrollToGrid = () => {
