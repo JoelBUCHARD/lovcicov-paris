@@ -334,11 +334,11 @@ const PowerLovEditorial = () => {
                         </p>
                       </div>
                     ) : (
-                      <div className="pt-3 md:pt-4 pb-2 text-center" aria-hidden="true">
+                      <div className="pt-1 md:pt-1.5 pb-1 text-center" aria-hidden="true">
                         <h3 className="font-light invisible" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}>
                           &nbsp;
                         </h3>
-                        <p className="mt-1.5 font-light invisible" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        <p className="mt-0.5 font-light invisible" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
                           &nbsp;
                         </p>
                       </div>
