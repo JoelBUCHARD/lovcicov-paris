@@ -290,7 +290,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {gridItems.filter((_, i) => ![10, 12, 15, 16].includes(i)).map((item, i) => {
+            {gridItems.filter((_, i) => i !== 12).map((item, i) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
@@ -299,12 +299,9 @@ const PowerLovEditorial = () => {
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
               const isLandscape = i === 9;
-              const isMyOwnMuse = image.includes("my-own-muse");
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
-                : isMyOwnMuse
-                ? "col-span-2 md:col-span-2 md:row-span-2"
                 : isLandscape
                 ? "col-span-2 md:col-span-2"
                 : "col-span-1";
@@ -334,10 +331,12 @@ const PowerLovEditorial = () => {
                       className="relative w-full overflow-hidden flex-1"
                       style={{
                         backgroundColor: "#F0EDE7",
-                        aspectRatio: isHero || isMyOwnMuse
+                        aspectRatio: isHero
                           ? undefined
                           : isLandscape
                           ? "8 / 5"
+                          : image.includes("my-own-muse")
+                          ? "3 / 5"
                           : "4 / 5",
                       }}
                     >
@@ -347,25 +346,20 @@ const PowerLovEditorial = () => {
                         loading="lazy"
                         decoding="async"
                         className={`absolute inset-0 h-full w-full ${objectFit}`}
-                        style={image.includes("my-own-muse") ? { objectPosition: "center 15%" } : undefined}
+                        style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
                       />
                     </div>
-                    {isProduct && (
-                      <div className="mt-2 md:mt-3 text-center">
-                        <h3
-                          className="uppercase"
-                          style={{ fontSize: 11, letterSpacing: "0.18em", color: "#0D0D0D" }}
-                        >
-                          {product.name}
-                        </h3>
-                        <p
-                          className="mt-1"
-                          style={{ fontSize: 11, letterSpacing: "0.12em", color: "rgba(13,13,13,0.7)" }}
-                        >
-                          {product.price} €
-                        </p>
-                      </div>
-                    )}
+                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 56 }}>
+                      <h3
+                        className="text-[#0D0D0D] font-light"
+                        style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
+                      >
+                        {product.name}
+                      </h3>
+                      <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
+                        €{product.price}
+                      </p>
+                    </div>
                   </Link>
                 </motion.div>
                 </Fragment>
