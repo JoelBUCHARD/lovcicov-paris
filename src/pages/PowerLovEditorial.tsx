@@ -280,7 +280,7 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-3 md:gap-x-4 gap-y-6 md:gap-y-8 md:[grid-auto-flow:dense]"
+            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1600 }}
           >
             {gridItems.map((item, i) => {
@@ -318,7 +318,7 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: "#F0EDE7", aspectRatio: "4 / 5" }}
+                      style={{ backgroundColor: isProduct ? "#F0EDE7" : "#FFFFFF", aspectRatio: "4 / 5" }}
                     >
                       <img
                         src={image}
