@@ -1,22 +1,56 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
+import EditorialCollectionGrid, { type LifestyleImage, type FilterOption } from "@/components/EditorialCollectionGrid";
+import EditorialTrustBand from "@/components/EditorialTrustBand";
+import StoneUniverse from "@/components/StoneUniverse";
+import { bijouxProducts, type Product } from "@/data/products";
+import { prefetchRoute } from "@/lib/prefetch";
+
 import hero from "@/assets/stonelov/hero.png";
 import talisman from "@/assets/stonelov/talisman.png";
 import savoirfaire from "@/assets/stonelov/savoirfaire.png";
 import closing from "@/assets/stonelov/closing.png";
-import bookDesk from "@/assets/stonelov/book-lalune-desk.png.asset.json";
-import StoneUniverse from "@/components/StoneUniverse";
-import StoneLovGrid from "@/components/StoneLovGrid";
+import bookDeskAsset from "@/assets/stonelov/book-lalune-desk.png.asset.json";
+import gridSmall1Asset from "@/assets/stonelov/grid-small-1.jpg.asset.json";
+import gridSmall2Asset from "@/assets/stonelov/grid-small-2.jpg.asset.json";
 
 const BG = "#FAF8F4";
 const INK = "#1A1A1A";
-const WARM = "#5F5E5A";
+const MUTED = "#5F5E5A";
 const TERRA = "#C4714A";
-const BORDER = "#E8D8C8";
 
+const lifestyleImages: LifestyleImage[] = [
+  { src: talisman, alt: "StoneLov talisman", wide: true, objectPosition: "center 25%" },
+  { src: gridSmall1Asset.url, alt: "StoneLov détail" },
+  { src: bookDeskAsset.url, alt: "Savoir-faire StoneLov", wide: true },
+  { src: gridSmall2Asset.url, alt: "StoneLov détail" },
+  { src: savoirfaire, alt: "Savoir-faire StoneLov", wide: true },
+];
+
+const typeOf = (p: Product): string => {
+  const id = p.id.toLowerCase();
+  if (id.startsWith("bracelet")) return "bracelet";
+  if (id === "big-lov" || id === "small-lov") return "sac";
+  return "collier";
+};
+
+const filters: FilterOption[] = [
+  { key: "colliers", label: "Colliers", match: (p) => typeOf(p) === "collier" },
+  { key: "bracelets", label: "Bracelets", match: (p) => typeOf(p) === "bracelet" },
+];
+
+const typeLabel = (p: Product) => {
+  const t = typeOf(p);
+  return t === "collier" ? "Collier" : t === "bracelet" ? "Bracelet" : "Sac";
+};
+
+const scrollToGrid = () => {
+  document.getElementById("stonelov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+};
 
 const StoneLovEditorial = () => {
   return (
@@ -27,125 +61,156 @@ const StoneLovEditorial = () => {
         path="/stonelov"
       />
       <Navbar />
-      <div className="pt-[73px]">
 
-
-
-        {/* BLOCK 1 — HERO */}
-        <section className="relative w-screen h-[72svh] md:h-[115vh] overflow-hidden" style={{ backgroundColor: BG }}>
+      <main className="pt-[73px] overflow-hidden">
+        {/* HERO */}
+        <section
+          className="relative w-screen h-[75svh] md:h-[95vh] overflow-hidden"
+          style={{ backgroundColor: BG }}
+        >
           <img
             src={hero}
-            alt="StoneLov hero"
+            alt="StoneLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ objectPosition: "center 25%" }}
             loading="eager"
             fetchPriority="high"
             decoding="async"
           />
-          <div className="absolute bottom-0 left-0 right-0 z-10 px-6 md:px-12 pb-5 md:pb-8">
-            <p className="mb-2 md:mb-5 text-[8px] md:text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm" style={{ color: TERRA, letterSpacing: "0.22em", backgroundColor: "rgba(255,255,255,0.4)", fontFamily: "Instrument Sans, system-ui, sans-serif" }}>
-              StoneLov
-            </p>
-
-            <h1
-              className="mb-2 md:mb-4 italic"
-              style={{ color: INK, fontFamily: "Instrument Sans, system-ui, sans-serif", fontWeight: 300, lineHeight: 1.1, fontSize: "clamp(13px, 2vw, 22px)", textShadow: "0 1px 6px rgba(255,255,255,0.6)" }}
-            >
-              Rooted in the earth.
-            </h1>
-            <Link
-              to="/collections/bijoux"
-              className="inline-block mt-2 md:mt-6 uppercase transition-colors text-[8px] md:text-[11px] px-3.5 py-1.5 md:px-7 md:py-3"
-              style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
-            >
-              Découvrir la collection
-            </Link>
-          </div>
-        </section>
-
-
-        {/* DESCRIPTIF — harmonisé PowerLov / MysticLov */}
-        <section className="w-full px-6 md:px-10 py-8 md:py-16" style={{ backgroundColor: BG }}>
-          <div className="max-w-[640px] mx-auto text-center">
-            <p
-              className="mb-5 text-[11px] uppercase"
-              style={{ color: "rgba(26,26,26,0.48)", letterSpacing: "0.22em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
-            >
-              La collection
-            </p>
-            <div
-              style={{
-                fontFamily: "Instrument Sans, system-ui, sans-serif",
-                fontSize: 15,
-                color: "rgba(26,26,26,0.78)",
-                maxWidth: 600,
-                margin: "0 auto",
-                lineHeight: 1.9,
-              }}
-              className="space-y-6 text-center"
-            >
-              <p>
-                StoneLov puise son inspiration dans la pierre, la terre et les matières brutes.
-                Une vision organique et intemporelle du luxe, où l'ancrage devient élégance et où
-                la matière protège autant qu'elle révèle.
+          <div
+            className="absolute inset-x-0 bottom-3 z-10 md:bottom-6"
+            style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
+          >
+            <div className="max-w-[19rem] md:max-w-3xl">
+              <p
+                className="mb-1 text-[8px] md:text-[11px] uppercase inline-block px-2 py-0.5 rounded-sm"
+                style={{
+                  color: TERRA,
+                  letterSpacing: "0.22em",
+                  backgroundColor: "rgba(255,255,255,0.4)",
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                }}
+              >
+                StoneLov
               </p>
-              <p>
-                Chaque collier StoneLov est assemblé à la main. Chaque pierre est sélectionnée une
-                à une, pour sa qualité, son énergie, sa singularité.
+              <p
+                className="mt-2 mb-2 md:mb-4 italic"
+                style={{
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                  fontWeight: 300,
+                  fontSize: "clamp(13px, 2vw, 22px)",
+                  color: INK,
+                  textShadow: "0 1px 6px rgba(255,255,255,0.6)",
+                }}
+              >
+                Rooted in the earth.
               </p>
-              <p>
-                Aucune pièce n'est identique. Aucune n'est anodine.
-              </p>
-              <p>
-                Ici, on ne crée pas des accessoires. On crée des objets qui vous accompagnent.
-              </p>
-              <p>
-                StoneLov mélange artisanat précieux, énergie minérale et élégance instinctive dans
-                une collection de bijoux conçus pour celles et ceux qui cherchent du sens dans la
-                matière, et de la profondeur dans le détail.
-              </p>
+              <button
+                type="button"
+                onClick={scrollToGrid}
+                className="mt-2 md:mt-6 inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
+                style={{
+                  backgroundColor: TERRA,
+                  color: "#FFFFFF",
+                  letterSpacing: "0.2em",
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#A55A35"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = TERRA; }}
+              >
+                Découvrir la collection
+              </button>
             </div>
           </div>
         </section>
 
-        {/* L'UNIVERS DES PIERRES */}
+        {/* GIANT TITLE + INTRO */}
+        <section
+          className="w-full text-center"
+          style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(24px, 4vw, 48px)", backgroundColor: BG }}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="uppercase leading-[0.9]"
+            style={{
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(64px, 15vw, 260px)",
+              letterSpacing: "-0.02em",
+              color: INK,
+            }}
+          >
+            STONELOV
+          </motion.h1>
+          <p
+            className="mx-auto mt-6 md:mt-10 italic font-light"
+            style={{
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontSize: "clamp(14px, 1.4vw, 18px)",
+              maxWidth: 640,
+              lineHeight: 1.7,
+              color: `${INK}CC`,
+            }}
+          >
+            La matière comme mémoire, la pierre comme signature.
+          </p>
+        </section>
+
+        {/* UNIVERS DES PIERRES (existing block preserved) */}
         <StoneUniverse />
 
-        {/* BLOCK 2 — FULL WIDTH TALISMAN */}
-        <section className="relative w-screen overflow-hidden h-[60vh] md:h-[80vh]" style={{ backgroundColor: BG }}>
-          <img src={talisman} alt="Talisman" className="absolute inset-0 w-full h-full object-cover md:scale-[1.08]" style={{ objectPosition: "center 25%", transformOrigin: "center 25%" }} />
-        </section>
+        {/* PRODUCT GRID + STICKY FILTERS + QUOTE */}
+        <EditorialCollectionGrid
+          anchorId="stonelov-grid"
+          products={bijouxProducts}
+          lifestyleImages={lifestyleImages}
+          filters={filters}
+          quote="Rooted in the earth."
+          colors={{ bg: BG, ink: INK, muted: MUTED }}
+          typeLabel={typeLabel}
+        />
 
-        {/* PHOTO GRID */}
-        <StoneLovGrid />
-
-        {/* SAVOIR-FAIRE — image only */}
-        <section className="relative w-screen overflow-hidden h-[50vh] md:h-[70vh]" style={{ backgroundColor: BG, marginTop: 20 }}>
-          <img src={savoirfaire} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover md:hidden" style={{ objectPosition: "center center" }} />
-          <img src={bookDesk.url} alt="Savoir-faire StoneLov" className="absolute inset-0 w-full h-full object-cover hidden md:block" style={{ objectPosition: "center center" }} />
-        </section>
-
-        {/* BLOCK 4 — CLOSING */}
-        <div style={{ height: 20, backgroundColor: BG }} />
-        <section className="relative w-screen h-auto md:h-screen overflow-hidden" style={{ backgroundColor: BG }}>
-          <img src={closing} alt="Very Slow Fashion" className="block w-full h-auto md:absolute md:inset-0 md:h-full md:object-cover" style={{ objectPosition: "center 30%" }} />
-
-          <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center text-center px-6 z-10 pb-10 md:pb-20">
-            <Link
-              to="/collections/bijoux"
-              className="uppercase transition-colors px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px]"
-              style={{ backgroundColor: TERRA, color: "#FFFFFF", letterSpacing: "0.2em", fontFamily: "Instrument Sans, system-ui, sans-serif" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#A55A35")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = TERRA)}
+        {/* BRIDGE — closing image + CTA to PowerLov */}
+        <section style={{ backgroundColor: BG }}>
+          <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16 / 9", backgroundColor: BG }}>
+            <img
+              src={closing}
+              alt="StoneLov par LOVCICOV Paris"
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+              style={{ objectPosition: "center 30%" }}
+            />
+            <div
+              className="absolute inset-x-0 bottom-3 z-10 md:bottom-6 flex justify-center"
+              style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
             >
-              Découvrir la collection
-            </Link>
+              <Link
+                to="/powerlov"
+                onMouseEnter={() => prefetchRoute("/powerlov")}
+                className="inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
+                style={{
+                  backgroundColor: TERRA,
+                  color: "#FFFFFF",
+                  letterSpacing: "0.2em",
+                  fontFamily: "Instrument Sans, system-ui, sans-serif",
+                }}
+                onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#A55A35"; }}
+                onMouseOut={(e) => { e.currentTarget.style.backgroundColor = TERRA; }}
+              >
+                Découvrir PowerLov
+              </Link>
+            </div>
           </div>
         </section>
 
-      </div>
+        {/* TRUST BAND */}
+        <EditorialTrustBand bg={BG} ink={INK} />
+      </main>
+
       <JourneyContinuation current="stone" />
       <Footer />
     </div>
