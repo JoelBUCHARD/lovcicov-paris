@@ -70,7 +70,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     packshots: [],
   },
   "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-street",
+    image: "powerlov-lovcicov-cream-sweat-nyc-walking",
     packshots: [],
   },
   "powerlov-bold-badass-tee": {
