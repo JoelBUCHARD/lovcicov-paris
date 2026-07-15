@@ -275,23 +275,22 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-5 md:auto-rows-fr gap-x-1 md:gap-x-1.5 gap-y-3 md:gap-y-4 md:[grid-auto-flow:dense]"
-            style={{ maxWidth: 1600 }}
+            className="mx-auto grid grid-cols-2 md:grid-cols-4 md:auto-rows-fr gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
+            style={{ maxWidth: 1400 }}
           >
             {gridItems.map((item, i) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
-              // Rouje-style: 1 landscape hero (3 cols x 2 rows) + 4 portrait tiles (2x2), alternating sides
+              // Layout: hero (2 cols x 2 rows) + 4 tiles (2x2), alternating sides
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-2 row-span-2 md:col-span-3 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-2 row-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : "col-span-1";
-              const objectFit = isProduct ? "object-cover" : "object-contain";
-              const aspect = isHero ? "6 / 5" : "4 / 5";
+              const objectFit = isHero ? "object-contain" : isProduct ? "object-cover" : "object-contain";
 
               return (
                 <motion.div
@@ -314,7 +313,7 @@ const PowerLovEditorial = () => {
                   >
                     <div
                       className="relative w-full overflow-hidden flex-1"
-                      style={{ backgroundColor: isProduct ? "#F0EDE7" : "#FFFFFF", aspectRatio: aspect }}
+                      style={{ backgroundColor: isProduct && !isHero ? "#F0EDE7" : "#FFFFFF", aspectRatio: isHero ? undefined : "4 / 5" }}
                     >
                       <img
                         src={image}
@@ -324,28 +323,17 @@ const PowerLovEditorial = () => {
                         className={`absolute inset-0 h-full w-full ${objectFit} transition-transform duration-[700ms] ease-out group-hover:scale-[1.02]`}
                       />
                     </div>
-                    {isProduct ? (
-                      <div className="pt-1 md:pt-1.5 pb-1 text-center">
-                        <h3
-                          className="text-[#0D0D0D] font-light"
-                          style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
-                        >
-                          {product.name}
-                        </h3>
-                        <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
-                          €{product.price}
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="pt-1 md:pt-1.5 pb-1 text-center" aria-hidden="true">
-                        <h3 className="font-light invisible" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}>
-                          &nbsp;
-                        </h3>
-                        <p className="mt-0.5 font-light invisible" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
-                          &nbsp;
-                        </p>
-                      </div>
-                    )}
+                    <div className="pt-1 md:pt-1.5 pb-1 text-center">
+                      <h3
+                        className="text-[#0D0D0D] font-light"
+                        style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.4 }}
+                      >
+                        {product.name}
+                      </h3>
+                      <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        €{product.price}
+                      </p>
+                    </div>
                   </Link>
                 </motion.div>
               );
