@@ -367,7 +367,7 @@ const PowerLovEditorial = () => {
                     </div>
                   </motion.div>
                 )}
-                </>
+                </Fragment>
               );
             })}
           </div>
