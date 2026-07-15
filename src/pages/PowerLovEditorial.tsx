@@ -383,8 +383,6 @@ const PowerLovEditorial = () => {
                           ? undefined
                           : isLandscape
                           ? "8 / 5"
-                          : image.includes("my-own-muse")
-                          ? "3 / 5"
                           : "4 / 5",
                       }}
                     >
