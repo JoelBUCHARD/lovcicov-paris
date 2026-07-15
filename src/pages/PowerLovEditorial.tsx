@@ -172,8 +172,10 @@ const PowerLovEditorial = () => {
 
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
+    const showPackshots = category === "all";
     filtered.forEach((product, i) => {
       items.push({ kind: "product", product, index: i, emphasis: "standard" });
+      if (!showPackshots) return;
       product.packshots.forEach((image, imageIndex) => {
         items.push({ kind: "packshot", product, image, imageIndex, index: i, emphasis: "standard" });
       });
