@@ -328,7 +328,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {gridItems.filter((_, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16).map((item, i) => {
+            {gridItems.filter((item, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16 && item.product.id !== "powerlov-god-is-a-dj").map((item, i) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
