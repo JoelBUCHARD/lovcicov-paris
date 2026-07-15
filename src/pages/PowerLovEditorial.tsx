@@ -369,7 +369,7 @@ const PowerLovEditorial = () => {
                     <div
                       className="relative w-full overflow-hidden flex-1"
                       style={{
-                        backgroundColor: "#F0EDE7",
+                        backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7",
                         aspectRatio: isAppended
                           ? "4 / 5"
                           : isHero
