@@ -329,7 +329,7 @@ const PowerLovEditorial = () => {
                         >
                           {product.name}
                         </h3>
-                        <p className="mt-1.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
+                        <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 12, letterSpacing: "0.06em" }}>
                           €{product.price}
                         </p>
                       </div>
