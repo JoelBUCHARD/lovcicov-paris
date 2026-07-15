@@ -158,7 +158,45 @@ export const standardProducts: Product[] = [
     image: 'powerlov-grid-energy-never-lies',
     badge: 'UNISEX',
   },
+  {
+    id: 'powerlov-less-drama-champagne',
+    shopifyHandle: 't-shirt-powerlov',
+    name: 'T-Shirt Less Drama More Champagne',
+    price: 59,
+    collection: 'standard',
+    subcategory: 'tshirt',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. » au dos. Unisex.',
+    details: 'Moins de bruit, plus de bulles. Le manifeste léger d\'une élégance qui refuse le drame.',
+    image: 'powerlov-less-drama-more-champagne-street',
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-mom-boss-crisis-manager',
+    shopifyHandle: 't-shirt-powerlov',
+    name: 'T-Shirt Mom Boss Crisis Manager',
+    price: 59,
+    collection: 'standard',
+    subcategory: 'tshirt',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
+    details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
+    image: 'powerlov-mom-boss-crisis-manager-street',
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-lovcicov-2019-hoodie',
+    shopifyHandle: 'sweat-a-capuche-powerlov',
+    name: 'Sweat Capuche LOVCICOV 2019 Paris',
+    price: 109,
+    collection: 'standard',
+    subcategory: 'hoodie',
+    description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
+    details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
+    image: 'powerlov-lovcicov-2019-paris-hoodie-street',
+    badge: 'UNISEX',
+  },
 ];
+
+
 
 
 // Collection "MysticLov" — produits du site mysticlov.com
