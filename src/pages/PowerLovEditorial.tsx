@@ -29,7 +29,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     packshots: ["powerlov-discipline-front", "powerlov-discipline-white-front"],
   },
   "powerlov-if-god-dj-frequency": {
-    image: "powerlov-if-god-dj-front",
+    image: "powerlov-pretty-smart-dangerous-white-street",
     packshots: [],
   },
   "powerlov-god-is-a-dancer": {
