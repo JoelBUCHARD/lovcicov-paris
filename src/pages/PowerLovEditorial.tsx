@@ -355,29 +355,6 @@ const PowerLovEditorial = () => {
           )}
         </section>
 
-        {/* FULL-WIDTH EDITORIAL QUOTE */}
-        <section
-          className="w-full text-center"
-          style={{ padding: "clamp(64px, 10vw, 140px) clamp(24px, 6vw, 96px)", backgroundColor: "#FAF8F4" }}
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.9 }}
-            className="mx-auto max-w-5xl uppercase"
-            style={{
-              fontFamily: "Instrument Sans, system-ui, sans-serif",
-              fontWeight: 500,
-              fontSize: "clamp(28px, 5vw, 72px)",
-              letterSpacing: "-0.01em",
-              lineHeight: 1.05,
-              color: "#0D0D0D",
-            }}
-          >
-            La discipline devient allure.
-          </motion.p>
-        </section>
 
         {/* BOTTOM WIDE IMAGE + MYSTICLOV CTA */}
         <section style={{ backgroundColor: "#FAF8F4" }}>
