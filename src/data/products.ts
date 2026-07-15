@@ -187,7 +187,7 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
-    image: 'powerlov-lovcicov-2019-paris-hoodie-street',
+    image: 'powerlov-lovcicov-heart-tee-paris-street',
     badge: 'UNISEX',
   },
   {
