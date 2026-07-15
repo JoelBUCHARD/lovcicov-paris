@@ -290,7 +290,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {gridItems.filter((_, i) => ![10, 11, 12, 15, 16].includes(i)).map((item, i) => {
+            {gridItems.filter((_, i) => i !== 12).map((item, i) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
@@ -298,8 +298,8 @@ const PowerLovEditorial = () => {
               // Rouje-style: large portrait hero (2 cols × 2 rows) + 4 small tiles beside it
               const heroIndex = Math.floor(i / 5);
               const isHero = isProduct && i % 5 === 0;
+              const isLandscape = i === 9;
               const isMyOwnMuse = image.includes("my-own-muse");
-              const isLandscape = i === 9 && !isMyOwnMuse;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
@@ -308,7 +308,7 @@ const PowerLovEditorial = () => {
                 : isLandscape
                 ? "col-span-2 md:col-span-2"
                 : "col-span-1";
-              const objectFit = isMyOwnMuse ? "object-contain" : "object-cover";
+              const objectFit = "object-cover";
 
               return (
                 <Fragment key={key}>
@@ -334,10 +334,8 @@ const PowerLovEditorial = () => {
                       className="relative w-full overflow-hidden flex-1"
                       style={{
                         backgroundColor: "#F0EDE7",
-                        aspectRatio: isMyOwnMuse
-                          ? "3 / 4"
-                          : isHero
-                          ? "4 / 5"
+                        aspectRatio: isHero || isMyOwnMuse
+                          ? undefined
                           : isLandscape
                           ? "8 / 5"
                           : "4 / 5",
