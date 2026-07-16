@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 
-type Category = "all" | "tshirts" | "sweats";
+type Category = "tshirts" | "sweats";
 
 type ProductCard = {
   id: string;
@@ -43,7 +43,6 @@ const heroImage = heroAsset.url;
 const closingImage = closingAsset.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
-  { key: "all", label: "Tout voir" },
   { key: "tshirts", label: "T-shirts" },
   { key: "sweats", label: "Sweats" },
 ];
@@ -56,16 +55,12 @@ const pageStyle = {
 
 const MysticLovEditorial = () => {
   const location = useLocation();
-  const [category, setCategory] = useState<Category>("all");
+  const [category, setCategory] = useState<Category>("tshirts");
 
   const filtered = useMemo(
     () =>
       products.filter((p) =>
-        category === "all"
-          ? true
-          : category === "tshirts"
-          ? p.subcategory === "tshirt"
-          : p.subcategory === "hoodie" || p.subcategory === "crewneck"
+        category === "tshirts" ? p.subcategory === "tshirt" : p.subcategory === "hoodie" || p.subcategory === "crewneck"
       ),
     [category]
   );
@@ -213,10 +208,12 @@ const MysticLovEditorial = () => {
             style={{ maxWidth: 1400 }}
           >
             {filtered.map((product, i) => {
-              const isHero = false;
-              const spanClass = "col-span-1 self-start";
-
-
+              const heroIndex = Math.floor(i / 5);
+              const isHero = i % 5 === 0;
+              const heroOnRight = isHero && heroIndex % 2 === 1;
+              const spanClass = isHero
+                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : "col-span-1 self-start";
 
               return (
                 <motion.div

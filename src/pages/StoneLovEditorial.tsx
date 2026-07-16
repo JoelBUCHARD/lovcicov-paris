@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroImg from "@/assets/stonelov/hero.png";
 import closingImg from "@/assets/stonelov/closing.png";
 
-type Category = "all" | "colliers" | "bracelets";
+type Category = "colliers" | "bracelets";
 
 type ProductCard = {
   id: string;
@@ -39,7 +39,6 @@ const products: ProductCard[] = bijouxProducts.map((p) => ({
 }));
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
-  { key: "all", label: "Tout voir" },
   { key: "colliers", label: "Colliers" },
   { key: "bracelets", label: "Bracelets" },
 ];
@@ -52,17 +51,10 @@ const pageStyle = {
 
 const StoneLovEditorial = () => {
   const location = useLocation();
-  const [category, setCategory] = useState<Category>("all");
+  const [category, setCategory] = useState<Category>("colliers");
 
   const filtered = useMemo(
-    () =>
-      products.filter((p) =>
-        category === "all"
-          ? true
-          : category === "colliers"
-          ? p.typeLabel === "Collier"
-          : p.typeLabel === "Bracelet"
-      ),
+    () => products.filter((p) => (category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet")),
     [category]
   );
 
@@ -209,10 +201,12 @@ const StoneLovEditorial = () => {
             style={{ maxWidth: 1400 }}
           >
             {filtered.map((product, i) => {
-              const isHero = false;
-              const spanClass = "col-span-1 self-start";
-
-
+              const heroIndex = Math.floor(i / 5);
+              const isHero = i % 5 === 0;
+              const heroOnRight = isHero && heroIndex % 2 === 1;
+              const spanClass = isHero
+                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : "col-span-1 self-start";
 
               return (
                 <motion.div
