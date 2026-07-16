@@ -86,9 +86,6 @@ const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[i
 
 // Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
 const APPENDED_IDS = [
-  "powerlov-empowered",
-  "powerlov-bold-badass-tee",
-  "powerlov-energy-never-lies-hoodie",
   "powerlov-god-is-a-dj",
 ];
 
