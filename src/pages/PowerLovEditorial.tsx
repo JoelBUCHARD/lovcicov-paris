@@ -8,7 +8,6 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import { useProductVisibility, localKey } from "@/hooks/useProductVisibility";
 
 
 type Category = "all" | "tshirts" | "sweats" | "new";
@@ -161,16 +160,10 @@ const pageStyle = {
 const PowerLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
-  const { isVisible, loading: visLoading } = useProductVisibility();
-
-  const visibleProducts = useMemo(
-    () => (visLoading ? products : products.filter((p) => isVisible(localKey(p.id)))),
-    [visLoading, isVisible]
-  );
 
   const filtered = useMemo(
-    () => (category === "all" ? visibleProducts : visibleProducts.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
-    [category, visibleProducts]
+    () => (category === "all" ? products : products.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
+    [category]
   );
 
   type GridItem =
@@ -437,9 +430,7 @@ const PowerLovEditorial = () => {
                 </div>
                 {appendedItems.length > 0 && (
                   <div
-                    className={`mx-auto grid grid-cols-2 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start ${
-                      appendedItems.length === 3 ? "md:grid-cols-3" : appendedItems.length === 2 ? "md:grid-cols-2" : appendedItems.length === 1 ? "md:grid-cols-1" : "md:grid-cols-4"
-                    }`}
+                    className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start"
                     style={{ maxWidth: 1400 }}
                   >
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
