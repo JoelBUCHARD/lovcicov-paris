@@ -24,12 +24,6 @@ const powerlovProducts = [
     image: tshirtDiscipline,
     price: '59 €',
   },
-  {
-    id: 'powerlov-empowered',
-    name: 'T-Shirt Connected Disciplined Empowered',
-    image: tshirtEmpowered,
-    price: '59 €',
-  },
 ];
 
 const CollectionStandards = () => {
