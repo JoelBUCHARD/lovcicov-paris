@@ -181,7 +181,7 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
-    image: 'powerlov-lovcicov-heart-pocket-studio',
+    image: 'powerlov-mom-boss-crisis-manager-street',
     badge: 'UNISEX',
   },
   {
@@ -193,7 +193,7 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
-    image: 'powerlov-lovcicov-heart-tee-paris-street',
+    image: 'powerlov-lovcicov-2019-paris-hoodie-street',
     badge: 'UNISEX',
   },
   {

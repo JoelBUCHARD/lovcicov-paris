@@ -123,7 +123,6 @@ const ShopifyOnlyDetail = () => {
     description: node.description || '',
     details: '',
     image: imageUrls[0] || '',
-    gallery: imageUrls.slice(1),
   };
 
   return (

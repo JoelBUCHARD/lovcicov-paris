@@ -22,6 +22,12 @@ const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: t
 const getImage = (key: string) => {
   if (!key) return '';
   if (/^https?:\/\//i.test(key) || key.startsWith('/')) return key;
+  const exactMatch = Object.entries(imageModules).find(([p]) => {
+    const filename = p.split('/').pop() ?? '';
+    const stem = filename.replace(/\.asset\.json$/, '').replace(/\.(jpg|jpeg|webp|png)$/i, '');
+    return stem === key;
+  });
+  if (exactMatch) return exactMatch[1];
   const m = Object.entries(imageModules).find(([p]) => p.includes(key));
   if (m) return m[1];
   const j = Object.entries(assetJsonModules).find(([p]) => p.includes(key));
@@ -131,6 +137,11 @@ const ProductPage = ({ product }: Props) => {
   // Une seule image par fiche produit : uniquement celle qui correspond au produit.
   const allImages = [product.image];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
+
+  useEffect(() => {
+    setActiveImage(0);
+    setLightboxOpen(false);
+  }, [product.id]);
 
   const recit = getRecit(product);
   const material = getMaterial(product);
