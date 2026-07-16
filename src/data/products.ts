@@ -109,18 +109,6 @@ export const standardProducts: Product[] = [
     badge: 'UNISEX',
   },
   {
-    id: 'powerlov-mom-boss-crisis-manager',
-    shopifyHandle: 't-shirt-powerlov',
-    name: 'MOM BOSS. CRISIS MANAGER.',
-    price: 59,
-    collection: 'standard',
-    subcategory: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
-    details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
-    image: 'powerlov-mom-boss-crisis-manager-street',
-    badge: 'UNISEX',
-  },
-  {
     id: 'powerlov-lovcicov-2019-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'LOVCICOV 2019 PARIS',
