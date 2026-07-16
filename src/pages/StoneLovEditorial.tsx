@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroImg from "@/assets/stonelov/hero.png";
 import closingImg from "@/assets/stonelov/closing.png";
 
-type Category = "colliers" | "bracelets";
+type Category = "all" | "colliers" | "bracelets";
 
 type ProductCard = {
   id: string;
@@ -39,6 +39,7 @@ const products: ProductCard[] = bijouxProducts.map((p) => ({
 }));
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
+  { key: "all", label: "Tout voir" },
   { key: "colliers", label: "Colliers" },
   { key: "bracelets", label: "Bracelets" },
 ];
@@ -51,10 +52,17 @@ const pageStyle = {
 
 const StoneLovEditorial = () => {
   const location = useLocation();
-  const [category, setCategory] = useState<Category>("colliers");
+  const [category, setCategory] = useState<Category>("all");
 
   const filtered = useMemo(
-    () => products.filter((p) => (category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet")),
+    () =>
+      products.filter((p) =>
+        category === "all"
+          ? true
+          : category === "colliers"
+          ? p.typeLabel === "Collier"
+          : p.typeLabel === "Bracelet"
+      ),
     [category]
   );
 
