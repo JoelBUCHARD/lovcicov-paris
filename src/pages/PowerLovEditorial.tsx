@@ -41,13 +41,17 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-my-own-muse-street",
     packshots: [],
   },
+  "powerlov-lovcicov-heart-tee": {
+    image: "powerlov-lovcicov-heart-tee-paris-street-sunglasses",
+    packshots: [],
+  },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
-    packshots: [],
+    packshots: ["powerlov-protected-aligned-unstoppable-editorial"],
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-my-own-muse-street-v2"],
+    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-my-own-muse-street-v2"],
   },
 
   "powerlov-sacred-heart-hoodie": {
@@ -58,8 +62,16 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-less-drama-more-champagne-street",
     packshots: [],
   },
+  "powerlov-mom-boss-crisis-manager": {
+    image: "powerlov-lovcicov-heart-pocket-studio",
+    packshots: [],
+  },
   "powerlov-lovcicov-2019-hoodie": {
     image: "powerlov-lovcicov-heart-tee-paris-street",
+    packshots: [],
+  },
+  "powerlov-empowered": {
+    image: "powerlov-lovcicov-cream-sweat-nyc-walking",
     packshots: [],
   },
   "powerlov-bold-badass-tee": {
@@ -99,19 +111,6 @@ const APPENDED_IDS = [
   "powerlov-energy-never-lies-hoodie",
   "powerlov-god-is-a-dj",
 ];
-
-const HIDDEN_POWERLOV_IMAGE_KEYS = new Set([
-  "powerlov-my-own-muse-street-v2",
-  "powerlov-lovcicov-hoodie-cap-studio",
-  "powerlov-lovcicov-heart-tee-paris-street",
-  "powerlov-my-own-muse-street",
-]);
-
-const HIDDEN_POWERLOV_IMAGES = new Set(
-  Array.from(HIDDEN_POWERLOV_IMAGE_KEYS)
-    .map((imageKey) => resolveProductImage(imageKey))
-    .filter(Boolean)
-);
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
@@ -349,10 +348,7 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           {(() => {
-            const visibleItems = gridItems.filter((item) => {
-              const itemImage = item.kind === "product" ? item.product.image : item.image;
-              return !HIDDEN_POWERLOV_IMAGES.has(itemImage) && item.product.id !== "powerlov-god-is-a-dj";
-            });
+            const visibleItems = gridItems.filter((item, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16 && item.product.id !== "powerlov-god-is-a-dj");
             const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
             const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
 
