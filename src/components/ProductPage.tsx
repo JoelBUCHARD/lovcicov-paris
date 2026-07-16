@@ -11,6 +11,7 @@ import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import SEO from '@/components/SEO';
+import ZoomBubble from '@/components/ZoomBubble';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
