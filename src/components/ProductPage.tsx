@@ -128,7 +128,8 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
-  const allImages = [product.image, ...(product.gallery || [])];
+  // Une seule image par fiche produit : uniquement celle qui correspond au produit.
+  const allImages = [product.image];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
   const recit = getRecit(product);
