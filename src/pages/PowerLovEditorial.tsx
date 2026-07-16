@@ -345,14 +345,15 @@ const PowerLovEditorial = () => {
               const isAppended = !!opts.appendedRow;
               const isHero = !isAppended && isProduct && i % 5 === 0;
               const isLandscape = !isAppended && i === 9;
+              const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isAppended
-                ? "col-span-1"
+                ? "col-span-1 self-start"
                 : isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : isLandscape
-                ? "col-span-2 md:col-span-2"
-                : "col-span-1";
+                ? "col-span-2 md:col-span-2 self-start"
+                : "col-span-1 self-start";
 
               return (
                 <motion.div
@@ -371,10 +372,10 @@ const PowerLovEditorial = () => {
                       prefetchImage(image);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
-                    className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${shouldFillCell ? "h-full" : ""}`}
                   >
                     <div
-                      className="relative w-full overflow-hidden flex-1"
+                      className={`relative w-full overflow-hidden ${shouldFillCell ? "flex-1" : ""}`}
                       style={{
                         backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7",
                         aspectRatio: isAppended
