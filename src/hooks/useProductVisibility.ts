@@ -9,8 +9,8 @@ let cachedMap: VisibilityMap | null = null;
 let inflight: Promise<VisibilityMap> | null = null;
 const listeners = new Set<(m: VisibilityMap) => void>();
 
-async function loadMap(): Promise<VisibilityMap> {
-  if (cachedMap) return cachedMap;
+async function loadMap(force = false): Promise<VisibilityMap> {
+  if (cachedMap && !force) return cachedMap;
   if (inflight) return inflight;
   inflight = (async () => {
     const { data, error } = await supabase
@@ -22,6 +22,7 @@ async function loadMap(): Promise<VisibilityMap> {
     }
     cachedMap = map;
     inflight = null;
+    notify();
     return map;
   })();
   return inflight;
@@ -51,25 +52,47 @@ async function upsertVisibility(keys: VisibilityKey[], visible: boolean) {
 
 export function invalidateVisibilityCache() {
   cachedMap = null;
+  inflight = null;
 }
 
 export function useProductVisibility() {
   const [map, setMap] = useState<VisibilityMap>(() => cachedMap ?? {});
-  const [loading, setLoading] = useState(!cachedMap);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let mounted = true;
-    loadMap().then((m) => {
+    const refresh = () => {
+      if (mounted) setLoading(true);
+      loadMap(true).then((m) => {
+        if (mounted) {
+          setMap({ ...m });
+          setLoading(false);
+        }
+      });
+    };
+
+    refresh();
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') refresh();
+    };
+    window.addEventListener('focus', refresh);
+    window.addEventListener('pageshow', refresh);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    const cb = (m: VisibilityMap) => {
       if (mounted) {
         setMap({ ...m });
         setLoading(false);
       }
-    });
-    const cb = (m: VisibilityMap) => mounted && setMap({ ...m });
+    };
     listeners.add(cb);
     return () => {
       mounted = false;
       listeners.delete(cb);
+      window.removeEventListener('focus', refresh);
+      window.removeEventListener('pageshow', refresh);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, []);
 
