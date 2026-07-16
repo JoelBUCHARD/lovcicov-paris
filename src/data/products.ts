@@ -102,6 +102,7 @@ export const standardProducts: Product[] = [
     description: 'Sweat-shirt coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-my-own-muse-street-v2',
+    gallery: ['powerlov-standard-is-me-flat-natural-front', 'powerlov-standard-is-me-flat-natural-back'],
     badge: 'UNISEX',
   },
   {
