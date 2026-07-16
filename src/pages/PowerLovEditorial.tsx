@@ -29,10 +29,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-discipline-back",
     packshots: ["powerlov-discipline-front", "powerlov-sacred-heart-hoodie-cafe-croissant"],
   },
-  "powerlov-if-god-dj-frequency": {
-    image: "powerlov-pretty-smart-dangerous-white-street",
-    packshots: [],
-  },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
     packshots: [],
@@ -62,24 +58,8 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
     image: "powerlov-less-drama-more-champagne-street",
     packshots: [],
   },
-  "powerlov-mom-boss-crisis-manager": {
-    image: "powerlov-lovcicov-heart-pocket-studio",
-    packshots: [],
-  },
   "powerlov-lovcicov-2019-hoodie": {
     image: "powerlov-lovcicov-heart-tee-paris-street",
-    packshots: [],
-  },
-  "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-walking",
-    packshots: [],
-  },
-  "powerlov-bold-badass-tee": {
-    image: "powerlov-less-drama-champagne-rue-de-seine",
-    packshots: [],
-  },
-  "powerlov-energy-never-lies-hoodie": {
-    image: "powerlov-perfectly-imperfect-hoodie-brick",
     packshots: [],
   },
   "powerlov-god-is-a-dj": {
@@ -106,9 +86,6 @@ const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[i
 
 // Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
 const APPENDED_IDS = [
-  "powerlov-empowered",
-  "powerlov-bold-badass-tee",
-  "powerlov-energy-never-lies-hoodie",
   "powerlov-god-is-a-dj",
 ];
 
