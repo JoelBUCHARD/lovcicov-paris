@@ -7,9 +7,11 @@ export interface Product {
   description: string;
   details: string;
   image: string;
+  detailImage?: string; // Overrides `image` only on the product detail page (fiche produit)
   badge?: string;
   colors?: { name: string; id: string }[];
   gallery?: string[]; // Additional images (lifestyle, tarot, etc.)
+
   stoneMeaning?: string; // Signification des pierres (bijoux only)
   shopifyHandle?: string; // Handle of matching Shopify product
   shopifyColor?: string; // Color option value to match on Shopify variant
