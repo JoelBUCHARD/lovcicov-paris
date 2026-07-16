@@ -55,7 +55,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PRETTY. SMART. DANGEROUS. ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
     image: 'powerlov-pretty-smart-dangerous-white-street',
-    gallery: ['powerlov-pretty-smart-dangerous-white-flat-front', 'powerlov-pretty-smart-dangerous-white-flat-back'],
+    gallery: ['powerlov-pretty-smart-dangerous-white-flat-front', 'powerlov-standard-is-me-tshirt-white-back'],
     badge: 'UNISEX',
   },
   {
@@ -107,7 +107,7 @@ export const standardProducts: Product[] = [
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-my-own-muse-street-v2',
     detailImage: 'powerlov-standard-is-me-back-street-njarrow',
-    gallery: ['powerlov-standard-is-me-hoodie-flat-cream-front', 'powerlov-standard-is-me-tshirt-white-back'],
+    gallery: ['powerlov-standard-is-me-hoodie-flat-cream-front', 'powerlov-standard-is-me-hoodie-flat-cream-back'],
 
     badge: 'UNISEX',
   },
