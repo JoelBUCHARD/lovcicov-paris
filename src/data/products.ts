@@ -27,8 +27,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « GOD IS A DJ ». Unisex.',
     details: 'Une déclaration. Une fréquence. Un manifeste porté.',
-    image: 'powerlov-grid-god-dj-cafe',
-    gallery: ['powerlov-grid-god-is-a-dj-street'],
+    image: 'powerlov-lovcicov-2019-bird-market-street',
+    gallery: ['powerlov-grid-god-dj-cafe', 'powerlov-grid-god-is-a-dj-street'],
     badge: 'UNISEX',
   },
   {
@@ -40,7 +40,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « CONNECTED. DISCIPLINED. EMPOWERED. ». Unisex.',
     details: 'Un manifeste porté : connectée, disciplinée, puissante.',
-    image: 'powerlov-grid-connected-disciplined-empowered',
+    image: 'powerlov-lovcicov-cream-sweat-nyc-walking',
+    gallery: ['powerlov-grid-connected-disciplined-empowered'],
     badge: 'UNISEX',
   },
   {
@@ -53,7 +54,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « DISCIPLINE IS MY LUXURY ». Unisex.',
     details: 'Pour celles et ceux qui font de la discipline leur plus grand luxe.',
     image: 'powerlov-discipline-back',
-    gallery: ['powerlov-discipline-front'],
+    gallery: ['powerlov-discipline-front', 'powerlov-sacred-heart-hoodie-cafe-croissant'],
     badge: 'UNISEX',
   },
   {
@@ -65,8 +66,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « IF GOD IS A DJ, I AM THE FREQUENCY ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
-    image: 'powerlov-if-god-is-a-dj',
-    gallery: ['powerlov-if-god-dj-front'],
+    image: 'powerlov-pretty-smart-dangerous-white-street',
+    gallery: ['powerlov-if-god-is-a-dj', 'powerlov-if-god-dj-front'],
     badge: 'UNISEX',
   },
   {
@@ -78,8 +79,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « BOLD. BADASS. NO FILTER. ». Unisex.',
     details: 'Sans filtre. Sans excuse. Sans compromis.',
-    image: 'powerlov-grid-bold-badass',
-    gallery: ['powerlov-bold-badass-no-filter-tee-back'],
+    image: 'powerlov-less-drama-champagne-rue-de-seine',
+    gallery: ['powerlov-grid-bold-badass', 'powerlov-bold-badass-no-filter-tee-back'],
     badge: 'UNISEX',
   },
   {
@@ -92,7 +93,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « GOD IS A DANCER ». Unisex.',
     details: 'Le mouvement comme prière. Le rythme comme rituel.',
     image: 'powerlov-grid-god-is-a-dancer',
-    badge: 'UNISEX',
+    gallery: ['powerlov-god-is-a-dancer-front', 'powerlov-god-is-a-dancer-back'],
   },
   {
     id: 'powerlov-protected-aligned-unstoppable',
