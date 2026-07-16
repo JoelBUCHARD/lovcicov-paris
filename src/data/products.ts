@@ -21,7 +21,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-god-is-a-dj',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'God Is A DJ',
+    name: 'GOD IS A DJ',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -34,7 +34,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-empowered',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Connected. Disciplined. Empowered.',
+    name: 'CONNECTED. DISCIPLINED. EMPOWERED.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -47,7 +47,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-discipline',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Discipline Is My Luxury',
+    name: 'DISCIPLINE IS MY LUXURY',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -60,7 +60,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-if-god-dj-frequency',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'If God Is A DJ, I Am The Frequency',
+    name: 'IF GOD IS A DJ, I AM THE FREQUENCY',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -73,7 +73,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-bold-badass-tee',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Bold. Badass. No Filter.',
+    name: 'BOLD. BADASS. NO FILTER.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -86,7 +86,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-god-is-a-dancer',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'God Is A Dancer',
+    name: 'GOD IS A DANCER',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -99,7 +99,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-protected-aligned-unstoppable',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Protected. Aligned. Unstoppable.',
+    name: 'PROTECTED. ALIGNED. UNSTOPPABLE.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -112,7 +112,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'Sacred Heart',
+    name: 'SACRED HEART',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
@@ -125,7 +125,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'Sacred Heart — Hoodie',
+    name: 'SACRED HEART',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -138,7 +138,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-bold-badass-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'Bold. Badass. No Filter. — Hoodie',
+    name: 'BOLD. BADASS. NO FILTER.',
     price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -150,7 +150,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-energy-never-lies-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'Energy Never Lies',
+    name: 'ENERGY NEVER LIES',
     price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -163,7 +163,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-less-drama-champagne',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Less Drama. More Champagne.',
+    name: 'LESS DRAMA. MORE CHAMPAGNE.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -175,7 +175,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-mom-boss-crisis-manager',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'Mom Boss. Crisis Manager.',
+    name: 'MOM BOSS. CRISIS MANAGER.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -187,7 +187,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2019-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'LOVCICOV 2019 Paris',
+    name: 'LOVCICOV 2019 PARIS',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -199,7 +199,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-my-own-muse',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'My Own Muse',
+    name: 'MY OWN MUSE',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -211,7 +211,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-heart-tee',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'LOVCICOV Heart',
+    name: 'LOVCICOV HEART',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
