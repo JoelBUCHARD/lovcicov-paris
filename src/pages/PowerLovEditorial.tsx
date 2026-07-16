@@ -8,6 +8,8 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
+import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
+
 
 
 type Category = "all" | "tshirts" | "sweats" | "new";
@@ -167,7 +169,7 @@ const products: ProductCard[] = [...baseProducts, ...appendedProducts];
 
 
 const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
-const closingImage = products.find((product) => product.id === "powerlov-god-is-a-dj")?.image ?? products[0]?.image ?? "";
+const closingImage = lifePorscheSaintDominique.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
