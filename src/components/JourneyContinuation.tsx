@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import powerAsset from "@/assets/powerlov/powerlov-hero-sacred-heart-paris.png.asset.json";
+import powerAsset from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird-market.png.asset.json";
 import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import stoneHero from "@/assets/stonelov/hero.png";
 
