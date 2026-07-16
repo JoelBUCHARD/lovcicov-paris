@@ -18,16 +18,19 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
-  packshots: { image: string; name: string }[];
+  packshots: { image: string; name: string; productId?: string }[];
   categories: Exclude<Category, "all">[];
 };
 
 // Nouveautés = derniers ajouts (les 2 pièces Sacred Heart les plus récentes)
 const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
-const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: string[] }> = {
+const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (string | { image: string; productId: string })[] }> = {
   "powerlov-discipline": {
     image: "powerlov-discipline-back",
-    packshots: ["powerlov-discipline-front", "powerlov-sacred-heart-hoodie-cafe-croissant"],
+    packshots: [
+      "powerlov-discipline-front",
+      { image: "powerlov-sacred-heart-hoodie-cafe-croissant", productId: "powerlov-sacred-heart-hoodie" },
+    ],
   },
   "powerlov-if-god-dj-frequency": {
     image: "powerlov-pretty-smart-dangerous-white-street",
@@ -122,7 +125,14 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   if (NEW_IDS.has(p.id)) cats.push("new");
 
   const packshots = selectedImages.packshots
-    .map((imageKey) => ({ image: resolveProductImage(imageKey), name: imageName(imageKey, p.name) }))
+    .map((packshot) => {
+      const imageKey = typeof packshot === "string" ? packshot : packshot.image;
+      return {
+        image: resolveProductImage(imageKey),
+        name: imageName(imageKey, p.name),
+        productId: typeof packshot === "string" ? undefined : packshot.productId,
+      };
+    })
     .filter((packshot) => Boolean(packshot.image));
 
   const typeLabel =
@@ -184,7 +194,7 @@ const PowerLovEditorial = () => {
 
   type GridItem =
     | { kind: "product"; product: ProductCard; index: number; emphasis: "standard" | "large" }
-    | { kind: "packshot"; product: ProductCard; image: string; name: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
+    | { kind: "packshot"; product: ProductCard; image: string; name: string; productId?: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
@@ -193,7 +203,7 @@ const PowerLovEditorial = () => {
       items.push({ kind: "product", product, index: i, emphasis: "standard" });
       if (!showPackshots) return;
       product.packshots.forEach((packshot, imageIndex) => {
-        items.push({ kind: "packshot", product, image: packshot.image, name: packshot.name, imageIndex, index: i, emphasis: "standard" });
+        items.push({ kind: "packshot", product, image: packshot.image, name: packshot.name, productId: packshot.productId, imageIndex, index: i, emphasis: "standard" });
       });
     });
     return items;
@@ -357,6 +367,7 @@ const PowerLovEditorial = () => {
               const product = item.product;
               const image = isProduct ? product.image : item.image;
               const cardName = isProduct ? product.name : item.name;
+              const productId = isProduct ? product.id : item.productId ?? product.id;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
@@ -382,7 +393,7 @@ const PowerLovEditorial = () => {
                   className={spanClass}
                 >
                   <Link
-                    to={`/shop/${product.id}`}
+                    to={`/shop/${productId}`}
                     state={{ from }}
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
