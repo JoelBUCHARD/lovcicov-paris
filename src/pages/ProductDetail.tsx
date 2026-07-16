@@ -25,7 +25,9 @@ const ProductDetail = () => {
   const product = products.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
   const imageOverride = typeof location.state?.imageOverride === 'string' ? location.state.imageOverride : '';
-  const displayedProduct = product && imageOverride ? { ...product, image: imageOverride } : product;
+  const effectiveImage = imageOverride || product?.detailImage || product?.image;
+  const displayedProduct = product && effectiveImage ? { ...product, image: effectiveImage } : product;
+
 
 
 
