@@ -7,7 +7,7 @@ interface Props {
   onOpenLightbox?: () => void;
 }
 
-const LENS_SIZE = 220;
+const LENS_SIZE = 160;
 const ZOOM = 2.4;
 
 const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
