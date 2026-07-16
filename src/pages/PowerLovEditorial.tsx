@@ -188,14 +188,16 @@ const PowerLovEditorial = () => {
     | { kind: "packshot"; product: ProductCard; image: string; name: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
-    // Une seule image par fiche produit : on n'affiche plus les packshots additionnels
-    // qui ne correspondaient pas toujours au produit.
-    return filtered.map((product, i) => ({
-      kind: "product" as const,
-      product,
-      index: i,
-      emphasis: "standard" as const,
-    }));
+    const items: GridItem[] = [];
+    const showPackshots = category === "all";
+    filtered.forEach((product, i) => {
+      items.push({ kind: "product", product, index: i, emphasis: "standard" });
+      if (!showPackshots) return;
+      product.packshots.forEach((packshot, imageIndex) => {
+        items.push({ kind: "packshot", product, image: packshot.image, name: packshot.name, imageIndex, index: i, emphasis: "standard" });
+      });
+    });
+    return items;
   }, [filtered]);
 
 
