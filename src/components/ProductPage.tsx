@@ -309,23 +309,12 @@ const ProductPage = ({ product }: Props) => {
               </div>
             )}
 
-            <button
-              type="button"
-              onClick={() => setLightboxOpen(true)}
-              className="relative flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px] cursor-zoom-in text-left"
-              aria-label="Agrandir l'image"
-            >
-              <img
-                src={getImage(allImages[activeImage])}
-                alt={product.name}
-                className="w-full h-full object-cover md:object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                style={{ objectPosition: 'center center' }}
-                loading="eager"
-              />
-              <span className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm p-2 rounded-full">
-                <ZoomIn size={14} strokeWidth={1.2} className="text-[#1A1A1A]" />
-              </span>
-            </button>
+            <ZoomBubble
+              src={getImage(allImages[activeImage])}
+              alt={product.name}
+              onOpenLightbox={() => setLightboxOpen(true)}
+            />
+
           </div>
           {/* Mobile thumbnails */}
           {allImages.length > 1 && (
