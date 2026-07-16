@@ -94,6 +94,7 @@ export const standardProducts: Product[] = [
     details: 'Le mouvement comme prière. Le rythme comme rituel.',
     image: 'powerlov-grid-god-is-a-dancer',
     gallery: ['powerlov-god-is-a-dancer-front', 'powerlov-god-is-a-dancer-back'],
+    badge: 'UNISEX',
   },
   {
     id: 'powerlov-protected-aligned-unstoppable',
@@ -105,6 +106,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PROTECTED. ALIGNED. UNSTOPPABLE. ». Unisex.',
     details: 'Une ligne nette. Une allure calme. Une présence affirmée.',
     image: 'powerlov-protected-aligned-unstoppable-street',
+    gallery: ['powerlov-protected-aligned-unstoppable-editorial', 'powerlov-protected-aligned-unstoppable-packshot'],
     badge: 'UNISEX',
   },
   {
@@ -116,7 +118,8 @@ export const standardProducts: Product[] = [
     subcategory: 'crewneck',
     description: 'Sweat-shirt coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
-    image: 'powerlov-my-own-muse-street-v2',
+    image: 'powerlov-standard-is-me-street-back',
+    gallery: ['powerlov-my-own-muse-street-v2', 'powerlov-lovcicov-back-street-jeans', 'powerlov-sacred-heart-grey-front', 'powerlov-sacred-heart-grey-back'],
     badge: 'UNISEX',
   },
   {
@@ -128,7 +131,8 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Le même emblème, capuche relevée. Une silhouette de rue, une présence affirmée.',
-    image: 'powerlov-lovcicov-hoodie-cap-studio',
+    image: 'powerlov-sacred-heart-hoodie-street-front',
+    gallery: ['powerlov-lovcicov-hoodie-cap-studio', 'powerlov-sacred-heart-hoodie-front', 'powerlov-sacred-heart-hoodie-back', 'powerlov-sacred-heart-hoodie-street-back'],
     badge: 'UNISEX',
   },
   {
@@ -152,7 +156,8 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné. Sérigraphie « ENERGY NEVER LIES ». Unisex.',
     details: 'Ce que l\'on dégage ne ment jamais.',
-    image: 'powerlov-grid-energy-never-lies',
+    image: 'powerlov-perfectly-imperfect-hoodie-brick',
+    gallery: ['powerlov-grid-energy-never-lies'],
     badge: 'UNISEX',
   },
   {
