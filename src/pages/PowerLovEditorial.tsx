@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
+import { useProductVisibility, localKey } from "@/hooks/useProductVisibility";
 
 
 type Category = "all" | "tshirts" | "sweats" | "new";
@@ -160,10 +161,16 @@ const pageStyle = {
 const PowerLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const { isVisible, loading: visLoading } = useProductVisibility();
+
+  const visibleProducts = useMemo(
+    () => (visLoading ? products : products.filter((p) => isVisible(localKey(p.id)))),
+    [visLoading, isVisible]
+  );
 
   const filtered = useMemo(
-    () => (category === "all" ? products : products.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
-    [category]
+    () => (category === "all" ? visibleProducts : visibleProducts.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
+    [category, visibleProducts]
   );
 
   type GridItem =
