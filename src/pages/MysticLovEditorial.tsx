@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 
-type Category = "tshirts" | "sweats";
+type Category = "all" | "tshirts" | "sweats";
 
 type ProductCard = {
   id: string;
