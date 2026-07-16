@@ -234,7 +234,7 @@ const MysticLovEditorial = () => {
                       className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
                       style={{
                         backgroundColor: "#F0EDE7",
-                        aspectRatio: isHero ? undefined : "4 / 5",
+                        aspectRatio: "4 / 5",
                       }}
                     >
                       <img
