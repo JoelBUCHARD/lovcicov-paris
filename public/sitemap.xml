@@ -141,17 +141,12 @@
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/shop/powerlov-god-is-a-dj</loc>
+    <loc>https://lovcicov.com/shop/powerlov-empowered</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://lovcicov.com/product/t-shirt-powerlov</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lovcicov.com/shop/powerlov-empowered</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -192,11 +187,6 @@
   </url>
   <url>
     <loc>https://lovcicov.com/shop/powerlov-sacred-heart-hoodie</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lovcicov.com/shop/powerlov-bold-badass-hoodie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
