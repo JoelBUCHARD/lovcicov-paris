@@ -325,7 +325,7 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           {(() => {
-            const visibleItems = gridItems.filter((item, i) => i !== 12 && i !== 10 && i !== 15 && i !== 16 && item.product.id !== "powerlov-god-is-a-dj");
+            const visibleItems = gridItems;
             const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
             const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
 

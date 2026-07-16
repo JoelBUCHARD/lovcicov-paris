@@ -10,12 +10,7 @@ import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 import godDjCafe from '@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json';
 import godDjStreet from '@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json';
-import connectedEmpowered from '@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json';
-import boldBadassSweat from '@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json';
-import boldBadassGrid from '@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json';
-import ifGodIsADj from '@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json';
 import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png.asset.json';
-import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
 import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
 import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
 import sacredHeartStreet from '@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json';
