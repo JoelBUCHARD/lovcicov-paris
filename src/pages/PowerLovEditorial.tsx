@@ -175,7 +175,7 @@ const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
   { key: "tshirts", label: "T-shirts" },
   { key: "sweats", label: "Sweats" },
-  { key: "new", label: "Nouveautés" },
+  
 ];
 
 const pageStyle = {
