@@ -34,7 +34,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-empowered',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'EMPOWERED',
+    name: 'CONNECTED. DISCIPLINED. EMPOWERED.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -60,7 +60,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-if-god-dj-frequency',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'THE FREQUENCY',
+    name: 'IF GOD IS A DJ, I AM THE FREQUENCY',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -73,7 +73,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-bold-badass-tee',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'NO FILTER',
+    name: 'BOLD. BADASS. NO FILTER.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -138,7 +138,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-bold-badass-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'NO FILTER',
+    name: 'BOLD. BADASS. NO FILTER.',
     price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -150,7 +150,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-energy-never-lies-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'ENERGY',
+    name: 'ENERGY NEVER LIES',
     price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -175,7 +175,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-mom-boss-crisis-manager',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'CRISIS MANAGER',
+    name: 'MOM BOSS. CRISIS MANAGER.',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -187,7 +187,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2019-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'ARCHIVE 2019',
+    name: 'LOVCICOV 2019 PARIS',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -211,7 +211,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-heart-tee',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'LOVCICOV HEART',
+    name: 'LOVCICOV',
     price: 59,
     collection: 'standard',
     subcategory: 'tshirt',
