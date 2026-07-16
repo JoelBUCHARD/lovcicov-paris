@@ -18,7 +18,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
-  packshots: string[];
+  packshots: { image: string; name: string }[];
   categories: Exclude<Category, "all">[];
 };
 
@@ -88,6 +88,22 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
 };
 
+const POWERLOV_IMAGE_NAMES: Record<string, string> = {
+  "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
+  "powerlov-standard-is-me-street-back": "STANDARD IS ME",
+  "powerlov-lovcicov-back-street-jeans": "LOVCICOV PARIS",
+  "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
+  "powerlov-lovcicov-cream-sweat-nyc-walking": "LOVCICOV PARIS",
+  "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
+  "powerlov-perfectly-imperfect-hoodie-brick": "PERFECTLY IMPERFECT",
+  "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
+  "powerlov-lovcicov-heart-tee-paris-street-sunglasses": "LOVCICOV",
+  "powerlov-sacred-heart-hoodie-cafe-croissant": "SACRED HEART",
+};
+
+const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
+const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[imageKey] ?? cleanProductName(fallback);
+
 // Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
 const APPENDED_IDS = [
   "powerlov-empowered",
@@ -106,19 +122,19 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   if (NEW_IDS.has(p.id)) cats.push("new");
 
   const packshots = selectedImages.packshots
-    .map((imageKey) => resolveProductImage(imageKey))
-    .filter(Boolean);
+    .map((imageKey) => ({ image: resolveProductImage(imageKey), name: imageName(imageKey, p.name) }))
+    .filter((packshot) => Boolean(packshot.image));
 
   const typeLabel =
     p.subcategory === "tshirt" ? "T-shirt" : p.subcategory === "hoodie" ? "Sweat capuche" : "Sweat";
 
   return {
     id: p.id,
-    name: p.name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, ""),
+    name: imageName(selectedImages.image, p.name),
     typeLabel,
     price: p.price,
     image: resolveProductImage(selectedImages.image),
-    packshots: Array.from(new Set(packshots)),
+    packshots: Array.from(new Map(packshots.map((packshot) => [packshot.image, packshot])).values()),
     categories: cats,
   };
 };
@@ -168,7 +184,7 @@ const PowerLovEditorial = () => {
 
   type GridItem =
     | { kind: "product"; product: ProductCard; index: number; emphasis: "standard" | "large" }
-    | { kind: "packshot"; product: ProductCard; image: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
+    | { kind: "packshot"; product: ProductCard; image: string; name: string; index: number; imageIndex: number; emphasis: "standard" | "tall" };
 
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
@@ -176,8 +192,8 @@ const PowerLovEditorial = () => {
     filtered.forEach((product, i) => {
       items.push({ kind: "product", product, index: i, emphasis: "standard" });
       if (!showPackshots) return;
-      product.packshots.forEach((image, imageIndex) => {
-        items.push({ kind: "packshot", product, image, imageIndex, index: i, emphasis: "standard" });
+      product.packshots.forEach((packshot, imageIndex) => {
+        items.push({ kind: "packshot", product, image: packshot.image, name: packshot.name, imageIndex, index: i, emphasis: "standard" });
       });
     });
     return items;
@@ -340,6 +356,7 @@ const PowerLovEditorial = () => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
+              const cardName = isProduct ? product.name : item.name;
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
@@ -389,7 +406,7 @@ const PowerLovEditorial = () => {
                     >
                       <img
                         src={image}
-                        alt={product.name}
+                        alt={cardName}
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
@@ -408,7 +425,7 @@ const PowerLovEditorial = () => {
                         className="text-[#0D0D0D] font-light"
                         style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                       >
-                        {product.name}
+                        {cardName}
                       </h3>
                       <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
                         €{product.price}
