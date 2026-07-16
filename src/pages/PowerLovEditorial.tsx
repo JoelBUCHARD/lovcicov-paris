@@ -27,7 +27,7 @@ const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-h
 const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: string[] }> = {
   "powerlov-discipline": {
     image: "powerlov-discipline-back",
-    packshots: ["powerlov-discipline-front", "powerlov-sacred-heart-hoodie-cafe-croissant"],
+    packshots: [],
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
@@ -43,16 +43,16 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: strin
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
-    packshots: ["powerlov-protected-aligned-unstoppable-editorial"],
+    packshots: [],
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-my-own-muse-street-v2"],
+    packshots: [],
   },
 
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-street-front",
-    packshots: ["powerlov-lovcicov-hoodie-cap-studio"],
+    packshots: [],
   },
   "powerlov-less-drama-champagne": {
     image: "powerlov-less-drama-more-champagne-street",
