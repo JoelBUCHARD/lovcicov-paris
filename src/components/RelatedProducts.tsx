@@ -15,6 +15,14 @@ for (const [path, mod] of Object.entries(assetJsonModules)) {
 }
 const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng, ...assetJsonAsImages };
 const resolveAsset = (key: string) => {
+  if (!key) return "";
+  if (/^https?:\/\//i.test(key) || key.startsWith("/")) return key;
+  const exactMatch = Object.entries(imageModules).find(([path]) => {
+    const filename = path.split("/").pop() ?? "";
+    const stem = filename.replace(/\.asset\.json$/, "").replace(/\.(jpg|jpeg|webp|png)$/i, "");
+    return stem === key;
+  });
+  if (exactMatch) return exactMatch[1];
   const match = Object.entries(imageModules).find(([path]) => path.includes(key));
   return match ? match[1] : key;
 };
