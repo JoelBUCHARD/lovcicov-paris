@@ -136,7 +136,7 @@ const ProductPage = ({ product }: Props) => {
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
-  const allImages = product.id === 'powerlov-discipline' && product.gallery?.length
+  const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
     : [product.image];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
