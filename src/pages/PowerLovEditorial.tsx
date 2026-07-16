@@ -370,13 +370,7 @@ const PowerLovEditorial = () => {
                       className="relative w-full overflow-hidden flex-1"
                       style={{
                         backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7",
-                        aspectRatio: isAppended
-                          ? "4 / 5"
-                          : isHero
-                          ? undefined
-                          : isLandscape
-                          ? "8 / 5"
-                          : "4 / 5",
+                        aspectRatio: "4 / 5",
                       }}
                     >
                       <img
