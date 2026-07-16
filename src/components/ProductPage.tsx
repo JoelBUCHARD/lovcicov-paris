@@ -134,8 +134,10 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
-  // Une seule image par fiche produit : uniquement celle qui correspond au produit.
-  const allImages = [product.image];
+  // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
+  const allImages = product.id === 'powerlov-discipline' && product.gallery?.length
+    ? [product.image, ...product.gallery]
+    : [product.image];
   const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
 
   useEffect(() => {
