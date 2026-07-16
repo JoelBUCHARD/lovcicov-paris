@@ -217,7 +217,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie cœur « LOVCICOV » en façade. Unisex.',
     details: 'Le cœur comme signature. Une pièce manifeste, portée comme une évidence.',
-    image: 'powerlov-lovcicov-heart-tee-street',
+    image: 'powerlov-lovcicov-heart-tee-paris-street-sunglasses',
+    gallery: ['powerlov-lovcicov-heart-tee-street', 'powerlov-lovcicov-heart-tee-paris-street'],
     badge: 'UNISEX',
   },
 ];
