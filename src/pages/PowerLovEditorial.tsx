@@ -343,16 +343,9 @@ const PowerLovEditorial = () => {
               const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
-              const isHero = !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = !isAppended && i === 9;
-              const heroOnRight = isHero && heroIndex % 2 === 1;
-              const spanClass = isAppended
-                ? "col-span-1"
-                : isHero
-                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
-                : isLandscape
-                ? "col-span-2 md:col-span-2"
-                : "col-span-1";
+              const isHero = false;
+              const isLandscape = false;
+              const spanClass = "col-span-1";
 
               return (
                 <motion.div
