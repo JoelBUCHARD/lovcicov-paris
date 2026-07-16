@@ -66,8 +66,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « IF GOD IS A DJ, I AM THE FREQUENCY ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
-    image: 'powerlov-pretty-smart-dangerous-white-street',
-    gallery: ['powerlov-if-god-is-a-dj', 'powerlov-if-god-dj-front'],
+    image: 'powerlov-if-god-is-a-dj',
+    gallery: ['powerlov-if-god-dj-front'],
     badge: 'UNISEX',
   },
   {
