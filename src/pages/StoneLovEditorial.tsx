@@ -80,7 +80,7 @@ const StoneLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section className="relative w-screen h-[85svh] md:h-[100vh] overflow-hidden">
+        <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
           <img
             src={heroImg}
             alt="StoneLov par LOVCICOV Paris"
