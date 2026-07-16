@@ -93,7 +93,7 @@ const MysticLovEditorial = () => {
             src={heroImage}
             alt="MysticLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(1.05) contrast(0.98)", objectPosition: "center 25%" }}
+            style={{ filter: "brightness(1.05) contrast(0.98)", objectPosition: "center 10%" }}
             loading="eager"
             decoding="async"
           />
