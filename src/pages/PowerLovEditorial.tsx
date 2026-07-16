@@ -485,7 +485,7 @@ const PowerLovEditorial = () => {
 
         {/* BOTTOM WIDE IMAGE + MYSTICLOV CTA */}
         <section style={{ backgroundColor: "#FAF8F4", padding: "0 clamp(12px, 3vw, 40px) clamp(24px, 4vw, 56px)" }}>
-          <div className="relative w-full overflow-hidden mx-auto" style={{ aspectRatio: "16 / 9", backgroundColor: "#FAF8F4", maxWidth: 1400 }}>
+          <div className="relative w-full overflow-hidden mx-auto" style={{ aspectRatio: "21 / 9", backgroundColor: "#FAF8F4", maxWidth: 1100 }}>
             <img
               src={closingImage}
               alt="PowerLov par LOVCICOV Paris"
