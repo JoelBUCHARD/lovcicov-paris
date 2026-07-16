@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroImg from "@/assets/stonelov/hero.png";
 import closingImg from "@/assets/stonelov/closing.png";
 
-type Category = "all";
+type Category = "colliers" | "bracelets";
 
 type ProductCard = {
   id: string;
@@ -39,7 +39,8 @@ const products: ProductCard[] = bijouxProducts.map((p) => ({
 }));
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
-  { key: "all", label: "Tout voir" },
+  { key: "colliers", label: "Colliers" },
+  { key: "bracelets", label: "Bracelets" },
 ];
 
 const pageStyle = {
@@ -50,9 +51,13 @@ const pageStyle = {
 
 const StoneLovEditorial = () => {
   const location = useLocation();
-  const [category] = useState<Category>("all");
+  const [category, setCategory] = useState<Category>("colliers");
 
-  const filtered = useMemo(() => products, []);
+  const filtered = useMemo(
+    () => products.filter((p) => (category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet")),
+    [category]
+  );
+
 
   const scrollToGrid = () => {
     document.getElementById("stonelov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -151,23 +156,27 @@ const StoneLovEditorial = () => {
             <span className="whitespace-nowrap" aria-hidden="true" />
             <nav aria-label="Catégories StoneLov" className="flex-1 overflow-x-auto no-scrollbar">
               <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {CATEGORY_LABELS.map(({ key, label }) => (
-                  <li key={key}>
-                    <button
-                      type="button"
-                      className="uppercase transition-colors duration-200"
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.24em",
-                        color: "#0D0D0D",
-                        borderBottom: "1px solid #0D0D0D",
-                        paddingBottom: 4,
-                      }}
-                    >
-                      {label}
-                    </button>
-                  </li>
-                ))}
+                {CATEGORY_LABELS.map(({ key, label }) => {
+                  const active = category === key;
+                  return (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setCategory(key)}
+                        className="uppercase transition-colors duration-200"
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.24em",
+                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+                          paddingBottom: 4,
+                        }}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
             <button
