@@ -267,16 +267,6 @@ const PowerLovEditorial = () => {
               >
                 Wear your power.
               </p>
-              <button
-                type="button"
-                onClick={scrollToGrid}
-                className="mt-2 md:mt-6 inline-flex items-center justify-center px-3.5 py-1.5 md:px-7 md:py-3 text-[8px] md:text-[11px] uppercase transition-colors duration-300"
-                style={{ backgroundColor: "#FFFFFF", color: "#0D0D0D", letterSpacing: "0.2em" }}
-                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#E8E4DD"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "#FFFFFF"; }}
-              >
-                Découvrir la collection
-              </button>
             </div>
           </div>
         </section>
