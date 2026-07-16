@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-porsche-saint-dominique.png.asset.json";
+import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird-market.png.asset.json";
 
 
 
