@@ -142,8 +142,8 @@ const AppContent = () => {
           <Route path="/livraison-retours" element={<LivraisonRetours />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/admin/products" element={<AdminProducts />} />
-          <Route path="/magazine" element={<Magazine />} />
-          <Route path="/magazine/:slug" element={<MagazineArticle />} />
+          <Route path="/magazine" element={<Navigate to="/" replace />} />
+          <Route path="/magazine/:slug" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
