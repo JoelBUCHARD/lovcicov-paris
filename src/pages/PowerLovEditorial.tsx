@@ -169,7 +169,7 @@ const products: ProductCard[] = [...baseProducts, ...appendedProducts];
 
 
 const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
-const closingImage = products.find((product) => product.id === "powerlov-god-is-a-dj")?.image ?? products[0]?.image ?? "";
+const closingImage = lifePorscheSaintDominique.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
