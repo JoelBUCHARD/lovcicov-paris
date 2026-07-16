@@ -430,9 +430,7 @@ const PowerLovEditorial = () => {
                 </div>
                 {appendedItems.length > 0 && (
                   <div
-                    className={`mx-auto grid grid-cols-2 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start ${
-                      appendedItems.length === 3 ? "md:grid-cols-3" : appendedItems.length === 2 ? "md:grid-cols-2" : appendedItems.length === 1 ? "md:grid-cols-1" : "md:grid-cols-4"
-                    }`}
+                    className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start"
                     style={{ maxWidth: 1400 }}
                   >
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
