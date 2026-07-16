@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 import JourneyContinuation from '@/components/JourneyContinuation';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import tshirtDiscipline from '@/assets/powerlov-tshirt-discipline.png';
+import tshirtEmpowered from '@/assets/powerlov-tshirt-empowered.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -21,6 +22,12 @@ const powerlovProducts = [
     id: 'powerlov-discipline',
     name: 'T-Shirt Discipline Is My Luxury',
     image: tshirtDiscipline,
+    price: '59 €',
+  },
+  {
+    id: 'powerlov-empowered',
+    name: 'T-Shirt Connected Disciplined Empowered',
+    image: tshirtEmpowered,
     price: '59 €',
   },
 ];
