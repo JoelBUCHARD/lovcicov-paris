@@ -43,6 +43,7 @@ const heroImage = heroAsset.url;
 const closingImage = closingAsset.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
+  { key: "all", label: "Tout voir" },
   { key: "tshirts", label: "T-shirts" },
   { key: "sweats", label: "Sweats" },
 ];
@@ -55,12 +56,16 @@ const pageStyle = {
 
 const MysticLovEditorial = () => {
   const location = useLocation();
-  const [category, setCategory] = useState<Category>("tshirts");
+  const [category, setCategory] = useState<Category>("all");
 
   const filtered = useMemo(
     () =>
       products.filter((p) =>
-        category === "tshirts" ? p.subcategory === "tshirt" : p.subcategory === "hoodie" || p.subcategory === "crewneck"
+        category === "all"
+          ? true
+          : category === "tshirts"
+          ? p.subcategory === "tshirt"
+          : p.subcategory === "hoodie" || p.subcategory === "crewneck"
       ),
     [category]
   );
