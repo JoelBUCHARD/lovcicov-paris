@@ -214,7 +214,7 @@ const MysticLovEditorial = () => {
           >
             {filtered.map((product, i) => {
               const heroIndex = Math.floor(i / 5);
-              const isHero = i % 5 === 0;
+              const isHero = category === "all" && i % 5 === 0;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
