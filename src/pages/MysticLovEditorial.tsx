@@ -11,7 +11,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 
-type Category = "all";
+type Category = "tshirts" | "sweats";
 
 type ProductCard = {
   id: string;
@@ -20,6 +20,7 @@ type ProductCard = {
   price: number;
   image: string;
   hover?: string;
+  subcategory?: string;
 };
 
 const TYPE_LABEL: Record<string, string> = {
@@ -35,13 +36,15 @@ const products: ProductCard[] = mysticProducts.map((p) => ({
   price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
   image: resolveProductImage(p.image),
   hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
+  subcategory: p.subcategory,
 }));
 
 const heroImage = heroAsset.url;
 const closingImage = closingAsset.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
-  { key: "all", label: "Tout voir" },
+  { key: "tshirts", label: "T-shirts" },
+  { key: "sweats", label: "Sweats" },
 ];
 
 const pageStyle = {
@@ -52,9 +55,16 @@ const pageStyle = {
 
 const MysticLovEditorial = () => {
   const location = useLocation();
-  const [category] = useState<Category>("all");
+  const [category, setCategory] = useState<Category>("tshirts");
 
-  const filtered = useMemo(() => products, []);
+  const filtered = useMemo(
+    () =>
+      products.filter((p) =>
+        category === "tshirts" ? p.subcategory === "tshirt" : p.subcategory === "hoodie" || p.subcategory === "crewneck"
+      ),
+    [category]
+  );
+
 
   const scrollToGrid = () => {
     document.getElementById("mysticlov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -153,23 +163,27 @@ const MysticLovEditorial = () => {
             <span className="whitespace-nowrap" aria-hidden="true" />
             <nav aria-label="Catégories MysticLov" className="flex-1 overflow-x-auto no-scrollbar">
               <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {CATEGORY_LABELS.map(({ key, label }) => (
-                  <li key={key}>
-                    <button
-                      type="button"
-                      className="uppercase transition-colors duration-200"
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.24em",
-                        color: "#0D0D0D",
-                        borderBottom: "1px solid #0D0D0D",
-                        paddingBottom: 4,
-                      }}
-                    >
-                      {label}
-                    </button>
-                  </li>
-                ))}
+                {CATEGORY_LABELS.map(({ key, label }) => {
+                  const active = category === key;
+                  return (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setCategory(key)}
+                        className="uppercase transition-colors duration-200"
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.24em",
+                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+                          paddingBottom: 4,
+                        }}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
             <button
