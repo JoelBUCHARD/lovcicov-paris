@@ -204,7 +204,9 @@ const MysticLovEditorial = () => {
           >
             {filtered.map((product, i) => {
               const heroIndex = Math.floor(i / 5);
-              const isHero = category === "all" && i % 5 === 0 && i + 2 < filtered.length;
+              // Only create a hero block if enough items remain after it to avoid orphan tiles on the last row
+              const remaining = filtered.length - i;
+              const isHero = category === "all" && i % 5 === 0 && remaining >= 7;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
