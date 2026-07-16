@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { products } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -21,8 +21,11 @@ const getImage = (key: string) => {
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const product = products.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
+  const imageOverride = typeof location.state?.imageOverride === 'string' ? location.state.imageOverride : '';
+  const displayedProduct = product && imageOverride ? { ...product, image: imageOverride } : product;
 
 
 
@@ -32,16 +35,16 @@ const ProductDetail = () => {
     : 'powerlov';
 
   useEffect(() => {
-    if (!product) return;
+    if (!displayedProduct) return;
     trackViewedProduct({
-      key: `local:${product.id}`,
-      name: product.name,
-      price: String(product.price),
-      image: getImage(product.image),
+      key: `local:${displayedProduct.id}`,
+      name: displayedProduct.name,
+      price: String(displayedProduct.price),
+      image: getImage(displayedProduct.image),
       universe: universe as 'powerlov' | 'mysticlov' | 'stonelov',
-      link: `/shop/${product.id}`,
+      link: `/shop/${displayedProduct.id}`,
     });
-  }, [product?.id]);
+  }, [displayedProduct?.id, displayedProduct?.image]);
 
   if (!product) {
     return (
@@ -64,7 +67,7 @@ const ProductDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <ProductPage product={product} />
+      {displayedProduct && <ProductPage product={displayedProduct} />}
       <RelatedProducts
         currentKey={`local:${product.id}`}
         currentUniverse={universe as 'powerlov' | 'mysticlov' | 'stonelov'}

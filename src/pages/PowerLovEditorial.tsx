@@ -394,7 +394,7 @@ const PowerLovEditorial = () => {
                 >
                   <Link
                     to={`/shop/${productId}`}
-                    state={{ from }}
+                    state={{ from, imageOverride: image }}
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
                       prefetchImage(image);
