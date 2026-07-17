@@ -218,15 +218,17 @@ const MysticLovEditorial = () => {
                 const cells = 3 * H + arr.length;
                 const rem = cells % 4;
                 const landSet = new Set<number>();
-                const promote = (n: number) => {
-                  let c = 0;
-                  for (let k = arr.length - 1; k >= 0 && c < n; k--) {
-                    if (!heroSet.has(k)) { landSet.add(k); c++; }
-                  }
-                };
-                if (rem === 2) promote(2);
-                else if (rem === 3) promote(1);
-                else if (rem === 1) promote(3);
+                if (category === "all") {
+                  const promote = (n: number) => {
+                    let c = 0;
+                    for (let k = arr.length - 1; k >= 0 && c < n; k--) {
+                      if (!heroSet.has(k)) { landSet.add(k); c++; }
+                    }
+                  };
+                  if (rem === 2) promote(2);
+                  else if (rem === 3) promote(1);
+                  else if (rem === 1) promote(3);
+                }
                 const data = { heroSet, landSet };
                 (arr as any).__mysticLayout = data;
                 return data;
