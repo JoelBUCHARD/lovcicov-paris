@@ -378,15 +378,38 @@ const ProductPage = ({ product }: Props) => {
               Molleton de coton brossé 400&nbsp;g/m², doux à l'intérieur et structuré à l'extérieur. Coupe oversize unisexe, épaules tombées, capuche doublée, cordons plats, poche kangourou. Bords-côtes renforcés au col, poignets et ourlet. Broderie LOVE dorée signature.
             </p>
           )}
-          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && (
+          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
-              {product.collection === 'bijoux'
-                ? 'Pierres naturelles montées à la main. Fermoir ajustable, finitions soignées.'
-                : 'Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.'}
+              Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.
             </p>
+          )}
+          {product.collection === 'bijoux' && (
+            <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]">
+              {stones.length > 0 ? (
+                <div className="space-y-3">
+                  {stones.map((s) => (
+                    <div key={s.key}>
+                      <p
+                        className="mb-1"
+                        style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.22em', color: cfg.accent, fontWeight: 600, textTransform: 'uppercase' }}
+                      >
+                        {s.name}
+                      </p>
+                      <p style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}>
+                        {s.meaning}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}>
+                  Pierres naturelles montées à la main. Fermoir ajustable, finitions soignées.
+                </p>
+              )}
+            </div>
           )}
 
 
