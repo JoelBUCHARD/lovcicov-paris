@@ -111,7 +111,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
 };
 
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
-  "powerlov-lovcicov-back-street-jeans": "Sweat",
+  "powerlov-lovcicov-back-street-jeans": "T-shirt",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "Sweat",
   "powerlov-standard-is-me-street-back": "Sweat capuche",
