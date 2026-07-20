@@ -495,7 +495,7 @@ const PowerLovEditorial = () => {
                       onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#2A2A2A"; }}
                       onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#0D0D0D"; }}
                     >
-                      Découvrir toute la collection MysticLov
+                      Découvrir toute la collection
                     </Link>
                   </div>
                 )}
