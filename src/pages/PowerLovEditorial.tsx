@@ -56,7 +56,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-my-own-muse-street-v2"],
+    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-lovcicov-2019-bird-stairs"],
   },
 
   "powerlov-sacred-heart-hoodie": {
