@@ -380,7 +380,7 @@ const MysticLovEditorial = () => {
                 </Link>
               </motion.div>
             ))}
-            {category !== "tshirts" && (
+            {category === "all" && (
               <div className="col-span-1 h-full">
                 <Link
                   to="/shop/mystic-hoodie-noir"
