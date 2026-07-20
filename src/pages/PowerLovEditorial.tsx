@@ -67,10 +67,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-lovcicov-2029-bird-nyc-street",
     packshots: [],
   },
-  "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-walking-v2",
-    packshots: [],
-  },
   "powerlov-bold-badass-tee": {
     image: "powerlov-less-drama-champagne-rue-de-seine",
     packshots: [],
@@ -120,7 +116,6 @@ const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[i
 // Ordre d'affichage: on garde l'ordre existant, et on ajoute les 4 nouveaux à la fin
 const APPENDED_IDS = [
   "powerlov-lovcicov-2029-bird",
-  "powerlov-empowered",
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
 ];
