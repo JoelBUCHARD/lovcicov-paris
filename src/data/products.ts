@@ -146,7 +146,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. » au dos. Unisex.',
     details: 'Moins de bruit, plus de bulles. Le manifeste léger d\'une élégance qui refuse le drame.',
-    image: 'powerlov-less-drama-more-champagne-street',
+    image: 'powerlov-less-drama-champagne-rue-de-seine',
+    gallery: ['powerlov-less-drama-champagne-flat-white-front', 'powerlov-less-drama-champagne-flat-white-back'],
     badge: 'UNISEX',
   },
   {
