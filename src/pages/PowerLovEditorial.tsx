@@ -112,6 +112,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
 
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
   "powerlov-lovcicov-back-street-jeans": "Sweat",
+  "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
 };
 
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
@@ -438,7 +439,7 @@ const PowerLovEditorial = () => {
                         className="font-light"
                         style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
                       >
-                        {isProduct ? product.typeLabel : (POWERLOV_IMAGE_TYPE_LABELS[item.image] ?? product.typeLabel)}
+                        {(Object.entries(POWERLOV_IMAGE_TYPE_LABELS).find(([k]) => image.includes(k))?.[1]) ?? product.typeLabel}
                       </p>
                       <h3
                         className="text-[#0D0D0D] font-light"
