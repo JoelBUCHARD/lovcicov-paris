@@ -278,6 +278,22 @@ const StoneLovEditorial = () => {
               Aucune pièce dans cette collection
             </p>
           )}
+
+          <div className="mt-12 md:mt-16 flex justify-center">
+            <Link
+              to="/shop"
+              className="inline-block uppercase transition-opacity hover:opacity-70"
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.28em",
+                color: "#0D0D0D",
+                borderBottom: "1px solid #0D0D0D",
+                paddingBottom: 6,
+              }}
+            >
+              Découvrir toute la collection
+            </Link>
+          </div>
         </section>
 
       </main>
