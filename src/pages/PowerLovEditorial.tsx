@@ -96,7 +96,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
 const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
   "powerlov-standard-is-me-street-back": "STANDARD IS ME",
-  "powerlov-lovcicov-back-street-jeans": "LOVCICOV PARIS",
+  "powerlov-lovcicov-back-street-jeans": "PRETTY. SMART. DANGEROUS.",
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV PARIS",
   "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
