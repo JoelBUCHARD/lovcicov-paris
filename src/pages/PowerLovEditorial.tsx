@@ -486,7 +486,7 @@ const PowerLovEditorial = () => {
                   </div>
                 )}
                 {appendedItems.length > 0 && (
-                  <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)" }}>
+                  <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)", marginBottom: "clamp(48px, 8vw, 96px)" }}>
                     <Link
                       to="/mysticlov"
                       onMouseEnter={() => prefetchRoute("/mysticlov")}
