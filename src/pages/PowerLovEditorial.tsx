@@ -16,6 +16,7 @@ type Category = "all" | "tshirts" | "sweats" | "new";
 
 type ProductCard = {
   id: string;
+  gridKey?: string;
   name: string;
   typeLabel: string;
   price: number;
@@ -23,6 +24,7 @@ type ProductCard = {
   packshots: { image: string; name: string; productId?: string }[];
   categories: Exclude<Category, "all">[];
 };
+
 
 // Nouveautés = derniers ajouts (les 2 pièces Sacred Heart les plus récentes)
 const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
