@@ -456,14 +456,14 @@ const PowerLovEditorial = () => {
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
                     <div className="col-span-1 self-start">
                       <Link
-                        to="/mysticlov"
-                        onMouseEnter={() => prefetchRoute("/mysticlov")}
+                        to="/shop/mystic-tshirt-noir"
+                        onMouseEnter={() => prefetchRoute("/shop/item")}
                         className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                       >
                         <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
                           <img
                             src={closingImage}
-                            alt="Découvrir MysticLov"
+                            alt="T-Shirt Love MysticLov"
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -472,17 +472,33 @@ const PowerLovEditorial = () => {
                         </div>
                         <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                           <p className="font-light" style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}>
-                            Collection
+                            T-shirt
                           </p>
                           <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
-                            MysticLov
+                            T-Shirt Love
                           </h3>
                           <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                            Découvrir
+                            €70
                           </p>
                         </div>
                       </Link>
                     </div>
+                  </div>
+                )}
+                {appendedItems.length > 0 && (
+                  <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)" }}>
+                    <Link
+                      to="/mysticlov"
+                      onMouseEnter={() => prefetchRoute("/mysticlov")}
+                      className="inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+                      style={{ backgroundColor: "#0D0D0D", color: "#FFFFFF", letterSpacing: "0.24em" }}
+                      onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#2A2A2A"; }}
+                      onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#0D0D0D"; }}
+                    >
+                      Découvrir toute la collection MysticLov
+                    </Link>
+                  </div>
+                )}
                   </div>
                 )}
               </>
