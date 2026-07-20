@@ -157,12 +157,35 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   };
 };
 
-const baseProducts: ProductCard[] = standardProducts
-  .filter((p) => !APPENDED_IDS.includes(p.id))
+// Ordre explicite de la grille principale — chaque entrée peut surcharger l'image/nom
+const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; keySuffix?: string }[] = [
+  { id: "powerlov-discipline" }, // hero (dos)
+  { id: "powerlov-discipline", imageOverride: "powerlov-discipline-front", nameOverride: "DISCIPLINE IS MY LUXURY", keySuffix: "-front" },
+  { id: "powerlov-sacred-heart-hoodie" }, // PERFECTLY IMPERFECT — café
+  { id: "powerlov-if-god-dj-frequency" }, // PRETTY. SMART. DANGEROUS. — femme de face
+  { id: "powerlov-god-is-a-dancer" },
+];
+
+const orderedBase: ProductCard[] = BASE_ORDER.flatMap((entry) => {
+  const p = standardProducts.find((sp) => sp.id === entry.id);
+  if (!p) return [];
+  const card = buildCard(p);
+  if (!card) return [];
+  if (entry.imageOverride) card.image = resolveProductImage(entry.imageOverride);
+  if (entry.nameOverride) card.name = entry.nameOverride;
+  if (entry.keySuffix) return [{ ...card, gridKey: `${card.id}${entry.keySuffix}` } as ProductCard];
+  return [card];
+});
+
+const orderedBaseIds = new Set(BASE_ORDER.map((e) => e.id));
+const remainingBase: ProductCard[] = standardProducts
+  .filter((p) => !APPENDED_IDS.includes(p.id) && !orderedBaseIds.has(p.id))
   .flatMap((p) => {
     const card = buildCard(p);
     return card ? [card] : [];
   });
+
+const baseProducts: ProductCard[] = [...orderedBase, ...remainingBase];
 
 const appendedProducts: ProductCard[] = APPENDED_IDS.flatMap((id) => {
   const p = standardProducts.find((sp) => sp.id === id);
@@ -172,6 +195,7 @@ const appendedProducts: ProductCard[] = APPENDED_IDS.flatMap((id) => {
 });
 
 const products: ProductCard[] = [...baseProducts, ...appendedProducts];
+
 
 
 const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
