@@ -124,7 +124,7 @@ export const standardProducts: Product[] = [
     details: 'Le même emblème, capuche relevée. Une silhouette de rue, une présence affirmée.',
     image: 'powerlov-sacred-heart-hoodie-street-front',
     detailImage: 'powerlov-perfectly-imperfect-hoodie-street-back',
-    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v4'],
+    gallery: ['powerlov-sacred-heart-hoodie-flat-cream-front', 'powerlov-sacred-heart-hoodie-flat-cream-back'],
     badge: 'UNISEX',
   },
   {
