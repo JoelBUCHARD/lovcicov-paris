@@ -56,7 +56,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-lovcicov-2019-bird-stairs"],
+    packshots: ["powerlov-lovcicov-2019-bird-stairs"],
   },
 
   "powerlov-sacred-heart-hoodie": {
@@ -96,7 +96,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
 const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
   "powerlov-standard-is-me-street-back": "ICONIC BY NATURE",
-  "powerlov-lovcicov-back-street-jeans": "PRETTY. SMART. DANGEROUS.",
   "powerlov-protected-aligned-unstoppable-editorial": "SACRED HEART",
   "powerlov-lovcicov-heart-pocket-studio": "HEART ICON",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
@@ -111,7 +110,6 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
 };
 
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
-  "powerlov-lovcicov-back-street-jeans": "T-shirt",
   "powerlov-lovcicov-2019-bird-stairs": "Sweat",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "Sweat",
