@@ -29,7 +29,7 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « CONNECTED. DISCIPLINED. EMPOWERED. ». Unisex.',
     details: 'Un manifeste porté : connectée, disciplinée, puissante.',
-    image: 'powerlov-lovcicov-cream-sweat-nyc-walking',
+    image: 'powerlov-lovcicov-cream-sweat-nyc-taxi',
     gallery: ['powerlov-my-own-muse-cream-flat-front', 'powerlov-my-own-muse-cream-flat-back'],
     badge: 'UNISEX',
   },
