@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle, X, ZoomIn } from 'lucide-react';
 import { Product, products as allProducts } from '@/data/products';
@@ -140,6 +140,17 @@ const ProductPage = ({ product }: Props) => {
     ? [product.image, ...product.gallery]
     : [product.image];
   const backLink = cfg.back;
+  const navigate = useNavigate();
+
+  // Force le retour navigateur (bouton back) vers la page éditoriale de l'univers.
+  useEffect(() => {
+    window.history.pushState({ __lovcicovBack: true }, '');
+    const onPop = () => {
+      navigate(cfg.back, { replace: true });
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [cfg.back, navigate]);
 
   useEffect(() => {
     setActiveImage(0);
