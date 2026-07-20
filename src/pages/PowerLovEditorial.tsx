@@ -124,6 +124,7 @@ const APPENDED_IDS = [
   "powerlov-lovcicov-2029-bird",
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
+  "powerlov-empowered",
 ];
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
