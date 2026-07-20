@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird-market.png.asset.json";
+import lifePorscheSaintDominique from "@/assets/mystic-crewneck-love-noir-man-street.png.asset.json";
 
 
 
@@ -467,7 +467,7 @@ const PowerLovEditorial = () => {
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            style={{ objectPosition: "center 30%" }}
+                            style={{ objectPosition: "center 20%" }}
                           />
                         </div>
                         <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
