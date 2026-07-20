@@ -361,8 +361,6 @@ const PowerLovEditorial = () => {
           `}</style>
           {(() => {
             const visibleItems = gridItems.filter((item, i) => {
-              if (item.product.id === "powerlov-god-is-a-dj") return false;
-              if (item.kind === "packshot" && item.product.id === "powerlov-energy-never-lies-hoodie") return false;
               // Index-based trims only apply to the "Tout voir" layout
               if (category === "all" && (i === 12 || i === 10 || i === 15 || i === 16)) return false;
               return true;
