@@ -194,6 +194,18 @@ export const standardProducts: Product[] = [
     badge: 'UNISEX',
   },
   {
+    id: 'powerlov-my-own-muse',
+    shopifyHandle: 't-shirt-powerlov',
+    name: 'MY OWN MUSE',
+    price: 59,
+    collection: 'standard',
+    subcategory: 'tshirt',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MY OWN MUSE ». Unisex.',
+    details: 'Sa propre muse. Sa propre source. Sa propre lumière.',
+    image: 'powerlov-my-own-muse-street',
+    badge: 'UNISEX',
+  },
+  {
     id: 'powerlov-lovcicov-heart-tee',
     shopifyHandle: 't-shirt-powerlov',
     name: 'LOVCICOV',
