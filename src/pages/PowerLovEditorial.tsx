@@ -458,7 +458,7 @@ const PowerLovEditorial = () => {
                   className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
                   style={{ maxWidth: 1400 }}
                 >
-                  {baseItems.map((item, i) => renderCard(item, i, {}))}
+                  {baseItems.map((item, i) => renderCard(item, i, { total: baseItems.length }))}
                 </div>
                 {appendedItems.length > 0 && (
                   <div
