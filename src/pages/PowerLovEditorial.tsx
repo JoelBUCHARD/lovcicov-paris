@@ -439,7 +439,7 @@ const PowerLovEditorial = () => {
                         className="font-light"
                         style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
                       >
-                        {isProduct ? product.typeLabel : (POWERLOV_IMAGE_TYPE_LABELS[item.image] ?? product.typeLabel)}
+                        {POWERLOV_IMAGE_TYPE_LABELS[item.image] ?? product.typeLabel}
                       </p>
                       <h3
                         className="text-[#0D0D0D] font-light"
