@@ -368,7 +368,7 @@ const PowerLovEditorial = () => {
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isAppended
-                ? "col-span-1 self-start"
+                ? "col-span-1 h-full"
                 : isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : isLandscape
@@ -392,7 +392,7 @@ const PowerLovEditorial = () => {
                       prefetchImage(image);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
-                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${shouldFillCell ? "h-full" : ""}`}
+                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${shouldFillCell || isAppended ? "h-full" : ""}`}
                   >
                     <div
                       className={`relative w-full overflow-hidden ${shouldFillCell ? "flex-1" : ""}`}
@@ -450,11 +450,11 @@ const PowerLovEditorial = () => {
                 </div>
                 {appendedItems.length > 0 && (
                   <div
-                    className="mx-auto grid gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start grid-cols-2 md:grid-cols-4"
+                    className="mx-auto grid gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-stretch grid-cols-2 md:grid-cols-4"
                     style={{ maxWidth: 1400 }}
                   >
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
-                    <div className="col-span-1 self-start">
+                    <div className="col-span-1 h-full">
                       <Link
                         to="/shop/mystic-tshirt-noir"
                         onMouseEnter={() => prefetchRoute("/shop/item")}
