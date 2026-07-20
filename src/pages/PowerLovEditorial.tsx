@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import lifePorscheSaintDominique from "@/assets/mystic-crewneck-love-noir-man-street.png.asset.json";
+import lifePorscheSaintDominique from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird-market.png.asset.json";
 
 
 
@@ -456,18 +456,18 @@ const PowerLovEditorial = () => {
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
                     <div className="col-span-1 h-full">
                       <Link
-                        to="/shop/mystic-crewneck-noir"
+                        to="/shop/powerlov-lovcicov-2019-bird"
                         onMouseEnter={() => prefetchRoute("/shop/item")}
                         className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                       >
                         <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
                           <img
                             src={closingImage}
-                            alt="Crewneck Love MysticLov"
+                            alt="Sweat LOVCICOV 2019 Bird"
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            style={{ objectPosition: "center 20%" }}
+                            style={{ objectPosition: "center 30%" }}
                           />
                         </div>
                         <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
@@ -475,10 +475,10 @@ const PowerLovEditorial = () => {
                             Sweat
                           </p>
                           <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
-                            Crewneck Love
+                            LOVCICOV 2019 Bird
                           </h3>
                           <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                            €120
+                            €109
                           </p>
                         </div>
                       </Link>
