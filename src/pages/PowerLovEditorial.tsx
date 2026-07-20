@@ -161,11 +161,18 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
 
 // Ordre explicite de la grille principale — chaque entrée peut surcharger l'image/nom
 const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; keySuffix?: string }[] = [
+  // Bloc 1 — hero à gauche
   { id: "powerlov-discipline" }, // hero (dos)
   { id: "powerlov-discipline", imageOverride: "powerlov-discipline-front", nameOverride: "DISCIPLINE IS MY LUXURY", keySuffix: "-front" },
   { id: "powerlov-sacred-heart-hoodie" }, // PERFECTLY IMPERFECT — café
   { id: "powerlov-if-god-dj-frequency" }, // PRETTY. SMART. DANGEROUS. — femme de face
   { id: "powerlov-god-is-a-dancer" },
+  // Bloc 2 — hero à droite
+  { id: "powerlov-protected-aligned-unstoppable" }, // hero droite — T-shirt
+  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-lovcicov-sacred-heart-stairs-red-boots", nameOverride: "SACRED HEART", keySuffix: "-stairs" },
+  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-sweat-white-back-lovcicov", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-back" },
+  { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
+  { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
 ];
 
 const orderedBase: ProductCard[] = BASE_ORDER.flatMap((entry) => {
