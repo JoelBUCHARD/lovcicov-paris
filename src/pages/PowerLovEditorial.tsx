@@ -57,9 +57,9 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-sacred-heart-hoodie-cafe-croissant",
     packshots: ["powerlov-perfectly-imperfect-hoodie-cream-front-v2", "powerlov-perfectly-imperfect-hoodie-cream-back-v2"],
   },
-  "powerlov-less-drama-champagne": {
-    image: "powerlov-less-drama-champagne-rue-de-seine",
-    packshots: ["powerlov-less-drama-champagne-flat-white-front", "powerlov-less-drama-champagne-flat-white-back"],
+  "powerlov-lovcicov-2019-bird": {
+    image: "powerlov-lovcicov-2019-bird-cream-doorstep",
+    packshots: [],
   },
   "powerlov-mom-boss-crisis-manager": {
     image: "powerlov-lovcicov-heart-pocket-studio",
@@ -111,11 +111,13 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-less-drama-champagne-flat-white-front": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-less-drama-champagne-flat-white-back": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
+  "powerlov-lovcicov-2019-bird-cream-doorstep": "LOVCICOV 2019 BIRD",
 };
 
 // Type label overrides (per image key) — for cases where the shown visual differs from the product's subcategory
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
+  "powerlov-lovcicov-2019-bird-cream-doorstep": "Sweat",
   "powerlov-standard-is-me-street-back": "Sweat",
   "powerlov-standard-is-me-sweat-white-front-pretty": "Sweat",
   "powerlov-standard-is-me-sweat-white-back-lovcicov": "Sweat",
@@ -189,6 +191,9 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-street-back", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-njarrow" },
   { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
   { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
+  // Bloc 3 — rangée de 3
+  { id: "powerlov-lovcicov-2019-bird" }, // LOVCICOV 2019 BIRD — assise sur marches
+
 ];
 
 const orderedBase: ProductCard[] = BASE_ORDER.flatMap((entry) => {
@@ -420,8 +425,8 @@ const PowerLovEditorial = () => {
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
               const uniformMode = category !== "all";
-              const isHero = !uniformMode && !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = !uniformMode && !isAppended && opts.total !== undefined && i === opts.total - 1 && i % 5 !== 0;
+              const isHero = !uniformMode && !isAppended && isProduct && i % 5 === 0 && i < 10;
+              const isLandscape = !uniformMode && !isAppended && opts.total !== undefined && i === opts.total - 1 && i % 5 !== 0 && i < 10;
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const isMobileLastOdd = !isAppended && opts.total !== undefined && i === opts.total - 1 && opts.total % 2 === 1 && !isHero && !isLandscape;
