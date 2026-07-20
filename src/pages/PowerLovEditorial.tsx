@@ -361,11 +361,8 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           {(() => {
-            const visibleItems = gridItems.filter((item, i) => {
-              // Index-based trims only apply to the "Tout voir" layout
-              if (category === "all" && (i === 12 || i === 10 || i === 15)) return false;
-              return true;
-            });
+            const visibleItems = gridItems;
+
             const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
             const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
 
