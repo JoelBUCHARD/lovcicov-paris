@@ -158,6 +158,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
     image: 'powerlov-lovcicov-heart-pocket-studio',
+    gallery: ['powerlov-lovcicov-tshirt-white-flat-front', 'powerlov-lovcicov-tshirt-white-flat-back'],
     badge: 'UNISEX',
   },
   {
