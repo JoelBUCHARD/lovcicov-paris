@@ -392,7 +392,7 @@ const PowerLovEditorial = () => {
                       prefetchImage(image);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
-                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${shouldFillCell ? "h-full" : ""}`}
+                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${shouldFillCell || isAppended ? "h-full" : ""}`}
                   >
                     <div
                       className={`relative w-full overflow-hidden ${shouldFillCell ? "flex-1" : ""}`}
