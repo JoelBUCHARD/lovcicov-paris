@@ -174,7 +174,7 @@ const appendedProducts: ProductCard[] = APPENDED_IDS.flatMap((id) => {
 const products: ProductCard[] = [...baseProducts, ...appendedProducts];
 
 
-const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
+const heroImage = resolveProductImage("powerlov-standard-is-me-street-back") || products[0]?.image || "";
 const closingImage = lifePorscheSaintDominique.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
