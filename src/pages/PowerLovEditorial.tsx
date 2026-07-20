@@ -122,7 +122,6 @@ const APPENDED_IDS = [
   "powerlov-empowered",
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
-  "powerlov-god-is-a-dj",
 ];
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
