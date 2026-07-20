@@ -110,6 +110,10 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-lovcicov-hoodie-cap-studio": "STANDARD IS ME",
 };
 
+const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
+  "powerlov-lovcicov-back-street-jeans": "T-shirt",
+};
+
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
 const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[imageKey] ?? cleanProductName(fallback);
 
