@@ -124,6 +124,9 @@ const APPENDED_IDS = [
   "powerlov-energy-never-lies-hoodie",
 ];
 
+// Produits affichés uniquement comme visuel décoratif (non cliquables, non achetables)
+const DISPLAY_ONLY_IDS = new Set<string>(["powerlov-my-own-muse"]);
+
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
   if (!selectedImages) return null;
@@ -403,6 +406,8 @@ const PowerLovEditorial = () => {
 
 
 
+              const isDisplayOnly = DISPLAY_ONLY_IDS.has(product.id);
+
               return (
                 <motion.div
                   key={key}
@@ -412,6 +417,24 @@ const PowerLovEditorial = () => {
                   transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
                   className={spanClass}
                 >
+                  {isDisplayOnly ? (
+                    <div className={`flex flex-col ${(shouldFillCell || isAppended) ? "md:h-full" : ""}`}>
+                      <div
+                        className={`relative w-full overflow-hidden ${aspectClass} ${shouldFillCell ? "md:flex-1" : ""} ${isLandscape ? "md:![aspect-ratio:8/5]" : ""}`}
+                        style={{ backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7" }}
+                      >
+                        <img
+                          src={image}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover"
+                          style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
+                        />
+                      </div>
+                      <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }} aria-hidden />
+                    </div>
+                  ) : (
                   <Link
                     to={`/shop/${productId}`}
                     state={{ from, imageOverride: image }}
@@ -458,6 +481,7 @@ const PowerLovEditorial = () => {
                     </div>
 
                   </Link>
+                  )}
                 </motion.div>
               );
             };
