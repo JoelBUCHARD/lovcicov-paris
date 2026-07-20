@@ -104,7 +104,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-perfectly-imperfect-hoodie-street-back": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-flat-white-front-v3": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3": "PERFECTLY IMPERFECT",
-  "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
+  "powerlov-lovcicov-heart-tee-paris-street": "HEART SIGNATURE",
   "powerlov-lovcicov-heart-tee-paris-street-sunglasses": "HEART SIGNATURE",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "PERFECTLY IMPERFECT",
   "powerlov-lovcicov-hoodie-cap-studio": "STANDARD IS ME",
