@@ -476,7 +476,7 @@ const PowerLovEditorial = () => {
                 >
                   {baseItems.map((item, i) => renderCard(item, i, { total: baseItems.length }))}
                 </div>
-                {appendedItems.length > 0 && (
+                {category === "all" && appendedItems.length > 0 && (
                   <div
                     className="mx-auto grid gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-stretch grid-cols-2 md:grid-cols-4"
                     style={{ maxWidth: 1400 }}
