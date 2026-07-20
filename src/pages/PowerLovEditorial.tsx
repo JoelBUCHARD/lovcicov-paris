@@ -117,6 +117,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
 // Type label overrides (per image key) — for cases where the shown visual differs from the product's subcategory
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
+  "powerlov-lovcicov-2019-bird-cream-doorstep": "Sweat",
   "powerlov-standard-is-me-street-back": "Sweat",
   "powerlov-standard-is-me-sweat-white-front-pretty": "Sweat",
   "powerlov-standard-is-me-sweat-white-back-lovcicov": "Sweat",
