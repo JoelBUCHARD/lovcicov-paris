@@ -393,7 +393,7 @@ const PowerLovEditorial = () => {
               const image = isProduct ? product.image : item.image;
               const cardName = isProduct ? product.name : item.name;
               const productId = isProduct ? product.id : item.productId ?? product.id;
-              const key = isProduct ? product.id : `${product.id}-packshot-${item.imageIndex}`;
+              const key = isProduct ? (product.gridKey ?? `${product.id}-${i}`) : `${product.id}-packshot-${item.imageIndex}-${i}`;
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
               const uniformMode = category !== "all";
