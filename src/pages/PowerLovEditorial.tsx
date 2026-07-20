@@ -57,9 +57,9 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-sacred-heart-hoodie-cafe-croissant",
     packshots: ["powerlov-perfectly-imperfect-hoodie-cream-front-v2", "powerlov-perfectly-imperfect-hoodie-cream-back-v2"],
   },
-  "powerlov-less-drama-champagne": {
-    image: "powerlov-less-drama-champagne-rue-de-seine",
-    packshots: ["powerlov-less-drama-champagne-flat-white-front", "powerlov-less-drama-champagne-flat-white-back"],
+  "powerlov-lovcicov-2019-bird": {
+    image: "powerlov-lovcicov-2019-bird-cream-doorstep",
+    packshots: [],
   },
   "powerlov-mom-boss-crisis-manager": {
     image: "powerlov-lovcicov-heart-pocket-studio",
