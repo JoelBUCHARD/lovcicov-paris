@@ -204,7 +204,7 @@ const MysticLovEditorial = () => {
             style={{ maxWidth: 1400 }}
           >
             {(() => { /* layout precompute happens inline below via closure */ return null; })()}
-            {filtered.map((product, i, arr) => {
+            {filtered.slice(0, Math.max(0, filtered.length - 2)).map((product, i, arr) => {
               // Precompute hero + landscape indices once (memoize via arr reference)
               // Using a lazy init pattern per render
               const layout = (arr as any).__mysticLayout ?? (() => {
@@ -324,9 +324,62 @@ const MysticLovEditorial = () => {
         {/* NEXT PRODUCT — aligned with product grid */}
         <section style={{ backgroundColor: "#FAF8F4", padding: "clamp(8px, 2vw, 20px) clamp(12px, 3vw, 40px) clamp(32px, 5vw, 64px)" }}>
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 items-stretch"
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 items-stretch"
             style={{ maxWidth: 1400 }}
           >
+            {filtered.slice(-2).map((product) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7 }}
+                className="col-span-1 h-full"
+              >
+                <Link
+                  to={`/shop/${product.id}`}
+                  state={{ from }}
+                  onMouseEnter={() => {
+                    prefetchRoute("/shop/item");
+                    prefetchImage(product.image);
+                    if (product.hover) prefetchImage(product.hover);
+                  }}
+                  onTouchStart={() => prefetchRoute("/shop/item")}
+                  className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                >
+                  <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                      decoding="async"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[700ms] ease-out ${product.hover ? "group-hover:opacity-0" : ""}`}
+                    />
+                    {product.hover && (
+                      <img
+                        src={product.hover}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[700ms] ease-out group-hover:opacity-100"
+                      />
+                    )}
+                  </div>
+                  <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
+                    <p className="font-light" style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}>
+                      {product.typeLabel}
+                    </p>
+                    <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
+                      {product.name}
+                    </h3>
+                    <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
+                      €{product.price}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
             <div className="col-span-1 h-full">
               <Link
                 to="/shop/mystic-hoodie-noir"
