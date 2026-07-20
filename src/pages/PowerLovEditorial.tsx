@@ -518,6 +518,8 @@ const PowerLovEditorial = () => {
         </section>
 
 
+        <JourneyContinuation current="power" />
+
         {/* TRUST BAND */}
         <section
           aria-label="Nos engagements"
@@ -547,8 +549,6 @@ const PowerLovEditorial = () => {
           </div>
         </section>
       </main>
-
-      <JourneyContinuation current="power" />
 
       <Footer />
     </div>
