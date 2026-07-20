@@ -55,7 +55,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PRETTY. SMART. DANGEROUS. ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
     image: 'powerlov-pretty-smart-dangerous-white-street',
-    gallery: ['powerlov-pretty-smart-dangerous-white-flat-front', 'powerlov-standard-is-me-tshirt-white-back'],
+    gallery: ['powerlov-pretty-smart-dangerous-white-flat-front', 'powerlov-pretty-smart-dangerous-white-flat-back'],
     badge: 'UNISEX',
   },
   {
@@ -108,7 +108,7 @@ export const standardProducts: Product[] = [
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-lovcicov-bird-door-lifestyle',
     detailImage: 'powerlov-sacred-heart-sweat-bird-stairs-main',
-    gallery: ['powerlov-standard-is-me-sweat-white-front-pretty', 'powerlov-standard-is-me-sweat-white-back-lovcicov'],
+    gallery: ['powerlov-sacred-heart-sweat-bird-cream-front', 'powerlov-sacred-heart-sweat-bird-cream-back'],
 
     badge: 'UNISEX',
   },
@@ -215,6 +215,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie cœur « LOVCICOV » en façade. Unisex.',
     details: 'Le cœur comme signature. Une pièce manifeste, portée comme une évidence.',
     image: 'powerlov-lovcicov-heart-tee-paris-street-sunglasses',
+    gallery: ['powerlov-lovcicov-heart-tee-white-flat-front', 'powerlov-lovcicov-heart-tee-white-flat-back'],
     badge: 'UNISEX',
   },
 ];
