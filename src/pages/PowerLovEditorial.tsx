@@ -106,6 +106,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
   "powerlov-lovcicov-heart-tee-paris-street-sunglasses": "LOVCICOV",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "SACRED HEART",
+  "powerlov-lovcicov-hoodie-cap-studio": "STANDARD IS ME",
 };
 
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
