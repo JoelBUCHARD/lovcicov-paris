@@ -124,7 +124,7 @@ export const standardProducts: Product[] = [
     details: 'Le même emblème, capuche relevée. Une silhouette de rue, une présence affirmée.',
     image: 'powerlov-sacred-heart-hoodie-street-front',
     detailImage: 'powerlov-perfectly-imperfect-hoodie-street-back',
-    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v3'],
+    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v4'],
     badge: 'UNISEX',
   },
   {
@@ -137,7 +137,7 @@ export const standardProducts: Product[] = [
     description: 'Sweat à capuche coton molletonné. Sérigraphie « ENERGY NEVER LIES ». Unisex.',
     details: 'Ce que l\'on dégage ne ment jamais.',
     image: 'powerlov-perfectly-imperfect-hoodie-street-back',
-    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v3'],
+    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v4'],
     badge: 'UNISEX',
   },
   {
