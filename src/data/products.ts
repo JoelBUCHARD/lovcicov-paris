@@ -30,7 +30,6 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « CONNECTED. DISCIPLINED. EMPOWERED. ». Unisex.',
     details: 'Un manifeste porté : connectée, disciplinée, puissante.',
     image: 'powerlov-lovcicov-cream-sweat-nyc-walking-v2',
-    gallery: ['powerlov-my-own-muse-cream-flat-front', 'powerlov-my-own-muse-cream-flat-back'],
     badge: 'UNISEX',
   },
   {
@@ -191,18 +190,6 @@ export const standardProducts: Product[] = [
     image: 'powerlov-bottomwide-lovcicov-2019-bird-market',
     detailImage: 'powerlov-lovcicov-2019-bird-stairs-detail',
     gallery: ['powerlov-lovcicov-2019-bird-cream-front-v2', 'powerlov-lovcicov-2019-bird-cream-back-v2'],
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-my-own-muse',
-    shopifyHandle: 't-shirt-powerlov',
-    name: 'MY OWN MUSE',
-    price: 59,
-    collection: 'standard',
-    subcategory: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MY OWN MUSE ». Unisex.',
-    details: 'Sa propre muse. Sa propre source. Sa propre lumière.',
-    image: 'powerlov-my-own-muse-street',
     badge: 'UNISEX',
   },
   {

@@ -42,10 +42,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-grid-god-is-a-dancer",
     packshots: [],
   },
-  "powerlov-my-own-muse": {
-    image: "powerlov-my-own-muse-street",
-    packshots: [],
-  },
   "powerlov-lovcicov-heart-tee": {
     image: "powerlov-lovcicov-heart-tee-paris-street-sunglasses",
     packshots: [],
@@ -123,9 +119,6 @@ const APPENDED_IDS = [
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
 ];
-
-// Produits affichés uniquement comme visuel décoratif (non cliquables, non achetables)
-const DISPLAY_ONLY_IDS = new Set<string>(["powerlov-my-own-muse"]);
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
@@ -402,12 +395,6 @@ const PowerLovEditorial = () => {
                 ? "aspect-[4/5] md:aspect-auto"
                 : "aspect-[4/5]";
 
-
-
-
-
-              const isDisplayOnly = DISPLAY_ONLY_IDS.has(product.id);
-
               return (
                 <motion.div
                   key={key}
@@ -417,24 +404,6 @@ const PowerLovEditorial = () => {
                   transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
                   className={spanClass}
                 >
-                  {isDisplayOnly ? (
-                    <div className={`flex flex-col ${(shouldFillCell || isAppended) ? "md:h-full" : ""}`}>
-                      <div
-                        className={`relative w-full overflow-hidden ${aspectClass} ${shouldFillCell ? "md:flex-1" : ""} ${isLandscape ? "md:![aspect-ratio:8/5]" : ""}`}
-                        style={{ backgroundColor: image.includes("cream-sweat-nyc-street") ? "#FAF8F4" : "#F0EDE7" }}
-                      >
-                        <img
-                          src={image}
-                          alt=""
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover"
-                          style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : undefined}
-                        />
-                      </div>
-                      <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }} aria-hidden />
-                    </div>
-                  ) : (
                   <Link
                     to={`/shop/${productId}`}
                     state={{ from, imageOverride: image }}
@@ -457,7 +426,7 @@ const PowerLovEditorial = () => {
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
-                        style={image.includes("my-own-muse") ? { objectPosition: "center 20%" } : image.includes("cream-sweat-nyc-walking") ? { objectPosition: "center 30%", transform: "scale(1.25)", transformOrigin: "center 30%" } : undefined}
+                        style={image.includes("cream-sweat-nyc-walking") ? { objectPosition: "center 30%", transform: "scale(1.25)", transformOrigin: "center 30%" } : undefined}
 
                       />
                     </div>
@@ -481,7 +450,6 @@ const PowerLovEditorial = () => {
                     </div>
 
                   </Link>
-                  )}
                 </motion.div>
               );
             };
