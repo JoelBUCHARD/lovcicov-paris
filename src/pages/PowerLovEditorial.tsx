@@ -76,7 +76,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     packshots: [],
   },
   "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-walking",
+    image: "powerlov-lovcicov-cream-sweat-nyc-taxi",
     packshots: [],
   },
   "powerlov-bold-badass-tee": {
@@ -98,7 +98,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-standard-is-me-street-back": "STANDARD IS ME",
   "powerlov-lovcicov-back-street-jeans": "LOVCICOV PARIS",
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
-  "powerlov-lovcicov-cream-sweat-nyc-walking": "LOVCICOV PARIS",
+  "powerlov-lovcicov-cream-sweat-nyc-taxi": "LOVCICOV PARIS",
   "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-perfectly-imperfect-hoodie-brick": "PERFECTLY IMPERFECT",
   "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
