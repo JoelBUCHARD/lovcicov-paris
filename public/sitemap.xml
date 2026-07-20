@@ -211,6 +211,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/shop/powerlov-lovcicov-2019-bird</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/sweat-powerlov</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-my-own-muse</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
