@@ -107,9 +107,9 @@ export const standardProducts: Product[] = [
     subcategory: 'crewneck',
     description: 'Sweat-shirt coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
-    image: 'powerlov-my-own-muse-street-v2',
-    detailImage: 'powerlov-my-own-muse-cream-door',
-    gallery: ['powerlov-my-own-muse-cream-flat-front', 'powerlov-my-own-muse-cream-flat-back'],
+    image: 'powerlov-lovcicov-bird-door-lifestyle',
+    detailImage: 'powerlov-lovcicov-bird-door-lifestyle',
+    gallery: ['powerlov-lovcicov-bird-cream-flat-front', 'powerlov-lovcicov-bird-cream-flat-back'],
 
     badge: 'UNISEX',
   },
