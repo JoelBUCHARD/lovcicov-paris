@@ -478,7 +478,13 @@ const PowerLovEditorial = () => {
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
-                        style={image.includes("cream-sweat-nyc-walking") ? { objectPosition: "center 30%", transform: "scale(1.25)", transformOrigin: "center 30%" } : undefined}
+                        style={
+                          image.includes("cream-sweat-nyc-walking")
+                            ? { objectPosition: "center 30%", transform: "scale(1.25)", transformOrigin: "center 30%" }
+                            : image.includes("lovcicov-2019-bird")
+                            ? { objectPosition: "center 15%" }
+                            : undefined
+                        }
 
                       />
                     </div>
