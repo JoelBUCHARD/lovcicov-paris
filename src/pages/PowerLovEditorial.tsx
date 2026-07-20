@@ -52,11 +52,11 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
-    packshots: ["powerlov-protected-aligned-unstoppable-flat-cream-front-v2", "powerlov-protected-aligned-unstoppable-flat-cream-back-v2"],
+    packshots: ["powerlov-protected-aligned-unstoppable-editorial"],
   },
   "powerlov-sacred-heart-sweat": {
-    image: "powerlov-lovcicov-bird-door-lifestyle",
-    packshots: ["powerlov-standard-is-me-sweat-cream-front", "powerlov-standard-is-me-sweat-cream-back"],
+    image: "powerlov-standard-is-me-street-back",
+    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-lovcicov-2019-bird-stairs"],
   },
 
   "powerlov-sacred-heart-hoodie": {
@@ -96,11 +96,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
 const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
   "powerlov-standard-is-me-street-back": "STANDARD IS ME",
-  "powerlov-lovcicov-bird-door-lifestyle": "STANDARD IS ME",
-  "powerlov-standard-is-me-sweat-cream-front": "STANDARD IS ME",
-  "powerlov-standard-is-me-sweat-cream-back": "STANDARD IS ME",
-  "powerlov-protected-aligned-unstoppable-flat-cream-front-v2": "PROTECTED. ALIGNED. UNSTOPPABLE.",
-  "powerlov-protected-aligned-unstoppable-flat-cream-back-v2": "PROTECTED. ALIGNED. UNSTOPPABLE.",
   "powerlov-lovcicov-back-street-jeans": "LOVCICOV PARIS",
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV PARIS",
