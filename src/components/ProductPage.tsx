@@ -140,6 +140,17 @@ const ProductPage = ({ product }: Props) => {
     ? [product.image, ...product.gallery]
     : [product.image];
   const backLink = cfg.back;
+  const navigate = useNavigate();
+
+  // Force le retour navigateur (bouton back) vers la page éditoriale de l'univers.
+  useEffect(() => {
+    window.history.pushState({ __lovcicovBack: true }, '');
+    const onPop = () => {
+      navigate(cfg.back, { replace: true });
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, [cfg.back, navigate]);
 
   useEffect(() => {
     setActiveImage(0);
