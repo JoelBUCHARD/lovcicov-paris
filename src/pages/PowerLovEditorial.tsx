@@ -30,7 +30,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   "powerlov-discipline": {
     image: "powerlov-discipline-back",
     packshots: [
-      "powerlov-discipline-front",
       { image: "powerlov-sacred-heart-hoodie-cafe-croissant", productId: "powerlov-sacred-heart-hoodie" },
     ],
   },
