@@ -190,7 +190,7 @@ export const standardProducts: Product[] = [
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-bottomwide-lovcicov-2019-bird-market',
     detailImage: 'powerlov-lovcicov-2019-bird-stairs-detail',
-    gallery: ['powerlov-lovcicov-2019-bird-flat-cream-front', 'powerlov-lovcicov-2019-bird-flat-cream-back'],
+    gallery: ['powerlov-lovcicov-2019-bird-cream-front-v2', 'powerlov-lovcicov-2019-bird-cream-back-v2'],
     badge: 'UNISEX',
   },
   {
