@@ -463,7 +463,7 @@ const PowerLovEditorial = () => {
                         <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
                           <img
                             src={closingImage}
-                            alt="T-Shirt Love MysticLov"
+                            alt="Sweat Love MysticLov"
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -472,10 +472,10 @@ const PowerLovEditorial = () => {
                         </div>
                         <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                           <p className="font-light" style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}>
-                            T-shirt
+                            Sweat
                           </p>
                           <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
-                            T-Shirt Love
+                            Sweat Love
                           </h3>
                           <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
                             €70
