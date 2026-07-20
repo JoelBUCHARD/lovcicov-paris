@@ -76,7 +76,7 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     packshots: [],
   },
   "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-taxi",
+    image: "powerlov-lovcicov-cream-sweat-nyc-walking",
     packshots: [],
   },
   "powerlov-bold-badass-tee": {
@@ -98,7 +98,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-standard-is-me-street-back": "STANDARD IS ME",
   "powerlov-lovcicov-back-street-jeans": "LOVCICOV PARIS",
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
-  "powerlov-lovcicov-cream-sweat-nyc-taxi": "LOVCICOV PARIS",
+  "powerlov-lovcicov-cream-sweat-nyc-walking": "LOVCICOV PARIS",
   "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-perfectly-imperfect-hoodie-brick": "PERFECTLY IMPERFECT",
   "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
@@ -364,13 +364,15 @@ const PowerLovEditorial = () => {
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
               const isHero = !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = false;
+              const isLandscape = !isAppended && i === 9;
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isAppended
                 ? "col-span-1 h-full"
                 : isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : isLandscape
+                ? "col-span-2 md:col-span-2 self-start"
                 : "col-span-1 self-start";
 
               return (
