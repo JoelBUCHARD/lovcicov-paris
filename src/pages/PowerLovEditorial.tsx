@@ -29,46 +29,42 @@ const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-h
 const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (string | { image: string; productId: string })[] }> = {
   "powerlov-discipline": {
     image: "powerlov-discipline-back",
-    packshots: [
-      "powerlov-discipline-front",
-      { image: "powerlov-sacred-heart-hoodie-cafe-croissant", productId: "powerlov-sacred-heart-hoodie" },
-    ],
+    packshots: ["powerlov-discipline-front-white", "powerlov-discipline-back-white"],
   },
   "powerlov-if-god-dj-frequency": {
     image: "powerlov-pretty-smart-dangerous-white-street",
-    packshots: [],
+    packshots: ["powerlov-pretty-smart-dangerous-white-flat-front", "powerlov-pretty-smart-dangerous-white-flat-back"],
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
-    packshots: [],
-  },
-  "powerlov-lovcicov-heart-tee": {
-    image: "powerlov-lovcicov-heart-tee-paris-street-sunglasses",
-    packshots: [],
+    packshots: ["powerlov-god-is-a-dancer-flat-white-front", "powerlov-god-is-a-dancer-flat-white-back"],
   },
   "powerlov-protected-aligned-unstoppable": {
     image: "powerlov-protected-aligned-unstoppable-street",
-    packshots: ["powerlov-protected-aligned-unstoppable-editorial"],
+    packshots: ["powerlov-protected-aligned-unstoppable-flat-cream-front-v2", "powerlov-protected-aligned-unstoppable-flat-cream-back-v2"],
   },
   "powerlov-sacred-heart-sweat": {
     image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-lovcicov-2019-bird-stairs"],
+    packshots: ["powerlov-standard-is-me-sweat-white-front-pretty", "powerlov-standard-is-me-sweat-white-back-lovcicov"],
   },
-
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-street-front",
-    packshots: ["powerlov-lovcicov-hoodie-cap-studio"],
+    packshots: ["powerlov-perfectly-imperfect-hoodie-cream-front-v2", "powerlov-perfectly-imperfect-hoodie-cream-back-v2"],
   },
   "powerlov-less-drama-champagne": {
-    image: "powerlov-less-drama-more-champagne-street",
-    packshots: [],
-  },
-  "powerlov-lovcicov-2029-bird": {
-    image: "powerlov-lovcicov-2029-bird-nyc-street",
-    packshots: [],
+    image: "powerlov-less-drama-champagne-rue-de-seine",
+    packshots: ["powerlov-less-drama-champagne-flat-white-front", "powerlov-less-drama-champagne-flat-white-back"],
   },
   "powerlov-mom-boss-crisis-manager": {
     image: "powerlov-lovcicov-heart-pocket-studio",
+    packshots: ["powerlov-lovcicov-tshirt-white-flat-front", "powerlov-lovcicov-tshirt-white-flat-back"],
+  },
+  "powerlov-lovcicov-heart-tee": {
+    image: "powerlov-lovcicov-heart-tee-paris-street-sunglasses",
+    packshots: ["powerlov-lovcicov-heart-tee-white-flat-front", "powerlov-lovcicov-heart-tee-white-flat-back"],
+  },
+  "powerlov-lovcicov-2029-bird": {
+    image: "powerlov-lovcicov-2029-bird-nyc-street",
     packshots: [],
   },
   "powerlov-empowered": {
@@ -85,30 +81,38 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
 };
 
+// Card name overrides (per image key) — used when the product's own name should not be shown
 const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
+  "powerlov-pretty-smart-dangerous-white-flat-front": "PRETTY. SMART. DANGEROUS.",
+  "powerlov-pretty-smart-dangerous-white-flat-back": "PRETTY. SMART. DANGEROUS.",
   "powerlov-standard-is-me-street-back": "ICONIC BY NATURE",
-  "powerlov-lovcicov-back-street-jeans": "PRETTY. SMART. DANGEROUS.",
-  "powerlov-protected-aligned-unstoppable-editorial": "SACRED HEART",
-  "powerlov-lovcicov-heart-pocket-studio": "HEART ICON",
-  "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
-  "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
+  "powerlov-standard-is-me-sweat-white-front-pretty": "ICONIC BY NATURE",
+  "powerlov-standard-is-me-sweat-white-back-lovcicov": "ICONIC BY NATURE",
+  "powerlov-sacred-heart-hoodie-street-front": "PERFECTLY IMPERFECT",
+  "powerlov-perfectly-imperfect-hoodie-cream-front-v2": "PERFECTLY IMPERFECT",
+  "powerlov-perfectly-imperfect-hoodie-cream-back-v2": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-street-back": "PERFECTLY IMPERFECT",
-  "powerlov-perfectly-imperfect-hoodie-flat-white-front-v3": "PERFECTLY IMPERFECT",
-  "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3": "PERFECTLY IMPERFECT",
-  "powerlov-lovcicov-heart-tee-paris-street": "HEART SIGNATURE",
+  "powerlov-lovcicov-heart-pocket-studio": "HEART ICON",
+  "powerlov-lovcicov-tshirt-white-flat-front": "HEART ICON",
+  "powerlov-lovcicov-tshirt-white-flat-back": "HEART ICON",
   "powerlov-lovcicov-heart-tee-paris-street-sunglasses": "HEART SIGNATURE",
-  "powerlov-sacred-heart-hoodie-cafe-croissant": "PERFECTLY IMPERFECT",
-  "powerlov-lovcicov-hoodie-cap-studio": "STANDARD IS ME",
+  "powerlov-lovcicov-heart-tee-white-flat-front": "HEART SIGNATURE",
+  "powerlov-lovcicov-heart-tee-white-flat-back": "HEART SIGNATURE",
+  "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
+  "powerlov-less-drama-champagne-flat-white-front": "LESS DRAMA. MORE CHAMPAGNE.",
+  "powerlov-less-drama-champagne-flat-white-back": "LESS DRAMA. MORE CHAMPAGNE.",
+  "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
 };
 
+// Type label overrides (per image key) — for cases where the shown visual differs from the product's subcategory
 const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
-  "powerlov-lovcicov-back-street-jeans": "T-shirt",
-  "powerlov-lovcicov-2019-bird-stairs": "Sweat",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
-  "powerlov-sacred-heart-hoodie-cafe-croissant": "Sweat",
-  "powerlov-standard-is-me-street-back": "Sweat capuche",
+  "powerlov-standard-is-me-street-back": "Sweat",
+  "powerlov-standard-is-me-sweat-white-front-pretty": "Sweat",
+  "powerlov-standard-is-me-sweat-white-back-lovcicov": "Sweat",
 };
+
 
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
 const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[imageKey] ?? cleanProductName(fallback);
@@ -357,11 +361,8 @@ const PowerLovEditorial = () => {
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
           `}</style>
           {(() => {
-            const visibleItems = gridItems.filter((item, i) => {
-              // Index-based trims only apply to the "Tout voir" layout
-              if (category === "all" && (i === 12 || i === 10 || i === 15)) return false;
-              return true;
-            });
+            const visibleItems = gridItems;
+
             const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
             const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
 
