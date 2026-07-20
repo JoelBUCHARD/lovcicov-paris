@@ -190,6 +190,7 @@ export const standardProducts: Product[] = [
     image: 'powerlov-bottomwide-lovcicov-2019-bird-market',
     gallery: ['powerlov-lovcicov-2019-bird-market-street'],
     badge: 'UNISEX',
+  },
   {
     id: 'powerlov-my-own-muse',
     shopifyHandle: 't-shirt-powerlov',
