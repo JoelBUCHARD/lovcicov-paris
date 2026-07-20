@@ -211,7 +211,7 @@ const PowerLovEditorial = () => {
 
   const gridItems: GridItem[] = useMemo(() => {
     const items: GridItem[] = [];
-    const showPackshots = category === "all";
+    const showPackshots = false;
     filtered.forEach((product, i) => {
       items.push({ kind: "product", product, index: i, emphasis: "standard" });
       if (!showPackshots) return;
@@ -409,7 +409,7 @@ const PowerLovEditorial = () => {
                 >
                   <Link
                     to={`/shop/${productId}`}
-                    state={{ from, imageOverride: image }}
+                    state={{ from }}
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
                       prefetchImage(image);
