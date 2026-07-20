@@ -202,9 +202,9 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Sweat crewneck coton molletonné écru. Sérigraphie emblème colombe « LOVCICOV 2019 PARIS ». Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
-    image: 'powerlov-bottomwide-lovcicov-2019-bird-market',
-    detailImage: 'powerlov-lovcicov-2019-bird-stairs-detail',
-    gallery: ['powerlov-lovcicov-2019-bird-cream-front-v2', 'powerlov-lovcicov-2019-bird-cream-back-v2'],
+    image: 'powerlov-lovcicov-2019-bird-market-back-walking',
+    detailImage: 'powerlov-lovcicov-2019-bird-market-back-walking',
+    gallery: ['powerlov-lovcicov-2019-bird-my-own-muse-front', 'powerlov-lovcicov-2019-bird-cream-back-packshot'],
     badge: 'UNISEX',
   },
   {
