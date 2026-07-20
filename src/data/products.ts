@@ -69,6 +69,7 @@ export const standardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. ». Unisex.',
     details: 'Sans filtre. Sans excuse. Sans compromis.',
     image: 'powerlov-less-drama-champagne-rue-de-seine',
+    gallery: ['powerlov-less-drama-champagne-flat-white-front', 'powerlov-less-drama-champagne-flat-white-back'],
     badge: 'UNISEX',
   },
   {
