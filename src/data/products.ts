@@ -26,7 +26,7 @@ export const standardProducts: Product[] = [
     name: 'LOVCICOV PARIS',
     price: 59,
     collection: 'standard',
-    subcategory: 'tshirt',
+    subcategory: 'crewneck',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « CONNECTED. DISCIPLINED. EMPOWERED. ». Unisex.',
     details: 'Un manifeste porté : connectée, disciplinée, puissante.',
     image: 'powerlov-lovcicov-cream-sweat-nyc-taxi',
