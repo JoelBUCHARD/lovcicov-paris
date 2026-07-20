@@ -467,7 +467,7 @@ const PowerLovEditorial = () => {
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            style={{ objectPosition: "center 30%" }}
+                            style={{ objectPosition: "center 20%" }}
                           />
                         </div>
                         <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
