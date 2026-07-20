@@ -194,13 +194,41 @@ const StoneLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => {
+            {filtered.map((product, i, arr) => {
+              const layout = (arr as any).__stoneLayout ?? (() => {
+                const heroSet = new Set<number>();
+                if (category === "all") {
+                  for (let k = 0; k < arr.length; k += 5) {
+                    if (arr.length - k >= 7) heroSet.add(k);
+                  }
+                }
+                const H = heroSet.size;
+                const cells = 3 * H + arr.length;
+                const rem = cells % 4;
+                const landSet = new Set<number>();
+                const promote = (n: number) => {
+                  let c = 0;
+                  for (let k = arr.length - 1; k >= 0 && c < n; k--) {
+                    if (!heroSet.has(k)) { landSet.add(k); c++; }
+                  }
+                };
+                if (rem === 2) promote(2);
+                else if (rem === 3) promote(1);
+                else if (rem === 1) promote(3);
+                const data = { heroSet, landSet };
+                (arr as any).__stoneLayout = data;
+                return data;
+              })();
               const heroIndex = Math.floor(i / 5);
-              const isHero = category === "all" && i % 5 === 0;
+              const isHero = layout.heroSet.has(i);
+              const isLandscape = !isHero && layout.landSet.has(i);
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : isLandscape
+                ? "col-span-2 md:col-span-2 self-start"
                 : "col-span-1 self-start";
+
 
               return (
                 <motion.div
