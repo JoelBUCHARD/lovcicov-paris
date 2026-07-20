@@ -387,11 +387,8 @@ const PowerLovEditorial = () => {
                 ? "aspect-[4/5] md:aspect-auto"
                 : "aspect-[4/5]";
 
-              const desktopAspectStyle = isHero
-                ? undefined
-                : isLandscape
-                ? { md: "8 / 5" }
-                : undefined;
+
+
 
               return (
                 <motion.div
