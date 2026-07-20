@@ -488,8 +488,8 @@ const PowerLovEditorial = () => {
                 {appendedItems.length > 0 && (
                   <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)", marginBottom: "clamp(48px, 8vw, 96px)" }}>
                     <Link
-                      to="/mysticlov"
-                      onMouseEnter={() => prefetchRoute("/mysticlov")}
+                      to="/shop"
+                      onMouseEnter={() => prefetchRoute("/shop")}
                       className="inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
                       style={{ backgroundColor: "#0D0D0D", color: "#FFFFFF", letterSpacing: "0.24em" }}
                       onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#2A2A2A"; }}
