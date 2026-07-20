@@ -107,7 +107,7 @@ export const standardProducts: Product[] = [
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-my-own-muse-street-v2',
     detailImage: 'powerlov-standard-is-me-back-street-njarrow',
-    gallery: ['powerlov-standard-is-me-hoodie-flat-cream-front', 'powerlov-standard-is-me-hoodie-flat-cream-back-v2'],
+    gallery: ['powerlov-standard-is-me-tshirt-white-front-v2', 'powerlov-standard-is-me-tshirt-white-back-v2'],
 
     badge: 'UNISEX',
   },
