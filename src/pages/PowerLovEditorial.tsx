@@ -132,11 +132,6 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
   if (!selectedImages) return null;
 
-  const cats: Exclude<Category, "all">[] = [];
-  if (p.subcategory === "tshirt") cats.push("tshirts");
-  if (p.subcategory === "hoodie" || p.subcategory === "crewneck") cats.push("sweats");
-  if (NEW_IDS.has(p.id)) cats.push("new");
-
   const packshots = selectedImages.packshots
     .map((packshot) => {
       const imageKey = typeof packshot === "string" ? packshot : packshot.image;
@@ -148,8 +143,16 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
     })
     .filter((packshot) => Boolean(packshot.image));
 
-  const typeLabel =
+  // Determine displayed type — image-level override wins over product subcategory
+  const overrideLabel = POWERLOV_IMAGE_TYPE_LABELS[selectedImages.image];
+  const baseTypeLabel =
     p.subcategory === "tshirt" ? "T-shirt" : p.subcategory === "hoodie" ? "Sweat capuche" : "Sweat";
+  const typeLabel = overrideLabel ?? baseTypeLabel;
+
+  const cats: Exclude<Category, "all">[] = [];
+  if (typeLabel === "T-shirt") cats.push("tshirts");
+  if (typeLabel === "Sweat" || typeLabel === "Sweat capuche") cats.push("sweats");
+  if (NEW_IDS.has(p.id)) cats.push("new");
 
   return {
     id: p.id,
