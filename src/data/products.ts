@@ -169,10 +169,10 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2019-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'LOVCICOV 2019 PARIS',
+    name: 'HEART SIGNATURE',
     price: 109,
     collection: 'standard',
-    subcategory: 'hoodie',
+    subcategory: 'tshirt',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-lovcicov-heart-tee-paris-street',
