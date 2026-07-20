@@ -170,7 +170,7 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   // Bloc 2 — hero à droite
   { id: "powerlov-protected-aligned-unstoppable" }, // hero droite — T-shirt
   { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-lovcicov-sacred-heart-stairs-red-boots", nameOverride: "SACRED HEART", keySuffix: "-stairs" },
-  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-sweat-white-back-lovcicov", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-back" },
+  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-street-back", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-njarrow" },
   { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
   { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
 ];
