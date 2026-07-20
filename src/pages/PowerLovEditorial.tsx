@@ -181,7 +181,7 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   { id: "powerlov-god-is-a-dancer" },
   // Bloc 2 — hero à droite
   { id: "powerlov-protected-aligned-unstoppable" }, // hero droite — T-shirt
-  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-iconic-stairs-red-boots", nameOverride: "ICONIC BY NATURE", keySuffix: "-stairs-red-boots" },
+  { id: "powerlov-iconic-by-nature-heart" }, // ICONIC BY NATURE — cœur (fiche produit distincte)
   { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-street-back", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-njarrow" },
   { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
   { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
