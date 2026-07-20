@@ -139,7 +139,7 @@ const ProductPage = ({ product }: Props) => {
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
     : [product.image];
-  const backLink = typeof location.state?.from === 'string' ? location.state.from : cfg.back;
+  const backLink = cfg.back;
 
   useEffect(() => {
     setActiveImage(0);
