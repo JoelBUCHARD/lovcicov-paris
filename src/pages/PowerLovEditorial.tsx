@@ -85,10 +85,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
   "powerlov-energy-never-lies-hoodie": {
     image: "powerlov-perfectly-imperfect-hoodie-street-back",
-    packshots: ["powerlov-perfectly-imperfect-hoodie-flat-white-front-v3", "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3"],
-  },
-  "powerlov-god-is-a-dj": {
-    image: "powerlov-lovcicov-2019-bird-market-street",
     packshots: [],
   },
 };
