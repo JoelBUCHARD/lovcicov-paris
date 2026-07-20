@@ -114,6 +114,7 @@ const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
   "powerlov-lovcicov-back-street-jeans": "Sweat",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "Sweat",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "Sweat",
+  "powerlov-standard-is-me-street-back": "Sweat capuche",
 };
 
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
