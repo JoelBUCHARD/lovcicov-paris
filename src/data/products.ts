@@ -101,7 +101,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'STANDARD IS ME',
+    name: 'ICONIC BY NATURE',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
