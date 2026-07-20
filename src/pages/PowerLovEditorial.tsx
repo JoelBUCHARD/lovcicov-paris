@@ -374,9 +374,9 @@ const PowerLovEditorial = () => {
               const spanClass = isAppended
                 ? "col-span-1 h-full"
                 : isHero
-                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-2 row-span-2 ${heroOnRight ? "col-start-3" : "col-start-1"}`
                 : isLandscape
-                ? "col-span-2 md:col-span-2 self-start"
+                ? "col-span-2 self-start"
                 : "col-span-1 self-start";
 
               return (
