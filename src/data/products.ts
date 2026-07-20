@@ -116,7 +116,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'SACRED HEART',
+    name: 'PERFECTLY IMPERFECT',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
