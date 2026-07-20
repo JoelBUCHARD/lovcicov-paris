@@ -104,7 +104,7 @@ export const standardProducts: Product[] = [
     name: 'STANDARD IS ME',
     price: 99,
     collection: 'standard',
-    subcategory: 'tshirt',
+    subcategory: 'crewneck',
     description: 'Sweat-shirt coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-lovcicov-bird-door-lifestyle',
