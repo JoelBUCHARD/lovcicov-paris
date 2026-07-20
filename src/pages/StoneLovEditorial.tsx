@@ -307,17 +307,14 @@ const StoneLovEditorial = () => {
             </p>
           )}
 
-          <div className="mt-12 md:mt-16 flex justify-center">
+          <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)", marginBottom: "clamp(72px, 10vw, 128px)" }}>
             <Link
               to="/shop"
-              className="inline-block uppercase transition-opacity hover:opacity-70"
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.28em",
-                color: "#0D0D0D",
-                borderBottom: "1px solid #0D0D0D",
-                paddingBottom: 6,
-              }}
+              onMouseEnter={() => prefetchRoute("/shop")}
+              className="inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+              style={{ backgroundColor: "#0D0D0D", color: "#FFFFFF", letterSpacing: "0.24em" }}
+              onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#2A2A2A"; }}
+              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "#0D0D0D"; }}
             >
               Découvrir toute la collection
             </Link>
