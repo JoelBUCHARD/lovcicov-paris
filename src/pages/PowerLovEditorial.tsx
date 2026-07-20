@@ -110,6 +110,10 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-lovcicov-hoodie-cap-studio": "STANDARD IS ME",
 };
 
+const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
+  "powerlov-lovcicov-back-street-jeans": "T-shirt",
+};
+
 const cleanProductName = (name: string) => name.replace(/^T-Shirt\s+|^Sweat\s+Capuche\s+|^Sweat\s+/i, "");
 const imageName = (imageKey: string, fallback: string) => POWERLOV_IMAGE_NAMES[imageKey] ?? cleanProductName(fallback);
 
@@ -434,7 +438,7 @@ const PowerLovEditorial = () => {
                         className="font-light"
                         style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
                       >
-                        {product.typeLabel}
+                        {isProduct ? product.typeLabel : (POWERLOV_IMAGE_TYPE_LABELS[item.image] ?? product.typeLabel)}
                       </p>
                       <h3
                         className="text-[#0D0D0D] font-light"
