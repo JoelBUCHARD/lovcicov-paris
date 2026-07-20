@@ -49,6 +49,10 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-iconic-stairs-red-boots",
     packshots: ["powerlov-iconic-cream-front-heart", "powerlov-iconic-cream-back-lovcicov"],
   },
+  "powerlov-iconic-by-nature-heart": {
+    image: "powerlov-iconic-stairs-red-boots",
+    packshots: ["powerlov-iconic-cream-front-heart", "powerlov-iconic-cream-back-lovcicov"],
+  },
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-cafe-croissant",
     packshots: ["powerlov-perfectly-imperfect-hoodie-cream-front-v2", "powerlov-perfectly-imperfect-hoodie-cream-back-v2"],
