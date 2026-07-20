@@ -256,7 +256,7 @@ const PowerLovEditorial = () => {
           >
             <div className="max-w-[19rem] md:max-w-3xl">
               <p
-                className="mb-1 text-[8px] md:text-[11px] uppercase"
+                className="mb-1 text-[11px] md:text-[11px] uppercase"
                 style={{ color: "rgba(244,240,232,0.82)", letterSpacing: "0.22em" }}
               >
                 PowerLov
@@ -265,7 +265,7 @@ const PowerLovEditorial = () => {
                 className="mb-2 md:mb-4 italic"
                 style={{
                   fontWeight: 300,
-                  fontSize: "clamp(13px, 2vw, 22px)",
+                  fontSize: "clamp(18px, 5vw, 22px)",
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
