@@ -237,7 +237,7 @@ const PowerLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO — unchanged */}
-        <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
+        <section className="relative w-screen h-[88svh] md:h-[115vh] overflow-hidden">
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
