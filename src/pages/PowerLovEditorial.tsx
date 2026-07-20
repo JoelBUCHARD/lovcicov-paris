@@ -364,15 +364,13 @@ const PowerLovEditorial = () => {
               const heroIndex = Math.floor(i / 5);
               const isAppended = !!opts.appendedRow;
               const isHero = !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = !isAppended && i === 9;
+              const isLandscape = false;
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isAppended
                 ? "col-span-1 h-full"
                 : isHero
                 ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
-                : isLandscape
-                ? "col-span-2 md:col-span-2 self-start"
                 : "col-span-1 self-start";
 
               return (
