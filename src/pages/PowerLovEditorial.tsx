@@ -523,7 +523,7 @@ const PowerLovEditorial = () => {
         {/* TRUST BAND */}
         <section
           aria-label="Nos engagements"
-          style={{ padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)", backgroundColor: "#FAF8F4" }}
+          style={{ padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)", backgroundColor: "#FFFFFF" }}
         >
           <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 max-w-5xl text-center">
             {[
