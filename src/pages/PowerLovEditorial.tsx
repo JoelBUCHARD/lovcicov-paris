@@ -456,14 +456,14 @@ const PowerLovEditorial = () => {
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
                     <div className="col-span-1 h-full">
                       <Link
-                        to="/shop/mystic-tshirt-noir"
+                        to="/shop/mystic-crewneck-noir"
                         onMouseEnter={() => prefetchRoute("/shop/item")}
                         className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                       >
                         <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
                           <img
                             src={closingImage}
-                            alt="Sweat Love MysticLov"
+                            alt="Crewneck Love MysticLov"
                             loading="lazy"
                             decoding="async"
                             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -475,10 +475,10 @@ const PowerLovEditorial = () => {
                             Sweat
                           </p>
                           <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
-                            Sweat Love
+                            Crewneck Love
                           </h3>
                           <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                            €70
+                            €120
                           </p>
                         </div>
                       </Link>
