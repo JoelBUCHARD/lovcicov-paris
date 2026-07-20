@@ -358,7 +358,7 @@ const PowerLovEditorial = () => {
             const baseItems = visibleItems.filter((item) => !APPENDED_IDS.includes(item.product.id));
             const appendedItems = visibleItems.filter((item) => APPENDED_IDS.includes(item.product.id));
 
-            const renderCard = (item: GridItem, i: number, opts: { appendedRow?: boolean }) => {
+            const renderCard = (item: GridItem, i: number, opts: { appendedRow?: boolean; total?: number }) => {
               const isProduct = item.kind === "product";
               const product = item.product;
               const image = isProduct ? product.image : item.image;
@@ -371,13 +371,15 @@ const PowerLovEditorial = () => {
               const isLandscape = !isAppended && i === 9;
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
+              const isMobileLastOdd = !isAppended && opts.total !== undefined && i === opts.total - 1 && opts.total % 2 === 1 && !isHero && !isLandscape;
+              const mobileFullClass = isMobileLastOdd ? "col-span-2 md:col-span-1" : "col-span-1";
               const spanClass = isAppended
                 ? "col-span-1 h-full"
                 : isHero
                 ? `col-span-1 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : isLandscape
-                ? "col-span-1 md:col-span-2 self-start"
-                : "col-span-1 self-start";
+                ? "col-span-1 md:col-span-2 md:self-start"
+                : `${mobileFullClass} md:self-start`;
 
               const aspectClass = isAppended
                 ? "aspect-[4/5]"
@@ -386,6 +388,7 @@ const PowerLovEditorial = () => {
                 : isLandscape
                 ? "aspect-[4/5] md:aspect-auto"
                 : "aspect-[4/5]";
+
 
 
 
@@ -455,7 +458,7 @@ const PowerLovEditorial = () => {
                   className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
                   style={{ maxWidth: 1400 }}
                 >
-                  {baseItems.map((item, i) => renderCard(item, i, {}))}
+                  {baseItems.map((item, i) => renderCard(item, i, { total: baseItems.length }))}
                 </div>
                 {appendedItems.length > 0 && (
                   <div
