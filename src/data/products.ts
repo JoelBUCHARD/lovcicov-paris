@@ -185,7 +185,7 @@ export const standardProducts: Product[] = [
     name: 'LOVCICOV 2019 Bird',
     price: 109,
     collection: 'standard',
-    subcategory: 'crewneck',
+    subcategory: 'tshirt',
     description: 'Sweat crewneck coton molletonné écru. Sérigraphie emblème colombe « LOVCICOV 2019 PARIS ». Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-bottomwide-lovcicov-2019-bird-market',
