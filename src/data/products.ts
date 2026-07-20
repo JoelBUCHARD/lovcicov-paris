@@ -122,7 +122,7 @@ export const standardProducts: Product[] = [
     description: 'Sweat à capuche coton molletonné délavé gris anthracite. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
     details: 'Le même emblème, capuche relevée. Une silhouette de rue, une présence affirmée.',
     image: 'powerlov-sacred-heart-hoodie-street-front',
-    gallery: ['powerlov-sacred-heart-hoodie-flat-cream-front', 'powerlov-sacred-heart-hoodie-flat-cream-back'],
+    gallery: ['powerlov-sacred-heart-hoodie-white-flat-front-v2', 'powerlov-sacred-heart-hoodie-white-flat-back-v2'],
     badge: 'UNISEX',
   },
   {
