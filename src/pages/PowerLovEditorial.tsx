@@ -372,7 +372,7 @@ const PowerLovEditorial = () => {
               const isAppended = !!opts.appendedRow;
               const uniformMode = category !== "all";
               const isHero = !uniformMode && !isAppended && isProduct && i % 5 === 0;
-              const isLandscape = !uniformMode && !isAppended && i === 9;
+              const isLandscape = !uniformMode && !isAppended && opts.total !== undefined && i === opts.total - 1 && i % 5 !== 0;
               const shouldFillCell = isHero;
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const isMobileLastOdd = !isAppended && opts.total !== undefined && i === opts.total - 1 && opts.total % 2 === 1 && !isHero && !isLandscape;
