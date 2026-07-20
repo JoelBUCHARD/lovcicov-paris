@@ -111,6 +111,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-less-drama-champagne-flat-white-front": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-less-drama-champagne-flat-white-back": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
+  "powerlov-lovcicov-2019-bird-cream-doorstep": "LOVCICOV 2019 BIRD",
 };
 
 // Type label overrides (per image key) — for cases where the shown visual differs from the product's subcategory
