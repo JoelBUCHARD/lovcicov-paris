@@ -46,8 +46,8 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     packshots: ["powerlov-protected-aligned-unstoppable-flat-cream-front-v2", "powerlov-protected-aligned-unstoppable-flat-cream-back-v2"],
   },
   "powerlov-sacred-heart-sweat": {
-    image: "powerlov-standard-is-me-njarrow-walking",
-    packshots: ["powerlov-standard-is-me-hoodie-cream-front-lovcicov", "powerlov-standard-is-me-hoodie-cream-back-stars"],
+    image: "powerlov-iconic-stairs-red-boots",
+    packshots: ["powerlov-iconic-cream-front-heart", "powerlov-iconic-cream-back-lovcicov"],
   },
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-cafe-croissant",
@@ -90,6 +90,9 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-standard-is-me-njarrow-walking": "ICONIC BY NATURE",
   "powerlov-standard-is-me-hoodie-cream-front-lovcicov": "ICONIC BY NATURE",
   "powerlov-standard-is-me-hoodie-cream-back-stars": "ICONIC BY NATURE",
+  "powerlov-iconic-stairs-red-boots": "ICONIC BY NATURE",
+  "powerlov-iconic-cream-front-heart": "ICONIC BY NATURE",
+  "powerlov-iconic-cream-back-lovcicov": "ICONIC BY NATURE",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-cream-front-v2": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-cream-back-v2": "PERFECTLY IMPERFECT",
@@ -115,6 +118,9 @@ const POWERLOV_IMAGE_TYPE_LABELS: Record<string, string> = {
   "powerlov-standard-is-me-njarrow-walking": "Sweat",
   "powerlov-standard-is-me-hoodie-cream-front-lovcicov": "Sweat capuche",
   "powerlov-standard-is-me-hoodie-cream-back-stars": "Sweat capuche",
+  "powerlov-iconic-stairs-red-boots": "Sweat",
+  "powerlov-iconic-cream-front-heart": "Sweat",
+  "powerlov-iconic-cream-back-lovcicov": "Sweat",
 };
 
 
@@ -175,7 +181,7 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   { id: "powerlov-god-is-a-dancer" },
   // Bloc 2 — hero à droite
   { id: "powerlov-protected-aligned-unstoppable" }, // hero droite — T-shirt
-  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-njarrow-walking", nameOverride: "ICONIC BY NATURE", keySuffix: "-njarrow-walking" },
+  { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-iconic-stairs-red-boots", nameOverride: "ICONIC BY NATURE", keySuffix: "-stairs-red-boots" },
   { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-street-back", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-njarrow" },
   { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
   { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
@@ -213,7 +219,7 @@ const products: ProductCard[] = [...baseProducts, ...appendedProducts];
 
 
 
-const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
+const heroImage = resolveProductImage("powerlov-standard-is-me-njarrow-walking") || products[0]?.image || "";
 const closingImage = lifePorscheSaintDominique.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
