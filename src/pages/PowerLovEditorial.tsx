@@ -54,10 +54,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-protected-aligned-unstoppable-street",
     packshots: ["powerlov-protected-aligned-unstoppable-editorial"],
   },
-  "powerlov-sacred-heart-sweat": {
-    image: "powerlov-standard-is-me-street-back",
-    packshots: ["powerlov-lovcicov-back-street-jeans", "powerlov-lovcicov-2019-bird-stairs"],
-  },
 
   "powerlov-sacred-heart-hoodie": {
     image: "powerlov-sacred-heart-hoodie-street-front",
@@ -178,7 +174,7 @@ const appendedProducts: ProductCard[] = APPENDED_IDS.flatMap((id) => {
 const products: ProductCard[] = [...baseProducts, ...appendedProducts];
 
 
-const heroImage = products.find((product) => product.id === "powerlov-sacred-heart-sweat")?.image ?? products[0]?.image ?? "";
+const heroImage = resolveProductImage("powerlov-standard-is-me-street-back") || products[0]?.image || "";
 const closingImage = lifePorscheSaintDominique.url;
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
