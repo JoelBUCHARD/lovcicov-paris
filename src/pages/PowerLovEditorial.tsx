@@ -77,10 +77,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-perfectly-imperfect-hoodie-street-back",
     packshots: [],
   },
-  "powerlov-empowered": {
-    image: "powerlov-lovcicov-cream-sweat-nyc-walking-v2",
-    packshots: [],
-  },
 };
 
 // Card name overrides (per image key) — used when the product's own name should not be shown
@@ -124,7 +120,6 @@ const APPENDED_IDS = [
   "powerlov-lovcicov-2029-bird",
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
-  "powerlov-empowered",
 ];
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
