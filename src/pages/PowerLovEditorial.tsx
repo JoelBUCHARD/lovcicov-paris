@@ -98,7 +98,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-standard-is-me-street-back": "STANDARD IS ME",
   "powerlov-lovcicov-back-street-jeans": "PRETTY. SMART. DANGEROUS.",
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
-  "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV PARIS",
+  "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV 2019 BIRD",
   "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
   "powerlov-perfectly-imperfect-hoodie-street-back": "PERFECTLY IMPERFECT",
   "powerlov-perfectly-imperfect-hoodie-flat-white-front-v3": "PERFECTLY IMPERFECT",
