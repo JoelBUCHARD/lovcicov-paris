@@ -21,18 +21,6 @@ export interface Product {
 // Collection "PowerLov" — pièces à message fort
 export const standardProducts: Product[] = [
   {
-    id: 'powerlov-empowered',
-    shopifyHandle: 't-shirt-powerlov',
-    name: 'LOVCICOV PARIS',
-    price: 59,
-    collection: 'standard',
-    subcategory: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « CONNECTED. DISCIPLINED. EMPOWERED. ». Unisex.',
-    details: 'Un manifeste porté : connectée, disciplinée, puissante.',
-    image: 'powerlov-lovcicov-cream-sweat-nyc-walking-v2',
-    badge: 'UNISEX',
-  },
-  {
     id: 'powerlov-discipline',
     shopifyHandle: 't-shirt-powerlov',
     name: 'DISCIPLINE IS MY LUXURY',
