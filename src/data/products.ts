@@ -109,7 +109,7 @@ export const standardProducts: Product[] = [
     details: 'Une pièce signature. Le cœur sacré comme emblème, la silhouette comme manifeste.',
     image: 'powerlov-lovcicov-bird-door-lifestyle',
     detailImage: 'powerlov-standard-is-me-njarrow-walking',
-    gallery: ['powerlov-standard-is-me-sweat-white-front-pretty', 'powerlov-standard-is-me-sweat-white-back-lovcicov'],
+    gallery: ['powerlov-standard-is-me-hoodie-cream-front-lovcicov', 'powerlov-standard-is-me-hoodie-cream-back-stars'],
 
     badge: 'UNISEX',
   },
