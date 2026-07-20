@@ -136,7 +136,8 @@ export const standardProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné. Sérigraphie « ENERGY NEVER LIES ». Unisex.',
     details: 'Ce que l\'on dégage ne ment jamais.',
-    image: 'powerlov-perfectly-imperfect-hoodie-brick',
+    image: 'powerlov-perfectly-imperfect-hoodie-street-back',
+    gallery: ['powerlov-perfectly-imperfect-hoodie-flat-white-front-v3', 'powerlov-perfectly-imperfect-hoodie-flat-white-back-v3'],
     badge: 'UNISEX',
   },
   {
