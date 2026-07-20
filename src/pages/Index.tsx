@@ -61,7 +61,7 @@ const Index = () => {
 
       {/* 1. HERO — Editorial luxury split */}
       <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-6 md:pb-8 relative overflow-hidden">
-        <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-20">
+        <div className="w-full px-6 md:px-12 lg:px-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Text column */}
