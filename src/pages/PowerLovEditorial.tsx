@@ -85,10 +85,6 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
   },
   "powerlov-energy-never-lies-hoodie": {
     image: "powerlov-perfectly-imperfect-hoodie-street-back",
-    packshots: ["powerlov-perfectly-imperfect-hoodie-flat-white-front-v3", "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3"],
-  },
-  "powerlov-god-is-a-dj": {
-    image: "powerlov-lovcicov-2019-bird-market-street",
     packshots: [],
   },
 };
@@ -126,7 +122,6 @@ const APPENDED_IDS = [
   "powerlov-empowered",
   "powerlov-bold-badass-tee",
   "powerlov-energy-never-lies-hoodie",
-  "powerlov-god-is-a-dj",
 ];
 
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
@@ -366,8 +361,6 @@ const PowerLovEditorial = () => {
           `}</style>
           {(() => {
             const visibleItems = gridItems.filter((item, i) => {
-              if (item.product.id === "powerlov-god-is-a-dj") return false;
-              if (item.kind === "packshot" && item.product.id === "powerlov-energy-never-lies-hoodie") return false;
               // Index-based trims only apply to the "Tout voir" layout
               if (category === "all" && (i === 12 || i === 10 || i === 15 || i === 16)) return false;
               return true;
