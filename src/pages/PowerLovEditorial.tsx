@@ -124,6 +124,9 @@ const APPENDED_IDS = [
   "powerlov-energy-never-lies-hoodie",
 ];
 
+// Produits affichés uniquement comme visuel décoratif (non cliquables, non achetables)
+const DISPLAY_ONLY_IDS = new Set<string>(["powerlov-my-own-muse"]);
+
 const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
   const selectedImages = SELECTED_POWERLOV_IMAGES[p.id];
   if (!selectedImages) return null;
