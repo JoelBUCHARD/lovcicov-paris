@@ -63,6 +63,10 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     image: "powerlov-less-drama-more-champagne-street",
     packshots: [],
   },
+  "powerlov-lovcicov-2029-bird": {
+    image: "powerlov-lovcicov-2029-bird-nyc-street",
+    packshots: [],
+  },
   "powerlov-mom-boss-crisis-manager": {
     image: "powerlov-lovcicov-heart-pocket-studio",
     packshots: [],
