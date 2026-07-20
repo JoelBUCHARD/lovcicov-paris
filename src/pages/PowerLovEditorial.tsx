@@ -450,18 +450,39 @@ const PowerLovEditorial = () => {
                 </div>
                 {appendedItems.length > 0 && (
                   <div
-                    className={`mx-auto grid gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start ${
-                      appendedItems.length === 1
-                        ? "grid-cols-1"
-                        : appendedItems.length === 2
-                        ? "grid-cols-2"
-                        : appendedItems.length === 3
-                        ? "grid-cols-1 md:grid-cols-3"
-                        : "grid-cols-2 md:grid-cols-4"
-                    }`}
+                    className="mx-auto grid gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 mt-1 md:mt-1.5 w-full items-start grid-cols-2 md:grid-cols-4"
                     style={{ maxWidth: 1400 }}
                   >
                     {appendedItems.map((item, i) => renderCard(item, i, { appendedRow: true }))}
+                    <div className="col-span-1 self-start">
+                      <Link
+                        to="/mysticlov"
+                        onMouseEnter={() => prefetchRoute("/mysticlov")}
+                        className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                      >
+                        <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
+                          <img
+                            src={closingImage}
+                            alt="Découvrir MysticLov"
+                            loading="lazy"
+                            decoding="async"
+                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            style={{ objectPosition: "center 30%" }}
+                          />
+                        </div>
+                        <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
+                          <p className="font-light" style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}>
+                            Collection
+                          </p>
+                          <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
+                            MysticLov
+                          </h3>
+                          <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
+                            Découvrir
+                          </p>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </>
@@ -482,39 +503,6 @@ const PowerLovEditorial = () => {
           )}
         </section>
 
-
-        {/* NEXT COLLECTION — product-card style */}
-        <section style={{ backgroundColor: "#FAF8F4", padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(32px, 5vw, 64px)" }}>
-          <div className="mx-auto" style={{ maxWidth: 320 }}>
-            <Link
-              to="/mysticlov"
-              onMouseEnter={() => prefetchRoute("/mysticlov")}
-              className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
-            >
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: "4 / 5", backgroundColor: "#F0EDE7" }}>
-                <img
-                  src={closingImage}
-                  alt="Découvrir MysticLov"
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ objectPosition: "center 30%" }}
-                />
-              </div>
-              <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
-                <p className="font-light" style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}>
-                  Collection
-                </p>
-                <h3 className="text-[#0D0D0D] font-light" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}>
-                  MysticLov
-                </h3>
-                <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                  Découvrir
-                </p>
-              </div>
-            </Link>
-          </div>
-        </section>
 
         {/* TRUST BAND */}
         <section
