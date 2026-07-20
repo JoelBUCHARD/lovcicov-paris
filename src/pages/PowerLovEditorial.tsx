@@ -84,8 +84,8 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     packshots: [],
   },
   "powerlov-energy-never-lies-hoodie": {
-    image: "powerlov-perfectly-imperfect-hoodie-brick",
-    packshots: [],
+    image: "powerlov-perfectly-imperfect-hoodie-street-back",
+    packshots: ["powerlov-perfectly-imperfect-hoodie-flat-white-front-v3", "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3"],
   },
   "powerlov-god-is-a-dj": {
     image: "powerlov-lovcicov-2019-bird-market-street",
@@ -100,7 +100,9 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-lovcicov-heart-pocket-studio": "LOVCICOV",
   "powerlov-lovcicov-cream-sweat-nyc-walking-v2": "LOVCICOV PARIS",
   "powerlov-less-drama-champagne-rue-de-seine": "LESS DRAMA. MORE CHAMPAGNE.",
-  "powerlov-perfectly-imperfect-hoodie-brick": "PERFECTLY IMPERFECT",
+  "powerlov-perfectly-imperfect-hoodie-street-back": "PERFECTLY IMPERFECT",
+  "powerlov-perfectly-imperfect-hoodie-flat-white-front-v3": "PERFECTLY IMPERFECT",
+  "powerlov-perfectly-imperfect-hoodie-flat-white-back-v3": "PERFECTLY IMPERFECT",
   "powerlov-lovcicov-heart-tee-paris-street": "LOVCICOV 2019 PARIS",
   "powerlov-lovcicov-heart-tee-paris-street-sunglasses": "LOVCICOV",
   "powerlov-sacred-heart-hoodie-cafe-croissant": "SACRED HEART",
