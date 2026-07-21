@@ -173,6 +173,7 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
     typeLabel,
     price: p.price,
     image: resolveProductImage(selectedImages.image),
+    imageKey: selectedImages.image,
     packshots: Array.from(new Map(packshots.map((packshot) => [packshot.image, packshot])).values()),
     categories: cats,
   };
