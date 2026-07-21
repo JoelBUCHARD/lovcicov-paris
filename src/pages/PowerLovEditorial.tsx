@@ -203,7 +203,7 @@ const orderedBase: ProductCard[] = BASE_ORDER.flatMap((entry) => {
   if (!p) return [];
   const card = buildCard(p);
   if (!card) return [];
-  if (entry.imageOverride) card.image = resolveProductImage(entry.imageOverride);
+  if (entry.imageOverride) { card.image = resolveProductImage(entry.imageOverride); card.imageKey = entry.imageOverride; }
   if (entry.nameOverride) card.name = entry.nameOverride;
   if (entry.keySuffix) return [{ ...card, gridKey: `${card.id}${entry.keySuffix}` } as ProductCard];
   return [card];
