@@ -89,6 +89,7 @@ const POWERLOV_IMAGE_NAMES: Record<string, string> = {
   "powerlov-pretty-smart-dangerous-white-street": "PRETTY. SMART. DANGEROUS.",
   "powerlov-pretty-smart-dangerous-white-flat-front": "PRETTY. SMART. DANGEROUS.",
   "powerlov-pretty-smart-dangerous-white-flat-back": "PRETTY. SMART. DANGEROUS.",
+  "powerlov-psd-street-back": "PRETTY. SMART. DANGEROUS.",
   "powerlov-standard-is-me-street-back": "ICONIC BY NATURE",
   "powerlov-standard-is-me-sweat-white-front-pretty": "ICONIC BY NATURE",
   "powerlov-standard-is-me-sweat-white-back-lovcicov": "ICONIC BY NATURE",
