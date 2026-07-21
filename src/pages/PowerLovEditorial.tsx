@@ -21,6 +21,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
+  imageKey?: string;
   packshots: { image: string; name: string; productId?: string }[];
   categories: Exclude<Category, "all">[];
 };
