@@ -204,7 +204,7 @@ export const standardProducts: Product[] = [
     details: 'La colombe sacrée. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-lovcicov-2019-bird-market-back-walking',
     detailImage: 'powerlov-holy-dove-front',
-    gallery: ['powerlov-holy-dove-back'],
+    gallery: ['powerlov-holy-dove-front-v2'],
     badge: 'UNISEX',
   },
   {
