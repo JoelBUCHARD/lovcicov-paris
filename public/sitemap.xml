@@ -141,17 +141,12 @@
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/shop/powerlov-empowered</loc>
+    <loc>https://lovcicov.com/shop/powerlov-discipline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://lovcicov.com/product/t-shirt-powerlov</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lovcicov.com/shop/powerlov-discipline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -186,6 +181,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/shop/powerlov-iconic-by-nature-heart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-sacred-heart-hoodie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -201,6 +201,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/shop/powerlov-lovcicov-2029-bird</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/sweat-powerlov</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-mom-boss-crisis-manager</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -212,16 +222,6 @@
   </url>
   <url>
     <loc>https://lovcicov.com/shop/powerlov-lovcicov-2019-bird</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lovcicov.com/product/sweat-powerlov</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lovcicov.com/shop/powerlov-my-own-muse</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
