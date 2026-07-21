@@ -21,6 +21,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
+  imageKey?: string;
   packshots: { image: string; name: string; productId?: string }[];
   categories: Exclude<Category, "all">[];
 };
@@ -172,6 +173,7 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
     typeLabel,
     price: p.price,
     image: resolveProductImage(selectedImages.image),
+    imageKey: selectedImages.image,
     packshots: Array.from(new Map(packshots.map((packshot) => [packshot.image, packshot])).values()),
     categories: cats,
   };
@@ -201,7 +203,7 @@ const orderedBase: ProductCard[] = BASE_ORDER.flatMap((entry) => {
   if (!p) return [];
   const card = buildCard(p);
   if (!card) return [];
-  if (entry.imageOverride) card.image = resolveProductImage(entry.imageOverride);
+  if (entry.imageOverride) { card.image = resolveProductImage(entry.imageOverride); card.imageKey = entry.imageOverride; }
   if (entry.nameOverride) card.name = entry.nameOverride;
   if (entry.keySuffix) return [{ ...card, gridKey: `${card.id}${entry.keySuffix}` } as ProductCard];
   return [card];
@@ -458,7 +460,7 @@ const PowerLovEditorial = () => {
                 >
                   <Link
                     to={`/shop/${productId}`}
-                    state={{ from }}
+                    state={{ from, variantImage: isProduct ? product.imageKey : undefined }}
                     onMouseEnter={() => {
                       prefetchRoute("/shop/item");
                       prefetchImage(image);
