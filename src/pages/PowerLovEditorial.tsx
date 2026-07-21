@@ -35,8 +35,8 @@ const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (stri
     packshots: ["powerlov-discipline-front-white", "powerlov-discipline-back-white"],
   },
   "powerlov-if-god-dj-frequency": {
-    image: "powerlov-pretty-smart-dangerous-white-street",
-    packshots: ["powerlov-pretty-smart-dangerous-white-flat-front", "powerlov-pretty-smart-dangerous-white-flat-back"],
+    image: "powerlov-pretty-smart-dangerous-tshirt-back",
+    packshots: ["powerlov-pretty-smart-dangerous-tshirt-back"],
   },
   "powerlov-god-is-a-dancer": {
     image: "powerlov-grid-god-is-a-dancer",
@@ -191,7 +191,7 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   { id: "powerlov-protected-aligned-unstoppable" }, // hero droite — T-shirt
   { id: "powerlov-iconic-by-nature-heart" }, // ICONIC BY NATURE — cœur (fiche produit distincte)
   { id: "powerlov-sacred-heart-sweat", imageOverride: "powerlov-standard-is-me-street-back", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-njarrow" },
-  { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-lovcicov-back-street-jeans", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
+  { id: "powerlov-if-god-dj-frequency", imageOverride: "powerlov-pretty-smart-dangerous-tshirt-back", nameOverride: "PRETTY. SMART. DANGEROUS.", keySuffix: "-back" },
   { id: "powerlov-sacred-heart-hoodie", imageOverride: "powerlov-lovcicov-hoodie-cap-studio", nameOverride: "ICONIC BY NATURE", keySuffix: "-iconic-hoodie" },
   // Bloc 3 — rangée de 3
   { id: "powerlov-lovcicov-2019-bird" }, // LOVCICOV 2019 BIRD — assise sur marches
