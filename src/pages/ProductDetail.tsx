@@ -22,10 +22,19 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
+  const variantImage = (location.state as { variantImage?: string } | null)?.variantImage;
   const product = products.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
-  const effectiveImage = product?.detailImage || product?.image;
-  const displayedProduct = product && effectiveImage ? { ...product, image: effectiveImage } : product;
+  const effectiveImage = variantImage || product?.detailImage || product?.image;
+  const displayedProduct = product && effectiveImage
+    ? {
+        ...product,
+        image: effectiveImage,
+        gallery: variantImage
+          ? [product.image, ...(product.gallery ?? [])].filter((k) => k && k !== variantImage)
+          : product.gallery,
+      }
+    : product;
 
 
 
