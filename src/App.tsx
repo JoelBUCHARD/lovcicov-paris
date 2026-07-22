@@ -131,7 +131,7 @@ const AppContent = () => {
           <Route path="/collections/t-shirts" element={<CollectionTshirts />} />
           <Route path="/manifeste" element={<Manifeste />} />
           <Route path="/univers" element={<Fondatrice />} />
-          <Route path="/drops" element={<Drops />} />
+          <Route path="/drops" element={<Navigate to="/" replace />} />{/* Drops temporarily hidden — re-enable with <Drops /> when ready */}
           <Route path="/le-cercle" element={<LeCercle />} />
           <Route path="/fondatrice" element={<Fondatrice />} />
           <Route path="/cart" element={<Cart />} />
