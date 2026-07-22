@@ -204,7 +204,7 @@ const MysticLovEditorial = () => {
             style={{ maxWidth: 1400 }}
           >
             {(() => { /* layout precompute happens inline below via closure */ return null; })()}
-            {filtered.slice(0, Math.max(0, filtered.length - 2)).map((product, i, arr) => {
+            {filtered.map((product, i, arr) => {
               // Precompute hero + landscape indices once (memoize via arr reference)
               // Using a lazy init pattern per render
               const layout = (arr as any).__mysticLayout ?? (() => {
@@ -238,9 +238,9 @@ const MysticLovEditorial = () => {
               const isLandscape = !isHero && layout.landSet.has(i);
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-2 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-1 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
                 : isLandscape
-                ? "col-span-2 md:col-span-2 self-start"
+                ? "col-span-1 md:col-span-2 self-start"
                 : "col-span-1 self-start";
 
               return (
