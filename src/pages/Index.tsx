@@ -111,19 +111,20 @@ const Index = () => {
                 LOVCICOV explore le lien entre la mode, l'énergie et la transformation intérieure. Des pièces pensées comme des talismans contemporains.
               </p>
 
-              <div className="flex flex-row items-stretch sm:items-center lg:items-start justify-center lg:justify-start gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center lg:items-start justify-center lg:justify-start gap-3">
                 <Link
                   to="/shop"
-                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 flex-1 sm:flex-none sm:w-[210px]"
+                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 w-full sm:w-[210px]"
                 >
                   Découvrir la collection
                 </Link>
                 <Link
                   to="/fondatrice"
-                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 flex-1 sm:flex-none sm:w-[210px]"
+                  className="group inline-flex items-center justify-center whitespace-nowrap bg-[#1A1A1A] text-white text-[9px] md:text-[10px] tracking-[0.22em] md:tracking-[0.28em] uppercase px-4 md:px-6 py-4 hover:bg-[#000] transition-colors duration-500 w-full sm:w-[210px]"
                 >
                   Notre histoire
                 </Link>
+
 
               </div>
 
