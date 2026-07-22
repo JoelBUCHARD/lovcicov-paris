@@ -323,9 +323,7 @@ const MysticLovEditorial = () => {
 
         {/* CTA — Découvrez toute la collection */}
         <section style={{ backgroundColor: "#FAF8F4", padding: "clamp(8px, 2vw, 20px) clamp(12px, 3vw, 40px) clamp(32px, 5vw, 64px)" }}>
-          <div className="mx-auto" style={{ maxWidth: 1400 }}>
-
-          <div className="mx-auto flex justify-center" style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)" }}>
+          <div className="mx-auto flex justify-center" style={{ maxWidth: 1400 }}>
             <Link
               to="/shop"
               onMouseEnter={() => prefetchRoute("/shop")}
@@ -338,6 +336,7 @@ const MysticLovEditorial = () => {
             </Link>
           </div>
         </section>
+
 
 
       </main>
