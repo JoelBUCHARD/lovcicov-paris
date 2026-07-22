@@ -547,31 +547,105 @@ const ProductPage = ({ product }: Props) => {
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
-          <Accordion title="Matière & fabrication" defaultOpen>
-            <p>{material}</p>
+
+          {/* 1. Détails & confection */}
+          <Accordion title="Détails & confection" defaultOpen>
+            <ul className="list-none p-0 m-0 space-y-1.5">
+              {(isJewelry
+                ? [
+                    'Fermoir ajustable, montage main',
+                    'Finitions soignées, contrôle qualité pièce à pièce',
+                    '[À COMPLÉTER — type de nœud, pierres, intercalaires]',
+                  ]
+                : [
+                    product.collection === 'mystic' ? 'Encolure côtelée renforcée' : 'Col bord-côte renforcé',
+                    'Épaules tombées, coupe oversize unisexe',
+                    product.subcategory === 'hoodie' ? 'Capuche doublée, cordons plats, poche kangourou' : 'Ourlet et manches surpiqués',
+                    product.collection === 'mystic' ? 'Broderie LOVE dorée signature au fil métallisé' : 'Sérigraphie signature haute densité',
+                    '[À COMPLÉTER — boutons / poignets / broderies spécifiques]',
+                  ]
+              ).map((d) => (
+                <li key={d} className="flex gap-2">
+                  <span aria-hidden style={{ color: cfg.accent }}>·</span>
+                  <span className={d.startsWith('[À COMPLÉTER') ? 'italic text-[#B5B3AD]' : ''}>{d}</span>
+                </li>
+              ))}
+            </ul>
           </Accordion>
 
-          <Accordion title="Coupe & fit">
+          {/* 2. Matières & composition */}
+          <Accordion title="Matières & composition">
+            <p className="mb-3">{material}</p>
+            <ul className="list-none p-0 m-0 space-y-1.5">
+              <li className="italic text-[#B5B3AD]">
+                · [À COMPLÉTER — composition exacte, ex. « 100% coton biologique, 240 g/m² »]
+              </li>
+              <li className="italic text-[#B5B3AD]">
+                · [À COMPLÉTER — certifications éventuelles, ex. GOTS, OEKO-TEX]
+              </li>
+              <li className="flex gap-2">
+                <Leaf size={14} strokeWidth={1.4} style={{ color: cfg.accent, marginTop: 3 }} />
+                <span className="italic text-[#B5B3AD]">[À COMPLÉTER — note responsable si applicable]</span>
+              </li>
+            </ul>
+          </Accordion>
+
+          {/* 3. Coupe & taille */}
+          <Accordion title="Coupe & taille">
             {isJewelry ? (
-              <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet.' : 'Longueur ajustable : 42 — 48 cm.'}</p>
+              <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
             ) : (
-              <p>Coupe oversize unisex. Tailles XS à XL.</p>
+              <>
+                <p className="mb-3">Coupe oversize unisexe. Tailles disponibles : XS à XL.</p>
+                <p className="italic text-[#B5B3AD] mb-3">
+                  [À COMPLÉTER — Le mannequin mesure 1m__ et porte une taille __.]
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSizeGuideOpen(true)}
+                  className="underline underline-offset-4 hover:text-[#1A1A1A] transition-colors"
+                  style={{ fontFamily: SANS, fontSize: 12, letterSpacing: '0.1em', color: '#5F5E5A', textTransform: 'uppercase' }}
+                >
+                  Ouvrir le guide des tailles
+                </button>
+              </>
             )}
           </Accordion>
 
+          {/* 4. Entretien */}
           <Accordion title="Entretien">
             {isJewelry ? (
-              <p>Éviter le contact avec l'eau, les parfums et les produits chimiques. Ranger à plat dans la pochette d'origine.</p>
+              <ul className="list-none p-0 m-0 space-y-2.5">
+                <li className="flex items-center gap-3"><Ban size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Éviter l'eau, les parfums et produits chimiques</li>
+                <li className="flex items-center gap-3"><Sparkles size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Nettoyer délicatement avec un chiffon doux</li>
+                <li className="flex items-center gap-3"><Award size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Ranger à plat dans la pochette d'origine</li>
+              </ul>
             ) : (
-              <p>Lavage à 30°C sur l'envers. Ne pas utiliser de sèche-linge. Repasser à l'envers, sans toucher la broderie ou la sérigraphie.</p>
+              <ul className="list-none p-0 m-0 space-y-2.5">
+                <li className="flex items-center gap-3"><WashingMachine size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Lavage à 30°C sur l'envers</li>
+                <li className="flex items-center gap-3"><Ban size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Ne pas utiliser de sèche-linge</li>
+                <li className="flex items-center gap-3"><Wind size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Séchage à l'air libre, à plat</li>
+                <li className="flex items-center gap-3"><Sun size={16} strokeWidth={1.3} style={{ color: '#5F5E5A' }} /> Repasser à l'envers, sans toucher la broderie / sérigraphie</li>
+              </ul>
             )}
           </Accordion>
 
+          {/* 5. Origine & responsabilité */}
+          <Accordion title="Origine & responsabilité">
+            <p className="mb-2 italic text-[#B5B3AD]">
+              [À COMPLÉTER — pays / atelier de fabrication, ex. « Confectionné au Portugal dans un atelier familial ».]
+            </p>
+            <p className="italic text-[#B5B3AD]">
+              [À COMPLÉTER — engagement responsable, production limitée, traçabilité.]
+            </p>
+          </Accordion>
+
+          {/* 6. Livraison & retours */}
           <Accordion title="Livraison & retours">
             <ul className="list-none p-0 space-y-1">
               <li>· Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
               <li>· Livraison offerte dès 99€ d'achat</li>
-              <li>· Retours acceptés sous 14 jours</li>
+              <li>· Retours gratuits sous 14 jours</li>
               <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
             </ul>
           </Accordion>
@@ -595,6 +669,7 @@ const ProductPage = ({ product }: Props) => {
           )}
         </div>
       </section>
+
 
 
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
