@@ -50,17 +50,43 @@ const pageStyle = {
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
 
+type SortKey = "default" | "price-asc" | "price-desc" | "name-asc";
+
+const SORT_LABELS: { key: SortKey; label: string }[] = [
+  { key: "default", label: "Notre sélection" },
+  { key: "price-asc", label: "Prix croissant" },
+  { key: "price-desc", label: "Prix décroissant" },
+  { key: "name-asc", label: "Ordre alphabétique" },
+];
+
 const StoneLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const [sort, setSort] = useState<SortKey>("default");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const filterRef = useRef<HTMLDivElement | null>(null);
 
-  const filtered = useMemo(
-    () =>
-      products.filter((p) =>
-        category === "all" ? true : category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
-      ),
-    [category]
-  );
+  useEffect(() => {
+    if (!filtersOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFiltersOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [filtersOpen]);
+
+  const filtered = useMemo(() => {
+    const base = products.filter((p) =>
+      category === "all" ? true : category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
+    );
+    const sorted = [...base];
+    if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
+    else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+    else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+    return sorted;
+  }, [category, sort]);
 
 
   const scrollToGrid = () => {
