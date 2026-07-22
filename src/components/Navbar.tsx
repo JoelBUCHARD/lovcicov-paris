@@ -19,7 +19,7 @@ const universLinks = [
   { to: '/manifeste', label: 'Manifeste' },
   { to: '/fondatrice', label: 'La Fondatrice' },
   
-  { to: '/drops', label: 'Drops' },
+  // { to: '/drops', label: 'Drops' }, // temporairement caché
   { to: '/le-cercle', label: 'Le Cercle' },
 ];
 
