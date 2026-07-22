@@ -10,10 +10,10 @@ import TrustLine from '@/components/TrustLine';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
+import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
-type SortKey = 'featured' | 'price-asc' | 'price-desc';
 
 const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
 
