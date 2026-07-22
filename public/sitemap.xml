@@ -281,6 +281,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/shop/mystic-crewneck-natural</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-tshirt-namaste</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
