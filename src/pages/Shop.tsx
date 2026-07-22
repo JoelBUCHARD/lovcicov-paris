@@ -66,7 +66,8 @@ const Shop = () => {
 
     const sorted = [...deduped];
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
-    if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    else if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    else if (sort === 'name-asc') sorted.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
     return sorted;
   }, [active, sort, visibleStandard, visibleMystic, visibleBijoux]);
 
