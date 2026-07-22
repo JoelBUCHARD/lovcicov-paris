@@ -1,4 +1,5 @@
 import { Fragment, useMemo, useState } from "react";
+import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -251,10 +252,18 @@ const pageStyle = {
 const PowerLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const [sort, setSort] = useState<SortKey>("default");
 
   const filtered = useMemo(
-    () => (category === "all" ? products : products.filter((p) => p.categories.includes(category as Exclude<Category, "all">))),
-    [category]
+    () => {
+      const base = category === "all" ? products : products.filter((p) => p.categories.includes(category as Exclude<Category, "all">));
+      const sorted = [...base];
+      if (sort === "price-asc") sorted.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
+      else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
+      else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+      return sorted;
+    },
+    [category, sort]
   );
 
   type GridItem =
@@ -396,13 +405,7 @@ const PowerLovEditorial = () => {
               </ul>
             </nav>
 
-            <button
-              type="button"
-              className="uppercase whitespace-nowrap"
-              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
-            >
-              Filtres
-            </button>
+            <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
         </div>
 

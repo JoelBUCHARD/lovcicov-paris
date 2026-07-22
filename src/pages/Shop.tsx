@@ -10,10 +10,10 @@ import TrustLine from '@/components/TrustLine';
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
+import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
-type SortKey = 'featured' | 'price-asc' | 'price-desc';
 
 const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
 
@@ -31,7 +31,7 @@ const Shop = () => {
     collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
 
   const [active, setActive] = useState<Collection>(initialCollection);
-  const [sort, setSort] = useState<SortKey>('featured');
+  const [sort, setSort] = useState<SortKey>('default');
 
   useEffect(() => {
     if (collectionParam && validCollections.includes(collectionParam)) {
@@ -66,7 +66,8 @@ const Shop = () => {
 
     const sorted = [...deduped];
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
-    if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    else if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
+    else if (sort === 'name-asc') sorted.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
     return sorted;
   }, [active, sort, visibleStandard, visibleMystic, visibleBijoux]);
 
@@ -140,25 +141,8 @@ const Shop = () => {
               })}
             </nav>
 
-            <div className="flex items-center justify-center md:justify-end gap-3">
-              <label
-                htmlFor="sort"
-                className="uppercase text-[#8B7D6B] font-light"
-                style={{ fontSize: 10, letterSpacing: '0.28em' }}
-              >
-                Tri
-              </label>
-              <select
-                id="sort"
-                value={sort}
-                onChange={(e) => setSort(e.target.value as SortKey)}
-                className="bg-transparent border-b border-[#E8E1D5] pb-1 pr-6 uppercase text-[#1A1A1A] focus:outline-none focus:border-[#1A1A1A] cursor-pointer"
-                style={{ fontSize: 10, letterSpacing: '0.22em' }}
-              >
-                <option value="featured">Sélection</option>
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
-              </select>
+            <div className="flex items-center justify-center md:justify-end">
+              <SortFilterMenu sort={sort} onChange={setSort} />
             </div>
           </div>
         </div>

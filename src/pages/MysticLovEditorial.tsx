@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -57,17 +58,24 @@ const pageStyle = {
 const MysticLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const [sort, setSort] = useState<SortKey>("default");
 
   const filtered = useMemo(
-    () =>
-      products.filter((p) =>
+    () => {
+      const base = products.filter((p) =>
         category === "all"
           ? true
           : category === "tshirts"
           ? p.subcategory === "tshirt"
           : p.subcategory === "hoodie" || p.subcategory === "crewneck"
-      ),
-    [category]
+      );
+      const sorted = [...base];
+      if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
+      else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+      else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+      return sorted;
+    },
+    [category, sort]
   );
 
 
@@ -181,13 +189,7 @@ const MysticLovEditorial = () => {
                 })}
               </ul>
             </nav>
-            <button
-              type="button"
-              className="uppercase whitespace-nowrap"
-              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
-            >
-              Filtres
-            </button>
+            <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
         </div>
 
