@@ -31,7 +31,7 @@ type ProductCard = {
 const NEW_IDS = new Set(["powerlov-sacred-heart-sweat", "powerlov-sacred-heart-hoodie"]);
 const SELECTED_POWERLOV_IMAGES: Record<string, { image: string; packshots: (string | { image: string; productId: string })[] }> = {
   "powerlov-discipline": {
-    image: "powerlov-discipline-back",
+    image: "powerlov-discipline-cafe-kitsune-street",
     packshots: ["powerlov-discipline-front-white", "powerlov-discipline-back-white"],
   },
   "powerlov-if-god-dj-frequency": {
