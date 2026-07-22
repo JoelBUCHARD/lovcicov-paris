@@ -141,25 +141,8 @@ const Shop = () => {
               })}
             </nav>
 
-            <div className="flex items-center justify-center md:justify-end gap-3">
-              <label
-                htmlFor="sort"
-                className="uppercase text-[#8B7D6B] font-light"
-                style={{ fontSize: 10, letterSpacing: '0.28em' }}
-              >
-                Tri
-              </label>
-              <select
-                id="sort"
-                value={sort}
-                onChange={(e) => setSort(e.target.value as SortKey)}
-                className="bg-transparent border-b border-[#E8E1D5] pb-1 pr-6 uppercase text-[#1A1A1A] focus:outline-none focus:border-[#1A1A1A] cursor-pointer"
-                style={{ fontSize: 10, letterSpacing: '0.22em' }}
-              >
-                <option value="featured">Sélection</option>
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
-              </select>
+            <div className="flex items-center justify-center md:justify-end">
+              <SortFilterMenu sort={sort} onChange={setSort} />
             </div>
           </div>
         </div>
