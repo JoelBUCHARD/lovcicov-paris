@@ -405,13 +405,7 @@ const PowerLovEditorial = () => {
               </ul>
             </nav>
 
-            <button
-              type="button"
-              className="uppercase whitespace-nowrap"
-              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
-            >
-              Filtres
-            </button>
+            <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
         </div>
 
