@@ -159,7 +159,7 @@ const ProductPage = ({ product }: Props) => {
 
   const recit = getRecit(product);
   const material = getMaterial(product);
-  const stones = isJewelry ? detectStones(`${product.name} ${product.description} ${product.details ?? ''}`) : [];
+  const stones = isJewelry ? detectStones(`${product.name} ${product.description} ${product.details ?? ''} ${product.stoneMeaning ?? ''}`) : [];
 
   // Stock: only shown when explicit data exists ≤ 5. No invented value.
   const stock: number | null = null;
