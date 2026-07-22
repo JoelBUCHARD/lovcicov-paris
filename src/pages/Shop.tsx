@@ -56,7 +56,15 @@ const Shop = () => {
         ? visibleBijoux
         : [...visibleStandard, ...visibleMystic, ...visibleBijoux];
 
-    const sorted = [...base];
+    const seen = new Set<string>();
+    const deduped = base.filter((p) => {
+      const key = p.shopifyHandle || p.name;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+
+    const sorted = [...deduped];
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
     if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
     return sorted;
