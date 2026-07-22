@@ -260,6 +260,36 @@ export const STONE_MEANINGS: StoneInfo[] = [
     symbol: "la joie",
     patterns: [/citrine/i],
   },
+  {
+    key: 'pierre-de-lune',
+    name: 'PIERRE DE LUNE',
+    color: '#E4E1D4',
+    meaning: "Pierre de l'intuition féminine et de la douceur intérieure. Elle apaise les émotions et connecte aux cycles naturels.",
+    deep: "Symbole du féminin sacré, la pierre de lune accompagne les cycles hormonaux, la maternité et l'écoute de soi. Elle adoucit l'hypersensibilité et invite à ralentir.",
+    ritual: "À porter les jours où l'on souhaite se recentrer sur son intériorité.",
+    symbol: "l'intuition féminine",
+    patterns: [/pierre\s*de\s*lune/i],
+  },
+  {
+    key: 'jaspe',
+    name: 'JASPE',
+    color: '#8A5A3B',
+    meaning: "Pierre d'ancrage et de vitalité. Elle stabilise l'énergie, apaise le mental et renforce l'endurance.",
+    deep: "Pierre nourricière par excellence, le jaspe enracine dans le corps et dans le présent. Il aide à traverser les périodes intenses sans s'épuiser.",
+    ritual: "À porter dans les phases exigeantes — travail, sport, engagements soutenus.",
+    symbol: "l'ancrage",
+    patterns: [/\bjaspe\b/i],
+  },
+  {
+    key: 'aventurine-bleue',
+    name: 'AVENTURINE BLEUE',
+    color: '#5C8AA6',
+    meaning: "Pierre d'équilibre émotionnel et de sérénité. Elle apaise le mental et invite à la clarté.",
+    deep: "Douce et rafraîchissante, l'aventurine bleue calme les tensions intérieures et favorise la prise de recul. Elle accompagne les périodes de doute avec bienveillance.",
+    ritual: "À porter dans les journées émotionnellement chargées.",
+    symbol: "la sérénité",
+    patterns: [/aventurine\s*bleue/i],
+  },
 ];
 
 // The 6 hero stones for the StoneLov collection page
