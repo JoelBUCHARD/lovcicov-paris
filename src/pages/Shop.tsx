@@ -31,7 +31,7 @@ const Shop = () => {
     collectionParam && validCollections.includes(collectionParam) ? collectionParam : 'all';
 
   const [active, setActive] = useState<Collection>(initialCollection);
-  const [sort, setSort] = useState<SortKey>('featured');
+  const [sort, setSort] = useState<SortKey>('default');
 
   useEffect(() => {
     if (collectionParam && validCollections.includes(collectionParam)) {
