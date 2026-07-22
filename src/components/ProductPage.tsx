@@ -650,56 +650,62 @@ const ProductPage = ({ product }: Props) => {
             </ul>
           </Accordion>
 
-          {isJewelry && stones.length > 0 && (
+          {isJewelry && (
             <Accordion title="L'énergie des pierres">
-              <ul className="list-none p-0 m-0 space-y-6">
-                {stones.map((s) => (
-                  <li key={s.key}>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span
-                        aria-hidden
-                        style={{
-                          display: 'inline-block',
-                          width: 12,
-                          height: 12,
-                          borderRadius: '50%',
-                          background: s.color,
-                          boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.08)',
-                        }}
-                      />
-                      <p
-                        className="m-0"
-                        style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.22em', color: cfg.accent, fontWeight: 600, textTransform: 'uppercase' }}
-                      >
-                        {s.name}
-                      </p>
-                      {s.symbol && (
+              {stones.length > 0 ? (
+                <ul className="list-none p-0 m-0 space-y-6">
+                  {stones.map((s) => (
+                    <li key={s.key}>
+                      <div className="flex items-center gap-3 mb-2">
                         <span
-                          style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780', textTransform: 'uppercase' }}
+                          aria-hidden
+                          style={{
+                            display: 'inline-block',
+                            width: 12,
+                            height: 12,
+                            borderRadius: '50%',
+                            background: s.color,
+                            boxShadow: 'inset 0 0 0 1px rgba(0,0,0,0.08)',
+                          }}
+                        />
+                        <p
+                          className="m-0"
+                          style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.22em', color: cfg.accent, fontWeight: 600, textTransform: 'uppercase' }}
                         >
-                          — {s.symbol}
-                        </span>
+                          {s.name}
+                        </p>
+                        {s.symbol && (
+                          <span
+                            style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.18em', color: '#888780', textTransform: 'uppercase' }}
+                          >
+                            — {s.symbol}
+                          </span>
+                        )}
+                      </div>
+                      <p className="m-0 mb-2" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400, color: '#3F3E3B' }}>
+                        {s.meaning}
+                      </p>
+                      {s.deep && (
+                        <p className="m-0 mb-2" style={{ fontFamily: SANS, fontSize: 13.5, lineHeight: 1.75, fontWeight: 400, color: '#6B6A65' }}>
+                          {s.deep}
+                        </p>
                       )}
-                    </div>
-                    <p className="m-0 mb-2" style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.7, fontWeight: 400, color: '#3F3E3B' }}>
-                      {s.meaning}
-                    </p>
-                    {s.deep && (
-                      <p className="m-0 mb-2" style={{ fontFamily: SANS, fontSize: 13.5, lineHeight: 1.75, fontWeight: 400, color: '#6B6A65' }}>
-                        {s.deep}
-                      </p>
-                    )}
-                    {s.ritual && (
-                      <p
-                        className="m-0"
-                        style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#888780', fontStyle: 'italic' }}
-                      >
-                        Rituel — {s.ritual}
-                      </p>
-                    )}
-                  </li>
-                ))}
-              </ul>
+                      {s.ritual && (
+                        <p
+                          className="m-0"
+                          style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#888780', fontStyle: 'italic' }}
+                        >
+                          Rituel — {s.ritual}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="m-0" style={{ fontFamily: SANS, fontSize: 13.5, lineHeight: 1.75, color: '#3F3E3B' }}>
+                  {product.stoneMeaning || "Pierres naturelles sélectionnées à la main. Chaque pièce est unique et porte sa propre vibration."}
+                </p>
+              )}
             </Accordion>
           )}
 
