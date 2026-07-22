@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -50,17 +50,43 @@ const pageStyle = {
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
 
+type SortKey = "default" | "price-asc" | "price-desc" | "name-asc";
+
+const SORT_LABELS: { key: SortKey; label: string }[] = [
+  { key: "default", label: "Notre sélection" },
+  { key: "price-asc", label: "Prix croissant" },
+  { key: "price-desc", label: "Prix décroissant" },
+  { key: "name-asc", label: "Ordre alphabétique" },
+];
+
 const StoneLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const [sort, setSort] = useState<SortKey>("default");
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const filterRef = useRef<HTMLDivElement | null>(null);
 
-  const filtered = useMemo(
-    () =>
-      products.filter((p) =>
-        category === "all" ? true : category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
-      ),
-    [category]
-  );
+  useEffect(() => {
+    if (!filtersOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (filterRef.current && !filterRef.current.contains(e.target as Node)) {
+        setFiltersOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [filtersOpen]);
+
+  const filtered = useMemo(() => {
+    const base = products.filter((p) =>
+      category === "all" ? true : category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
+    );
+    const sorted = [...base];
+    if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
+    else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+    else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+    return sorted;
+  }, [category, sort]);
 
 
   const scrollToGrid = () => {
@@ -173,13 +199,68 @@ const StoneLovEditorial = () => {
                 })}
               </ul>
             </nav>
-            <button
-              type="button"
-              className="uppercase whitespace-nowrap"
-              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.6)" }}
-            >
-              Filtres
-            </button>
+            <div ref={filterRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setFiltersOpen((v) => !v)}
+                aria-haspopup="menu"
+                aria-expanded={filtersOpen}
+                className="uppercase whitespace-nowrap flex items-center gap-1.5"
+                style={{
+                  fontSize: 10,
+                  letterSpacing: "0.24em",
+                  color: sort !== "default" ? "#0D0D0D" : "rgba(13,13,13,0.6)",
+                }}
+              >
+                Filtres
+                {sort !== "default" && (
+                  <span aria-hidden="true" style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#0D0D0D" }} />
+                )}
+              </button>
+              {filtersOpen && (
+                <div
+                  role="menu"
+                  className="absolute right-0 mt-3 border border-[rgba(13,13,13,0.08)] shadow-lg"
+                  style={{ backgroundColor: "#FAF8F4", minWidth: 220, zIndex: 40 }}
+                >
+                  <p
+                    className="uppercase px-4 pt-4 pb-2"
+                    style={{ fontSize: 9, letterSpacing: "0.28em", color: "rgba(13,13,13,0.45)" }}
+                  >
+                    Trier par
+                  </p>
+                  <ul className="pb-2">
+                    {SORT_LABELS.map(({ key, label }) => {
+                      const active = sort === key;
+                      return (
+                        <li key={key}>
+                          <button
+                            type="button"
+                            role="menuitemradio"
+                            aria-checked={active}
+                            onClick={() => {
+                              setSort(key);
+                              setFiltersOpen(false);
+                            }}
+                            className="w-full text-left uppercase px-4 py-2.5 transition-colors"
+                            style={{
+                              fontSize: 10,
+                              letterSpacing: "0.22em",
+                              color: active ? "#0D0D0D" : "rgba(13,13,13,0.65)",
+                              backgroundColor: active ? "rgba(13,13,13,0.04)" : "transparent",
+                            }}
+                            onMouseEnter={(e) => { if (!active) e.currentTarget.style.backgroundColor = "rgba(13,13,13,0.03)"; }}
+                            onMouseLeave={(e) => { if (!active) e.currentTarget.style.backgroundColor = "transparent"; }}
+                          >
+                            {label}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
