@@ -58,17 +58,24 @@ const pageStyle = {
 const MysticLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
+  const [sort, setSort] = useState<SortKey>("default");
 
   const filtered = useMemo(
-    () =>
-      products.filter((p) =>
+    () => {
+      const base = products.filter((p) =>
         category === "all"
           ? true
           : category === "tshirts"
           ? p.subcategory === "tshirt"
           : p.subcategory === "hoodie" || p.subcategory === "crewneck"
-      ),
-    [category]
+      );
+      const sorted = [...base];
+      if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
+      else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+      else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+      return sorted;
+    },
+    [category, sort]
   );
 
 
