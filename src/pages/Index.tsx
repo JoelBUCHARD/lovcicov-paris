@@ -62,6 +62,21 @@ const Index = () => {
       {/* 1. HERO — Editorial luxury split */}
       <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-6 md:pb-8 relative overflow-hidden">
         <div className="w-full px-6 md:px-12 lg:px-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="lg:hidden text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mb-8 text-center"
+            style={{ fontSize: 'clamp(44px, 6vw, 88px)' }}
+          >
+            Presence
+            <br />
+            over
+            <br />
+            <em className="italic font-light" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+              appearance.
+            </em>
+          </motion.h1>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Text column */}
@@ -76,7 +91,7 @@ const Index = () => {
               </p>
 
               <h1
-                className="text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mb-10 md:mb-12"
+                className="hidden lg:block text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mb-10 md:mb-12"
                 style={{ fontSize: 'clamp(44px, 6vw, 88px)' }}
               >
                 Presence
@@ -87,6 +102,7 @@ const Index = () => {
                   appearance.
                 </em>
               </h1>
+
 
               <p
                 className="mx-auto lg:mx-0 mb-12 md:mb-14 text-[#5F5E5A] font-light"
