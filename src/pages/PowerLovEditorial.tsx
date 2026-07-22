@@ -184,7 +184,7 @@ const buildCard = (p: typeof standardProducts[number]): ProductCard | null => {
 const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; keySuffix?: string }[] = [
   // Bloc 1 — hero à gauche
   { id: "powerlov-discipline" }, // hero (dos)
-  { id: "powerlov-discipline", keySuffix: "-2" },
+  { id: "powerlov-discipline", imageOverride: "powerlov-protected-aligned-unstoppable-back", keySuffix: "-2" },
   { id: "powerlov-sacred-heart-hoodie" }, // PERFECTLY IMPERFECT — café
   { id: "powerlov-if-god-dj-frequency" }, // PRETTY. SMART. DANGEROUS. — femme de face
   { id: "powerlov-god-is-a-dancer" },
