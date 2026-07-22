@@ -290,16 +290,6 @@ export const STONE_MEANINGS: StoneInfo[] = [
     symbol: "la sérénité",
     patterns: [/aventurine\s*bleue/i],
   },
-  {
-    key: 'or',
-    name: 'OR',
-    color: '#C9A24B',
-    meaning: "Métal noble et solaire. Il incarne la lumière, la valeur intérieure et la beauté qui ne se ternit pas.",
-    deep: "Depuis l'Antiquité, l'or est associé au divin, au royal et à l'éternel. Inaltérable, il rehausse chaque pierre qu'il accompagne, amplifie sa vibration et rappelle que ce que l'on porte proche du corps a une valeur symbolique. Chez LOVCICOV, l'or plaqué est choisi pour sa tenue et son éclat chaud, fidèle au geste artisanal.",
-    ritual: "À porter comme une signature — lumière discrète, présence assumée.",
-    symbol: "la lumière",
-    patterns: [/(?:^|[&\s])or\b/i, /\bdor[eé]/i, /plaqu[eé]\s*or/i],
-  },
 ];
 
 // The 6 hero stones for the StoneLov collection page
