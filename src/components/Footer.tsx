@@ -49,6 +49,10 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
     >
       <h2 id="footer-heading" className="sr-only">Pied de page LOVCICOV Paris</h2>
 
+      <TrustBand />
+
+
+
       {/* Newsletter — invitation into Le Cercle */}
       {!hideNewsletter && (
         <section
