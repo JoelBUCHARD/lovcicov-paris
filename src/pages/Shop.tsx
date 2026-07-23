@@ -157,59 +157,95 @@ const Shop = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24"
               >
-                {products.slice(0, 4).map((p, i) => (
-                  <EditorialProductCard
-                    key={p.id}
-                    product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
-                    index={i}
-                    eager={i < 2}
-                  />
-                ))}
+                {active === 'all' && sort === 'default' ? (
+                  <div className="space-y-16 md:space-y-24">
+                    {([
+                      { key: 'standard', label: 'PowerLov', items: visibleStandard },
+                      { key: 'mystic', label: 'MysticLov', items: visibleMystic },
+                      { key: 'bijoux', label: 'StoneLov', items: visibleBijoux },
+                    ] as const).map((group, gi) => {
+                      const seen = new Set<string>();
+                      const items = group.items.filter((p) => {
+                        const k = p.shopifyHandle || p.name;
+                        if (seen.has(k)) return false;
+                        seen.add(k);
+                        return true;
+                      });
+                      if (items.length === 0) return null;
+                      return (
+                        <div key={group.key}>
+                          {gi > 0 && <div className="border-t border-[#E8E1D5] mb-16 md:mb-24" />}
+                          <h2
+                            className="uppercase text-center mb-10 md:mb-14"
+                            style={{
+                              fontSize: 11,
+                              letterSpacing: '0.32em',
+                              color: filterMeta[group.key].accent,
+                            }}
+                          >
+                            {group.label}
+                          </h2>
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+                            {items.map((p, i) => (
+                              <EditorialProductCard
+                                key={p.id}
+                                product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                                index={i}
+                                eager={gi === 0 && i < 2}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+                    {products.map((p, i) => (
+                      <EditorialProductCard
+                        key={p.id}
+                        product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                        index={i}
+                        eager={i < 2}
+                      />
+                    ))}
 
-
-
-                {products.slice(4).map((p, i) => (
-                  <EditorialProductCard
-                    key={p.id}
-                    product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
-                    index={i}
-                  />
-                ))}
-
-                {products.length === 0 && (
-                  <div className="col-span-2 md:col-span-4 py-24 text-center">
-                    <p
-                      className="uppercase font-light mb-4"
-                      style={{ fontSize: 10, letterSpacing: '0.32em', color: accent }}
-                    >
-                      Aucune pièce
-                    </p>
-                    <p
-                      className="italic font-light text-[#1A1A1A] mx-auto"
-                      style={{
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
-                        fontSize: 'clamp(22px, 2.4vw, 28px)',
-                        lineHeight: 1.4,
-                        maxWidth: 480,
-                      }}
-                    >
-                      Rien à afficher dans cette sélection.
-                    </p>
-                    <button
-                      onClick={() => setCollection('all')}
-                      className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
-                      style={{ fontSize: 10, letterSpacing: '0.28em' }}
-                    >
-                      Voir toutes les pièces
-                    </button>
+                    {products.length === 0 && (
+                      <div className="col-span-2 md:col-span-4 py-24 text-center">
+                        <p
+                          className="uppercase font-light mb-4"
+                          style={{ fontSize: 10, letterSpacing: '0.32em', color: accent }}
+                        >
+                          Aucune pièce
+                        </p>
+                        <p
+                          className="italic font-light text-[#1A1A1A] mx-auto"
+                          style={{
+                            fontFamily: "'Cormorant Garamond', Georgia, serif",
+                            fontSize: 'clamp(22px, 2.4vw, 28px)',
+                            lineHeight: 1.4,
+                            maxWidth: 480,
+                          }}
+                        >
+                          Rien à afficher dans cette sélection.
+                        </p>
+                        <button
+                          onClick={() => setCollection('all')}
+                          className="inline-block mt-8 uppercase border-b border-[#1A1A1A] pb-1 text-[#1A1A1A]"
+                          style={{ fontSize: 10, letterSpacing: '0.28em' }}
+                        >
+                          Voir toutes les pièces
+                        </button>
+                      </div>
+                    )}
                   </div>
                 )}
               </motion.div>
             </AnimatePresence>
           </div>
         </section>
+
 
         {/* Discreet reassurance */}
         {products.length > 0 && (
