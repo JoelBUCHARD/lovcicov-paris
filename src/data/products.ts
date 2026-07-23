@@ -400,9 +400,8 @@ export const mysticProducts: Product[] = [
     subcategory: 'crewneck',
     description: 'Crewneck LOVE natural raw, mantra brodé or sur coton écru. Un talisman quotidien dans sa version la plus lumineuse : la simplicité monastique posée sur la matière brute. Broderie dorée · Coton premium.',
     details: 'L\'énergie : douceur claire, présence sereine, amour posé sur la lumière.',
-    image: 'mystic-crewneck-natural',
+    image: 'mystic-crewneck-love-front',
     gallery: [
-      'mystic-crewneck-love-front',
       'mystic-crewneck-love-back',
       'mystic-crewneck-love-detail-2',
       'mystic-crewneck-love-detail-3',
