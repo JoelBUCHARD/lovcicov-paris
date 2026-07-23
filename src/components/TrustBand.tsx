@@ -8,7 +8,7 @@ const TrustBand = () => (
   <section
     aria-label="Nos engagements"
     style={{ padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)", backgroundColor: "#FFFFFF" }}
-    className="border-t border-border/70"
+    className="border-t border-b border-border/70"
   >
     <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 max-w-5xl text-center">
       {items.map((b) => (
