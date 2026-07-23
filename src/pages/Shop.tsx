@@ -58,11 +58,11 @@ const Shop = () => {
 
     const seen = new Set<string>();
     const deduped = base.filter((p) => {
-      const key = p.shopifyHandle || p.name;
-      if (seen.has(key)) return false;
-      seen.add(key);
+      if (seen.has(p.id)) return false;
+      seen.add(p.id);
       return true;
     });
+
 
     const sorted = [...deduped];
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
@@ -167,11 +167,11 @@ const Shop = () => {
                     ] as const).map((group, gi) => {
                       const seen = new Set<string>();
                       let items = group.items.filter((p) => {
-                        const k = p.shopifyHandle || p.name;
-                        if (seen.has(k)) return false;
-                        seen.add(k);
+                        if (seen.has(p.id)) return false;
+                        seen.add(p.id);
                         return true;
                       });
+
                       if (sort === 'price-asc') items = [...items].sort((a, b) => Number(a.price) - Number(b.price));
                       else if (sort === 'price-desc') items = [...items].sort((a, b) => Number(b.price) - Number(a.price));
                       else if (sort === 'name-asc') items = [...items].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
