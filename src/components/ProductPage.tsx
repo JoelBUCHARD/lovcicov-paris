@@ -555,16 +555,15 @@ const ProductPage = ({ product }: Props) => {
                 ? [
                     'Fermoir ajustable, montage main',
                     'Finitions soignées, contrôle qualité pièce à pièce',
-                    '[À COMPLÉTER — type de nœud, pierres, intercalaires]',
                   ]
                 : [
                     product.collection === 'mystic' ? 'Encolure côtelée renforcée' : 'Col bord-côte renforcé',
                     'Épaules tombées, coupe oversize unisexe',
                     product.subcategory === 'hoodie' ? 'Capuche doublée, cordons plats, poche kangourou' : 'Ourlet et manches surpiqués',
                     product.collection === 'mystic' ? 'Broderie LOVE dorée signature au fil métallisé' : 'Sérigraphie signature haute densité',
-                    '[À COMPLÉTER — boutons / poignets / broderies spécifiques]',
                   ]
               ).map((d) => (
+
                 <li key={d} className="flex gap-2">
                   <span aria-hidden style={{ color: cfg.accent }}>·</span>
                   <span className={d.startsWith('[À COMPLÉTER') ? 'italic text-[#B5B3AD]' : ''}>{d}</span>
