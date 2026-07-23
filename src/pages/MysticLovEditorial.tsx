@@ -30,7 +30,7 @@ const TYPE_LABEL: Record<string, string> = {
   crewneck: "Sweat",
 };
 
-const products: ProductCard[] = mysticProducts.map((p) => ({
+const rawProducts: ProductCard[] = mysticProducts.map((p) => ({
   id: p.id,
   name: p.name,
   typeLabel: TYPE_LABEL[p.subcategory ?? ""] ?? "Pièce",
@@ -39,6 +39,24 @@ const products: ProductCard[] = mysticProducts.map((p) => ({
   hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
   subcategory: p.subcategory,
 }));
+
+// Deterministic shuffle so models/silhouettes are mixed across the grid
+const shuffle = <T,>(arr: T[], seed = 42): T[] => {
+  const a = [...arr];
+  let s = seed;
+  const rand = () => {
+    s = (s * 9301 + 49297) % 233280;
+    return s / 233280;
+  };
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+const products: ProductCard[] = shuffle(rawProducts, 137);
+
 
 const heroImage = heroAsset.url;
 const closingImage = closingAsset.url;
