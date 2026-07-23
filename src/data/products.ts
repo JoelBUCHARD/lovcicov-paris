@@ -461,7 +461,7 @@ export const mysticProducts: Product[] = [
     shopifyHandle: 't-shirt-heart-eye',
     name: 'T-Shirt Heart Eye',
     price: 70,
-    collection: 'mystic',
+    collection: 'standard',
     subcategory: 'tshirt',
     description: 'Carte du Tarot : L\'Amoureux. Intention : choix du cœur, alignement entre désir et conscience. À porter quand il faut écouter l\'intuition amoureuse, au sens large. L\'œil dans le cœur est un symbole ancien de clairvoyance émotionnelle ; Georgiana l\'a brodé en patch rouge sacré. Broderie dorée · Coton premium.',
     details: 'L\'énergie : intuition du cœur, vérité ressentie, amour lucide.',
