@@ -4,6 +4,7 @@ import { Instagram, Facebook } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
+import TrustBand from '@/components/TrustBand';
 
 interface FooterProps {
   hideTopBorder?: boolean;
