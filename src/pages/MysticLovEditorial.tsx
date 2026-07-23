@@ -30,15 +30,20 @@ const TYPE_LABEL: Record<string, string> = {
   crewneck: "Sweat",
 };
 
-const rawProducts: ProductCard[] = mysticProducts.map((p) => ({
-  id: p.id,
-  name: p.name,
-  typeLabel: TYPE_LABEL[p.subcategory ?? ""] ?? "Pièce",
-  price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
-  image: resolveProductImage(p.image),
-  hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
-  subcategory: p.subcategory,
-}));
+const rawProducts: ProductCard[] = mysticProducts.map((p) => {
+  const image = resolveProductImage(p.image);
+  const hoverRaw = p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined;
+  return {
+    id: p.id,
+    name: p.name,
+    typeLabel: TYPE_LABEL[p.subcategory ?? ""] ?? "Pièce",
+    price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
+    image,
+    hover: hoverRaw && hoverRaw !== image ? hoverRaw : undefined,
+    subcategory: p.subcategory,
+  };
+});
+
 
 // Deterministic shuffle so models/silhouettes are mixed across the grid
 const shuffle = <T,>(arr: T[], seed = 42): T[] => {
