@@ -158,7 +158,7 @@ const Shop = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               >
-                {active === 'all' && sort === 'default' ? (
+                {active === 'all' ? (
                   <div className="space-y-16 md:space-y-24">
                     {([
                       { key: 'standard', label: 'PowerLov', items: visibleStandard },
@@ -166,12 +166,15 @@ const Shop = () => {
                       { key: 'bijoux', label: 'StoneLov', items: visibleBijoux },
                     ] as const).map((group, gi) => {
                       const seen = new Set<string>();
-                      const items = group.items.filter((p) => {
+                      let items = group.items.filter((p) => {
                         const k = p.shopifyHandle || p.name;
                         if (seen.has(k)) return false;
                         seen.add(k);
                         return true;
                       });
+                      if (sort === 'price-asc') items = [...items].sort((a, b) => Number(a.price) - Number(b.price));
+                      else if (sort === 'price-desc') items = [...items].sort((a, b) => Number(b.price) - Number(a.price));
+                      else if (sort === 'name-asc') items = [...items].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
                       if (items.length === 0) return null;
                       return (
                         <div key={group.key}>
@@ -200,6 +203,7 @@ const Shop = () => {
                       );
                     })}
                   </div>
+
                 ) : (
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
                     {products.map((p, i) => (
