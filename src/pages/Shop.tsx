@@ -58,11 +58,11 @@ const Shop = () => {
 
     const seen = new Set<string>();
     const deduped = base.filter((p) => {
-      const key = p.shopifyHandle || p.name;
-      if (seen.has(key)) return false;
-      seen.add(key);
+      if (seen.has(p.id)) return false;
+      seen.add(p.id);
       return true;
     });
+
 
     const sorted = [...deduped];
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
