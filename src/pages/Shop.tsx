@@ -184,7 +184,7 @@ const Shop = () => {
                             style={{
                               fontSize: 11,
                               letterSpacing: '0.32em',
-                              color: filterMeta[group.key].accent,
+                              color: '#0D0D0D',
                             }}
                           >
                             {group.label}
