@@ -4,6 +4,7 @@ import { Instagram, Facebook } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
+import TrustBand from '@/components/TrustBand';
 
 interface FooterProps {
   hideTopBorder?: boolean;
@@ -47,6 +48,10 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">Pied de page LOVCICOV Paris</h2>
+
+      <TrustBand />
+
+
 
       {/* Newsletter — invitation into Le Cercle */}
       {!hideNewsletter && (

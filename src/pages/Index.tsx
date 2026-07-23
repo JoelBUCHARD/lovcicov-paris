@@ -565,39 +565,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ————————————————————————————————————————————————————— */}
-      {/* 9. TRUST & REASSURANCE */}
-      {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-white border-t border-[#EFE9DF] pt-6 md:pt-8 pb-16 md:pb-20 px-6 md:px-10">
-        <div className="max-w-[1080px] mx-auto">
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 text-center">
-            {[
-              { title: 'Livraison offerte', desc: 'Sur toutes les commandes dès 99 €.' },
-              { title: 'Paiement sécurisé', desc: 'Transactions cryptées, protection intégrale.' },
-              { title: 'Retours 14 jours', desc: 'Simples et sans justification.' },
-              { title: 'Conseil personnel', desc: 'Une conseillère vous répond directement.' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-              >
-                
-                <h3 className="text-[11px] tracking-[0.28em] uppercase text-[#1A1A1A] font-medium mb-4">
-                  {item.title}
-                </h3>
-                <p className="text-[13px] text-[#5F5E5A] font-light leading-relaxed max-w-[220px] mx-auto">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
 
 
