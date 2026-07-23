@@ -575,18 +575,21 @@ const ProductPage = ({ product }: Props) => {
           {/* 2. Matières & composition */}
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
-            <ul className="list-none p-0 m-0 space-y-1.5">
-              <li className="italic text-[#B5B3AD]">
-                · [À COMPLÉTER — composition exacte, ex. « 100% coton biologique, 240 g/m² »]
-              </li>
-              <li className="italic text-[#B5B3AD]">
-                · [À COMPLÉTER — certifications éventuelles, ex. GOTS, OEKO-TEX]
-              </li>
-              <li className="flex gap-2">
-                <Leaf size={14} strokeWidth={1.4} style={{ color: cfg.accent, marginTop: 3 }} />
-                <span className="italic text-[#B5B3AD]">[À COMPLÉTER — note responsable si applicable]</span>
-              </li>
-            </ul>
+            {!isJewelry && (
+              <ul className="list-none p-0 m-0 space-y-1.5">
+                <li className="italic text-[#B5B3AD]">
+                  · [À COMPLÉTER — composition exacte, ex. « 100% coton biologique, 240 g/m² »]
+                </li>
+                <li className="italic text-[#B5B3AD]">
+                  · [À COMPLÉTER — certifications éventuelles, ex. GOTS, OEKO-TEX]
+                </li>
+                <li className="flex gap-2">
+                  <Leaf size={14} strokeWidth={1.4} style={{ color: cfg.accent, marginTop: 3 }} />
+                  <span className="italic text-[#B5B3AD]">[À COMPLÉTER — note responsable si applicable]</span>
+                </li>
+              </ul>
+            )}
+
           </Accordion>
 
           {/* 3. Coupe & taille */}
