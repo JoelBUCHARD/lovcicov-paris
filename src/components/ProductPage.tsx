@@ -555,16 +555,15 @@ const ProductPage = ({ product }: Props) => {
                 ? [
                     'Fermoir ajustable, montage main',
                     'Finitions soignées, contrôle qualité pièce à pièce',
-                    '[À COMPLÉTER — type de nœud, pierres, intercalaires]',
                   ]
                 : [
                     product.collection === 'mystic' ? 'Encolure côtelée renforcée' : 'Col bord-côte renforcé',
                     'Épaules tombées, coupe oversize unisexe',
                     product.subcategory === 'hoodie' ? 'Capuche doublée, cordons plats, poche kangourou' : 'Ourlet et manches surpiqués',
                     product.collection === 'mystic' ? 'Broderie LOVE dorée signature au fil métallisé' : 'Sérigraphie signature haute densité',
-                    '[À COMPLÉTER — boutons / poignets / broderies spécifiques]',
                   ]
               ).map((d) => (
+
                 <li key={d} className="flex gap-2">
                   <span aria-hidden style={{ color: cfg.accent }}>·</span>
                   <span className={d.startsWith('[À COMPLÉTER') ? 'italic text-[#B5B3AD]' : ''}>{d}</span>
@@ -576,18 +575,21 @@ const ProductPage = ({ product }: Props) => {
           {/* 2. Matières & composition */}
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
-            <ul className="list-none p-0 m-0 space-y-1.5">
-              <li className="italic text-[#B5B3AD]">
-                · [À COMPLÉTER — composition exacte, ex. « 100% coton biologique, 240 g/m² »]
-              </li>
-              <li className="italic text-[#B5B3AD]">
-                · [À COMPLÉTER — certifications éventuelles, ex. GOTS, OEKO-TEX]
-              </li>
-              <li className="flex gap-2">
-                <Leaf size={14} strokeWidth={1.4} style={{ color: cfg.accent, marginTop: 3 }} />
-                <span className="italic text-[#B5B3AD]">[À COMPLÉTER — note responsable si applicable]</span>
-              </li>
-            </ul>
+            {!isJewelry && (
+              <ul className="list-none p-0 m-0 space-y-1.5">
+                <li className="italic text-[#B5B3AD]">
+                  · [À COMPLÉTER — composition exacte, ex. « 100% coton biologique, 240 g/m² »]
+                </li>
+                <li className="italic text-[#B5B3AD]">
+                  · [À COMPLÉTER — certifications éventuelles, ex. GOTS, OEKO-TEX]
+                </li>
+                <li className="flex gap-2">
+                  <Leaf size={14} strokeWidth={1.4} style={{ color: cfg.accent, marginTop: 3 }} />
+                  <span className="italic text-[#B5B3AD]">[À COMPLÉTER — note responsable si applicable]</span>
+                </li>
+              </ul>
+            )}
+
           </Accordion>
 
           {/* 3. Coupe & taille */}
@@ -631,14 +633,17 @@ const ProductPage = ({ product }: Props) => {
           </Accordion>
 
           {/* 5. Origine & responsabilité */}
-          <Accordion title="Origine & responsabilité">
-            <p className="mb-2 italic text-[#B5B3AD]">
-              [À COMPLÉTER — pays / atelier de fabrication, ex. « Confectionné au Portugal dans un atelier familial ».]
-            </p>
-            <p className="italic text-[#B5B3AD]">
-              [À COMPLÉTER — engagement responsable, production limitée, traçabilité.]
-            </p>
-          </Accordion>
+          {!isJewelry && (
+            <Accordion title="Origine & responsabilité">
+              <p className="mb-2 italic text-[#B5B3AD]">
+                [À COMPLÉTER — pays / atelier de fabrication, ex. « Confectionné au Portugal dans un atelier familial ».]
+              </p>
+              <p className="italic text-[#B5B3AD]">
+                [À COMPLÉTER — engagement responsable, production limitée, traçabilité.]
+              </p>
+            </Accordion>
+          )}
+
 
           {/* 6. Livraison & retours */}
           <Accordion title="Livraison & retours">
