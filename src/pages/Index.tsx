@@ -233,7 +233,7 @@ const Index = () => {
             PowerLov
           </h2>
           <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
-            Silhouettes affirmées. Coupes précises. L'énergie d'une allure choisie.
+            La collection des messages qui donnent de l'énergie.
           </p>
         </div>
 
