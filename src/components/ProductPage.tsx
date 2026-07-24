@@ -794,50 +794,128 @@ const ProductPage = ({ product }: Props) => {
 
 
 
-      {/* ─── Lightbox / Image zoom ────────────────────────── */}
+      {/* ─── Lightbox / Image zoom (editorial) ─────────────── */}
       <AnimatePresence>
         {lightboxOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-white/98 backdrop-blur-sm flex items-center justify-center"
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[100] bg-[#0A0A0A] flex flex-col"
             onClick={() => setLightboxOpen(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Galerie produit"
           >
-            <button
-              type="button"
-              onClick={(e) => { e.stopPropagation(); setLightboxOpen(false); }}
-              className="absolute top-6 right-6 md:top-8 md:right-8 p-2 hover:opacity-60 transition-opacity z-10"
-              aria-label="Fermer"
-            >
-              <X size={22} strokeWidth={1.2} className="text-[#1A1A1A]" />
-            </button>
+            {/* Top bar */}
             <div
-              className="max-w-[90vw] max-h-[88vh] flex items-center justify-center"
+              className="flex items-center justify-between px-6 md:px-10 h-16 md:h-20 shrink-0 border-b border-white/5"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={getImage(allImages[activeImage])}
-                alt={product.name}
-                className="max-w-full max-h-[88vh] object-contain"
-              />
+              <div
+                style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: 'rgba(255,255,255,0.55)' }}
+                className="uppercase tabular-nums"
+              >
+                {String(activeImage + 1).padStart(2, '0')} <span className="mx-2 opacity-40">/</span> {String(allImages.length).padStart(2, '0')}
+              </div>
+              <div
+                className="hidden md:block uppercase truncate max-w-[50%]"
+                style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: 'rgba(255,255,255,0.55)' }}
+              >
+                {product.name}
+              </div>
+              <button
+                type="button"
+                onClick={() => setLightboxOpen(false)}
+                className="group flex items-center gap-3 text-white/70 hover:text-white transition-colors"
+                aria-label="Fermer"
+              >
+                <span
+                  className="hidden md:inline uppercase"
+                  style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em' }}
+                >
+                  Fermer
+                </span>
+                <X size={18} strokeWidth={1} />
+              </button>
             </div>
-            {allImages.length > 1 && (
-              <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
-                {allImages.map((_, i) => (
+
+            {/* Stage */}
+            <div
+              className="flex-1 relative flex items-center justify-center px-4 md:px-16 py-6 md:py-10 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {allImages.length > 1 && (
+                <>
                   <button
-                    key={i}
-                    onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
-                    className={`h-[3px] transition-all ${activeImage === i ? 'w-8 bg-[#1A1A1A]' : 'w-4 bg-[#B5B3AD]'}`}
-                    aria-label={`Voir image ${i + 1}`}
-                  />
-                ))}
+                    type="button"
+                    onClick={() => setActiveImage((i) => (i - 1 + allImages.length) % allImages.length)}
+                    className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 h-14 w-14 items-center justify-center rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all"
+                    aria-label="Image précédente"
+                  >
+                    <ChevronLeft size={20} strokeWidth={1.2} />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setActiveImage((i) => (i + 1) % allImages.length)}
+                    className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 h-14 w-14 items-center justify-center rounded-full border border-white/15 text-white/70 hover:text-white hover:border-white/40 hover:bg-white/5 transition-all"
+                    aria-label="Image suivante"
+                  >
+                    <ChevronRight size={20} strokeWidth={1.2} />
+                  </button>
+                </>
+              )}
+
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeImage}
+                  src={getImage(allImages[activeImage])}
+                  alt={`${product.name} — vue ${activeImage + 1}`}
+                  initial={{ opacity: 0, scale: 1.01 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.995 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  className="max-w-full max-h-full object-contain select-none"
+                  style={{ boxShadow: '0 30px 80px -30px rgba(0,0,0,0.6)' }}
+                  draggable={false}
+                />
+              </AnimatePresence>
+            </div>
+
+            {/* Thumbnail rail */}
+            {allImages.length > 1 && (
+              <div
+                className="shrink-0 border-t border-white/5 px-4 md:px-10 py-4 md:py-5"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-center gap-2 md:gap-3 overflow-x-auto">
+                  {allImages.map((img, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImage(i)}
+                      className={`shrink-0 h-16 w-12 md:h-20 md:w-16 overflow-hidden bg-[#111] transition-all duration-300 ${
+                        activeImage === i
+                          ? 'opacity-100 ring-1 ring-white'
+                          : 'opacity-40 hover:opacity-80'
+                      }`}
+                      aria-label={`Voir image ${i + 1}`}
+                    >
+                      <img
+                        src={getImage(img)}
+                        alt=""
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
           </motion.div>
         )}
       </AnimatePresence>
+
 
       {/* ─── Size guide modal ─────────────────────────────── */}
       <AnimatePresence>
