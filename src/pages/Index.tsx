@@ -188,49 +188,6 @@ const Index = () => {
       </section>
 
 
-      {/* ————————————————————————————————————————————————————— */}
-      {/* 2. BRAND PHILOSOPHY — Manifeste */}
-      {/* ————————————————————————————————————————————————————— */}
-      <section className="bg-background border-t border-[#EFE9DF] py-12 md:py-16 px-6 md:px-10">
-        <div className="max-w-[720px] mx-auto text-center">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10"
-          >
-            <Link to="/manifeste" className="hover:text-[#1A1A1A] transition-colors">
-              Manifeste
-            </Link>
-          </motion.p>
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={1}
-            className="text-[#1A1A1A] font-light space-y-8"
-            style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', lineHeight: 1.55, letterSpacing: '-0.005em' }}
-          >
-            <p>Le véritable style ne cherche pas à transformer.</p>
-            <p>
-              Il révèle <em className="italic" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>ce qui était déjà là</em>.
-            </p>
-          </motion.div>
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={2}
-            className="mt-10 text-[#5F5E5A] font-light max-w-[520px] mx-auto"
-            style={{ fontSize: 15, lineHeight: 1.8 }}
-          >
-            Des pièces qui expriment une attitude. Des symboles qui racontent une histoire.
-          </motion.p>
-        </div>
-      </section>
 
 
       {/* ————————————————————————————————————————————————————— */}
