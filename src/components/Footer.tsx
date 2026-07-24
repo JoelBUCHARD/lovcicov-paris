@@ -138,7 +138,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/33786386782" target="_blank" rel="noopener noreferrer" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
+                  <a href="https://api.whatsapp.com/send?phone=33786386782" target="_blank" rel="noopener noreferrer" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
                     WhatsApp
                   </a>
                 </li>

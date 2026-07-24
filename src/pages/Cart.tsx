@@ -364,7 +364,7 @@ const Cart = () => {
                     <p>
                       <span className="text-foreground">Une question&nbsp;?</span>{' '}
                       <a
-                        href="https://wa.me/33786386782"
+                        href="https://api.whatsapp.com/send?phone=33786386782"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="underline underline-offset-4 hover:text-foreground transition-colors"
