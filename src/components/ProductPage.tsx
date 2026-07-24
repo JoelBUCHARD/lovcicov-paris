@@ -240,12 +240,6 @@ const ProductPage = ({ product }: Props) => {
     }
   };
 
-  const reassurance = [
-    { Icon: Truck, label: 'Livraison offerte dès 99€' },
-    { Icon: RotateCcw, label: 'Retours 14 jours' },
-    { Icon: ShieldCheck, label: 'Paiement sécurisé' },
-    { Icon: MessageCircle, label: 'Conseil personnalisé' },
-  ];
 
 
   const seoImage = getImage(allImages[0]);
@@ -481,11 +475,32 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
+              <p
+                className="mt-3"
+                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
+              >
+                Le mannequin porte une taille M.
+              </p>
+              <p
+                className="mt-1"
+                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
+              >
+                Cet article taille grand : si tu es entre deux tailles, choisis la taille en dessous.
+              </p>
             </div>
           )}
 
+          {!isJewelry && (
+            <p
+              className="mt-6 mb-2 uppercase"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
+            >
+              Précommande — expédiée sous environ 1 mois
+            </p>
+          )}
+
           {/* CTA + wishlist */}
-          <div className="flex gap-2 mt-6">
+          <div className="flex gap-2 mt-3">
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
@@ -501,7 +516,7 @@ const ProductPage = ({ product }: Props) => {
                 fontWeight: 500,
               }}
             >
-              {isAdding ? 'Ajout en cours…' : 'Ajouter au panier'}
+              {isAdding ? 'Ajout en cours…' : isJewelry ? 'Ajouter au panier' : 'Précommander'}
             </button>
             <button
               onClick={() => setWishlisted((v) => !v)}
@@ -516,28 +531,6 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
-
-
-          {/* Reassurance — single occurrence */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-10 pt-8 border-t border-[#E8E4DD]">
-            {reassurance.map(({ Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5">
-                <Icon size={18} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
-                <span
-                  className="text-[11px] md:text-[10px]"
-                  style={{
-                    fontFamily: SANS,
-                    letterSpacing: '0.1em',
-                    color: '#5F5E5A',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-
         </motion.div>
       </div>
 
@@ -547,6 +540,18 @@ const ProductPage = ({ product }: Props) => {
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
+
+          {!isJewelry && (
+            <Accordion title="Précommande — notre choix" defaultOpen>
+              <p>
+                Confectionné à la demande, rien d'autre. Nous avons choisi de ne produire que
+                les pièces réellement commandées. Pas de surproduction, pas de stock qui dort,
+                pas d'invendus soldés. C'est ce qui explique un délai d'environ un mois : le
+                temps de tailler, coudre et finir ta pièce avec soin, dans nos ateliers
+                partenaires. Une façon plus lente, plus juste, de faire de beaux vêtements.
+              </p>
+            </Accordion>
+          )}
 
           {/* 1. Détails & confection */}
           <Accordion title="Détails & confection" defaultOpen>

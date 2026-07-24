@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
 import JourneyContinuation from '@/components/JourneyContinuation';
-import TrustLine from '@/components/TrustLine';
+
 import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
@@ -254,7 +254,7 @@ const Shop = () => {
         {/* Discreet reassurance */}
         {products.length > 0 && (
           <div className="mt-20 md:mt-28 border-t border-[#EFE9DF] pt-10">
-            <TrustLine />
+            
           </div>
         )}
 
