@@ -289,6 +289,15 @@ const Sacs = () => {
           />
         </section>
 
+        <section className="w-full flex justify-center" style={{ padding: "clamp(24px, 4vw, 48px) 24px clamp(48px, 6vw, 80px)" }}>
+          <Link
+            to="/shop"
+            className="inline-flex items-center justify-center bg-foreground text-background border border-foreground px-8 py-3 text-[10px] tracking-[0.24em] uppercase hover:bg-background hover:text-foreground transition-colors"
+          >
+            Découvrir toute la collection
+          </Link>
+        </section>
+
         <JourneyContinuation
           eyebrow="Explorer"
           title="Trois univers, une même maison"
