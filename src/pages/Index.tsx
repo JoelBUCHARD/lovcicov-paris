@@ -276,7 +276,7 @@ const Index = () => {
             MysticLov
           </h2>
           <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
-            Des talismans contemporains, portés comme une intention.
+            La collection des talismans.
           </p>
         </div>
 
