@@ -10,7 +10,7 @@ import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
 import editorialStonelov from '@/assets/editorial-powerlov-v2.png.asset.json';
-import slideHeroAsset from '@/assets/slide-hero-paris-trio-v2.png.asset.json';
+import slideHeroAsset from '@/assets/hero-lovcicov-2019-garden.png.asset.json';
 
 
 import ig1 from '@/assets/instagram/ig-1.png';
