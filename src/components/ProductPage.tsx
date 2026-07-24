@@ -240,12 +240,6 @@ const ProductPage = ({ product }: Props) => {
     }
   };
 
-  const reassurance = [
-    { Icon: Truck, label: 'Livraison offerte dès 99€' },
-    { Icon: RotateCcw, label: 'Retours 14 jours' },
-    { Icon: ShieldCheck, label: 'Paiement sécurisé' },
-    { Icon: MessageCircle, label: 'Conseil personnalisé' },
-  ];
 
 
   const seoImage = getImage(allImages[0]);
