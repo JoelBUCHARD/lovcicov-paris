@@ -64,17 +64,17 @@ const Manifeste = () => {
             initial="hidden"
             animate="visible"
             custom={3}
-            className="mt-20 flex flex-col items-center gap-4"
+            className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <Link
               to="/fondatrice"
-              className="text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground/40 pb-0.5 hover:border-foreground transition-colors"
+              className="inline-flex items-center justify-center bg-foreground text-background border border-foreground px-8 py-3 text-[10px] tracking-[0.24em] uppercase hover:bg-background hover:text-foreground transition-colors"
             >
               Lire la genèse — La Fondatrice
             </Link>
             <Link
               to="/shop"
-              className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex items-center justify-center bg-foreground text-background border border-foreground px-8 py-3 text-[10px] tracking-[0.24em] uppercase hover:bg-background hover:text-foreground transition-colors"
             >
               Découvrir les collections
             </Link>
