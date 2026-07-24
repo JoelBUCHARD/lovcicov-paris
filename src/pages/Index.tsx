@@ -321,7 +321,7 @@ const Index = () => {
             StoneLov
           </h2>
           <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
-            La pierre choisie comme un signe. La matière comme une mémoire.
+            La collection de pierres naturelles.
           </p>
         </div>
 
