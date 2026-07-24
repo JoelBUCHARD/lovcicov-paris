@@ -481,11 +481,32 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
+              <p
+                className="mt-3"
+                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
+              >
+                Le mannequin porte une taille M.
+              </p>
+              <p
+                className="mt-1"
+                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
+              >
+                Cet article taille grand : si tu es entre deux tailles, choisis la taille en dessous.
+              </p>
             </div>
           )}
 
+          {!isJewelry && (
+            <p
+              className="mt-6 mb-2 uppercase"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
+            >
+              Précommande — expédiée sous environ 1 mois
+            </p>
+          )}
+
           {/* CTA + wishlist */}
-          <div className="flex gap-2 mt-6">
+          <div className="flex gap-2 mt-3">
             <button
               onClick={handleAddToCart}
               disabled={isAdding}
@@ -501,7 +522,7 @@ const ProductPage = ({ product }: Props) => {
                 fontWeight: 500,
               }}
             >
-              {isAdding ? 'Ajout en cours…' : 'Ajouter au panier'}
+              {isAdding ? 'Ajout en cours…' : isJewelry ? 'Ajouter au panier' : 'Précommander'}
             </button>
             <button
               onClick={() => setWishlisted((v) => !v)}
@@ -514,28 +535,6 @@ const ProductPage = ({ product }: Props) => {
                 style={{ color: '#1A1A1A', fill: wishlisted ? '#1A1A1A' : 'transparent' }}
               />
             </button>
-          </div>
-
-
-
-          {/* Reassurance — single occurrence */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-10 pt-8 border-t border-[#E8E4DD]">
-            {reassurance.map(({ Icon, label }) => (
-              <div key={label} className="flex items-center gap-2.5">
-                <Icon size={18} strokeWidth={1.2} style={{ color: '#5F5E5A' }} />
-                <span
-                  className="text-[11px] md:text-[10px]"
-                  style={{
-                    fontFamily: SANS,
-                    letterSpacing: '0.1em',
-                    color: '#5F5E5A',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  {label}
-                </span>
-              </div>
-            ))}
           </div>
 
         </motion.div>

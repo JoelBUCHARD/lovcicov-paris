@@ -254,7 +254,7 @@ const Shop = () => {
         {/* Discreet reassurance */}
         {products.length > 0 && (
           <div className="mt-20 md:mt-28 border-t border-[#EFE9DF] pt-10">
-            <TrustLine />
+            
           </div>
         )}
 
