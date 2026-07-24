@@ -547,6 +547,18 @@ const ProductPage = ({ product }: Props) => {
       >
         <div className="border-t border-[#EFEDE8]">
 
+          {!isJewelry && (
+            <Accordion title="Précommande — notre choix" defaultOpen>
+              <p>
+                Confectionné à la demande, rien d'autre. Nous avons choisi de ne produire que
+                les pièces réellement commandées. Pas de surproduction, pas de stock qui dort,
+                pas d'invendus soldés. C'est ce qui explique un délai d'environ un mois : le
+                temps de tailler, coudre et finir ta pièce avec soin, dans nos ateliers
+                partenaires. Une façon plus lente, plus juste, de faire de beaux vêtements.
+              </p>
+            </Accordion>
+          )}
+
           {/* 1. Détails & confection */}
           <Accordion title="Détails & confection" defaultOpen>
             <ul className="list-none p-0 m-0 space-y-1.5">
