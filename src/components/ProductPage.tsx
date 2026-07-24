@@ -272,7 +272,7 @@ const ProductPage = ({ product }: Props) => {
   };
 
   return (
-    <main className="bg-white pt-28 md:pt-36 pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
+    <main className="bg-[#F4F3F1] pt-28 md:pt-36 pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
       <SEO
         title={seoTitle}
         description={seoDesc}
@@ -725,7 +725,7 @@ const ProductPage = ({ product }: Props) => {
 
 
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
-      <section className="mt-0 px-6 md:px-12 bg-white">
+      <section className="mt-0 px-6 md:px-12 bg-[#F4F3F1]">
         <div className="max-w-[1100px] mx-auto pt-16 md:pt-20 pb-8 md:pb-10">
           <p
             className="text-center mb-14"
