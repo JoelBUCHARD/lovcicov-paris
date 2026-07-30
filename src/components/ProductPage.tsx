@@ -384,9 +384,6 @@ const ProductPage = ({ product }: Props) => {
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
             €{product.price}
           </p>
-          <p className="italic mb-3" style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}>
-            4x sans frais avec Alma
-          </p>
           {product.collection === 'mystic' && product.subcategory === 'tshirt' && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
@@ -528,14 +525,6 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
-          {hasSpecSheet && (
-            <p
-              className="mt-3 text-center"
-              style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}
-            >
-              Payez en 4x sans frais avec <strong style={{ fontWeight: 600, color: '#6B6A65' }}>Alma</strong>
-            </p>
-          )}
 
 
 
