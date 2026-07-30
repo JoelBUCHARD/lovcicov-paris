@@ -9,8 +9,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
-import editorial2026Navy from '@/assets/editorial-2026-navy-sweat.png.asset.json';
-import editorial2026Tee from '@/assets/editorial-2026-white-tee-cafe.png.asset.json';
+import editorial2026Duo from '@/assets/editorial-2026-duo-v2.png.asset.json';
 
 import slideHeroAsset from '@/assets/hero-lovcicov-2019-garden.png.asset.json';
 
@@ -210,16 +209,11 @@ const Index = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 px-0 md:px-6"
+          className="w-full px-0 md:px-6"
         >
           <img
-            src={editorial2026Navy.url}
-            alt="LOVCICOV — Sweat Sacred Heart bleu marine, Collection 2026"
-            className="w-full h-[60vh] md:h-[80vh] object-cover object-top"
-          />
-          <img
-            src={editorial2026Tee.url}
-            alt="LOVCICOV — T-shirt blanc logo, Collection 2026"
+            src={editorial2026Duo.url}
+            alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
             className="w-full h-[60vh] md:h-[80vh] object-cover object-top"
           />
         </motion.div>
