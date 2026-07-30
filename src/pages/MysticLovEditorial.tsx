@@ -300,18 +300,9 @@ const MysticLovEditorial = () => {
                         alt={product.name}
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[700ms] ease-out ${product.hover ? "group-hover:opacity-0" : ""}`}
+                        className="absolute inset-0 h-full w-full object-cover"
                       />
-                      {product.hover && (
-                        <img
-                          src={product.hover}
-                          alt=""
-                          aria-hidden="true"
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[700ms] ease-out group-hover:opacity-100"
-                        />
-                      )}
+
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                       <p
