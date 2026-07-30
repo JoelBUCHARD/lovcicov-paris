@@ -30,7 +30,9 @@ const TYPE_LABEL: Record<string, string> = {
   crewneck: "Sweat",
 };
 
-const rawProducts: ProductCard[] = mysticProducts.map((p) => {
+const HIDDEN_IDS = new Set(["mystic-crewneck-noir"]);
+
+const rawProducts: ProductCard[] = mysticProducts.filter((p) => !HIDDEN_IDS.has(p.id)).map((p) => {
   const image = resolveProductImage(p.image);
   const hoverRaw = p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined;
   return {
