@@ -159,7 +159,7 @@ const ProductPage = ({ product }: Props) => {
     kimono: 'Kimono',
   };
   const typeLabel =
-    product.collection === 'power'
+    product.collection === 'standard'
       ? POWERLOV_TYPE_OVERRIDES[product.id] ??
         SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
         (hasSpecSheet ? 'T-shirt' : '')
