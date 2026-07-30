@@ -64,7 +64,7 @@ const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
         ref={imgRef}
         src={src}
         alt={alt}
-        className="w-full h-full object-cover md:object-contain"
+        className="w-full h-full object-cover"
         style={{ objectPosition: 'center center' }}
         loading="eager"
         draggable={false}

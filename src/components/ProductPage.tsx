@@ -429,24 +429,6 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          {/* ─── Histoire produit — toujours visible ───────── */}
-          <div className="mb-8 pt-5 border-t border-[#EDE9E2] max-w-[440px]">
-            <p
-              className="mb-2"
-              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, textTransform: 'uppercase', fontWeight: 500 }}
-            >
-              L'histoire
-            </p>
-            <p style={{ fontFamily: SANS, fontSize: 13.5, lineHeight: 1.75, color: '#3F3E3B', fontWeight: 400 }}>
-              {recit || (
-                <span style={{ color: '#B5B3AD', fontStyle: 'italic' }}>
-                  [À COMPLÉTER — 2 à 3 phrases éditoriales sur l'inspiration et le geste de cette pièce.]
-                </span>
-              )}
-            </p>
-          </div>
-
-
           {hasSpecSheet && <CaracteristiquesProduit accent={cfg.accent} />}
 
           <ColorSwatches product={product} />
@@ -718,6 +700,7 @@ const ProductPage = ({ product }: Props) => {
 
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
       <section className="mt-0 px-6 md:px-12 bg-[#F4F3F1]">
+        <div className="max-w-3xl mx-auto border-t border-[#EFEDE8]" />
         <div className="max-w-[1100px] mx-auto pt-16 md:pt-20 pb-8 md:pb-10">
           <p
             className="text-center mb-14"

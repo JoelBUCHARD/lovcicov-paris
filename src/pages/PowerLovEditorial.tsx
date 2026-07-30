@@ -217,6 +217,41 @@ const PowerLovEditorial = () => {
     return sorted;
   }, [category, sort]);
 
+  // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
+  // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
+  const layout = useMemo(() => {
+    const rules: string[] = [];
+    const big = new Set<number>();
+    let i = 0;
+    let row = 1;
+    let type1 = true;
+    let left = true;
+    while (i < filtered.length) {
+      const remaining = filtered.length - i;
+      if (type1 && remaining >= 3) {
+        const bigCols = left ? "1 / 3" : "2 / 4";
+        const stdCol = left ? "3" : "1";
+        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
+        rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
+        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
+        big.add(i);
+        i += 3;
+        row += 2;
+        type1 = false;
+        left = !left;
+      } else {
+        const n = Math.min(3, remaining);
+        for (let k = 0; k < n; k++) {
+          rules.push(`.pw-${i + k}{grid-column:${k + 1};grid-row:${row};}`);
+        }
+        i += n;
+        row += 1;
+        type1 = true;
+      }
+    }
+    return { css: `@media (min-width:768px){${rules.join("")}}`, big };
+  }, [filtered]);
+
   const from = `${location.pathname}${location.search}`;
 
   return (
@@ -235,7 +270,7 @@ const PowerLovEditorial = () => {
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 30%" }}
+            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 12%" }}
             loading="eager"
             decoding="async"
           />
@@ -336,7 +371,7 @@ const PowerLovEditorial = () => {
           </div>
         </div>
 
-        {/* PRODUCT GRID — grille harmonisée, toutes les cartes au ratio 4:5 */}
+        {/* PRODUCT GRID — grille éditoriale (grandes cartes alternées) */}
         <section
           aria-label="Sélection PowerLov"
           style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
@@ -344,20 +379,23 @@ const PowerLovEditorial = () => {
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            ${layout.css}
           `}</style>
 
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5"
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => (
+            {filtered.map((product, i) => {
+              const isBig = layout.big.has(i);
+              return (
               <motion.div
                 key={product.key}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className="col-span-1 md:self-start"
+                className={`col-span-1 md:h-full pw-${i}`}
               >
                 <Link
                   to={`/shop/${product.id}`}
@@ -367,10 +405,12 @@ const PowerLovEditorial = () => {
                     prefetchImage(product.image);
                   }}
                   onTouchStart={() => prefetchRoute("/shop/item")}
-                  className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className="relative w-full overflow-hidden aspect-[4/5]"
+                    className={`relative w-full overflow-hidden aspect-[4/5] ${
+                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
+                    }`}
                     style={{ backgroundColor: "#F0EDE7" }}
                   >
                     <img
@@ -407,7 +447,8 @@ const PowerLovEditorial = () => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
 
           <div
