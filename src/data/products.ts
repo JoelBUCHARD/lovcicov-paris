@@ -29,8 +29,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « DISCIPLINE IS MY LUXURY ». Unisex.',
     details: 'Pour celles et ceux qui font de la discipline leur plus grand luxe.',
-    image: 'powerlov-discipline-street-back-v2',
-    gallery: ['powerlov-discipline-flat-front-v2'],
+    image: 'powerlov-discipline-flat-front-v2',
+    gallery: [],
     badge: 'UNISEX',
   },
   {
