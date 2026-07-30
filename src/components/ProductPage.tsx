@@ -13,6 +13,15 @@ import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import SEO from '@/components/SEO';
 import ZoomBubble from '@/components/ZoomBubble';
 import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
+import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
+import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
+
+// Fiches t-shirt PowerLov avec fiche technique complète
+const SPEC_SHEET_IDS = new Set([
+  'powerlov-discipline',
+  'powerlov-god-is-a-dancer',
+  'powerlov-protected-aligned-unstoppable',
+]);
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
@@ -135,6 +144,7 @@ const ProductPage = ({ product }: Props) => {
   const { isVisible } = useProductVisibility();
 
   const cfg = universeConfig[product.collection];
+  const hasSpecSheet = SPEC_SHEET_IDS.has(product.id);
   const isJewelry = product.collection === 'bijoux';
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
@@ -437,6 +447,8 @@ const ProductPage = ({ product }: Props) => {
           </div>
 
 
+          {hasSpecSheet && <CaracteristiquesProduit accent={cfg.accent} />}
+
           <ColorSwatches product={product} />
 
           {!isJewelry && (
@@ -537,6 +549,12 @@ const ProductPage = ({ product }: Props) => {
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
+
+          {hasSpecSheet && (
+            <Accordion title="Guide des tailles">
+              <GuideDesTaillesTable />
+            </Accordion>
+          )}
 
           {!isJewelry && (
             <Accordion title="Précommande — notre choix" defaultOpen>
