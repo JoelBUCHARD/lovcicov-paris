@@ -145,6 +145,27 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const hasSpecSheet = SPEC_SHEET_IDS.has(product.id);
+  const POWERLOV_TYPE_OVERRIDES: Record<string, string> = {
+    'powerlov-lovcicov-2019-bird': 'Sweat',
+    'powerlov-lovcicov-2019-hoodie': 'T-shirt',
+    'powerlov-iconic-by-nature-heart': 'Sweat',
+    'powerlov-sacred-heart-sweat': 'Sweat',
+    'powerlov-lovcicov-2029-bird': 'Sweat',
+  };
+  const SUBCATEGORY_LABELS: Record<string, string> = {
+    tshirt: 'T-shirt',
+    crewneck: 'Sweat',
+    hoodie: 'Sweat à capuche',
+    kimono: 'Kimono',
+  };
+  const typeLabel =
+    product.collection === 'standard'
+      ? POWERLOV_TYPE_OVERRIDES[product.id] ??
+        SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
+        (hasSpecSheet ? 'T-shirt' : '')
+      : hasSpecSheet
+      ? 'T-shirt'
+      : '';
   const isJewelry = product.collection === 'bijoux';
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
@@ -366,12 +387,12 @@ const ProductPage = ({ product }: Props) => {
           >
             {cfg.label}
           </p>
-          {hasSpecSheet && (
+          {typeLabel && (
             <p
               className="mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.25em', color: '#888780', fontWeight: 500 }}
             >
-              T-shirt
+              {typeLabel}
             </p>
           )}
           <h1
