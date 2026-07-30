@@ -422,7 +422,8 @@ const PowerLovEditorial = () => {
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover object-center"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      style={{ objectPosition: "center top" }}
                     />
                   </div>
 
