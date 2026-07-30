@@ -119,19 +119,15 @@ const MysticLovEditorial = () => {
 
       <main className="pt-[73px] overflow-hidden">
         {/* HERO */}
-        <section
-          className="relative w-screen aspect-[4/3] max-h-[92svh] overflow-hidden"
-          style={{ backgroundColor: "#0D0D0D" }}
-        >
+        <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
           <img
             src={heroImage}
             alt="MysticLov par LOVCICOV Paris"
-            className="absolute inset-0 w-full h-full object-contain"
-            style={{ filter: "brightness(1.05) contrast(0.98)", objectPosition: "center center" }}
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: "brightness(1.05) contrast(0.98)", objectPosition: "center 10%" }}
             loading="eager"
             decoding="async"
           />
-
           <div
             className="absolute inset-0"
             style={{
