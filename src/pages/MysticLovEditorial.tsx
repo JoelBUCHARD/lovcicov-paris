@@ -30,6 +30,22 @@ const TYPE_LABEL: Record<string, string> = {
   crewneck: "Sweat",
 };
 
+// Évite le doublon de libellé : si le nom contient déjà le type (« T-Shirt Love »),
+// on n'affiche pas le petit libellé au-dessus.
+const normalize = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+
+const nameIncludesType = (name: string, type: string) => {
+  const n = normalize(name);
+  const t = normalize(type);
+  if (!t) return false;
+  if (n.includes(t)) return true;
+  // « Sweat capuche » ↔ « Hoodie », « Sweat » ↔ « Crewneck »
+  if (t === "sweatcapuche") return n.includes("hoodie") || n.includes("capuche");
+  if (t === "sweat") return n.includes("sweat") || n.includes("crewneck");
+  return false;
+};
+
 const rawProducts: ProductCard[] = mysticProducts.map((p) => {
   const image = resolveProductImage(p.image);
   const hoverRaw = p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined;
