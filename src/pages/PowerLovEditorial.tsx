@@ -336,7 +336,7 @@ const PowerLovEditorial = () => {
           </div>
         </div>
 
-        {/* PRODUCT GRID — grille harmonisée, toutes les cartes au ratio 4:5 */}
+        {/* PRODUCT GRID — grille éditoriale (grandes cartes alternées) */}
         <section
           aria-label="Sélection PowerLov"
           style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
@@ -344,20 +344,23 @@ const PowerLovEditorial = () => {
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            ${layout.css}
           `}</style>
 
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5"
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => (
+            {filtered.map((product, i) => {
+              const isBig = layout.big.has(i);
+              return (
               <motion.div
                 key={product.key}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className="col-span-1 md:self-start"
+                className={`col-span-1 md:h-full pw-${i}`}
               >
                 <Link
                   to={`/shop/${product.id}`}
@@ -367,10 +370,12 @@ const PowerLovEditorial = () => {
                     prefetchImage(product.image);
                   }}
                   onTouchStart={() => prefetchRoute("/shop/item")}
-                  className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className="relative w-full overflow-hidden aspect-[4/5]"
+                    className={`relative w-full overflow-hidden aspect-[4/5] ${
+                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
+                    }`}
                     style={{ backgroundColor: "#F0EDE7" }}
                   >
                     <img
@@ -407,7 +412,8 @@ const PowerLovEditorial = () => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
 
           <div
