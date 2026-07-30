@@ -475,12 +475,7 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
-              <p
-                className="mt-3"
-                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
-              >
-                Le mannequin porte une taille M.
-              </p>
+              {isApparel && <ModelSizeNote className="mt-3" />}
               <p
                 className="mt-1"
                 style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
