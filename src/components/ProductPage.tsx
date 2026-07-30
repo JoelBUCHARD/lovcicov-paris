@@ -637,17 +637,8 @@ const ProductPage = ({ product }: Props) => {
             )}
           </Accordion>
 
-          {/* 5. Origine & responsabilité */}
-          {!isJewelry && (
-            <Accordion title="Origine & responsabilité">
-              <p className="mb-2 italic text-[#B5B3AD]">
-                [À COMPLÉTER — pays / atelier de fabrication, ex. « Confectionné au Portugal dans un atelier familial ».]
-              </p>
-              <p className="italic text-[#B5B3AD]">
-                [À COMPLÉTER — engagement responsable, production limitée, traçabilité.]
-              </p>
-            </Accordion>
-          )}
+
+
 
 
           {/* 6. Livraison & retours */}
