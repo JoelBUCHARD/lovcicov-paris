@@ -12,6 +12,7 @@ import { detectStones } from '@/data/stoneMeanings';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import SEO from '@/components/SEO';
 import ZoomBubble from '@/components/ZoomBubble';
+import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
