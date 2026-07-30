@@ -429,8 +429,6 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          {hasSpecSheet && <CaracteristiquesProduit accent={cfg.accent} />}
-
           <ColorSwatches product={product} />
 
           {!isJewelry && (
@@ -531,6 +529,10 @@ const ProductPage = ({ product }: Props) => {
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
+
+          {hasSpecSheet && (
+            <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
+          )}
 
           {hasSpecSheet && (
             <Accordion title="Guide des tailles">
