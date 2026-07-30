@@ -209,12 +209,12 @@ const Index = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full px-0 md:px-6"
+          className="w-full px-6 md:px-6"
         >
           <img
             src={editorial2026Duo.url}
             alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
-            className="w-full h-auto object-contain"
+            className="w-full h-auto object-contain max-w-[900px] mx-auto"
           />
         </motion.div>
 
