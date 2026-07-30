@@ -210,16 +210,11 @@ const Index = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 px-0 md:px-6"
+          className="w-full px-0 md:px-6"
         >
           <img
-            src={editorial2026Navy.url}
-            alt="LOVCICOV — Sweat Sacred Heart bleu marine, Collection 2026"
-            className="w-full h-[60vh] md:h-[80vh] object-cover object-top"
-          />
-          <img
-            src={editorial2026Tee.url}
-            alt="LOVCICOV — T-shirt blanc logo, Collection 2026"
+            src={editorial2026Duo.url}
+            alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
             className="w-full h-[60vh] md:h-[80vh] object-cover object-top"
           />
         </motion.div>
