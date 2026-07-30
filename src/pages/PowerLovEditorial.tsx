@@ -186,7 +186,11 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
   ];
 });
 
-const heroImage = resolveProductImage("powerlov-standard-porte-face") || products[0]?.image || "";
+const heroImage =
+  resolveProductImage("powerlov-bottomwide-lovcicov-2019-bird-market") ||
+  resolveProductImage("powerlov-standard-porte-face") ||
+  products[0]?.image ||
+  "";
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
