@@ -135,6 +135,7 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
+  const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
