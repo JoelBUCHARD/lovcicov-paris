@@ -366,12 +366,12 @@ const ProductPage = ({ product }: Props) => {
           >
             {cfg.label}
           </p>
-          {hasSpecSheet && (
+          {typeLabel && (
             <p
               className="mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.25em', color: '#888780', fontWeight: 500 }}
             >
-              T-shirt
+              {typeLabel}
             </p>
           )}
           <h1
