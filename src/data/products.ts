@@ -384,28 +384,6 @@ export const mysticProducts: Product[] = [
     ],
     colors: [
       { name: 'Noir', id: 'mystic-crewneck-noir' },
-      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
-    ],
-  },
-  {
-    id: 'mystic-crewneck-natural',
-    shopifyHandle: 'sweat-col-rond-mysticlov',
-    shopifyColor: 'Natural Raw',
-    name: 'Crewneck Love',
-    price: 120,
-    collection: 'mystic',
-    subcategory: 'crewneck',
-    description: 'Crewneck LOVE natural raw, mantra brodé or sur coton écru. Un talisman quotidien dans sa version la plus lumineuse : la simplicité monastique posée sur la matière brute. Broderie dorée · Coton premium.',
-    details: 'L\'énergie : douceur claire, présence sereine, amour posé sur la lumière.',
-    image: 'mystic-crewneck-love-front',
-    gallery: [
-      'mystic-crewneck-love-back',
-      'mystic-crewneck-love-detail-2',
-      'mystic-crewneck-love-detail-3',
-    ],
-    colors: [
-      { name: 'Noir', id: 'mystic-crewneck-noir' },
-      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
     ],
   },
 ];
