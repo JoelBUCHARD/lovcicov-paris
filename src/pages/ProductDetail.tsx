@@ -22,19 +22,26 @@ const getImage = (key: string) => {
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
-  const variantImage = (location.state as { variantImage?: string } | null)?.variantImage;
+  const navState = location.state as { variantImage?: string; galleryOrder?: string[] } | null;
+  const variantImage = navState?.variantImage;
+  const galleryOrder = navState?.galleryOrder?.filter(Boolean);
   const product = products.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
-  const effectiveImage = variantImage || product?.detailImage || product?.image;
+  const effectiveImage = galleryOrder?.length
+    ? galleryOrder[0]
+    : variantImage || product?.detailImage || product?.image;
   const displayedProduct = product && effectiveImage
     ? {
         ...product,
         image: effectiveImage,
-        gallery: variantImage
+        gallery: galleryOrder?.length
+          ? galleryOrder.slice(1)
+          : variantImage
           ? [product.image, ...(product.gallery ?? [])].filter((k) => k && k !== variantImage)
           : product.gallery,
       }
     : product;
+
 
 
 
