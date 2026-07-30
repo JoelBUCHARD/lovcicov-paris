@@ -366,6 +366,14 @@ const ProductPage = ({ product }: Props) => {
           >
             {cfg.label}
           </p>
+          {hasSpecSheet && (
+            <p
+              className="mb-2 uppercase"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.25em', color: '#888780', fontWeight: 500 }}
+            >
+              T-shirt
+            </p>
+          )}
           <h1
             className="mb-6 leading-[1.05]"
             style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
@@ -519,6 +527,17 @@ const ProductPage = ({ product }: Props) => {
               />
             </button>
           </div>
+
+          {hasSpecSheet && (
+            <p
+              className="mt-3 text-center"
+              style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}
+            >
+              Payez en 4x sans frais avec <strong style={{ fontWeight: 600, color: '#6B6A65' }}>Alma</strong>
+            </p>
+          )}
+
+
 
         </motion.div>
       </div>

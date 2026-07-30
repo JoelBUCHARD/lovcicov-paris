@@ -3,11 +3,10 @@ const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 const CARACTERISTIQUES: string[] = [
   'Jersey simple — 100 % coton biologique cardé open-end',
   'Grammage : 240 g/m² — tissu lavé',
-  'Coupe : oversize, épaules tombantes',
-  'Certifications : GOTS · OEKO-TEX Standard 100 · Fair Wear Foundation',
-  'Entretien : lavage 30° avec couleurs similaires, laver et repasser à l’envers, ne pas repasser sur l’imprimé, pas de sèche-linge',
-  'Origine : confectionné au Bangladesh dans un atelier certifié Fair Wear',
-  'Imprimé en France',
+  'Coupe : oversize — tailles XS à XL',
+  'Certifications : GOTS (coton biologique) · OEKO-TEX Standard 100 · Fair Wear Foundation',
+  'Entretien : lavage 30° avec couleurs similaires · laver et repasser à l’envers · ne pas repasser sur l’imprimé · pas de sèche-linge · pas de nettoyage à sec',
+  'Origine : tissage, teinture et confection au Bangladesh (atelier certifié Fair Wear) · Impression en France',
 ];
 
 interface Props {
