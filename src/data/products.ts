@@ -42,8 +42,8 @@ export const standardProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PRETTY. SMART. DANGEROUS. ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
-    image: 'powerlov-psd-hallway',
-    gallery: ['powerlov-psd-front-packshot', 'powerlov-psd-back-packshot'],
+    image: 'powerlov-psd-front-packshot',
+    gallery: ['powerlov-psd-back-packshot'],
     badge: 'UNISEX',
   },
   {
