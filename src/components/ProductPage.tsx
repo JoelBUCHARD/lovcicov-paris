@@ -587,8 +587,8 @@ const ProductPage = ({ product }: Props) => {
             ) : (
               <>
                 <p className="mb-3">Coupe oversize unisexe. Tailles disponibles : XS à XL.</p>
-                <p className="italic text-[#B5B3AD] mb-3">
-                  [À COMPLÉTER — Le mannequin mesure 1m__ et porte une taille __.]
+                <p className="italic mb-3" style={{ color: '#6B6A65' }}>
+                  {MODEL_SIZE_NOTE}
                 </p>
                 <button
                   type="button"
