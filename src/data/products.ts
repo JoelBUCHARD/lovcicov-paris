@@ -234,7 +234,7 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'LOVE, le mot-mantra. Symbole universel qui ouvre le cœur et appelle à la vibration la plus haute. Georgiana l\'a choisi parce que tout part de là : aimer ce que l\'on porte, ce que l\'on est, ce que l\'on dégage. Broderie dorée · Coton premium.',
     details: 'L\'énergie : ancrage, ouverture, douceur affirmée. Une pièce qui rappelle au monde, et à soi, que l\'amour est la fréquence première.',
-    image: 'mystic-tshirt-love-noir-lifestyle-woman',
+    image: 'mysticlov-tshirt-love-noir-porte-face',
     gallery: [
       'mystic-tshirt-love-noir-lifestyle-man',
       'mystic-tshirt-love-noir-flat-front',
@@ -384,28 +384,6 @@ export const mysticProducts: Product[] = [
     ],
     colors: [
       { name: 'Noir', id: 'mystic-crewneck-noir' },
-      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
-    ],
-  },
-  {
-    id: 'mystic-crewneck-natural',
-    shopifyHandle: 'sweat-col-rond-mysticlov',
-    shopifyColor: 'Natural Raw',
-    name: 'Crewneck Love',
-    price: 120,
-    collection: 'mystic',
-    subcategory: 'crewneck',
-    description: 'Crewneck LOVE natural raw, mantra brodé or sur coton écru. Un talisman quotidien dans sa version la plus lumineuse : la simplicité monastique posée sur la matière brute. Broderie dorée · Coton premium.',
-    details: 'L\'énergie : douceur claire, présence sereine, amour posé sur la lumière.',
-    image: 'mystic-crewneck-love-front',
-    gallery: [
-      'mystic-crewneck-love-back',
-      'mystic-crewneck-love-detail-2',
-      'mystic-crewneck-love-detail-3',
-    ],
-    colors: [
-      { name: 'Noir', id: 'mystic-crewneck-noir' },
-      { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
     ],
   },
 ];
