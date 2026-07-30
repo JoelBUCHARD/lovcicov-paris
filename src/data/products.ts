@@ -168,7 +168,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-mom-boss-crisis-manager',
     shopifyHandle: 't-shirt-powerlov',
-    name: 'LOVCICOV',
+    name: 'HEART ICON.',
     price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
