@@ -9,8 +9,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
-import editorial2026Navy from '@/assets/editorial-2026-navy-sweat.png.asset.json';
-import editorial2026Tee from '@/assets/editorial-2026-white-tee-cafe.png.asset.json';
+import editorial2026Duo from '@/assets/editorial-2026-duo-v2.png.asset.json';
 
 import slideHeroAsset from '@/assets/hero-lovcicov-2019-garden.png.asset.json';
 
