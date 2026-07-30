@@ -12,6 +12,7 @@ import { detectStones } from '@/data/stoneMeanings';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import SEO from '@/components/SEO';
 import ZoomBubble from '@/components/ZoomBubble';
+import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
 
 const imageModules = {
   ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
@@ -135,6 +136,7 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const isJewelry = product.collection === 'bijoux';
+  const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
@@ -475,12 +477,7 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
-              <p
-                className="mt-3"
-                style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
-              >
-                Le mannequin porte une taille M.
-              </p>
+              {isApparel && <ModelSizeNote className="mt-3" />}
               <p
                 className="mt-1"
                 style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
@@ -590,8 +587,8 @@ const ProductPage = ({ product }: Props) => {
             ) : (
               <>
                 <p className="mb-3">Coupe oversize unisexe. Tailles disponibles : XS à XL.</p>
-                <p className="italic text-[#B5B3AD] mb-3">
-                  [À COMPLÉTER — Le mannequin mesure 1m__ et porte une taille __.]
+                <p className="italic mb-3" style={{ color: '#6B6A65' }}>
+                  {MODEL_SIZE_NOTE}
                 </p>
                 <button
                   type="button"
