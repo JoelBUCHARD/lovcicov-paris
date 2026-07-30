@@ -411,17 +411,6 @@ export const mysticProducts: Product[] = [
       { name: 'Natural Raw', id: 'mystic-crewneck-natural' },
     ],
   },
-  {
-    id: 'mystic-tshirt-switchoff',
-    shopifyHandle: 't-shirt-switch-off',
-    name: 'T-Shirt Switch Off',
-    price: 70,
-    collection: 'mystic',
-    subcategory: 'tshirt',
-    description: 'Carte du Tarot : L\'Hermite. Intention : retraite, silence, reconnexion à soi. À porter dans les moments où il faut couper le bruit pour entendre l\'essentiel. Georgiana a choisi l\'esthétique 70s comme clin d\'œil à toutes les contre-cultures qui ont su débrancher pour mieux voir. Broderie dorée · Coton premium.',
-    details: 'L\'énergie : introspection, sagesse intérieure, silence fertile.',
-    image: 'mystic-tshirt-switchoff-model',
-  },
 ];
 
 // Collection "StoneLov" — colliers en pierres naturelles
