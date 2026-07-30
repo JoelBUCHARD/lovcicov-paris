@@ -187,8 +187,8 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
 });
 
 const heroImage =
+  resolveProductImage("powerlov-standard-porte-dos") ||
   resolveProductImage("powerlov-bottomwide-lovcicov-2019-bird-market") ||
-  resolveProductImage("powerlov-standard-porte-face") ||
   products[0]?.image ||
   "";
 
