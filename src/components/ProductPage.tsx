@@ -528,6 +528,17 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
+          {hasSpecSheet && (
+            <p
+              className="mt-3 text-center"
+              style={{ fontFamily: SANS, fontSize: 11, color: '#888780' }}
+            >
+              Payez en 4x sans frais avec <strong style={{ fontWeight: 600, color: '#6B6A65' }}>Alma</strong>
+            </p>
+          )}
+
+
+
         </motion.div>
       </div>
 
