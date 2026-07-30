@@ -186,7 +186,7 @@ const BASE_ORDER: { id: string; imageOverride?: string; nameOverride?: string; k
   // Bloc 1 — hero à gauche
   { id: "powerlov-discipline", imageOverride: "powerlov-discipline-back" }, // hero (dos)
   { id: "powerlov-discipline", imageOverride: "powerlov-discipline-cafe-kitsune-street", keySuffix: "-2" },
-  { id: "powerlov-sacred-heart-hoodie" }, // PERFECTLY IMPERFECT — café
+  { id: "powerlov-energy-never-lies-hoodie", imageOverride: "powerlov-sacred-heart-hoodie-cafe-croissant", nameOverride: "PERFECTLY IMPERFECT", keySuffix: "-cafe" }, // PERFECTLY IMPERFECT — café
   { id: "powerlov-if-god-dj-frequency" }, // PRETTY. SMART. DANGEROUS. — femme de face
   { id: "powerlov-god-is-a-dancer" },
   // Bloc 2 — hero à droite
