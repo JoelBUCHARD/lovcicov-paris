@@ -260,7 +260,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : pureté, vérité, racine. Une pièce qui célèbre l\'amour à l\'état brut.',
     image: 'mystic-tshirt-love-natural-man-street',
     gallery: [
-      'mystic-tshirt-love-natural-woman-street',
+      'mystic-tshirt-love-natural-woman-street-v2',
       'mystic-tshirt-love-natural-flat',
       'mystic-tshirt-love-natural-detail-1',
       'mystic-tshirt-love-natural-detail-2',
