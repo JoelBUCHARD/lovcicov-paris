@@ -12,9 +12,10 @@ const CARACTERISTIQUES: string[] = [
 interface Props {
   accent?: string;
   className?: string;
+  items?: string[];
 }
 
-const CaracteristiquesProduit = ({ accent = '#E63946', className = '' }: Props) => (
+const CaracteristiquesProduit = ({ accent = '#E63946', className = '', items }: Props) => (
   <div className={`mb-8 pt-5 border-t border-[#EDE9E2] max-w-[440px] ${className}`}>
     <p
       className="mb-2"
@@ -30,7 +31,7 @@ const CaracteristiquesProduit = ({ accent = '#E63946', className = '' }: Props) 
       Caractéristiques
     </p>
     <ul className="list-none p-0 m-0 space-y-1">
-      {CARACTERISTIQUES.map((line) => (
+      {(items ?? CARACTERISTIQUES).map((line) => (
         <li key={line} style={{ fontFamily: SANS, fontSize: 13, lineHeight: 1.8, color: '#5F5E5A' }}>
           · {line}
         </li>

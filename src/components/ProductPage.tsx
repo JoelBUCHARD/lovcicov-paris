@@ -57,6 +57,7 @@ const universeConfig = {
   standard: { label: 'POWERLOV', accent: '#E63946', back: '/powerlov', backLabel: 'PowerLov', recitBg: '#FAF6F4' },
   bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/stonelov', backLabel: 'StoneLov', recitBg: '#F6F1EB' },
   sacs: { label: 'SACS LOVCICOV', accent: '#8B6A4A', back: '/sacs', backLabel: 'Sacs', recitBg: '#F6F1EB' },
+  accessoires: { label: 'LOVBAG', accent: '#8B6A4A', back: '/sacs', backLabel: 'LovBag', recitBg: '#F6F1EB' },
 } as const;
 
 // ─── Helpers: separate story (récit) from technical specs (material) ───
@@ -163,10 +164,13 @@ const ProductPage = ({ product }: Props) => {
       ? POWERLOV_TYPE_OVERRIDES[product.id] ??
         SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
         (hasSpecSheet ? 'T-shirt' : '')
+      : isAccessory
+      ? 'Grigri'
       : hasSpecSheet
       ? 'T-shirt'
       : '';
-  const isJewelry = product.collection === 'bijoux';
+  const isAccessory = product.collection === 'accessoires';
+  const isJewelry = product.collection === 'bijoux' || isAccessory;
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
@@ -421,7 +425,7 @@ const ProductPage = ({ product }: Props) => {
               Molleton de coton brossé 400&nbsp;g/m², doux à l'intérieur et structuré à l'extérieur. Coupe oversize unisexe, épaules tombées, capuche doublée, cordons plats, poche kangourou. Bords-côtes renforcés au col, poignets et ourlet. Broderie LOVE dorée signature.
             </p>
           )}
-          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && (
+          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
@@ -561,6 +565,19 @@ const ProductPage = ({ product }: Props) => {
 
           {hasSpecSheet && (
             <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
+          )}
+
+          {isAccessory && (
+            <CaracteristiquesProduit
+              accent={cfg.accent}
+              className="max-w-none mb-0 pt-5 pb-5"
+              items={[
+                'Fait main',
+                'Pièce unique',
+                'Matériaux : laine crochetée, paracorde, cuir, mousquetons métal',
+                'Longueur : environ 20 cm',
+              ]}
+            />
           )}
 
           {hasSpecSheet && (
