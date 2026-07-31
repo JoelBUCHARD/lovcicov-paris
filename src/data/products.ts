@@ -308,7 +308,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : compassion, féminité universelle, paix intérieure.',
     image: 'mystic-tshirt-love-rose-woman-street',
     gallery: [
-      'mystic-tshirt-love-rose-man-street',
+      'mystic-tshirt-love-rose-man-street-v2',
       'mystic-tshirt-love-rose-flat',
       'mystic-tshirt-love-rose-detail-1',
       'mystic-tshirt-love-rose-detail-2',
