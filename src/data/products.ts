@@ -386,7 +386,37 @@ export const mysticProducts: Product[] = [
       { name: 'Noir', id: 'mystic-crewneck-noir' },
     ],
   },
+  {
+    id: 'mystic-crewneck-sacred-heart',
+    name: 'Crewneck Sacred Heart',
+    price: 120,
+    collection: 'mystic',
+    subcategory: 'crewneck',
+    description: 'Crewneck bleu délavé, cœur sacré brodé rouge et or sur la poitrine, petit cœur signature au col et LOVCICOV en lettres gothiques rouges au dos. Le cœur sacré, entouré de sa couronne et de sa flamme, dit l\'amour qui tient debout. Broderie rouge et or · Coton premium délavé.',
+    details: 'L\'énergie : courage du cœur, loyauté, feu intérieur.',
+    image: 'mysticlov-sacred-crewneck-porte-face',
+    gallery: [
+      'mysticlov-sacred-crewneck-porte-dos',
+      'mysticlov-sacred-crewneck-packshot-face',
+      'mysticlov-sacred-crewneck-packshot-dos',
+    ],
+  },
+  {
+    id: 'mystic-hoodie-sacred-heart',
+    name: 'Hoodie Sacred Heart',
+    price: 180,
+    collection: 'mystic',
+    subcategory: 'hoodie',
+    description: 'Hoodie anthracite délavé, LOVCICOV gothique ton sur ton surmontant un cœur sacré rouge brodé sur la poitrine. Sur la capuche, des écussons brodés — carte de tarot du soleil, cristaux, cœur. Dos sobre, ponctué d\'un petit cœur rouge sous la capuche. Broderie rouge et or · Coton premium délavé.',
+    details: 'L\'énergie : protection joyeuse, intuition, feu intérieur.',
+    image: 'mysticlov-sacred-hoodie-porte-face',
+    gallery: [
+      'mysticlov-sacred-hoodie-packshot-face',
+      'mysticlov-sacred-hoodie-packshot-dos',
+    ],
+  },
 ];
+
 
 // Collection "StoneLov" — colliers en pierres naturelles
 // Photos classifiées : solo (produit), fleurs (lifestyle), tarot (ambiance)
