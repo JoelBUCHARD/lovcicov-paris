@@ -159,6 +159,9 @@ const ProductPage = ({ product }: Props) => {
     hoodie: 'Sweat à capuche',
     kimono: 'Kimono',
   };
+  const isAccessory = product.collection === 'accessoires';
+  const isJewelry = product.collection === 'bijoux' || isAccessory;
+  const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
   const typeLabel =
     product.collection === 'standard'
       ? POWERLOV_TYPE_OVERRIDES[product.id] ??
@@ -169,9 +172,6 @@ const ProductPage = ({ product }: Props) => {
       : hasSpecSheet
       ? 'T-shirt'
       : '';
-  const isAccessory = product.collection === 'accessoires';
-  const isJewelry = product.collection === 'bijoux' || isAccessory;
-  const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs';
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
