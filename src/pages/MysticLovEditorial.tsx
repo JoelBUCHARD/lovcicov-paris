@@ -317,7 +317,9 @@ const MysticLovEditorial = () => {
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
+                        style={{ objectPosition: "top center" }}
                       />
+
 
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
