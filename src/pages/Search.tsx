@@ -17,6 +17,7 @@ const COLLECTION_ALIASES: Record<Product['collection'], string[]> = {
   mystic: ['mysticlov', 'mystic', 'mystique', 'intuition', 'douceur', 'mystere', 'mystère'],
   bijoux: ['stonelov', 'stone', 'pierre', 'pierres', 'bijou', 'bijoux', 'talisman', 'rituel'],
   sacs: ['lovbag', 'sac', 'sacs', 'cuir', 'tressé', 'tresse', 'bag'],
+  accessoires: ['grigri', 'grigris', 'accessoire', 'accessoires', 'porte-clés', 'porte-cles', 'charm', 'lovbag'],
 };
 
 const SUBCATEGORY_ALIASES: Record<string, string[]> = {
