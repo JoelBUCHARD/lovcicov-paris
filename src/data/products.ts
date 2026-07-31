@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  collection: 'standard' | 'mystic' | 'bijoux' | 'sacs';
+  collection: 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie';
   description: string;
   details: string;
@@ -781,4 +781,119 @@ export const sacsProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts];
+
+// Collection "Accessoires" — grigris LovBag, pièces uniques faites main
+export const grigriProducts: Product[] = [
+  {
+    id: 'grigri-fleur-menthe',
+    name: 'Fleur Menthe',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-01-fleur-menthe',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-fleur-bonbon',
+    name: 'Fleur Bonbon',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-02-fleur-bonbon',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-fleur-rose',
+    name: 'Fleur Rose',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-03-fleur-rose',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-arc-en-ciel-pastel',
+    name: 'Arc-en-Ciel Pastel',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-04-arc-en-ciel-pastel',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-arc-en-ciel-bleu',
+    name: 'Arc-en-Ciel Bleu',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-05-arc-en-ciel-bleu',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-cerise-rouge',
+    name: 'Cerise Rouge',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-06-cerise-rouge',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-cerise-creme',
+    name: 'Cerise Crème',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-07-cerise-creme',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-pomme-croquee',
+    name: 'Pomme Croquée',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-08-pomme-croquee',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-pomme-damour',
+    name: 'Pomme d\'Amour',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-09-pomme-damour',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-etoile-denim',
+    name: 'Étoile Denim',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-10-etoile-denim',
+    badge: 'PIÈCE UNIQUE',
+  },
+  {
+    id: 'grigri-fleur-neon',
+    name: 'Fleur Néon',
+    price: 20,
+    collection: 'accessoires',
+    description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
+    image: 'lovbag-grigri-11-fleur-neon',
+    badge: 'PIÈCE UNIQUE',
+  },
+];
+
+export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts, ...grigriProducts];
