@@ -214,8 +214,9 @@ const Index = () => {
           <img
             src={editorial2026Duo.url}
             alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
-            className="w-full h-auto object-contain max-w-[900px] mx-auto"
+            className="w-full h-[60vh] md:h-[80vh] object-cover object-top max-w-[900px] mx-auto"
           />
+
         </motion.div>
 
       </section>
