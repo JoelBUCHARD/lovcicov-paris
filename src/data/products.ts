@@ -284,7 +284,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : soin de soi, équilibre, renouveau. Une pièce qui aligne le cœur et apaise.',
     image: 'mystic-tshirt-love-green-woman-street',
     gallery: [
-      'mystic-tshirt-love-green-man-street',
+      'mystic-tshirt-love-green-man-street-v2',
       'mystic-tshirt-love-green-flat',
       'mystic-tshirt-love-green-detail-1',
       'mystic-tshirt-love-green-detail-2',
