@@ -258,7 +258,7 @@ export const mysticProducts: Product[] = [
     subcategory: 'tshirt',
     description: 'LOVE, le mot-mantra brodé or sur coton brut. Georgiana a choisi le naturel pour rappeler que l\'amour est matière, peau, lumière. Broderie dorée · Coton premium.',
     details: 'L\'énergie : pureté, vérité, racine. Une pièce qui célèbre l\'amour à l\'état brut.',
-    image: 'mystic-tshirt-love-natural-man-street-v2',
+    image: 'mystic-tshirt-love-natural-man-street-v3',
     gallery: [
       'mystic-tshirt-love-natural-woman-street-v2',
       'mystic-tshirt-love-natural-flat',
