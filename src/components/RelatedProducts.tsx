@@ -233,7 +233,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
               </div>
               <div className="flex flex-col flex-1 text-center pb-3 px-2 mt-3">
                 <h3
-                  className="flex-1"
+                  className="product-card-title"
                   style={{
                     fontFamily: "Arial, sans-serif",
                     fontSize: "11px",
