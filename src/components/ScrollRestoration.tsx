@@ -42,7 +42,6 @@ const ScrollRestoration = () => {
 
   // Sauvegarde continue de la position de l'entrée d'historique courante.
   useEffect(() => {
-    currentKey.current = location.key;
     let raf = 0;
     const save = () => {
       cancelAnimationFrame(raf);
@@ -52,13 +51,18 @@ const ScrollRestoration = () => {
     window.addEventListener("pagehide", save);
     return () => {
       cancelAnimationFrame(raf);
-      writePosition(currentKey.current, window.scrollY);
       window.removeEventListener("scroll", save);
       window.removeEventListener("pagehide", save);
     };
-  }, [location.key]);
+  }, []);
 
   useLayoutEffect(() => {
+    const previousKey = currentKey.current;
+    if (previousKey !== location.key) {
+      writePosition(previousKey, window.scrollY);
+      currentKey.current = location.key;
+    }
+
     if (navigationType !== "POP") {
       window.scrollTo(0, 0);
       return;
