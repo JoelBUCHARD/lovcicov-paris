@@ -78,6 +78,9 @@ const Index = () => {
               appearance.
             </em>
           </motion.h1>
+          <p className="lg:hidden text-[9px] tracking-[0.4em] uppercase text-[#8B7D6B] font-light text-center -mt-4 mb-8">
+            Made in Paradise
+          </p>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Text column */}
