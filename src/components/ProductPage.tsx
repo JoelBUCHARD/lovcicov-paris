@@ -533,7 +533,7 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          {!isJewelry && (
+          {!isJewelry && !isKimono && (
             <p
               className="mt-6 mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
@@ -559,7 +559,7 @@ const ProductPage = ({ product }: Props) => {
                 fontWeight: 500,
               }}
             >
-              {isAdding ? 'Ajout en cours…' : isJewelry ? 'Ajouter au panier' : 'Précommander'}
+              {isAdding ? 'Ajout en cours…' : isJewelry || isKimono ? 'Ajouter au panier' : 'Précommander'}
             </button>
             <button
               onClick={() => setWishlisted((v) => !v)}
