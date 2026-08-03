@@ -615,7 +615,6 @@ const ProductPage = ({ product }: Props) => {
               ).map((d) => (
 
                 <li key={d} className="flex gap-2">
-                  <span aria-hidden style={{ color: cfg.accent }}>·</span>
                   <span className={d.startsWith('[À COMPLÉTER') ? 'italic text-[#B5B3AD]' : ''}>{d}</span>
                 </li>
               ))}
@@ -634,7 +633,7 @@ const ProductPage = ({ product }: Props) => {
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
             ) : (
               <>
-                <p className="mb-3">Coupe oversize unisexe. Tailles disponibles : XS à XL.</p>
+                <p className="mb-3">Coupe oversize unisexe.</p>
                 <p className="italic mb-3" style={{ color: '#6B6A65' }}>
                   {MODEL_SIZE_NOTE}
                 </p>
@@ -675,10 +674,10 @@ const ProductPage = ({ product }: Props) => {
           {/* 6. Livraison & retours */}
           <Accordion title="Livraison & retours">
             <ul className="list-none p-0 space-y-1">
-              <li>· Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
-              <li>· Livraison offerte dès 99€ d'achat</li>
-              <li>· Retours gratuits sous 14 jours</li>
-              <li>· La pièce doit être retournée dans son emballage d'origine, non portée</li>
+              <li>Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
+              <li>Livraison offerte dès 99€ d'achat</li>
+              <li>Retours gratuits sous 14 jours</li>
+              <li>La pièce doit être retournée dans son emballage d'origine, non portée</li>
             </ul>
           </Accordion>
 
