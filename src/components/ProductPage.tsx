@@ -15,6 +15,7 @@ import ZoomBubble from '@/components/ZoomBubble';
 import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
+import ProductTypeLabel from '@/components/ProductTypeLabel';
 
 // Fiches t-shirt PowerLov avec fiche technique complète
 const SPEC_SHEET_IDS = new Set([
