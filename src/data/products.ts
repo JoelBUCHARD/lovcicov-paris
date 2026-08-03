@@ -245,6 +245,11 @@ export const kimonoProducts: Product[] = [
   makeKimono('devi', 'Devi', 'bleu roi profond, brodée de perles argentées'),
   makeKimono('maya', 'Maya', 'noir et beige tie-dye, brodée de perles nacrées'),
   makeKimono('aditi', 'Aditi', 'vert sauge tie-dye, brodée de perles turquoise'),
+  makeKimono('leela', 'Leela', 'bleu marine et rose tie-dye, brodée de perles nacrées'),
+  makeKimono('meera', 'Meera', 'vert canard et bordeaux à motifs floraux, brodée de perles dorées'),
+  makeKimono('kiran', 'Kiran', 'fuchsia profond, brodée de perles dorées'),
+  makeKimono('shakti', 'Shakti', 'rouge à motifs, rehaussée de rayures tie-dye vertes et de perles dorées'),
+  makeKimono('padma', 'Padma', 'magenta tie-dye, brodée de perles et de fils dorés'),
 ];
 
 // Collection "MysticLov" — produits du site mysticlov.com
