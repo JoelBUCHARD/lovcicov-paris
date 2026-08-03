@@ -222,6 +222,31 @@ export const standardProducts: Product[] = [
 
 
 
+// Kimonos MysticLov — pièces uniques en soie d'anciens saris indiens
+const KIMONO_BASE_DESCRIPTION =
+  "Chaque kimono LOVCICOV est taillé dans la soie d'anciens saris indiens, choisie pour la beauté de ses teintes, puis rebrodée de perles cousues à la main. Aucune pièce n'est identique : celle-ci n'existe qu'en un seul exemplaire.\nTaille unique, coupe ample aux épaules tombantes — il se porte ouvert, comme une seconde peau de lumière.";
+
+const makeKimono = (slug: string, name: string, colorLine: string): Product => ({
+  id: `mystic-kimono-${slug}`,
+  name,
+  price: 155,
+  collection: 'mystic',
+  subcategory: 'kimono',
+  description: `${name} — kimono en soie ${colorLine}.\n${KIMONO_BASE_DESCRIPTION}`,
+  details: 'Pièce unique — un seul exemplaire.',
+  image: `mysticlov-kimono-${slug}-porte`,
+  gallery: [`mysticlov-kimono-${slug}-packshot`],
+  badge: 'PIÈCE UNIQUE',
+});
+
+export const kimonoProducts: Product[] = [
+  makeKimono('tara', 'Tara', 'bleu ciel tie-dye, brodée de perles turquoise'),
+  makeKimono('veda', 'Veda', 'gris perle chiné, brodée de perles turquoise'),
+  makeKimono('devi', 'Devi', 'bleu roi profond, brodée de perles argentées'),
+  makeKimono('maya', 'Maya', 'noir et beige tie-dye, brodée de perles nacrées'),
+  makeKimono('aditi', 'Aditi', 'vert sauge tie-dye, brodée de perles turquoise'),
+];
+
 // Collection "MysticLov" — produits du site mysticlov.com
 export const mysticProducts: Product[] = [
   {
