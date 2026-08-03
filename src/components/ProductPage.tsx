@@ -160,6 +160,7 @@ const ProductPage = ({ product }: Props) => {
     kimono: 'Kimono',
   };
   const isAccessory = product.collection === 'accessoires';
+  const isKimono = product.subcategory === 'kimono';
   const isJewelry = product.collection === 'bijoux' || isAccessory;
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
   const typeLabel =
@@ -169,6 +170,8 @@ const ProductPage = ({ product }: Props) => {
         (hasSpecSheet ? 'T-shirt' : '')
       : isAccessory
       ? 'Grigri'
+      : isKimono
+      ? 'Kimono'
       : hasSpecSheet
       ? 'T-shirt'
       : '';
@@ -427,7 +430,15 @@ const ProductPage = ({ product }: Props) => {
               Molleton de coton brossé 400&nbsp;g/m², doux à l'intérieur et structuré à l'extérieur. Coupe oversize unisexe, épaules tombées, capuche doublée, cordons plats, poche kangourou. Bords-côtes renforcés au col, poignets et ourlet. Broderie dorée signature.
             </p>
           )}
-          {!(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
+          {isKimono && (
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[440px] whitespace-pre-line"
+              style={{ fontFamily: SANS, fontSize: 12.5, lineHeight: 1.75, color: '#6B6A65' }}
+            >
+              {product.description}
+            </p>
+          )}
+          {!isKimono && !(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
@@ -463,7 +474,18 @@ const ProductPage = ({ product }: Props) => {
 
           <ColorSwatches product={product} />
 
-          {!isJewelry && (
+          {isKimono && (
+            <div className="mb-3">
+              <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
+                Taille unique
+              </p>
+              <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
+                Plus que 1 en stock — pièce unique
+              </p>
+            </div>
+          )}
+
+          {!isJewelry && !isKimono && (
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
@@ -511,7 +533,7 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          {!isJewelry && (
+          {!isJewelry && !isKimono && (
             <p
               className="mt-6 mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
@@ -537,7 +559,7 @@ const ProductPage = ({ product }: Props) => {
                 fontWeight: 500,
               }}
             >
-              {isAdding ? 'Ajout en cours…' : isJewelry ? 'Ajouter au panier' : 'Précommander'}
+              {isAdding ? 'Ajout en cours…' : isJewelry || isKimono ? 'Ajouter au panier' : 'Précommander'}
             </button>
             <button
               onClick={() => setWishlisted((v) => !v)}
@@ -551,6 +573,12 @@ const ProductPage = ({ product }: Props) => {
               />
             </button>
           </div>
+
+          {isKimono && (
+            <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11.5, color: '#6B6A65' }}>
+              Payez en 4x sans frais avec Alma
+            </p>
+          )}
 
 
 
@@ -567,6 +595,39 @@ const ProductPage = ({ product }: Props) => {
 
           {hasSpecSheet && (
             <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
+          )}
+
+          {isKimono && (
+            <>
+              <CaracteristiquesProduit
+                accent={cfg.accent}
+                className="max-w-none mb-0 pt-5 pb-5"
+                items={[
+                  "Composition : 100 % soie recyclée d'anciens saris indiens",
+                  'Perles et broderies cousues à la main',
+                  'Pièce unique — un seul exemplaire',
+                  'Taille unique, coupe ample, épaules tombantes',
+                  'Dimensions : longueur 105 cm, largeur 132 cm, épaules 82 cm, manches 28 cm',
+                ]}
+              />
+              <Accordion title="Entretien" defaultOpen>
+                <p className="mb-3">
+                  Ta pièce est en soie ancienne, rebrodée à la main : elle demande la même douceur qu'elle t'offre.
+                </p>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {[
+                    'Lavage à la main uniquement, à l\'eau froide, avec un savon doux',
+                    'Ne pas tordre ni essorer — presser délicatement dans une serviette',
+                    'Séchage à plat, à l\'ombre, loin des radiateurs',
+                    'Pas de sèche-linge, pas de machine',
+                    'Repassage très doux sur l\'envers, fer tiède, sans toucher les perles',
+                    'Ranger sur cintre, à l\'abri de la lumière directe',
+                  ].map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+              </Accordion>
+            </>
           )}
 
           {isAccessory && (
@@ -588,7 +649,7 @@ const ProductPage = ({ product }: Props) => {
             </Accordion>
           )}
 
-          {!isJewelry && (
+          {!isJewelry && !isKimono && (
             <Accordion title="Précommande — notre choix" defaultOpen>
               <p>
                 Confectionné à la demande, rien d'autre. Nous avons choisi de ne produire que
@@ -601,6 +662,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 1. Détails & confection */}
+          {!isKimono && (
           <Accordion title="Détails & confection" defaultOpen>
             <ul className="list-none p-0 m-0 space-y-1.5">
               {(isJewelry
@@ -622,14 +684,18 @@ const ProductPage = ({ product }: Props) => {
               ))}
             </ul>
           </Accordion>
+          )}
 
           {/* 2. Matières & composition */}
+          {!isKimono && (
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
 
           </Accordion>
+          )}
 
           {/* 3. Coupe & taille */}
+          {!isKimono && (
           <Accordion title="Coupe & taille">
             {isJewelry ? (
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
@@ -650,8 +716,10 @@ const ProductPage = ({ product }: Props) => {
               </>
             )}
           </Accordion>
+          )}
 
           {/* 4. Entretien */}
+          {!isKimono && (
           <Accordion title="Entretien">
             {isJewelry ? (
               <ul className="list-none p-0 m-0 space-y-2.5">
@@ -668,6 +736,7 @@ const ProductPage = ({ product }: Props) => {
               </ul>
             )}
           </Accordion>
+          )}
 
 
 

@@ -12,7 +12,7 @@ import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
 
-type Category = "all" | "tshirts" | "sweats";
+type Category = "all" | "tshirts" | "sweats" | "kimonos";
 
 type ProductCard = {
   id: string;
@@ -28,6 +28,7 @@ const TYPE_LABEL: Record<string, string> = {
   tshirt: "T-shirt",
   hoodie: "Sweat capuche",
   crewneck: "Sweat",
+  kimono: "Kimono",
 };
 
 // Évite le doublon de libellé : si le nom contient déjà le type (« T-Shirt Love »),
@@ -86,6 +87,7 @@ const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
   { key: "tshirts", label: "T-shirts" },
   { key: "sweats", label: "Sweats" },
+  { key: "kimonos", label: "Kimonos" },
 ];
 
 const pageStyle = {
@@ -106,6 +108,8 @@ const MysticLovEditorial = () => {
           ? true
           : category === "tshirts"
           ? p.subcategory === "tshirt"
+          : category === "kimonos"
+          ? p.subcategory === "kimono"
           : p.subcategory === "hoodie" || p.subcategory === "crewneck"
       );
       const sorted = [...base];
