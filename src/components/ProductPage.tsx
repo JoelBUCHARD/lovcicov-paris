@@ -396,14 +396,7 @@ const ProductPage = ({ product }: Props) => {
           >
             {cfg.label}
           </p>
-          {typeLabel && (
-            <p
-              className="mb-2 uppercase"
-              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.25em', color: '#888780', fontWeight: 500 }}
-            >
-              {typeLabel}
-            </p>
-          )}
+          <ProductTypeLabel label={typeLabel} />
           <h1
             className="mb-6 leading-[1.05]"
             style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
