@@ -156,25 +156,25 @@ const ProductPage = ({ product }: Props) => {
   const SUBCATEGORY_LABELS: Record<string, string> = {
     tshirt: 'T-shirt',
     crewneck: 'Sweat',
-    hoodie: 'Sweat à capuche',
+    hoodie: 'Hoodie',
     kimono: 'Kimono',
   };
   const isAccessory = product.collection === 'accessoires';
   const isKimono = product.subcategory === 'kimono';
   const isJewelry = product.collection === 'bijoux' || isAccessory;
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
-  const typeLabel =
-    product.collection === 'standard'
-      ? POWERLOV_TYPE_OVERRIDES[product.id] ??
-        SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
-        (hasSpecSheet ? 'T-shirt' : '')
-      : isAccessory
-      ? 'Grigri'
-      : isKimono
-      ? 'Kimono'
-      : hasSpecSheet
-      ? 'T-shirt'
-      : '';
+  const isPowerTshirt = product.collection === 'standard' && (POWERLOV_TYPE_OVERRIDES[product.id] ?? SUBCATEGORY_LABELS[product.subcategory ?? '']) === 'T-shirt';
+  const typeLabel = isAccessory
+    ? 'Grigri'
+    : product.collection === 'sacs'
+    ? 'Sac'
+    : product.collection === 'bijoux'
+    ? (product.name.toLowerCase().includes('bracelet') ? 'Bracelet' : 'Collier')
+    : product.collection === 'standard'
+    ? POWERLOV_TYPE_OVERRIDES[product.id] ??
+      SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
+      (hasSpecSheet ? 'T-shirt' : 'T-shirt')
+    : SUBCATEGORY_LABELS[product.subcategory ?? ''] ?? (hasSpecSheet ? 'T-shirt' : 'T-shirt');
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
