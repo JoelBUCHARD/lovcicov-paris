@@ -474,7 +474,18 @@ const ProductPage = ({ product }: Props) => {
 
           <ColorSwatches product={product} />
 
-          {!isJewelry && (
+          {isKimono && (
+            <div className="mb-3">
+              <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
+                Taille unique
+              </p>
+              <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
+                Plus que 1 en stock — pièce unique
+              </p>
+            </div>
+          )}
+
+          {!isJewelry && !isKimono && (
             <div className="mb-3">
               <div className="flex items-center justify-between mb-3">
                 <p className="uppercase" style={{ fontFamily: SANS, fontSize: 11, letterSpacing: '0.18em', color: '#888780' }}>
