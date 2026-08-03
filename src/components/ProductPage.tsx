@@ -1087,7 +1087,7 @@ const ProductPage = ({ product }: Props) => {
                 </tbody>
               </table>
               <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
-                Coupe unisexe volontairement ample. Pour un tomber plus près du corps, choisissez la taille en dessous.
+                Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.
               </p>
             </motion.div>
           </motion.div>
