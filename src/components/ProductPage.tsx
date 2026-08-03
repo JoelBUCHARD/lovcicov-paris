@@ -408,6 +408,25 @@ const ProductPage = ({ product }: Props) => {
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
             €{product.price}
           </p>
+          {isPowerTshirt && (
+            <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[440px]">
+              <p style={{ fontFamily: SANS, fontSize: 12.5, lineHeight: 1.75, color: '#6B6A65' }}>
+                T-shirt unisexe à la coupe oversize.
+              </p>
+              {product.details && (
+                <p className="mt-2" style={{ fontFamily: SANS, fontSize: 12.5, lineHeight: 1.75, color: '#6B6A65' }}>
+                  {product.details}
+                </p>
+              )}
+              <ModelSizeNote className="mt-2" />
+              <p
+                className="mt-4 uppercase"
+                style={{ fontFamily: SANS, fontSize: 10.5, letterSpacing: '0.3em', color: '#1A1A1A', fontWeight: 500 }}
+              >
+                Made in Paradise
+              </p>
+            </div>
+          )}
           {product.collection === 'mystic' && product.subcategory === 'tshirt' && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
