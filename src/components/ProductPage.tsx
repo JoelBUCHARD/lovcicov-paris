@@ -160,6 +160,7 @@ const ProductPage = ({ product }: Props) => {
     kimono: 'Kimono',
   };
   const isAccessory = product.collection === 'accessoires';
+  const isKimono = product.subcategory === 'kimono';
   const isJewelry = product.collection === 'bijoux' || isAccessory;
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
   const typeLabel =
@@ -169,6 +170,8 @@ const ProductPage = ({ product }: Props) => {
         (hasSpecSheet ? 'T-shirt' : '')
       : isAccessory
       ? 'Grigri'
+      : isKimono
+      ? 'Kimono'
       : hasSpecSheet
       ? 'T-shirt'
       : '';
