@@ -22,7 +22,21 @@ const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
     const img = imgRef.current;
     if (!container || !img) return;
     const cRect = container.getBoundingClientRect();
-    const iRect = img.getBoundingClientRect();
+    const eRect = img.getBoundingClientRect();
+    // object-contain: compute the actual rendered image box inside the element
+    const nw = img.naturalWidth || eRect.width;
+    const nh = img.naturalHeight || eRect.height;
+    const scale = Math.min(eRect.width / nw, eRect.height / nh);
+    const rw = nw * scale;
+    const rh = nh * scale;
+    const iRect = {
+      left: eRect.left + (eRect.width - rw) / 2,
+      top: eRect.top + (eRect.height - rh) / 2,
+      right: eRect.left + (eRect.width + rw) / 2,
+      bottom: eRect.top + (eRect.height + rh) / 2,
+      width: rw,
+      height: rh,
+    };
     const x = e.clientX - cRect.left;
     const y = e.clientY - cRect.top;
     // Only show when hovering the actual rendered image area (object-contain leaves letterboxing)
@@ -56,7 +70,7 @@ const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
       onMouseLeave={() => setHover(false)}
       onMouseMove={handleMove}
       onClick={onOpenLightbox}
-      className="relative flex-1 aspect-[3/4] overflow-hidden bg-white group md:min-h-[640px] cursor-crosshair"
+      className="relative flex-1 aspect-[3/4] overflow-hidden bg-[#F7F6F3] group md:min-h-[640px] cursor-crosshair"
       role="button"
       aria-label="Survolez pour zoomer, cliquez pour agrandir"
     >
@@ -64,7 +78,7 @@ const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
         ref={imgRef}
         src={src}
         alt={alt}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain"
         style={{ objectPosition: 'center center' }}
         loading="eager"
         draggable={false}
@@ -83,7 +97,7 @@ const ZoomBubble = ({ src, alt, onOpenLightbox }: Props) => {
             backgroundPosition: `${bgX}px ${bgY}px`,
             boxShadow: '0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.9) inset',
             border: '2px solid rgba(255,255,255,0.9)',
-            backgroundColor: '#fff',
+            backgroundColor: '#F7F6F3',
           }}
         />
       )}
