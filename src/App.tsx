@@ -2,12 +2,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { MotionConfig, MotionGlobalConfig } from "framer-motion";
 
 MotionGlobalConfig.skipAnimations = true;
-import { useEffect, lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { useCartSync } from "./hooks/useCartSync";
+import ScrollRestoration from "./components/ScrollRestoration";
 import { CartProvider } from "./context/CartContext";
 
 // Eager: homepage + always-visible UI for fastest first paint
@@ -49,58 +50,11 @@ const MagazineArticle = lazy(() => import("./pages/MagazineArticle"));
 
 const queryClient = new QueryClient();
 
-const SCROLL_MEMORY_PATHS = [
-  '/mysticlov',
-  '/stonelov',
-  '/powerlov',
-  '/collections/mystic-lov',
-  '/collections/powerlov',
-  '/collections/stonelov',
-  '/collections/standards',
-  '/collections/bijoux',
-  '/mysticlov/shop',
-  '/stonelov/shop',
-  '/shop',
-];
-
-const scrollKey = (pathname: string) => `scroll-memory:${pathname}`;
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  const prevPathname = (ScrollToTop as any)._prev as string | undefined;
-
-  useEffect(() => {
-    if (prevPathname && prevPathname !== pathname && SCROLL_MEMORY_PATHS.includes(prevPathname)) {
-      try {
-        sessionStorage.setItem(scrollKey(prevPathname), String(window.scrollY));
-      } catch {}
-    }
-    (ScrollToTop as any)._prev = pathname;
-
-    if (SCROLL_MEMORY_PATHS.includes(pathname)) {
-      const saved = (() => {
-        try { return sessionStorage.getItem(scrollKey(pathname)); } catch { return null; }
-      })();
-      if (saved !== null) {
-        const y = parseInt(saved, 10) || 0;
-        requestAnimationFrame(() => {
-          window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior });
-          try { sessionStorage.removeItem(scrollKey(pathname)); } catch {}
-        });
-        return;
-      }
-    }
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
-
 const AppContent = () => {
   useCartSync();
   return (
     <>
-      <ScrollToTop />
+      <ScrollRestoration />
       <NewsletterPopup />
       <CookieBanner />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
