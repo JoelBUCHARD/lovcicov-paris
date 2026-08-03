@@ -32,6 +32,13 @@ const TYPE_LABEL: Record<string, string> = {
   kimono: "Kimono",
 };
 
+// Cadrage par carte : par défaut « top center » (tête toujours visible).
+// Ajustements individuels pour les visuels où le sujet n'est pas centré en haut.
+const CARD_FRAMING: Record<string, { objectPosition: string; scale?: number }> = {
+  "mystic-kimono-devi": { objectPosition: "top center", scale: 1.12 },
+};
+
+
 // Évite le doublon de libellé : si le nom contient déjà le type (« T-Shirt Love »),
 // on n'affiche pas le petit libellé au-dessus.
 const normalize = (s: string) =>
@@ -312,7 +319,13 @@ const MysticLovEditorial = () => {
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
-                        style={{ objectPosition: "top center" }}
+                        style={{
+                          objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "top center",
+                          transform: CARD_FRAMING[product.id]?.scale
+                            ? `scale(${CARD_FRAMING[product.id]!.scale})`
+                            : undefined,
+                          transformOrigin: "top center",
+                        }}
                       />
 
 
