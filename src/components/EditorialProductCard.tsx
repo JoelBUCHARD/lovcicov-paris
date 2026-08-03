@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { resolveProductImage } from '@/lib/productImage';
 import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
+import { displayProductName } from '@/lib/productDisplayName';
 
 export interface EditorialProduct {
   id: string;
@@ -80,7 +81,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false }: Props) => {
               lineHeight: 1.4,
             }}
           >
-            {product.name}
+            {displayProductName(product.name)}
           </h3>
           <p
             className="mt-2 text-[#5F5E5A] font-light"

@@ -11,6 +11,7 @@ import { mysticProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
+import { displayProductName } from '@/lib/productDisplayName';
 
 type Category = "all" | "tshirts" | "sweats" | "kimonos";
 
@@ -327,7 +328,7 @@ const MysticLovEditorial = () => {
 
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
-                      {!nameIncludesType(product.name, product.typeLabel) && (
+                      {true && (
                         <p
                           className="font-light"
                           style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
@@ -339,7 +340,7 @@ const MysticLovEditorial = () => {
                         className="text-[#0D0D0D] font-light"
                         style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                       >
-                        {product.name}
+                        {displayProductName(product.name)}
                       </h3>
                       <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
                         €{product.price}

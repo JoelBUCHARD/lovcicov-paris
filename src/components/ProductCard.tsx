@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
 import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
+import { displayProductName } from '@/lib/productDisplayName';
 
 const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
 const imageModulesJpeg = import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
@@ -80,7 +81,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
           )}
         </div>
         <div className="space-y-1 text-center pb-3 px-2 mt-auto">
-          <h3 className="text-brand text-[11px] uppercase tracking-[0.12em]">{product.name}</h3>
+          <h3 className="text-brand text-[11px] uppercase tracking-[0.12em]">{displayProductName(product.name)}</h3>
           <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#1A1A1A' }}>€{product.price}</p>
         </div>
       </Link>
