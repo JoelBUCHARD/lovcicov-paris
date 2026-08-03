@@ -264,13 +264,13 @@ const MysticLovEditorial = () => {
                       if (product.hover) prefetchImage(product.hover);
                     }}
                     onTouchStart={() => prefetchRoute("/shop/item")}
-                    className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${isHero ? "h-full" : ""}`}
+                    className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
                     <div
-                      className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
+                      className="relative w-full overflow-hidden"
                       style={{
                         backgroundColor: "#F0EDE7",
-                        aspectRatio: "4 / 5",
+                        aspectRatio: "2 / 3",
                       }}
                     >
                       <img
@@ -280,11 +280,11 @@ const MysticLovEditorial = () => {
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
                         style={{
-                          objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "top center",
+                          objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "center",
                           transform: CARD_FRAMING[product.id]?.scale
                             ? `scale(${CARD_FRAMING[product.id]!.scale})`
                             : undefined,
-                          transformOrigin: "top center",
+                          transformOrigin: "center",
                         }}
                       />
 
