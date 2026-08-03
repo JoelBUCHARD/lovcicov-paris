@@ -166,7 +166,7 @@ const MysticLovEditorial = () => {
                 className="mb-2 md:mb-4 italic"
                 style={{ fontWeight: 300, fontSize: "clamp(13px, 2vw, 22px)", color: "rgba(244,240,232,0.9)" }}
               >
-                Des talismans contemporains, portés comme une intention.
+                Des talismans contemporains.
               </p>
             </div>
           </div>
