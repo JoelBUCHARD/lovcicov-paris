@@ -328,14 +328,12 @@ const MysticLovEditorial = () => {
 
                     </div>
                     <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
-                      {true && (
-                        <p
-                          className="font-light"
-                          style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
-                        >
-                          {product.typeLabel}
-                        </p>
-                      )}
+                      <p
+                        className="font-light"
+                        style={{ fontSize: 9, letterSpacing: "0.28em", textTransform: "uppercase", color: "rgba(13,13,13,0.5)", marginBottom: 4 }}
+                      >
+                        {product.typeLabel}
+                      </p>
                       <h3
                         className="text-[#0D0D0D] font-light"
                         style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
