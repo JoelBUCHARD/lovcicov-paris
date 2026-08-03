@@ -205,7 +205,7 @@ const Sacs = () => {
                     </div>
                     <div className="pt-3 text-center">
                       <p
-                        className="font-light"
+                        className="font-light product-card-eyebrow"
                         style={{
                           fontSize: 9,
                           letterSpacing: "0.28em",
@@ -217,7 +217,7 @@ const Sacs = () => {
                         Grigri
                       </p>
                       <h3
-                        className="text-[#0D0D0D] font-light"
+                        className="text-[#0D0D0D] font-light product-card-title"
                         style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                       >
                         {p.name}

@@ -73,7 +73,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false }: Props) => {
 
         <div className="pt-5 md:pt-6 pb-2 text-center">
           <h3
-            className="text-[#1A1A1A] font-light"
+            className="text-[#1A1A1A] font-light product-card-title"
             style={{
               fontSize: 12,
               letterSpacing: '0.14em',

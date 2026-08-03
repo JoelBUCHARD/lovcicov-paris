@@ -430,7 +430,7 @@ const PowerLovEditorial = () => {
 
                   <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                     <p
-                      className="font-light"
+                      className="font-light product-card-eyebrow"
                       style={{
                         fontSize: 9,
                         letterSpacing: "0.28em",
@@ -442,7 +442,7 @@ const PowerLovEditorial = () => {
                       {product.typeLabel}
                     </p>
                     <h3
-                      className="text-[#0D0D0D] font-light"
+                      className="text-[#0D0D0D] font-light product-card-title"
                       style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                     >
                       {displayProductName(product.name)}
