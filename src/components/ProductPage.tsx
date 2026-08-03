@@ -574,6 +574,12 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
+          {isKimono && (
+            <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11.5, color: '#6B6A65' }}>
+              Payez en 4x sans frais avec Alma
+            </p>
+          )}
+
 
 
 
@@ -589,6 +595,39 @@ const ProductPage = ({ product }: Props) => {
 
           {hasSpecSheet && (
             <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
+          )}
+
+          {isKimono && (
+            <>
+              <CaracteristiquesProduit
+                accent={cfg.accent}
+                className="max-w-none mb-0 pt-5 pb-5"
+                items={[
+                  "Composition : 100 % soie recyclée d'anciens saris indiens",
+                  'Perles et broderies cousues à la main',
+                  'Pièce unique — un seul exemplaire',
+                  'Taille unique, coupe ample, épaules tombantes',
+                  'Dimensions : longueur 105 cm, largeur 132 cm, épaules 82 cm, manches 28 cm',
+                ]}
+              />
+              <Accordion title="Entretien" defaultOpen>
+                <p className="mb-3">
+                  Ta pièce est en soie ancienne, rebrodée à la main : elle demande la même douceur qu'elle t'offre.
+                </p>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {[
+                    'Lavage à la main uniquement, à l\'eau froide, avec un savon doux',
+                    'Ne pas tordre ni essorer — presser délicatement dans une serviette',
+                    'Séchage à plat, à l\'ombre, loin des radiateurs',
+                    'Pas de sèche-linge, pas de machine',
+                    'Repassage très doux sur l\'envers, fer tiède, sans toucher les perles',
+                    'Ranger sur cintre, à l\'abri de la lumière directe',
+                  ].map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+              </Accordion>
+            </>
           )}
 
           {isAccessory && (
