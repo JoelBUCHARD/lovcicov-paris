@@ -5,6 +5,8 @@ const LEADING_TYPE = /^(t[-\s]?shirt|tee|crewneck|hoodie|sweat[-\s]?capuche|swea
 export const displayProductName = (name: string): string => {
   if (!name) return name;
   const stripped = name.replace(LEADING_TYPE, '').trim();
-  if (!stripped) return name;
-  return stripped;
+  if (!stripped || stripped === name) return name;
+  if (stripped === stripped.toUpperCase()) return stripped;
+  return stripped.replace(/\b\p{L}/gu, (c) => c.toUpperCase());
 };
+
