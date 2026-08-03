@@ -736,6 +736,7 @@ const ProductPage = ({ product }: Props) => {
               </ul>
             )}
           </Accordion>
+          )}
 
 
 
