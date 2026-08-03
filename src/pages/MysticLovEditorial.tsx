@@ -319,7 +319,13 @@ const MysticLovEditorial = () => {
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover"
-                        style={{ objectPosition: "top center" }}
+                        style={{
+                          objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "top center",
+                          transform: CARD_FRAMING[product.id]?.scale
+                            ? `scale(${CARD_FRAMING[product.id]!.scale})`
+                            : undefined,
+                          transformOrigin: "top center",
+                        }}
                       />
 
 
