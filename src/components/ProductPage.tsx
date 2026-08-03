@@ -334,7 +334,7 @@ const ProductPage = ({ product }: Props) => {
 
         {/* Gallery: vertical thumbs + main image (desktop) — with lightbox zoom */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-          <div className="flex gap-4 items-stretch">
+          <div className="flex gap-4 items-start">
             {allImages.length > 1 && (
               <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
                 {allImages.map((img, i) => (
