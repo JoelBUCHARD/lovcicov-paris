@@ -16,6 +16,7 @@ import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
 import ProductTypeLabel from '@/components/ProductTypeLabel';
+import { displayProductName } from '@/lib/productDisplayName';
 
 // Fiches t-shirt PowerLov avec fiche technique complète
 const SPEC_SHEET_IDS = new Set([
@@ -402,7 +403,7 @@ const ProductPage = ({ product }: Props) => {
             className="mb-6 leading-[1.05]"
             style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
           >
-            {product.name}
+            {displayProductName(product.name)}
           </h1>
 
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>

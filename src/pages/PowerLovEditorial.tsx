@@ -9,6 +9,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { standardProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
+import { displayProductName } from '@/lib/productDisplayName';
 
 type Category = "all" | "tshirts" | "sweats";
 
@@ -444,7 +445,7 @@ const PowerLovEditorial = () => {
                       className="text-[#0D0D0D] font-light"
                       style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
                     >
-                      {product.name}
+                      {displayProductName(product.name)}
                     </h3>
                     <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
                       €{product.price}
