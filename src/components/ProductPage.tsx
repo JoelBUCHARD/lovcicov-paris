@@ -15,6 +15,7 @@ import ZoomBubble from '@/components/ZoomBubble';
 import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
+import ProductTypeLabel from '@/components/ProductTypeLabel';
 
 // Fiches t-shirt PowerLov avec fiche technique complète
 const SPEC_SHEET_IDS = new Set([
@@ -156,25 +157,25 @@ const ProductPage = ({ product }: Props) => {
   const SUBCATEGORY_LABELS: Record<string, string> = {
     tshirt: 'T-shirt',
     crewneck: 'Sweat',
-    hoodie: 'Sweat à capuche',
+    hoodie: 'Hoodie',
     kimono: 'Kimono',
   };
   const isAccessory = product.collection === 'accessoires';
   const isKimono = product.subcategory === 'kimono';
   const isJewelry = product.collection === 'bijoux' || isAccessory;
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
-  const typeLabel =
-    product.collection === 'standard'
-      ? POWERLOV_TYPE_OVERRIDES[product.id] ??
-        SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
-        (hasSpecSheet ? 'T-shirt' : '')
-      : isAccessory
-      ? 'Grigri'
-      : isKimono
-      ? 'Kimono'
-      : hasSpecSheet
-      ? 'T-shirt'
-      : '';
+  const isPowerTshirt = product.collection === 'standard' && (POWERLOV_TYPE_OVERRIDES[product.id] ?? SUBCATEGORY_LABELS[product.subcategory ?? '']) === 'T-shirt';
+  const typeLabel = isAccessory
+    ? 'Grigri'
+    : product.collection === 'sacs'
+    ? 'Sac'
+    : product.collection === 'bijoux'
+    ? (product.name.toLowerCase().includes('bracelet') ? 'Bracelet' : 'Collier')
+    : product.collection === 'standard'
+    ? POWERLOV_TYPE_OVERRIDES[product.id] ??
+      SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
+      (hasSpecSheet ? 'T-shirt' : 'T-shirt')
+    : SUBCATEGORY_LABELS[product.subcategory ?? ''] ?? (hasSpecSheet ? 'T-shirt' : 'T-shirt');
   // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
@@ -396,14 +397,7 @@ const ProductPage = ({ product }: Props) => {
           >
             {cfg.label}
           </p>
-          {typeLabel && (
-            <p
-              className="mb-2 uppercase"
-              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.25em', color: '#888780', fontWeight: 500 }}
-            >
-              {typeLabel}
-            </p>
-          )}
+          <ProductTypeLabel label={typeLabel} />
           <h1
             className="mb-6 leading-[1.05]"
             style={{ fontFamily: SANS, fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 500, color: '#1A1A1A', letterSpacing: '-0.01em' }}
@@ -414,6 +408,25 @@ const ProductPage = ({ product }: Props) => {
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
             €{product.price}
           </p>
+          {isPowerTshirt && (
+            <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[440px]">
+              <p style={{ fontFamily: SANS, fontSize: 12.5, lineHeight: 1.75, color: '#6B6A65' }}>
+                T-shirt unisexe à la coupe oversize.
+              </p>
+              {product.details && (
+                <p className="mt-2" style={{ fontFamily: SANS, fontSize: 12.5, lineHeight: 1.75, color: '#6B6A65' }}>
+                  {product.details}
+                </p>
+              )}
+              <ModelSizeNote className="mt-2" />
+              <p
+                className="mt-4 uppercase"
+                style={{ fontFamily: SANS, fontSize: 10.5, letterSpacing: '0.3em', color: '#1A1A1A', fontWeight: 500 }}
+              >
+                Made in Paradise
+              </p>
+            </div>
+          )}
           {product.collection === 'mystic' && product.subcategory === 'tshirt' && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
@@ -1074,7 +1087,7 @@ const ProductPage = ({ product }: Props) => {
                 </tbody>
               </table>
               <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
-                Coupe unisexe volontairement ample. Pour un tomber plus près du corps, choisissez la taille en dessous.
+                Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.
               </p>
             </motion.div>
           </motion.div>

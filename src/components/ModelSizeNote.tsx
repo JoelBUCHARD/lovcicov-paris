@@ -1,5 +1,5 @@
 // Mention taille mannequin — modifiable ici uniquement, se répercute partout.
-export const MODEL_SIZE_NOTE = 'Le mannequin mesure 1m75 et porte une taille M.';
+export const MODEL_SIZE_NOTE = 'Le mannequin mesure 1m75 et porte une taille XS.';
 
 const SANS = "'Instrument Sans', sans-serif";
 

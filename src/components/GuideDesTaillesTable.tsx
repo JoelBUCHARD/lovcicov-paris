@@ -55,8 +55,9 @@ const GuideDesTaillesTable = () => (
       </table>
     </div>
     <p className="mt-4 mb-0" style={{ fontFamily: SANS, fontSize: 13, lineHeight: 1.8, color: '#5F5E5A' }}>
-      Coupe oversize : le mannequin des photos porte une taille XS. Pour un tombé plus près du corps,
-      reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.
+      Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS.
+      Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample,
+      prends une taille au-dessus.
     </p>
   </div>
 );
