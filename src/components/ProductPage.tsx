@@ -649,7 +649,7 @@ const ProductPage = ({ product }: Props) => {
             </Accordion>
           )}
 
-          {!isJewelry && (
+          {!isJewelry && !isKimono && (
             <Accordion title="Précommande — notre choix" defaultOpen>
               <p>
                 Confectionné à la demande, rien d'autre. Nous avons choisi de ne produire que
@@ -662,6 +662,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 1. Détails & confection */}
+          {!isKimono && (
           <Accordion title="Détails & confection" defaultOpen>
             <ul className="list-none p-0 m-0 space-y-1.5">
               {(isJewelry
@@ -683,14 +684,18 @@ const ProductPage = ({ product }: Props) => {
               ))}
             </ul>
           </Accordion>
+          )}
 
           {/* 2. Matières & composition */}
+          {!isKimono && (
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
 
           </Accordion>
+          )}
 
           {/* 3. Coupe & taille */}
+          {!isKimono && (
           <Accordion title="Coupe & taille">
             {isJewelry ? (
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
@@ -711,8 +716,10 @@ const ProductPage = ({ product }: Props) => {
               </>
             )}
           </Accordion>
+          )}
 
           {/* 4. Entretien */}
+          {!isKimono && (
           <Accordion title="Entretien">
             {isJewelry ? (
               <ul className="list-none p-0 m-0 space-y-2.5">
