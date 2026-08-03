@@ -439,8 +439,9 @@ export const mysticProducts: Product[] = [
     subcategory: 'hoodie',
     description: 'Hoodie anthracite délavé, LOVCICOV gothique ton sur ton surmontant un cœur sacré rouge brodé sur la poitrine. Sur la capuche, des écussons brodés — carte de tarot du soleil, cristaux, cœur. Dos sobre, ponctué d\'un petit cœur rouge sous la capuche. Broderie rouge et or · Coton premium délavé.',
     details: 'L\'énergie : protection joyeuse, intuition, feu intérieur.',
-    image: 'mysticlov-sacred-hoodie-porte-face',
+    image: 'mysticlov-sacred-hoodie-porte-face-v2',
     gallery: [
+      'mysticlov-sacred-hoodie-porte-face',
       'mysticlov-sacred-hoodie-packshot-face',
       'mysticlov-sacred-hoodie-packshot-dos',
     ],
