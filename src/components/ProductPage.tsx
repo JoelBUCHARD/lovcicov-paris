@@ -179,15 +179,16 @@ const ProductPage = ({ product }: Props) => {
   const backLink = cfg.back;
   const navigate = useNavigate();
 
-  // Force le retour navigateur (bouton back) vers la page éditoriale de l'univers.
-  useEffect(() => {
-    window.history.pushState({ __lovcicovBack: true }, '');
-    const onPop = () => {
-      navigate(cfg.back, { replace: true });
-    };
-    window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
-  }, [cfg.back, navigate]);
+  // Le lien « Retour » réutilise l'historique quand c'est possible,
+  // pour que la page collection retrouve sa position de scroll.
+  const handleBack = (e: React.MouseEvent) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+    if (window.history.state?.idx > 0) {
+      e.preventDefault();
+      navigate(-1);
+    }
+  };
+
 
   useEffect(() => {
     setActiveImage(0);
