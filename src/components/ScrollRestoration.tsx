@@ -40,28 +40,19 @@ const ScrollRestoration = () => {
     }
   }, []);
 
-  // Sauvegarde continue de la position de l'entrée d'historique courante.
+  // Sauvegarde continue et synchrone de la position de l'entrée d'historique courante.
   useEffect(() => {
-    let raf = 0;
-    const save = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => writePosition(currentKey.current, window.scrollY));
-    };
+    const save = () => writePosition(currentKey.current, window.scrollY);
     window.addEventListener("scroll", save, { passive: true });
     window.addEventListener("pagehide", save);
     return () => {
-      cancelAnimationFrame(raf);
       window.removeEventListener("scroll", save);
       window.removeEventListener("pagehide", save);
     };
   }, []);
 
   useLayoutEffect(() => {
-    const previousKey = currentKey.current;
-    if (previousKey !== location.key) {
-      writePosition(previousKey, window.scrollY);
-      currentKey.current = location.key;
-    }
+    currentKey.current = location.key;
 
     if (navigationType !== "POP") {
       window.scrollTo(0, 0);
