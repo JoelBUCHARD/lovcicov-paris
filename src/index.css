@@ -165,3 +165,21 @@
 }
 
 
+@layer components {
+  /* Zone de nom des cartes produits : hauteur fixe = 2 lignes, texte aligné en haut */
+  .product-card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: calc(2 * 1.35em);
+    line-height: 1.35;
+  }
+
+  /* Libellé de type au-dessus du nom : hauteur réservée constante */
+  .product-card-eyebrow {
+    display: block;
+    height: 1.4em;
+    line-height: 1.4;
+  }
+}
