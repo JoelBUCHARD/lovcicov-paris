@@ -3,7 +3,7 @@ export interface Product {
   name: string;
   price: number;
   collection: 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
-  subcategory?: 'tshirt' | 'crewneck' | 'hoodie';
+  subcategory?: 'tshirt' | 'crewneck' | 'hoodie' | 'kimono';
   description: string;
   details: string;
   image: string;
@@ -415,6 +415,7 @@ export const mysticProducts: Product[] = [
       'mysticlov-sacred-hoodie-packshot-dos',
     ],
   },
+  ...kimonoProducts,
 ];
 
 
