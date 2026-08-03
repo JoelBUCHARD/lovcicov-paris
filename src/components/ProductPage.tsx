@@ -322,6 +322,7 @@ const ProductPage = ({ product }: Props) => {
       <div className="max-w-[1100px] mx-auto">
         <Link
           to={backLink}
+          onClick={handleBack}
           className="text-[12px] md:text-xs opacity-60 hover:opacity-100 transition-opacity mb-6 md:mb-8 inline-block mt-6 md:mt-10 min-h-11 flex items-center"
           style={{ color: '#1A1A1A', letterSpacing: '0.1em' }}
         >
