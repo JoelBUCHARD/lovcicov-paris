@@ -441,7 +441,7 @@ export const mysticProducts: Product[] = [
     details: 'L\'énergie : protection joyeuse, intuition, feu intérieur.',
     image: 'mysticlov-sacred-hoodie-porte-face-v2',
     gallery: [
-      'mysticlov-sacred-hoodie-porte-face',
+      
       'mysticlov-sacred-hoodie-porte-profil',
       'mysticlov-sacred-hoodie-packshot-face',
       'mysticlov-sacred-hoodie-packshot-dos',
