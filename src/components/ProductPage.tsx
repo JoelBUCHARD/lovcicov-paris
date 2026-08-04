@@ -419,7 +419,7 @@ const ProductPage = ({ product }: Props) => {
                   {product.details}
                 </p>
               )}
-              <ModelSizeNote className="mt-2" />
+              <ModelSizeNote className="mt-2" productId={product.id} />
               <p
                 className="mt-4 uppercase"
                 style={{ fontFamily: SANS, fontSize: 10.5, letterSpacing: '0.3em', color: '#1A1A1A', fontWeight: 500 }}
@@ -537,7 +537,7 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
-              {isApparel && <ModelSizeNote className="mt-3" />}
+              {isApparel && <ModelSizeNote className="mt-3" productId={product.id} />}
               <p
                 className="mt-1"
                 style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
@@ -717,7 +717,7 @@ const ProductPage = ({ product }: Props) => {
               <>
                 <p className="mb-3">Coupe oversize unisexe.</p>
                 <p className="italic mb-3" style={{ color: '#6B6A65' }}>
-                  {MODEL_SIZE_NOTE}
+                  {modelSizeNoteFor(product.id)}
                 </p>
                 <button
                   type="button"
@@ -1088,7 +1088,9 @@ const ProductPage = ({ product }: Props) => {
                 </tbody>
               </table>
               <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
-                Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.
+                {isDualModelProduct(product.id)
+                  ? "Coupe oversize unisexe : ce t-shirt taille grand. Nos mannequins portent 2 tailles en dessous de leur taille habituelle (femme 1m75 → XS, homme 1m85 → M). Pour un tombé près du corps, prends une taille en dessous de ta taille habituelle ; pour l'effet oversize, reste sur ta taille."
+                  : 'Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.'}
               </p>
             </motion.div>
           </motion.div>
