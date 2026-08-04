@@ -419,7 +419,7 @@ const ProductPage = ({ product }: Props) => {
                   {product.details}
                 </p>
               )}
-              <ModelSizeNote className="mt-2" productId={product.id} />
+              <ModelSizeNote className="mt-2" productId={product.id} imageKey={allImages[activeImage]} />
               <p
                 className="mt-4 uppercase"
                 style={{ fontFamily: SANS, fontSize: 10.5, letterSpacing: '0.3em', color: '#1A1A1A', fontWeight: 500 }}
@@ -537,7 +537,7 @@ const ProductPage = ({ product }: Props) => {
                   Plus que {stock} en stock
                 </p>
               )}
-              {isApparel && <ModelSizeNote className="mt-3" productId={product.id} />}
+              {isApparel && <ModelSizeNote className="mt-3" productId={product.id} imageKey={allImages[activeImage]} />}
               <p
                 className="mt-1"
                 style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
