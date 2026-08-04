@@ -12,7 +12,7 @@ import { detectStones } from '@/data/stoneMeanings';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import SEO from '@/components/SEO';
 import ZoomBubble from '@/components/ZoomBubble';
-import ModelSizeNote, { MODEL_SIZE_NOTE } from '@/components/ModelSizeNote';
+import ModelSizeNote, { MODEL_SIZE_NOTE, modelSizeNoteFor, isDualModelProduct } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
 import ProductTypeLabel from '@/components/ProductTypeLabel';
