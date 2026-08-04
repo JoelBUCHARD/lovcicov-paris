@@ -29,14 +29,54 @@ const getTypeLabel = (name: string) => {
   return "Bijou";
 };
 
-const products: ProductCard[] = bijouxProducts.map((p) => ({
-  id: p.id,
-  name: p.name,
-  typeLabel: getTypeLabel(p.name),
-  price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
-  image: resolveProductImage(p.image),
-  hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
-}));
+const DISPLAY_ORDER = [
+  "collier-malachite-lapis-double-pendentif",
+  "bracelet-agate-jaune",
+  "collier-corail-multicolor",
+  "collier-quartz-croix-jade",
+  "bracelet-sodalite",
+  "collier-oeil-tigre-fuchsia",
+  "collier-turquoise-croix-perles",
+  "bracelet-malachite-triple",
+  "collier-amethyste-lariat",
+  "collier-corail-rouge-or",
+  "bracelet-howlite-amazonite",
+  "collier-trio-citrine",
+  "collier-quartz-aventurine",
+  "bracelet-oeil-tigre-fuchsia",
+  "collier-aigue-marine-agate",
+  "collier-malachite-corail",
+  "bracelet-prehnite-perles",
+  "collier-tourmaline-multicolore",
+  "collier-amethyste-or",
+  "bracelet-turquoise-corail",
+  "collier-jade-nacre",
+  "collier-fuchsia-or",
+  "bracelet-goldstone-perles",
+  "collier-labradorite-amethyste",
+  "collier-prehnite-malachite",
+  "bracelet-amethyste-quartz",
+  "collier-malachite-chips-double",
+  "collier-quartz-rose-amethyste",
+  "collier-turquoise-or",
+];
+
+const orderIndex = (id: string) => {
+  const i = DISPLAY_ORDER.indexOf(id);
+  return i === -1 ? DISPLAY_ORDER.length : i;
+};
+
+const products: ProductCard[] = bijouxProducts
+  .map((p) => ({
+    id: p.id,
+    name: p.name,
+    typeLabel: getTypeLabel(p.name),
+    price: typeof p.price === "number" ? p.price : Number(p.price) || 0,
+    image: resolveProductImage(p.image),
+    hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
+  }))
+  .sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
+
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
