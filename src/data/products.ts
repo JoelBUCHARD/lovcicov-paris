@@ -464,7 +464,7 @@ export const bijouxProducts: Product[] = [
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
     image: 'stonelov-card-collier-fuchsia-or',
     detailImage: 'stonelov-card-collier-fuchsia-or',
-    gallery: ['bijoux-fuchsia-solo', 'bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
+    gallery: ['bijoux-fuchsia-fleurs', 'bijoux-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
@@ -477,7 +477,7 @@ export const bijouxProducts: Product[] = [
     details: 'Calme marin. Trois rangs de bleus profonds qui évoquent l\'eau et la clarté de l\'esprit.',
     image: 'stonelov-card-bracelet-sodalite',
     detailImage: 'stonelov-card-bracelet-sodalite',
-    gallery: ['bracelet-sodalite-model', 'stonelov-br-sodalite', 'bracelet-sodalite-tarot'],
+    gallery: ['stonelov-br-sodalite', 'bracelet-sodalite-tarot'],
     stoneMeaning: 'Sodalite — Pierre de communication et de logique, elle apaise l\'esprit et favorise la clarté mentale. Aventurine bleue — Pierre d\'équilibre émotionnel et de sérénité.',
   },
   {
@@ -490,7 +490,7 @@ export const bijouxProducts: Product[] = [
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
     image: 'stonelov-card-collier-jade-nacre',
     detailImage: 'stonelov-card-collier-jade-nacre',
-    gallery: ['collier-jade-nacre-model', 'bijoux-jade-pendentif', 'bijoux-jade-tarot'],
+    gallery: ['bijoux-jade-pendentif', 'bijoux-jade-tarot'],
     stoneMeaning: 'Jade vert — Pierre de sérénité et de sagesse, elle favorise l\'harmonie et la paix intérieure. Nacre — Symbole de douceur et de féminité, elle protège et apaise les émotions.',
   },
   {
@@ -503,7 +503,7 @@ export const bijouxProducts: Product[] = [
     details: 'Vitalité et lumière. Trois rangs de corail rouge ponctués d\'or pour une présence solaire.',
     image: 'stonelov-card-collier-corail-rouge-or',
     detailImage: 'stonelov-card-collier-corail-rouge-or',
-    gallery: ['collier-corail-rouge-or-model', 'stonelov-corail-rouge-or', 'collier-corail-rouge-or-livre'],
+    gallery: ['stonelov-corail-rouge-or', 'collier-corail-rouge-or-livre'],
     stoneMeaning: 'Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie, protège et donne du courage dans l\'action.',
   },
   {
@@ -516,7 +516,7 @@ export const bijouxProducts: Product[] = [
     details: 'Lumière solaire. Trois rangs d\'agate miel ponctués d\'or pour un éclat naturel au poignet.',
     image: 'stonelov-card-bracelet-agate-jaune',
     detailImage: 'stonelov-card-bracelet-agate-jaune',
-    gallery: ['stonelov-br-agate-jaune-model', 'stonelov-br-agate-jaune', 'stonelov-br-agate-jaune-book'],
+    gallery: ['stonelov-br-agate-jaune', 'stonelov-br-agate-jaune-book'],
     stoneMeaning: 'Agate jaune — Pierre d\'équilibre et de stabilité, elle réchauffe l\'esprit, favorise la confiance et attire une énergie solaire et apaisante.',
   },
   {
@@ -529,7 +529,7 @@ export const bijouxProducts: Product[] = [
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
     image: 'stonelov-card-collier-labradorite-amethyste',
     detailImage: 'stonelov-card-collier-labradorite-amethyste',
-    gallery: ['collier-labradorite-amethyste-model', 'bijoux-labradorite-solo', 'bijoux-labradorite-tarot'],
+    gallery: ['bijoux-labradorite-solo', 'bijoux-labradorite-tarot'],
     stoneMeaning: 'Labradorite — Pierre de protection et d\'intuition. Elle absorbe les énergies négatives et éveille la clairvoyance. Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation et l\'élévation spirituelle.',
   },
   {
@@ -542,7 +542,7 @@ export const bijouxProducts: Product[] = [
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
     image: 'stonelov-card-collier-turquoise-or',
     detailImage: 'stonelov-card-collier-turquoise-or',
-    gallery: ['collier-turquoise-or-model', 'bijoux-turquoise-solo', 'bijoux-turquoise-tarot'],
+    gallery: ['bijoux-turquoise-solo', 'bijoux-turquoise-tarot'],
     stoneMeaning: 'Turquoise — Pierre de communication et de protection. Considérée comme sacrée par de nombreuses civilisations, elle favorise l\'expression de soi et apporte chance et sérénité.',
   },
   {
@@ -555,7 +555,7 @@ export const bijouxProducts: Product[] = [
     details: 'Profondeur minérale au poignet. Trois rangs vibrants où la malachite rencontre l\'or travaillé.',
     image: 'stonelov-card-bracelet-malachite-triple',
     detailImage: 'stonelov-card-bracelet-malachite-triple',
-    gallery: ['stonelov-br-malachite-triple-model', 'stonelov-br-malachite-triple', 'stonelov-br-malachite-triple-book'],
+    gallery: ['stonelov-br-malachite-triple', 'stonelov-br-malachite-triple-book'],
     stoneMeaning: 'Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et accompagne les périodes de changement profond.',
   },
   {
@@ -568,7 +568,7 @@ export const bijouxProducts: Product[] = [
     details: 'Lariat solaire. Une cascade d\'éclats colorés ponctuée d\'or, à nouer ou à laisser tomber.',
     image: 'stonelov-card-collier-tourmaline-multicolore',
     detailImage: 'stonelov-card-collier-tourmaline-multicolore',
-    gallery: ['collier-tourmaline-multicolore-model', 'collier-tourmaline-multicolore-detail', 'collier-tourmaline-multicolore-tarot'],
+    gallery: ['collier-tourmaline-multicolore-detail', 'collier-tourmaline-multicolore-tarot'],
     stoneMeaning: 'Tourmaline multicolore — Pierre d\'équilibre et de protection, chaque nuance porte sa propre vibration : énergie, créativité, apaisement et harmonie.',
   },
   {
@@ -581,7 +581,7 @@ export const bijouxProducts: Product[] = [
     details: 'Élégance fluide. Un lariat sculptural où l\'améthyste profonde danse avec l\'or pour une silhouette à la fois bohème et raffinée.',
     image: 'stonelov-card-collier-amethyste-lariat',
     detailImage: 'stonelov-card-collier-amethyste-lariat',
-    gallery: ['collier-amethyste-lariat-model', 'collier-amethyste-lariat-flat', 'collier-amethyste-lariat-tarot'],
+    gallery: ['collier-amethyste-lariat-flat', 'collier-amethyste-lariat-tarot'],
     stoneMeaning: 'Améthyste — Pierre de sagesse et de sérénité, elle favorise la méditation, l\'élévation spirituelle et l\'équilibre intérieur. Elle apaise l\'esprit et éveille l\'intuition.',
   },
   {
@@ -606,7 +606,7 @@ export const bijouxProducts: Product[] = [
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
     image: 'stonelov-card-collier-quartz-aventurine',
     detailImage: 'stonelov-card-collier-quartz-aventurine',
-    gallery: ['collier-quartz-aventurine-model', 'bijoux-quartz-solo', 'bijoux-quartz-tarot'],
+    gallery: ['bijoux-quartz-solo', 'bijoux-quartz-tarot'],
     stoneMeaning: 'Quartz rose — Pierre de l\'amour inconditionnel et de la paix intérieure. Aventurine — Pierre de chance et de prospérité, elle apaise le cœur et attire l\'abondance.',
   },
   {
@@ -619,7 +619,7 @@ export const bijouxProducts: Product[] = [
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
     image: 'stonelov-card-collier-malachite-corail',
     detailImage: 'stonelov-card-collier-malachite-corail',
-    gallery: ['collier-malachite-corail-model', 'bijoux-malachite-solo', 'bijoux-malachite-tarot'],
+    gallery: ['bijoux-malachite-solo', 'bijoux-malachite-tarot'],
     stoneMeaning: 'Malachite — Pierre de transformation, elle accompagne les périodes de changement et protège des influences extérieures. Corail rouge — Symbole de vitalité et d\'énergie, il stimule la force de vie et le courage.',
   },
   {
@@ -632,7 +632,7 @@ export const bijouxProducts: Product[] = [
     details: 'Contraste solaire. La turquoise vibrante rencontre l\'éclat du corail rouge.',
     image: 'stonelov-card-bracelet-turquoise-corail',
     detailImage: 'stonelov-card-bracelet-turquoise-corail',
-    gallery: ['bracelet-turquoise-corail-model', 'bracelet-turquoise-corail-original', 'bracelet-turquoise-corail-tarot'],
+    gallery: ['bracelet-turquoise-corail-original', 'bracelet-turquoise-corail-tarot'],
     stoneMeaning: 'Turquoise — Pierre de protection et de communication, elle favorise l\'expression de soi et apporte sérénité. Corail rouge — Symbole de vitalité, il stimule l\'énergie et la passion.',
   },
   {
@@ -645,7 +645,7 @@ export const bijouxProducts: Product[] = [
     details: 'Violet profond et métal doré. Une pièce signature qui mêle matière brute et lumière chaude.',
     image: 'stonelov-card-collier-amethyste-or',
     detailImage: 'stonelov-card-collier-amethyste-or',
-    gallery: ['collier-amethyste-or-model', 'collier-amethyste-or-detail', 'collier-amethyste-or-tarot'],
+    gallery: ['collier-amethyste-or-detail', 'collier-amethyste-or-tarot'],
     stoneMeaning: 'Améthyste — Pierre de sérénité et d\'intuition, elle apaise l\'esprit, favorise l\'équilibre intérieur et accompagne la clarté mentale.',
   },
   {
@@ -658,7 +658,7 @@ export const bijouxProducts: Product[] = [
     details: 'Sérénité minérale. Le blanc apaisant de la howlite ponctué de turquoises naturelles.',
     image: 'stonelov-card-bracelet-howlite-amazonite',
     detailImage: 'stonelov-card-bracelet-howlite-amazonite',
-    gallery: ['bracelet-howlite-amazonite-model', 'stonelov-br-howlite-amazonite', 'bracelet-howlite-amazonite-tarot'],
+    gallery: ['stonelov-br-howlite-amazonite', 'bracelet-howlite-amazonite-tarot'],
     stoneMeaning: 'Howlite — Pierre d\'apaisement et de patience, elle calme l\'esprit et favorise le lâcher-prise. Amazonite — Pierre d\'harmonie et de communication, elle équilibre les émotions.',
   },
   {
@@ -671,7 +671,7 @@ export const bijouxProducts: Product[] = [
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
     image: 'stonelov-card-collier-quartz-croix-jade',
     detailImage: 'stonelov-card-collier-quartz-croix-jade',
-    gallery: ['collier-quartz-croix-jade-model', 'bijoux-quartz-croix-fleurs', 'bijoux-croix-tarot'],
+    gallery: ['bijoux-quartz-croix-fleurs', 'bijoux-croix-tarot'],
     stoneMeaning: 'Quartz rose — Pierre de l\'amour et de la tendresse, elle ouvre le chakra du cœur. Jade — Pierre d\'harmonie et d\'équilibre, symbole de pureté et de longévité dans de nombreuses cultures.',
   },
   {
@@ -684,7 +684,7 @@ export const bijouxProducts: Product[] = [
     details: 'Fraîcheur marine. Deux rangs qui évoquent l\'eau, le calme et la clarté.',
     image: 'stonelov-card-collier-aigue-marine-agate',
     detailImage: 'stonelov-card-collier-aigue-marine-agate',
-    gallery: ['stonelov-aigue-marine-agate-model', 'stonelov-aigue-marine-agate-2', 'stonelov-aigue-marine-agate-book'],
+    gallery: ['stonelov-aigue-marine-agate-2', 'stonelov-aigue-marine-agate-book'],
     stoneMeaning: 'Aigue-marine — Pierre de calme et de communication, elle apaise les émotions et clarifie l\'esprit. Agate bleue — Pierre d\'équilibre et de sérénité, elle favorise la confiance et la prise de parole.',
   },
   {
@@ -697,7 +697,7 @@ export const bijouxProducts: Product[] = [
     details: 'Caractère et éclat au poignet. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
     image: 'stonelov-card-bracelet-oeil-tigre-fuchsia',
     detailImage: 'stonelov-card-bracelet-oeil-tigre-fuchsia',
-    gallery: ['bracelet-oeil-tigre-fuchsia-model', 'stonelov-br-oeil-tigre-fuchsia', 'bracelet-oeil-tigre-fuchsia-tarot'],
+    gallery: ['stonelov-br-oeil-tigre-fuchsia', 'bracelet-oeil-tigre-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
@@ -710,7 +710,7 @@ export const bijouxProducts: Product[] = [
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
     image: 'stonelov-card-collier-corail-multicolor',
     detailImage: 'stonelov-card-collier-corail-multicolor',
-    gallery: ['collier-corail-multicolor-model', 'bijoux-corail-multicolor', 'bijoux-corail-tarot'],
+    gallery: ['bijoux-corail-multicolor', 'bijoux-corail-tarot'],
     stoneMeaning: 'Corail rouge — Pierre de vitalité, elle stimule l\'énergie et la passion. Les pierres multicolores apportent chacune leur vibration : équilibre, joie, protection et créativité.',
   },
   {
@@ -723,7 +723,7 @@ export const bijouxProducts: Product[] = [
     details: 'Vert profond. Deux rangs sculptés où la malachite brute dialogue avec l\'or travaillé.',
     image: 'stonelov-card-collier-malachite-chips-double',
     detailImage: 'stonelov-card-collier-malachite-chips-double',
-    gallery: ['stonelov-malachite-chips-double-model', 'stonelov-malachite-chips-double', 'stonelov-malachite-chips-double-book'],
+    gallery: ['stonelov-malachite-chips-double', 'stonelov-malachite-chips-double-book'],
     stoneMeaning: 'Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et accompagne les périodes de changement profond.',
   },
   {
@@ -736,7 +736,7 @@ export const bijouxProducts: Product[] = [
     details: 'Éclat terrestre. La goldstone scintillante rencontre la lumière nacrée des perles.',
     image: 'stonelov-card-bracelet-goldstone-perles',
     detailImage: 'stonelov-card-bracelet-goldstone-perles',
-    gallery: ['bracelet-goldstone-perles-model', 'stonelov-br-goldstone-perles', 'bracelet-goldstone-perles-tarot'],
+    gallery: ['stonelov-br-goldstone-perles', 'bracelet-goldstone-perles-tarot'],
     stoneMeaning: 'Goldstone — Pierre de vitalité et de motivation, elle renforce la confiance et attire l\'abondance. Pierre de lune — Pierre de l\'intuition féminine et de la douceur intérieure.',
   },
   {
@@ -749,7 +749,7 @@ export const bijouxProducts: Product[] = [
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
     image: 'stonelov-card-collier-prehnite-malachite',
     detailImage: 'stonelov-card-collier-prehnite-malachite',
-    gallery: ['bijoux-prehnite-model', 'bijoux-prehnite-solo', 'bijoux-prehnite-tarot'],
+    gallery: ['bijoux-prehnite-solo', 'bijoux-prehnite-tarot'],
     stoneMeaning: 'Préhnite — Pierre de guérison et de renouveau, elle apaise l\'esprit et renforce la connexion à la nature. Malachite — Pierre de transformation et de protection, elle absorbe les énergies négatives et favorise le changement profond.',
   },
   {
@@ -762,7 +762,7 @@ export const bijouxProducts: Product[] = [
     details: 'Bleu solaire. La turquoise vibrante rencontre la lumière nacrée des perles, sublimée par une croix sculpturale dorée.',
     image: 'stonelov-card-collier-turquoise-croix-perles',
     detailImage: 'stonelov-card-collier-turquoise-croix-perles',
-    gallery: ['collier-turquoise-croix-perles-model', 'collier-turquoise-croix-perles-flat', 'collier-turquoise-croix-perles-tarot'],
+    gallery: ['collier-turquoise-croix-perles-flat', 'collier-turquoise-croix-perles-tarot'],
     stoneMeaning: 'Turquoise — Pierre de protection et de communication, elle favorise l\'expression de soi, apporte sérénité et apaise les émotions. Perles d\'eau douce — Symbole de pureté et de féminité, elles incarnent la douceur et l\'élégance intemporelle.',
   },
   {
@@ -775,7 +775,7 @@ export const bijouxProducts: Product[] = [
     details: 'Caractère et éclat. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
     image: 'stonelov-card-collier-oeil-tigre-fuchsia',
     detailImage: 'stonelov-card-collier-oeil-tigre-fuchsia',
-    gallery: ['collier-oeil-tigre-fuchsia-model', 'stonelov-oeil-tigre-fuchsia', 'collier-oeil-tigre-fuchsia-tarot'],
+    gallery: ['stonelov-oeil-tigre-fuchsia', 'collier-oeil-tigre-fuchsia-tarot'],
     stoneMeaning: 'Œil de tigre rose — Pierre de confiance en soi et de courage. Elle renforce la détermination et aide à surmonter les doutes intérieurs.',
   },
   {
@@ -800,7 +800,7 @@ export const bijouxProducts: Product[] = [
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
     image: 'stonelov-card-collier-trio-citrine',
     detailImage: 'stonelov-card-collier-trio-citrine',
-    gallery: ['collier-trio-citrine-model', 'bijoux-trio-solo', 'bijoux-trio-tarot'],
+    gallery: ['bijoux-trio-solo', 'bijoux-trio-tarot'],
     stoneMeaning: 'Citrine — Pierre de joie et d\'abondance, elle rayonne d\'énergie solaire et attire la réussite. Améthyste — Pierre de sagesse spirituelle. Malachite — Pierre de transformation et de renouveau.',
   },
   {
@@ -813,7 +813,7 @@ export const bijouxProducts: Product[] = [
     details: 'Pièce de signature. Deux rangs et deux gouttes de lapis pour une présence affirmée.',
     image: 'stonelov-card-collier-malachite-lapis-double-pendentif',
     detailImage: 'stonelov-card-collier-malachite-lapis-double-pendentif',
-    gallery: ['stonelov-malachite-lapis-double-pendentif-2', 'stonelov-malachite-lapis-double-pendentif-orange', 'stonelov-malachite-lapis-double-pendentif-book'],
+    gallery: ['stonelov-malachite-lapis-double-pendentif-orange', 'stonelov-malachite-lapis-double-pendentif-book'],
     stoneMeaning: 'Lapis-lazuli — Pierre de vérité, d\'intuition et d\'expression de soi. Malachite — Pierre de transformation, de protection et d\'ancrage profond.',
   },
   {
@@ -826,7 +826,7 @@ export const bijouxProducts: Product[] = [
     details: 'Rose tendre et violet profond. Un ras-de-cou romantique sublimé par une grappe d\'améthyste rehaussée d\'or.',
     image: 'stonelov-card-collier-quartz-rose-amethyste',
     detailImage: 'stonelov-card-collier-quartz-rose-amethyste',
-    gallery: ['collier-quartz-rose-amethyste-model', 'collier-quartz-rose-amethyste-flat', 'collier-quartz-rose-amethyste-tarot'],
+    gallery: ['collier-quartz-rose-amethyste-flat', 'collier-quartz-rose-amethyste-tarot'],
     stoneMeaning: 'Quartz rose — Pierre de l\'amour et de la douceur, elle apaise le cœur et invite à la tendresse. Améthyste — Pierre de sérénité et d\'intuition, elle favorise l\'équilibre intérieur et la clarté mentale.',
   },
 ];
