@@ -44,14 +44,15 @@ const SANS = "'Instrument Sans', sans-serif";
 interface ModelSizeNoteProps {
   className?: string;
   productId?: string;
+  imageKey?: string;
 }
 
-const ModelSizeNote = ({ className = '', productId }: ModelSizeNoteProps) => (
+const ModelSizeNote = ({ className = '', productId, imageKey }: ModelSizeNoteProps) => (
   <p
     className={`italic ${className}`}
     style={{ fontFamily: SANS, fontSize: 11.5, lineHeight: 1.6, color: '#6B6A65' }}
   >
-    {modelSizeNoteFor(productId)}
+    {modelSizeNoteFor(productId, imageKey)}
   </p>
 );
 
