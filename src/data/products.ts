@@ -884,14 +884,14 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Tricolore', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, rose clair, blanc', trim: 'Rose clair',
     description: "Trois fils de cuir de buffle, rouge, rose et blanc, tressés à la main en un damier vibrant. Le format généreux du Big LOV, la douceur d'une bordure rose clair.",
-    images: ['/__l5e/assets-v1/b5f019d1-09e9-40c6-85b3-dce905b4ea66/lovbag-big-lov-tricolore-rouge-v2.png', '/images/sacs/LOV-BIG-01_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-01_01.jpg'],
   },
   {
     ref: 'LOV-BIG-02', slug: 'big-lov-tricolore-marine', name: 'Big LOV Tricolore Marine',
     silhouette: 'big', motif: 'Tricolore', colorName: 'Marine', swatch: '#1E2A4A',
     body: 'Bleu marine, rose, blanc', trim: 'Bleu marine',
     description: "Le marine tempère, le rose réveille, le blanc éclaire. Un tressage graphique pour un sac qui se porte du bureau au week-end.",
-    images: ['/__l5e/assets-v1/584ff50b-6904-4fc9-a4a1-f6817160fee0/lovbag-big-lov-tricolore-marine.png', '/images/sacs/LOV-BIG-02_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-02_01.jpg'],
   },
   {
     ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
@@ -955,7 +955,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Aztèque', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, vert', trim: 'Rouge',
     description: "Rouge et vert en motif losangé. Le Small LOV le plus affirmé de la collection.",
-    images: ['/__l5e/assets-v1/01da7d7a-16c8-437f-9c31-4f2ce57de489/lovbag-small-lov-azteque-rouge.png', '/images/sacs/LOV-SML-05_01.jpg'],
+    images: ['/images/sacs/LOV-SML-05_01.jpg'],
   },
   {
     ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Terracotta',
