@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { bijouxProducts, mysticProducts, standardProducts } from '@/data/products';
+import { bijouxProducts, mysticProducts, standardProducts, sacsProducts } from '@/data/products';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
