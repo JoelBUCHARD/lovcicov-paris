@@ -44,6 +44,8 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const mainImage = getImage(product.image);
   const hoverImage = product.gallery?.[0] ? getImage(product.gallery[0]) : null;
   const from = `${location.pathname}${location.search}`;
+  // Les sacs tressés ont leur propre route de fiche produit
+  const to = product.collection === 'sacs' ? `/sacs/${product.id}` : `/shop/${product.id}`;
 
   return (
     <motion.div
@@ -54,7 +56,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       className="h-full w-full"
     >
       <Link
-        to={`/shop/${product.id}`}
+        to={to}
         state={{ from }}
         onMouseEnter={() => { prefetchRoute('/shop/item'); prefetchImage(mainImage); prefetchImage(hoverImage); }}
         onTouchStart={() => { prefetchRoute('/shop/item'); }}
