@@ -884,7 +884,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Tricolore', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, rose clair, blanc', trim: 'Rose clair',
     description: "Trois fils de cuir de buffle, rouge, rose et blanc, tressés à la main en un damier vibrant. Le format généreux du Big LOV, la douceur d'une bordure rose clair.",
-    images: ['/__l5e/assets-v1/3dbb1b47-1702-448c-a32f-7a62f20cca71/lovbag-big-lov-tricolore-rouge.png', '/images/sacs/LOV-BIG-01_01.jpg'],
+    images: ['/__l5e/assets-v1/b5f019d1-09e9-40c6-85b3-dce905b4ea66/lovbag-big-lov-tricolore-rouge-v2.png', '/images/sacs/LOV-BIG-01_01.jpg'],
   },
   {
     ref: 'LOV-BIG-02', slug: 'big-lov-tricolore-marine', name: 'Big LOV Tricolore Marine',
