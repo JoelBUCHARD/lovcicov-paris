@@ -891,7 +891,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Tricolore', colorName: 'Marine', swatch: '#1E2A4A',
     body: 'Bleu marine, rose, blanc', trim: 'Bleu marine',
     description: "Le marine tempère, le rose réveille, le blanc éclaire. Un tressage graphique pour un sac qui se porte du bureau au week-end.",
-    images: ['/images/sacs/LOV-BIG-02_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-02_01.jpg', '/images/sacs/LOV-BIG-02_02.jpg', '/images/sacs/LOV-BIG-02_03.jpg'],
   },
   {
     ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
@@ -934,21 +934,21 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Tricolore', colorName: 'Kaki', swatch: '#5A5A38',
     body: 'Kaki, rose, argenté', trim: 'Argenté',
     description: "Kaki, rose et argent : un contraste inattendu, souligné d'une bordure argentée.",
-    images: ['/images/sacs/LOV-SML-02_01.jpg'],
+    images: ['/images/sacs/LOV-SML-02_01.jpg', '/images/sacs/LOV-SML-02_02.jpg', '/images/sacs/LOV-SML-02_03.jpg'],
   },
   {
     ref: 'LOV-SML-03', slug: 'small-lov-bicolore-argent', name: 'Small LOV Bicolore Argent',
     silhouette: 'sml', motif: 'Bicolore', colorName: 'Argent', swatch: '#C0C0C0',
     body: 'Argenté', trim: 'Doré',
     description: "Argent sur doré. Le petit sac du soir, tressé main comme les autres.",
-    images: ['/images/sacs/LOV-SML-03_01.jpg'],
+    images: ['/images/sacs/LOV-SML-03_01.jpg', '/images/sacs/LOV-SML-03_02.jpg', '/images/sacs/LOV-SML-03_03.jpg'],
   },
   {
     ref: 'LOV-SML-04', slug: 'small-lov-bicolore-bleu', name: 'Small LOV Bicolore Bleu',
     silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#8FB6D1',
     body: 'Bleu clair', trim: 'Rose clair',
     description: "Un bleu clair adouci d'une bordure rose. La fraîcheur en format nomade.",
-    images: ['/images/sacs/LOV-SML-04_01.jpg'],
+    images: ['/images/sacs/LOV-SML-04_01.jpg', '/images/sacs/LOV-SML-04_02.jpg', '/images/sacs/LOV-SML-04_03.jpg'],
   },
   {
     ref: 'LOV-SML-05', slug: 'small-lov-azteque-rouge', name: 'Small LOV Aztèque Rouge',
@@ -962,7 +962,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Aztèque', colorName: 'Terracotta', swatch: '#C4714A',
     body: 'Terracotta, blanc', trim: 'Blanc',
     description: "Terracotta et blanc, le motif aztèque dans sa version la plus douce.",
-    images: ['/images/sacs/LOV-SML-06_01.jpg'],
+    images: ['/images/sacs/LOV-SML-06_01.jpg', '/images/sacs/LOV-SML-06_02.jpg', '/images/sacs/LOV-SML-06_03.jpg'],
   },
 ];
 
