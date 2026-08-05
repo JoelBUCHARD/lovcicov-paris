@@ -5,10 +5,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
-import ProductCard from "@/components/ProductCard";
-import { prefetchRoute } from "@/lib/prefetch";
+import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
+import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { grigriProducts, sacsProducts, BAGS } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
+import { formatPrice } from "@/lib/price";
 
 type Tab = "sacs" | "accessoires";
 type Silhouette = "all" | "big" | "sml";
@@ -53,33 +54,37 @@ const pageStyle = {
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
 
+// Style d'onglet souligné — identique à la barre de filtres PowerLov
+const tabStyle = (active: boolean) => ({
+  fontSize: 10,
+  letterSpacing: "0.24em",
+  color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+  borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+  paddingBottom: 4,
+});
+
 const Sacs = () => {
   const location = useLocation();
   const [tab, setTab] = useState<Tab>("sacs");
   const [silhouette, setSilhouette] = useState<Silhouette>("all");
   const [motif, setMotif] = useState<Motif>("all");
+  const [sort, setSort] = useState<SortKey>("default");
 
   // Filtres cumulables, sans rechargement
-  const visibleBags = useMemo(
-    () =>
-      BAGS.filter(
-        (b) => (silhouette === "all" || b.silhouette === silhouette) && (motif === "all" || b.motif === motif)
-      )
-        .map((b) => sacsProducts.find((p) => p.id === b.slug)!)
-        .filter(Boolean),
-    [silhouette, motif]
-  );
-
-  const goToNewsletter = () => {
-    const el = document.getElementById("footer-newsletter-email");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "center" });
-      window.setTimeout(() => (el as HTMLInputElement).focus(), 600);
-    }
-  };
+  const visibleBags = useMemo(() => {
+    const base = BAGS.filter(
+      (b) => (silhouette === "all" || b.silhouette === silhouette) && (motif === "all" || b.motif === motif)
+    )
+      .map((b) => sacsProducts.find((p) => p.id === b.slug)!)
+      .filter(Boolean);
+    const sorted = [...base];
+    if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
+    else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+    else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+    return sorted;
+  }, [silhouette, motif, sort]);
 
   const from = `${location.pathname}${location.search}`;
-
 
   return (
     <div style={pageStyle} className="min-h-screen">
@@ -91,207 +96,192 @@ const Sacs = () => {
       <Navbar />
 
       <main className="pt-[73px] overflow-hidden">
-        {/* HERO — placeholder gradient en attendant les visuels */}
+        {/* EN-TÊTE DE PAGE — titre + sous-titre */}
         <section
-          className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(135deg, #6B4A2E 0%, #A0623E 35%, #C8463A 70%, #E8DCC8 100%)",
-          }}
+          className="w-full text-center"
+          style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(16px, 3vw, 32px)" }}
         >
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(13,13,13,0.18) 0%, rgba(13,13,13,0.3) 48%, rgba(13,13,13,0.28) 100%)",
-            }}
-          />
-          <div
-            className="absolute inset-x-0 bottom-3 z-10 md:bottom-6"
-            style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
-          >
-            <div className="max-w-[19rem] md:max-w-3xl">
-              <p
-                className="mb-1 text-[8px] md:text-[11px] uppercase"
-                style={{ color: "rgba(244,240,232,0.82)", letterSpacing: "0.22em" }}
-              >
-                LovBag
-              </p>
-              <p
-                className="mb-2 md:mb-4 italic"
-                style={{ fontWeight: 300, fontSize: "clamp(13px, 2vw, 22px)", color: "rgba(244,240,232,0.9)" }}
-              >
-                Le cuir tressé, geste après geste. Un sac pensé pour durer.
-              </p>
-            </div>
+          <div className="mx-auto" style={{ maxWidth: 720 }}>
+            <motion.h1
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.8 }}
+              className="uppercase"
+              style={{
+                fontFamily: "Instrument Sans, system-ui, sans-serif",
+                fontWeight: 500,
+                fontSize: "clamp(18px, 2.4vw, 26px)",
+                letterSpacing: "0.16em",
+                color: "#0D0D0D",
+              }}
+            >
+              La collection Sacs tressés
+            </motion.h1>
+            <p className="mt-3 uppercase" style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}>
+              Cuir de buffle tressé main. Ouverture en V. Charm cœur signature.
+            </p>
+            <p className="mx-auto mt-5 font-light" style={{ fontSize: 13, lineHeight: 1.8, color: "#5F5E5A", maxWidth: 520 }}>
+              Tressés à la main en Inde, un fil de cuir de buffle après l'autre. Deux silhouettes,
+              douze coloris, un même geste : celui de l'artisan.
+            </p>
           </div>
         </section>
 
-        {/* GIANT TITLE */}
-        <section
-          className="w-full text-center"
-          style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(24px, 4vw, 48px)" }}
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8 }}
-            className="uppercase leading-[0.9]"
-            style={{
-              fontFamily: "Instrument Sans, system-ui, sans-serif",
-              fontWeight: 500,
-              fontSize: "clamp(64px, 15vw, 260px)",
-              letterSpacing: "-0.02em",
-              color: "#0D0D0D",
-            }}
-          >
-            LOVBAG
-          </motion.h1>
-        </section>
-
-        {/* TABS */}
+        {/* BARRE DE FILTRES STICKY — même composition que PowerLov */}
         <div
           className="sticky z-30 border-y border-[rgba(13,13,13,0.08)] backdrop-blur"
           style={{ top: 73, backgroundColor: "rgba(250,248,244,0.92)" }}
           id="lovbag-grid"
         >
-          <nav aria-label="Catégories LovBag" style={{ padding: "14px clamp(16px, 4vw, 48px)" }}>
-            <ul className="flex items-center justify-center gap-8 md:gap-12 whitespace-nowrap">
-              {TABS.map(({ key, label }) => {
-                const active = tab === key;
-                return (
+          <div
+            className="mx-auto flex items-center justify-between gap-4"
+            style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
+          >
+            <span className="whitespace-nowrap" aria-hidden="true" />
+
+            <nav aria-label="Catégories LovBag" className="flex-1 overflow-x-auto no-scrollbar">
+              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
+                {TABS.map(({ key, label }) => (
                   <li key={key}>
                     <button
                       type="button"
                       onClick={() => setTab(key)}
                       className="uppercase transition-colors duration-200"
-                      style={{
-                        fontSize: 10,
-                        letterSpacing: "0.24em",
-                        color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-                        borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-                        paddingBottom: 4,
-                      }}
+                      style={tabStyle(tab === key)}
                     >
                       {label}
                     </button>
                   </li>
-                );
-              })}
-            </ul>
-          </nav>
+                ))}
+              </ul>
+            </nav>
+
+            <SortFilterMenu sort={sort} onChange={setSort} />
+          </div>
         </div>
+
+        <style>{`
+          .no-scrollbar::-webkit-scrollbar { display: none; }
+          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        `}</style>
 
         {tab === "sacs" ? (
           <>
-            {/* En-tête collection + chapô */}
-            <section
-              className="w-full text-center"
-              style={{ padding: "clamp(32px, 5vw, 64px) clamp(16px, 4vw, 48px) clamp(8px, 2vw, 16px)" }}
-            >
-              <div className="mx-auto" style={{ maxWidth: 720 }}>
-                <h2
-                  className="uppercase"
-                  style={{
-                    fontFamily: "Instrument Sans, system-ui, sans-serif",
-                    fontWeight: 500,
-                    fontSize: "clamp(18px, 2.4vw, 26px)",
-                    letterSpacing: "0.16em",
-                    color: "#0D0D0D",
-                  }}
-                >
-                  La collection Sacs tressés
-                </h2>
-                <p
-                  className="mt-3 uppercase"
-                  style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}
-                >
-                  Cuir de buffle tressé main. Ouverture en V. Charm cœur signature.
-                </p>
-                <p
-                  className="mx-auto mt-5 font-light"
-                  style={{ fontSize: 13, lineHeight: 1.8, color: "#5F5E5A", maxWidth: 520 }}
-                >
-                  Tressés à la main en Inde, un fil de cuir de buffle après l'autre. Deux silhouettes,
-                  douze coloris, un même geste : celui de l'artisan.
-                </p>
-              </div>
-            </section>
-
-            {/* Filtres cumulables : silhouette + motif */}
+            {/* Filtres cumulables : silhouette + motif — même style d'onglet souligné */}
             <section
               aria-label="Filtres de la collection Sacs"
-              style={{ padding: "clamp(8px, 2vw, 16px) clamp(12px, 3vw, 40px) clamp(16px, 3vw, 32px)" }}
+              style={{ padding: "clamp(16px, 3vw, 32px) clamp(12px, 3vw, 40px) 0" }}
             >
               <div className="mx-auto flex flex-col items-center gap-3" style={{ maxWidth: 1400 }}>
-                <ul className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-                  {SILHOUETTE_FILTERS.map(({ key, label }) => {
-                    const active = silhouette === key;
-                    return (
-                      <li key={key}>
-                        <button
-                          type="button"
-                          onClick={() => setSilhouette(key)}
-                          aria-pressed={active}
-                          className="uppercase transition-colors duration-200"
-                          style={{
-                            fontSize: 10,
-                            letterSpacing: "0.24em",
-                            color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-                            borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-                            paddingBottom: 4,
-                          }}
-                        >
-                          {label}
-                        </button>
-                      </li>
-                    );
-                  })}
+                <ul className="flex flex-wrap items-center justify-center gap-5 md:gap-9">
+                  {SILHOUETTE_FILTERS.map(({ key, label }) => (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setSilhouette(key)}
+                        aria-pressed={silhouette === key}
+                        className="uppercase transition-colors duration-200"
+                        style={tabStyle(silhouette === key)}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
-                <ul className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                  {MOTIF_FILTERS.map(({ key, label }) => {
-                    const active = motif === key;
-                    return (
-                      <li key={key}>
-                        <button
-                          type="button"
-                          onClick={() => setMotif(key)}
-                          aria-pressed={active}
-                          className="uppercase transition-colors duration-200 px-3 py-2 border"
-                          style={{
-                            fontSize: 9,
-                            letterSpacing: "0.22em",
-                            color: active ? "#FAF8F4" : "rgba(13,13,13,0.6)",
-                            backgroundColor: active ? "#0D0D0D" : "transparent",
-                            borderColor: active ? "#0D0D0D" : "#E8D8C8",
-                          }}
-                        >
-                          {label}
-                        </button>
-                      </li>
-                    );
-                  })}
+                <ul className="flex flex-wrap items-center justify-center gap-5 md:gap-9">
+                  {MOTIF_FILTERS.map(({ key, label }) => (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setMotif(key)}
+                        aria-pressed={motif === key}
+                        className="uppercase transition-colors duration-200"
+                        style={tabStyle(motif === key)}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </section>
 
-            {/* Grille produits — carte et grille standard du site */}
+            {/* GRILLE PRODUITS — grille et carte PowerLov */}
             <section
               aria-label="Sacs tressés LOVCICOV"
-              style={{ padding: "0 clamp(12px, 3vw, 40px) clamp(32px, 5vw, 64px)" }}
+              style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
             >
               <div
-                className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 md:gap-x-4 gap-y-8 md:gap-y-10"
+                className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
                 style={{ maxWidth: 1400 }}
               >
-                {visibleBags.map((p, i) => (
-                  <ProductCard key={p.id} product={p} index={i} />
-                ))}
+                {visibleBags.map((p, i) => {
+                  const image = resolveProductImage(p.image);
+                  return (
+                    <motion.div
+                      key={p.id}
+                      initial={{ opacity: 0, y: 14 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-40px" }}
+                      transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
+                      className="col-span-1 md:h-full"
+                    >
+                      <Link
+                        to={`/sacs/${p.id}`}
+                        state={{ from }}
+                        onMouseEnter={() => {
+                          prefetchRoute("/sacs/item");
+                          prefetchImage(image);
+                        }}
+                        onTouchStart={() => prefetchRoute("/sacs/item")}
+                        className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                      >
+                        <div
+                          className="relative w-full overflow-hidden aspect-[4/5]"
+                          style={{ backgroundColor: "#F0EDE7" }}
+                        >
+                          <img
+                            src={image}
+                            alt={`${p.name} en cuir de buffle tressé main, charm cœur LOVCICOV`}
+                            loading="lazy"
+                            decoding="async"
+                            className="absolute inset-0 h-full w-full object-cover"
+                            style={{ objectPosition: "center top" }}
+                          />
+                        </div>
+                        <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
+                          <p
+                            className="font-light product-card-eyebrow"
+                            style={{
+                              fontSize: 9,
+                              letterSpacing: "0.28em",
+                              textTransform: "uppercase",
+                              color: "rgba(13,13,13,0.5)",
+                              marginBottom: 4,
+                            }}
+                          >
+                            Sac
+                          </p>
+                          <h3
+                            className="text-[#0D0D0D] font-light product-card-title"
+                            style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
+                          >
+                            {p.name}
+                          </h3>
+                          <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
+                            {formatPrice(p.price)}
+                          </p>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </div>
+
               {visibleBags.length === 0 && (
                 <p
-                  className="text-center uppercase"
+                  className="text-center uppercase mt-10"
                   style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}
                 >
                   Aucun sac ne correspond à cette sélection.
@@ -303,7 +293,7 @@ const Sacs = () => {
             <section
               aria-label="Le savoir-faire"
               className="border-t border-[rgba(13,13,13,0.08)]"
-              style={{ padding: "clamp(48px, 7vw, 96px) clamp(16px, 4vw, 48px)" }}
+              style={{ padding: "clamp(48px, 7vw, 96px) clamp(16px, 4vw, 48px)", marginTop: "clamp(24px, 4vw, 48px)" }}
             >
               <p
                 className="text-center uppercase"
@@ -335,13 +325,12 @@ const Sacs = () => {
             </section>
           </>
         ) : (
-
           <section
             aria-label="Grigris LovBag"
-            style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(32px, 5vw, 64px)" }}
+            style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(48px, 8vw, 96px)" }}
           >
             <div
-              className="mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 md:gap-x-4 gap-y-8 md:gap-y-10"
+              className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
               style={{ maxWidth: 1400 }}
             >
               {grigriProducts.map((p, i) => (
@@ -351,24 +340,26 @@ const Sacs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
+                  className="col-span-1 md:h-full"
                 >
                   <Link
                     to={`/shop/${p.id}`}
                     state={{ from }}
                     onMouseEnter={() => prefetchRoute("/shop/item")}
                     onTouchStart={() => prefetchRoute("/shop/item")}
-                    className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                    className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                   >
-                    <div className="relative w-full overflow-hidden bg-[#F0EDE7]" style={{ aspectRatio: "1 / 1" }}>
+                    <div className="relative w-full overflow-hidden aspect-[4/5]" style={{ backgroundColor: "#F0EDE7" }}>
                       <img
                         src={resolveProductImage(p.image)}
                         alt={p.name}
                         loading="lazy"
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.03]"
+                        className="absolute inset-0 h-full w-full object-cover"
+                        style={{ objectPosition: "center top" }}
                       />
                     </div>
-                    <div className="pt-3 text-center">
+                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                       <p
                         className="font-light product-card-eyebrow"
                         style={{
@@ -388,7 +379,7 @@ const Sacs = () => {
                         {p.name}
                       </h3>
                       <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                        €{p.price}
+                        {formatPrice(p.price)}
                       </p>
                     </div>
                   </Link>
