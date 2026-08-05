@@ -19,6 +19,9 @@ for (const [path, mod] of Object.entries(assetJsonModules)) {
 const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng, ...assetJsonAsImages };
 
 const getImage = (key: string) => {
+  // Visuels servis depuis /public (ex. /images/sacs/LOV-BIG-01_01.jpg)
+  if (!key) return '';
+  if (key.startsWith('/') || /^https?:\/\//i.test(key)) return key;
   const match = Object.entries(imageModules).find(([path]) => path.includes(key));
   return match ? match[1] : '';
 };
@@ -44,6 +47,8 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
   const mainImage = getImage(product.image);
   const hoverImage = product.gallery?.[0] ? getImage(product.gallery[0]) : null;
   const from = `${location.pathname}${location.search}`;
+  // Les sacs tressés ont leur propre route de fiche produit
+  const to = product.collection === 'sacs' ? `/sacs/${product.id}` : `/shop/${product.id}`;
 
   return (
     <motion.div
@@ -54,7 +59,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
       className="h-full w-full"
     >
       <Link
-        to={`/shop/${product.id}`}
+        to={to}
         state={{ from }}
         onMouseEnter={() => { prefetchRoute('/shop/item'); prefetchImage(mainImage); prefetchImage(hoverImage); }}
         onTouchStart={() => { prefetchRoute('/shop/item'); }}

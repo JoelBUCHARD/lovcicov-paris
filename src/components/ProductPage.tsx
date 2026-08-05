@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronLeft, ChevronRight, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle, X, ZoomIn, WashingMachine, Wind, Sparkles, Ban, Sun, Leaf, Award } from 'lucide-react';
-import { Product, products as allProducts } from '@/data/products';
+import { Product, products as allProducts, getBagBySlug, BAG_SILHOUETTES, BAG_DETAILS, BAG_CARE, BAG_DIMENSIONS_NOTE } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
 import { fetchShopifyProductByHandle } from '@/lib/shopify';
@@ -163,7 +163,11 @@ const ProductPage = ({ product }: Props) => {
   };
   const isAccessory = product.collection === 'accessoires';
   const isKimono = product.subcategory === 'kimono';
-  const isJewelry = product.collection === 'bijoux' || isAccessory;
+  const isBag = product.collection === 'sacs';
+  const bag = isBag ? getBagBySlug(product.id) : undefined;
+  // Les sacs suivent le même parcours que les bijoux : pas de taille, pas de précommande
+  const isJewelry = product.collection === 'bijoux' || isAccessory || isBag;
+
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
   const isPowerTshirt = product.collection === 'standard' && (POWERLOV_TYPE_OVERRIDES[product.id] ?? SUBCATEGORY_LABELS[product.subcategory ?? '']) === 'T-shirt';
   const typeLabel = isAccessory
@@ -286,9 +290,9 @@ const ProductPage = ({ product }: Props) => {
 
 
   const seoImage = getImage(allImages[0]);
-  const seoTitle = `${product.name} — LOVCICOV Paris`;
+  const seoTitle = isBag ? `${product.name} — Sac tressé cuir de buffle | LOVCICOV Paris` : `${product.name} — LOVCICOV Paris`;
   const seoDesc = (product.description || product.details || `${product.name} — pièce ${cfg.backLabel} par LOVCICOV Paris.`).slice(0, 158);
-  const seoPath = product.shopifyHandle ? `/product/${product.shopifyHandle}` : `/shop/${product.id}`;
+  const seoPath = isBag ? `/sacs/${product.id}` : product.shopifyHandle ? `/product/${product.shopifyHandle}` : `/shop/${product.id}`;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -452,7 +456,15 @@ const ProductPage = ({ product }: Props) => {
               {product.description}
             </p>
           )}
-          {!isKimono && !(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
+          {isBag && bag && (
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
+              style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
+            >
+              {bag.description}
+            </p>
+          )}
+          {!isKimono && !isBag && !(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
@@ -460,6 +472,7 @@ const ProductPage = ({ product }: Props) => {
               Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.
             </p>
           )}
+
           {product.collection === 'bijoux' && (
             <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]">
               {stones.length > 0 ? (
@@ -675,9 +688,34 @@ const ProductPage = ({ product }: Props) => {
             </Accordion>
           )}
 
+          {/* Sacs tressés — Détails & finitions / Dimensions / Matière & entretien */}
+          {isBag && bag && (
+            <>
+              <Accordion title="Détails & finitions" defaultOpen>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {BAG_DETAILS.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </Accordion>
+              <Accordion title="Dimensions">
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  <li>{BAG_SILHOUETTES[bag.silhouette].dimensions} (L × H × P)</li>
+                  <li>Anses tressées : {BAG_SILHOUETTES[bag.silhouette].handles}</li>
+                  <li>Bandoulière amovible incluse</li>
+                </ul>
+                <p className="mt-3 italic" style={{ color: '#6B6A65' }}>{BAG_DIMENSIONS_NOTE}</p>
+              </Accordion>
+              <Accordion title="Matière & entretien">
+                <p>{BAG_CARE}</p>
+              </Accordion>
+            </>
+          )}
+
           {/* 1. Détails & confection */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Détails & confection" defaultOpen>
+
             <ul className="list-none p-0 m-0 space-y-1.5">
               {(isJewelry
                 ? [
@@ -701,7 +739,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 2. Matières & composition */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
 
@@ -709,7 +747,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 3. Coupe & taille */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Coupe & taille">
             {isJewelry ? (
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
@@ -733,7 +771,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 4. Entretien */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Entretien">
             {isJewelry ? (
               <ul className="list-none p-0 m-0 space-y-2.5">
@@ -766,7 +804,7 @@ const ProductPage = ({ product }: Props) => {
             </ul>
           </Accordion>
 
-          {isJewelry && (
+          {isJewelry && !isBag && (
             <Accordion title="L'énergie des pierres">
               {stones.length > 0 ? (
                 <ul className="list-none p-0 m-0 space-y-6">
@@ -843,24 +881,30 @@ const ProductPage = ({ product }: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             {[
               {
-                title: isJewelry ? 'Pierres naturelles' : 'Matière',
-                body: isJewelry
+                title: isBag ? 'Cuir de buffle tressé main' : isJewelry ? 'Pierres naturelles' : 'Matière',
+                body: isBag
+                  ? "Un fil de cuir de buffle après l'autre, selon la technique intrecciato. Chaque pièce est unique."
+                  : isJewelry
                   ? 'Chaque pierre est sélectionnée pour son grain, sa densité et son unicité. Aucune ne ressemble à une autre.'
                   : product.collection === 'mystic'
                   ? 'Coton peigné premium, tissé dans un grammage lourd pour une tenue structurée qui traverse les saisons.'
                   : 'Coton lourd 280 g/m², sélectionné pour sa densité et sa tenue dans le temps.',
               },
               {
-                title: isJewelry ? 'Monture main' : 'Confection',
-                body: isJewelry
+                title: isBag ? 'Ouverture en V' : isJewelry ? 'Monture main' : 'Confection',
+                body: isBag
+                  ? "La signature de la collection : une ligne d'ouverture nette, bordée d'un tressage sur tout le pourtour."
+                  : isJewelry
                   ? 'Sertissage et montage réalisés à la main. Fermoir ajustable, finitions soignées à chaque étape.'
                   : product.collection === 'mystic'
                   ? 'Coupe oversize unisexe, épaules tombées, encolure côtelée renforcée. Chaque pièce est finie à Paris.'
                   : 'Coupe oversize unisex. Sérigraphie haute densité réalisée en France, col bord-côte renforcé.',
               },
               {
-                title: 'Signature',
-                body: isJewelry
+                title: isBag ? 'Charm cœur signature' : 'Signature',
+                body: isBag
+                  ? 'Un charm en cuir gravé LOVCICOV PARIS, accroché à chaque pièce de la collection.'
+                  : isJewelry
                   ? "Chaque pièce est numérotée et livrée dans son écrin d'origine — une pièce, une histoire."
                   : product.collection === 'mystic'
                   ? 'Broderie dorée signature, réalisée au fil métallisé — le geste qui fait la pièce.'

@@ -831,45 +831,164 @@ export const bijouxProducts: Product[] = [
   },
 ];
 
-// Collection "Sacs" — cuir tressé, Big LOV & Small LOV
-export const sacsProducts: Product[] = [
+// ─────────────────────────────────────────────────────────────
+// Collection "Sacs tressés" — Big LOV & Small LOV
+// Source de vérité unique : toute la page /sacs et les 12 fiches
+// /sacs/:slug sont générées à partir de BAGS ci-dessous.
+// Convention d'image : /images/sacs/{RÉFÉRENCE}_{n}.jpg
+// `images` est un TABLEAU : ajouter _02, _03… suffit à activer
+// les vignettes et la navigation de galerie, sans refonte.
+// ─────────────────────────────────────────────────────────────
+export interface BagSpec {
+  ref: string;              // Référence fournisseur (LOV-BIG-01…)
+  slug: string;             // URL : /sacs/{slug}
+  name: string;             // Nom produit affiché
+  silhouette: 'big' | 'sml';
+  motif: 'Tricolore' | 'Bicolore' | 'Aztèque';
+  colorName: string;        // Coloris affiché (pastille + libellé)
+  swatch: string;           // Couleur de la pastille de sélection
+  body: string;             // Corps du sac
+  trim: string;             // Bordures & anses
+  description: string;      // Description courte (SEO + fiche)
+  images: string[];         // Visuels, le premier est le principal
+}
+
+// Caractéristiques communes à chaque silhouette (prix, dimensions)
+export const BAG_SILHOUETTES = {
+  big: { label: 'Big LOV', price: 260, dimensions: '35 × 24 × 15 cm', handles: '25 cm' },
+  sml: { label: 'Small LOV', price: 180, dimensions: '29 × 16 × 13 cm', handles: '25 cm' },
+} as const;
+
+// Textes communs aux 12 fiches
+export const BAG_DETAILS: string[] = [
+  'Cuir de buffle tressé à la main, technique intrecciato',
+  'Fabriqué à la main en Inde',
+  'Ouverture en V, signature de la collection',
+  'Anses tressées, longueur 25 cm',
+  'Bandoulière amovible incluse',
+  'Poche intérieure zippée',
+  "Bordures tressées sur tout le pourtour de l'ouverture",
+  'Charm cœur en cuir gravé LOVCICOV PARIS',
+];
+
+export const BAG_CARE =
+  "Cuir de buffle tressé à la main. Chaque pièce est unique : les nuances et le grain du cuir peuvent varier légèrement d'un sac à l'autre. Ranger à l'abri de la lumière directe dans son dustbag. Nettoyer avec un chiffon doux et sec. Éviter l'exposition prolongée à l'humidité.";
+
+export const BAG_DIMENSIONS_NOTE =
+  'Dimensions données à titre indicatif, tolérance ± 1 cm — chaque sac étant tressé à la main.';
+
+export const BAGS: BagSpec[] = [
+  // ── BIG LOV — 35 × 24 × 15 cm — 260 € ──
   {
-    id: 'big-lov',
-    name: 'Sac Big LOV',
-    price: 290,
-    collection: 'sacs',
-    description: 'Sac cabas en cuir tressé à la main. Format généreux, anses souples, doublure intérieure. Pièce signature à porter au quotidien.',
-    details: 'Le compagnon du quotidien. Une silhouette ample, un tressage patient, une couleur choisie comme une émotion.',
-    image: 'placeholder-big-lov',
-    colors: [
-      { name: 'Noir', id: 'noir' },
-      { name: 'Camel', id: 'camel' },
-      { name: 'Crème', id: 'creme' },
-      { name: 'Cognac', id: 'cognac' },
-      { name: 'Rouge', id: 'rouge' },
-      { name: 'Chocolat', id: 'chocolat' },
-    ],
-    badge: 'NOUVEAU',
+    ref: 'LOV-BIG-01', slug: 'big-lov-tricolore-rouge', name: 'Big LOV Tricolore Rouge',
+    silhouette: 'big', motif: 'Tricolore', colorName: 'Rouge', swatch: '#A02828',
+    body: 'Rouge, rose clair, blanc', trim: 'Rose clair',
+    description: "Trois fils de cuir de buffle, rouge, rose et blanc, tressés à la main en un damier vibrant. Le format généreux du Big LOV, la douceur d'une bordure rose clair.",
+    images: ['/images/sacs/LOV-BIG-01_01.jpg'],
   },
   {
-    id: 'small-lov',
-    name: 'Sac Small LOV',
-    price: 220,
-    collection: 'sacs',
-    description: 'Petit sac en cuir tressé à la main. Format compact, bandoulière ajustable, finitions soignées.',
-    details: 'La version intime du Big LOV. Petit format, même intention. Une pièce à porter près du corps.',
-    image: 'placeholder-small-lov',
-    colors: [
-      { name: 'Noir', id: 'noir' },
-      { name: 'Camel', id: 'camel' },
-      { name: 'Crème', id: 'creme' },
-      { name: 'Cognac', id: 'cognac' },
-      { name: 'Rouge', id: 'rouge' },
-      { name: 'Chocolat', id: 'chocolat' },
-    ],
-    badge: 'NOUVEAU',
+    ref: 'LOV-BIG-02', slug: 'big-lov-tricolore-marine', name: 'Big LOV Tricolore Marine',
+    silhouette: 'big', motif: 'Tricolore', colorName: 'Marine', swatch: '#1E2A4A',
+    body: 'Bleu marine, rose, blanc', trim: 'Bleu marine',
+    description: "Le marine tempère, le rose réveille, le blanc éclaire. Un tressage graphique pour un sac qui se porte du bureau au week-end.",
+    images: ['/images/sacs/LOV-BIG-02_01.jpg'],
+  },
+  {
+    ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
+    silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#F4C9C9',
+    body: 'Rose clair', trim: 'Rose',
+    description: "Le rose dans toutes ses nuances. Un camaïeu tout en retenue, où seule la bordure vient souligner la ligne du sac.",
+    images: ['/images/sacs/LOV-BIG-03_01.jpg'],
+  },
+  {
+    ref: 'LOV-BIG-04', slug: 'big-lov-bicolore-kaki', name: 'Big LOV Bicolore Kaki',
+    silhouette: 'big', motif: 'Bicolore', colorName: 'Kaki', swatch: '#5A5A38',
+    body: 'Kaki', trim: 'Rouge',
+    description: "Un kaki profond réveillé d'un liseré rouge. L'accord le plus parisien de la collection.",
+    images: ['/images/sacs/LOV-BIG-04_01.jpg'],
+  },
+  {
+    ref: 'LOV-BIG-05', slug: 'big-lov-azteque-vert', name: 'Big LOV Aztèque Vert',
+    silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2A6670',
+    body: 'Vert, blanc cassé', trim: 'Vert',
+    description: "Le motif losangé, tressé fil à fil en vert et blanc cassé. Un travail d'artisan qui se lit de loin.",
+    images: ['/images/sacs/LOV-BIG-05_01.jpg'],
+  },
+  {
+    ref: 'LOV-BIG-06', slug: 'big-lov-azteque-noir', name: 'Big LOV Aztèque Noir',
+    silhouette: 'big', motif: 'Aztèque', colorName: 'Noir', swatch: '#1A1A1A',
+    body: 'Noir, blanc', trim: 'Noir',
+    description: "Noir et blanc, le graphisme à l'état pur. Le sac qui va avec tout, sans jamais passer inaperçu.",
+    images: ['/images/sacs/LOV-BIG-06_01.jpg'],
+  },
+  // ── SMALL LOV — 29 × 16 × 13 cm — 180 € ──
+  {
+    ref: 'LOV-SML-01', slug: 'small-lov-tricolore-camel', name: 'Small LOV Tricolore Camel',
+    silhouette: 'sml', motif: 'Tricolore', colorName: 'Camel', swatch: '#B47B4A',
+    body: 'Camel, blanc cassé, doré', trim: 'Doré',
+    description: "Camel, blanc cassé et doré. Un format compact qui contient l'essentiel, un tressage qui attire la lumière.",
+    images: ['/images/sacs/LOV-SML-01_01.jpg'],
+  },
+  {
+    ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Kaki',
+    silhouette: 'sml', motif: 'Tricolore', colorName: 'Kaki', swatch: '#5A5A38',
+    body: 'Kaki, rose, argenté', trim: 'Argenté',
+    description: "Kaki, rose et argent : un contraste inattendu, souligné d'une bordure argentée.",
+    images: ['/images/sacs/LOV-SML-02_01.jpg'],
+  },
+  {
+    ref: 'LOV-SML-03', slug: 'small-lov-bicolore-argent', name: 'Small LOV Bicolore Argent',
+    silhouette: 'sml', motif: 'Bicolore', colorName: 'Argent', swatch: '#C0C0C0',
+    body: 'Argenté', trim: 'Doré',
+    description: "Argent sur doré. Le petit sac du soir, tressé main comme les autres.",
+    images: ['/images/sacs/LOV-SML-03_01.jpg'],
+  },
+  {
+    ref: 'LOV-SML-04', slug: 'small-lov-bicolore-bleu', name: 'Small LOV Bicolore Bleu',
+    silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#8FB6D1',
+    body: 'Bleu clair', trim: 'Rose clair',
+    description: "Un bleu clair adouci d'une bordure rose. La fraîcheur en format nomade.",
+    images: ['/images/sacs/LOV-SML-04_01.jpg'],
+  },
+  {
+    ref: 'LOV-SML-05', slug: 'small-lov-azteque-rouge', name: 'Small LOV Aztèque Rouge',
+    silhouette: 'sml', motif: 'Aztèque', colorName: 'Rouge', swatch: '#A02828',
+    body: 'Rouge, vert', trim: 'Rouge',
+    description: "Rouge et vert en motif losangé. Le Small LOV le plus affirmé de la collection.",
+    images: ['/images/sacs/LOV-SML-05_01.jpg'],
+  },
+  {
+    ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Terracotta',
+    silhouette: 'sml', motif: 'Aztèque', colorName: 'Terracotta', swatch: '#C4714A',
+    body: 'Terracotta, blanc', trim: 'Blanc',
+    description: "Terracotta et blanc, le motif aztèque dans sa version la plus douce.",
+    images: ['/images/sacs/LOV-SML-06_01.jpg'],
   },
 ];
+
+// Alt descriptif normalisé pour chaque visuel
+export const bagAlt = (b: BagSpec) =>
+  `Sac ${b.name.replace(/^(Big|Small) LOV /, `${BAG_SILHOUETTES[b.silhouette].label} `).toLowerCase()} en cuir de buffle tressé main, charm cœur LOVCICOV`;
+
+// Projection des sacs vers le modèle Product commun au site
+export const sacsProducts: Product[] = BAGS.map((b) => {
+  const sil = BAG_SILHOUETTES[b.silhouette];
+  return {
+    id: b.slug,
+    name: b.name,
+    price: sil.price,
+    collection: 'sacs' as const,
+    description: b.description,
+    details: b.description,
+    image: b.images[0],
+    gallery: b.images.slice(1),
+    // Pastilles : les autres coloris de la même silhouette
+    colors: BAGS.filter((o) => o.silhouette === b.silhouette).map((o) => ({ name: o.colorName, id: o.slug })),
+  };
+});
+
+export const getBagBySlug = (slug?: string) => BAGS.find((b) => b.slug === slug);
+
 
 
 // Collection "Accessoires" — grigris LovBag, pièces uniques faites main
