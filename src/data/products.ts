@@ -884,7 +884,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Tricolore', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, rose clair, blanc', trim: 'Rose clair',
     description: "Trois fils de cuir de buffle, rouge, rose et blanc, tressés à la main en un damier vibrant. Le format généreux du Big LOV, la douceur d'une bordure rose clair.",
-    images: ['/images/sacs/LOV-BIG-01_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-01_01.jpg', '/images/sacs/LOV-BIG-01_02.jpg', '/images/sacs/LOV-BIG-01_03.jpg'],
   },
   {
     ref: 'LOV-BIG-02', slug: 'big-lov-tricolore-marine', name: 'Big LOV Tricolore Marine',
@@ -898,7 +898,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#F4C9C9',
     body: 'Rose clair', trim: 'Rose',
     description: "Le rose dans toutes ses nuances. Un camaïeu tout en retenue, où seule la bordure vient souligner la ligne du sac.",
-    images: ['/images/sacs/LOV-BIG-03_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-03_01.jpg', '/images/sacs/LOV-BIG-03_02.jpg', '/images/sacs/LOV-BIG-03_03.jpg'],
   },
   {
     ref: 'LOV-BIG-04', slug: 'big-lov-bicolore-kaki', name: 'Big LOV Bicolore Kaki',
@@ -919,7 +919,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Aztèque', colorName: 'Noir', swatch: '#1A1A1A',
     body: 'Noir, blanc', trim: 'Noir',
     description: "Noir et blanc, le graphisme à l'état pur. Le sac qui va avec tout, sans jamais passer inaperçu.",
-    images: ['/images/sacs/LOV-BIG-06_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-06_01.jpg', '/images/sacs/LOV-BIG-06_02.jpg', '/images/sacs/LOV-BIG-06_03.jpg'],
   },
   // ── SMALL LOV — 29 × 16 × 13 cm — 180 € ──
   {
@@ -927,7 +927,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Tricolore', colorName: 'Camel', swatch: '#B47B4A',
     body: 'Camel, blanc cassé, doré', trim: 'Doré',
     description: "Camel, blanc cassé et doré. Un format compact qui contient l'essentiel, un tressage qui attire la lumière.",
-    images: ['/images/sacs/LOV-SML-01_01.jpg'],
+    images: ['/images/sacs/LOV-SML-01_01.jpg', '/images/sacs/LOV-SML-01_02.jpg', '/images/sacs/LOV-SML-01_03.jpg'],
   },
   {
     ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Kaki',
@@ -955,7 +955,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Aztèque', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, vert', trim: 'Rouge',
     description: "Rouge et vert en motif losangé. Le Small LOV le plus affirmé de la collection.",
-    images: ['/images/sacs/LOV-SML-05_01.jpg'],
+    images: ['/images/sacs/LOV-SML-05_01.jpg', '/images/sacs/LOV-SML-05_02.jpg', '/images/sacs/LOV-SML-05_03.jpg'],
   },
   {
     ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Terracotta',
