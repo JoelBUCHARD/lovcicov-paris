@@ -119,7 +119,7 @@ const Sacs = () => {
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
-                Cuir de buffle tressé main. Ouverture en V. Charm cœur signature.
+                Le cuir tressé main. Une silhouette qui devient signature.
               </p>
             </div>
           </div>
@@ -176,8 +176,10 @@ const Sacs = () => {
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <nav aria-label="Sacs et accessoires" className="whitespace-nowrap">
-              <ul className="flex items-center gap-5 md:gap-9">
+            <span className="whitespace-nowrap" aria-hidden="true" />
+
+            <nav aria-label="Sacs et accessoires" className="flex-1 overflow-x-auto no-scrollbar">
+              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
                 {SECTION_LABELS.map(({ key, label }) => {
                   const active = section === key;
                   return (
