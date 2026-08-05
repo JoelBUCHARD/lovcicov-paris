@@ -163,7 +163,11 @@ const ProductPage = ({ product }: Props) => {
   };
   const isAccessory = product.collection === 'accessoires';
   const isKimono = product.subcategory === 'kimono';
-  const isJewelry = product.collection === 'bijoux' || isAccessory;
+  const isBag = product.collection === 'sacs';
+  const bag = isBag ? getBagBySlug(product.id) : undefined;
+  // Les sacs suivent le même parcours que les bijoux : pas de taille, pas de précommande
+  const isJewelry = product.collection === 'bijoux' || isAccessory || isBag;
+
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
   const isPowerTshirt = product.collection === 'standard' && (POWERLOV_TYPE_OVERRIDES[product.id] ?? SUBCATEGORY_LABELS[product.subcategory ?? '']) === 'T-shirt';
   const typeLabel = isAccessory
