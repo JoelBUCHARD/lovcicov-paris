@@ -186,6 +186,13 @@ const ProductPage = ({ product }: Props) => {
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
     : [product.image];
+  // Alt descriptifs : 1re image = visuel principal, 2e = packshot face, 3e = vue intérieure
+  const imageAlt = (i: number) =>
+    i === 1
+      ? `${product.name}, vue de face`
+      : i === 2
+      ? `${product.name}, vue intérieure et doublure`
+      : product.name;
   const backLink = cfg.back;
   const navigate = useNavigate();
 
