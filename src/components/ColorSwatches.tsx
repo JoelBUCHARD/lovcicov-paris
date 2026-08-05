@@ -58,12 +58,13 @@ const ColorSwatches = ({ product }: Props) => {
       <div className="flex items-center gap-2">
         {product.colors.map((color) => {
           const isActive = color.id === product.id;
-          const hex = getHex(color.name);
+          const hex = swatchFor(color.id, color.name);
           return (
             <button
               key={color.id}
-              onClick={() => navigate(`/shop/${color.id}`)}
+              onClick={() => navigate(`${basePath}/${color.id}`)}
               aria-label={color.name}
+
               title={color.name}
               className="rounded-full transition-transform duration-200 hover:scale-105 cursor-pointer w-[28px] h-[28px] md:w-[28px] [@media(max-width:768px)]:w-[32px] [@media(max-width:768px)]:h-[32px]"
               style={{
