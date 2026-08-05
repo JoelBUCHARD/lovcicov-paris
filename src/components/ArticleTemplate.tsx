@@ -30,7 +30,7 @@ const ArticleTemplate = ({
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <main className="pt-[73px]">
+      <main style={{ paddingTop: "var(--header-height)" }}>
         {/* HERO */}
         <section
           className="w-full h-[50vh] md:h-[70vh] flex items-end justify-center text-center px-6 pb-16 md:pb-24"

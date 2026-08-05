@@ -247,7 +247,7 @@ const Navbar = () => {
 
             <nav
               aria-label="Navigation mobile"
-              className="flex flex-col px-8 pt-12 pb-10 overflow-y-auto h-[calc(100vh-73px)]"
+              className="flex flex-col px-8 pt-12 pb-10 overflow-y-auto h-[calc(100vh-var(--header-height))]"
             >
               {/* Collections */}
               <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mb-6">

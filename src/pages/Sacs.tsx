@@ -1,51 +1,75 @@
-import { useState, useMemo } from "react";
+import { formatPrice } from '@/lib/price';
+import { useMemo, useState } from "react";
+import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
-import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
-import { grigriProducts, sacsProducts, BAGS } from "@/data/products";
+import { BAGS, BAG_SILHOUETTES, grigriProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
-import { formatPrice } from "@/lib/price";
+import { displayProductName } from '@/lib/productDisplayName';
 
-type Tab = "sacs" | "accessoires";
-type Silhouette = "all" | "big" | "sml";
-type Motif = "all" | "Tricolore" | "Bicolore" | "Aztèque";
+type Category = "all" | "big" | "sml" | "tricolore" | "bicolore" | "azteque";
+type Section = "sacs" | "accessoires";
 
-const TABS: { key: Tab; label: string }[] = [
-  { key: "sacs", label: "Sacs" },
-  { key: "accessoires", label: "Accessoires" },
-];
+const resolveImage = (key: string) => (key.startsWith("/") ? key : resolveProductImage(key));
 
-const SILHOUETTE_FILTERS: { key: Silhouette; label: string }[] = [
+type ProductCard = {
+  key: string;
+  id: string;
+  name: string;
+  typeLabel: string;
+  price: number;
+  image: string;
+  gallery: string[];
+  categories: Exclude<Category, "all">[];
+  to: string;
+};
+
+const products: ProductCard[] = BAGS.map((b) => ({
+  key: b.slug,
+  id: b.slug,
+  name: b.name,
+  typeLabel: BAG_SILHOUETTES[b.silhouette].label,
+  price: BAG_SILHOUETTES[b.silhouette].price,
+  image: resolveImage(b.images[0]),
+  gallery: b.images.slice(1),
+  categories: [
+    b.silhouette,
+    b.motif === "Tricolore" ? "tricolore" : b.motif === "Bicolore" ? "bicolore" : "azteque",
+  ] as Exclude<Category, "all">[],
+  to: `/sacs/${b.slug}`,
+}));
+
+const accessoires: ProductCard[] = grigriProducts.map((g) => ({
+  key: g.id,
+  id: g.id,
+  name: g.name,
+  typeLabel: "Grigri",
+  price: Number(g.price),
+  image: resolveImage(g.image),
+  gallery: g.gallery ?? [],
+  categories: [],
+  to: `/shop/${g.id}`,
+}));
+
+const heroImage = resolveImage(BAGS[0]?.images[0] ?? "");
+
+const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Toutes" },
   { key: "big", label: "Big LOV" },
   { key: "sml", label: "Small LOV" },
+  { key: "tricolore", label: "Tricolore" },
+  { key: "bicolore", label: "Bicolore" },
+  { key: "azteque", label: "Aztèque" },
 ];
 
-const MOTIF_FILTERS: { key: Motif; label: string }[] = [
-  { key: "all", label: "Tous motifs" },
-  { key: "Tricolore", label: "Tricolore" },
-  { key: "Bicolore", label: "Bicolore" },
-  { key: "Aztèque", label: "Aztèque" },
-];
-
-const SAVOIR_FAIRE = [
-  {
-    title: "Cuir de buffle tressé main",
-    text: "Un fil de cuir après l'autre, selon la technique intrecciato. Chaque sac demande plusieurs heures de travail.",
-  },
-  {
-    title: "Ouverture en V",
-    text: "La signature de la collection : une ligne d'ouverture nette, bordée d'un tressage sur tout le pourtour.",
-  },
-  {
-    title: "Charm cœur signature",
-    text: "Un charm en cuir gravé LOVCICOV PARIS, accroché à chaque pièce de la collection.",
-  },
+const SECTION_LABELS: { key: Section; label: string }[] = [
+  { key: "sacs", label: "Sacs" },
+  { key: "accessoires", label: "Accessoires" },
 ];
 
 const pageStyle = {
@@ -54,106 +78,214 @@ const pageStyle = {
   fontFamily: "Instrument Sans, system-ui, sans-serif",
 };
 
-// Style d'onglet souligné — identique à la barre de filtres PowerLov
-const tabStyle = (active: boolean) => ({
-  fontSize: 10,
-  letterSpacing: "0.24em",
-  color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-  borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-  paddingBottom: 4,
-});
-
 const Sacs = () => {
   const location = useLocation();
-  const [tab, setTab] = useState<Tab>("sacs");
-  const [silhouette, setSilhouette] = useState<Silhouette>("all");
-  const [motif, setMotif] = useState<Motif>("all");
+  const [section, setSection] = useState<Section>("sacs");
+  const [category, setCategory] = useState<Category>("all");
   const [sort, setSort] = useState<SortKey>("default");
 
-  // Filtres cumulables, sans rechargement
-  const visibleBags = useMemo(() => {
-    const base = BAGS.filter(
-      (b) => (silhouette === "all" || b.silhouette === silhouette) && (motif === "all" || b.motif === motif)
-    )
-      .map((b) => sacsProducts.find((p) => p.id === b.slug)!)
-      .filter(Boolean);
+  const filtered = useMemo(() => {
+    const source = section === "accessoires" ? accessoires : products;
+    const base =
+      category === "all" || section === "accessoires"
+        ? source
+        : source.filter((p) => p.categories.includes(category as Exclude<Category, "all">));
     const sorted = [...base];
-    if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
-    else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
+    if (sort === "price-asc") sorted.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
+    else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
     else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
     return sorted;
-  }, [silhouette, motif, sort]);
+  }, [section, category, sort]);
+
+  // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
+  // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
+  const layout = useMemo(() => {
+    const rules: string[] = [];
+    const big = new Set<number>();
+    let i = 0;
+    let row = 1;
+    let type1 = true;
+    let left = true;
+    while (i < filtered.length) {
+      const remaining = filtered.length - i;
+      if (type1 && remaining >= 3) {
+        const bigCols = left ? "1 / 3" : "2 / 4";
+        const stdCol = left ? "3" : "1";
+        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
+        rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
+        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
+        big.add(i);
+        i += 3;
+        row += 2;
+        type1 = false;
+        left = !left;
+      } else {
+        const n = Math.min(3, remaining);
+        for (let k = 0; k < n; k++) {
+          rules.push(`.pw-${i + k}{grid-column:${k + 1};grid-row:${row};}`);
+        }
+        i += n;
+        row += 1;
+        type1 = true;
+      }
+    }
+    return { css: `@media (min-width:768px){${rules.join("")}}`, big };
+  }, [filtered]);
 
   const from = `${location.pathname}${location.search}`;
 
   return (
     <div style={pageStyle} className="min-h-screen">
       <SEO
-        title="LovBag — Sacs cuir tressé | LOVCICOV Paris"
-        description="LovBag par LOVCICOV Paris : sacs en cuir pleine fleur tressés à la main. Big LOV et Small LOV, une palette de teintes signatures."
+        title="La collection Sacs tressés | LOVCICOV Paris"
+        description="Cuir de buffle tressé main. Ouverture en V. Charm cœur signature. Deux silhouettes, douze coloris, tressés à la main en Inde."
         path="/sacs"
       />
       <Navbar />
 
-      <main className="overflow-hidden" style={{ paddingTop: 'var(--header-height, 154px)' }}>
-        {/* EN-TÊTE DE PAGE — titre + sous-titre */}
-        <section
-          className="w-full text-center"
-          style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(16px, 3vw, 32px)" }}
-        >
-          <div className="mx-auto" style={{ maxWidth: 720 }}>
-            <motion.h1
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.8 }}
-              className="uppercase"
-              style={{
-                fontFamily: "Instrument Sans, system-ui, sans-serif",
-                fontWeight: 500,
-                fontSize: "clamp(18px, 2.4vw, 26px)",
-                letterSpacing: "0.16em",
-                color: "#0D0D0D",
-              }}
-            >
-              La collection Sacs tressés
-            </motion.h1>
-            <p className="mt-3 uppercase" style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}>
-              Cuir de buffle tressé main. Ouverture en V. Charm cœur signature.
-            </p>
-            <p className="mx-auto mt-5 font-light" style={{ fontSize: 13, lineHeight: 1.8, color: "#5F5E5A", maxWidth: 520 }}>
-              Tressés à la main en Inde, un fil de cuir de buffle après l'autre. Deux silhouettes,
-              douze coloris, un même geste : celui de l'artisan.
-            </p>
+      <main className="overflow-hidden" style={{ paddingTop: "var(--header-height)" }}>
+        {/* HERO */}
+        <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
+          <img
+            src={heroImage}
+            alt="La collection Sacs tressés par LOVCICOV Paris"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 22%" }}
+            loading="eager"
+            decoding="async"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(13,13,13,0.18) 0%, rgba(13,13,13,0.3) 48%, rgba(13,13,13,0.22) 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-x-0 bottom-3 z-10 md:bottom-6"
+            style={{ paddingInline: "clamp(24px, 5vw, 72px)" }}
+          >
+            <div className="max-w-[19rem] md:max-w-3xl">
+              <p
+                className="mb-1 text-[11px] md:text-[11px] uppercase"
+                style={{ color: "rgba(244,240,232,0.82)", letterSpacing: "0.22em" }}
+              >
+                LovBag
+              </p>
+              <p
+                className="mb-2 md:mb-4 italic"
+                style={{
+                  fontWeight: 300,
+                  fontSize: "clamp(18px, 5vw, 22px)",
+                  color: "rgba(244,240,232,0.82)",
+                }}
+              >
+                Cuir de buffle tressé main. Ouverture en V. Charm cœur signature.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* BARRE DE FILTRES STICKY — même composition que PowerLov */}
+        {/* GIANT TITLE */}
+        <section
+          className="w-full text-center"
+          style={{ padding: "clamp(48px, 8vw, 96px) clamp(16px, 4vw, 48px) clamp(24px, 4vw, 48px)" }}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="uppercase leading-[0.9]"
+            style={{
+              fontFamily: "Instrument Sans, system-ui, sans-serif",
+              fontWeight: 500,
+              fontSize: "clamp(64px, 15vw, 260px)",
+              letterSpacing: "-0.02em",
+              color: "#0D0D0D",
+            }}
+          >
+            LA COLLECTION SACS TRESSÉS
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="mx-auto"
+            style={{
+              maxWidth: 620,
+              marginTop: "clamp(16px, 2vw, 24px)",
+              fontSize: 11,
+              lineHeight: 1.8,
+              letterSpacing: "0.06em",
+              color: "rgba(13,13,13,0.5)",
+            }}
+          >
+            Tressés à la main en Inde, un fil de cuir de buffle après l'autre. Deux silhouettes, douze coloris,
+            un même geste : celui de l'artisan.
+          </motion.p>
+        </section>
+
+        {/* STICKY FILTER BAR */}
         <div
           className="sticky z-30 border-y border-[rgba(13,13,13,0.08)] backdrop-blur"
-          style={{ top: "var(--header-height, 154px)", backgroundColor: "rgba(250,248,244,0.92)" }}
-          id="lovbag-grid"
+          style={{ top: "var(--header-height)", backgroundColor: "rgba(250,248,244,0.92)" }}
+          id="sacs-grid"
         >
           <div
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <span className="whitespace-nowrap" aria-hidden="true" />
+            <nav aria-label="Sacs et accessoires" className="whitespace-nowrap">
+              <ul className="flex items-center gap-5 md:gap-9">
+                {SECTION_LABELS.map(({ key, label }) => {
+                  const active = section === key;
+                  return (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setSection(key)}
+                        className="uppercase transition-colors duration-200"
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.24em",
+                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+                          paddingBottom: 4,
+                        }}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-            <nav aria-label="Catégories LovBag" className="flex-1 overflow-x-auto no-scrollbar">
+            <nav aria-label="Catégories Sacs" className="flex-1 overflow-x-auto no-scrollbar">
               <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {TABS.map(({ key, label }) => (
-                  <li key={key}>
-                    <button
-                      type="button"
-                      onClick={() => setTab(key)}
-                      className="uppercase transition-colors duration-200"
-                      style={tabStyle(tab === key)}
-                    >
-                      {label}
-                    </button>
-                  </li>
-                ))}
+                {CATEGORY_LABELS.map(({ key, label }) => {
+                  const active = category === key;
+                  return (
+                    <li key={key}>
+                      <button
+                        type="button"
+                        onClick={() => setCategory(key)}
+                        className="uppercase transition-colors duration-200"
+                        style={{
+                          fontSize: 10,
+                          letterSpacing: "0.24em",
+                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
+                          paddingBottom: 4,
+                        }}
+                      >
+                        {label}
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
 
@@ -161,238 +293,118 @@ const Sacs = () => {
           </div>
         </div>
 
-        <style>{`
-          .no-scrollbar::-webkit-scrollbar { display: none; }
-          .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        `}</style>
+        {/* PRODUCT GRID — grille éditoriale (grandes cartes alternées) */}
+        <section
+          aria-label="Sélection Sacs"
+          style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
+        >
+          <style>{`
+            .no-scrollbar::-webkit-scrollbar { display: none; }
+            .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+            ${layout.css}
+          `}</style>
 
-        {tab === "sacs" ? (
-          <>
-            {/* Filtres cumulables : silhouette + motif — même style d'onglet souligné */}
-            <section
-              aria-label="Filtres de la collection Sacs"
-              style={{ padding: "clamp(16px, 3vw, 32px) clamp(12px, 3vw, 40px) 0" }}
-            >
-              <div className="mx-auto flex flex-col items-center gap-3" style={{ maxWidth: 1400 }}>
-                <ul className="flex flex-wrap items-center justify-center gap-5 md:gap-9">
-                  {SILHOUETTE_FILTERS.map(({ key, label }) => (
-                    <li key={key}>
-                      <button
-                        type="button"
-                        onClick={() => setSilhouette(key)}
-                        aria-pressed={silhouette === key}
-                        className="uppercase transition-colors duration-200"
-                        style={tabStyle(silhouette === key)}
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                <ul className="flex flex-wrap items-center justify-center gap-5 md:gap-9">
-                  {MOTIF_FILTERS.map(({ key, label }) => (
-                    <li key={key}>
-                      <button
-                        type="button"
-                        onClick={() => setMotif(key)}
-                        aria-pressed={motif === key}
-                        className="uppercase transition-colors duration-200"
-                        style={tabStyle(motif === key)}
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </section>
-
-            {/* GRILLE PRODUITS — grille et carte PowerLov */}
-            <section
-              aria-label="Sacs tressés LOVCICOV"
-              style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
-            >
-              <div
-                className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
-                style={{ maxWidth: 1400 }}
-              >
-                {visibleBags.map((p, i) => {
-                  const image = resolveProductImage(p.image);
-                  return (
-                    <motion.div
-                      key={p.id}
-                      initial={{ opacity: 0, y: 14 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                      className="col-span-1 md:h-full"
-                    >
-                      <Link
-                        to={`/sacs/${p.id}`}
-                        state={{ from }}
-                        onMouseEnter={() => {
-                          prefetchRoute("/sacs/item");
-                          prefetchImage(image);
-                        }}
-                        onTouchStart={() => prefetchRoute("/sacs/item")}
-                        className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
-                      >
-                        <div
-                          className="relative w-full overflow-hidden aspect-[4/5]"
-                          style={{ backgroundColor: "#F0EDE7" }}
-                        >
-                          <img
-                            src={image}
-                            alt={`${p.name} en cuir de buffle tressé main, charm cœur LOVCICOV`}
-                            loading="lazy"
-                            decoding="async"
-                            className="absolute inset-0 h-full w-full object-cover"
-                            style={{ objectPosition: "center top" }}
-                          />
-                        </div>
-                        <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
-                          <p
-                            className="font-light product-card-eyebrow"
-                            style={{
-                              fontSize: 9,
-                              letterSpacing: "0.28em",
-                              textTransform: "uppercase",
-                              color: "rgba(13,13,13,0.5)",
-                              marginBottom: 4,
-                            }}
-                          >
-                            Sac
-                          </p>
-                          <h3
-                            className="text-[#0D0D0D] font-light product-card-title"
-                            style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
-                          >
-                            {p.name}
-                          </h3>
-                          <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                            {formatPrice(p.price)}
-                          </p>
-                        </div>
-                      </Link>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {visibleBags.length === 0 && (
-                <p
-                  className="text-center uppercase mt-10"
-                  style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}
-                >
-                  Aucun sac ne correspond à cette sélection.
-                </p>
-              )}
-            </section>
-
-            {/* Le savoir-faire — 3 colonnes */}
-            <section
-              aria-label="Le savoir-faire"
-              className="border-t border-[rgba(13,13,13,0.08)]"
-              style={{ padding: "clamp(48px, 7vw, 96px) clamp(16px, 4vw, 48px)", marginTop: "clamp(24px, 4vw, 48px)" }}
-            >
-              <p
-                className="text-center uppercase"
-                style={{ fontSize: 10, letterSpacing: "0.28em", color: "rgba(13,13,13,0.5)", marginBottom: 32 }}
-              >
-                Le savoir-faire
-              </p>
-              <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-center" style={{ maxWidth: 1000 }}>
-                {SAVOIR_FAIRE.map((item, i) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.7, delay: i * 0.035 }}
-                  >
-                    <h3
-                      className="uppercase"
-                      style={{ fontSize: 11, letterSpacing: "0.16em", color: "#0D0D0D", marginBottom: 10 }}
-                    >
-                      {item.title}
-                    </h3>
-                    <p className="font-light" style={{ fontSize: 12.5, lineHeight: 1.75, color: "#5F5E5A" }}>
-                      {item.text}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </section>
-          </>
-        ) : (
-          <section
-            aria-label="Grigris LovBag"
-            style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) clamp(48px, 8vw, 96px)" }}
+          <div
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
+            style={{ maxWidth: 1400 }}
           >
-            <div
-              className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
-              style={{ maxWidth: 1400 }}
-            >
-              {grigriProducts.map((p, i) => (
-                <motion.div
-                  key={p.id}
-                  initial={{ opacity: 0, y: 14 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                  className="col-span-1 md:h-full"
+            {filtered.map((product, i) => {
+              const isBig = layout.big.has(i);
+              return (
+              <motion.div
+                key={product.key}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
+                className={`col-span-1 md:h-full pw-${i}`}
+              >
+                <Link
+                  to={product.to}
+                  state={{ from, galleryOrder: product.gallery }}
+                  onMouseEnter={() => {
+                    prefetchRoute(product.to);
+                    prefetchImage(product.image);
+                  }}
+                  onTouchStart={() => prefetchRoute(product.to)}
+                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
-                  <Link
-                    to={`/shop/${p.id}`}
-                    state={{ from }}
-                    onMouseEnter={() => prefetchRoute("/shop/item")}
-                    onTouchStart={() => prefetchRoute("/shop/item")}
-                    className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  <div
+                    className={`relative w-full overflow-hidden aspect-[4/5] ${
+                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
+                    }`}
+                    style={{ backgroundColor: "#F0EDE7" }}
                   >
-                    <div className="relative w-full overflow-hidden aspect-[4/5]" style={{ backgroundColor: "#F0EDE7" }}>
-                      <img
-                        src={resolveProductImage(p.image)}
-                        alt={p.name}
-                        loading="lazy"
-                        decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
-                        style={{ objectPosition: "center top" }}
-                      />
-                    </div>
-                    <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
-                      <p
-                        className="font-light product-card-eyebrow"
-                        style={{
-                          fontSize: 9,
-                          letterSpacing: "0.28em",
-                          textTransform: "uppercase",
-                          color: "rgba(13,13,13,0.5)",
-                          marginBottom: 4,
-                        }}
-                      >
-                        Grigri
-                      </p>
-                      <h3
-                        className="text-[#0D0D0D] font-light product-card-title"
-                        style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
-                      >
-                        {p.name}
-                      </h3>
-                      <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                        {formatPrice(p.price)}
-                      </p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </section>
-        )}
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover"
+                      style={{ objectPosition: "center top" }}
+                    />
+                  </div>
 
-        <JourneyContinuation
-          eyebrow="Explorer"
-          title="Trois univers, une même maison"
-        />
+                  <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
+                    <p
+                      className="font-light product-card-eyebrow"
+                      style={{
+                        fontSize: 9,
+                        letterSpacing: "0.28em",
+                        textTransform: "uppercase",
+                        color: "rgba(13,13,13,0.5)",
+                        marginBottom: 4,
+                      }}
+                    >
+                      {product.typeLabel}
+                    </p>
+                    <h3
+                      className="text-[#0D0D0D] font-light product-card-title"
+                      style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", lineHeight: 1.35 }}
+                    >
+                      {displayProductName(product.name)}
+                    </h3>
+                    <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
+                      {formatPrice(product.price)}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+              );
+            })}
+          </div>
+
+          <div
+            className="mx-auto flex justify-center"
+            style={{ maxWidth: 1400, marginTop: "clamp(24px, 4vw, 48px)", marginBottom: "clamp(48px, 8vw, 96px)" }}
+          >
+            <Link
+              to="/shop"
+              onMouseEnter={() => prefetchRoute("/shop")}
+              className="inline-flex items-center justify-center px-7 py-3 text-[11px] uppercase transition-colors duration-300"
+              style={{ backgroundColor: "#0D0D0D", color: "#FFFFFF", letterSpacing: "0.24em" }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = "#2A2A2A";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = "#0D0D0D";
+              }}
+            >
+              Découvrir toute la collection
+            </Link>
+          </div>
+
+          {filtered.length === 0 && (
+            <p
+              className="text-center uppercase mt-10"
+              style={{ fontSize: 10, letterSpacing: "0.24em", color: "rgba(13,13,13,0.5)" }}
+            >
+              Aucune pièce dans cette catégorie
+            </p>
+          )}
+        </section>
+
+        <JourneyContinuation current="power" />
       </main>
 
       <Footer />

@@ -51,7 +51,7 @@ const MagazineArticle = () => {
       />
       <Navbar />
 
-      <main className="pt-[73px]">
+      <main style={{ paddingTop: "var(--header-height)" }}>
         {/* Breadcrumb */}
         <div className="max-w-3xl mx-auto px-6 md:px-0 pt-10 md:pt-14">
           <nav
