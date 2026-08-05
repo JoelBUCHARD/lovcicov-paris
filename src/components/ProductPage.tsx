@@ -290,9 +290,9 @@ const ProductPage = ({ product }: Props) => {
 
 
   const seoImage = getImage(allImages[0]);
-  const seoTitle = `${product.name} — LOVCICOV Paris`;
+  const seoTitle = isBag ? `${product.name} — Sac tressé cuir de buffle | LOVCICOV Paris` : `${product.name} — LOVCICOV Paris`;
   const seoDesc = (product.description || product.details || `${product.name} — pièce ${cfg.backLabel} par LOVCICOV Paris.`).slice(0, 158);
-  const seoPath = product.shopifyHandle ? `/product/${product.shopifyHandle}` : `/shop/${product.id}`;
+  const seoPath = isBag ? `/sacs/${product.id}` : product.shopifyHandle ? `/product/${product.shopifyHandle}` : `/shop/${product.id}`;
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -739,7 +739,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 2. Matières & composition */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Matières & composition">
             <p className="mb-3">{material}</p>
 
@@ -747,7 +747,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 3. Coupe & taille */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Coupe & taille">
             {isJewelry ? (
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
@@ -771,7 +771,7 @@ const ProductPage = ({ product }: Props) => {
           )}
 
           {/* 4. Entretien */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Entretien">
             {isJewelry ? (
               <ul className="list-none p-0 m-0 space-y-2.5">
@@ -804,7 +804,7 @@ const ProductPage = ({ product }: Props) => {
             </ul>
           </Accordion>
 
-          {isJewelry && (
+          {isJewelry && !isBag && (
             <Accordion title="L'énergie des pierres">
               {stones.length > 0 ? (
                 <ul className="list-none p-0 m-0 space-y-6">
