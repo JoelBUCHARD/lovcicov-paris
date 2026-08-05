@@ -50,7 +50,7 @@ const Magazine = () => {
       />
       <Navbar />
 
-      <main className="pt-[73px]">
+      <main style={{ paddingTop: "var(--header-height)" }}>
         {/* Masthead */}
         <section className="border-b border-border">
           <div className="max-w-6xl mx-auto px-6 md:px-10 pt-24 pb-16 md:pt-32 md:pb-20 text-center">

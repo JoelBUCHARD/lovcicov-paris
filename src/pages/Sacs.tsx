@@ -143,7 +143,7 @@ const Sacs = () => {
       />
       <Navbar />
 
-      <main className="pt-[73px] overflow-hidden">
+      <main className="overflow-hidden" style={{ paddingTop: "var(--header-height)" }}>
         {/* HERO */}
         <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
           <img
@@ -230,7 +230,7 @@ const Sacs = () => {
         {/* STICKY FILTER BAR */}
         <div
           className="sticky z-30 border-y border-[rgba(13,13,13,0.08)] backdrop-blur"
-          style={{ top: 73, backgroundColor: "rgba(250,248,244,0.92)" }}
+          style={{ top: "var(--header-height)", backgroundColor: "rgba(250,248,244,0.92)" }}
           id="sacs-grid"
         >
           <div
