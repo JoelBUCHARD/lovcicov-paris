@@ -1,6 +1,5 @@
 import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
-import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -12,7 +11,6 @@ import { BAGS, BAG_SILHOUETTES, grigriProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
 
-type Category = "all" | "big" | "sml" | "tricolore" | "bicolore" | "azteque";
 type Section = "sacs" | "accessoires";
 
 const resolveImage = (key: string) => (key.startsWith("/") ? key : resolveProductImage(key));
@@ -25,7 +23,6 @@ type ProductCard = {
   price: number;
   image: string;
   gallery: string[];
-  categories: Exclude<Category, "all">[];
   to: string;
 };
 
@@ -37,10 +34,6 @@ const products: ProductCard[] = BAGS.map((b) => ({
   price: BAG_SILHOUETTES[b.silhouette].price,
   image: resolveImage(b.images[0]),
   gallery: b.images.slice(1),
-  categories: [
-    b.silhouette,
-    b.motif === "Tricolore" ? "tricolore" : b.motif === "Bicolore" ? "bicolore" : "azteque",
-  ] as Exclude<Category, "all">[],
   to: `/sacs/${b.slug}`,
 }));
 
@@ -52,20 +45,10 @@ const accessoires: ProductCard[] = grigriProducts.map((g) => ({
   price: Number(g.price),
   image: resolveImage(g.image),
   gallery: g.gallery ?? [],
-  categories: [],
   to: `/shop/${g.id}`,
 }));
 
 const heroImage = resolveImage(BAGS[0]?.images[0] ?? "");
-
-const CATEGORY_LABELS: { key: Category; label: string }[] = [
-  { key: "all", label: "Toutes" },
-  { key: "big", label: "Big LOV" },
-  { key: "sml", label: "Small LOV" },
-  { key: "tricolore", label: "Tricolore" },
-  { key: "bicolore", label: "Bicolore" },
-  { key: "azteque", label: "Aztèque" },
-];
 
 const SECTION_LABELS: { key: Section; label: string }[] = [
   { key: "sacs", label: "Sacs" },
@@ -81,56 +64,12 @@ const pageStyle = {
 const Sacs = () => {
   const location = useLocation();
   const [section, setSection] = useState<Section>("sacs");
-  const [category, setCategory] = useState<Category>("all");
-  const [sort, setSort] = useState<SortKey>("default");
 
-  const filtered = useMemo(() => {
-    const source = section === "accessoires" ? accessoires : products;
-    const base =
-      category === "all" || section === "accessoires"
-        ? source
-        : source.filter((p) => p.categories.includes(category as Exclude<Category, "all">));
-    const sorted = [...base];
-    if (sort === "price-asc") sorted.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
-    else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
-    else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
-    return sorted;
-  }, [section, category, sort]);
+  const filtered = useMemo(
+    () => (section === "accessoires" ? accessoires : products),
+    [section]
+  );
 
-  // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
-  // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
-  const layout = useMemo(() => {
-    const rules: string[] = [];
-    const big = new Set<number>();
-    let i = 0;
-    let row = 1;
-    let type1 = true;
-    let left = true;
-    while (i < filtered.length) {
-      const remaining = filtered.length - i;
-      if (type1 && remaining >= 3) {
-        const bigCols = left ? "1 / 3" : "2 / 4";
-        const stdCol = left ? "3" : "1";
-        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
-        rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
-        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
-        big.add(i);
-        i += 3;
-        row += 2;
-        type1 = false;
-        left = !left;
-      } else {
-        const n = Math.min(3, remaining);
-        for (let k = 0; k < n; k++) {
-          rules.push(`.pw-${i + k}{grid-column:${k + 1};grid-row:${row};}`);
-        }
-        i += n;
-        row += 1;
-        type1 = true;
-      }
-    }
-    return { css: `@media (min-width:768px){${rules.join("")}}`, big };
-  }, [filtered]);
 
   const from = `${location.pathname}${location.search}`;
 
@@ -205,7 +144,7 @@ const Sacs = () => {
               color: "#0D0D0D",
             }}
           >
-            LA COLLECTION SACS TRESSÉS
+            LOVBAG
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -262,34 +201,6 @@ const Sacs = () => {
                 })}
               </ul>
             </nav>
-
-            <nav aria-label="Catégories Sacs" className="flex-1 overflow-x-auto no-scrollbar">
-              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {CATEGORY_LABELS.map(({ key, label }) => {
-                  const active = category === key;
-                  return (
-                    <li key={key}>
-                      <button
-                        type="button"
-                        onClick={() => setCategory(key)}
-                        className="uppercase transition-colors duration-200"
-                        style={{
-                          fontSize: 10,
-                          letterSpacing: "0.24em",
-                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-                          paddingBottom: 4,
-                        }}
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
-
-            <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
         </div>
 
@@ -301,23 +212,20 @@ const Sacs = () => {
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            ${layout.css}
           `}</style>
 
           <div
             className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => {
-              const isBig = layout.big.has(i);
-              return (
+            {filtered.map((product, i) => (
               <motion.div
                 key={product.key}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className={`col-span-1 md:h-full pw-${i}`}
+                className="col-span-1"
               >
                 <Link
                   to={product.to}
@@ -327,12 +235,10 @@ const Sacs = () => {
                     prefetchImage(product.image);
                   }}
                   onTouchStart={() => prefetchRoute(product.to)}
-                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className={`relative w-full overflow-hidden aspect-[4/5] ${
-                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
-                    }`}
+                    className="relative w-full overflow-hidden aspect-[4/5]"
                     style={{ backgroundColor: "#F0EDE7" }}
                   >
                     <img
@@ -370,8 +276,7 @@ const Sacs = () => {
                   </div>
                 </Link>
               </motion.div>
-              );
-            })}
+            ))}
           </div>
 
           <div
