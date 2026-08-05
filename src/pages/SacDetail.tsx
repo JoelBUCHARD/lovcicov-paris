@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { products } from '@/data/products';
+import { sacsProducts, getBagBySlug } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
@@ -19,13 +19,13 @@ const getImage = (key: string) => {
   return m ? m[1] : '';
 };
 
-const ProductDetail = () => {
-  const { id } = useParams<{ id: string }>();
+const SacDetail = () => {
+  const { slug: id } = useParams<{ slug: string }>();
   const location = useLocation();
   const navState = location.state as { variantImage?: string; galleryOrder?: string[] } | null;
   const variantImage = navState?.variantImage;
   const galleryOrder = navState?.galleryOrder?.filter(Boolean);
-  const product = products.find((p) => p.id === id);
+  const product = sacsProducts.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
   const effectiveImage = galleryOrder?.length
     ? galleryOrder[0]
@@ -46,10 +46,7 @@ const ProductDetail = () => {
 
 
 
-  const universe =
-    product?.collection === 'mystic' ? 'mysticlov'
-    : product?.collection === 'bijoux' ? 'stonelov'
-    : 'powerlov';
+  const universe = 'powerlov';
 
   useEffect(() => {
     if (!displayedProduct) return;
@@ -59,7 +56,7 @@ const ProductDetail = () => {
       price: String(displayedProduct.price),
       image: getImage(displayedProduct.image),
       universe: universe as 'powerlov' | 'mysticlov' | 'stonelov',
-      link: `/shop/${displayedProduct.id}`,
+      link: `/sacs/${displayedProduct.id}`,
     });
   }, [displayedProduct?.id, displayedProduct?.image]);
 
@@ -69,8 +66,8 @@ const ProductDetail = () => {
         <Navbar />
         <div className="pt-40 px-6 md:px-12 text-center">
           <h1 className="text-2xl font-medium">Produit introuvable</h1>
-          <Link to="/shop" className="text-brand text-xs mt-4 inline-block opacity-60 hover:opacity-100">
-            Retour à la Boutique
+          <Link to="/sacs" className="text-brand text-xs mt-4 inline-block opacity-60 hover:opacity-100">
+            Retour aux Sacs
           </Link>
         </div>
       </div>
@@ -94,4 +91,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default SacDetail;

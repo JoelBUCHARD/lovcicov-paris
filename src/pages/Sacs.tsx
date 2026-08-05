@@ -207,6 +207,24 @@ const Sacs = () => {
           >
             LA COLLECTION SACS TRESSÉS
           </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.8 }}
+            className="mx-auto"
+            style={{
+              maxWidth: 620,
+              marginTop: "clamp(16px, 2vw, 24px)",
+              fontSize: 11,
+              lineHeight: 1.8,
+              letterSpacing: "0.06em",
+              color: "rgba(13,13,13,0.5)",
+            }}
+          >
+            Tressés à la main en Inde, un fil de cuir de buffle après l'autre. Deux silhouettes, douze coloris,
+            un même geste : celui de l'artisan.
+          </motion.p>
         </section>
 
         {/* STICKY FILTER BAR */}
