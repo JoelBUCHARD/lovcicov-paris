@@ -631,12 +631,62 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/shop/big-lov</loc>
+    <loc>https://lovcicov.com/shop/big-lov-tricolore-rouge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/shop/small-lov</loc>
+    <loc>https://lovcicov.com/shop/big-lov-tricolore-marine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/big-lov-bicolore-rose</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/big-lov-bicolore-kaki</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/big-lov-azteque-vert</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/big-lov-azteque-noir</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-tricolore-camel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-tricolore-kaki</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-bicolore-argent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-bicolore-bleu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-azteque-rouge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/shop/small-lov-azteque-terracotta</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
