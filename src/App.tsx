@@ -21,6 +21,7 @@ import CookieBanner from "./components/CookieBanner";
 const Shop = lazy(() => import("./pages/Shop"));
 const SearchPage = lazy(() => import("./pages/Search"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
+const SacDetail = lazy(() => import("./pages/SacDetail"));
 const ShopifyProductDetail = lazy(() => import("./pages/ShopifyProductDetail"));
 const Manifeste = lazy(() => import("./pages/Manifeste"));
 const LeCercle = lazy(() => import("./pages/LeCercle"));
@@ -77,6 +78,8 @@ const AppContent = () => {
           {/* /campagne-sac (LOVSAC) — temporairement masqué, redirection vers l'accueil. Réactivation prévue en septembre. */}
           <Route path="/campagne-sac" element={<Navigate to="/" replace />} />
           <Route path="/sacs" element={<Sacs />} />
+          <Route path="/sacs/:slug" element={<SacDetail />} />
+          <Route path="/accessoires" element={<Navigate to="/sacs" replace />} />
           {/* Legacy /journal/* article routes redirect to Magazine equivalents */}
           <Route path="/journal/sacs-cuir-tresse" element={<Navigate to="/magazine/le-geste-du-cuir-tresse" replace />} />
           <Route path="/journal/sacs-choisir-couleur" element={<Navigate to="/magazine/comment-choisir-sa-couleur" replace />} />
