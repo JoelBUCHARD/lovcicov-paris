@@ -891,7 +891,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Tricolore', colorName: 'Marine', swatch: '#1E2A4A',
     body: 'Bleu marine, rose, blanc', trim: 'Bleu marine',
     description: "Le marine tempère, le rose réveille, le blanc éclaire. Un tressage graphique pour un sac qui se porte du bureau au week-end.",
-    images: ['/images/sacs/LOV-BIG-02_01.jpg'],
+    images: ['/__l5e/assets-v1/584ff50b-6904-4fc9-a4a1-f6817160fee0/lovbag-big-lov-tricolore-marine.png', '/images/sacs/LOV-BIG-02_01.jpg'],
   },
   {
     ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
