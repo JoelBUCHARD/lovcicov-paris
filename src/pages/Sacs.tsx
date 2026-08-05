@@ -48,7 +48,7 @@ const accessoires: ProductCard[] = grigriProducts.map((g) => ({
   to: `/shop/${g.id}`,
 }));
 
-const heroImage = resolveImage(BAGS[0]?.images[0] ?? "");
+const heroImage = heroAsset.url;
 
 const SECTION_LABELS: { key: Section; label: string }[] = [
   { key: "sacs", label: "Sacs" },
