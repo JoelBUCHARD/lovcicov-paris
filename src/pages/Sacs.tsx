@@ -10,6 +10,7 @@ import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { BAGS, BAG_SILHOUETTES, grigriProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
+import heroAsset from "@/assets/lovbag/lovbag-hero-red-bag-street.png.asset.json";
 
 type Section = "sacs" | "accessoires";
 
