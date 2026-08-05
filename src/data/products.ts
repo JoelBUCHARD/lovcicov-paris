@@ -488,9 +488,9 @@ export const bijouxProducts: Product[] = [
     collection: 'bijoux',
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
-    image: 'stonelov-collier-jade-nacre-model-v2',
-    detailImage: 'stonelov-collier-jade-nacre-model-v2',
-    gallery: ['stonelov-collier-jade-nacre-model-street', 'bijoux-jade-tarot'],
+    image: 'stonelov-collier-jade-nacre-model-street',
+    detailImage: 'stonelov-collier-jade-nacre-model-street',
+    gallery: ['bijoux-jade-pendentif', 'bijoux-jade-tarot'],
     stoneMeaning: 'Jade vert — Pierre de sérénité et de sagesse, elle favorise l\'harmonie et la paix intérieure. Nacre — Symbole de douceur et de féminité, elle protège et apaise les émotions.',
   },
   {
