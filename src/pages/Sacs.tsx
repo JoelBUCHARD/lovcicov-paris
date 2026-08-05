@@ -1,19 +1,50 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
+import ProductCard from "@/components/ProductCard";
 import { prefetchRoute } from "@/lib/prefetch";
-import { grigriProducts } from "@/data/products";
+import { grigriProducts, sacsProducts, BAGS } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 
 type Tab = "sacs" | "accessoires";
+type Silhouette = "all" | "big" | "sml";
+type Motif = "all" | "Tricolore" | "Bicolore" | "Aztèque";
 
 const TABS: { key: Tab; label: string }[] = [
   { key: "sacs", label: "Sacs" },
   { key: "accessoires", label: "Accessoires" },
+];
+
+const SILHOUETTE_FILTERS: { key: Silhouette; label: string }[] = [
+  { key: "all", label: "Toutes" },
+  { key: "big", label: "Big LOV" },
+  { key: "sml", label: "Small LOV" },
+];
+
+const MOTIF_FILTERS: { key: Motif; label: string }[] = [
+  { key: "all", label: "Tous motifs" },
+  { key: "Tricolore", label: "Tricolore" },
+  { key: "Bicolore", label: "Bicolore" },
+  { key: "Aztèque", label: "Aztèque" },
+];
+
+const SAVOIR_FAIRE = [
+  {
+    title: "Cuir de buffle tressé main",
+    text: "Un fil de cuir après l'autre, selon la technique intrecciato. Chaque sac demande plusieurs heures de travail.",
+  },
+  {
+    title: "Ouverture en V",
+    text: "La signature de la collection : une ligne d'ouverture nette, bordée d'un tressage sur tout le pourtour.",
+  },
+  {
+    title: "Charm cœur signature",
+    text: "Un charm en cuir gravé LOVCICOV PARIS, accroché à chaque pièce de la collection.",
+  },
 ];
 
 const pageStyle = {
@@ -24,7 +55,20 @@ const pageStyle = {
 
 const Sacs = () => {
   const location = useLocation();
-  const [tab, setTab] = useState<Tab>("accessoires");
+  const [tab, setTab] = useState<Tab>("sacs");
+  const [silhouette, setSilhouette] = useState<Silhouette>("all");
+  const [motif, setMotif] = useState<Motif>("all");
+
+  // Filtres cumulables, sans rechargement
+  const visibleBags = useMemo(
+    () =>
+      BAGS.filter(
+        (b) => (silhouette === "all" || b.silhouette === silhouette) && (motif === "all" || b.motif === motif)
+      )
+        .map((b) => sacsProducts.find((p) => p.id === b.slug)!)
+        .filter(Boolean),
+    [silhouette, motif]
+  );
 
   const goToNewsletter = () => {
     const el = document.getElementById("footer-newsletter-email");
@@ -35,6 +79,7 @@ const Sacs = () => {
   };
 
   const from = `${location.pathname}${location.search}`;
+
 
   return (
     <div style={pageStyle} className="min-h-screen">
