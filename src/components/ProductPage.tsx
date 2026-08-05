@@ -881,24 +881,30 @@ const ProductPage = ({ product }: Props) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
             {[
               {
-                title: isJewelry ? 'Pierres naturelles' : 'Matière',
-                body: isJewelry
+                title: isBag ? 'Cuir de buffle tressé main' : isJewelry ? 'Pierres naturelles' : 'Matière',
+                body: isBag
+                  ? "Un fil de cuir de buffle après l'autre, selon la technique intrecciato. Chaque pièce est unique."
+                  : isJewelry
                   ? 'Chaque pierre est sélectionnée pour son grain, sa densité et son unicité. Aucune ne ressemble à une autre.'
                   : product.collection === 'mystic'
                   ? 'Coton peigné premium, tissé dans un grammage lourd pour une tenue structurée qui traverse les saisons.'
                   : 'Coton lourd 280 g/m², sélectionné pour sa densité et sa tenue dans le temps.',
               },
               {
-                title: isJewelry ? 'Monture main' : 'Confection',
-                body: isJewelry
+                title: isBag ? 'Ouverture en V' : isJewelry ? 'Monture main' : 'Confection',
+                body: isBag
+                  ? "La signature de la collection : une ligne d'ouverture nette, bordée d'un tressage sur tout le pourtour."
+                  : isJewelry
                   ? 'Sertissage et montage réalisés à la main. Fermoir ajustable, finitions soignées à chaque étape.'
                   : product.collection === 'mystic'
                   ? 'Coupe oversize unisexe, épaules tombées, encolure côtelée renforcée. Chaque pièce est finie à Paris.'
                   : 'Coupe oversize unisex. Sérigraphie haute densité réalisée en France, col bord-côte renforcé.',
               },
               {
-                title: 'Signature',
-                body: isJewelry
+                title: isBag ? 'Charm cœur signature' : 'Signature',
+                body: isBag
+                  ? 'Un charm en cuir gravé LOVCICOV PARIS, accroché à chaque pièce de la collection.'
+                  : isJewelry
                   ? "Chaque pièce est numérotée et livrée dans son écrin d'origine — une pièce, une histoire."
                   : product.collection === 'mystic'
                   ? 'Broderie dorée signature, réalisée au fil métallisé — le geste qui fait la pièce.'
