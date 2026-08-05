@@ -10,6 +10,7 @@ import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { BAGS, BAG_SILHOUETTES, grigriProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
+import heroAsset from "@/assets/lovbag/lovbag-hero-red-bag-street.png.asset.json";
 
 type Section = "sacs" | "accessoires";
 
@@ -48,7 +49,7 @@ const accessoires: ProductCard[] = grigriProducts.map((g) => ({
   to: `/shop/${g.id}`,
 }));
 
-const heroImage = resolveImage(BAGS[0]?.images[0] ?? "");
+const heroImage = heroAsset.url;
 
 const SECTION_LABELS: { key: Section; label: string }[] = [
   { key: "sacs", label: "Sacs" },
