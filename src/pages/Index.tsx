@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { bijouxProducts, mysticProducts, standardProducts } from '@/data/products';
+import { bijouxProducts, mysticProducts, standardProducts, sacsProducts } from '@/data/products';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import ProductCard from '@/components/ProductCard';
 import Navbar from '@/components/Navbar';
@@ -363,83 +363,47 @@ const Index = () => {
 
 
       {/* ————————————————————————————————————————————————————— */}
-      {/* 7. CRAFTSMANSHIP — LOVBAG editorial */}
+      {/* 7. BRAND UNIVERSE — LovBag */}
       {/* ————————————————————————————————————————————————————— */}
-      <section
-        className="w-full flex items-center justify-center text-center px-6"
-        style={{ backgroundColor: '#1A1A1A', padding: '120px 24px' }}
-      >
-        <div className="max-w-[720px] mx-auto">
-          <p
-            className="uppercase"
-            style={{
-              fontFamily: 'Arial, sans-serif',
-              fontSize: 9,
-              color: '#B4A99A',
-              letterSpacing: '0.32em',
-              marginBottom: 28,
-            }}
-          >
-            Savoir-faire · LOVBAG
-          </p>
+      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
+      <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
+        <div className="text-center mb-14 md:mb-20 px-6">
           <h2
-            className="italic font-light"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: 'clamp(44px, 7vw, 92px)',
-              color: '#FFFFFF',
-              lineHeight: 1.05,
-              letterSpacing: '-0.01em',
-            }}
+            className="font-light"
+            style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
           >
-            Big LOV.
+            LovBag
           </h2>
-          <p
-            className="italic font-light"
-            style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize: 'clamp(44px, 7vw, 92px)',
-              color: '#FFFFFF',
-              lineHeight: 1.05,
-              letterSpacing: '-0.01em',
-            }}
-          >
-            Small LOV.
+          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+            La collection des sacs tressés à la main.
           </p>
+        </div>
 
-          <p
-            style={{
-              fontSize: 14,
-              color: '#B4A99A',
-              marginTop: 32,
-              maxWidth: 520,
-              marginLeft: 'auto',
-              marginRight: 'auto',
-              lineHeight: 1.75,
-              fontWeight: 300,
-            }}
-          >
-            Cuir tressé à la main. Une palette de couleurs pensée comme une émotion. Une silhouette qui devient signature.
-          </p>
+        <div className="px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+            {sacsProducts.slice(0, 4).map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} />
+            ))}
+          </div>
+        </div>
 
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="text-center mt-16 md:mt-20"
+        >
           <Link
             to="/sacs"
-            className="inline-block mt-12 hover:opacity-90 transition-opacity"
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#1A1A1A',
-              padding: '16px 40px',
-              borderRadius: 0,
-              fontSize: 10,
-              textTransform: 'uppercase',
-              letterSpacing: '0.28em',
-            }}
+            className="inline-flex items-center justify-center bg-[#1A1A1A] text-white text-[10px] tracking-[0.28em] uppercase px-10 py-4 hover:bg-black transition-colors duration-500 min-w-[240px]"
           >
-            Découvrir les sacs
+            Découvrir LovBag
           </Link>
-        </div>
+        </motion.div>
       </section>
+
 
 
 
