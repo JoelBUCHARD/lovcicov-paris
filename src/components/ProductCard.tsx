@@ -19,6 +19,9 @@ for (const [path, mod] of Object.entries(assetJsonModules)) {
 const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng, ...assetJsonAsImages };
 
 const getImage = (key: string) => {
+  // Visuels servis depuis /public (ex. /images/sacs/LOV-BIG-01_01.jpg)
+  if (!key) return '';
+  if (key.startsWith('/') || /^https?:\/\//i.test(key)) return key;
   const match = Object.entries(imageModules).find(([path]) => path.includes(key));
   return match ? match[1] : '';
 };
