@@ -11,6 +11,6 @@ export const getRemainingForFreeShipping = (subtotal: number) =>
   Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
 
 export const formatEuro = (value: number) =>
-  value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '€';
+  value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00A0€';
 
 export const SHIPPING_LINE_LABEL = `Livraison ${formatEuro(SHIPPING_FEE)} — offerte dès ${FREE_SHIPPING_THRESHOLD}€ d'achat`;

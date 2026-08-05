@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
@@ -87,7 +88,7 @@ const ProductCard = ({ product, index = 0 }: ProductCardProps) => {
         </div>
         <div className="space-y-1 text-center pb-3 px-2 mt-auto">
           <h3 className="text-brand text-[11px] uppercase tracking-[0.12em] product-card-title">{displayProductName(product.name)}</h3>
-          <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#1A1A1A' }}>€{product.price}</p>
+          <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '14px', color: '#1A1A1A' }}>{formatPrice(product.price)}</p>
         </div>
       </Link>
     </motion.div>

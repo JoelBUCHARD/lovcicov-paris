@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -414,7 +415,7 @@ const StoneLovEditorial = () => {
                         {product.name}
                       </h3>
                       <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                        €{product.price}
+                        {formatPrice(product.price)}
                       </p>
                     </div>
                   </Link>

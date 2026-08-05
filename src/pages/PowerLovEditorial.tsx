@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
@@ -448,7 +449,7 @@ const PowerLovEditorial = () => {
                       {displayProductName(product.name)}
                     </h3>
                     <p className="mt-0.5 text-[#5F5E5A] font-light" style={{ fontSize: 11, letterSpacing: "0.06em" }}>
-                      €{product.price}
+                      {formatPrice(product.price)}
                     </p>
                   </div>
                 </Link>

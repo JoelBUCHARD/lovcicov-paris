@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { resolveProductImage } from '@/lib/productImage';
@@ -25,7 +26,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false }: Props) => {
   const hoverImage = product.hover ? resolveProductImage(product.hover) : null;
 
   const priceLabel =
-    typeof product.price === 'number' ? `€${product.price}` : product.price;
+    typeof product.price === 'number' ? formatPrice(product.price) : product.price;
 
   return (
     <motion.div
