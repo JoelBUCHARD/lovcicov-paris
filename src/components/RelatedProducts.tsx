@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { products as localProducts, Product } from "@/data/products";
@@ -246,7 +247,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
                   {p.name}
                 </h3>
                 <p style={{ fontFamily: "Arial, sans-serif", fontSize: "14px", color: "#1A1A1A" }}>
-                  €{p.price}
+                  {formatPrice(p.price)}
                 </p>
               </div>
             </Link>

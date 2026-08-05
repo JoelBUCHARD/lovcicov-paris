@@ -1,3 +1,4 @@
+import { formatPrice } from '@/lib/price';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -411,7 +412,7 @@ const ProductPage = ({ product }: Props) => {
           </h1>
 
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
-            €{product.price}
+            {formatPrice(product.price)}
           </p>
           {isPowerTshirt && (
             <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[440px]">
@@ -1153,7 +1154,7 @@ const ProductPage = ({ product }: Props) => {
             <p className="truncate" style={{ fontFamily: SANS, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>
               {product.name}
             </p>
-            <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>€{product.price}</p>
+            <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>{formatPrice(product.price)}</p>
           </div>
           <button
             onClick={handleAddToCart}
