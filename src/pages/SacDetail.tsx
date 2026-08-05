@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { sacsProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -21,26 +21,12 @@ const getImage = (key: string) => {
 
 const SacDetail = () => {
   const { slug: id } = useParams<{ slug: string }>();
-  const location = useLocation();
-  const navState = location.state as { variantImage?: string; galleryOrder?: string[] } | null;
-  const variantImage = navState?.variantImage;
-  const galleryOrder = navState?.galleryOrder?.filter(Boolean);
   const product = sacsProducts.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
-  const effectiveImage = galleryOrder?.length
-    ? galleryOrder[0]
-    : variantImage || product?.detailImage || product?.image;
-  const displayedProduct = product && effectiveImage
-    ? {
-        ...product,
-        image: effectiveImage,
-        gallery: galleryOrder?.length
-          ? galleryOrder.slice(1)
-          : variantImage
-          ? [product.image, ...(product.gallery ?? [])].filter((k) => k && k !== variantImage)
-          : product.gallery,
-      }
-    : product;
+  // Source d'images unique : le tableau `images` du produit (BAGS),
+  // projeté en { image, gallery }. Aucun override, aucun fallback externe.
+  const displayedProduct = product;
+
 
 
 
