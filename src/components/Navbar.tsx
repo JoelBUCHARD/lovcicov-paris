@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X, User, Search } from 'lucide-react';
@@ -24,6 +24,27 @@ const universLinks = [
 ];
 
 const Navbar = () => {
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  // Expose la hauteur réelle du header (états scrollé/non scrollé, tous breakpoints)
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const setVar = () =>
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${el.getBoundingClientRect().height}px`
+      );
+    setVar();
+    const ro = new ResizeObserver(setVar);
+    ro.observe(el);
+    window.addEventListener('resize', setVar);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', setVar);
+    };
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -60,6 +81,7 @@ const Navbar = () => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm transition-[padding,box-shadow,border-color] duration-500 ease-out ${
         scrolled ? 'border-b border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)]' : 'border-b border-transparent'
       }`}
