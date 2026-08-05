@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { sacsProducts, getBagBySlug } from '@/data/products';
+import { sacsProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
