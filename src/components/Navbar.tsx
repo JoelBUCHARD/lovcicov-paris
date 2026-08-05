@@ -81,6 +81,7 @@ const Navbar = () => {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm transition-[padding,box-shadow,border-color] duration-500 ease-out ${
         scrolled ? 'border-b border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)]' : 'border-b border-transparent'
       }`}
