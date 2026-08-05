@@ -905,14 +905,14 @@ export const BAGS: BagSpec[] = [
     silhouette: 'big', motif: 'Bicolore', colorName: 'Kaki', swatch: '#5A5A38',
     body: 'Kaki', trim: 'Rouge',
     description: "Un kaki profond réveillé d'un liseré rouge. L'accord le plus parisien de la collection.",
-    images: ['/images/sacs/LOV-BIG-04_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-04_01.jpg', '/images/sacs/LOV-BIG-04_02.jpg', '/images/sacs/LOV-BIG-04_03.jpg'],
   },
   {
     ref: 'LOV-BIG-05', slug: 'big-lov-azteque-vert', name: 'Big LOV Aztèque Vert',
     silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2A6670',
     body: 'Vert, blanc cassé', trim: 'Vert',
     description: "Le motif losangé, tressé fil à fil en vert et blanc cassé. Un travail d'artisan qui se lit de loin.",
-    images: ['/images/sacs/LOV-BIG-05_01.jpg'],
+    images: ['/images/sacs/LOV-BIG-05_01.jpg', '/images/sacs/LOV-BIG-05_02.jpg', '/images/sacs/LOV-BIG-05_03.jpg'],
   },
   {
     ref: 'LOV-BIG-06', slug: 'big-lov-azteque-noir', name: 'Big LOV Aztèque Noir',
