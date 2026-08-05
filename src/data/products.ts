@@ -955,7 +955,7 @@ export const BAGS: BagSpec[] = [
     silhouette: 'sml', motif: 'Aztèque', colorName: 'Rouge', swatch: '#A02828',
     body: 'Rouge, vert', trim: 'Rouge',
     description: "Rouge et vert en motif losangé. Le Small LOV le plus affirmé de la collection.",
-    images: ['/images/sacs/LOV-SML-05_01.jpg'],
+    images: ['/__l5e/assets-v1/7e707902-5db9-40e4-9e0f-cbba0efd55b5/lovbag-hero-red-bag-street.png', '/images/sacs/LOV-SML-05_01.jpg'],
   },
   {
     ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Terracotta',
