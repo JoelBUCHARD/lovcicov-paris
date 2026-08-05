@@ -24,6 +24,27 @@ const universLinks = [
 ];
 
 const Navbar = () => {
+  const headerRef = useRef<HTMLElement | null>(null);
+
+  // Expose la hauteur réelle du header (états scrollé/non scrollé, tous breakpoints)
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const setVar = () =>
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${el.getBoundingClientRect().height}px`
+      );
+    setVar();
+    const ro = new ResizeObserver(setVar);
+    ro.observe(el);
+    window.addEventListener('resize', setVar);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', setVar);
+    };
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
