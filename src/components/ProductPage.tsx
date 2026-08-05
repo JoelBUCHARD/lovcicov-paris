@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, ChevronLeft, ChevronRight, Heart, Truck, ShieldCheck, RotateCcw, MessageCircle, X, ZoomIn, WashingMachine, Wind, Sparkles, Ban, Sun, Leaf, Award } from 'lucide-react';
-import { Product, products as allProducts } from '@/data/products';
+import { Product, products as allProducts, getBagBySlug, BAG_SILHOUETTES, BAG_DETAILS, BAG_CARE, BAG_DIMENSIONS_NOTE } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
 import { fetchShopifyProductByHandle } from '@/lib/shopify';
