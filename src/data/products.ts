@@ -923,10 +923,10 @@ export const BAGS: BagSpec[] = [
   },
   // ── SMALL LOV — 29 × 16 × 13 cm — 180 € ──
   {
-    ref: 'LOV-SML-01', slug: 'small-lov-tricolore-camel', name: 'Small LOV Tricolore Camel',
-    silhouette: 'sml', motif: 'Tricolore', colorName: 'Camel', swatch: '#B47B4A',
-    body: 'Camel, blanc cassé, doré', trim: 'Doré',
-    description: "Camel, blanc cassé et doré. Un format compact qui contient l'essentiel, un tressage qui attire la lumière.",
+    ref: 'LOV-SML-01', slug: 'small-lov-tricolore-or', name: 'Small LOV Tricolore Or',
+    silhouette: 'sml', motif: 'Tricolore', colorName: 'Or', swatch: '#C9A227',
+    body: 'Or, blanc cassé, doré', trim: 'Doré',
+    description: "Or, blanc cassé et doré. Un format compact qui contient l'essentiel, un tressage qui attire la lumière.",
     images: ['/images/sacs/LOV-SML-01_01.jpg', '/images/sacs/LOV-SML-01_02.jpg', '/images/sacs/LOV-SML-01_03.jpg'],
   },
   {
