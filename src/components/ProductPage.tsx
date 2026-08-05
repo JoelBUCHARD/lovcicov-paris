@@ -186,6 +186,13 @@ const ProductPage = ({ product }: Props) => {
   const allImages = product.gallery?.length
     ? [product.image, ...product.gallery]
     : [product.image];
+  // Alt descriptifs : 1re image = visuel principal, 2e = packshot face, 3e = vue intérieure
+  const imageAlt = (i: number) =>
+    i === 1
+      ? `${product.name}, vue de face`
+      : i === 2
+      ? `${product.name}, vue intérieure et doublure`
+      : product.name;
   const backLink = cfg.back;
   const navigate = useNavigate();
 
@@ -358,7 +365,7 @@ const ProductPage = ({ product }: Props) => {
                     }`}
                     aria-label={`Image ${i + 1}`}
                   >
-                  <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
+                  <img src={getImage(img)} alt={imageAlt(i)} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
@@ -366,7 +373,7 @@ const ProductPage = ({ product }: Props) => {
 
             <ZoomBubble
               src={getImage(allImages[activeImage])}
-              alt={product.name}
+              alt={imageAlt(activeImage)}
               onOpenLightbox={() => setLightboxOpen(true)}
             />
 
@@ -382,7 +389,7 @@ const ProductPage = ({ product }: Props) => {
                     activeImage === i ? 'border-[#1A1A1A]' : 'border-transparent opacity-60'
                   }`}
                 >
-                  <img src={getImage(img)} alt="" className="w-full h-full object-cover" />
+                  <img src={getImage(img)} alt={imageAlt(i)} className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -1023,7 +1030,7 @@ const ProductPage = ({ product }: Props) => {
                 <motion.img
                   key={activeImage}
                   src={getImage(allImages[activeImage])}
-                  alt={`${product.name} — vue ${activeImage + 1}`}
+                  alt={imageAlt(activeImage)}
                   initial={{ opacity: 0, scale: 1.01 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.995 }}
@@ -1055,7 +1062,7 @@ const ProductPage = ({ product }: Props) => {
                     >
                       <img
                         src={getImage(img)}
-                        alt=""
+                        alt={imageAlt(i)}
                         className="w-full h-full object-cover"
                         draggable={false}
                       />
