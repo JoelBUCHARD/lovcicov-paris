@@ -456,7 +456,15 @@ const ProductPage = ({ product }: Props) => {
               {product.description}
             </p>
           )}
-          {!isKimono && !(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
+          {isBag && bag && (
+            <p
+              className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
+              style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
+            >
+              {bag.description}
+            </p>
+          )}
+          {!isKimono && !isBag && !(product.collection === 'mystic' && (product.subcategory === 'tshirt' || product.subcategory === 'hoodie')) && product.collection !== 'standard' && product.collection !== 'bijoux' && !isAccessory && (
             <p
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
@@ -464,6 +472,7 @@ const ProductPage = ({ product }: Props) => {
               Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.
             </p>
           )}
+
           {product.collection === 'bijoux' && (
             <div className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]">
               {stones.length > 0 ? (
