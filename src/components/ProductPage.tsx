@@ -688,9 +688,34 @@ const ProductPage = ({ product }: Props) => {
             </Accordion>
           )}
 
+          {/* Sacs tressés — Détails & finitions / Dimensions / Matière & entretien */}
+          {isBag && bag && (
+            <>
+              <Accordion title="Détails & finitions" defaultOpen>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {BAG_DETAILS.map((d) => (
+                    <li key={d}>{d}</li>
+                  ))}
+                </ul>
+              </Accordion>
+              <Accordion title="Dimensions">
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  <li>{BAG_SILHOUETTES[bag.silhouette].dimensions} (L × H × P)</li>
+                  <li>Anses tressées : {BAG_SILHOUETTES[bag.silhouette].handles}</li>
+                  <li>Bandoulière amovible incluse</li>
+                </ul>
+                <p className="mt-3 italic" style={{ color: '#6B6A65' }}>{BAG_DIMENSIONS_NOTE}</p>
+              </Accordion>
+              <Accordion title="Matière & entretien">
+                <p>{BAG_CARE}</p>
+              </Accordion>
+            </>
+          )}
+
           {/* 1. Détails & confection */}
-          {!isKimono && (
+          {!isKimono && !isBag && (
           <Accordion title="Détails & confection" defaultOpen>
+
             <ul className="list-none p-0 m-0 space-y-1.5">
               {(isJewelry
                 ? [
