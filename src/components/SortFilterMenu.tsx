@@ -34,17 +34,14 @@ const SortFilterMenu = ({ sort, onChange }: Props) => {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="menu"
         aria-expanded={open}
-        className="uppercase whitespace-nowrap flex items-center gap-1.5"
+        className="cat-tab uppercase whitespace-nowrap transition-colors duration-200 min-h-[44px] flex items-center px-0"
         style={{
-          fontSize: 10,
-          letterSpacing: "0.24em",
-          color: sort !== "default" ? "#0D0D0D" : "rgba(13,13,13,0.6)",
+          color: sort !== "default" ? "#0D0D0D" : "rgba(13,13,13,0.5)",
+          borderBottom: sort !== "default" ? "1px solid #0D0D0D" : "1px solid transparent",
+          paddingBottom: 4,
         }}
       >
         Filtres
-        {sort !== "default" && (
-          <span aria-hidden="true" style={{ display: "inline-block", width: 6, height: 6, borderRadius: "50%", background: "#0D0D0D" }} />
-        )}
       </button>
       {open && (
         <div
