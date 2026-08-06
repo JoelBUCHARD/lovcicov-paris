@@ -252,6 +252,22 @@ const ProductPage = ({ product }: Props) => {
     };
   }, [lightboxOpen, allImages.length]);
 
+  // La barre fixe mobile n'apparaît que lorsque le CTA principal sort du champ de vision.
+  const mainCtaRef = useRef<HTMLButtonElement | null>(null);
+  useEffect(() => {
+    const el = mainCtaRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyCta(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [product.id]);
+
+  const ctaLabel = isJewelry || isKimono ? 'Ajouter au panier' : 'Précommander';
+  const needsSize = !isJewelry && !isKimono;
+  const ctaDisabled = isAdding || (needsSize && !selectedSize);
 
   const handleAddToCart = async () => {
     if (!product.shopifyHandle) {
