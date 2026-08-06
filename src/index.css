@@ -51,6 +51,10 @@
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Instrument Sans', system-ui, sans-serif;
   }
+
+  @media (min-width: 768px) {
+    :root { --collection-hero-height: 130vh; }
+  }
 }
 
 @layer base {
