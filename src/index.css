@@ -7,8 +7,12 @@
 
 @layer base {
   :root {
+    /* Offset de contenu sous le header fixe : hauteur réelle + respiration (spacing 6 = 1.5rem) */
+    --collection-offset: calc(var(--header-height, 73px) + 1.5rem);
+
     --background: 36 33% 97%;
     --foreground: 0 0% 10%;
+
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 10%;
