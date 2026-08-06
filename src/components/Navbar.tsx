@@ -166,7 +166,7 @@ const Navbar = () => {
       {/* Desktop navigation */}
       <nav
         aria-label="Navigation principale"
-        className="hidden md:flex items-center justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 pb-[48px]"
+        className="hidden md:flex items-center justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 pb-6"
       >
         {primaryLinks.map(({ to, label }) => {
           const isActive = location.pathname === to;
