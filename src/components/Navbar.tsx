@@ -46,6 +46,7 @@ const Navbar = () => {
     ro.observe(el);
     window.addEventListener('resize', setVar);
     return () => {
+      cancelAnimationFrame(raf);
       ro.disconnect();
       window.removeEventListener('resize', setVar);
     };
