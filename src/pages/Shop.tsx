@@ -260,7 +260,7 @@ const Shop = () => {
 
         {/* Closing editorial line */}
         {products.length > 0 && (
-          <div className="mt-16 md:mt-20 text-center px-6">
+          <div className="mt-28 md:mt-20 text-center px-6">
             <p
               className="italic font-light text-[#1A1A1A] mx-auto"
               style={{
