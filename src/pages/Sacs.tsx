@@ -86,7 +86,7 @@ const Sacs = () => {
       />
       <Navbar />
 
-      <main className="overflow-hidden" style={{ paddingTop: "var(--header-height)" }}>
+      <main className="overflow-hidden" style={{ paddingTop: "var(--collection-offset)" }}>
         {/* HERO */}
         <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
           <img
