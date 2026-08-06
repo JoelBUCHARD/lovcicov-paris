@@ -30,11 +30,17 @@ const Navbar = () => {
   useEffect(() => {
     const el = headerRef.current;
     if (!el) return;
-    const setVar = () =>
-      document.documentElement.style.setProperty(
-        '--header-height',
-        `${el.getBoundingClientRect().height}px`
-      );
+    let raf = 0;
+    let last = -1;
+    const setVar = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const h = el.getBoundingClientRect().height;
+        if (Math.abs(h - last) < 0.5) return;
+        last = h;
+        document.documentElement.style.setProperty('--header-height', `${h}px`);
+      });
+    };
     setVar();
     const ro = new ResizeObserver(setVar);
     ro.observe(el);
