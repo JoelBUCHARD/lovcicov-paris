@@ -148,7 +148,7 @@ const Sacs = () => {
                   color: "rgba(244,240,232,0.82)",
                 }}
               >
-                Le cuir tressé main. Une silhouette qui devient signature.
+                Le cuir tressé main.
               </p>
             </div>
           </div>
