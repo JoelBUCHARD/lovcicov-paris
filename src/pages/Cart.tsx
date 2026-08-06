@@ -17,18 +17,12 @@ import {
   SHIPPING_FEE,
   FREE_SHIPPING_THRESHOLD,
 } from '@/lib/shipping';
-import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts, products as allLocalProducts } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
-const imageModulesJpg = import.meta.glob('@/assets/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesWebp = import.meta.glob('@/assets/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesPng = import.meta.glob('@/assets/*.png', { eager: true, import: 'default' }) as Record<string, string>;
-const localImages = { ...imageModulesJpg, ...imageModulesWebp, ...imageModulesPng };
-const getLocalImage = (key: string) => {
-  const match = Object.entries(localImages).find(([path]) => path.includes(key));
-  return match ? match[1] : '';
-};
+// Source d'images unique, partagée avec la grille, la fiche produit et « Vous aimerez aussi »
+const getLocalImage = (key: string) => resolveProductImage(key);
 
 const Cart = () => {
   const {
@@ -154,7 +148,9 @@ const Cart = () => {
               <section aria-label="Articles du panier">
                 <AnimatePresence mode="popLayout">
                   {items.map((item) => {
-                    const image = item.product.node.images?.edges?.[0]?.node?.url;
+                    // Source unique : l'image du catalogue local (identique à la grille) quand le produit y existe
+                    const localMatch = allLocalProducts.find((p) => p.shopifyHandle === item.product.node.handle);
+                    const image = (localMatch && resolveProductImage(localMatch.image)) || item.product.node.images?.edges?.[0]?.node?.url;
                     const title = item.product.node.title;
                     const price = parseFloat(item.price.amount);
                     const size = item.selectedOptions.find(o => o.name.toLowerCase().includes('taille') || o.name.toLowerCase().includes('size'))?.value;

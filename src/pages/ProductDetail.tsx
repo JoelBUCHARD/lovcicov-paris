@@ -29,7 +29,7 @@ const ProductDetail = () => {
   const { isVisible, loading: visLoading } = useProductVisibility();
   const effectiveImage = galleryOrder?.length
     ? galleryOrder[0]
-    : variantImage || product?.detailImage || product?.image;
+    : variantImage || product?.image;
   const displayedProduct = product && effectiveImage
     ? {
         ...product,
