@@ -74,6 +74,12 @@ const localProductToViewed = (p: Product): ViewedItem => ({
 });
 
 const rehydrateViewed = (v: ViewedItem): ViewedItem => {
+  // Le nom canonique vient toujours du catalogue, jamais du cache.
+  if (v.key.startsWith("local:")) {
+    const id = v.key.slice("local:".length);
+    const p = localProducts.find((lp) => lp.id === id);
+    if (p) return { ...v, name: p.name, price: String(p.price), image: v.image && v.image.length > 0 ? v.image : resolveAsset(p.image) };
+  }
   if (v.image && v.image.length > 0) return v;
   // Try to re-resolve from local products (image may have been cached empty before resolver fix)
   if (v.key.startsWith("local:")) {
