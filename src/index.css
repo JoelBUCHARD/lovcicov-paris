@@ -7,11 +7,11 @@
 
 @layer base {
   :root {
-    /* Offset de contenu sous le header fixe : hauteur réelle + respiration */
-    --collection-offset: calc(var(--header-height, 73px) + 1.5rem);
+    /* Offset de contenu sous le header fixe : hauteur réelle, sans respiration */
+    --collection-offset: var(--header-height, 73px);
 
-    /* Hauteur unique du hero des pages collection */
-    --collection-hero-height: 100svh;
+    /* Hauteur unique du hero des pages collection : viewport moins header */
+    --collection-hero-height: calc(100svh - var(--header-height, 73px));
 
     --background: 36 33% 97%;
     --foreground: 0 0% 10%;
@@ -50,10 +50,6 @@
 
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Instrument Sans', system-ui, sans-serif;
-  }
-
-  @media (min-width: 768px) {
-    :root { --collection-hero-height: 130vh; }
   }
 }
 

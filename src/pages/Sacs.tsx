@@ -119,7 +119,7 @@ const Sacs = () => {
             src={heroImage}
             alt="La collection Sacs tressés par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center top" }}
+            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 55%" }}
             loading="eager"
             decoding="async"
           />
