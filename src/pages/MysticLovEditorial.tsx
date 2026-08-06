@@ -208,31 +208,12 @@ const MysticLovEditorial = () => {
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
             <span className="whitespace-nowrap" aria-hidden="true" />
-            <nav aria-label="Catégories MysticLov" className="flex-1 overflow-x-auto no-scrollbar">
-              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {CATEGORY_LABELS.map(({ key, label }) => {
-                  const active = category === key;
-                  return (
-                    <li key={key}>
-                      <button
-                        type="button"
-                        onClick={() => setCategory(key)}
-                        className="uppercase transition-colors duration-200"
-                        style={{
-                          fontSize: 10,
-                          letterSpacing: "0.24em",
-                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-                          paddingBottom: 4,
-                        }}
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+            <CategoryTabs
+              ariaLabel="Catégories MysticLov"
+              tabs={CATEGORY_LABELS}
+              active={category}
+              onChange={setCategory}
+            />
             <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
         </div>
