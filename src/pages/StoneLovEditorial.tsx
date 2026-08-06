@@ -148,7 +148,7 @@ const StoneLovEditorial = () => {
       <main className="overflow-hidden" style={{ paddingTop: "var(--collection-offset)" }}>
         {/* HERO */}
         <section
-          className="relative w-screen overflow-hidden aspect-[16/9]"
+          className="relative w-screen overflow-hidden aspect-[4/5] md:aspect-[16/9]"
         >
           <img
             src={heroImg}
