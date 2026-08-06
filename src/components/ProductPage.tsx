@@ -16,6 +16,7 @@ import ZoomBubble from '@/components/ZoomBubble';
 import ModelSizeNote, { modelSizeNoteFor, isDualModelProduct } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
+import ProductSpecsTable from '@/components/ProductSpecsTable';
 import ProductTypeLabel from '@/components/ProductTypeLabel';
 import { displayProductName } from '@/lib/productDisplayName';
 
@@ -628,6 +629,28 @@ const ProductPage = ({ product }: Props) => {
       >
         <div className="border-t border-[#EFEDE8]">
 
+          {product.specs && (
+            <>
+              <Accordion title="Composition & entretien">
+                <p className="mb-3">{product.specs.composition}</p>
+                <ul className="list-none p-0 m-0 space-y-1.5 mb-3">
+                  {product.specs.care.map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+                <p className="mb-3">Symboles : {product.specs.careSymbols.join(' · ').toLowerCase()}.</p>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {product.specs.certifications.map((c) => (
+                    <li key={c}>{c}</li>
+                  ))}
+                </ul>
+              </Accordion>
+              <Accordion title="Guide des tailles">
+                <ProductSpecsTable specs={product.specs} />
+              </Accordion>
+            </>
+          )}
+
           {hasSpecSheet && (
             <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
           )}
@@ -1092,7 +1115,7 @@ const ProductPage = ({ product }: Props) => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 16, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="bg-white max-w-[520px] w-full p-8 md:p-10 relative"
+              className={`bg-white w-full p-8 md:p-10 relative max-h-[85vh] overflow-y-auto ${product.specs ? 'max-w-[760px]' : 'max-w-[520px]'}`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -1115,6 +1138,10 @@ const ProductPage = ({ product }: Props) => {
               >
                 Coupe oversize unisexe
               </h3>
+              {product.specs ? (
+                <ProductSpecsTable specs={product.specs} />
+              ) : (
+                <>
               <table className="w-full text-left" style={{ fontFamily: SANS, fontSize: 12 }}>
                 <thead>
                   <tr className="border-b border-[#EFEDE8]">
@@ -1144,6 +1171,8 @@ const ProductPage = ({ product }: Props) => {
                   ? "Coupe oversize unisexe : ce t-shirt taille grand. Nos mannequins portent 2 tailles en dessous de leur taille habituelle (femme 1m75 → XS, homme 1m85 → M). Pour un tombé près du corps, prends une taille en dessous de ta taille habituelle ; pour l'effet oversize, reste sur ta taille."
                   : 'Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.'}
               </p>
+                </>
+              )}
             </motion.div>
           </motion.div>
         )}

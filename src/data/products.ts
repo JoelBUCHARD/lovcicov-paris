@@ -1,3 +1,14 @@
+export interface ProductSpecs {
+  composition: string;
+  care: string[];
+  careSymbols: string[];
+  certifications: string[];
+  sizeChart: {
+    sizes: string[];
+    rows: { label: string; values: string[] }[];
+  };
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -15,7 +26,33 @@ export interface Product {
   stoneMeaning?: string; // Signification des pierres (bijoux only)
   shopifyHandle?: string; // Handle of matching Shopify product
   shopifyColor?: string; // Color option value to match on Shopify variant
+  specs?: ProductSpecs; // Fiche technique complète (accordéons Composition & entretien / Guide des tailles)
 }
+
+// Fiche technique molleton MysticLov (crewneck & hoodie Sacred Heart)
+export const MOLLETON_SPECS: ProductSpecs = {
+  composition: 'Molleton brossé, 100 % coton — Organic Ring Spun Combed, teint en pièce.',
+  care: [
+    'Laver avec des couleurs similaires.',
+    'Ne pas repasser sur l\'imprimé.',
+    'Laver et repasser à l\'envers.',
+    'Pas de sèche-linge.',
+  ],
+  careSymbols: ['Lavage 30 °C', 'Pas de blanchiment', 'Repassage doux', 'Pas de séchage en tambour'],
+  certifications: [
+    'GOTS Organic — Control Union CU 819434',
+    'OEKO-TEX Standard 100 — 2012163 Centexbel',
+    'Fair Wear Foundation — statut Leader',
+  ],
+  sizeChart: {
+    sizes: ['XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    rows: [
+      { label: 'A — Demi-poitrine', values: ['59,5', '61,5', '63,5', '67,5', '70,5', '73,5', '77,5', '81,5'] },
+      { label: 'B — Longueur dos', values: ['60', '63', '68', '72', '74', '76', '78', '80'] },
+      { label: 'C — Longueur de manche', values: ['50', '52', '56,5', '59', '61', '61,5', '62', '62'] },
+    ],
+  },
+};
 
 
 // Collection "PowerLov" — pièces à message fort
@@ -417,6 +454,7 @@ export const mysticProducts: Product[] = [
     ],
   },
   {
+    specs: MOLLETON_SPECS,
     id: 'mystic-crewneck-sacred-heart',
     name: 'Crewneck Sacred Heart',
     price: 120,
@@ -432,6 +470,7 @@ export const mysticProducts: Product[] = [
     ],
   },
   {
+    specs: MOLLETON_SPECS,
     id: 'mystic-hoodie-sacred-heart',
     name: 'Hoodie Sacred Heart',
     price: 180,
