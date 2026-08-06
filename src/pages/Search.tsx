@@ -138,7 +138,7 @@ const SearchPage = () => {
       />
       <Navbar />
 
-      <main className="flex-1 pt-40 md:pt-48 pb-24">
+      <main className="flex-1 pb-24" style={{ paddingTop: 'calc(var(--collection-offset) + 2.5rem)' }}>
         {/* Search bar */}
         <section aria-label="Recherche" className="px-6 md:px-10">
           <div className="max-w-2xl mx-auto text-center">
