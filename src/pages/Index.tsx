@@ -78,9 +78,6 @@ const Index = () => {
               appearance.
             </em>
           </motion.h1>
-          <p className="lg:hidden text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] text-center -mt-4 mb-8">
-            La Maison LOVCICOV Paris
-          </p>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
             {/* Text column */}
@@ -90,7 +87,7 @@ const Index = () => {
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-6 order-2 lg:order-1 text-center lg:text-left"
             >
-              <p className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-8 md:mb-10">
+              <p className="hidden lg:block text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-8 md:mb-10">
                 Maison LOVCICOV — Paris
               </p>
 
@@ -149,6 +146,9 @@ const Index = () => {
               transition={{ duration: 1.6, ease: [0.22, 1, 0.36, 1] }}
               className="lg:col-span-6 order-1 lg:order-2 relative"
             >
+              <p className="lg:hidden text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] text-center mb-8">
+                Maison LOVCICOV — Paris
+              </p>
               <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src={slideHeroAsset.url}
