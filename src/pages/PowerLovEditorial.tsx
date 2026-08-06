@@ -162,6 +162,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
+  hover?: string;
   gallery: string[];
   categories: Exclude<Category, "all">[];
 };
@@ -174,6 +175,8 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
   const image = resolveProductImage(imageKey ?? "");
   if (!image) return [];
   const typeLabel = TYPE_LABELS[id] ?? "T-shirt";
+  const gallery = galleryFor(id, side);
+  const hoverRaw = gallery[1] ? resolveProductImage(gallery[1]) : undefined;
   return [
     {
       key: `${id}-${side}-${index}`,
@@ -182,11 +185,13 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
       typeLabel,
       price: p.price,
       image,
-      gallery: galleryFor(id, side),
+      hover: hoverRaw && hoverRaw !== image ? hoverRaw : undefined,
+      gallery,
       categories: [typeLabel === "T-shirt" ? "tshirts" : "sweats"] as Exclude<Category, "all">[],
     },
   ];
 });
+
 
 const heroImage =
   resolveProductImage("powerlov-standard-porte-dos") ||
