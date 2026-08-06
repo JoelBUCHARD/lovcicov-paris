@@ -344,7 +344,7 @@ const PowerLovEditorial = () => {
               ariaLabel="Catégories PowerLov"
               tabs={CATEGORY_LABELS}
               active={category}
-              onChange={setCategory}
+              onChange={(k) => setCategory(k as Category)}
             />
 
             <SortFilterMenu sort={sort} onChange={setSort} />
