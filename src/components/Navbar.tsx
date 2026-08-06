@@ -77,9 +77,20 @@ const Navbar = () => {
     setUniversOpen(false);
   }, [location.pathname]);
 
+  // Bloque le scroll de la page tant que le menu mobile est ouvert
+  useEffect(() => {
+    if (!isOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isOpen]);
+
   const iconClass = 'hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:opacity-60';
 
   return (
+    <>
     <header
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm transition-[padding,box-shadow,border-color] duration-500 ease-out ${
@@ -225,6 +236,8 @@ const Navbar = () => {
         </div>
       </nav>
 
+    </header>
+
       {/* Mobile menu — full screen overlay */}
       <AnimatePresence>
         {isOpen && (
@@ -233,7 +246,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 z-50 bg-card"
+            className="md:hidden fixed inset-0 z-[60] bg-card overflow-hidden"
           >
             <div className="flex items-center justify-between px-6 py-5 border-b border-border/60">
               <Link to="/search" onClick={() => setIsOpen(false)} aria-label="Rechercher">
@@ -300,7 +313,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 };
 
