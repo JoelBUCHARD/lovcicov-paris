@@ -90,7 +90,7 @@ const Navbar = () => {
     >
       {/* Top bar */}
       <div
-        className="flex items-center justify-between px-6 md:px-12 lg:px-16 pt-[71px] pb-[66px] md:pt-[52px] md:pb-[41.4px]"
+        className="flex items-center justify-between px-6 md:px-12 lg:px-16 py-5 md:pt-7 md:pb-5"
       >
         {/* Left icons */}
         <div className="flex items-center gap-6 flex-1">
