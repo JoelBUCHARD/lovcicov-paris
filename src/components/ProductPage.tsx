@@ -599,8 +599,9 @@ const ProductPage = ({ product }: Props) => {
           {/* CTA + wishlist */}
           <div className="flex gap-2 mt-3">
             <button
+              ref={mainCtaRef}
               onClick={handleAddToCart}
-              disabled={isAdding}
+              disabled={ctaDisabled}
               className="flex-1 transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60 min-h-[56px]"
               style={{
                 backgroundColor: '#1A1A1A',
@@ -613,7 +614,7 @@ const ProductPage = ({ product }: Props) => {
                 fontWeight: 500,
               }}
             >
-              {isAdding ? 'Ajout en cours…' : isJewelry || isKimono ? 'Ajouter au panier' : 'Précommander'}
+              {isAdding ? 'Ajout en cours…' : ctaLabel}
             </button>
             <button
               onClick={() => setWishlisted((v) => !v)}
