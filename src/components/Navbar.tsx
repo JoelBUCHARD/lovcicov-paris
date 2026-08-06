@@ -93,16 +93,25 @@ const Navbar = () => {
       >
         {/* Left icons */}
         <div className="flex items-center gap-6 flex-1">
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className={`md:hidden ${iconClass}`}
+            aria-label="Ouvrir le menu"
+            aria-expanded={mobileOpen}
+          >
+            <Menu size={17} strokeWidth={1.25} />
+          </button>
           <Link
             to="/search"
             onMouseEnter={() => prefetchRoute('/search')}
-            className={iconClass}
+            className={`hidden md:block ${iconClass}`}
             aria-label="Rechercher"
           >
-            <Search size={15} strokeWidth={1.25} className="md:hidden" />
-            <Search size={17} strokeWidth={1.25} className="hidden md:block" />
+            <Search size={17} strokeWidth={1.25} />
           </Link>
         </div>
+
 
         {/* Center logo */}
         <Link
