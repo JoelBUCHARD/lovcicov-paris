@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, User, Search } from 'lucide-react';
+import { ShoppingBag, User, Search } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
@@ -45,7 +45,6 @@ const Navbar = () => {
     };
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
   const [universOpen, setUniversOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -73,19 +72,8 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setIsOpen(false);
     setUniversOpen(false);
   }, [location.pathname]);
-
-  // Bloque le scroll de la page tant que le menu mobile est ouvert
-  useEffect(() => {
-    if (!isOpen) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = prev;
-    };
-  }, [isOpen]);
 
   const iconClass = 'hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:opacity-60';
 
@@ -100,25 +88,19 @@ const Navbar = () => {
       {/* Top bar */}
       <div
         className={`flex items-center justify-between px-6 md:px-12 lg:px-16 transition-[padding] duration-500 ease-out ${
-          scrolled ? 'py-3 md:py-4' : 'py-5 md:py-7'
+          scrolled ? 'py-2.5 md:py-4' : 'py-4 md:py-7'
         }`}
       >
         {/* Left icons */}
         <div className="flex items-center gap-6 flex-1">
-          <button
-            className={`md:hidden ${iconClass}`}
-            onClick={() => setIsOpen(true)}
-            aria-label="Ouvrir le menu"
-          >
-            <Menu size={18} strokeWidth={1.25} />
-          </button>
           <Link
             to="/search"
             onMouseEnter={() => prefetchRoute('/search')}
-            className={`hidden md:block ${iconClass}`}
+            className={iconClass}
             aria-label="Rechercher"
           >
-            <Search size={17} strokeWidth={1.25} />
+            <Search size={15} strokeWidth={1.25} className="md:hidden" />
+            <Search size={17} strokeWidth={1.25} className="hidden md:block" />
           </Link>
         </div>
 
@@ -133,20 +115,21 @@ const Navbar = () => {
             src={lovcicovLogo}
             alt="LOVCICOV Paris"
             className={`w-auto transition-[height] duration-500 ease-out ${
-              scrolled ? 'h-7 md:h-8' : 'h-9 md:h-11'
+              scrolled ? 'h-[22px] md:h-8' : 'h-8 md:h-11'
             }`}
           />
         </Link>
 
         {/* Right icons */}
-        <div className="flex items-center gap-5 md:gap-6 flex-1 justify-end">
+        <div className="flex items-center gap-4 md:gap-6 flex-1 justify-end">
           <Link
             to={isLoggedIn ? '/account' : '/auth'}
             onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
-            className={`hidden md:block ${iconClass}`}
+            className={iconClass}
             aria-label={isLoggedIn ? 'Mon compte' : 'Se connecter'}
           >
-            <User size={17} strokeWidth={1.25} />
+            <User size={15} strokeWidth={1.25} className="md:hidden" />
+            <User size={17} strokeWidth={1.25} className="hidden md:block" />
           </Link>
           <Link
             to="/cart"
@@ -154,7 +137,8 @@ const Navbar = () => {
             className={`relative ${iconClass}`}
             aria-label={`Panier${totalItems > 0 ? ` (${totalItems} articles)` : ''}`}
           >
-            <ShoppingBag size={17} strokeWidth={1.25} />
+            <ShoppingBag size={15} strokeWidth={1.25} className="md:hidden" />
+            <ShoppingBag size={17} strokeWidth={1.25} className="hidden md:block" />
             {totalItems > 0 && (
               <span className="absolute -top-1.5 -right-2 text-[9px] tracking-normal text-foreground font-light">
                 {totalItems}
@@ -167,8 +151,8 @@ const Navbar = () => {
       {/* Desktop navigation */}
       <nav
         aria-label="Navigation principale"
-        className={`hidden md:flex items-center justify-center gap-12 lg:gap-16 transition-[padding,opacity] duration-500 ease-out ${
-          scrolled ? 'pb-3 opacity-90' : 'pb-5 opacity-100'
+        className={`flex items-center justify-start md:justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 overflow-x-auto no-scrollbar overscroll-x-contain transition-[padding,opacity] duration-500 ease-out ${
+          scrolled ? 'pb-2.5 md:pb-3 opacity-90' : 'pb-4 md:pb-5 opacity-100'
         }`}
       >
         {primaryLinks.map(({ to, label }) => {
@@ -178,7 +162,7 @@ const Navbar = () => {
               key={to}
               to={to}
               onMouseEnter={() => prefetchRoute(to)}
-              className="group relative py-1"
+              className="group relative py-1 shrink-0"
             >
               <span
                 className={`text-[10px] tracking-[0.24em] uppercase font-medium transition-colors ${
@@ -198,11 +182,12 @@ const Navbar = () => {
 
         {/* Univers dropdown */}
         <div
-          className="relative"
+          className="relative shrink-0"
           onMouseEnter={() => setUniversOpen(true)}
           onMouseLeave={() => setUniversOpen(false)}
         >
           <button
+            onClick={() => setUniversOpen(o => !o)}
             className="text-[10px] tracking-[0.24em] uppercase font-medium text-foreground/60 hover:text-foreground transition-colors py-1"
             aria-haspopup="true"
             aria-expanded={universOpen}
@@ -238,81 +223,6 @@ const Navbar = () => {
 
     </header>
 
-      {/* Mobile menu — full screen overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 z-[60] bg-card overflow-hidden"
-          >
-            <div className="flex items-center justify-between px-6 py-5 border-b border-border/60">
-              <Link to="/search" onClick={() => setIsOpen(false)} aria-label="Rechercher">
-                <Search size={18} strokeWidth={1.25} />
-              </Link>
-              <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 w-auto" />
-              <button onClick={() => setIsOpen(false)} aria-label="Fermer le menu">
-                <X size={20} strokeWidth={1.25} />
-              </button>
-            </div>
-
-            <nav
-              aria-label="Navigation mobile"
-              className="flex flex-col px-8 pt-12 pb-10 overflow-y-auto h-[calc(100vh-var(--header-height))]"
-            >
-              {/* Collections */}
-              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mb-6">
-                Collections
-              </p>
-              <div className="flex flex-col">
-                {primaryLinks.map(({ to, label }) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() => setIsOpen(false)}
-                    className="text-[15px] tracking-[0.18em] uppercase font-medium text-foreground py-4 border-b border-border/40 hover:text-fuchsia transition-colors"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Univers */}
-              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mt-10 mb-6">
-                Univers
-              </p>
-              <div className="flex flex-col">
-                {universLinks.map(({ to, label }) => (
-                  <Link
-                    key={to}
-                    to={to}
-                    onClick={() => setIsOpen(false)}
-                    className="text-[13px] tracking-[0.16em] uppercase font-normal text-foreground/80 py-3.5 border-b border-border/40 hover:text-fuchsia transition-colors"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Compte */}
-              <p className="text-[10px] tracking-[0.24em] uppercase text-muted-foreground/60 mt-10 mb-6">
-                Compte
-              </p>
-              <Link
-                to={isLoggedIn ? '/account' : '/auth'}
-                onClick={() => setIsOpen(false)}
-                className="text-[13px] tracking-[0.16em] uppercase font-normal text-foreground/80 py-3.5 border-b border-border/40 hover:text-fuchsia transition-colors flex items-center gap-3"
-              >
-                <User size={14} strokeWidth={1.25} />
-                {isLoggedIn ? 'Mon compte' : 'Se connecter'}
-              </Link>
-            </nav>
-
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 };
