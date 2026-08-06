@@ -23,18 +23,22 @@ import sacredHeartStreetBack from '@/assets/powerlov/powerlov-sacred-heart-stree
 import sacredHeartHoodieStreetFront from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-front.png.asset.json';
 import sacredHeartHoodieStreetBack from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-back.png.asset.json';
 
+import { products as catalogProducts } from '@/data/products';
+
+const catalogName = (id: string, fallback: string) => catalogProducts.find((cp) => cp.id === id)?.name ?? fallback;
+
 const powerProducts: EditorialProduct[] = [
-  { id: 'powerlov-discipline', name: 'Discipline Is My Luxury', price: 59, image: disciplineLuxuryGrid.url },
-  { id: 'powerlov-god-is-a-dancer', name: 'God Is A Dancer', price: 59, image: godIsADancer.url },
-  { id: 'powerlov-protected-aligned-unstoppable', name: 'Protected. Aligned. Unstoppable.', price: 59, image: protectedAlignedUnstoppable.url },
-  { id: 'powerlov-god-is-a-dj', name: 'God Is A DJ', price: 59, image: godDjCafe.url, hover: godDjStreet.url },
-  { id: 'powerlov-empowered', name: 'Connected. Disciplined. Empowered.', price: 59, image: connectedEmpowered.url },
-  { id: 'powerlov-if-god-dj-frequency', name: 'If God Is A DJ', price: 59, image: ifGodIsADj.url },
-  { id: 'powerlov-bold-badass-tee', name: 'Bold. Badass. No Filter.', price: 59, image: boldBadassGrid.url },
-  { id: 'powerlov-sacred-heart-sweat', name: 'Sacred Heart — Sweat', price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url },
-  { id: 'powerlov-sacred-heart-hoodie', name: 'Sacred Heart — Hoodie', price: 109, image: sacredHeartHoodieStreetFront.url, hover: sacredHeartHoodieStreetBack.url },
-  { id: 'powerlov-bold-badass-hoodie', name: 'Bold. Badass. — Hoodie', price: 99, image: boldBadassSweat.url },
-  { id: 'powerlov-energy-never-lies-hoodie', name: 'Energy Never Lies — Hoodie', price: 99, image: energyNeverLies.url },
+  { id: 'powerlov-discipline', name: catalogName('powerlov-discipline', 'Discipline Is My Luxury'), price: 59, image: disciplineLuxuryGrid.url },
+  { id: 'powerlov-god-is-a-dancer', name: catalogName('powerlov-god-is-a-dancer', 'God Is A Dancer'), price: 59, image: godIsADancer.url },
+  { id: 'powerlov-protected-aligned-unstoppable', name: catalogName('powerlov-protected-aligned-unstoppable', 'Protected. Aligned. Unstoppable.'), price: 59, image: protectedAlignedUnstoppable.url },
+  { id: 'powerlov-god-is-a-dj', name: catalogName('powerlov-god-is-a-dj', 'God Is A DJ'), price: 59, image: godDjCafe.url, hover: godDjStreet.url },
+  { id: 'powerlov-empowered', name: catalogName('powerlov-empowered', 'Connected. Disciplined. Empowered.'), price: 59, image: connectedEmpowered.url },
+  { id: 'powerlov-if-god-dj-frequency', name: catalogName('powerlov-if-god-dj-frequency', 'If God Is A DJ'), price: 59, image: ifGodIsADj.url },
+  { id: 'powerlov-bold-badass-tee', name: catalogName('powerlov-bold-badass-tee', 'Bold. Badass. No Filter.'), price: 59, image: boldBadassGrid.url },
+  { id: 'powerlov-sacred-heart-sweat', name: catalogName('powerlov-sacred-heart-sweat', 'Sacred Heart — Sweat'), price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url },
+  { id: 'powerlov-sacred-heart-hoodie', name: catalogName('powerlov-sacred-heart-hoodie', 'Sacred Heart — Hoodie'), price: 109, image: sacredHeartHoodieStreetFront.url, hover: sacredHeartHoodieStreetBack.url },
+  { id: 'powerlov-bold-badass-hoodie', name: catalogName('powerlov-bold-badass-hoodie', 'Bold. Badass. — Hoodie'), price: 99, image: boldBadassSweat.url },
+  { id: 'powerlov-energy-never-lies-hoodie', name: catalogName('powerlov-energy-never-lies-hoodie', 'Energy Never Lies — Hoodie'), price: 99, image: energyNeverLies.url },
 ];
 
 
