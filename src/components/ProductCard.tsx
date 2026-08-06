@@ -4,28 +4,7 @@ import { motion } from 'framer-motion';
 import type { Product } from '@/data/products';
 import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
 import { displayProductName } from '@/lib/productDisplayName';
-
-const imageModulesJpg = import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesJpeg = import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesWebp = import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>;
-const imageModulesPng = import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>;
-const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: true }) as Record<string, { url?: string; default?: { url?: string } }>;
-
-const assetJsonAsImages: Record<string, string> = {};
-for (const [path, mod] of Object.entries(assetJsonModules)) {
-  const url = mod?.url ?? mod?.default?.url;
-  if (url) assetJsonAsImages[path.replace(/\.asset\.json$/, '')] = url;
-}
-
-const imageModules = { ...imageModulesJpg, ...imageModulesJpeg, ...imageModulesWebp, ...imageModulesPng, ...assetJsonAsImages };
-
-const getImage = (key: string) => {
-  // Visuels servis depuis /public (ex. /images/sacs/LOV-BIG-01_01.jpg)
-  if (!key) return '';
-  if (key.startsWith('/') || /^https?:\/\//i.test(key)) return key;
-  const match = Object.entries(imageModules).find(([path]) => path.includes(key));
-  return match ? match[1] : '';
-};
+import { resolveProductImage as getImage } from '@/lib/productImage';
 
 interface ProductCardProps {
   product: Product;

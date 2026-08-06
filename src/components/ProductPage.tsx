@@ -255,7 +255,9 @@ const ProductPage = ({ product }: Props) => {
 
   const handleAddToCart = async () => {
     if (!product.shopifyHandle) {
-      addToCart(product);
+      // Le panier utilise toujours l'image canonique du catalogue (la même que la grille)
+      const canonical = allProducts.find((p) => p.id === product.id);
+      addToCart(canonical ?? product);
       toast({ title: 'Ajouté au panier', description: product.name });
       return;
     }
