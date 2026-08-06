@@ -78,8 +78,8 @@ const Index = () => {
               appearance.
             </em>
           </motion.h1>
-          <p className="lg:hidden text-[9px] tracking-[0.4em] uppercase text-[#8B7D6B] font-light text-center -mt-4 mb-8">
-            Made in Paradise
+          <p className="lg:hidden text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] text-center -mt-4 mb-8">
+            La Maison LOVCICOV Paris
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
@@ -158,6 +158,9 @@ const Index = () => {
                   fetchPriority="high"
                 />
               </div>
+              <p className="lg:hidden text-[9px] tracking-[0.4em] uppercase text-[#8B7D6B] font-light text-center mt-6">
+                Made in Paradise
+              </p>
               <p className="hidden lg:block absolute -bottom-2 right-0 text-[9px] tracking-[0.32em] uppercase text-[#8B7D6B] rotate-90 origin-bottom-right translate-x-full translate-y-8">
                 Édition · Paris · MMXXVI
               </p>
