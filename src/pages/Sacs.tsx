@@ -241,6 +241,7 @@ const Sacs = () => {
                   onMouseEnter={() => {
                     prefetchRoute(product.to);
                     prefetchImage(product.image);
+                    if (product.hoverImage) prefetchImage(product.hoverImage);
                   }}
                   onTouchStart={() => prefetchRoute(product.to)}
                   className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
@@ -254,10 +255,24 @@ const Sacs = () => {
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${
+                        product.hoverImage ? " [@media(hover:hover)]:group-hover:opacity-0" : ""
+                      }`}
                       style={{ objectPosition: "center top" }}
                     />
+                    {product.hoverImage && (
+                      <img
+                        src={product.hoverImage}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
+                        style={{ objectPosition: "center top" }}
+                      />
+                    )}
                   </div>
+
 
                   <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                     <p
