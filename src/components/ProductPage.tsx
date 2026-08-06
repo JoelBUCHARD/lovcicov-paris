@@ -1115,7 +1115,7 @@ const ProductPage = ({ product }: Props) => {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 16, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="bg-white max-w-[520px] w-full p-8 md:p-10 relative"
+              className={`bg-white w-full p-8 md:p-10 relative max-h-[85vh] overflow-y-auto ${product.specs ? 'max-w-[760px]' : 'max-w-[520px]'}`}
               onClick={(e) => e.stopPropagation()}
             >
               <button
@@ -1138,6 +1138,10 @@ const ProductPage = ({ product }: Props) => {
               >
                 Coupe oversize unisexe
               </h3>
+              {product.specs ? (
+                <ProductSpecsTable specs={product.specs} />
+              ) : (
+                <>
               <table className="w-full text-left" style={{ fontFamily: SANS, fontSize: 12 }}>
                 <thead>
                   <tr className="border-b border-[#EFEDE8]">
@@ -1167,6 +1171,8 @@ const ProductPage = ({ product }: Props) => {
                   ? "Coupe oversize unisexe : ce t-shirt taille grand. Nos mannequins portent 2 tailles en dessous de leur taille habituelle (femme 1m75 → XS, homme 1m85 → M). Pour un tombé près du corps, prends une taille en dessous de ta taille habituelle ; pour l'effet oversize, reste sur ta taille."
                   : 'Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.'}
               </p>
+                </>
+              )}
             </motion.div>
           </motion.div>
         )}
