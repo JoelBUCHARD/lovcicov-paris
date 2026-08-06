@@ -318,7 +318,9 @@ const MysticLovEditorial = () => {
                         alt={product.name}
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
-                        className="absolute inset-0 h-full w-full object-cover"
+                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${
+                          product.hover ? " [@media(hover:hover)]:group-hover:opacity-0" : ""
+                        }`}
                         style={{
                           objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "center",
                           transform: CARD_FRAMING[product.id]?.scale
@@ -327,6 +329,24 @@ const MysticLovEditorial = () => {
                           transformOrigin: "top center",
                         }}
                       />
+                      {product.hover && (
+                        <img
+                          src={product.hover}
+                          alt=""
+                          aria-hidden="true"
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
+                          style={{
+                            objectPosition: CARD_FRAMING[product.id]?.objectPosition ?? "center",
+                            transform: CARD_FRAMING[product.id]?.scale
+                              ? `scale(${CARD_FRAMING[product.id]!.scale})`
+                              : undefined,
+                            transformOrigin: "top center",
+                          }}
+                        />
+                      )}
+
 
 
                     </div>
