@@ -7,8 +7,11 @@
 
 @layer base {
   :root {
-    /* Offset de contenu sous le header fixe : hauteur réelle + respiration (48px) */
-    --collection-offset: calc(var(--header-height, 73px) + 48px);
+    /* Offset de contenu sous le header fixe : hauteur réelle + respiration */
+    --collection-offset: calc(var(--header-height, 73px) + 1.5rem);
+
+    /* Hauteur unique du hero des pages collection */
+    --collection-hero-height: 100svh;
 
     --background: 36 33% 97%;
     --foreground: 0 0% 10%;
