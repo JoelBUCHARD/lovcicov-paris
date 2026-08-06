@@ -2,6 +2,7 @@ import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
+import CategoryTabs from "@/components/CategoryTabs";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -339,31 +340,12 @@ const PowerLovEditorial = () => {
           >
             <span className="whitespace-nowrap" aria-hidden="true" />
 
-            <nav aria-label="Catégories PowerLov" className="flex-1 overflow-x-auto no-scrollbar">
-              <ul className="flex items-center justify-center gap-5 md:gap-9 whitespace-nowrap">
-                {CATEGORY_LABELS.map(({ key, label }) => {
-                  const active = category === key;
-                  return (
-                    <li key={key}>
-                      <button
-                        type="button"
-                        onClick={() => setCategory(key)}
-                        className="uppercase transition-colors duration-200"
-                        style={{
-                          fontSize: 10,
-                          letterSpacing: "0.24em",
-                          color: active ? "#0D0D0D" : "rgba(13,13,13,0.5)",
-                          borderBottom: active ? "1px solid #0D0D0D" : "1px solid transparent",
-                          paddingBottom: 4,
-                        }}
-                      >
-                        {label}
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
+            <CategoryTabs
+              ariaLabel="Catégories PowerLov"
+              tabs={CATEGORY_LABELS}
+              active={category}
+              onChange={(k) => setCategory(k as Category)}
+            />
 
             <SortFilterMenu sort={sort} onChange={setSort} />
           </div>
