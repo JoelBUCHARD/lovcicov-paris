@@ -61,7 +61,10 @@ const Index = () => {
 
 
       {/* 1. HERO — Editorial luxury split */}
-      <section className="w-full bg-[#FAF7F2] pt-[140px] md:pt-[180px] pb-6 md:pb-8 relative overflow-hidden">
+      <section
+        className="w-full bg-[#FAF7F2] pb-6 md:pb-8 relative overflow-hidden"
+        style={{ paddingTop: "var(--collection-offset)" }}
+      >
         <div className="w-full px-6 md:px-12 lg:px-20">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
