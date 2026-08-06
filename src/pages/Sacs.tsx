@@ -22,6 +22,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
+  hoverImage?: string;
   gallery: string[];
   to: string;
 };
@@ -33,6 +34,7 @@ const products: ProductCard[] = BAGS.map((b) => ({
   typeLabel: BAG_SILHOUETTES[b.silhouette].label,
   price: BAG_SILHOUETTES[b.silhouette].price,
   image: resolveImage(b.images[0]),
+  hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
   gallery: b.images.slice(1),
   to: `/sacs/${b.slug}`,
 }));
@@ -44,9 +46,11 @@ const accessoires: ProductCard[] = grigriProducts.map((g) => ({
   typeLabel: "Grigri",
   price: Number(g.price),
   image: resolveImage(g.image),
+  hoverImage: g.gallery?.[0] ? resolveImage(g.gallery[0]) : undefined,
   gallery: g.gallery ?? [],
   to: `/shop/${g.id}`,
 }));
+
 
 const heroImage = "/images/sacs/hero-lovbag.jpg";
 
