@@ -2,6 +2,7 @@ import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import CategoryTabs from "@/components/CategoryTabs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";

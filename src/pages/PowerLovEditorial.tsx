@@ -2,6 +2,7 @@ import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
+import CategoryTabs from "@/components/CategoryTabs";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
