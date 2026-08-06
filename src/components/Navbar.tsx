@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, User, Search } from 'lucide-react';
+import { ShoppingBag, User, Search, Menu, X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useCartStore } from '@/stores/cartStore';
 import { useCart } from '@/context/CartContext';
@@ -46,6 +46,8 @@ const Navbar = () => {
   }, []);
 
   const [universOpen, setUniversOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileUniversOpen, setMobileUniversOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
@@ -73,7 +75,18 @@ const Navbar = () => {
 
   useEffect(() => {
     setUniversOpen(false);
+    setMobileOpen(false);
   }, [location.pathname]);
+
+  // Verrouille le scroll de la page quand le panneau mobile est ouvert
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [mobileOpen]);
 
   const iconClass = 'hover:opacity-60 transition-opacity focus-visible:outline-none focus-visible:opacity-60';
 
@@ -93,16 +106,25 @@ const Navbar = () => {
       >
         {/* Left icons */}
         <div className="flex items-center gap-6 flex-1">
+          <button
+            type="button"
+            onClick={() => setMobileOpen(true)}
+            className={`md:hidden ${iconClass}`}
+            aria-label="Ouvrir le menu"
+            aria-expanded={mobileOpen}
+          >
+            <Menu size={17} strokeWidth={1.25} />
+          </button>
           <Link
             to="/search"
             onMouseEnter={() => prefetchRoute('/search')}
-            className={iconClass}
+            className={`hidden md:block ${iconClass}`}
             aria-label="Rechercher"
           >
-            <Search size={15} strokeWidth={1.25} className="md:hidden" />
-            <Search size={17} strokeWidth={1.25} className="hidden md:block" />
+            <Search size={17} strokeWidth={1.25} />
           </Link>
         </div>
+
 
         {/* Center logo */}
         <Link
@@ -125,10 +147,9 @@ const Navbar = () => {
           <Link
             to={isLoggedIn ? '/account' : '/auth'}
             onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
-            className={iconClass}
+            className={`hidden md:block ${iconClass}`}
             aria-label={isLoggedIn ? 'Mon compte' : 'Se connecter'}
           >
-            <User size={15} strokeWidth={1.25} className="md:hidden" />
             <User size={17} strokeWidth={1.25} className="hidden md:block" />
           </Link>
           <Link
@@ -151,7 +172,7 @@ const Navbar = () => {
       {/* Desktop navigation */}
       <nav
         aria-label="Navigation principale"
-        className={`flex items-center justify-start md:justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 overflow-x-auto no-scrollbar overscroll-x-contain transition-[padding,opacity] duration-500 ease-out ${
+        className={`hidden md:flex items-center justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 overflow-x-auto no-scrollbar overscroll-x-contain transition-[padding,opacity] duration-500 ease-out ${
           scrolled ? 'pb-4 md:pb-7 opacity-90' : 'pb-8 opacity-100'
         }`}
       >
@@ -223,6 +244,73 @@ const Navbar = () => {
 
     </header>
 
+    {/* Panneau mobile plein écran */}
+    {mobileOpen && (
+      <div className="md:hidden fixed inset-0 z-[100] bg-background overflow-y-auto">
+        <div className="flex items-center justify-between px-6 py-6">
+          <span className="text-[10px] tracking-[0.24em] uppercase font-medium text-foreground/50">Menu</span>
+          <button
+            type="button"
+            onClick={() => setMobileOpen(false)}
+            className={iconClass}
+            aria-label="Fermer le menu"
+          >
+            <X size={18} strokeWidth={1.25} />
+          </button>
+        </div>
+
+        <nav aria-label="Navigation mobile" className="flex flex-col px-6 pb-16">
+          {primaryLinks.map(({ to, label }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={() => setMobileOpen(false)}
+              className="py-5 border-b border-border/50 text-[12px] tracking-[0.24em] uppercase font-medium text-foreground"
+            >
+              {label}
+            </Link>
+          ))}
+
+          <button
+            type="button"
+            onClick={() => setMobileUniversOpen(o => !o)}
+            className="py-5 border-b border-border/50 text-left text-[12px] tracking-[0.24em] uppercase font-medium text-foreground"
+            aria-expanded={mobileUniversOpen}
+          >
+            Univers
+          </button>
+          {mobileUniversOpen && (
+            <div className="flex flex-col">
+              {universLinks.map(({ to, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  onClick={() => setMobileOpen(false)}
+                  className="py-4 pl-4 border-b border-border/40 text-[11px] tracking-[0.2em] uppercase font-medium text-foreground/60"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          )}
+
+          <Link
+            to="/search"
+            onClick={() => setMobileOpen(false)}
+            className="py-5 border-b border-border/50 text-[11px] tracking-[0.2em] uppercase font-medium text-foreground/60"
+          >
+            Rechercher
+          </Link>
+          <Link
+            to={isLoggedIn ? '/account' : '/auth'}
+            onClick={() => setMobileOpen(false)}
+            className="py-5 border-b border-border/50 text-[11px] tracking-[0.2em] uppercase font-medium text-foreground/60"
+          >
+            {isLoggedIn ? 'Mon compte' : 'Se connecter'}
+          </Link>
+        </nav>
+      </div>
+    )}
     </>
   );
 };
