@@ -388,7 +388,7 @@ const StoneLovEditorial = () => {
                         alt={product.name}
                         loading={i < 4 ? "eager" : "lazy"}
                         decoding="async"
-                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[700ms] ease-out ${product.hover ? "group-hover:opacity-0" : ""}`}
+                        className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${product.hover ? " [@media(hover:hover)]:group-hover:opacity-0" : ""}`}
                       />
                       {product.hover && (
                         <img
@@ -397,7 +397,7 @@ const StoneLovEditorial = () => {
                           aria-hidden="true"
                           loading="lazy"
                           decoding="async"
-                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-[700ms] ease-out group-hover:opacity-100"
+                          className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
                         />
                       )}
                     </div>
