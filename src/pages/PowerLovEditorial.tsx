@@ -162,6 +162,7 @@ type ProductCard = {
   typeLabel: string;
   price: number;
   image: string;
+  hover?: string;
   gallery: string[];
   categories: Exclude<Category, "all">[];
 };
@@ -174,6 +175,8 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
   const image = resolveProductImage(imageKey ?? "");
   if (!image) return [];
   const typeLabel = TYPE_LABELS[id] ?? "T-shirt";
+  const gallery = galleryFor(id, side);
+  const hoverRaw = gallery[1] ? resolveProductImage(gallery[1]) : undefined;
   return [
     {
       key: `${id}-${side}-${index}`,
@@ -182,11 +185,13 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
       typeLabel,
       price: p.price,
       image,
-      gallery: galleryFor(id, side),
+      hover: hoverRaw && hoverRaw !== image ? hoverRaw : undefined,
+      gallery,
       categories: [typeLabel === "T-shirt" ? "tshirts" : "sweats"] as Exclude<Category, "all">[],
     },
   ];
 });
+
 
 const heroImage =
   resolveProductImage("powerlov-standard-porte-dos") ||
@@ -409,6 +414,7 @@ const PowerLovEditorial = () => {
                   onMouseEnter={() => {
                     prefetchRoute("/shop/item");
                     prefetchImage(product.image);
+                    if (product.hover) prefetchImage(product.hover);
                   }}
                   onTouchStart={() => prefetchRoute("/shop/item")}
                   className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
@@ -424,10 +430,24 @@ const PowerLovEditorial = () => {
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="absolute inset-0 h-full w-full object-cover"
+                      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${
+                        product.hover ? " [@media(hover:hover)]:group-hover:opacity-0" : ""
+                      }`}
                       style={{ objectPosition: "center top" }}
                     />
+                    {product.hover && (
+                      <img
+                        src={product.hover}
+                        alt=""
+                        aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
+                        style={{ objectPosition: "center top" }}
+                      />
+                    )}
                   </div>
+
 
                   <div className="pt-1 md:pt-1.5 pb-1 text-center" style={{ minHeight: 72 }}>
                     <p
