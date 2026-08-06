@@ -48,7 +48,6 @@ const Navbar = () => {
   const [universOpen, setUniversOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileUniversOpen, setMobileUniversOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   const shopifyItems = useCartStore(state => state.items);
@@ -64,13 +63,6 @@ const Navbar = () => {
       setIsLoggedIn(!!session);
     });
     return () => subscription.unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -94,15 +86,11 @@ const Navbar = () => {
     <>
     <header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm transition-[padding,box-shadow,border-color] duration-500 ease-out ${
-        scrolled ? 'border-b border-border/60 shadow-[0_1px_0_rgba(0,0,0,0.02)]' : 'border-b border-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-sm border-b border-border/60"
     >
       {/* Top bar */}
       <div
-        className={`flex items-center justify-between px-6 md:px-12 lg:px-16 transition-[padding] duration-500 ease-out ${
-          scrolled ? 'py-4 md:py-6' : 'py-6 md:py-11'
-        }`}
+        className="flex items-center justify-between px-6 md:px-12 lg:px-16 pt-[44px] pb-[36px] md:pt-[58px] md:pb-[48px]"
       >
         {/* Left icons */}
         <div className="flex items-center gap-6 flex-1">
@@ -136,9 +124,7 @@ const Navbar = () => {
           <img
             src={lovcicovLogo}
             alt="LOVCICOV Paris"
-            className={`w-auto transition-[height] duration-500 ease-out ${
-              scrolled ? 'h-[22px] md:h-8' : 'h-8 md:h-11'
-            }`}
+            className="h-8 md:h-11 w-auto"
           />
         </Link>
 
@@ -172,9 +158,7 @@ const Navbar = () => {
       {/* Desktop navigation */}
       <nav
         aria-label="Navigation principale"
-        className={`hidden md:flex items-center justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 overflow-x-auto no-scrollbar overscroll-x-contain transition-[padding,opacity] duration-500 ease-out ${
-          scrolled ? 'pb-4 md:pb-7 opacity-90' : 'pb-8 opacity-100'
-        }`}
+        className="hidden md:flex items-center justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 pb-[48px]"
       >
         {primaryLinks.map(({ to, label }) => {
           const isActive = location.pathname === to;
