@@ -83,7 +83,7 @@ const Shop = () => {
   const headerCopy = {
     all: {
       title: 'La boutique.',
-      intro: "Toutes les pièces LOVCICOV, réunies. Une sélection restreinte, portée avec intention.",
+      intro: 'Toutes les pièces LOVCICOV, réunies.',
     },
     standard: {
       title: 'Wear your power.',
