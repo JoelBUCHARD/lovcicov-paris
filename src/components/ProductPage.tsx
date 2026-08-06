@@ -1197,10 +1197,11 @@ const ProductPage = ({ product }: Props) => {
         )}
       </AnimatePresence>
 
-      {/* Sticky mobile CTA */}
+      {/* Sticky mobile CTA — visible uniquement quand le CTA principal est hors écran */}
       <div
-        className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 pt-3 pb-3 safe-bottom transition-transform duration-300 ${
-          showStickyCta ? 'translate-y-0' : 'translate-y-full'
+        aria-hidden={!showStickyCta}
+        className={`md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E8E4DD] px-4 pt-3 pb-3 safe-bottom transition-opacity duration-300 ${
+          showStickyCta ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         style={{ boxShadow: '0 -4px 20px rgba(0,0,0,0.04)' }}
       >
@@ -1209,28 +1210,33 @@ const ProductPage = ({ product }: Props) => {
             <p className="truncate" style={{ fontFamily: SANS, fontSize: 13, fontWeight: 500, color: '#1A1A1A' }}>
               {product.name}
             </p>
-            <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>{formatPrice(product.price)}</p>
+            <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>
+              {formatPrice(product.price)}
+              {needsSize && selectedSize ? ` · Taille ${selectedSize}` : ''}
+            </p>
           </div>
           <button
             onClick={handleAddToCart}
-            disabled={isAdding}
-            className="px-6 min-h-[48px] active:scale-[0.98] transition-transform disabled:opacity-60"
+            disabled={ctaDisabled}
+            tabIndex={showStickyCta ? 0 : -1}
+            className="px-6 min-h-[56px] transition-all hover:opacity-90 active:scale-[0.99] disabled:opacity-60"
             style={{
               backgroundColor: '#1A1A1A',
               color: '#FFFFFF',
               fontFamily: SANS,
-              fontSize: 11,
+              fontSize: 12,
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               fontWeight: 500,
             }}
           >
-            {isAdding ? '…' : 'Ajouter'}
+            {isAdding ? 'Ajout en cours…' : ctaLabel}
           </button>
         </div>
       </div>
 
     </main>
+
   );
 };
 
