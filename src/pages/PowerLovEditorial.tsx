@@ -261,12 +261,15 @@ const PowerLovEditorial = () => {
 
       <main className="overflow-hidden" style={{ paddingTop: "var(--collection-offset)" }}>
         {/* HERO */}
-        <section className="relative w-screen h-[95svh] md:h-[115vh] overflow-hidden">
+        <section
+          className="relative w-screen overflow-hidden"
+          style={{ height: "var(--collection-hero-height)" }}
+        >
           <img
             src={heroImage}
             alt="PowerLov par LOVCICOV Paris"
             className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 22%" }}
+            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center top" }}
             loading="eager"
             decoding="async"
           />
