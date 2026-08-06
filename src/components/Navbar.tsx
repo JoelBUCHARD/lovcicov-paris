@@ -131,12 +131,20 @@ const Navbar = () => {
         {/* Right icons */}
         <div className="flex items-center gap-4 md:gap-6 flex-1 justify-end">
           <Link
+            to="/search"
+            onMouseEnter={() => prefetchRoute('/search')}
+            className={`md:hidden ${iconClass}`}
+            aria-label="Rechercher"
+          >
+            <Search size={17} strokeWidth={1.25} />
+          </Link>
+          <Link
             to={isLoggedIn ? '/account' : '/auth'}
             onMouseEnter={() => prefetchRoute(isLoggedIn ? '/account' : '/auth')}
-            className={`hidden md:block ${iconClass}`}
+            className={iconClass}
             aria-label={isLoggedIn ? 'Mon compte' : 'Se connecter'}
           >
-            <User size={17} strokeWidth={1.25} className="hidden md:block" />
+            <User size={17} strokeWidth={1.25} />
           </Link>
           <Link
             to="/cart"
@@ -232,7 +240,27 @@ const Navbar = () => {
     {mobileOpen && (
       <div className="md:hidden fixed inset-0 z-[100] bg-background overflow-y-auto">
         <div className="flex items-center justify-between px-6 py-6">
-          <span className="text-[10px] tracking-[0.24em] uppercase font-medium text-foreground/50">Menu</span>
+          <div className="flex items-center gap-4">
+            <Link to="/search" onClick={() => setMobileOpen(false)} className={iconClass} aria-label="Rechercher">
+              <Search size={17} strokeWidth={1.25} />
+            </Link>
+            <Link
+              to={isLoggedIn ? '/account' : '/auth'}
+              onClick={() => setMobileOpen(false)}
+              className={iconClass}
+              aria-label={isLoggedIn ? 'Mon compte' : 'Se connecter'}
+            >
+              <User size={17} strokeWidth={1.25} />
+            </Link>
+            <Link to="/cart" onClick={() => setMobileOpen(false)} className={`relative ${iconClass}`} aria-label="Panier">
+              <ShoppingBag size={17} strokeWidth={1.25} />
+              {totalItems > 0 && (
+                <span className="absolute -top-1.5 -right-2 text-[9px] tracking-normal text-foreground font-light">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
+          </div>
           <button
             type="button"
             onClick={() => setMobileOpen(false)}
@@ -278,21 +306,7 @@ const Navbar = () => {
             </div>
           )}
 
-          <Link
-            to="/search"
-            onClick={() => setMobileOpen(false)}
-            className="py-5 border-b border-border/50 text-[11px] tracking-[0.2em] uppercase font-medium text-foreground/60"
-          >
-            Rechercher
-          </Link>
-          <Link
-            to={isLoggedIn ? '/account' : '/auth'}
-            onClick={() => setMobileOpen(false)}
-            className="py-5 border-b border-border/50 text-[11px] tracking-[0.2em] uppercase font-medium text-foreground/60"
-          >
-            {isLoggedIn ? 'Mon compte' : 'Se connecter'}
-          </Link>
-        </nav>
+</nav>
       </div>
     )}
     </>
