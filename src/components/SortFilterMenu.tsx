@@ -6,7 +6,7 @@ export const SORT_LABELS: { key: SortKey; label: string }[] = [
   { key: "default", label: "Notre sélection" },
   { key: "price-asc", label: "Prix croissant" },
   { key: "price-desc", label: "Prix décroissant" },
-  { key: "name-asc", label: "Ordre alphabétique" },
+  
 ];
 
 interface Props {
