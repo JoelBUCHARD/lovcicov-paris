@@ -16,6 +16,7 @@ import ZoomBubble from '@/components/ZoomBubble';
 import ModelSizeNote, { modelSizeNoteFor, isDualModelProduct } from '@/components/ModelSizeNote';
 import CaracteristiquesProduit from '@/components/CaracteristiquesProduit';
 import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
+import ProductSpecsTable from '@/components/ProductSpecsTable';
 import ProductTypeLabel from '@/components/ProductTypeLabel';
 import { displayProductName } from '@/lib/productDisplayName';
 
@@ -627,6 +628,28 @@ const ProductPage = ({ product }: Props) => {
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
+
+          {product.specs && (
+            <>
+              <Accordion title="Composition & entretien">
+                <p className="mb-3">{product.specs.composition}</p>
+                <ul className="list-none p-0 m-0 space-y-1.5 mb-3">
+                  {product.specs.care.map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+                <p className="mb-3">Symboles : {product.specs.careSymbols.join(' · ').toLowerCase()}.</p>
+                <ul className="list-none p-0 m-0 space-y-1.5">
+                  {product.specs.certifications.map((c) => (
+                    <li key={c}>{c}</li>
+                  ))}
+                </ul>
+              </Accordion>
+              <Accordion title="Guide des tailles">
+                <ProductSpecsTable specs={product.specs} />
+              </Accordion>
+            </>
+          )}
 
           {hasSpecSheet && (
             <CaracteristiquesProduit accent={cfg.accent} className="max-w-none mb-0 pt-5 pb-5" />
