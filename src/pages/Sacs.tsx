@@ -27,6 +27,29 @@ type ProductCard = {
   to: string;
 };
 
+// ORDRE D'AFFICHAGE DE LA GRILLE SACS
+// Pour réordonner : déplacer simplement les slugs ci-dessous.
+// Un sac absent de cette liste est affiché à la fin.
+const displayOrder: string[] = [
+  'big-lov-tricolore-rouge',
+  'small-lov-bicolore-or',
+  'big-lov-azteque-vert',
+  'small-lov-bicolore-bleu',
+  'big-lov-tricolore-marine',
+  'small-lov-azteque-rouge',
+  'big-lov-azteque-noir',
+  'small-lov-tricolore-or',
+  'big-lov-bicolore-rose',
+  'small-lov-azteque-terracotta',
+  'big-lov-bicolore-kaki',
+  'small-lov-tricolore-kaki',
+];
+
+const orderIndex = (slug: string) => {
+  const i = displayOrder.indexOf(slug);
+  return i === -1 ? displayOrder.length : i;
+};
+
 const products: ProductCard[] = BAGS.map((b) => ({
   key: b.slug,
   id: b.slug,
@@ -37,7 +60,7 @@ const products: ProductCard[] = BAGS.map((b) => ({
   hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
   gallery: b.images.slice(1),
   to: `/sacs/${b.slug}`,
-}));
+})).sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
 
 const accessoires: ProductCard[] = grigriProducts.map((g) => ({
   key: g.id,
