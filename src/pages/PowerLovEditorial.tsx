@@ -92,21 +92,6 @@ const IMAGES: Record<string, ImageSet> = {
   },
 };
 
-const DISPLAY_NAMES: Record<string, string> = {
-  "powerlov-discipline": "DISCIPLINE IS MY LUXURY",
-  "powerlov-if-god-dj-frequency": "PRETTY. SMART. DANGEROUS.",
-  "powerlov-god-is-a-dancer": "GOD IS A DANCER",
-  "powerlov-protected-aligned-unstoppable": "PROTECTED. ALIGNED. UNSTOPPABLE.",
-  "powerlov-sacred-heart-hoodie": "THE STANDARD IS ME.",
-  "powerlov-lovcicov-2019-bird": "HOLY DOVE.",
-  "powerlov-iconic-by-nature-heart": "THE STANDARD IS ME",
-  "powerlov-mom-boss-crisis-manager": "HEART ICON.",
-  "powerlov-lovcicov-2019-hoodie": "HEART SIGNATURE.",
-  "powerlov-energy-never-lies-hoodie": "PERFECTLY IMPERFECT",
-  "powerlov-lovcicov-2029-bird": "MY OWN MUSE.",
-  "powerlov-less-drama-champagne": "LESS DRAMA. MORE CHAMPAGNE.",
-};
-
 const TYPE_LABELS: Record<string, string> = {
   "powerlov-discipline": "T-shirt",
   "powerlov-if-god-dj-frequency": "T-shirt",
@@ -181,7 +166,7 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
     {
       key: `${id}-${side}-${index}`,
       id,
-      name: DISPLAY_NAMES[id] ?? p.name,
+      name: p.name,
       typeLabel,
       price: p.price,
       image,

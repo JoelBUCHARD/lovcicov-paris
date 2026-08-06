@@ -88,7 +88,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'ICONIC BY NATURE',
+    name: 'THE STANDARD IS ME',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
@@ -116,7 +116,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME',
+    name: 'THE STANDARD IS ME.',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -155,7 +155,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2029-bird',
     shopifyHandle: 'sweat-powerlov',
-    name: 'LOVCICOV 2029 BIRD',
+    name: 'MY OWN MUSE.',
     price: 109,
     collection: 'standard',
     subcategory: 'crewneck',
@@ -181,7 +181,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2019-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'HEART SIGNATURE',
+    name: 'HEART SIGNATURE.',
     price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
@@ -194,7 +194,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-lovcicov-2019-bird',
     shopifyHandle: 'sweat-powerlov',
-    name: 'Holy Dove',
+    name: 'HOLY DOVE.',
     price: 109,
     collection: 'standard',
     subcategory: 'tshirt',
