@@ -10,8 +10,19 @@
     /* Offset de contenu sous le header fixe : hauteur réelle, sans respiration */
     --collection-offset: var(--header-height, 73px);
 
-    /* Hauteur unique du hero des pages collection : viewport moins header */
-    --collection-hero-height: calc(100svh - var(--header-height, 73px));
+    /* Hauteur unique du hero des pages collection : viewport visible moins header */
+    --collection-hero-height: calc(100vh - var(--header-height, 73px));
+  }
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --collection-hero-height: calc(100dvh - var(--header-height, 73px));
+  }
+}
+
+@layer base {
+  :root {
 
     --background: 36 33% 97%;
     --foreground: 0 0% 10%;
