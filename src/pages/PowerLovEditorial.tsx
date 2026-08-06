@@ -99,7 +99,7 @@ const DISPLAY_NAMES: Record<string, string> = {
   "powerlov-protected-aligned-unstoppable": "PROTECTED. ALIGNED. UNSTOPPABLE.",
   "powerlov-sacred-heart-hoodie": "THE STANDARD IS ME.",
   "powerlov-lovcicov-2019-bird": "HOLY DOVE.",
-  "powerlov-iconic-by-nature-heart": "ICONIC BY NATURE.",
+  "powerlov-iconic-by-nature-heart": "THE STANDARD IS ME",
   "powerlov-mom-boss-crisis-manager": "HEART ICON.",
   "powerlov-lovcicov-2019-hoodie": "HEART SIGNATURE.",
   "powerlov-energy-never-lies-hoodie": "PERFECTLY IMPERFECT",
