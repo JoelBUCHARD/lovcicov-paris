@@ -88,7 +88,7 @@ const Navbar = () => {
       {/* Top bar */}
       <div
         className={`flex items-center justify-between px-6 md:px-12 lg:px-16 transition-[padding] duration-500 ease-out ${
-          scrolled ? 'py-2.5 md:py-4' : 'py-4 md:py-7'
+          scrolled ? 'py-4 md:py-6' : 'py-6 md:py-11'
         }`}
       >
         {/* Left icons */}
@@ -152,7 +152,7 @@ const Navbar = () => {
       <nav
         aria-label="Navigation principale"
         className={`flex items-center justify-start md:justify-center gap-7 md:gap-12 lg:gap-16 px-6 md:px-0 overflow-x-auto no-scrollbar overscroll-x-contain transition-[padding,opacity] duration-500 ease-out ${
-          scrolled ? 'pb-2.5 md:pb-3 opacity-90' : 'pb-4 md:pb-5 opacity-100'
+          scrolled ? 'pb-4 md:pb-7 opacity-90' : 'pb-8 opacity-100'
         }`}
       >
         {primaryLinks.map(({ to, label }) => {
