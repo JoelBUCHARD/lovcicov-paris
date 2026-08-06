@@ -70,7 +70,7 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mb-8 text-center"
+            className="lg:hidden text-[#1A1A1A] font-light leading-[0.98] tracking-[-0.02em] mt-10 md:mt-12 mb-8 text-center"
             style={{ fontSize: 'clamp(44px, 6vw, 88px)' }}
           >
             Presence
