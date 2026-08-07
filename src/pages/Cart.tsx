@@ -101,7 +101,7 @@ const Cart = () => {
               id="empty-cart-heading"
               className="text-3xl md:text-[42px] font-light leading-tight mb-6"
             >
-              Aucune pièce<br />ne vous accompagne encore.
+              Votre panier est vide.
             </h1>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-md mx-auto mb-12">
               Chaque création LOVCICOV est pensée comme un talisman.
