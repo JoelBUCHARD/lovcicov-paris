@@ -39,7 +39,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false, to }: Props) 
       className="h-full w-full"
     >
       <Link
-        to={`/shop/${product.id}`}
+        to={to ?? `/shop/${product.id}`}
         state={{ from }}
         onMouseEnter={() => {
           prefetchRoute('/shop/item');
