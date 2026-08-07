@@ -128,7 +128,7 @@ const rawStandardProducts: Product[] = [
     image: 'powerlov-standard-porte-face',
     gallery: [
       'powerlov-standard-porte-dos',
-      'powerlov-standard-is-me-njarrow-walking',
+      
       'powerlov-standard-packshot-face',
       'powerlov-standard-packshot-dos',
     ],
