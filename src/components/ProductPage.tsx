@@ -288,17 +288,27 @@ const ProductPage = ({ product }: Props) => {
       const variants = sp.variants.edges.map((e) => e.node);
       const hasSize = sp.options.some((o) => /taille|size/i.test(o.name));
       const hasColor = sp.options.some((o) => /couleur|color/i.test(o.name));
-      const variant =
-        variants.find((v) => {
-          const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
-          const sizeOk = !hasSize || isJewelry || v.selectedOptions.some((o) => o.value === selectedSize);
-          return v.availableForSale && colorOk && sizeOk;
-        }) || variants.find((v) => v.availableForSale) || variants[0];
+      // Précommande : les vêtements peuvent être commandés même à 0 stock
+      // (Shopify doit être réglé sur « continuer à vendre en rupture »).
+      const isPreorder = !isJewelry && !isKimono;
+      const matchesSelection = (v: (typeof variants)[number]) => {
+        const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
+        const sizeOk = !hasSize || isJewelry || v.selectedOptions.some((o) => o.value === selectedSize);
+        return colorOk && sizeOk;
+      };
+      // On utilise exactement la variante correspondant aux options choisies.
+      const variant = isPreorder
+        ? variants.find(matchesSelection)
+        : variants.find((v) => v.availableForSale && matchesSelection(v)) || variants.find(matchesSelection);
       if (!variant) {
-        toast({ title: 'Aucune variante disponible' });
+        toast({ title: 'Variante introuvable', description: 'Cette combinaison couleur / taille n\'existe pas.' });
         return;
       }
-      await addShopifyItem({
+      if (!isPreorder && !variant.availableForSale) {
+        toast({ title: 'Indisponible', description: 'Cette taille est en rupture de stock.' });
+        return;
+      }
+      const result = await addShopifyItem({
         product: { node: sp },
         variantId: variant.id,
         variantTitle: variant.title,
@@ -306,6 +316,11 @@ const ProductPage = ({ product }: Props) => {
         quantity: 1,
         selectedOptions: variant.selectedOptions,
       });
+      if (!result?.success) {
+        console.error('[Shopify] Ajout au panier refusé', { handle: product.shopifyHandle, variantId: variant.id, error: result?.error });
+        toast({ title: "Impossible d'ajouter au panier", description: result?.error || 'Shopify a refusé cette variante.' });
+        return;
+      }
       toast({ title: 'Ajouté au panier', description: product.name });
     } catch (err) {
       console.error('Add to cart failed', err);
