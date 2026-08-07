@@ -50,7 +50,7 @@ const IMAGES: Record<string, ImageSet> = {
     packFace: "powerlov-protected-packshot-face",
     packDos: "powerlov-protected-packshot-dos",
   },
-  "powerlov-sacred-heart-hoodie": {
+  "powerlov-sacred-heart-sweat": {
     porteFace: "powerlov-standard-porte-face",
     porteDos: "powerlov-standard-porte-dos",
     packFace: "powerlov-standard-packshot-face",
@@ -60,11 +60,6 @@ const IMAGES: Record<string, ImageSet> = {
     porteFace: "powerlov-holy-dove-porte-face",
     packFace: "powerlov-holy-dove-packshot-face",
     packDos: "powerlov-holy-dove-packshot-dos",
-  },
-  "powerlov-sacred-heart-sweat": {
-    porteFace: "powerlov-iconic-porte-face",
-    packFace: "powerlov-iconic-packshot-face",
-    packDos: "powerlov-iconic-packshot-dos",
   },
   "powerlov-mom-boss-crisis-manager": {
     porteFace: "powerlov-heart-icon-porte-face",
