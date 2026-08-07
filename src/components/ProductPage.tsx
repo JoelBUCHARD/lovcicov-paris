@@ -154,7 +154,6 @@ const ProductPage = ({ product }: Props) => {
     'powerlov-lovcicov-2019-bird': 'Sweat',
     'powerlov-lovcicov-2019-hoodie': 'T-shirt',
     'powerlov-sacred-heart-sweat': 'Sweat',
-    'powerlov-sacred-heart-sweat': 'Sweat',
     'powerlov-lovcicov-2029-bird': 'Sweat',
   };
   const SUBCATEGORY_LABELS: Record<string, string> = {
