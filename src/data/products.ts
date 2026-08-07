@@ -9,11 +9,17 @@ export interface ProductSpecs {
   };
 }
 
+export type Univers = 'powerlov' | 'mysticlov' | 'stonelov' | 'lovbag';
+
 export interface Product {
   id: string;
   name: string;
   price: number;
   collection: 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
+  /** Univers de rattachement — dérivé automatiquement de `collection`. */
+  univers?: Univers;
+  /** Toutes les images du produit : [image principale, ...gallery]. Dérivé automatiquement. */
+  images?: string[];
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie' | 'kimono';
   description: string;
   details: string;
@@ -55,7 +61,7 @@ export const MOLLETON_SPECS: ProductSpecs = {
 
 
 // Collection "PowerLov" — pièces à message fort
-export const standardProducts: Product[] = [
+const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-discipline',
     shopifyHandle: 't-shirt-powerlov',
@@ -138,7 +144,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-iconic-by-nature-heart',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME',
+    name: 'THE STANDARD IS ME — CREWNECK CŒUR SACRÉ',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
@@ -151,7 +157,7 @@ export const standardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME.',
+    name: 'THE STANDARD IS ME — HOODIE ÉTOILES',
     price: 109,
     collection: 'standard',
     subcategory: 'hoodie',
@@ -274,7 +280,7 @@ const makeKimono = (slug: string, name: string, colorLine: string): Product => (
   badge: 'PIÈCE UNIQUE',
 });
 
-export const kimonoProducts: Product[] = [
+const rawKimonoProducts: Product[] = [
   makeKimono('tara', 'Tara', 'bleu ciel tie-dye, brodée de perles turquoise'),
   makeKimono('veda', 'Veda', 'gris perle chiné, brodée de perles turquoise'),
   makeKimono('devi', 'Devi', 'bleu roi profond, brodée de perles argentées'),
@@ -288,7 +294,7 @@ export const kimonoProducts: Product[] = [
 ];
 
 // Collection "MysticLov" — produits du site mysticlov.com
-export const mysticProducts: Product[] = [
+const rawMysticProducts: Product[] = [
   {
     id: 'mystic-tshirt-noir',
     shopifyHandle: 't-shirt-mysticlov',
@@ -490,7 +496,7 @@ export const mysticProducts: Product[] = [
 
 // Collection "StoneLov" — colliers en pierres naturelles
 // Photos classifiées : solo (produit), fleurs (lifestyle), tarot (ambiance)
-export const bijouxProducts: Product[] = [
+const rawBijouxProducts: Product[] = [
   {
     id: 'collier-fuchsia-or',
     shopifyHandle: 'collier-fuchsia-et-or',
@@ -981,7 +987,7 @@ export const bagAlt = (b: BagSpec) =>
   `Sac ${b.name.replace(/^(Big|Small) LOV /, `${BAG_SILHOUETTES[b.silhouette].label} `).toLowerCase()} en cuir de buffle tressé main, charm cœur LOVCICOV`;
 
 // Projection des sacs vers le modèle Product commun au site
-export const sacsProducts: Product[] = BAGS.map((b) => {
+const rawSacsProducts: Product[] = BAGS.map((b) => {
   const sil = BAG_SILHOUETTES[b.silhouette];
   return {
     id: b.slug,
@@ -1002,7 +1008,7 @@ export const getBagBySlug = (slug?: string) => BAGS.find((b) => b.slug === slug)
 
 
 // Collection "Accessoires" — grigris LovBag, pièces uniques faites main
-export const grigriProducts: Product[] = [
+const rawGrigriProducts: Product[] = [
   {
     id: 'grigri-fleur-menthe',
     name: 'Fleur Menthe',
@@ -1115,4 +1121,52 @@ export const grigriProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts, ...grigriProducts];
+// ————————————————————————————————————————————————
+// Source de vérité unique : normalisation + exports
+// ————————————————————————————————————————————————
+
+const UNIVERS_BY_COLLECTION: Record<Product['collection'], Univers> = {
+  standard: 'powerlov',
+  mystic: 'mysticlov',
+  bijoux: 'stonelov',
+  sacs: 'lovbag',
+  accessoires: 'lovbag',
+};
+
+/** Nom affiché : majuscules, sans point final, espaces normalisés. */
+export const normalizeProductName = (name: string): string =>
+  name.trim().replace(/\s+/g, ' ').replace(/[.\s]+$/, '').toUpperCase();
+
+const normalize = (p: Product): Product => ({
+  ...p,
+  name: normalizeProductName(p.name),
+  univers: UNIVERS_BY_COLLECTION[p.collection],
+  images: [p.image, ...(p.gallery ?? [])].filter(Boolean),
+});
+
+export const standardProducts: Product[] = rawStandardProducts.map(normalize);
+export const kimonoProducts: Product[] = rawKimonoProducts.map(normalize);
+export const mysticProducts: Product[] = rawMysticProducts.map(normalize);
+export const bijouxProducts: Product[] = rawBijouxProducts.map(normalize);
+export const sacsProducts: Product[] = rawSacsProducts.map(normalize);
+export const grigriProducts: Product[] = rawGrigriProducts.map(normalize);
+
+/** TOUS les produits du site, chacun une seule fois. */
+export const products: Product[] = (() => {
+  const all = [
+    ...standardProducts,
+    ...mysticProducts,
+    ...bijouxProducts,
+    ...sacsProducts,
+    ...grigriProducts,
+  ];
+  const seen = new Set<string>();
+  return all.filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)));
+})();
+
+export const getProductsByUnivers = (u: Univers): Product[] =>
+  products.filter((p) => p.univers === u);
+
+export const getProductById = (id?: string): Product | undefined =>
+  products.find((p) => p.id === id);
+
