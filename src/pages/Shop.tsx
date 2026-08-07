@@ -51,6 +51,8 @@ const Shop = () => {
   const visibleStandard = useMemo(() => standardProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
   const visibleMystic = useMemo(() => mysticProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
   const visibleBijoux = useMemo(() => bijouxProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleSacs = useMemo(() => sacsProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleAccessoires = useMemo(() => grigriProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
 
   const products = useMemo(() => {
     const base =
@@ -60,7 +62,11 @@ const Shop = () => {
         ? visibleMystic
         : active === 'bijoux'
         ? visibleBijoux
-        : [...visibleStandard, ...visibleMystic, ...visibleBijoux];
+        : active === 'sacs'
+        ? visibleSacs
+        : active === 'accessoires'
+        ? visibleAccessoires
+        : [...visibleStandard, ...visibleMystic, ...visibleBijoux, ...visibleSacs, ...visibleAccessoires];
 
     const seen = new Set<string>();
     const deduped = base.filter((p) => {
@@ -75,7 +81,8 @@ const Shop = () => {
     else if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
     else if (sort === 'name-asc') sorted.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
     return sorted;
-  }, [active, sort, visibleStandard, visibleMystic, visibleBijoux]);
+  }, [active, sort, visibleStandard, visibleMystic, visibleBijoux, visibleSacs, visibleAccessoires]);
+
 
   const setCollection = (c: Collection) => {
     setActive(c);
