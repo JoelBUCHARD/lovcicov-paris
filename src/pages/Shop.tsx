@@ -237,7 +237,9 @@ const Shop = () => {
                       <EditorialProductCard
                         key={p.id}
                         product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                        to={productLink(p)}
                         index={i}
+
                         eager={i < 2}
                       />
                     ))}
