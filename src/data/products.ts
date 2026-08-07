@@ -130,7 +130,7 @@ const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME',
+    name: 'THE STANDARD IS ME — CREWNECK ÉTOILES',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
@@ -490,7 +490,7 @@ const rawMysticProducts: Product[] = [
       'mysticlov-sacred-hoodie-packshot-dos',
     ],
   },
-  ...kimonoProducts,
+  ...rawKimonoProducts,
 ];
 
 
