@@ -182,10 +182,12 @@ const ProductPage = ({ product }: Props) => {
       SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
       (hasSpecSheet ? 'T-shirt' : 'T-shirt')
     : SUBCATEGORY_LABELS[product.subcategory ?? ''] ?? (hasSpecSheet ? 'T-shirt' : 'T-shirt');
-  // Image principale + miniatures optionnelles (gallery) pour les fiches qui en ont.
-  const allImages = product.gallery?.length
-    ? [product.image, ...product.gallery]
-    : [product.image];
+  // Image principale + miniatures optionnelles (gallery) — 5 vues maximum par fiche.
+  const allImages = (
+    product.gallery?.length ? [product.image, ...product.gallery] : [product.image]
+  )
+    .filter((v, i, arr) => v && arr.indexOf(v) === i)
+    .slice(0, 5);
   // Alt descriptifs : 1re image = visuel principal, 2e = packshot face, 3e = vue intérieure
   const imageAlt = (i: number) =>
     i === 1
