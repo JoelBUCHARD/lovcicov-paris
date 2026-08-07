@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts, sacsProducts, grigriProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
@@ -13,16 +13,22 @@ import EditorialPause from '@/components/EditorialPause';
 import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
-type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
+type Collection = 'all' | 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
 
-const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
+const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux', 'sacs', 'accessoires'];
 
 const filterMeta: Record<Collection, { label: string; accent: string }> = {
   all: { label: 'Tout', accent: '#1A1A1A' },
   standard: { label: 'PowerLov', accent: '#1A1A1A' },
   mystic: { label: 'MysticLov', accent: '#C94A4A' },
   bijoux: { label: 'StoneLov', accent: '#A55A35' },
+  sacs: { label: 'Sacs', accent: '#1A1A1A' },
+  accessoires: { label: 'Accessoires', accent: '#1A1A1A' },
 };
+
+const productLink = (p: { id: string; collection: string }) =>
+  p.collection === 'sacs' ? `/sacs/${p.id}` : `/shop/${p.id}`;
+
 
 const Shop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
