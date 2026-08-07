@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { standardProducts, mysticProducts, bijouxProducts } from '@/data/products';
+import { standardProducts, mysticProducts, bijouxProducts, sacsProducts, grigriProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
@@ -13,16 +13,22 @@ import EditorialPause from '@/components/EditorialPause';
 import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
-type Collection = 'all' | 'standard' | 'mystic' | 'bijoux';
+type Collection = 'all' | 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
 
-const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux'];
+const validCollections: Collection[] = ['all', 'standard', 'mystic', 'bijoux', 'sacs', 'accessoires'];
 
 const filterMeta: Record<Collection, { label: string; accent: string }> = {
   all: { label: 'Tout', accent: '#1A1A1A' },
   standard: { label: 'PowerLov', accent: '#1A1A1A' },
   mystic: { label: 'MysticLov', accent: '#C94A4A' },
   bijoux: { label: 'StoneLov', accent: '#A55A35' },
+  sacs: { label: 'Sacs', accent: '#1A1A1A' },
+  accessoires: { label: 'Accessoires', accent: '#1A1A1A' },
 };
+
+const productLink = (p: { id: string; collection: string }) =>
+  p.collection === 'sacs' ? `/sacs/${p.id}` : `/shop/${p.id}`;
+
 
 const Shop = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -45,6 +51,8 @@ const Shop = () => {
   const visibleStandard = useMemo(() => standardProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
   const visibleMystic = useMemo(() => mysticProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
   const visibleBijoux = useMemo(() => bijouxProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleSacs = useMemo(() => sacsProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const visibleAccessoires = useMemo(() => grigriProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
 
   const products = useMemo(() => {
     const base =
@@ -54,7 +62,11 @@ const Shop = () => {
         ? visibleMystic
         : active === 'bijoux'
         ? visibleBijoux
-        : [...visibleStandard, ...visibleMystic, ...visibleBijoux];
+        : active === 'sacs'
+        ? visibleSacs
+        : active === 'accessoires'
+        ? visibleAccessoires
+        : [...visibleStandard, ...visibleMystic, ...visibleBijoux, ...visibleSacs, ...visibleAccessoires];
 
     const seen = new Set<string>();
     const deduped = base.filter((p) => {
@@ -69,7 +81,8 @@ const Shop = () => {
     else if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
     else if (sort === 'name-asc') sorted.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
     return sorted;
-  }, [active, sort, visibleStandard, visibleMystic, visibleBijoux]);
+  }, [active, sort, visibleStandard, visibleMystic, visibleBijoux, visibleSacs, visibleAccessoires]);
+
 
   const setCollection = (c: Collection) => {
     setActive(c);
@@ -97,7 +110,16 @@ const Shop = () => {
       title: 'Wear the stone.',
       intro: 'La pierre choisie comme un signe. La matière comme mémoire.',
     },
+    sacs: {
+      title: 'Wear the craft.',
+      intro: 'Le cuir tressé main.',
+    },
+    accessoires: {
+      title: 'Wear your charm.',
+      intro: 'Des grigris faits main, pièces uniques.',
+    },
   }[active];
+
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
@@ -164,6 +186,9 @@ const Shop = () => {
                       { key: 'standard', label: 'PowerLov', items: visibleStandard },
                       { key: 'mystic', label: 'MysticLov', items: visibleMystic },
                       { key: 'bijoux', label: 'StoneLov', items: visibleBijoux },
+                      { key: 'sacs', label: 'LovBag — Sacs', items: visibleSacs },
+                      { key: 'accessoires', label: 'LovBag — Accessoires', items: visibleAccessoires },
+
                     ] as const).map((group, gi) => {
                       const seen = new Set<string>();
                       let items = group.items.filter((p) => {
@@ -194,9 +219,11 @@ const Shop = () => {
                               <EditorialProductCard
                                 key={p.id}
                                 product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                                to={productLink(p)}
                                 index={i}
                                 eager={gi === 0 && i < 2}
                               />
+
                             ))}
                           </div>
                         </div>
@@ -210,7 +237,9 @@ const Shop = () => {
                       <EditorialProductCard
                         key={p.id}
                         product={{ id: p.id, name: p.name, price: p.price, image: p.image, hover: p.gallery?.[0] }}
+                        to={productLink(p)}
                         index={i}
+
                         eager={i < 2}
                       />
                     ))}

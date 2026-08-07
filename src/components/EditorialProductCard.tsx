@@ -17,13 +17,15 @@ interface Props {
   product: EditorialProduct;
   index?: number;
   eager?: boolean;
+  to?: string;
 }
 
-const EditorialProductCard = ({ product, index = 0, eager = false }: Props) => {
+const EditorialProductCard = ({ product, index = 0, eager = false, to }: Props) => {
   const location = useLocation();
   const from = `${location.pathname}${location.search}`;
   const mainImage = resolveProductImage(product.image);
   const hoverImage = product.hover ? resolveProductImage(product.hover) : null;
+
 
   const priceLabel =
     typeof product.price === 'number' ? formatPrice(product.price) : product.price;
@@ -37,7 +39,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false }: Props) => {
       className="h-full w-full"
     >
       <Link
-        to={`/shop/${product.id}`}
+        to={to ?? `/shop/${product.id}`}
         state={{ from }}
         onMouseEnter={() => {
           prefetchRoute('/shop/item');
