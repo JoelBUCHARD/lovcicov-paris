@@ -12,6 +12,7 @@ import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
 import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
+import { spaceOutDuplicates } from '@/lib/spaceOutDuplicates';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
 
@@ -84,7 +85,7 @@ const Shop = () => {
     if (sort === 'price-asc') sorted.sort((a, b) => Number(a.price) - Number(b.price));
     else if (sort === 'price-desc') sorted.sort((a, b) => Number(b.price) - Number(a.price));
     else if (sort === 'name-asc') sorted.sort((a, b) => a.name.localeCompare(b.name, 'fr'));
-    return sorted;
+    return spaceOutDuplicates(sorted, (p) => p.name);
   }, [active, sort, visibleStandard, visibleMystic, visibleBijoux, visibleSacs, visibleAccessoires]);
 
 
@@ -204,6 +205,7 @@ const Shop = () => {
                       if (sort === 'price-asc') items = [...items].sort((a, b) => Number(a.price) - Number(b.price));
                       else if (sort === 'price-desc') items = [...items].sort((a, b) => Number(b.price) - Number(a.price));
                       else if (sort === 'name-asc') items = [...items].sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+                      items = spaceOutDuplicates(items, (p) => p.name);
                       if (items.length === 0) return null;
                       return (
                         <div key={group.key}>
