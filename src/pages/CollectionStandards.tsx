@@ -5,8 +5,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import JourneyContinuation from '@/components/JourneyContinuation';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
-import tshirtDiscipline from '@/assets/powerlov-tshirt-discipline.png';
-import tshirtEmpowered from '@/assets/powerlov-tshirt-empowered.png';
+import { getProductsByUnivers } from '@/data/products';
+import { resolveProductImage } from '@/lib/productImage';
+import { formatPrice } from '@/lib/price';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -17,20 +18,13 @@ const fadeUp = {
   }),
 };
 
-const powerlovProducts = [
-  {
-    id: 'powerlov-discipline',
-    name: 'T-Shirt Discipline Is My Luxury',
-    image: tshirtDiscipline,
-    price: '59 €',
-  },
-  {
-    id: 'powerlov-empowered',
-    name: 'T-Shirt Connected Disciplined Empowered',
-    image: tshirtEmpowered,
-    price: '59 €',
-  },
-];
+// Source unique : src/data/products.ts — aucune liste en dur.
+const powerlovProducts = getProductsByUnivers('powerlov').map((p) => ({
+  id: p.id,
+  name: p.name,
+  image: resolveProductImage(p.image),
+  price: formatPrice(p.price),
+}));
 
 const CollectionStandards = () => {
   const { isVisible } = useProductVisibility();

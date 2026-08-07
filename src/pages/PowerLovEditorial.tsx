@@ -60,7 +60,7 @@ const IMAGES: Record<string, ImageSet> = {
     packFace: "powerlov-holy-dove-packshot-face",
     packDos: "powerlov-holy-dove-packshot-dos",
   },
-  "powerlov-iconic-by-nature-heart": {
+  "powerlov-sacred-heart-sweat": {
     porteFace: "powerlov-iconic-porte-face",
     packFace: "powerlov-iconic-packshot-face",
     packDos: "powerlov-iconic-packshot-dos",
@@ -102,7 +102,7 @@ const TYPE_LABELS: Record<string, string> = {
   "powerlov-protected-aligned-unstoppable": "T-shirt",
   "powerlov-sacred-heart-hoodie": "Sweat capuche",
   "powerlov-lovcicov-2019-bird": "Sweat",
-  "powerlov-iconic-by-nature-heart": "Sweat",
+  "powerlov-sacred-heart-sweat": "Sweat",
   "powerlov-mom-boss-crisis-manager": "T-shirt",
   "powerlov-lovcicov-2019-hoodie": "T-shirt",
   "powerlov-energy-never-lies-hoodie": "Sweat capuche",
@@ -132,7 +132,7 @@ const CARD_SPEC: { id: string; side: "face" | "dos" }[] = [
   { id: "powerlov-sacred-heart-hoodie", side: "face" },
   { id: "powerlov-sacred-heart-hoodie", side: "dos" },
   { id: "powerlov-lovcicov-2019-bird", side: "face" },
-  { id: "powerlov-iconic-by-nature-heart", side: "face" },
+  { id: "powerlov-sacred-heart-sweat", side: "face" },
   { id: "powerlov-mom-boss-crisis-manager", side: "face" },
   { id: "powerlov-mom-boss-crisis-manager", side: "dos" },
   { id: "powerlov-lovcicov-2019-hoodie", side: "face" },

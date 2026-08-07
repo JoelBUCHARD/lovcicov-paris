@@ -8,38 +8,17 @@ import EditorialProductCard, { EditorialProduct } from '@/components/EditorialPr
 import EditorialPause from '@/components/EditorialPause';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
-import disciplineLuxuryGrid from '@/assets/powerlov/powerlov-discipline-back.png.asset.json';
-import godIsADancer from '@/assets/powerlov/powerlov-grid-god-is-a-dancer.png.asset.json';
-import protectedAlignedUnstoppable from '@/assets/powerlov/powerlov-protected-aligned-unstoppable-front.png.asset.json';
-import godDjCafe from '@/assets/powerlov/powerlov-grid-god-dj-cafe.png.asset.json';
-import godDjStreet from '@/assets/powerlov/powerlov-grid-god-is-a-dj-street.png.asset.json';
-import connectedEmpowered from '@/assets/powerlov/powerlov-grid-connected-disciplined-empowered.png.asset.json';
-import boldBadassSweat from '@/assets/powerlov/powerlov-bold-badass-no-filter-sweat.png.asset.json';
-import boldBadassGrid from '@/assets/powerlov/powerlov-grid-bold-badass.png.asset.json';
-import ifGodIsADj from '@/assets/powerlov/powerlov-if-god-is-a-dj.png.asset.json';
-import energyNeverLies from '@/assets/powerlov/powerlov-grid-energy-never-lies.png.asset.json';
-import sacredHeartStreet from '@/assets/powerlov/powerlov-sacred-heart-street.png.asset.json';
-import sacredHeartStreetBack from '@/assets/powerlov/powerlov-sacred-heart-street-back.png.asset.json';
-import sacredHeartHoodieStreetFront from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-front.png.asset.json';
-import sacredHeartHoodieStreetBack from '@/assets/powerlov/powerlov-sacred-heart-hoodie-street-back.png.asset.json';
+import { getProductsByUnivers } from '@/data/products';
+import { resolveProductImage } from '@/lib/productImage';
 
-import { products as catalogProducts } from '@/data/products';
-
-const catalogName = (id: string, fallback: string) => catalogProducts.find((cp) => cp.id === id)?.name ?? fallback;
-
-const powerProducts: EditorialProduct[] = [
-  { id: 'powerlov-discipline', name: catalogName('powerlov-discipline', 'Discipline Is My Luxury'), price: 59, image: disciplineLuxuryGrid.url },
-  { id: 'powerlov-god-is-a-dancer', name: catalogName('powerlov-god-is-a-dancer', 'God Is A Dancer'), price: 59, image: godIsADancer.url },
-  { id: 'powerlov-protected-aligned-unstoppable', name: catalogName('powerlov-protected-aligned-unstoppable', 'Protected. Aligned. Unstoppable.'), price: 59, image: protectedAlignedUnstoppable.url },
-  { id: 'powerlov-god-is-a-dj', name: catalogName('powerlov-god-is-a-dj', 'God Is A DJ'), price: 59, image: godDjCafe.url, hover: godDjStreet.url },
-  { id: 'powerlov-empowered', name: catalogName('powerlov-empowered', 'Connected. Disciplined. Empowered.'), price: 59, image: connectedEmpowered.url },
-  { id: 'powerlov-if-god-dj-frequency', name: catalogName('powerlov-if-god-dj-frequency', 'If God Is A DJ'), price: 59, image: ifGodIsADj.url },
-  { id: 'powerlov-bold-badass-tee', name: catalogName('powerlov-bold-badass-tee', 'Bold. Badass. No Filter.'), price: 59, image: boldBadassGrid.url },
-  { id: 'powerlov-sacred-heart-sweat', name: catalogName('powerlov-sacred-heart-sweat', 'Sacred Heart — Sweat'), price: 99, image: sacredHeartStreet.url, hover: sacredHeartStreetBack.url },
-  { id: 'powerlov-sacred-heart-hoodie', name: catalogName('powerlov-sacred-heart-hoodie', 'Sacred Heart — Hoodie'), price: 109, image: sacredHeartHoodieStreetFront.url, hover: sacredHeartHoodieStreetBack.url },
-  { id: 'powerlov-bold-badass-hoodie', name: catalogName('powerlov-bold-badass-hoodie', 'Bold. Badass. — Hoodie'), price: 99, image: boldBadassSweat.url },
-  { id: 'powerlov-energy-never-lies-hoodie', name: catalogName('powerlov-energy-never-lies-hoodie', 'Energy Never Lies — Hoodie'), price: 99, image: energyNeverLies.url },
-];
+// Source unique : src/data/products.ts — aucune liste en dur.
+const powerProducts: EditorialProduct[] = getProductsByUnivers('powerlov').map((p) => ({
+  id: p.id,
+  name: p.name,
+  price: p.price,
+  image: resolveProductImage(p.image),
+  hover: p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined,
+}));
 
 
 const CollectionPower = () => {

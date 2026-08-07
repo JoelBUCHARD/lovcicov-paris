@@ -20,6 +20,8 @@ export interface Product {
   univers?: Univers;
   /** Toutes les images du produit : [image principale, ...gallery]. Dérivé automatiquement. */
   images?: string[];
+  /** Vues typées des images ({ url, vue }). Dérivé automatiquement. */
+  views?: { url: string; vue: 'face' | 'dos' | 'porte' | 'detail' }[];
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie' | 'kimono';
   description: string;
   details: string;
@@ -89,19 +91,6 @@ const rawStandardProducts: Product[] = [
     badge: 'UNISEX',
   },
   {
-    id: 'powerlov-bold-badass-tee',
-    shopifyHandle: 't-shirt-powerlov',
-    name: 'LESS DRAMA. MORE CHAMPAGNE.',
-    price: 59,
-    collection: 'standard',
-    subcategory: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. ». Unisex.',
-    details: 'Sans filtre. Sans excuse. Sans compromis.',
-    image: 'powerlov-less-drama-champagne-rue-de-seine',
-    gallery: ['powerlov-less-drama-champagne-flat-white-front', 'powerlov-less-drama-champagne-flat-white-back'],
-    badge: 'UNISEX',
-  },
-  {
     id: 'powerlov-god-is-a-dancer',
     shopifyHandle: 't-shirt-powerlov',
     name: 'GOD IS A DANCER',
@@ -130,28 +119,24 @@ const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME — CREWNECK ÉTOILES',
+    name: 'THE STANDARD IS ME — CREWNECK',
     price: 99,
     collection: 'standard',
     subcategory: 'crewneck',
-    description: 'Sweat coton molletonné écru. Sérigraphie « LOVCICOV PARIS » en façade, cercle d\'étoiles « THE STANDARD IS ME » au dos. Coupe oversize. Unisex.',
+    description: 'Sweat coton molletonné écru. Sérigraphie « LOVCICOV PARIS » et cœur sacré rouge en façade, cercle d\'étoiles « THE STANDARD IS ME » au dos. Coupe oversize. Unisex.',
     details: 'La signature comme évidence. Une pièce d\'allure, portée comme une déclaration.',
     image: 'powerlov-standard-is-me-njarrow-walking',
-    gallery: ['powerlov-standard-is-me-hoodie-cream-front-lovcicov', 'powerlov-standard-is-me-hoodie-cream-back-stars'],
+    gallery: [
+      'powerlov-standard-is-me-hoodie-cream-front-lovcicov',
+      'powerlov-standard-is-me-hoodie-cream-back-stars',
+      'powerlov-iconic-porte-face',
+      'powerlov-iconic-packshot-face',
+      'powerlov-iconic-packshot-dos',
+      'powerlov-lovcicov-heart-tee-paris-street-sunglasses',
+      'powerlov-lovcicov-heart-tee-white-flat-front',
+      'powerlov-lovcicov-heart-tee-white-flat-back',
+    ],
 
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-iconic-by-nature-heart',
-    shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'THE STANDARD IS ME — CREWNECK CŒUR SACRÉ',
-    price: 99,
-    collection: 'standard',
-    subcategory: 'crewneck',
-    description: 'Sweat coton molletonné écru. Sérigraphie cœur sacré rouge en façade, logo « LOVCICOV PARIS » au dos. Coupe oversize. Unisex.',
-    details: 'Le cœur sacré comme emblème. Une pièce signature, portée comme un manifeste.',
-    image: 'powerlov-iconic-porte-face',
-    gallery: ['powerlov-iconic-packshot-face', 'powerlov-iconic-packshot-dos'],
     badge: 'UNISEX',
   },
   {
@@ -190,7 +175,13 @@ const rawStandardProducts: Product[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. » au dos. Unisex.',
     details: 'Moins de bruit, plus de bulles. Le manifeste léger d\'une élégance qui refuse le drame.',
     image: 'powerlov-less-drama-porte-dos',
-    gallery: ['powerlov-less-drama-packshot-dos', 'powerlov-less-drama-packshot-face'],
+    gallery: [
+      'powerlov-less-drama-packshot-dos',
+      'powerlov-less-drama-packshot-face',
+      'powerlov-less-drama-champagne-rue-de-seine',
+      'powerlov-less-drama-champagne-flat-white-front',
+      'powerlov-less-drama-champagne-flat-white-back',
+    ],
     badge: 'UNISEX',
   },
   {
@@ -243,19 +234,6 @@ const rawStandardProducts: Product[] = [
     details: 'La colombe sacrée. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-holy-dove-porte-face',
     gallery: ['powerlov-holy-dove-packshot-face', 'powerlov-holy-dove-packshot-dos'],
-    badge: 'UNISEX',
-  },
-  {
-    id: 'powerlov-lovcicov-heart-tee',
-    shopifyHandle: 't-shirt-powerlov',
-    name: 'LOVCICOV',
-    price: 59,
-    collection: 'standard',
-    subcategory: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie cœur « LOVCICOV » en façade. Unisex.',
-    details: 'Le cœur comme signature. Une pièce manifeste, portée comme une évidence.',
-    image: 'powerlov-lovcicov-heart-tee-paris-street-sunglasses',
-    gallery: ['powerlov-lovcicov-heart-tee-white-flat-front', 'powerlov-lovcicov-heart-tee-white-flat-back'],
     badge: 'UNISEX',
   },
 ];
@@ -1137,12 +1115,23 @@ const UNIVERS_BY_COLLECTION: Record<Product['collection'], Univers> = {
 export const normalizeProductName = (name: string): string =>
   name.trim().replace(/\s+/g, ' ').replace(/[.\s]+$/, '').toUpperCase();
 
-const normalize = (p: Product): Product => ({
-  ...p,
-  name: normalizeProductName(p.name),
-  univers: UNIVERS_BY_COLLECTION[p.collection],
-  images: [p.image, ...(p.gallery ?? [])].filter(Boolean),
-});
+const vueOf = (key: string): 'face' | 'dos' | 'porte' | 'detail' => {
+  if (/(dos|back)/i.test(key)) return 'dos';
+  if (/(face|front)/i.test(key)) return 'face';
+  if (/(porte|street|walking|lifestyle|model)/i.test(key)) return 'porte';
+  return 'detail';
+};
+
+const normalize = (p: Product): Product => {
+  const images = [p.image, ...(p.gallery ?? [])].filter(Boolean);
+  return {
+    ...p,
+    name: normalizeProductName(p.name),
+    univers: UNIVERS_BY_COLLECTION[p.collection],
+    images,
+    views: images.map((url) => ({ url, vue: vueOf(url) })),
+  };
+};
 
 export const standardProducts: Product[] = rawStandardProducts.map(normalize);
 export const kimonoProducts: Product[] = rawKimonoProducts.map(normalize);
