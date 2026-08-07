@@ -148,15 +148,15 @@ const Shop = () => {
                   <button
                     key={key}
                     onClick={() => setCollection(key)}
-                    className="uppercase transition-colors duration-300 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-4 focus-visible:ring-offset-[#FAF7F2] pb-1 border-b"
+                    className="cat-tab uppercase whitespace-nowrap transition-colors duration-200 min-h-[44px] flex items-center px-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A]"
                     style={{
-                      fontSize: 10,
-                      letterSpacing: '0.28em',
-                      color: isActive ? filterMeta[key].accent : '#8B7D6B',
-                      borderBottomColor: isActive ? filterMeta[key].accent : 'transparent',
+                      color: isActive ? filterMeta[key].accent : 'rgba(13,13,13,0.5)',
+                      borderBottom: isActive ? `1px solid ${filterMeta[key].accent}` : '1px solid transparent',
+                      paddingBottom: 4,
                     }}
                     aria-pressed={isActive}
                   >
+
                     {filterMeta[key].label}
                   </button>
                 );

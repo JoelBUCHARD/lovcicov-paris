@@ -197,3 +197,11 @@
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }
+
+@layer components {
+  /* Onglets de catégories / filtres — style unique partagé */
+  .cat-tab { font-size: 9px; letter-spacing: 0.14em; }
+  @media (min-width: 768px) {
+    .cat-tab { font-size: 10px; letter-spacing: 0.24em; }
+  }
+}
