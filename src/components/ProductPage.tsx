@@ -153,7 +153,7 @@ const ProductPage = ({ product }: Props) => {
   const POWERLOV_TYPE_OVERRIDES: Record<string, string> = {
     'powerlov-lovcicov-2019-bird': 'Sweat',
     'powerlov-lovcicov-2019-hoodie': 'T-shirt',
-    'powerlov-sacred-heart-sweat': 'Sweat',
+    'powerlov-sacred-heart-sweat': 'Sweat capuche',
     'powerlov-lovcicov-2029-bird': 'Sweat',
   };
   const SUBCATEGORY_LABELS: Record<string, string> = {
