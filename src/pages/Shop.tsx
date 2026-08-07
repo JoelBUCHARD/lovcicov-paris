@@ -186,6 +186,9 @@ const Shop = () => {
                       { key: 'standard', label: 'PowerLov', items: visibleStandard },
                       { key: 'mystic', label: 'MysticLov', items: visibleMystic },
                       { key: 'bijoux', label: 'StoneLov', items: visibleBijoux },
+                      { key: 'sacs', label: 'LovBag — Sacs', items: visibleSacs },
+                      { key: 'accessoires', label: 'LovBag — Accessoires', items: visibleAccessoires },
+
                     ] as const).map((group, gi) => {
                       const seen = new Set<string>();
                       let items = group.items.filter((p) => {
