@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { standardProducts, mysticProducts, bijouxProducts, sacsProducts, grigriProducts } from '@/data/products';
+import { products as ALL_PRODUCTS, getProductsByUnivers } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
@@ -48,11 +48,15 @@ const Shop = () => {
   }, [collectionParam]);
 
   const { isVisible } = useProductVisibility();
-  const visibleStandard = useMemo(() => standardProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
-  const visibleMystic = useMemo(() => mysticProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
-  const visibleBijoux = useMemo(() => bijouxProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
-  const visibleSacs = useMemo(() => sacsProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
-  const visibleAccessoires = useMemo(() => grigriProducts.filter((p) => isVisible(localKey(p.id))), [isVisible]);
+  const shown = useMemo(
+    () => ALL_PRODUCTS.filter((p) => isVisible(localKey(p.id))),
+    [isVisible],
+  );
+  const visibleStandard = useMemo(() => shown.filter((p) => p.collection === 'standard'), [shown]);
+  const visibleMystic = useMemo(() => shown.filter((p) => p.collection === 'mystic'), [shown]);
+  const visibleBijoux = useMemo(() => shown.filter((p) => p.collection === 'bijoux'), [shown]);
+  const visibleSacs = useMemo(() => shown.filter((p) => p.collection === 'sacs'), [shown]);
+  const visibleAccessoires = useMemo(() => shown.filter((p) => p.collection === 'accessoires'), [shown]);
 
   const products = useMemo(() => {
     const base =

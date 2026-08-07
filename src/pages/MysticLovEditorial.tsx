@@ -9,7 +9,9 @@ import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
-import { mysticProducts } from "@/data/products";
+import { getProductsByUnivers } from "@/data/products";
+
+const mysticProducts = getProductsByUnivers("mysticlov");
 import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";

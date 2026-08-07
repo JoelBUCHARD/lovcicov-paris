@@ -8,7 +8,9 @@ import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
-import { bijouxProducts } from "@/data/products";
+import { getProductsByUnivers } from "@/data/products";
+
+const bijouxProducts = getProductsByUnivers("stonelov");
 import { resolveProductImage } from "@/lib/productImage";
 import heroImg from "@/assets/stonelov/hero.png";
 import closingImg from "@/assets/stonelov/closing.png";

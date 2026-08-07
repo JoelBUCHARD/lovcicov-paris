@@ -9,7 +9,9 @@ import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
-import { standardProducts } from "@/data/products";
+import { getProductsByUnivers } from "@/data/products";
+
+const standardProducts = getProductsByUnivers("powerlov");
 import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
 
