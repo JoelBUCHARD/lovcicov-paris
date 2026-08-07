@@ -1,5 +1,6 @@
 import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
+import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
 import CategoryTabs from "@/components/CategoryTabs";
@@ -117,7 +118,7 @@ const MysticLovEditorial = () => {
       if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
       else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
       else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
-      return sorted;
+      return spaceOutDuplicates(sorted, (p) => p.id || p.name);
     },
     [category, sort]
   );

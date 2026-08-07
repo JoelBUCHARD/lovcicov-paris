@@ -13,6 +13,7 @@ import { getProductsByUnivers } from "@/data/products";
 
 const standardProducts = getProductsByUnivers("powerlov");
 import { resolveProductImage } from "@/lib/productImage";
+import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { displayProductName } from '@/lib/productDisplayName';
 
 type Category = "all" | "tshirts" | "sweats";
@@ -213,7 +214,7 @@ const PowerLovEditorial = () => {
     if (sort === "price-asc") sorted.sort((a, b) => (Number(a.price) || 0) - (Number(b.price) || 0));
     else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
     else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
-    return sorted;
+    return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   }, [category, sort]);
 
   // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
