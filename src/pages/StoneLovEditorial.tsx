@@ -1,5 +1,6 @@
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useRef, useState } from "react";
+import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import CategoryTabs from "@/components/CategoryTabs";
@@ -129,7 +130,7 @@ const StoneLovEditorial = () => {
     if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
     else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
     else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
-    return sorted;
+    return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   }, [category, sort]);
 
 

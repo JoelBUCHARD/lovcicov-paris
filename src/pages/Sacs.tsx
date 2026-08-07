@@ -1,5 +1,6 @@
 import { formatPrice } from '@/lib/price';
 import { useMemo, useState } from "react";
+import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import CategoryTabs from "@/components/CategoryTabs";
@@ -94,7 +95,7 @@ const Sacs = () => {
   const [section, setSection] = useState<Section>("sacs");
 
   const filtered = useMemo(
-    () => (section === "accessoires" ? accessoires : products),
+    () => spaceOutDuplicates(section === "accessoires" ? accessoires : products, (p) => p.id || p.name),
     [section]
   );
 
