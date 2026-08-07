@@ -20,6 +20,8 @@ export interface Product {
   univers?: Univers;
   /** Toutes les images du produit : [image principale, ...gallery]. Dérivé automatiquement. */
   images?: string[];
+  /** Vues typées des images ({ url, vue }). Dérivé automatiquement. */
+  views?: { url: string; vue: 'face' | 'dos' | 'porte' | 'detail' }[];
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie' | 'kimono';
   description: string;
   details: string;
@@ -1113,12 +1115,23 @@ const UNIVERS_BY_COLLECTION: Record<Product['collection'], Univers> = {
 export const normalizeProductName = (name: string): string =>
   name.trim().replace(/\s+/g, ' ').replace(/[.\s]+$/, '').toUpperCase();
 
-const normalize = (p: Product): Product => ({
-  ...p,
-  name: normalizeProductName(p.name),
-  univers: UNIVERS_BY_COLLECTION[p.collection],
-  images: [p.image, ...(p.gallery ?? [])].filter(Boolean),
-});
+const vueOf = (key: string): 'face' | 'dos' | 'porte' | 'detail' => {
+  if (/(dos|back)/i.test(key)) return 'dos';
+  if (/(face|front)/i.test(key)) return 'face';
+  if (/(porte|street|walking|lifestyle|model)/i.test(key)) return 'porte';
+  return 'detail';
+};
+
+const normalize = (p: Product): Product => {
+  const images = [p.image, ...(p.gallery ?? [])].filter(Boolean);
+  return {
+    ...p,
+    name: normalizeProductName(p.name),
+    univers: UNIVERS_BY_COLLECTION[p.collection],
+    images,
+    views: images.map((url) => ({ url, vue: vueOf(url) })),
+  };
+};
 
 export const standardProducts: Product[] = rawStandardProducts.map(normalize);
 export const kimonoProducts: Product[] = rawKimonoProducts.map(normalize);
