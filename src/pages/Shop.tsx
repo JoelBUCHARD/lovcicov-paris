@@ -110,7 +110,16 @@ const Shop = () => {
       title: 'Wear the stone.',
       intro: 'La pierre choisie comme un signe. La matière comme mémoire.',
     },
+    sacs: {
+      title: 'Wear the craft.',
+      intro: 'Le cuir tressé main.',
+    },
+    accessoires: {
+      title: 'Wear your charm.',
+      intro: 'Des grigris faits main, pièces uniques.',
+    },
   }[active];
+
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
