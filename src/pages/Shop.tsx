@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { products as ALL_PRODUCTS, getProductsByUnivers } from '@/data/products';
+import { products as ALL_PRODUCTS } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import SEO from '@/components/SEO';
 import Footer from '@/components/Footer';
