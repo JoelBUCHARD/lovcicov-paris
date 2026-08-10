@@ -7,16 +7,7 @@ const items = [
 const TrustBand = () => (
   <section
     aria-label="Nos engagements"
-    style={{
-      padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)",
-      backgroundColor: "#FFFFFF",
-      borderTopWidth: "0.5px",
-      borderBottomWidth: "0.5px",
-      borderTopColor: "#EFEBE4",
-      borderBottomColor: "#EFEBE4",
-      borderTopStyle: "solid",
-      borderBottomStyle: "solid",
-    }}
+    style={{ padding: "clamp(48px, 6vw, 88px) clamp(24px, 5vw, 72px)", backgroundColor: "#FFFFFF" }}
     className="border-t border-b border-[#E8E4DD]"
   >
     <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6 max-w-5xl text-center">
