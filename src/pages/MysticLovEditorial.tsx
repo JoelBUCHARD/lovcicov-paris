@@ -230,7 +230,7 @@ const MysticLovEditorial = () => {
 
           {(() => null)()}
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
+            className="mx-auto grid grid-cols-2 lg:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 lg:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
             {(() => { /* layout precompute happens inline below via closure */ return null; })()}
@@ -268,9 +268,9 @@ const MysticLovEditorial = () => {
               const isLandscape = !isHero && layout.landSet.has(i);
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-1 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                ? `col-span-1 lg:col-span-2 ${heroOnRight ? "lg:col-start-2" : "lg:col-start-1"}`
                 : isLandscape
-                ? "col-span-1 md:col-span-2 self-start"
+                ? "col-span-1 lg:col-span-2 self-start"
                 : "col-span-1 self-start";
 
               return (
@@ -294,11 +294,7 @@ const MysticLovEditorial = () => {
                     className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${isHero ? "h-full" : ""}`}
                   >
                     <div
-                      className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
-                      style={{
-                        backgroundColor: "#F0EDE7",
-                        aspectRatio: "2 / 3",
-                      }}
+                      className={`uv-media ${isHero ? "uv-media-hero" : ""}`}
                     >
                       <img
                         src={product.image}
