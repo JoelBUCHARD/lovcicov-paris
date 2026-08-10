@@ -91,6 +91,7 @@ const AppContent = () => {
           {/* /campagne-sac (LOVSAC) — temporairement masqué, redirection vers l'accueil. Réactivation prévue en septembre. */}
           <Route path="/campagne-sac" element={<Navigate to="/" replace />} />
           <Route path="/sacs" element={<Sacs />} />
+          <Route path="/lovbag" element={<Sacs />} />
           <Route path="/sacs/:slug" element={<SacDetail />} />
           <Route path="/accessoires" element={<Navigate to="/sacs" replace />} />
           {/* Legacy /journal/* article routes redirect to Magazine equivalents */}
