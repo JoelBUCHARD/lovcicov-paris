@@ -665,6 +665,16 @@ const ProductPage = ({ product }: Props) => {
             </button>
           </div>
 
+          {/* Mention affichée SOUS le bouton principal */}
+          {(soldOut || showPreorderNote) && (
+            <p
+              className="mt-3 uppercase"
+              style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
+            >
+              {soldOut ? 'Épuisé' : 'Précommande — expédiée sous 1 mois'}
+            </p>
+          )}
+
           {isKimono && (
             <p className="mt-3" style={{ fontFamily: SANS, fontSize: 11.5, color: '#6B6A65' }}>
               Payez en 4x sans frais avec Alma
