@@ -74,7 +74,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false, to }: Props) 
           )}
         </div>
 
-        <div className="pt-5 md:pt-6 pb-2 text-center">
+        <div className="pt-3 md:pt-6 pb-6 md:pb-2 text-center">
           <h3
             className="text-[#1A1A1A] font-light product-card-title"
             style={{
@@ -87,7 +87,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false, to }: Props) 
             {displayProductName(product.name)}
           </h3>
           <p
-            className="mt-2 text-[#5F5E5A] font-light"
+            className="mt-1.5 md:mt-2 text-[#5F5E5A] font-light"
             style={{ fontSize: 12, letterSpacing: '0.06em' }}
           >
             {priceLabel}
