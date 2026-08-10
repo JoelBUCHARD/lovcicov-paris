@@ -32,6 +32,7 @@ export interface Product {
 
   stoneMeaning?: string; // Signification des pierres (bijoux only)
   shopifyHandle?: string; // Handle of matching Shopify product
+  shopifyVariantId?: string; // Variante Shopify explicite (gid://shopify/ProductVariant/...)
   shopifyColor?: string; // Color option value to match on Shopify variant
   specs?: ProductSpecs; // Fiche technique complète (accordéons Composition & entretien / Guide des tailles)
 }
@@ -132,6 +133,20 @@ const rawStandardProducts: Product[] = [
       'powerlov-standard-packshot-face',
       'powerlov-standard-packshot-dos',
     ],
+    badge: 'UNISEX',
+  },
+  {
+    id: 'powerlov-iconic-by-nature',
+    shopifyHandle: 'powerlov-sacred-heart-sweat',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241504604',
+    name: 'ICONIC BY NATURE',
+    price: 99,
+    collection: 'standard',
+    subcategory: 'hoodie',
+    description: 'Sweat écru en coton molletonné, patch cœur rouge brodé sur la poitrine gauche et logo LOVCICOV PARIS sous l\'encolure au dos. Coupe oversize unisexe.',
+    details: 'Iconique par nature. Le cœur brodé comme signature, porté sans effort.',
+    image: 'powerlov-iconic-stairs-red-boots',
+    gallery: ['powerlov-iconic-cream-front-heart', 'powerlov-iconic-cream-back-lovcicov'],
     badge: 'UNISEX',
   },
   {
