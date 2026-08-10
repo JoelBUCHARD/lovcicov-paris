@@ -1,3 +1,4 @@
+import { SIZE_GUIDE_NOTE } from '@/config/sizing';
 import { formatPrice } from '@/lib/price';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
