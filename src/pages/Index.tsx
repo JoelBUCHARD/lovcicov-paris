@@ -11,7 +11,7 @@ import SEO from '@/components/SEO';
 import HeroCarousel from '@/components/HeroCarousel';
 import editorial2026Duo from '@/assets/editorial-2026-duo-v3.png.asset.json';
 
-import slideHeroAsset from '@/assets/hero-lovcicov-2019-garden.png.asset.json';
+import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
 
 
 import ig1 from '@/assets/instagram/ig-1.png';
