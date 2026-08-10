@@ -770,7 +770,7 @@ const ProductPage = ({ product }: Props) => {
             </Accordion>
           )}
 
-          {!isJewelry && !isKimono && (
+          {showPreorderNote && (
             <Accordion title="Précommande — notre choix" defaultOpen>
               <p>
                 Confectionné à la demande, rien d'autre. Nous avons choisi de ne produire que
