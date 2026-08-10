@@ -212,58 +212,8 @@ const PowerLovEditorial = () => {
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   }, [category, sort]);
 
-  // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
-  // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
-  // Règle : une grande vignette est réservée aux sweats (crewneck/hoodie).
-  // Les t-shirts restent toujours en format standard.
-  const { ordered, layout } = useMemo(() => {
-    const isSweat = (p: (typeof filtered)[number]) => p.categories.includes("sweats");
-    const items = [...filtered];
-    const rules: string[] = [];
-    const big = new Set<number>();
-    let i = 0;
-    let row = 1;
-    let type1 = true;
-    let left = true;
-    while (i < items.length) {
-      const remaining = items.length - i;
-      // Une grande rangée n'est possible que si un sweat peut occuper la grande vignette.
-      let sweatIdx = -1;
-      if (type1 && remaining >= 3) {
-        sweatIdx = items.findIndex((p, idx) => idx >= i && isSweat(p));
-      }
-      if (type1 && remaining >= 3 && sweatIdx !== -1) {
-        // On amène le sweat le plus proche sur l'emplacement de la grande vignette.
-        if (sweatIdx !== i) {
-          const [sweat] = items.splice(sweatIdx, 1);
-          items.splice(i, 0, sweat);
-        }
-        const bigCols = left ? "1 / 3" : "2 / 4";
-        const stdCol = left ? "3" : "1";
-        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
-        rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
-        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
-        big.add(i);
-        i += 3;
-        row += 2;
-        type1 = false;
-        left = !left;
-      } else {
-        const n = Math.min(3, remaining);
-        for (let k = 0; k < n; k++) {
-          rules.push(`.pw-${i + k}{grid-column:${k + 1};grid-row:${row};}`);
-        }
-        i += n;
-        row += 1;
-        // Après une rangée standard, on retente une grande rangée (jamais deux collées).
-        type1 = true;
-      }
-    }
-    return {
-      ordered: items,
-      layout: { css: `@media (min-width:768px){${rules.join("")}}`, big },
-    };
-  }, [filtered]);
+
+
 
 
   const from = `${location.pathname}${location.search}`;
@@ -376,15 +326,50 @@ const PowerLovEditorial = () => {
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
             .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            ${layout.css}
           `}</style>
 
+
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
+            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
-            {ordered.map((product, i) => {
-              const isBig = layout.big.has(i);
+            {filtered.map((product, i, arr) => {
+              const layout = (arr as any).__pwLayout ?? (() => {
+                const heroSet = new Set<number>();
+                if (category === "all") {
+                  for (let k = 0; k < arr.length; k += 5) {
+                    if (arr.length - k >= 7) heroSet.add(k);
+                  }
+                }
+                const H = heroSet.size;
+                const cells = 3 * H + arr.length;
+                const rem = cells % 4;
+                const landSet = new Set<number>();
+                if (category === "all") {
+                  const promote = (n: number) => {
+                    let c = 0;
+                    for (let k = arr.length - 1; k >= 0 && c < n; k--) {
+                      if (!heroSet.has(k)) { landSet.add(k); c++; }
+                    }
+                  };
+                  if (rem === 2) promote(2);
+                  else if (rem === 3) promote(1);
+                  else if (rem === 1) promote(3);
+                }
+                const data = { heroSet, landSet };
+                (arr as any).__pwLayout = data;
+                return data;
+              })();
+              const heroIndex = Math.floor(i / 5);
+              const isHero = layout.heroSet.has(i);
+              const isLandscape = !isHero && layout.landSet.has(i);
+              const heroOnRight = isHero && heroIndex % 2 === 1;
+              const spanClass = isHero
+                ? `col-span-1 md:col-span-2 md:row-span-2 ${heroOnRight ? "md:col-start-3" : "md:col-start-1"}`
+                : isLandscape
+                ? "col-span-1 md:col-span-2 self-start"
+                : "col-span-1 self-start";
+
               return (
               <motion.div
                 key={product.key}
@@ -392,7 +377,7 @@ const PowerLovEditorial = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className={`col-span-1 md:h-full pw-${i}`}
+                className={spanClass}
               >
                 <Link
                   to={`/shop/${product.id}`}
@@ -403,23 +388,21 @@ const PowerLovEditorial = () => {
                     if (product.hover) prefetchImage(product.hover);
                   }}
                   onTouchStart={() => prefetchRoute("/shop/item")}
-                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  className={`group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D] ${isHero ? "h-full" : ""}`}
                 >
                   <div
-                    className={`relative w-full overflow-hidden aspect-[4/5] ${
-                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
-                    }`}
-                    style={{ backgroundColor: "#F0EDE7" }}
+                    className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
+                    style={{ backgroundColor: "#F0EDE7", aspectRatio: "2 / 3" }}
                   >
                     <img
                       src={product.image}
                       alt={product.name}
-                      loading="lazy"
+                      loading={i < 4 ? "eager" : "lazy"}
                       decoding="async"
                       className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${
                         product.hover ? " [@media(hover:hover)]:group-hover:opacity-0" : ""
                       }`}
-                      style={{ objectPosition: "center top" }}
+                      style={{ objectPosition: "center" }}
                     />
                     {product.hover && (
                       <img
@@ -429,7 +412,7 @@ const PowerLovEditorial = () => {
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
-                        style={{ objectPosition: "center top" }}
+                        style={{ objectPosition: "center" }}
                       />
                     )}
                   </div>
@@ -463,6 +446,7 @@ const PowerLovEditorial = () => {
               );
             })}
           </div>
+
 
           <div
             className="mx-auto flex justify-center"
