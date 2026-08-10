@@ -56,6 +56,11 @@ const IMAGES: Record<string, ImageSet> = {
     packFace: "powerlov-standard-packshot-face",
     packDos: "powerlov-standard-packshot-dos",
   },
+  "powerlov-iconic-by-nature": {
+    porteFace: "powerlov-iconic-stairs-red-boots",
+    packFace: "powerlov-iconic-cream-front-heart",
+    packDos: "powerlov-iconic-cream-back-lovcicov",
+  },
   "powerlov-lovcicov-2019-bird": {
     porteFace: "powerlov-holy-dove-porte-face",
     packFace: "powerlov-holy-dove-packshot-face",
