@@ -198,16 +198,16 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
     >
 
       <h2
-        className="text-center"
+        className="text-center mb-6 md:mb-10"
         style={{
           fontFamily: "Arial, sans-serif",
           fontSize: "10px",
           color: "#1A1A1A",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          marginBottom: "40px",
         }}
       >
+
         Vous aimerez aussi
       </h2>
 
