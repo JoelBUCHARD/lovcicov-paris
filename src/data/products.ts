@@ -119,7 +119,7 @@ const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
-    name: 'ICONIC BY NATURE',
+    name: 'THE STANDARD IS ME',
     price: 99,
     collection: 'standard',
     subcategory: 'hoodie',
