@@ -321,7 +321,7 @@ const PowerLovEditorial = () => {
         {/* PRODUCT GRID — grille éditoriale (grandes cartes alternées) */}
         <section
           aria-label="Sélection PowerLov"
-          style={{ padding: "clamp(24px, 4vw, 56px) clamp(12px, 3vw, 40px) 4px" }}
+          style={{ paddingTop: "clamp(24px, 4vw, 56px)", paddingBottom: 4 }}
         >
           <style>{`
             .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -330,8 +330,7 @@ const PowerLovEditorial = () => {
 
 
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
-            style={{ maxWidth: 1400 }}
+            className="site-container grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
           >
             {filtered.map((product, i, arr) => {
               const layout = (arr as any).__pwLayout ?? (() => {
