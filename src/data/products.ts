@@ -225,7 +225,7 @@ const rawStandardProducts: Product[] = [
     name: 'HOLY DOVE.',
     price: 109,
     collection: 'standard',
-    subcategory: 'tshirt',
+    subcategory: 'crewneck',
     description: 'Sweat crewneck coton molletonné écru. Sérigraphie colombe auréolée « LOVCICOV 2019 PARIS ». Coupe oversize. Unisex.',
     details: 'La colombe sacrée. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-holy-dove-porte-face',
