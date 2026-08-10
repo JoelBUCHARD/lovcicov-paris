@@ -20,6 +20,7 @@ import {
 import { standardProducts, mysticProducts, bijouxProducts, products as allLocalProducts } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
+import { SOCIAL_LABELS, whatsappLink } from '@/config/social';
 
 // Source d'images unique, partagée avec la grille, la fiche produit et « Vous aimerez aussi »
 const getLocalImage = (key: string) => resolveProductImage(key);
@@ -360,9 +361,10 @@ const Cart = () => {
                     <p>
                       <span className="text-foreground">Une question&nbsp;?</span>{' '}
                       <a
-                        href="https://wa.me/33786386782?text=Bonjour%20LOVCICOV"
+                        href={whatsappLink()}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={SOCIAL_LABELS.whatsapp}
                         className="underline underline-offset-4 hover:text-foreground transition-colors"
                       >
                         Écrivez-nous

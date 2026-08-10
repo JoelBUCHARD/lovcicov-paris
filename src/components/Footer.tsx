@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Instagram, Facebook } from 'lucide-react';
+import { Instagram, Facebook, MessageCircle } from 'lucide-react';
+import { SOCIAL_LINKS, SOCIAL_LABELS, whatsappLink } from '@/config/social';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import lovcicovLogo from '@/assets/lovcicov-logo.png';
@@ -138,7 +139,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/33786386782?text=Bonjour%20LOVCICOV" target="_blank" rel="noopener noreferrer" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
+                  <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label={SOCIAL_LABELS.whatsapp} className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
                     WhatsApp
                   </a>
                 </li>
@@ -176,29 +177,39 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             Made in Paradise
           </p>
 
-          <div className="flex items-center justify-center gap-8 mb-10">
+          <div className="relative z-10 flex items-center justify-center gap-8 mb-10">
             <a
-              href="https://www.instagram.com/lovcicov.paris/"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram — @lovcicov.paris"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={SOCIAL_LABELS.instagram}
+              className="relative z-10 inline-flex p-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Instagram size={18} strokeWidth={1.25} />
             </a>
             <span aria-hidden className="w-px h-4 bg-border" />
             <a
-              href="https://www.facebook.com/lovcicov"
+              href={SOCIAL_LINKS.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Facebook — LOVCICOV"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              aria-label={SOCIAL_LABELS.facebook}
+              className="relative z-10 inline-flex p-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               <Facebook size={18} strokeWidth={1.25} />
             </a>
+            <span aria-hidden className="w-px h-4 bg-border" />
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={SOCIAL_LABELS.whatsapp}
+              className="relative z-10 inline-flex p-2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <MessageCircle size={18} strokeWidth={1.25} />
+            </a>
           </div>
 
-          <p className="text-[10px] tracking-[0.28em] uppercase text-muted-foreground/70 pb-20 md:pb-0">
+          <p className="text-[10px] tracking-[0.28em] uppercase text-muted-foreground/70 pb-20 md:pb-28">
             © {year} LOVCICOV · Tous droits réservés
           </p>
         </div>
