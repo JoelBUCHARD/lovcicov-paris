@@ -113,7 +113,7 @@ const rawStandardProducts: Product[] = [
     description: 'Trois mots comme une armure invisible. Protégée. Alignée. Inarrêtable. Un mantra brodé fin sur la poitrine, le cœur LOVCICOV près du col — la pièce la plus discrète de la ligne PowerLov, et peut-être la plus puissante. Le mannequin porte une taille XS.',
     details: 'Trois mots comme une armure invisible. Protégée. Alignée. Inarrêtable. Un mantra brodé fin sur la poitrine, le cœur LOVCICOV près du col — la pièce la plus discrète de la ligne PowerLov, et peut-être la plus puissante. Le mannequin porte une taille XS.',
     image: 'powerlov-protected-porte-face',
-    gallery: ['powerlov-protected-packshot-face', 'powerlov-protected-packshot-dos'],
+    gallery: ['powerlov-protected-packshot-face-v2', 'powerlov-protected-packshot-dos-v2'],
     badge: 'UNISEX',
   },
   {
