@@ -153,7 +153,7 @@ const Index = () => {
               <p className="lg:hidden text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] text-center mb-8">
                 Maison LOVCICOV — Paris
               </p>
-              <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full max-h-[60vh] md:max-h-[75vh] lg:max-h-screen">
+              <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src={slideHeroAsset.url}
                   alt="Sweat LOVCICOV PARIS écru, emblème colombe rouge — collection PowerLov"
@@ -234,7 +234,7 @@ const Index = () => {
             alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
             width={1559}
             height={1009}
-            className="w-full h-auto max-h-[60vh] md:max-h-[75vh] object-cover object-[center_35%] max-w-[1400px] mx-auto"
+            className="w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
           />
 
         </motion.div>
