@@ -635,7 +635,7 @@ const ProductPage = ({ product }: Props) => {
               className="mt-6 mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
             >
-              {soldOut ? 'Épuisé' : 'Précommande — expédiée sous environ 1 mois'}
+              {soldOut ? 'Épuisé' : 'Précommande — expédiée sous 1 mois'}
             </p>
           )}
 
