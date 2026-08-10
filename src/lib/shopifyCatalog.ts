@@ -49,7 +49,6 @@ const CATALOG_QUERY = `
                 title
                 availableForSale
                 currentlyNotInStock
-                quantityAvailable
                 price { amount currencyCode }
                 selectedOptions { name value }
               }

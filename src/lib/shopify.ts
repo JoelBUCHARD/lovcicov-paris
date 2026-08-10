@@ -114,7 +114,6 @@ const STOREFRONT_QUERY = `
                 }
                 availableForSale
                 currentlyNotInStock
-                quantityAvailable
                 selectedOptions {
                   name
                   value
@@ -166,7 +165,6 @@ const PRODUCT_BY_HANDLE_QUERY = `
             }
             availableForSale
             currentlyNotInStock
-            quantityAvailable
             selectedOptions {
               name
               value
