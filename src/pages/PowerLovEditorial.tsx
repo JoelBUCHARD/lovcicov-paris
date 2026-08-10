@@ -383,7 +383,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => {
+            {ordered.map((product, i) => {
               const isBig = layout.big.has(i);
               return (
               <motion.div
