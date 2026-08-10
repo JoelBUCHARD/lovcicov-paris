@@ -96,20 +96,15 @@ const IMAGES: Record<string, ImageSet> = {
   },
 };
 
-const TYPE_LABELS: Record<string, string> = {
-  "powerlov-discipline": "T-shirt",
-  "powerlov-if-god-dj-frequency": "T-shirt",
-  "powerlov-god-is-a-dancer": "T-shirt",
-  "powerlov-protected-aligned-unstoppable": "T-shirt",
-  "powerlov-lovcicov-2019-bird": "Sweat",
-  "powerlov-sacred-heart-sweat": "Sweat capuche",
-  "powerlov-iconic-by-nature": "Sweat",
-  "powerlov-mom-boss-crisis-manager": "T-shirt",
-  "powerlov-lovcicov-2019-hoodie": "T-shirt",
-  "powerlov-energy-never-lies-hoodie": "Sweat capuche",
-  "powerlov-lovcicov-2029-bird": "Sweat",
-  "powerlov-less-drama-champagne": "T-shirt",
+// Étiquette dérivée du champ `type` de products.ts (source de vérité unique).
+const LABEL_BY_TYPE: Record<string, string> = {
+  tshirt: "T-shirt",
+  crewneck: "Sweat",
+  hoodie: "Sweat capuche",
 };
+const TYPE_LABELS: Record<string, string> = Object.fromEntries(
+  standardProducts.map((p) => [p.id, LABEL_BY_TYPE[p.type ?? p.subcategory ?? "tshirt"] ?? "T-shirt"])
+);
 
 // SPEC C — ordre des galeries selon la carte cliquée
 const galleryFor = (id: string, side: "face" | "dos"): string[] => {
