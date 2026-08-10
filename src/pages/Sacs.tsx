@@ -376,7 +376,7 @@ const Sacs = () => {
           )}
         </section>
 
-        <JourneyContinuation current="power" />
+        <JourneyContinuation current="lovbag" />
       </main>
 
       <Footer />
