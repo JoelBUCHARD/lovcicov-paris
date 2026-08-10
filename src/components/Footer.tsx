@@ -44,7 +44,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
 
   return (
     <footer
-      className={`${hideTopBorder ? '' : 'border-t border-border'}`}
+      className={`${hideTopBorder ? '' : ''}`}
       style={{ backgroundColor: '#FFFFFF' }}
       aria-labelledby="footer-heading"
     >
@@ -98,7 +98,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
       )}
 
       {/* Main footer grid */}
-      <div className="border-t border-border/70">
+      <div className="rule-t">
         <div className="container-luxury py-16 md:py-20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 text-center md:text-left">
             {/* Maison */}
@@ -163,7 +163,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
       </div>
 
       {/* Closing — brand signature */}
-      <div className="border-t border-border/70">
+      <div className="rule-t">
         <div className="container-luxury py-14 md:py-16 text-center">
           <Link to="/" aria-label="LOVCICOV Paris — Accueil" className="inline-flex mb-6">
             <img loading="lazy" decoding="async" src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-9 w-auto" />

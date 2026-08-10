@@ -181,7 +181,7 @@ const Index = () => {
 
 
       {/* KEYWORDS STRIP — ambient transition */}
-      <section className="w-full bg-[#FAF7F2] border-t border-[#EFE9DF] py-4 overflow-hidden">
+      <section className="w-full bg-[#FAF7F2] rule-t py-4 overflow-hidden">
         <div className="whitespace-nowrap overflow-hidden">
           <div className="inline-flex animate-[marquee_60s_linear_infinite]" style={{ animationName: 'marquee' }}>
             {Array.from({ length: 20 }).map((_, dup) => (
@@ -267,7 +267,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 4. SIGNATURE PIECES — PowerLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container rule-t" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
         <div className="site-container text-center mb-14 md:mb-20">
@@ -310,7 +310,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 5. BRAND UNIVERSE — MysticLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container rule-t" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
         <div className="site-container text-center mb-14 md:mb-20">
@@ -355,7 +355,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container rule-t" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
         <div className="site-container text-center mb-14 md:mb-20">
@@ -399,7 +399,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 7. BRAND UNIVERSE — LovBag */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container rule-t" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
         <div className="site-container text-center mb-14 md:mb-20">
@@ -514,7 +514,7 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* PRESS */}
       {/* ————————————————————————————————————————————————————— */}
-      <section className="py-16 md:py-20 text-center bg-white border-t border-[#E8E4DD]">
+      <section className="py-16 md:py-20 text-center bg-white rule-t">
         <p className="text-[10px] uppercase tracking-[0.32em] text-[#B4A99A] mb-8">
           Vu dans la presse
         </p>
