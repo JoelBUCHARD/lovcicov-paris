@@ -262,7 +262,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
         </div>
       </div>
 
-      <div className="mt-12 flex justify-center">
+      <div className="mt-8 md:mt-12 flex justify-center">
         <Link
           to="/shop"
           className="inline-block text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity"
