@@ -266,11 +266,89 @@ const ProductPage = ({ product }: Props) => {
     return () => observer.disconnect();
   }, [product.id]);
 
-  const ctaLabel = isJewelry || isKimono ? 'Ajouter au panier' : 'Précommander';
+  // État du bouton déterminé dynamiquement depuis la Storefront API (jamais en dur).
+  const [variantInfo, setVariantInfo] = useState<ShopifyVariantInfo | null>(null);
+  const [variantChecked, setVariantChecked] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    setVariantInfo(null);
+    setVariantChecked(false);
+    if (!product.shopifyVariantId) return;
+    fetchShopifyVariantById(product.shopifyVariantId).then((info) => {
+      if (cancelled) return;
+      setVariantInfo(info);
+      setVariantChecked(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [product.id, product.shopifyVariantId]);
+
+  const soldOut = !!product.shopifyVariantId && variantChecked && (!variantInfo || !variantInfo.availableForSale);
+  const isPreorderVariant =
+    !!variantInfo && variantInfo.availableForSale && variantInfo.currentlyNotInStock;
+  const ctaLabel = soldOut
+    ? 'Épuisé'
+    : isPreorderVariant
+    ? 'Précommander'
+    : variantInfo
+    ? 'Ajouter au panier'
+    : isJewelry || isKimono
+    ? 'Ajouter au panier'
+    : 'Précommander';
+  const showPreorderNote = product.shopifyVariantId ? isPreorderVariant : !isJewelry && !isKimono;
   const needsSize = !isJewelry && !isKimono;
-  const ctaDisabled = isAdding || (needsSize && !selectedSize);
+  const ctaDisabled = isAdding || soldOut || (needsSize && !selectedSize);
 
   const handleAddToCart = async () => {
+    // Cas prioritaire : variante Shopify explicite (products.ts = seule source des identifiants)
+    if (product.shopifyVariantId) {
+      setIsAdding(true);
+      try {
+        const info = variantInfo ?? (await fetchShopifyVariantById(product.shopifyVariantId));
+        if (!info) {
+          toast({
+            title: 'Produit indisponible',
+            description: "Cette variante n'existe plus côté Shopify.",
+          });
+          return;
+        }
+        if (!info.availableForSale) {
+          toast({ title: 'Épuisé', description: 'Cet article n\'est plus disponible.' });
+          return;
+        }
+        const result = await addShopifyItem({
+          product: { node: info.product },
+          variantId: info.id,
+          variantTitle: info.title,
+          price: info.price,
+          quantity: 1,
+          selectedOptions: needsSize
+            ? [...info.selectedOptions, { name: 'Taille', value: selectedSize }]
+            : info.selectedOptions,
+        });
+        if (!result?.success) {
+          console.error('[Shopify] cartLinesAdd a échoué', {
+            variantId: product.shopifyVariantId,
+            product: product.name,
+            error: result?.error,
+          });
+          toast({
+            title: "Impossible d'ajouter au panier",
+            description: result?.error || 'Shopify a refusé cette variante. Voir la console pour le détail.',
+          });
+          return;
+        }
+        toast({ title: 'Ajouté au panier', description: product.name });
+      } catch (err) {
+        console.error('[Shopify] Ajout au panier échoué', err);
+        toast({ title: 'Erreur', description: "Impossible d'ajouter au panier." });
+      } finally {
+        setIsAdding(false);
+      }
+      return;
+    }
+
     if (!product.shopifyHandle) {
       // Le panier utilise toujours l'image canonique du catalogue (la même que la grille)
       const canonical = allProducts.find((p) => p.id === product.id);
@@ -329,6 +407,7 @@ const ProductPage = ({ product }: Props) => {
       setIsAdding(false);
     }
   };
+
 
 
 
