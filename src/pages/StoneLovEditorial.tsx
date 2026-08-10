@@ -333,7 +333,7 @@ const StoneLovEditorial = () => {
               const isLandscape = !uniformMode && !isHero && layout.landSet.has(i);
               const heroOnRight = isHero && heroIndex % 2 === 1;
               const spanClass = isHero
-                ? `col-span-1 lg:col-span-2 lg:row-span-2 ${heroOnRight ? "lg:col-start-2" : "lg:col-start-1"}`
+                ? `col-span-1 lg:col-span-2 ${heroOnRight ? "lg:col-start-2" : "lg:col-start-1"}`
                 : isLandscape
                 ? "col-span-1 lg:col-span-2 self-start"
                 : "col-span-1 self-start";

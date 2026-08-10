@@ -229,10 +229,10 @@ const PowerLovEditorial = () => {
       const remaining = items.length - i;
       // Une grande rangée n'est possible que si un sweat peut occuper la grande vignette.
       let sweatIdx = -1;
-      if (type1 && remaining >= 3) {
+      if (type1 && remaining >= 2) {
         sweatIdx = items.findIndex((p, idx) => idx >= i && isSweat(p));
       }
-      if (type1 && remaining >= 3 && sweatIdx !== -1) {
+      if (type1 && remaining >= 2 && sweatIdx !== -1) {
         // On amène le sweat le plus proche sur l'emplacement de la grande vignette.
         if (sweatIdx !== i) {
           const [sweat] = items.splice(sweatIdx, 1);
@@ -240,12 +240,11 @@ const PowerLovEditorial = () => {
         }
         const bigCols = left ? "1 / 3" : "2 / 4";
         const stdCol = left ? "3" : "1";
-        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
+        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row};}`);
         rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
-        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
         big.add(i);
-        i += 3;
-        row += 2;
+        i += 2;
+        row += 1;
         type1 = false;
         left = !left;
       } else {
