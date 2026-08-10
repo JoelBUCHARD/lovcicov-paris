@@ -685,7 +685,7 @@ const ProductPage = ({ product }: Props) => {
 
       {/* Détails produits — accordéons pleine largeur */}
       <section
-        className="mt-12 md:mt-16 max-w-3xl mx-auto"
+        className="mt-8 md:mt-16 max-w-3xl mx-auto"
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
