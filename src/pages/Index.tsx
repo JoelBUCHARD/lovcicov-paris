@@ -10,6 +10,8 @@ import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
 import editorial2026Duo from '@/assets/campagne-diptyque.webp.asset.json';
+import campagneMobile1 from '@/assets/campagne-mobile-1.webp.asset.json';
+import campagneMobile2 from '@/assets/campagne-mobile-2.webp.asset.json';
 
 import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
 
@@ -229,13 +231,33 @@ const Index = () => {
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="w-full px-6 md:px-6"
         >
+          {/* Mobile : deux visuels portrait empilés */}
+          <div className="md:hidden flex flex-col gap-3 -mx-6">
+            <img loading="lazy" decoding="async"
+              src={campagneMobile1.url}
+              alt="Campagne LOVCICOV Paris — t-shirt blanc logo cœur"
+              width={1122}
+              height={1402}
+              className="w-full h-auto"
+            />
+            <img loading="lazy" decoding="async"
+              src={campagneMobile2.url}
+              alt="Campagne LOVCICOV Paris — sweat bleu cœur sacré"
+              width={1122}
+              height={1402}
+              className="w-full h-auto"
+            />
+          </div>
+
+          {/* Desktop : diptyque paysage inchangé */}
           <img loading="lazy" decoding="async"
             src={editorial2026Duo.url}
             alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
             width={1559}
             height={1009}
-            className="w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
+            className="hidden md:block w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
           />
+
 
         </motion.div>
 
