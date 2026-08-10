@@ -261,7 +261,7 @@ const PowerLovEditorial = () => {
     }
     return {
       ordered: items,
-      layout: { css: `@media (min-width:768px){${rules.join("")}}`, big },
+      layout: { css: `@media (min-width:1024px){${rules.join("")}}`, big },
     };
   }, [filtered]);
 
@@ -380,7 +380,7 @@ const PowerLovEditorial = () => {
           `}</style>
 
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
+            className="mx-auto grid grid-cols-2 lg:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
             {ordered.map((product, i) => {
@@ -392,7 +392,7 @@ const PowerLovEditorial = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className={`col-span-1 md:h-full pw-${i}`}
+                className={`col-span-1 lg:h-full pw-${i}`}
               >
                 <Link
                   to={`/shop/${product.id}`}
@@ -403,13 +403,10 @@ const PowerLovEditorial = () => {
                     if (product.hover) prefetchImage(product.hover);
                   }}
                   onTouchStart={() => prefetchRoute("/shop/item")}
-                  className="group flex flex-col md:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
+                  className="group flex flex-col lg:h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className={`relative w-full overflow-hidden aspect-[4/5] ${
-                      isBig ? "md:aspect-auto md:flex-1 md:min-h-0" : ""
-                    }`}
-                    style={{ backgroundColor: "#F0EDE7" }}
+                    className={`uv-media ${isBig ? "uv-media-hero" : ""}`}
                   >
                     <img
                       src={product.image}
