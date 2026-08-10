@@ -912,8 +912,8 @@ export const BAGS: BagSpec[] = [
     images: ['/images/sacs/LOV-SML-02_01.jpg', '/images/sacs/LOV-SML-02_02.jpg', '/images/sacs/LOV-SML-02_03.jpg'],
   },
   {
-    ref: 'LOV-SML-03', slug: 'small-lov-bicolore-or', name: 'Small LOV Bicolore Or',
-    silhouette: 'sml', motif: 'Bicolore', colorName: 'Or', swatch: '#C9A227',
+    ref: 'LOV-SML-03', slug: 'small-lov-bicolore-argent', name: 'Small LOV Bicolore Or',
+    silhouette: 'sml', motif: 'Bicolore', colorName: 'Argent', swatch: '#C0C0C0',
     body: 'Doré', trim: 'Doré',
     description: "Or sur or. Le petit sac du soir, tressé main comme les autres.",
     images: ['/images/sacs/LOV-SML-03_01.jpg', '/images/sacs/LOV-SML-03_02.jpg', '/images/sacs/LOV-SML-03_03.jpg'],
