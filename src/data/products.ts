@@ -212,7 +212,7 @@ const rawStandardProducts: Product[] = [
     collection: 'standard',
     subcategory: 'tshirt',
     type: 'tshirt',
-    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « MOM BOSS. CRISIS MANAGER. » au dos. Unisex.',
+    description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LOVCICOV. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
     image: 'powerlov-heart-icon-porte-face',
     gallery: ['powerlov-heart-icon-porte-dos', 'powerlov-heart-icon-packshot-face', 'powerlov-heart-icon-packshot-dos'],
