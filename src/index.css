@@ -218,25 +218,3 @@
     .cat-tab { font-size: 10px; letter-spacing: 0.24em; }
   }
 }
-
-@layer components {
-  /* Vignette produit : ratio portrait 3/4, hauteur d'image plafonnée à 65% de l'écran */
-  .uv-media {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    aspect-ratio: 3 / 4;
-    max-height: 65vh;
-    background-color: #F0EDE7;
-  }
-  .uv-media > img { object-fit: cover; }
-
-  @media (min-width: 1024px) {
-    .uv-media-hero {
-      aspect-ratio: auto;
-      flex: 1 1 0%;
-      min-height: 0;
-      max-height: 65vh;
-    }
-  }
-}

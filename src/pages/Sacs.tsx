@@ -231,7 +231,7 @@ const Sacs = () => {
           `}</style>
 
           <div
-            className="mx-auto grid grid-cols-2 lg:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
+            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
             {filtered.map((product, i) => (
@@ -255,7 +255,8 @@ const Sacs = () => {
                   className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className="uv-media"
+                    className="relative w-full overflow-hidden aspect-[4/5]"
+                    style={{ backgroundColor: "#F0EDE7" }}
                   >
                     <img
                       src={product.image}
