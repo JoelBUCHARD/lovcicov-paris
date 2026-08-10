@@ -83,6 +83,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-if-god-dj-frequency',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241406300',
     shopifyHandle: 't-shirt-powerlov',
     name: 'PRETTY. SMART. DANGEROUS.',
     price: 70,
@@ -125,6 +126,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-sacred-heart-sweat',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241504604',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'THE STANDARD IS ME',
     price: 120,
@@ -145,7 +147,7 @@ const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-iconic-by-nature',
     shopifyHandle: 'powerlov-sacred-heart-sweat',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241504604',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58604831179100',
     name: 'ICONIC BY NATURE',
     price: 109,
     collection: 'standard',
@@ -159,6 +161,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-energy-never-lies-hoodie',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241668444',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'PERFECTLY IMPERFECT',
     price: 120,
@@ -173,6 +176,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-less-drama-champagne',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241865052',
     shopifyHandle: 't-shirt-powerlov',
     name: 'LESS DRAMA. MORE CHAMPAGNE.',
     price: 70,
@@ -192,6 +196,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2029-bird',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241930588',
     shopifyHandle: 'sweat-powerlov',
     name: 'MY OWN MUSE.',
     price: 109,
@@ -206,6 +211,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-mom-boss-crisis-manager',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241963356',
     shopifyHandle: 't-shirt-powerlov',
     name: 'HEART ICON.',
     price: 70,
@@ -220,6 +226,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2019-hoodie',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584241996124',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'HEART SIGNATURE.',
     price: 70,
@@ -234,6 +241,7 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2019-bird',
+    shopifyVariantId: 'gid://shopify/ProductVariant/58584242028892',
     shopifyHandle: 'sweat-powerlov',
     name: 'HOLY DOVE.',
     price: 109,
