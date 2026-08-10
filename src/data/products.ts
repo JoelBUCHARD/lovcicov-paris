@@ -160,9 +160,8 @@ const rawStandardProducts: Product[] = [
     gallery: [
       'powerlov-less-drama-packshot-dos',
       'powerlov-less-drama-packshot-face',
-      'powerlov-less-drama-champagne-rue-de-seine',
-      'powerlov-less-drama-champagne-flat-white-front',
       'powerlov-less-drama-champagne-flat-white-back',
+
     ],
     badge: 'UNISEX',
   },
