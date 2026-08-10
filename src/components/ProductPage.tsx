@@ -1202,9 +1202,7 @@ const ProductPage = ({ product }: Props) => {
                 </tbody>
               </table>
               <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
-                {isDualModelProduct(product.id)
-                  ? "Coupe oversize unisexe : ce t-shirt taille grand. Nos mannequins portent 2 tailles en dessous de leur taille habituelle (femme 1m75 → XS, homme 1m85 → M). Pour un tombé près du corps, prends une taille en dessous de ta taille habituelle ; pour l'effet oversize, reste sur ta taille."
-                  : 'Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.'}
+                {SIZE_GUIDE_NOTE}
               </p>
                 </>
               )}
