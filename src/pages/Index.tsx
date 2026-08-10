@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
-import editorial2026Duo from '@/assets/editorial-2026-duo-v3.png.asset.json';
+import editorial2026Duo from '@/assets/campagne-diptyque.webp.asset.json';
 
 import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
 
@@ -231,8 +231,10 @@ const Index = () => {
         >
           <img loading="lazy" decoding="async"
             src={editorial2026Duo.url}
-            alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
-            className="w-full h-[60vh] md:h-[80vh] object-cover object-top max-w-[900px] mx-auto"
+            alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
+            width={1559}
+            height={1009}
+            className="w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
           />
 
         </motion.div>
