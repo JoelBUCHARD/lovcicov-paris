@@ -234,7 +234,7 @@ const Index = () => {
             alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
             width={1559}
             height={1009}
-            className="w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
+            className="w-full h-auto max-h-[60vh] md:max-h-[75vh] object-cover object-[center_35%] max-w-[1400px] mx-auto"
           />
 
         </motion.div>
