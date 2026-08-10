@@ -60,7 +60,7 @@ const universeConfig = {
   mystic: { label: 'MYSTICLOV', accent: '#C9A84C', back: '/mysticlov', backLabel: 'MysticLov', recitBg: '#F8F5EE' },
   standard: { label: 'POWERLOV', accent: '#E63946', back: '/powerlov', backLabel: 'PowerLov', recitBg: '#FAF6F4' },
   bijoux: { label: 'STONELOV', accent: '#C4714A', back: '/stonelov', backLabel: 'StoneLov', recitBg: '#F6F1EB' },
-  sacs: { label: 'SACS LOVCICOV', accent: '#8B6A4A', back: '/sacs', backLabel: 'Sacs', recitBg: '#F6F1EB' },
+  sacs: { label: 'LOVBAG', accent: '#8B6A4A', back: '/sacs', backLabel: 'Sacs', recitBg: '#F6F1EB' },
   accessoires: { label: 'LOVBAG', accent: '#8B6A4A', back: '/sacs', backLabel: 'LovBag', recitBg: '#F6F1EB' },
 } as const;
 
