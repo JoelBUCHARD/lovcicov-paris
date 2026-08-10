@@ -1,9 +1,6 @@
 import { toast } from 'sonner';
+import { SHOPIFY_STOREFRONT_URL, SHOPIFY_STOREFRONT_TOKEN } from '@/config/shopify';
 
-const SHOPIFY_API_VERSION = '2025-07';
-const SHOPIFY_STORE_PERMANENT_DOMAIN = 'dpzv1t-1n.myshopify.com';
-const SHOPIFY_STOREFRONT_URL = `https://${SHOPIFY_STORE_PERMANENT_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`;
-const SHOPIFY_STOREFRONT_TOKEN = '46e7d1dc4218785417c2fe6f3ec45105';
 
 export interface ShopifyProduct {
   node: {
