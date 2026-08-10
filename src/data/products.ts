@@ -153,7 +153,7 @@ const rawStandardProducts: Product[] = [
     id: 'powerlov-energy-never-lies-hoodie',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'PERFECTLY IMPERFECT',
-    price: 99,
+    price: 120,
     collection: 'standard',
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné. Sérigraphie « ENERGY NEVER LIES ». Unisex.',
