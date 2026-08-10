@@ -170,7 +170,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
           </Link>
 
           <p className="text-brand-lg text-[10px] md:text-[11px] text-muted-foreground mb-3">
-            Paris — Maison Française
+            Maison Française
           </p>
 
           <p className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-muted-foreground/80 mb-8">
