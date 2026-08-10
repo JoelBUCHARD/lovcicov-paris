@@ -261,7 +261,7 @@ const rawKimonoProducts: RawProduct[] = [
   makeKimono('meera', 'Meera', 'vert canard et bordeaux à motifs floraux, brodée de perles dorées'),
   { ...makeKimono('kiran', 'Kiran', 'fuchsia profond, brodée de perles dorées'), image: 'mysticlov-kimono-kiran-porte-v4' },
   makeKimono('shakti', 'Shakti', 'rouge à motifs, rehaussée de rayures tie-dye vertes et de perles dorées'),
-  makeKimono('padma', 'Padma', 'magenta tie-dye, brodée de perles et de fils dorés'),
+  { ...makeKimono('padma', 'Padma', 'magenta tie-dye, brodée de perles et de fils dorés'), image: 'mysticlov-kimono-padma-porte-v2' },
 ];
 
 // Collection "MysticLov" — produits du site mysticlov.com
