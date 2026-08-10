@@ -37,7 +37,7 @@ const UNIVERSES = [
 const EDITORIAL_LINKS = [
   { to: '/manifeste', label: 'Le Manifeste' },
   { to: '/fondatrice', label: 'La Fondatrice' },
-  { to: '/drops', label: 'Les Drops' },
+  
   { to: '/le-cercle', label: 'Le Cercle' },
 ];
 
