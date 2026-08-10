@@ -7,7 +7,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Heart, Truck, ShieldCheck, Rota
 import { Product, products as allProducts, getBagBySlug, BAG_SILHOUETTES, BAG_DETAILS, BAG_CARE, BAG_DIMENSIONS_NOTE } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
-import { fetchShopifyProductByHandle } from '@/lib/shopify';
+import { fetchShopifyProductByHandle, fetchShopifyVariantById, type ShopifyVariantInfo } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
 import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
