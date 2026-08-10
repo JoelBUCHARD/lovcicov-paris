@@ -340,7 +340,9 @@ const Sacs = () => {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+              );
+            })}
+
           </div>
 
 
