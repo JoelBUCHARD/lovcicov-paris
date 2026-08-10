@@ -20,6 +20,7 @@ import ig3 from '@/assets/instagram/ig-3.jpg';
 import ig4 from '@/assets/instagram/ig-4.jpg';
 import ig5 from '@/assets/instagram/ig-5.png';
 import ig6 from '@/assets/instagram/ig-6.png';
+import { SOCIAL_LINKS, SOCIAL_LABELS } from '@/config/social';
 
 const instagramImages = [ig1, ig2, ig3, ig4, ig5, ig6];
 
@@ -431,9 +432,10 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          href="https://www.instagram.com/lovcicov.paris/"
+          href={SOCIAL_LINKS.instagram}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={SOCIAL_LABELS.instagram}
           className="text-[18px] font-light tracking-[0.05em] text-[#1A1A1A] hover:text-[#666666] transition-colors inline-block mb-14"
         >
           @lovcicov.paris
@@ -448,9 +450,10 @@ const Index = () => {
           {instagramImages.map((src, i) => (
             <a
               key={i}
-              href="https://www.instagram.com/lovcicov.paris/"
+              href={SOCIAL_LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={SOCIAL_LABELS.instagram}
               className="group relative block aspect-square overflow-hidden bg-[#E8E4DD]"
             >
               <img
@@ -470,9 +473,10 @@ const Index = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          href="https://www.instagram.com/lovcicov.paris/"
+          href={SOCIAL_LINKS.instagram}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={SOCIAL_LABELS.instagram}
           className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-[#1A1A1A] border-b border-[#1A1A1A] pb-1 hover:opacity-60 transition-opacity"
         >
           Voir notre Instagram
