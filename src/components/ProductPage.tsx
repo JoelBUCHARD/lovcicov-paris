@@ -1,3 +1,4 @@
+import { SIZE_GUIDE_NOTE } from '@/config/sizing';
 import { formatPrice } from '@/lib/price';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -819,10 +820,7 @@ const ProductPage = ({ product }: Props) => {
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
             ) : (
               <>
-                <p className="mb-3">Coupe oversize unisexe.</p>
-                <p className="italic mb-3" style={{ color: '#6B6A65' }}>
-                  {modelSizeNoteFor(product.id)}
-                </p>
+                <p className="mb-3">{SIZE_GUIDE_NOTE}</p>
                 <button
                   type="button"
                   onClick={() => setSizeGuideOpen(true)}
@@ -1202,9 +1200,7 @@ const ProductPage = ({ product }: Props) => {
                 </tbody>
               </table>
               <p className="mt-6" style={{ fontFamily: SANS, fontSize: 12, color: '#888780', lineHeight: 1.7 }}>
-                {isDualModelProduct(product.id)
-                  ? "Coupe oversize unisexe : ce t-shirt taille grand. Nos mannequins portent 2 tailles en dessous de leur taille habituelle (femme 1m75 → XS, homme 1m85 → M). Pour un tombé près du corps, prends une taille en dessous de ta taille habituelle ; pour l'effet oversize, reste sur ta taille."
-                  : 'Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS. Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample, prends une taille au-dessus.'}
+                {SIZE_GUIDE_NOTE}
               </p>
                 </>
               )}

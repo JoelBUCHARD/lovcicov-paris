@@ -1,3 +1,4 @@
+import { SIZE_GUIDE_NOTE } from '@/config/sizing';
 const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const HEAD = ['Mesure', 'XS', 'S', 'M', 'L', 'XL'];
@@ -55,9 +56,7 @@ const GuideDesTaillesTable = () => (
       </table>
     </div>
     <p className="mt-4 mb-0" style={{ fontFamily: SANS, fontSize: 13, lineHeight: 1.8, color: '#5F5E5A' }}>
-      Coupe oversize unisexe : les mannequins des photos mesurent 1m75 et portent une taille XS.
-      Pour un tombé plus près du corps, reste sur ta taille habituelle ; pour un effet plus ample,
-      prends une taille au-dessus.
+      {SIZE_GUIDE_NOTE}
     </p>
   </div>
 );
