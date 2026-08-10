@@ -67,7 +67,7 @@ function ScrollTabs<K extends string>({ ariaLabel, tabs, active, onChange }: Pro
         ref={scrollerRef}
         role="tablist"
         aria-label={ariaLabel}
-        className="no-scrollbar flex items-center gap-x-8 md:gap-x-9 overflow-x-auto md:overflow-visible md:justify-center [scroll-snap-type:x_proximity] [overscroll-behavior-x:contain] [-webkit-overflow-scrolling:touch] touch-pan-x md:touch-auto"
+        className="no-scrollbar flex items-center gap-x-8 md:gap-x-9 overflow-x-auto md:overflow-visible md:flex-wrap md:justify-start [scroll-snap-type:x_proximity] [overscroll-behavior-x:contain] [-webkit-overflow-scrolling:touch] touch-pan-x md:touch-auto"
       >
         {tabs.map((tab) => {
           const isActive = tab.key === active;
