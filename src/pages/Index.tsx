@@ -11,7 +11,7 @@ import SEO from '@/components/SEO';
 import HeroCarousel from '@/components/HeroCarousel';
 import editorial2026Duo from '@/assets/editorial-2026-duo-v3.png.asset.json';
 
-import slideHeroAsset from '@/assets/hero-lovcicov-2019-garden.png.asset.json';
+import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
 
 
 import ig1 from '@/assets/instagram/ig-1.png';
@@ -156,9 +156,12 @@ const Index = () => {
               <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src={slideHeroAsset.url}
-                  alt="LOVCICOV Paris — campagne"
-                  className="w-full h-full object-cover"
+                  alt="Sweat LOVCICOV PARIS écru, emblème colombe rouge — collection PowerLov"
+                  width={1269}
+                  height={952}
+                  className="w-full h-full object-cover object-[48%_30%] lg:object-[center_40%]"
                   loading="eager"
+                  decoding="async"
                   fetchPriority="high"
                 />
               </div>
