@@ -441,7 +441,7 @@ const rawMysticProducts: RawProduct[] = [
     specs: MOLLETON_SPECS,
     id: 'mystic-hoodie-sacred-heart',
     shopifyHandle: 'mystic-hoodie-sacred-heart',
-    name: 'Hoodie Sacred Heart',
+    name: 'THE SUN CARD',
     collection: 'mystic',
     subcategory: 'hoodie',
     description: 'Hoodie anthracite délavé, LOVCICOV gothique ton sur ton surmontant un cœur sacré rouge brodé sur la poitrine. Sur la capuche, des écussons brodés — carte de tarot du soleil, cristaux, cœur. Dos sobre, ponctué d\'un petit cœur rouge sous la capuche. Broderie rouge et or · Coton premium délavé.',
