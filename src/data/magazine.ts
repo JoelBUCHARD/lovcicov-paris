@@ -324,7 +324,7 @@ export const magazineArticles: MagazineArticle[] = [
     title: 'Guide cadeaux — l’essentiel LOVCICOV.',
     excerpt: 'Une sélection lente. Peu de pièces, pensées pour durer au-delà de la saison.',
     intro:
-      "Offrir une pièce LOVCICOV, c’est offrir un objet qui reste. Voici comment naviguer nos trois univers pour trouver la juste attention.",
+      "Offrir une pièce LOVCICOV, c’est offrir un objet qui reste. Voici comment naviguer nos quatre univers pour trouver la juste attention.",
     heroBg: bgBronze,
     publishedAt: '2026-01-06',
     readingTime: 5,
