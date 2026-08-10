@@ -230,12 +230,8 @@ const ProductPage = ({ product }: Props) => {
     [product.id, product.collection, isVisible]
   );
 
-  // Sticky mobile CTA: show after user scrolls past the primary buy button
-  useEffect(() => {
-    const onScroll = () => setShowStickyCta(window.scrollY > 600);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  // (la barre fixe mobile est pilotée par l'IntersectionObserver plus bas — aucun écouteur scroll)
+
 
   // Lightbox keyboard: Esc to close, arrows to navigate
   useEffect(() => {
