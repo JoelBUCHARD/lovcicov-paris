@@ -151,11 +151,12 @@ const ProductPage = ({ product }: Props) => {
 
   const cfg = universeConfig[product.collection];
   const hasSpecSheet = SPEC_SHEET_IDS.has(product.id);
-  const POWERLOV_TYPE_OVERRIDES: Record<string, string> = {
-    'powerlov-lovcicov-2019-bird': 'Sweat',
-    'powerlov-lovcicov-2019-hoodie': 'T-shirt',
-    'powerlov-sacred-heart-sweat': 'Sweat capuche',
-    'powerlov-lovcicov-2029-bird': 'Sweat',
+  // Le champ `type` de products.ts est la seule source de vérité (jamais le handle Shopify).
+  const TYPE_FIELD_LABELS: Record<string, string> = {
+    tshirt: 'T-shirt',
+    crewneck: 'Sweat',
+    hoodie: 'Sweat capuche',
+    sac: 'Sac',
   };
   const SUBCATEGORY_LABELS: Record<string, string> = {
     tshirt: 'T-shirt',
@@ -171,18 +172,16 @@ const ProductPage = ({ product }: Props) => {
   const isJewelry = product.collection === 'bijoux' || isAccessory || isBag;
 
   const isApparel = product.collection !== 'bijoux' && product.collection !== 'sacs' && !isAccessory;
-  const isPowerTshirt = product.collection === 'standard' && (POWERLOV_TYPE_OVERRIDES[product.id] ?? SUBCATEGORY_LABELS[product.subcategory ?? '']) === 'T-shirt';
+  const apparelTypeLabel =
+    TYPE_FIELD_LABELS[product.type ?? ''] ?? SUBCATEGORY_LABELS[product.subcategory ?? ''] ?? 'T-shirt';
+  const isPowerTshirt = product.collection === 'standard' && apparelTypeLabel === 'T-shirt';
   const typeLabel = isAccessory
     ? 'Grigri'
     : product.collection === 'sacs'
     ? 'Sac'
     : product.collection === 'bijoux'
     ? (product.name.toLowerCase().includes('bracelet') ? 'Bracelet' : 'Collier')
-    : product.collection === 'standard'
-    ? POWERLOV_TYPE_OVERRIDES[product.id] ??
-      SUBCATEGORY_LABELS[product.subcategory ?? ''] ??
-      (hasSpecSheet ? 'T-shirt' : 'T-shirt')
-    : SUBCATEGORY_LABELS[product.subcategory ?? ''] ?? (hasSpecSheet ? 'T-shirt' : 'T-shirt');
+    : apparelTypeLabel;
   // Image principale + miniatures optionnelles (gallery) — 5 vues maximum par fiche.
   const allImages = (
     product.gallery?.length ? [product.image, ...product.gallery] : [product.image]
