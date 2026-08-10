@@ -424,6 +424,7 @@ const rawMysticProducts: RawProduct[] = [
   {
     specs: MOLLETON_SPECS,
     id: 'mystic-crewneck-sacred-heart',
+    shopifyHandle: 'mystic-crewneck-sacred-heart',
     name: 'Crewneck Sacred Heart',
     collection: 'mystic',
     subcategory: 'crewneck',
@@ -439,6 +440,7 @@ const rawMysticProducts: RawProduct[] = [
   {
     specs: MOLLETON_SPECS,
     id: 'mystic-hoodie-sacred-heart',
+    shopifyHandle: 'mystic-hoodie-sacred-heart',
     name: 'Hoodie Sacred Heart',
     collection: 'mystic',
     subcategory: 'hoodie',
