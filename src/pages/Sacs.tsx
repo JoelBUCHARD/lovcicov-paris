@@ -34,7 +34,7 @@ type ProductCard = {
 // Un sac absent de cette liste est affiché à la fin.
 const displayOrder: string[] = [
   'big-lov-tricolore-rouge',
-  'small-lov-bicolore-or',
+  'small-lov-bicolore-argent',
   'big-lov-azteque-vert',
   'small-lov-bicolore-bleu',
   'big-lov-tricolore-marine',
