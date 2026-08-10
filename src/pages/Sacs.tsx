@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
-import { BAGS, BAG_SILHOUETTES, grigriProducts } from "@/data/products";
+import { BAGS, BAG_SILHOUETTES, grigriProducts, sacsProducts } from "@/data/products";
 import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
 
@@ -52,12 +52,12 @@ const orderIndex = (slug: string) => {
   return i === -1 ? displayOrder.length : i;
 };
 
-const products: ProductCard[] = BAGS.map((b) => ({
+const products: ProductCard[] = BAGS.filter((b) => sacsProducts.some((p) => p.id === b.slug)).map((b) => ({
   key: b.slug,
   id: b.slug,
   name: b.name,
   typeLabel: BAG_SILHOUETTES[b.silhouette].label,
-  price: BAG_SILHOUETTES[b.silhouette].price,
+  price: sacsProducts.find((p) => p.id === b.slug)?.price ?? 0,
   image: resolveImage(b.images[0]),
   hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
   gallery: b.images.slice(1),
