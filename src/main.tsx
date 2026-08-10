@@ -30,18 +30,16 @@ window.addEventListener("error", handleChunkError);
 window.addEventListener("unhandledrejection", handleChunkError);
 
 
-// Le catalogue Shopify (prix, type, disponibilité, variantes) est chargé
-// AVANT le rendu : il est la source de vérité du site.
+// Le catalogue Shopify (prix, type, disponibilité, variantes) est rafraîchi
+// EN ARRIÈRE-PLAN : l'affichage n'attend jamais la réponse de Shopify.
+// L'instantané localStorage sert de rendu immédiat, puis les données arrivent.
 import { loadShopifyCatalog } from "./lib/shopifyCatalog";
+import App from "./App.tsx";
 
-const withTimeout = (p: Promise<void>, ms: number) =>
-  Promise.race([p, new Promise<void>((r) => setTimeout(r, ms))]);
+createRoot(document.getElementById("root")!).render(
+  <HelmetProvider>
+    <App />
+  </HelmetProvider>
+);
 
-withTimeout(loadShopifyCatalog(), 8000).then(async () => {
-  const { default: App } = await import("./App.tsx");
-  createRoot(document.getElementById("root")!).render(
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  );
-});
+void loadShopifyCatalog();

@@ -55,7 +55,7 @@ const NewsletterPopup = () => {
           <X size={18} />
         </button>
 
-        <img src={lovcicovLogo} alt="LOVCICOV" className="h-8 md:h-10 w-auto mx-auto mb-6 brightness-0 invert" />
+        <img loading="lazy" decoding="async" src={lovcicovLogo} alt="LOVCICOV" className="h-8 md:h-10 w-auto mx-auto mb-6 brightness-0 invert" />
         <h2 className="text-brand text-[15px] md:text-[16px] tracking-[0.2em] mb-4">
           REJOINS LE CERCLE
         </h2>

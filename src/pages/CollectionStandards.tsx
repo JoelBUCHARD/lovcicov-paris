@@ -116,7 +116,7 @@ const CollectionStandards = () => {
                 className="bg-[#F5F3F0] p-6 md:p-10 flex flex-col items-center text-center"
               >
                 <div className="w-full aspect-square overflow-hidden bg-[#F5F3F0]">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={product.image}
                     alt={product.name}
                     className="w-full h-full object-cover"

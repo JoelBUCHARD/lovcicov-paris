@@ -99,9 +99,17 @@ const toEntries = (nodes: RawNode[]): CatalogEntry[] =>
     variants: (n.variants?.edges ?? []).map((e) => e.node),
   }));
 
+const listeners = new Set<() => void>();
+/** Abonnement au rafraîchissement du catalogue (rendu non bloquant). */
+export const onCatalogUpdate = (cb: () => void) => {
+  listeners.add(cb);
+  return () => listeners.delete(cb);
+};
+
 const setCatalog = (entries: CatalogEntry[]) => {
   catalog = new Map(entries.map((e) => [e.handle, e]));
   loaded = entries.length > 0;
+  listeners.forEach((cb) => cb());
 };
 
 /** Instantané synchrone (localStorage) pour éviter un écran vide au chargement. */
@@ -118,31 +126,39 @@ const restoreSnapshot = () => {
 
 restoreSnapshot();
 
+let inflight: Promise<void> | null = null;
+
 export async function loadShopifyCatalog(): Promise<void> {
-  try {
-    const res = await fetch(SHOPIFY_STOREFRONT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
-      },
-      body: JSON.stringify({ query: CATALOG_QUERY, variables: { first: 250 } }),
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const json = await res.json();
-    if (json.errors) throw new Error(json.errors.map((e: { message: string }) => e.message).join(', '));
-    const nodes: RawNode[] = (json?.data?.products?.edges ?? []).map((e: { node: RawNode }) => e.node);
-    const entries = toEntries(nodes);
-    if (!entries.length) throw new Error('catalogue vide');
-    setCatalog(entries);
+  // Une seule requête catalogue par session : les retours sur une page déjà
+  // visitée ne réinterrogent pas l'API.
+  if (inflight) return inflight;
+  inflight = (async () => {
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-    } catch {
-      /* quota */
+      const res = await fetch(SHOPIFY_STOREFRONT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
+        },
+        body: JSON.stringify({ query: CATALOG_QUERY, variables: { first: 250 } }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      if (json.errors) throw new Error(json.errors.map((e: { message: string }) => e.message).join(', '));
+      const nodes: RawNode[] = (json?.data?.products?.edges ?? []).map((e: { node: RawNode }) => e.node);
+      const entries = toEntries(nodes);
+      if (!entries.length) throw new Error('catalogue vide');
+      setCatalog(entries);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+      } catch {
+        /* quota */
+      }
+    } catch (err) {
+      console.error('[Shopify] Chargement du catalogue impossible', err);
     }
-  } catch (err) {
-    console.error('[Shopify] Chargement du catalogue impossible', err);
-  }
+  })();
+  return inflight;
 }
 
 export const isCatalogLoaded = () => loaded;
