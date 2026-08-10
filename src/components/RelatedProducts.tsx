@@ -190,12 +190,13 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
 
   return (
     <section
+      className="py-8 md:py-14"
       style={{
         backgroundColor: UNIVERSE_BG[currentUniverse],
         borderTop: "0.5px solid #E8E4DC",
-        padding: "56px 0 56px",
       }}
     >
+
       <h2
         className="text-center"
         style={{
