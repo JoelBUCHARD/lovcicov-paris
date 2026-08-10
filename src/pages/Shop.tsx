@@ -23,7 +23,7 @@ const filterMeta: Record<Collection, { label: string; accent: string }> = {
   standard: { label: 'PowerLov', accent: '#1A1A1A' },
   mystic: { label: 'MysticLov', accent: '#C94A4A' },
   bijoux: { label: 'StoneLov', accent: '#A55A35' },
-  sacs: { label: 'Sacs', accent: '#1A1A1A' },
+  sacs: { label: 'LovBag', accent: '#1A1A1A' },
   accessoires: { label: 'Accessoires', accent: '#1A1A1A' },
 };
 
