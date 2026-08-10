@@ -11,6 +11,7 @@ import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
 import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
+import ScrollTabs from '@/components/ScrollTabs';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import { spaceOutDuplicates } from '@/lib/spaceOutDuplicates';
 
@@ -146,27 +147,16 @@ const Shop = () => {
         {/* Filters + sort */}
         <div className="px-6 md:px-12 mb-14 md:mb-20">
           <div className="mx-auto max-w-[1360px] flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-b border-[#E8E1D5] py-5">
-            <nav aria-label="Filtres collection" className="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-3">
-              {(Object.keys(filterMeta) as Collection[]).map((key) => {
-                const isActive = active === key;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setCollection(key)}
-                    className="cat-tab uppercase whitespace-nowrap transition-colors duration-200 min-h-[44px] flex items-center px-0 focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A]"
-                    style={{
-                      color: isActive ? filterMeta[key].accent : 'rgba(13,13,13,0.5)',
-                      borderBottom: isActive ? `1px solid ${filterMeta[key].accent}` : '1px solid transparent',
-                      paddingBottom: 4,
-                    }}
-                    aria-pressed={isActive}
-                  >
-
-                    {filterMeta[key].label}
-                  </button>
-                );
-              })}
-            </nav>
+            <ScrollTabs
+              ariaLabel="Filtres collection"
+              tabs={(Object.keys(filterMeta) as Collection[]).map((key) => ({
+                key,
+                label: filterMeta[key].label,
+                accent: filterMeta[key].accent,
+              }))}
+              active={active}
+              onChange={setCollection}
+            />
 
             <div className="flex items-center justify-center md:justify-end">
               <SortFilterMenu sort={sort} onChange={setSort} />
