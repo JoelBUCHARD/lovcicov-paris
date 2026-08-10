@@ -11,6 +11,7 @@ import CollectionHeader from '@/components/CollectionHeader';
 import EditorialProductCard from '@/components/EditorialProductCard';
 import EditorialPause from '@/components/EditorialPause';
 import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
+import ScrollTabs from '@/components/ScrollTabs';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import { spaceOutDuplicates } from '@/lib/spaceOutDuplicates';
 
