@@ -3,10 +3,11 @@ import { useLocation, useNavigationType } from "react-router-dom";
 
 /**
  * Restauration de scroll au niveau du routeur.
- * - Mémorise la position de scroll par entrée d'historique (location.key).
- * - Navigation POP (retour/avance navigateur) → restaure la position exacte,
- *   en réessayant tant que la page n'a pas la hauteur nécessaire (images en cours de chargement).
- * - Navigation PUSH/REPLACE (nouvelle page) → ouvre en haut.
+ * - L'effet ne dépend QUE du chemin de la route : aucun re-rendu (données produit,
+ *   réponse Shopify, état de chargement) ne peut repositionner la page.
+ * - Navigation POP (retour navigateur) → restaure la position mémorisée, une seule
+ *   fois, et abandonne dès que l'utilisateur touche au défilement.
+ * - Navigation PUSH/REPLACE → ouvre en haut, instantanément.
  */
 const STORAGE_KEY = "scroll-positions:v1";
 
@@ -32,6 +33,7 @@ const ScrollRestoration = () => {
   const location = useLocation();
   const navigationType = useNavigationType();
   const currentKey = useRef(location.key);
+  currentKey.current = location.key;
 
   // Le navigateur ne doit pas tenter sa propre restauration (elle entre en conflit).
   useEffect(() => {
@@ -40,59 +42,66 @@ const ScrollRestoration = () => {
     }
   }, []);
 
-  // Sauvegarde continue et synchrone de la position de l'entrée d'historique courante.
+  // Mémorisation passive de la position, throttlée par frame : aucun recalcul de position.
   useEffect(() => {
-    const save = () => writePosition(currentKey.current, window.scrollY);
+    let frame = 0;
+    const save = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        writePosition(currentKey.current, window.scrollY);
+      });
+    };
     window.addEventListener("scroll", save, { passive: true });
     window.addEventListener("pagehide", save);
     return () => {
+      if (frame) cancelAnimationFrame(frame);
       window.removeEventListener("scroll", save);
       window.removeEventListener("pagehide", save);
     };
   }, []);
 
   useLayoutEffect(() => {
-    currentKey.current = location.key;
-
     if (navigationType !== "POP") {
-      // Instantané : `scroll-behavior: smooth` ne doit pas animer l'arrivée.
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      window.scrollTo(0, 0);
       return;
     }
 
     const target = readPositions()[location.key];
     if (!target) {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+      window.scrollTo(0, 0);
       return;
     }
 
+    // Une seule tentative différée : si la page est déjà assez haute on y va tout de
+    // suite, sinon on attend une frame. Dès que l'utilisateur défile, on abandonne.
     let cancelled = false;
-    const start = performance.now();
+    const abort = () => {
+      cancelled = true;
+    };
+    window.addEventListener("wheel", abort, { passive: true, once: true });
+    window.addEventListener("touchstart", abort, { passive: true, once: true });
+    window.addEventListener("keydown", abort, { once: true });
 
-    const tryRestore = () => {
+    const restore = () => {
       if (cancelled) return;
       const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
       window.scrollTo(0, Math.min(target, Math.max(maxScroll, 0)));
-      // On réessaie tant que la grille/les images n'ont pas fini de s'étendre.
-      if (maxScroll < target && performance.now() - start < 2000) {
-        requestAnimationFrame(tryRestore);
-      }
     };
 
-    tryRestore();
-
-    // Filet de sécurité : quelques passes après le chargement des images.
-    const timers = [80, 250, 600, 1200].map((delay) =>
-      window.setTimeout(() => {
-        if (!cancelled && Math.abs(window.scrollY - target) > 2) tryRestore();
-      }, delay)
-    );
+    restore();
+    const frame = requestAnimationFrame(restore);
 
     return () => {
       cancelled = true;
-      timers.forEach(clearTimeout);
+      cancelAnimationFrame(frame);
+      window.removeEventListener("wheel", abort);
+      window.removeEventListener("touchstart", abort);
+      window.removeEventListener("keydown", abort);
     };
-  }, [location.key, navigationType]);
+    // Dépend uniquement de la route (et du type de navigation), jamais des données.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   return null;
 };
