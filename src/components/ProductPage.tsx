@@ -663,14 +663,15 @@ const ProductPage = ({ product }: Props) => {
             </div>
           )}
 
-          {!isJewelry && !isKimono && (
+          {(soldOut || showPreorderNote) && (
             <p
               className="mt-6 mb-2 uppercase"
               style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.24em', color: cfg.accent, fontWeight: 500 }}
             >
-              Précommande — expédiée sous environ 1 mois
+              {soldOut ? 'Épuisé' : 'Précommande — expédiée sous environ 1 mois'}
             </p>
           )}
+
 
           {/* CTA + wishlist */}
           <div className="flex gap-2 mt-3">
