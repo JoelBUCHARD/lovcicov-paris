@@ -261,7 +261,7 @@ const Index = () => {
         </div>
 
         <div className="site-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0 md:gap-y-10">
             {visibleStandardProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -304,7 +304,7 @@ const Index = () => {
         </div>
 
         <div className="site-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0 md:gap-y-10">
             {visibleMysticProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -349,7 +349,7 @@ const Index = () => {
         </div>
 
         <div className="site-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0 md:gap-y-10">
             {featured.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -393,7 +393,7 @@ const Index = () => {
         </div>
 
         <div className="site-container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-0 md:gap-y-10">
             {sacsProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}

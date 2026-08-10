@@ -210,7 +210,7 @@ const Shop = () => {
                           >
                             {group.label}
                           </h2>
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+                          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-0 md:gap-y-24">
                             {items.map((p, i) => (
                               <EditorialProductCard
                                 key={p.id}
@@ -228,7 +228,7 @@ const Shop = () => {
                   </div>
 
                 ) : (
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-16 md:gap-y-24">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 md:gap-x-10 gap-y-0 md:gap-y-24">
                     {products.map((p, i) => (
                       <EditorialProductCard
                         key={p.id}

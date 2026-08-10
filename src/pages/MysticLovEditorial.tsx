@@ -230,7 +230,7 @@ const MysticLovEditorial = () => {
 
           {(() => null)()}
           <div
-            className="site-container grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
+            className="site-container grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-0 md:gap-y-1.5 md:[grid-auto-flow:dense]"
           >
             {(() => { /* layout precompute happens inline below via closure */ return null; })()}
             {filtered.map((product, i, arr) => {
