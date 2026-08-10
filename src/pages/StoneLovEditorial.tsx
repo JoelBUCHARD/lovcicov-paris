@@ -211,7 +211,7 @@ const StoneLovEditorial = () => {
 
         {/* STICKY FILTER BAR */}
         <div
-          className="sticky z-30 border-y border-[rgba(13,13,13,0.08)] backdrop-blur"
+          className="sticky z-30 rule-y backdrop-blur"
           style={{ top: "var(--header-height)", backgroundColor: "rgba(250,248,244,0.92)" }}
           id="stonelov-grid"
         >
