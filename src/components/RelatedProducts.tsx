@@ -190,23 +190,24 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
 
   return (
     <section
+      className="py-8 md:py-14"
       style={{
         backgroundColor: UNIVERSE_BG[currentUniverse],
         borderTop: "0.5px solid #E8E4DC",
-        padding: "56px 0 56px",
       }}
     >
+
       <h2
-        className="text-center"
+        className="text-center mb-6 md:mb-10"
         style={{
           fontFamily: "Arial, sans-serif",
           fontSize: "10px",
           color: "#1A1A1A",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          marginBottom: "40px",
         }}
       >
+
         Vous aimerez aussi
       </h2>
 
@@ -261,7 +262,7 @@ const RelatedProducts = ({ currentKey, currentUniverse }: Props) => {
         </div>
       </div>
 
-      <div className="mt-12 flex justify-center">
+      <div className="mt-8 md:mt-12 flex justify-center">
         <Link
           to="/shop"
           className="inline-block text-[10px] tracking-[0.24em] uppercase text-foreground border-b border-foreground pb-1 hover:opacity-60 transition-opacity"

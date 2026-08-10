@@ -404,7 +404,7 @@ const ProductPage = ({ product }: Props) => {
   };
 
   return (
-    <main className="bg-[#F4F3F1] pt-28 md:pt-36 pb-32 md:pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
+    <main className="bg-[#F4F3F1] pt-28 md:pt-36 pb-10 md:pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
       <SEO
         title={seoTitle}
         description={seoDesc}
@@ -685,7 +685,7 @@ const ProductPage = ({ product }: Props) => {
 
       {/* Détails produits — accordéons pleine largeur */}
       <section
-        className="mt-12 md:mt-16 max-w-3xl mx-auto"
+        className="mt-8 md:mt-16 max-w-3xl mx-auto"
         style={{ ['--accent' as any]: cfg.accent }}
       >
         <div className="border-t border-[#EFEDE8]">
@@ -960,7 +960,7 @@ const ProductPage = ({ product }: Props) => {
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
       <section className="mt-0 px-6 md:px-12 bg-[#F4F3F1]">
         <div className="max-w-3xl mx-auto border-t border-[#EFEDE8]" />
-        <div className="max-w-[1100px] mx-auto pt-16 md:pt-20 pb-8 md:pb-10">
+        <div className="max-w-[1100px] mx-auto pt-10 md:pt-20 pb-8 md:pb-10">
           <p
             className="text-center mb-14"
             style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: '#1A1A1A', textTransform: 'uppercase' }}
