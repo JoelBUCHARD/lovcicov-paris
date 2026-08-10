@@ -425,7 +425,7 @@ const rawMysticProducts: RawProduct[] = [
     specs: MOLLETON_SPECS,
     id: 'mystic-crewneck-sacred-heart',
     shopifyHandle: 'mystic-crewneck-sacred-heart',
-    name: 'Crewneck Sacred Heart',
+    name: 'SACRED HEART',
     collection: 'mystic',
     subcategory: 'crewneck',
     description: 'Crewneck bleu délavé, cœur sacré brodé rouge et or sur la poitrine, petit cœur signature au col et LOVCICOV en lettres gothiques rouges au dos. Le cœur sacré, entouré de sa couronne et de sa flamme, dit l\'amour qui tient debout. Broderie rouge et or · Coton premium délavé.',
