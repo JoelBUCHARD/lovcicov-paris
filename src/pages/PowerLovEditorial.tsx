@@ -212,58 +212,8 @@ const PowerLovEditorial = () => {
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   }, [category, sort]);
 
-  // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
-  // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
-  // Règle : une grande vignette est réservée aux sweats (crewneck/hoodie).
-  // Les t-shirts restent toujours en format standard.
-  const { ordered, layout } = useMemo(() => {
-    const isSweat = (p: (typeof filtered)[number]) => p.categories.includes("sweats");
-    const items = [...filtered];
-    const rules: string[] = [];
-    const big = new Set<number>();
-    let i = 0;
-    let row = 1;
-    let type1 = true;
-    let left = true;
-    while (i < items.length) {
-      const remaining = items.length - i;
-      // Une grande rangée n'est possible que si un sweat peut occuper la grande vignette.
-      let sweatIdx = -1;
-      if (type1 && remaining >= 3) {
-        sweatIdx = items.findIndex((p, idx) => idx >= i && isSweat(p));
-      }
-      if (type1 && remaining >= 3 && sweatIdx !== -1) {
-        // On amène le sweat le plus proche sur l'emplacement de la grande vignette.
-        if (sweatIdx !== i) {
-          const [sweat] = items.splice(sweatIdx, 1);
-          items.splice(i, 0, sweat);
-        }
-        const bigCols = left ? "1 / 3" : "2 / 4";
-        const stdCol = left ? "3" : "1";
-        rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
-        rules.push(`.pw-${i + 1}{grid-column:${stdCol};grid-row:${row};}`);
-        rules.push(`.pw-${i + 2}{grid-column:${stdCol};grid-row:${row + 1};}`);
-        big.add(i);
-        i += 3;
-        row += 2;
-        type1 = false;
-        left = !left;
-      } else {
-        const n = Math.min(3, remaining);
-        for (let k = 0; k < n; k++) {
-          rules.push(`.pw-${i + k}{grid-column:${k + 1};grid-row:${row};}`);
-        }
-        i += n;
-        row += 1;
-        // Après une rangée standard, on retente une grande rangée (jamais deux collées).
-        type1 = true;
-      }
-    }
-    return {
-      ordered: items,
-      layout: { css: `@media (min-width:768px){${rules.join("")}}`, big },
-    };
-  }, [filtered]);
+
+
 
 
   const from = `${location.pathname}${location.search}`;
