@@ -146,7 +146,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/t-shirt-powerlov</loc>
+    <loc>https://lovcicov.com/product/powerlov-discipline</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -156,12 +156,27 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/powerlov-if-god-dj-frequency</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-god-is-a-dancer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/powerlov-god-is-a-dancer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-protected-aligned-unstoppable</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/powerlov-protected-aligned-unstoppable</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -191,7 +206,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/sweat-a-capuche-powerlov</loc>
+    <loc>https://lovcicov.com/product/powerlov-energy-never-lies-hoodie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -201,12 +216,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/powerlov-less-drama-champagne</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-lovcicov-2029-bird</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/sweat-powerlov</loc>
+    <loc>https://lovcicov.com/product/powerlov-lovcicov-2029-bird</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -216,7 +236,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/powerlov-mom-boss-crisis-manager</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/powerlov-lovcicov-2019-hoodie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/powerlov-lovcicov-2019-hoodie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -226,12 +256,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/powerlov-lovcicov-2019-bird</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-tshirt-noir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/t-shirt-mysticlov</loc>
+    <loc>https://lovcicov.com/product/t-shirt-maria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -256,7 +291,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/sweat-a-capuche-mysticlov</loc>
+    <loc>https://lovcicov.com/product/burning-heart</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -271,7 +306,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/sweat-col-rond-mysticlov</loc>
+    <loc>https://lovcicov.com/product/sweat-maria</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -291,7 +326,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-tara</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-kimono-veda</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-veda</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -301,7 +346,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-devi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-kimono-maya</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-maya</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -311,7 +366,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-aditi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-kimono-leela</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-leela</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -321,7 +386,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-meera</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-kimono-kiran</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-kiran</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -331,7 +406,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-shakti</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/mystic-kimono-padma</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/mystic-kimono-padma</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -341,7 +426,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-fuchsia-et-or</loc>
+    <loc>https://lovcicov.com/product/collier-fuchsia-or</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -351,7 +436,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-sodalite-bleue</loc>
+    <loc>https://lovcicov.com/product/bracelet-sodalite</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -361,7 +446,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-jade-et-nacre</loc>
+    <loc>https://lovcicov.com/product/collier-jade-nacre</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -371,7 +456,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-corail-rouge-et-or</loc>
+    <loc>https://lovcicov.com/product/collier-corail-rouge-or</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -381,7 +466,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-agate-jaune-et-or</loc>
+    <loc>https://lovcicov.com/product/bracelet-agate-jaune</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -391,7 +476,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-labradorite-et-amethyste</loc>
+    <loc>https://lovcicov.com/product/collier-labradorite-amethyste</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -401,7 +486,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-turquoise-et-or</loc>
+    <loc>https://lovcicov.com/product/collier-turquoise-or</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -411,7 +496,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-malachite-triple-rang</loc>
+    <loc>https://lovcicov.com/product/bracelet-malachite-triple</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -421,7 +506,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-tourmaline-multicolore-2</loc>
+    <loc>https://lovcicov.com/product/collier-tourmaline-multicolore</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -441,7 +526,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-prehnite-et-perles</loc>
+    <loc>https://lovcicov.com/product/bracelet-prehnite-perles</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -451,7 +536,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-quartz-rose-et-aventurine</loc>
+    <loc>https://lovcicov.com/product/collier-quartz-aventurine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -461,7 +546,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-malachite-et-corail</loc>
+    <loc>https://lovcicov.com/product/collier-malachite-corail</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -471,7 +556,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-turquoise-et-corail-rouge</loc>
+    <loc>https://lovcicov.com/product/bracelet-turquoise-corail</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -481,7 +566,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-amethyste-et-or</loc>
+    <loc>https://lovcicov.com/product/collier-amethyste-or</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -491,7 +576,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-howlite-et-amazonite</loc>
+    <loc>https://lovcicov.com/product/bracelet-howlite-amazonite</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -501,7 +586,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-quartz-rose-et-croix-de-jade</loc>
+    <loc>https://lovcicov.com/product/collier-quartz-croix-jade</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -511,7 +596,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-aigue-marine-et-agate-bleue</loc>
+    <loc>https://lovcicov.com/product/collier-aigue-marine-agate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -521,7 +606,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-oeil-de-tigre-fuchsia</loc>
+    <loc>https://lovcicov.com/product/bracelet-oeil-tigre-fuchsia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -531,7 +616,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-corail-et-pierres-multicolores</loc>
+    <loc>https://lovcicov.com/product/collier-corail-multicolor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -551,7 +636,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-goldstone-et-perles</loc>
+    <loc>https://lovcicov.com/product/bracelet-goldstone-perles</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -561,7 +646,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-prehnite-et-malachite</loc>
+    <loc>https://lovcicov.com/product/collier-prehnite-malachite</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -581,7 +666,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-oeil-de-tigre-fuchsia</loc>
+    <loc>https://lovcicov.com/product/collier-oeil-tigre-fuchsia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -591,7 +676,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/bracelet-amethyste-et-quartz-rose</loc>
+    <loc>https://lovcicov.com/product/bracelet-amethyste-quartz</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -601,7 +686,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-trio-citrine-et-amethyste</loc>
+    <loc>https://lovcicov.com/product/collier-trio-citrine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -611,7 +696,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://lovcicov.com/product/collier-malachite-et-lapis-double-pendentif</loc>
+    <loc>https://lovcicov.com/product/collier-malachite-lapis-double-pendentif</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -631,7 +716,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/big-lov-tricolore-rouge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/big-lov-tricolore-marine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/big-lov-tricolore-marine</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -641,7 +736,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/big-lov-bicolore-rose</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/big-lov-bicolore-kaki</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/big-lov-bicolore-kaki</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -651,7 +756,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/big-lov-azteque-vert</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/big-lov-azteque-noir</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/big-lov-azteque-noir</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -661,7 +776,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/small-lov-tricolore-or</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/small-lov-tricolore-kaki</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/small-lov-tricolore-kaki</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -671,7 +796,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/small-lov-bicolore-or</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/small-lov-bicolore-bleu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/small-lov-bicolore-bleu</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -681,7 +816,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/small-lov-azteque-rouge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/small-lov-azteque-terracotta</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/small-lov-azteque-terracotta</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -691,7 +836,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-fleur-menthe</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-fleur-bonbon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/grigri-fleur-bonbon</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -701,7 +856,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-fleur-rose</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-arc-en-ciel-pastel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/grigri-arc-en-ciel-pastel</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -711,7 +876,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-arc-en-ciel-bleu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-cerise-rouge</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/grigri-cerise-rouge</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -721,7 +896,17 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-cerise-creme</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-pomme-croquee</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/grigri-pomme-croquee</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -731,12 +916,27 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-pomme-damour</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-etoile-denim</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lovcicov.com/product/grigri-etoile-denim</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lovcicov.com/shop/grigri-fleur-neon</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lovcicov.com/product/grigri-fleur-neon</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

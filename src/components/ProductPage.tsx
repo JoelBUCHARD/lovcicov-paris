@@ -7,7 +7,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Heart, Truck, ShieldCheck, Rota
 import { Product, products as allProducts, getBagBySlug, BAG_SILHOUETTES, BAG_DETAILS, BAG_CARE, BAG_DIMENSIONS_NOTE } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
-import { fetchShopifyProductByHandle, fetchShopifyVariantById, type ShopifyVariantInfo } from '@/lib/shopify';
+import { fetchShopifyProductByHandle } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
 import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
@@ -266,89 +266,58 @@ const ProductPage = ({ product }: Props) => {
     return () => observer.disconnect();
   }, [product.id]);
 
-  // État du bouton déterminé dynamiquement depuis la Storefront API (jamais en dur).
-  const [variantInfo, setVariantInfo] = useState<ShopifyVariantInfo | null>(null);
+  // La fiche interroge Shopify avec le handle du produit à chaque chargement :
+  // la variante, le prix et la disponibilité viennent de cette réponse.
+  const [shopifyNode, setShopifyNode] = useState<Awaited<ReturnType<typeof fetchShopifyProductByHandle>>>(null);
   const [variantChecked, setVariantChecked] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    setVariantInfo(null);
+    setShopifyNode(null);
     setVariantChecked(false);
-    if (!product.shopifyVariantId) return;
-    fetchShopifyVariantById(product.shopifyVariantId).then((info) => {
+    if (!product.shopifyHandle) return;
+    fetchShopifyProductByHandle(product.shopifyHandle).then((node) => {
       if (cancelled) return;
-      setVariantInfo(info);
+      if (!node) {
+        console.warn(`[Shopify] Aucun produit pour le handle « ${product.shopifyHandle} » : ${product.name}`);
+      }
+      setShopifyNode(node);
       setVariantChecked(true);
     });
     return () => {
       cancelled = true;
     };
-  }, [product.id, product.shopifyVariantId]);
+  }, [product.id, product.shopifyHandle, product.name]);
 
-  const soldOut = !!product.shopifyVariantId && variantChecked && (!variantInfo || !variantInfo.availableForSale);
+  const needsSize = !isJewelry && !isKimono;
+
+  // Variante correspondant exactement aux options choisies (taille / couleur).
+  const currentVariant = (() => {
+    if (!shopifyNode) return null;
+    const variants = shopifyNode.variants.edges.map((e) => e.node);
+    const hasSize = shopifyNode.options.some((o) => /taille|size/i.test(o.name));
+    const hasColor = shopifyNode.options.some((o) => /couleur|color/i.test(o.name));
+    const matches = (v: (typeof variants)[number]) => {
+      const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
+      const sizeOk = !hasSize || !needsSize || !selectedSize || v.selectedOptions.some((o) => o.value === selectedSize);
+      return colorOk && sizeOk;
+    };
+    return variants.find(matches) ?? variants[0] ?? null;
+  })();
+
+  const shopifyPrice = currentVariant ? Math.round(parseFloat(currentVariant.price.amount)) : product.price;
+  const soldOut = variantChecked && (!shopifyNode || !currentVariant || !currentVariant.availableForSale);
   const isPreorderVariant =
-    !!variantInfo && variantInfo.availableForSale && variantInfo.currentlyNotInStock;
+    !!currentVariant && currentVariant.availableForSale && !!currentVariant.currentlyNotInStock;
   const ctaLabel = soldOut
     ? 'Épuisé'
     : isPreorderVariant
     ? 'Précommander'
-    : variantInfo
-    ? 'Ajouter au panier'
-    : isJewelry || isKimono
-    ? 'Ajouter au panier'
-    : 'Précommander';
-  const showPreorderNote = product.shopifyVariantId ? isPreorderVariant : !isJewelry && !isKimono;
-  const needsSize = !isJewelry && !isKimono;
-  const ctaDisabled = isAdding || soldOut || (needsSize && !selectedSize);
+    : 'Ajouter au panier';
+  const showPreorderNote = isPreorderVariant;
+  const ctaDisabled = isAdding || soldOut || (needsSize && !selectedSize) || !variantChecked;
+
 
   const handleAddToCart = async () => {
-    // Cas prioritaire : variante Shopify explicite (products.ts = seule source des identifiants)
-    if (product.shopifyVariantId) {
-      setIsAdding(true);
-      try {
-        const info = variantInfo ?? (await fetchShopifyVariantById(product.shopifyVariantId));
-        if (!info) {
-          toast({
-            title: 'Produit indisponible',
-            description: "Cette variante n'existe plus côté Shopify.",
-          });
-          return;
-        }
-        if (!info.availableForSale) {
-          toast({ title: 'Épuisé', description: 'Cet article n\'est plus disponible.' });
-          return;
-        }
-        const result = await addShopifyItem({
-          product: { node: info.product },
-          variantId: info.id,
-          variantTitle: info.title,
-          price: info.price,
-          quantity: 1,
-          selectedOptions: needsSize
-            ? [...info.selectedOptions, { name: 'Taille', value: selectedSize }]
-            : info.selectedOptions,
-        });
-        if (!result?.success) {
-          console.error('[Shopify] cartLinesAdd a échoué', {
-            variantId: product.shopifyVariantId,
-            product: product.name,
-            error: result?.error,
-          });
-          toast({
-            title: "Impossible d'ajouter au panier",
-            description: result?.error || 'Shopify a refusé cette variante. Voir la console pour le détail.',
-          });
-          return;
-        }
-        toast({ title: 'Ajouté au panier', description: product.name });
-      } catch (err) {
-        console.error('[Shopify] Ajout au panier échoué', err);
-        toast({ title: 'Erreur', description: "Impossible d'ajouter au panier." });
-      } finally {
-        setIsAdding(false);
-      }
-      return;
-    }
-
     if (!product.shopifyHandle) {
       // Le panier utilise toujours l'image canonique du catalogue (la même que la grille)
       const canonical = allProducts.find((p) => p.id === product.id);
@@ -358,32 +327,29 @@ const ProductPage = ({ product }: Props) => {
     }
     setIsAdding(true);
     try {
-      const sp = await fetchShopifyProductByHandle(product.shopifyHandle);
+      // La référence de variante est relue à l'instant de l'ajout, jamais écrite en dur.
+      const sp = shopifyNode ?? (await fetchShopifyProductByHandle(product.shopifyHandle));
       if (!sp) {
-        toast({ title: 'Produit indisponible', description: 'Réessayez dans un instant.' });
+        console.error('[Shopify] Handle introuvable', { handle: product.shopifyHandle, product: product.name });
+        toast({ title: 'Produit indisponible', description: 'Cette fiche n\'existe plus côté Shopify.' });
         return;
       }
       const variants = sp.variants.edges.map((e) => e.node);
       const hasSize = sp.options.some((o) => /taille|size/i.test(o.name));
       const hasColor = sp.options.some((o) => /couleur|color/i.test(o.name));
-      // Précommande : les vêtements peuvent être commandés même à 0 stock
-      // (Shopify doit être réglé sur « continuer à vendre en rupture »).
-      const isPreorder = !isJewelry && !isKimono;
       const matchesSelection = (v: (typeof variants)[number]) => {
         const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
-        const sizeOk = !hasSize || isJewelry || v.selectedOptions.some((o) => o.value === selectedSize);
+        const sizeOk = !hasSize || !needsSize || v.selectedOptions.some((o) => o.value === selectedSize);
         return colorOk && sizeOk;
       };
       // On utilise exactement la variante correspondant aux options choisies.
-      const variant = isPreorder
-        ? variants.find(matchesSelection)
-        : variants.find((v) => v.availableForSale && matchesSelection(v)) || variants.find(matchesSelection);
+      const variant = variants.find(matchesSelection);
       if (!variant) {
         toast({ title: 'Variante introuvable', description: 'Cette combinaison couleur / taille n\'existe pas.' });
         return;
       }
-      if (!isPreorder && !variant.availableForSale) {
-        toast({ title: 'Indisponible', description: 'Cette taille est en rupture de stock.' });
+      if (!variant.availableForSale) {
+        toast({ title: 'Épuisé', description: 'Cette référence n\'est plus disponible.' });
         return;
       }
       const result = await addShopifyItem({
@@ -411,6 +377,7 @@ const ProductPage = ({ product }: Props) => {
 
 
 
+
   const seoImage = getImage(allImages[0]);
   const seoTitle = isBag ? `${product.name} — Sac tressé cuir de buffle | LOVCICOV Paris` : `${product.name} — LOVCICOV Paris`;
   const seoDesc = (product.description || product.details || `${product.name} — pièce ${cfg.backLabel} par LOVCICOV Paris.`).slice(0, 158);
@@ -424,7 +391,7 @@ const ProductPage = ({ product }: Props) => {
     brand: { "@type": "Brand", name: "LOVCICOV Paris" },
     offers: {
       "@type": "Offer",
-      price: String(product.price),
+      price: String(shopifyPrice),
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
       url: `https://lovcicov.com${seoPath}`,
@@ -533,7 +500,7 @@ const ProductPage = ({ product }: Props) => {
           </h1>
 
           <p className="mb-1" style={{ fontFamily: SANS, fontSize: 20, fontWeight: 500, color: '#1A1A1A' }}>
-            {formatPrice(product.price)}
+            {formatPrice(shopifyPrice)}
           </p>
           {product.collection === 'mystic' && product.subcategory === 'tshirt' && (
             <p
@@ -1283,7 +1250,7 @@ const ProductPage = ({ product }: Props) => {
               {product.name}
             </p>
             <p style={{ fontFamily: SANS, fontSize: 13, color: '#5F5E5A' }}>
-              {formatPrice(product.price)}
+              {formatPrice(shopifyPrice)}
               {needsSize && selectedSize ? ` · Taille ${selectedSize}` : ''}
             </p>
           </div>

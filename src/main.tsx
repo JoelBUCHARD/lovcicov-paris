@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
 import { HelmetProvider } from "react-helmet-async";
-import App from "./App.tsx";
 import "./index.css";
 
 // Recover from stale lazy chunks after a redeploy: when a dynamic import
@@ -31,8 +30,18 @@ window.addEventListener("error", handleChunkError);
 window.addEventListener("unhandledrejection", handleChunkError);
 
 
-createRoot(document.getElementById("root")!).render(
-  <HelmetProvider>
-    <App />
-  </HelmetProvider>
-);
+// Le catalogue Shopify (prix, type, disponibilité, variantes) est chargé
+// AVANT le rendu : il est la source de vérité du site.
+import { loadShopifyCatalog } from "./lib/shopifyCatalog";
+
+const withTimeout = (p: Promise<void>, ms: number) =>
+  Promise.race([p, new Promise<void>((r) => setTimeout(r, ms))]);
+
+withTimeout(loadShopifyCatalog(), 8000).then(async () => {
+  const { default: App } = await import("./App.tsx");
+  createRoot(document.getElementById("root")!).render(
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
+  );
+});

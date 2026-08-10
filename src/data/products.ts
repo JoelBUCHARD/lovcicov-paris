@@ -1,3 +1,5 @@
+import { getCatalogEntry, isCatalogLoaded } from '@/lib/shopifyCatalog';
+
 export interface ProductSpecs {
   composition: string;
   care: string[];
@@ -14,6 +16,7 @@ export type Univers = 'powerlov' | 'mysticlov' | 'stonelov' | 'lovbag';
 export interface Product {
   id: string;
   name: string;
+  /** Prix — récupéré depuis Shopify au chargement (jamais écrit en dur). */
   price: number;
   collection: 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
   /** Univers de rattachement — dérivé automatiquement de `collection`. */
@@ -23,8 +26,10 @@ export interface Product {
   /** Vues typées des images ({ url, vue }). Dérivé automatiquement. */
   views?: { url: string; vue: 'face' | 'dos' | 'porte' | 'detail' }[];
   subcategory?: 'tshirt' | 'crewneck' | 'hoodie' | 'kimono';
-  /** Type de vêtement déterminé d'après le packshot (capuche ou non). */
-  type?: 'hoodie' | 'crewneck' | 'tshirt' | 'sac';
+  /** Type — récupéré depuis Shopify (productType), jamais écrit en dur. */
+  type?: 'hoodie' | 'crewneck' | 'tshirt' | 'kimono' | 'sac' | 'bijou' | 'accessoire';
+  /** Disponibilité — récupérée depuis Shopify. */
+  availableForSale?: boolean;
   description: string;
   details: string;
   image: string;
@@ -34,12 +39,15 @@ export interface Product {
 
   stoneMeaning?: string; // Signification des pierres (bijoux only)
   shopifyHandle?: string; // Handle of matching Shopify product
-  shopifyVariantId?: string; // Variante Shopify explicite (gid://shopify/ProductVariant/...)
+  shopifyVariantId?: string; // Variante Shopify résolue au chargement depuis le handle
   shopifyColor?: string; // Color option value to match on Shopify variant
   specs?: ProductSpecs; // Fiche technique complète (accordéons Composition & entretien / Guide des tailles)
 }
 
 // Fiche technique molleton MysticLov (crewneck & hoodie Sacred Heart)
+/** Fiche telle qu'écrite dans ce fichier : sans prix ni type (fournis par Shopify). */
+export type RawProduct = Omit<Product, 'price'> & { price?: number };
+
 export const MOLLETON_SPECS: ProductSpecs = {
   composition: 'Molleton brossé, 100 % coton — Organic Ring Spun Combed, teint en pièce.',
   care: [
@@ -66,15 +74,13 @@ export const MOLLETON_SPECS: ProductSpecs = {
 
 
 // Collection "PowerLov" — pièces à message fort
-const rawStandardProducts: Product[] = [
+const rawStandardProducts: RawProduct[] = [
   {
     id: 'powerlov-discipline',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-discipline',
     name: 'DISCIPLINE IS MY LUXURY',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'La discipline n\'est pas une contrainte. C\'est un luxe que tu t\'offres chaque jour. Ce t-shirt oversize en coton biologique lourd porte son manifeste dans le dos, en lettres brossées noir et rouge — et le cœur LOVCICOV brodé près du col, comme un rappel discret. Le mannequin porte une taille XS.',
     details: 'La discipline n\'est pas une contrainte. C\'est un luxe que tu t\'offres chaque jour. Ce t-shirt oversize en coton biologique lourd porte son manifeste dans le dos, en lettres brossées noir et rouge — et le cœur LOVCICOV brodé près du col, comme un rappel discret. Le mannequin porte une taille XS.',
     image: 'powerlov-discipline-porte-face',
@@ -83,13 +89,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-if-god-dj-frequency',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241406300',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-if-god-dj-frequency',
     name: 'PRETTY. SMART. DANGEROUS.',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PRETTY. SMART. DANGEROUS. ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
     image: 'powerlov-pretty-smart-porte-face',
@@ -98,12 +101,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-god-is-a-dancer',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-god-is-a-dancer',
     name: 'GOD IS A DANCER',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Danser, c\'est prier avec le corps. Ce t-shirt oversize en coton biologique lourd affiche sa foi dans le mouvement : GOD IS A DANCER en lettres brossées noir et rouge dans le dos, logo LOVCICOV Paris et cœur brodé près du col. Le mannequin porte une taille XS.',
     details: 'Danser, c\'est prier avec le corps. Ce t-shirt oversize en coton biologique lourd affiche sa foi dans le mouvement : GOD IS A DANCER en lettres brossées noir et rouge dans le dos, logo LOVCICOV Paris et cœur brodé près du col. Le mannequin porte une taille XS.',
     image: 'powerlov-god-dancer-porte-face',
@@ -112,12 +113,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-protected-aligned-unstoppable',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-protected-aligned-unstoppable',
     name: 'PROTECTED. ALIGNED. UNSTOPPABLE.',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Trois mots comme une armure invisible. Protégée. Alignée. Inarrêtable. Un mantra brodé fin sur la poitrine, le cœur LOVCICOV près du col — la pièce la plus discrète de la ligne PowerLov, et peut-être la plus puissante. Le mannequin porte une taille XS.',
     details: 'Trois mots comme une armure invisible. Protégée. Alignée. Inarrêtable. Un mantra brodé fin sur la poitrine, le cœur LOVCICOV près du col — la pièce la plus discrète de la ligne PowerLov, et peut-être la plus puissante. Le mannequin porte une taille XS.',
     image: 'powerlov-protected-porte-face',
@@ -126,13 +125,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-sacred-heart-sweat',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241504604',
     shopifyHandle: 'powerlov-sacred-heart-sweat',
     name: 'THE STANDARD IS ME',
-    price: 120,
     collection: 'standard',
     subcategory: 'hoodie',
-    type: 'hoodie',
     description: 'Sweat à capuche coton molletonné écru. Sérigraphie « LOVCICOV PARIS » en façade, cercle d\'étoiles « THE STANDARD IS ME » au dos. Coupe oversize. Unisex.',
     details: 'La signature comme évidence. Une pièce d\'allure, portée comme une déclaration.',
     image: 'powerlov-standard-porte-face',
@@ -147,12 +143,9 @@ const rawStandardProducts: Product[] = [
   {
     id: 'powerlov-iconic-by-nature',
     shopifyHandle: 'iconic-by-nature',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58604831179100',
     name: 'ICONIC BY NATURE',
-    price: 109,
     collection: 'standard',
     subcategory: 'crewneck',
-    type: 'crewneck',
     description: 'Sweat écru en coton molletonné, patch cœur rouge brodé sur la poitrine gauche et logo LOVCICOV PARIS sous l\'encolure au dos. Coupe oversize unisexe.',
     details: 'Iconique par nature. Le cœur brodé comme signature, porté sans effort.',
     image: 'powerlov-iconic-stairs-red-boots',
@@ -161,13 +154,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-energy-never-lies-hoodie',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241668444',
-    shopifyHandle: 'sweat-a-capuche-powerlov',
+    shopifyHandle: 'powerlov-energy-never-lies-hoodie',
     name: 'PERFECTLY IMPERFECT',
-    price: 120,
     collection: 'standard',
     subcategory: 'hoodie',
-    type: 'hoodie',
     description: 'Sweat à capuche coton molletonné. Sérigraphie « ENERGY NEVER LIES ». Unisex.',
     details: 'Ce que l\'on dégage ne ment jamais.',
     image: 'powerlov-perfectly-porte-face',
@@ -176,13 +166,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-less-drama-champagne',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241865052',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-less-drama-champagne',
     name: 'LESS DRAMA. MORE CHAMPAGNE.',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LESS DRAMA. MORE CHAMPAGNE. » au dos. Unisex.',
     details: 'Moins de bruit, plus de bulles. Le manifeste léger d\'une élégance qui refuse le drame.',
     image: 'powerlov-less-drama-porte-dos',
@@ -196,13 +183,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2029-bird',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241930588',
-    shopifyHandle: 'sweat-powerlov',
+    shopifyHandle: 'powerlov-lovcicov-2029-bird',
     name: 'MY OWN MUSE.',
-    price: 109,
     collection: 'standard',
     subcategory: 'crewneck',
-    type: 'crewneck',
     description: 'Sweat crewneck coton molletonné écru. Sérigraphie emblème colombe « LOVCICOV 2029 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un manifeste.',
     image: 'powerlov-my-own-muse-porte-face',
@@ -211,13 +195,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-mom-boss-crisis-manager',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241963356',
-    shopifyHandle: 't-shirt-powerlov',
+    shopifyHandle: 'powerlov-mom-boss-crisis-manager',
     name: 'HEART ICON.',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LOVCICOV. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
     image: 'powerlov-heart-icon-porte-face',
@@ -226,13 +207,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2019-hoodie',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584241996124',
-    shopifyHandle: 'sweat-a-capuche-powerlov',
+    shopifyHandle: 'powerlov-lovcicov-2019-hoodie',
     name: 'HEART SIGNATURE.',
-    price: 70,
     collection: 'standard',
     subcategory: 'tshirt',
-    type: 'tshirt',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-heart-signature-porte-face',
@@ -241,13 +219,10 @@ const rawStandardProducts: Product[] = [
   },
   {
     id: 'powerlov-lovcicov-2019-bird',
-    shopifyVariantId: 'gid://shopify/ProductVariant/58584242028892',
-    shopifyHandle: 'sweat-powerlov',
+    shopifyHandle: 'powerlov-lovcicov-2019-bird',
     name: 'HOLY DOVE.',
-    price: 109,
     collection: 'standard',
     subcategory: 'crewneck',
-    type: 'crewneck',
     description: 'Sweat crewneck coton molletonné écru. Sérigraphie colombe auréolée « LOVCICOV 2019 PARIS ». Coupe oversize. Unisex.',
     details: 'La colombe sacrée. Une pièce d\'archive, portée comme un symbole.',
     image: 'powerlov-holy-dove-porte-face',
@@ -263,10 +238,10 @@ const rawStandardProducts: Product[] = [
 const KIMONO_BASE_DESCRIPTION =
   "Chaque kimono LOVCICOV est taillé dans la soie d'anciens saris indiens, choisie pour la beauté de ses teintes, puis rebrodée de perles cousues à la main. Aucune pièce n'est identique : celle-ci n'existe qu'en un seul exemplaire.\nTaille unique, coupe ample aux épaules tombantes — il se porte ouvert, comme une seconde peau de lumière.";
 
-const makeKimono = (slug: string, name: string, colorLine: string): Product => ({
+const makeKimono = (slug: string, name: string, colorLine: string): RawProduct => ({
   id: `mystic-kimono-${slug}`,
+  shopifyHandle: `mystic-kimono-${slug}`,
   name,
-  price: 155,
   collection: 'mystic',
   subcategory: 'kimono',
   description: `${name} — kimono en soie ${colorLine}.\n${KIMONO_BASE_DESCRIPTION}`,
@@ -276,7 +251,7 @@ const makeKimono = (slug: string, name: string, colorLine: string): Product => (
   badge: 'PIÈCE UNIQUE',
 });
 
-const rawKimonoProducts: Product[] = [
+const rawKimonoProducts: RawProduct[] = [
   makeKimono('tara', 'Tara', 'bleu ciel tie-dye, brodée de perles turquoise'),
   makeKimono('veda', 'Veda', 'gris perle chiné, brodée de perles turquoise'),
   makeKimono('devi', 'Devi', 'bleu roi profond, brodée de perles argentées'),
@@ -290,13 +265,12 @@ const rawKimonoProducts: Product[] = [
 ];
 
 // Collection "MysticLov" — produits du site mysticlov.com
-const rawMysticProducts: Product[] = [
+const rawMysticProducts: RawProduct[] = [
   {
     id: 'mystic-tshirt-noir',
-    shopifyHandle: 't-shirt-mysticlov',
+    shopifyHandle: 't-shirt-maria',
     shopifyColor: 'Noir',
     name: 'T-Shirt Maria',
-    price: 70,
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'LOVE, le mot-mantra. Symbole universel qui ouvre le cœur et appelle à la vibration la plus haute. Georgiana l\'a choisi parce que tout part de là : aimer ce que l\'on porte, ce que l\'on est, ce que l\'on dégage. Broderie dorée · Coton premium.',
@@ -317,10 +291,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-natural',
-    shopifyHandle: 't-shirt-mysticlov',
+    shopifyHandle: 't-shirt-maria',
     shopifyColor: 'Natural Raw',
     name: 'T-Shirt Maria',
-    price: 70,
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'LOVE, le mot-mantra brodé or sur coton brut. Georgiana a choisi le naturel pour rappeler que l\'amour est matière, peau, lumière. Broderie dorée · Coton premium.',
@@ -341,10 +314,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-green',
-    shopifyHandle: 't-shirt-mysticlov',
+    shopifyHandle: 't-shirt-maria',
     shopifyColor: 'Green Bottle',
     name: 'T-Shirt Maria',
-    price: 70,
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'LOVE en or sur vert bouteille, couleur du chakra du cœur. Georgiana a choisi ce vert profond comme symbole de guérison et d\'abondance émotionnelle. Broderie dorée · Coton premium.',
@@ -365,10 +337,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-tshirt-rose',
-    shopifyHandle: 't-shirt-mysticlov',
+    shopifyHandle: 't-shirt-maria',
     shopifyColor: 'Rose',
     name: 'T-Shirt Maria',
-    price: 70,
     collection: 'mystic',
     subcategory: 'tshirt',
     description: 'LOVE brodé or sur rose, la teinte de la tendresse sacrée et du quartz rose. Georgiana a choisi cette couleur pour son pouvoir doux : aimer sans condition, à commencer par soi. Broderie dorée · Coton premium.',
@@ -389,10 +360,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-hoodie-noir',
-    shopifyHandle: 'sweat-a-capuche-mysticlov',
+    shopifyHandle: 'burning-heart',
     shopifyColor: 'Noir',
     name: 'Hoodie Burning Heart',
-    price: 180,
     collection: 'mystic',
     subcategory: 'hoodie',
     description: 'Hoodie LOVE noir avec broderie or et icône Vierge Marie au dos. La Vierge Marie incarne la protection, la grâce et la guidance maternelle universelle. Georgiana l\'a choisie comme figure-talisman : douce mais inébranlable. Broderie dorée · Coton premium.',
@@ -412,10 +382,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-hoodie-natural',
-    shopifyHandle: 'sweat-a-capuche-mysticlov',
+    shopifyHandle: 'burning-heart',
     shopifyColor: 'Natural Raw',
     name: 'Hoodie Burning Heart',
-    price: 180,
     collection: 'mystic',
     subcategory: 'hoodie',
     description: 'Hoodie LOVE natural raw avec broderie or et Vierge Marie au dos. La Vierge incarne la guidance et la protection. Georgiana l\'a posée sur coton brut pour rappeler que le sacré vit aussi dans la matière la plus simple. Broderie dorée · Coton premium.',
@@ -435,10 +404,9 @@ const rawMysticProducts: Product[] = [
   },
   {
     id: 'mystic-crewneck-noir',
-    shopifyHandle: 'sweat-col-rond-mysticlov',
+    shopifyHandle: 'sweat-maria',
     shopifyColor: 'Noir',
     name: 'Crewneck Maria',
-    price: 120,
     collection: 'mystic',
     subcategory: 'crewneck',
     description: 'Crewneck LOVE noir, mantra brodé or, symbole universel d\'ouverture du cœur. Georgiana a choisi le crewneck pour sa simplicité monastique : un vêtement quotidien transformé en talisman. Broderie dorée · Coton premium.',
@@ -456,8 +424,8 @@ const rawMysticProducts: Product[] = [
   {
     specs: MOLLETON_SPECS,
     id: 'mystic-crewneck-sacred-heart',
+    shopifyHandle: 'mystic-crewneck-sacred-heart',
     name: 'Crewneck Sacred Heart',
-    price: 120,
     collection: 'mystic',
     subcategory: 'crewneck',
     description: 'Crewneck bleu délavé, cœur sacré brodé rouge et or sur la poitrine, petit cœur signature au col et LOVCICOV en lettres gothiques rouges au dos. Le cœur sacré, entouré de sa couronne et de sa flamme, dit l\'amour qui tient debout. Broderie rouge et or · Coton premium délavé.',
@@ -472,8 +440,8 @@ const rawMysticProducts: Product[] = [
   {
     specs: MOLLETON_SPECS,
     id: 'mystic-hoodie-sacred-heart',
+    shopifyHandle: 'mystic-hoodie-sacred-heart',
     name: 'Hoodie Sacred Heart',
-    price: 180,
     collection: 'mystic',
     subcategory: 'hoodie',
     description: 'Hoodie anthracite délavé, LOVCICOV gothique ton sur ton surmontant un cœur sacré rouge brodé sur la poitrine. Sur la capuche, des écussons brodés — carte de tarot du soleil, cristaux, cœur. Dos sobre, ponctué d\'un petit cœur rouge sous la capuche. Broderie rouge et or · Coton premium délavé.',
@@ -492,12 +460,11 @@ const rawMysticProducts: Product[] = [
 
 // Collection "StoneLov" — colliers en pierres naturelles
 // Photos classifiées : solo (produit), fleurs (lifestyle), tarot (ambiance)
-const rawBijouxProducts: Product[] = [
+const rawBijouxProducts: RawProduct[] = [
   {
     id: 'collier-fuchsia-or',
-    shopifyHandle: 'collier-fuchsia-et-or',
+    shopifyHandle: 'collier-fuchsia-or',
     name: 'Collier Fuchsia & Or',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles œil de tigre rose, sphères dorées martelées.',
     details: 'Présence et caractère. Un collier qui impose sa couleur sans compromis.',
@@ -507,9 +474,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-sodalite',
-    shopifyHandle: 'bracelet-sodalite-bleue',
+    shopifyHandle: 'bracelet-sodalite',
     name: 'Bracelet Sodalite Bleue',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang sodalite et aventurine bleue, fermoir nacre serti d\'or. Poids : environ 30g.',
     details: 'Calme marin. Trois rangs de bleus profonds qui évoquent l\'eau et la clarté de l\'esprit.',
@@ -519,9 +485,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-jade-nacre',
-    shopifyHandle: 'collier-jade-et-nacre',
+    shopifyHandle: 'collier-jade-nacre',
     name: 'Collier Jade & Nacre',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de jade vert facetté, intercalaires dorés, pendentif nacre.',
     details: 'Élégance intemporelle. Le jade profond sublimé par la lumière de la nacre.',
@@ -531,9 +496,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-corail-rouge-or',
-    shopifyHandle: 'collier-corail-rouge-et-or',
+    shopifyHandle: 'collier-corail-rouge-or',
     name: 'Collier Corail Rouge & Or',
-    price: 89,
     collection: 'bijoux',
     description: 'Triple rang de corail rouge, intercalaires dorés, maillon martelé en pendentif.',
     details: 'Vitalité et lumière. Trois rangs de corail rouge ponctués d\'or pour une présence solaire.',
@@ -543,9 +507,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-agate-jaune',
-    shopifyHandle: 'bracelet-agate-jaune-et-or',
+    shopifyHandle: 'bracelet-agate-jaune',
     name: 'Bracelet Agate Jaune & Or',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang agate jaune miel, intercalaires dorés. Poids : environ 30g.',
     details: 'Lumière solaire. Trois rangs d\'agate miel ponctués d\'or pour un éclat naturel au poignet.',
@@ -555,9 +518,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-labradorite-amethyste',
-    shopifyHandle: 'collier-labradorite-et-amethyste',
+    shopifyHandle: 'collier-labradorite-amethyste',
     name: 'Collier Labradorite & Améthyste',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang labradorite et améthyste brute, détails dorés.',
     details: 'Force et intuition. Deux pierres aux reflets mystiques, liées par l\'or.',
@@ -567,9 +529,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-turquoise-or',
-    shopifyHandle: 'collier-turquoise-et-or',
+    shopifyHandle: 'collier-turquoise-or',
     name: 'Collier Turquoise & Or',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de turquoise, intercalaires dorés, fermoir doré.',
     details: 'Fraîcheur et lumière. La turquoise solaire ponctuée d\'or pour un éclat naturel.',
@@ -579,9 +540,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-malachite-triple',
-    shopifyHandle: 'bracelet-malachite-triple-rang',
+    shopifyHandle: 'bracelet-malachite-triple',
     name: 'Bracelet Malachite Triple Rang',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang malachite ronde, intercalaires dorés filigranés. Poids : environ 30g.',
     details: 'Profondeur minérale au poignet. Trois rangs vibrants où la malachite rencontre l\'or travaillé.',
@@ -591,9 +551,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-tourmaline-multicolore',
-    shopifyHandle: 'collier-tourmaline-multicolore-2',
+    shopifyHandle: 'collier-tourmaline-multicolore',
     name: 'Collier Tourmaline Multicolore',
-    price: 69,
     collection: 'bijoux',
     description: 'Sautoir d\'éclats de tourmaline multicolore, perles dorées martelées et gouttes dorées en pampille.',
     details: 'Lariat solaire. Une cascade d\'éclats colorés ponctuée d\'or, à nouer ou à laisser tomber.',
@@ -605,7 +564,6 @@ const rawBijouxProducts: Product[] = [
     id: 'collier-amethyste-lariat',
     shopifyHandle: 'collier-amethyste-lariat',
     name: 'Collier Améthyste Lariat',
-    price: 69,
     collection: 'bijoux',
     description: 'Collier lariat en perles d\'améthyste violette et chips d\'améthyste lavande, intercalaires dorés, perle dorée centrale et anneaux martelés en pendants.',
     details: 'Élégance fluide. Un lariat sculptural où l\'améthyste profonde danse avec l\'or pour une silhouette à la fois bohème et raffinée.',
@@ -615,9 +573,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-prehnite-perles',
-    shopifyHandle: 'bracelet-prehnite-et-perles',
+    shopifyHandle: 'bracelet-prehnite-perles',
     name: 'Bracelet Préhnite & Perles',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang préhnite brute, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Douceur végétale. La préhnite brute sublimée par la lumière des perles d\'eau douce.',
@@ -627,9 +584,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-aventurine',
-    shopifyHandle: 'collier-quartz-rose-et-aventurine',
+    shopifyHandle: 'collier-quartz-aventurine',
     name: 'Collier Quartz Rose & Aventurine',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang quartz rose et éclats d\'aventurine, détails dorés.',
     details: 'Douceur brute. Deux pierres, deux énergies, une seule intention.',
@@ -639,9 +595,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-corail',
-    shopifyHandle: 'collier-malachite-et-corail',
+    shopifyHandle: 'collier-malachite-corail',
     name: 'Collier Malachite & Corail',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de malachite, perles baroques, grappe de corail rouge.',
     details: 'Intensité et contraste. La malachite profonde rencontre l\'éclat du corail.',
@@ -651,9 +606,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-turquoise-corail',
-    shopifyHandle: 'bracelet-turquoise-et-corail-rouge',
+    shopifyHandle: 'bracelet-turquoise-corail',
     name: 'Bracelet Turquoise & Corail Rouge',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang turquoise, corail rouge, perles d\'eau douce, fermoir doré. Poids : environ 30g.',
     details: 'Contraste solaire. La turquoise vibrante rencontre l\'éclat du corail rouge.',
@@ -663,9 +617,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-amethyste-or',
-    shopifyHandle: 'collier-amethyste-et-or',
+    shopifyHandle: 'collier-amethyste-or',
     name: 'Collier Améthyste & Or',
-    price: 69,
     collection: 'bijoux',
     description: 'Éclats d\'améthyste violette, intercalaires dorés et pendentif sculptural doré serti de perles violettes.',
     details: 'Violet profond et métal doré. Une pièce signature qui mêle matière brute et lumière chaude.',
@@ -675,9 +628,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-howlite-amazonite',
-    shopifyHandle: 'bracelet-howlite-et-amazonite',
+    shopifyHandle: 'bracelet-howlite-amazonite',
     name: 'Bracelet Howlite & Amazonite',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang howlite blanche, amazonite et jaspe, fermoir serti d\'amazonite. Poids : environ 30g.',
     details: 'Sérénité minérale. Le blanc apaisant de la howlite ponctué de turquoises naturelles.',
@@ -687,9 +639,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-quartz-croix-jade',
-    shopifyHandle: 'collier-quartz-rose-et-croix-de-jade',
+    shopifyHandle: 'collier-quartz-croix-jade',
     name: 'Collier Quartz Rose & Croix de Jade',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de quartz rose, croix de jade vert, pendentif.',
     details: 'Symboles et douceur. Un collier entre spiritualité et élégance naturelle.',
@@ -699,9 +650,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-aigue-marine-agate',
-    shopifyHandle: 'collier-aigue-marine-et-agate-bleue',
+    shopifyHandle: 'collier-aigue-marine-agate',
     name: 'Collier Aigue-Marine & Agate Bleue',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang aigue-marine brute et agate bleue, intercalaires dorés.',
     details: 'Fraîcheur marine. Deux rangs qui évoquent l\'eau, le calme et la clarté.',
@@ -711,9 +661,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-oeil-tigre-fuchsia',
-    shopifyHandle: 'bracelet-oeil-de-tigre-fuchsia',
+    shopifyHandle: 'bracelet-oeil-tigre-fuchsia',
     name: 'Bracelet Œil de Tigre Fuchsia',
-    price: 39,
     collection: 'bijoux',
     description: 'Double rang œil de tigre fuchsia, éclats multicolores, sphères dorées striées. Poids : environ 30g.',
     details: 'Caractère et éclat au poignet. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
@@ -723,9 +672,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-corail-multicolor',
-    shopifyHandle: 'collier-corail-et-pierres-multicolores',
+    shopifyHandle: 'collier-corail-multicolor',
     name: 'Collier Corail & Pierres Multicolores',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de corail rouge, éclats multicolores, pendentif doré.',
     details: 'Explosion de couleurs. Un collier vibrant qui célèbre la diversité des pierres.',
@@ -737,7 +685,6 @@ const rawBijouxProducts: Product[] = [
     id: 'collier-malachite-chips-double',
     shopifyHandle: 'collier-malachite-chips-double',
     name: 'Collier Malachite Chips Double',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang de chips de malachite, œil de tigre vert et perles filigranées dorées.',
     details: 'Vert profond. Deux rangs sculptés où la malachite brute dialogue avec l\'or travaillé.',
@@ -747,9 +694,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-goldstone-perles',
-    shopifyHandle: 'bracelet-goldstone-et-perles',
+    shopifyHandle: 'bracelet-goldstone-perles',
     name: 'Bracelet Goldstone & Perles',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang goldstone, pierre de lune et perles d\'eau douce, détails dorés. Poids : environ 30g.',
     details: 'Éclat terrestre. La goldstone scintillante rencontre la lumière nacrée des perles.',
@@ -759,9 +705,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-prehnite-malachite',
-    shopifyHandle: 'collier-prehnite-et-malachite',
+    shopifyHandle: 'collier-prehnite-malachite',
     name: 'Collier Préhnite & Malachite',
-    price: 89,
     collection: 'bijoux',
     description: 'Triple rang préhnite et malachite, fermoir doré.',
     details: 'Fraîcheur minérale. Trois rangs de pierres brutes pour une présence végétale.',
@@ -773,7 +718,6 @@ const rawBijouxProducts: Product[] = [
     id: 'collier-turquoise-croix-perles',
     shopifyHandle: 'collier-turquoise-croix-perles',
     name: 'Collier Turquoise & Croix Perlée',
-    price: 69,
     collection: 'bijoux',
     description: 'Collier en perles de turquoise tubulaires, perles d\'eau douce baroques, intercalaires dorés et pendentif croix sertie de turquoises et de perles.',
     details: 'Bleu solaire. La turquoise vibrante rencontre la lumière nacrée des perles, sublimée par une croix sculpturale dorée.',
@@ -783,9 +727,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-oeil-tigre-fuchsia',
-    shopifyHandle: 'collier-oeil-de-tigre-fuchsia',
+    shopifyHandle: 'collier-oeil-tigre-fuchsia',
     name: 'Collier Œil de Tigre Fuchsia',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang œil de tigre fuchsia, intercalaires dorés striés.',
     details: 'Caractère et éclat. Deux rangs vibrants pour une couleur qui s\'affirme sans détour.',
@@ -795,9 +738,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'bracelet-amethyste-quartz',
-    shopifyHandle: 'bracelet-amethyste-et-quartz-rose',
+    shopifyHandle: 'bracelet-amethyste-quartz',
     name: 'Bracelet Améthyste & Quartz Rose',
-    price: 39,
     collection: 'bijoux',
     description: 'Triple rang améthyste, quartz rose, intercalaires dorés, pendentif améthyste facetté. Poids : environ 30g.',
     details: 'Sagesse et douceur. Deux pierres complices liées par l\'or, pour une énergie apaisante.',
@@ -807,9 +749,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-trio-citrine',
-    shopifyHandle: 'collier-trio-citrine-et-amethyste',
+    shopifyHandle: 'collier-trio-citrine',
     name: 'Collier Trio Citrine & Améthyste',
-    price: 89,
     collection: 'bijoux',
     description: 'Triple rang citrine, malachite et améthyste, détails dorés.',
     details: 'Énergie solaire. Trois pierres vibrantes tissées en un seul collier lumineux.',
@@ -819,9 +760,8 @@ const rawBijouxProducts: Product[] = [
   },
   {
     id: 'collier-malachite-lapis-double-pendentif',
-    shopifyHandle: 'collier-malachite-et-lapis-double-pendentif',
+    shopifyHandle: 'collier-malachite-lapis-double-pendentif',
     name: 'Collier Malachite & Lapis Double Pendentif',
-    price: 89,
     collection: 'bijoux',
     description: 'Double rang malachite et lapis-lazuli, deux pendentifs gouttes sertis d\'or.',
     details: 'Pièce de signature. Deux rangs et deux gouttes de lapis pour une présence affirmée.',
@@ -833,7 +773,6 @@ const rawBijouxProducts: Product[] = [
     id: 'collier-quartz-rose-amethyste',
     shopifyHandle: 'collier-quartz-rose-amethyste',
     name: 'Collier Quartz Rose & Améthyste',
-    price: 69,
     collection: 'bijoux',
     description: 'Perles de quartz rose, perles d\'eau douce, intercalaires dorés et pendentif sculptural en grappe d\'améthyste violette.',
     details: 'Rose tendre et violet profond. Un ras-de-cou romantique sublimé par une grappe d\'améthyste rehaussée d\'or.',
@@ -867,8 +806,8 @@ export interface BagSpec {
 
 // Caractéristiques communes à chaque silhouette (prix, dimensions)
 export const BAG_SILHOUETTES = {
-  big: { label: 'Big LOV', price: 260, dimensions: '35 × 24 × 15 cm', handles: '25 cm' },
-  sml: { label: 'Small LOV', price: 180, dimensions: '29 × 16 × 13 cm', handles: '25 cm' },
+  big: { label: 'Big LOV', dimensions: '35 × 24 × 15 cm', handles: '25 cm' },
+  sml: { label: 'Small LOV', dimensions: '29 × 16 × 13 cm', handles: '25 cm' },
 } as const;
 
 // Textes communs aux 12 fiches
@@ -983,12 +922,17 @@ export const bagAlt = (b: BagSpec) =>
   `Sac ${b.name.replace(/^(Big|Small) LOV /, `${BAG_SILHOUETTES[b.silhouette].label} `).toLowerCase()} en cuir de buffle tressé main, charm cœur LOVCICOV`;
 
 // Projection des sacs vers le modèle Product commun au site
-const rawSacsProducts: Product[] = BAGS.map((b) => {
+// Le handle Shopify d'un sac est son slug, sauf exception référencée ici.
+const BAG_HANDLE_OVERRIDES: Record<string, string> = {
+  'small-lov-bicolore-argent': 'small-lov-bicolore-or',
+};
+
+const rawSacsProducts: RawProduct[] = BAGS.map((b) => {
   const sil = BAG_SILHOUETTES[b.silhouette];
   return {
     id: b.slug,
+    shopifyHandle: BAG_HANDLE_OVERRIDES[b.slug] ?? b.slug,
     name: b.name,
-    price: sil.price,
     collection: 'sacs' as const,
     description: b.description,
     details: b.description,
@@ -1004,11 +948,11 @@ export const getBagBySlug = (slug?: string) => BAGS.find((b) => b.slug === slug)
 
 
 // Collection "Accessoires" — grigris LovBag, pièces uniques faites main
-const rawGrigriProducts: Product[] = [
+const rawGrigriProducts: RawProduct[] = [
   {
     id: 'grigri-fleur-menthe',
+    shopifyHandle: 'grigri-fleur-menthe',
     name: 'Fleur Menthe',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1017,8 +961,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-fleur-bonbon',
+    shopifyHandle: 'grigri-fleur-bonbon',
     name: 'Fleur Bonbon',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1027,8 +971,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-fleur-rose',
+    shopifyHandle: 'grigri-fleur-rose',
     name: 'Fleur Rose',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1037,8 +981,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-arc-en-ciel-pastel',
+    shopifyHandle: 'grigri-arc-en-ciel-pastel',
     name: 'Arc-en-Ciel Pastel',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1047,8 +991,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-arc-en-ciel-bleu',
+    shopifyHandle: 'grigri-arc-en-ciel-bleu',
     name: 'Arc-en-Ciel Bleu',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1057,8 +1001,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-cerise-rouge',
+    shopifyHandle: 'grigri-cerise-rouge',
     name: 'Cerise Rouge',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1067,8 +1011,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-cerise-creme',
+    shopifyHandle: 'grigri-cerise-creme',
     name: 'Cerise Crème',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1077,8 +1021,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-pomme-croquee',
+    shopifyHandle: 'grigri-pomme-croquee',
     name: 'Pomme Croquée',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1087,8 +1031,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-pomme-damour',
+    shopifyHandle: 'grigri-pomme-damour',
     name: 'Pomme d\'Amour',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1097,8 +1041,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-etoile-denim',
+    shopifyHandle: 'grigri-etoile-denim',
     name: 'Étoile Denim',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1107,8 +1051,8 @@ const rawGrigriProducts: Product[] = [
   },
   {
     id: 'grigri-fleur-neon',
+    shopifyHandle: 'grigri-fleur-neon',
     name: 'Fleur Néon',
-    price: 20,
     collection: 'accessoires',
     description: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
     details: 'Grigri fait main, pièce unique — à accrocher à ton sac, tes clés ou ta ceinture. Fleurs crochetées, cordes nouées à la main, mousqueton cœur : aucun n\'est identique à un autre.',
@@ -1140,10 +1084,11 @@ const vueOf = (key: string): 'face' | 'dos' | 'porte' | 'detail' => {
   return 'detail';
 };
 
-const normalize = (p: Product): Product => {
+const normalize = (p: RawProduct): Product => {
   const images = [p.image, ...(p.gallery ?? [])].filter(Boolean);
   return {
     ...p,
+    price: p.price ?? 0,
     name: normalizeProductName(p.name),
     univers: UNIVERS_BY_COLLECTION[p.collection],
     images,
@@ -1151,12 +1096,43 @@ const normalize = (p: Product): Product => {
   };
 };
 
-export const standardProducts: Product[] = rawStandardProducts.map(normalize);
-export const kimonoProducts: Product[] = rawKimonoProducts.map(normalize);
-export const mysticProducts: Product[] = rawMysticProducts.map(normalize);
-export const bijouxProducts: Product[] = rawBijouxProducts.map(normalize);
-export const sacsProducts: Product[] = rawSacsProducts.map(normalize);
-export const grigriProducts: Product[] = rawGrigriProducts.map(normalize);
+/**
+ * Enrichissement Shopify : prix, type, disponibilité et identifiant de variante
+ * viennent du catalogue chargé au démarrage. Un produit dont le handle ne
+ * correspond à aucune fiche Shopify est masqué (et signalé dans la console).
+ */
+const enrich = (list: Product[]): Product[] => {
+  const catalogAvailable = isCatalogLoaded();
+  const out: Product[] = [];
+  for (const p of list) {
+    const entry = getCatalogEntry(p.shopifyHandle);
+    if (!entry) {
+      if (catalogAvailable) {
+        console.warn(
+          `[Catalogue] Produit masqué — aucun produit Shopify pour le handle « ${p.shopifyHandle ?? '(aucun)'} » : ${p.name}`
+        );
+        continue;
+      }
+      out.push(p);
+      continue;
+    }
+    out.push({
+      ...p,
+      price: entry.price,
+      type: entry.type ?? p.type,
+      availableForSale: entry.availableForSale,
+      shopifyVariantId: entry.variants[0]?.id,
+    });
+  }
+  return out;
+};
+
+export const standardProducts: Product[] = enrich(rawStandardProducts.map(normalize));
+export const kimonoProducts: Product[] = enrich(rawKimonoProducts.map(normalize));
+export const mysticProducts: Product[] = enrich(rawMysticProducts.map(normalize));
+export const bijouxProducts: Product[] = enrich(rawBijouxProducts.map(normalize));
+export const sacsProducts: Product[] = enrich(rawSacsProducts.map(normalize));
+export const grigriProducts: Product[] = enrich(rawGrigriProducts.map(normalize));
 
 /** TOUS les produits du site, chacun une seule fois. */
 export const products: Product[] = (() => {
