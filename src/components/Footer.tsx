@@ -169,9 +169,6 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-9 w-auto" />
           </Link>
 
-          <p className="text-brand-lg text-[10px] md:text-[11px] text-muted-foreground mb-3">
-            Maison Française
-          </p>
 
           <p className="text-[9px] md:text-[10px] tracking-[0.4em] uppercase text-muted-foreground/80 mb-8">
             Made in Paradise
