@@ -167,13 +167,8 @@
     @apply py-14 md:py-20 lg:py-24;
   }
 
-  /* Règle horizontale commune : une seule source de vérité */
-  .rule-t { border-top: 1px solid hsl(var(--border)); }
-  .rule-b { border-bottom: 1px solid hsl(var(--border)); }
-  .rule-y { border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border)); }
-
   .hairline {
-    @apply rule-t;
+    @apply border-t border-border/60;
   }
 
   .fade-in-up {
