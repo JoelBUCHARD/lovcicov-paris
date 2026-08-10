@@ -121,7 +121,7 @@ const rawStandardProducts: Product[] = [
     id: 'powerlov-sacred-heart-sweat',
     shopifyHandle: 'sweat-a-capuche-powerlov',
     name: 'THE STANDARD IS ME',
-    price: 99,
+    price: 120,
     collection: 'standard',
     subcategory: 'hoodie',
     description: 'Sweat à capuche coton molletonné écru. Sérigraphie « LOVCICOV PARIS » en façade, cercle d\'étoiles « THE STANDARD IS ME » au dos. Coupe oversize. Unisex.',
