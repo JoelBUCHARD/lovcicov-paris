@@ -32,6 +32,7 @@ export interface Product {
 
   stoneMeaning?: string; // Signification des pierres (bijoux only)
   shopifyHandle?: string; // Handle of matching Shopify product
+  shopifyVariantId?: string; // Variante Shopify explicite (gid://shopify/ProductVariant/...)
   shopifyColor?: string; // Color option value to match on Shopify variant
   specs?: ProductSpecs; // Fiche technique complète (accordéons Composition & entretien / Guide des tailles)
 }
