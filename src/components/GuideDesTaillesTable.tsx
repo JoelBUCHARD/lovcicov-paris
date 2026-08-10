@@ -1,3 +1,4 @@
+import { SIZE_GUIDE_NOTE } from '@/config/sizing';
 const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
 
 const HEAD = ['Mesure', 'XS', 'S', 'M', 'L', 'XL'];
