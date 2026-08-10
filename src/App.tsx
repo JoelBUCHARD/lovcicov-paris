@@ -12,7 +12,12 @@ import { onCatalogUpdate } from "./lib/shopifyCatalog";
 /** Re-rend l'app quand le catalogue Shopify arrive, sans bloquer le premier rendu. */
 const useCatalogVersion = () => {
   const [, setV] = useState(0);
-  useEffect(() => onCatalogUpdate(() => setV((v) => v + 1)), []);
+  useEffect(() => {
+    const unsubscribe = onCatalogUpdate(() => setV((v) => v + 1));
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 };
 import { useCartSync } from "./hooks/useCartSync";
 import ScrollRestoration from "./components/ScrollRestoration";
