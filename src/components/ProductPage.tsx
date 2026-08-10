@@ -820,10 +820,7 @@ const ProductPage = ({ product }: Props) => {
               <p>{product.name.toLowerCase().includes('bracelet') ? 'Bracelet ajustable au poignet — tour de main 15 à 19 cm.' : 'Collier ajustable : 42 — 48 cm.'}</p>
             ) : (
               <>
-                <p className="mb-3">Coupe oversize unisexe.</p>
-                <p className="italic mb-3" style={{ color: '#6B6A65' }}>
-                  {modelSizeNoteFor(product.id)}
-                </p>
+                <p className="mb-3">{SIZE_GUIDE_NOTE}</p>
                 <button
                   type="button"
                   onClick={() => setSizeGuideOpen(true)}
