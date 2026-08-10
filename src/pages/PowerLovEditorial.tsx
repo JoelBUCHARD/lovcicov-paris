@@ -214,16 +214,30 @@ const PowerLovEditorial = () => {
 
   // Grille éditoriale : rangée « grande carte + 2 cartes empilées », alternée gauche/droite,
   // séparée par des rangées de 3 cartes standard. Placement explicite ≥ 768px uniquement.
-  const layout = useMemo(() => {
+  // Règle : une grande vignette est réservée aux sweats (crewneck/hoodie).
+  // Les t-shirts restent toujours en format standard.
+  const { ordered, layout } = useMemo(() => {
+    const isSweat = (p: (typeof filtered)[number]) => p.categories.includes("sweats");
+    const items = [...filtered];
     const rules: string[] = [];
     const big = new Set<number>();
     let i = 0;
     let row = 1;
     let type1 = true;
     let left = true;
-    while (i < filtered.length) {
-      const remaining = filtered.length - i;
+    while (i < items.length) {
+      const remaining = items.length - i;
+      // Une grande rangée n'est possible que si un sweat peut occuper la grande vignette.
+      let sweatIdx = -1;
       if (type1 && remaining >= 3) {
+        sweatIdx = items.findIndex((p, idx) => idx >= i && isSweat(p));
+      }
+      if (type1 && remaining >= 3 && sweatIdx !== -1) {
+        // On amène le sweat le plus proche sur l'emplacement de la grande vignette.
+        if (sweatIdx !== i) {
+          const [sweat] = items.splice(sweatIdx, 1);
+          items.splice(i, 0, sweat);
+        }
         const bigCols = left ? "1 / 3" : "2 / 4";
         const stdCol = left ? "3" : "1";
         rules.push(`.pw-${i}{grid-column:${bigCols};grid-row:${row} / ${row + 2};}`);
@@ -241,11 +255,16 @@ const PowerLovEditorial = () => {
         }
         i += n;
         row += 1;
+        // Après une rangée standard, on retente une grande rangée (jamais deux collées).
         type1 = true;
       }
     }
-    return { css: `@media (min-width:768px){${rules.join("")}}`, big };
+    return {
+      ordered: items,
+      layout: { css: `@media (min-width:768px){${rules.join("")}}`, big },
+    };
   }, [filtered]);
+
 
   const from = `${location.pathname}${location.search}`;
 
@@ -364,7 +383,7 @@ const PowerLovEditorial = () => {
             className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
             style={{ maxWidth: 1400 }}
           >
-            {filtered.map((product, i) => {
+            {ordered.map((product, i) => {
               const isBig = layout.big.has(i);
               return (
               <motion.div
