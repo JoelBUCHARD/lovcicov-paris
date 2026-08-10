@@ -231,7 +231,7 @@ const Sacs = () => {
           `}</style>
 
           <div
-            className="mx-auto grid grid-cols-2 md:grid-cols-3 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-2"
+            className="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-1 md:gap-x-2 gap-y-1 md:gap-y-1.5 md:[grid-auto-flow:dense]"
             style={{ maxWidth: 1400 }}
           >
             {filtered.map((product, i) => (
@@ -241,7 +241,7 @@ const Sacs = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.7, delay: Math.min(i, 6) * 0.035 }}
-                className="col-span-1"
+                className="col-span-1 self-start"
               >
                 <Link
                   to={product.to}
@@ -255,18 +255,18 @@ const Sacs = () => {
                   className="group flex flex-col focus:outline-none focus-visible:ring-1 focus-visible:ring-[#0D0D0D]"
                 >
                   <div
-                    className="relative w-full overflow-hidden aspect-[4/5]"
-                    style={{ backgroundColor: "#F0EDE7" }}
+                    className="relative w-full overflow-hidden"
+                    style={{ backgroundColor: "#F0EDE7", aspectRatio: "2 / 3" }}
                   >
                     <img
                       src={product.image}
                       alt={product.name}
-                      loading="lazy"
+                      loading={i < 4 ? "eager" : "lazy"}
                       decoding="async"
                       className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300${
                         product.hoverImage ? " [@media(hover:hover)]:group-hover:opacity-0" : ""
                       }`}
-                      style={{ objectPosition: "center top" }}
+                      style={{ objectPosition: "center" }}
                     />
                     {product.hoverImage && (
                       <img
@@ -276,7 +276,7 @@ const Sacs = () => {
                         loading="lazy"
                         decoding="async"
                         className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100"
-                        style={{ objectPosition: "center top" }}
+                        style={{ objectPosition: "center" }}
                       />
                     )}
                   </div>
@@ -309,6 +309,7 @@ const Sacs = () => {
               </motion.div>
             ))}
           </div>
+
 
           <div
             className="mx-auto flex justify-center"
