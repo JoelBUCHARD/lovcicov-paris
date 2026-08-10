@@ -85,10 +85,10 @@ const JourneyContinuation = ({
   return (
     <section
       aria-label="Continuer l'exploration"
-      className="w-full py-16 md:py-24 px-6 md:px-10"
+      className="w-full py-16 md:py-24 px-4 md:px-6"
       style={{ backgroundColor: background }}
     >
-      <div className="max-w-[1180px] mx-auto">
+      <div className="w-full lg:w-[90%] max-w-[1800px] mx-auto">
         <div className="text-center mb-10 md:mb-14">
           {eyebrow && (
             <p className="text-[10px] tracking-[0.28em] uppercase text-[#8A857C] mb-4">
@@ -109,7 +109,7 @@ const JourneyContinuation = ({
         </div>
 
         <div
-          className={`grid gap-4 md:gap-6 ${
+          className={`grid gap-3 md:gap-4 ${
             cards.length === 2
               ? "grid-cols-1 md:grid-cols-2"
               : cards.length === 3
@@ -122,7 +122,7 @@ const JourneyContinuation = ({
               key={c.key}
               to={c.to}
               className="group block relative overflow-hidden bg-[#1A1A1A]"
-              style={{ aspectRatio: "4 / 5" }}
+              style={{ aspectRatio: "3 / 4" }}
               aria-label={`${c.title} — ${c.caption}`}
             >
               <img
