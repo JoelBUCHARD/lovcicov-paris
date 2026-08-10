@@ -128,7 +128,7 @@ const StoneLovEditorial = () => {
     const sorted = [...base];
     if (sort === "price-asc") sorted.sort((a, b) => a.price - b.price);
     else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
-    else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
+    
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   }, [category, sort]);
 
