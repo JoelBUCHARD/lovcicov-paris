@@ -3,7 +3,9 @@ import powerAsset from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird
 import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import stoneHero from "@/assets/stonelov/hero.png";
 
-type UniverseKey = "power" | "mystic" | "stone";
+const LOVBAG_IMAGE = "/images/sacs/LOV-BIG-01_01.jpg";
+
+type UniverseKey = "power" | "mystic" | "stone" | "lovbag";
 
 type UniverseCard = {
   key: UniverseKey;
@@ -47,10 +49,20 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     alt: "StoneLov — hero savoir-faire",
     objectPosition: "center center",
   },
+  lovbag: {
+    key: "lovbag",
+    eyebrow: "Chapitre — Savoir-faire",
+    title: "LovBag",
+    caption: "Le cuir devient geste.",
+    to: "/lovbag",
+    image: LOVBAG_IMAGE,
+    alt: "LOVBAG — sacs en cuir de buffle tressé main",
+    objectPosition: "center center",
+  },
 };
 
 interface JourneyContinuationProps {
-  /** The current universe — the two others will be shown. Omit to show all three. */
+  /** The current universe — the two others will be shown. Omit to show all four. */
   current?: UniverseKey;
   /** Editorial intro shown above the cards. */
   eyebrow?: string;
@@ -62,10 +74,10 @@ interface JourneyContinuationProps {
 const JourneyContinuation = ({
   current,
   eyebrow,
-  title = "Trois univers, une même maison",
+  title = "Quatre univers, une même maison",
   background = "#EDEAE4",
 }: JourneyContinuationProps) => {
-  const order: UniverseKey[] = ["power", "mystic", "stone"];
+  const order: UniverseKey[] = ["power", "mystic", "stone", "lovbag"];
   const cards = order
     .filter((k) => k !== current)
     .map((k) => UNIVERSES[k]);
@@ -98,7 +110,11 @@ const JourneyContinuation = ({
 
         <div
           className={`grid gap-4 md:gap-6 ${
-            cards.length === 2 ? "grid-cols-1 md:grid-cols-2" : "grid-cols-1 md:grid-cols-3"
+            cards.length === 2
+              ? "grid-cols-1 md:grid-cols-2"
+              : cards.length === 3
+                ? "grid-cols-1 md:grid-cols-3"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
           }`}
         >
           {cards.map((c) => (
