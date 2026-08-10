@@ -218,7 +218,7 @@ const Index = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-[10px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10 md:mb-14"
+          className="text-[16px] md:text-[20px] tracking-[0.32em] uppercase text-[#8B7D6B] mb-10 md:mb-14"
         >
           Collection 2026
         </motion.p>
