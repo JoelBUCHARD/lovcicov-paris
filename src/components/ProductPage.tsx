@@ -404,7 +404,7 @@ const ProductPage = ({ product }: Props) => {
   };
 
   return (
-    <main className="bg-[#F4F3F1] pt-28 md:pt-36 pb-32 md:pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
+    <main className="bg-[#F4F3F1] pt-28 md:pt-36 pb-10 md:pb-16 px-4 md:px-12" style={{ fontFamily: SANS }}>
       <SEO
         title={seoTitle}
         description={seoDesc}
