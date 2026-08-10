@@ -209,7 +209,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
             </a>
           </div>
 
-          <p className="text-[10px] tracking-[0.28em] uppercase text-muted-foreground/70 pb-20 md:pb-0">
+          <p className="text-[10px] tracking-[0.28em] uppercase text-muted-foreground/70 pb-20 md:pb-28">
             © {year} LOVCICOV · Tous droits réservés
           </p>
         </div>
