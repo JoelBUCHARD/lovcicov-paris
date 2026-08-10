@@ -186,3 +186,59 @@ export async function fetchShopifyProductByHandle(handle: string): Promise<Shopi
   const data = await storefrontApiRequest(PRODUCT_BY_HANDLE_QUERY, { handle });
   return data?.data?.productByHandle || null;
 }
+
+// --- Variante Shopify explicite (identifiant venant de products.ts) ---
+
+export interface ShopifyVariantInfo {
+  id: string;
+  title: string;
+  availableForSale: boolean;
+  currentlyNotInStock: boolean;
+  price: { amount: string; currencyCode: string };
+  selectedOptions: Array<{ name: string; value: string }>;
+  product: ShopifyProduct['node'];
+}
+
+const VARIANT_BY_ID_QUERY = `
+  query GetVariant($id: ID!) {
+    node(id: $id) {
+      ... on ProductVariant {
+        id
+        title
+        availableForSale
+        currentlyNotInStock
+        price { amount currencyCode }
+        selectedOptions { name value }
+        product {
+          id
+          title
+          description
+          handle
+          priceRange { minVariantPrice { amount currencyCode } }
+          images(first: 5) { edges { node { url altText } } }
+          productType
+          tags
+          options { name values }
+        }
+      }
+    }
+  }
+`;
+
+export async function fetchShopifyVariantById(variantId: string): Promise<ShopifyVariantInfo | null> {
+  try {
+    const data = await storefrontApiRequest(VARIANT_BY_ID_QUERY, { id: variantId });
+    const node = data?.data?.node;
+    if (!node?.id) {
+      console.error('[Shopify] Variante introuvable:', variantId, data);
+      return null;
+    }
+    return {
+      ...node,
+      product: { ...node.product, variants: { edges: [] } },
+    } as ShopifyVariantInfo;
+  } catch (error) {
+    console.error('[Shopify] Échec de la lecture de la variante', variantId, error);
+    return null;
+  }
+}
