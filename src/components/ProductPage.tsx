@@ -960,7 +960,7 @@ const ProductPage = ({ product }: Props) => {
       {/* ─── Craftsmanship pillars ───────────────────────────── */}
       <section className="mt-0 px-6 md:px-12 bg-[#F4F3F1]">
         <div className="max-w-3xl mx-auto border-t border-[#EFEDE8]" />
-        <div className="max-w-[1100px] mx-auto pt-16 md:pt-20 pb-8 md:pb-10">
+        <div className="max-w-[1100px] mx-auto pt-10 md:pt-20 pb-8 md:pb-10">
           <p
             className="text-center mb-14"
             style={{ fontFamily: SANS, fontSize: 10, letterSpacing: '0.32em', color: '#1A1A1A', textTransform: 'uppercase' }}
