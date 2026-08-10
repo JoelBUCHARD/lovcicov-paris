@@ -15,7 +15,7 @@ export interface CatalogVariant {
   price: { amount: string; currencyCode: string };
   availableForSale: boolean;
   currentlyNotInStock: boolean;
-  quantityAvailable: number | null;
+  quantityAvailable?: number | null;
   selectedOptions: { name: string; value: string }[];
 }
 
