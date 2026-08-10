@@ -75,7 +75,15 @@
     font-feature-settings: "kern", "liga", "calt";
     line-height: 1.6;
     overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    overflow-x: hidden;
   }
+
+  /* Aucune image ne déborde ni ne déforme la mise en page pendant son chargement. */
+  img, video {
+    max-width: 100%;
+  }
+
 
   button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
   input, textarea, select { font-size: 16px; } /* prevents iOS zoom on focus */

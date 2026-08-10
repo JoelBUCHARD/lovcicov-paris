@@ -16,10 +16,21 @@ type Props<K extends string> = {
  */
 function CategoryTabs<K extends string>({ ariaLabel, tabs, active, onChange }: Props<K>) {
   const listRef = useRef<HTMLUListElement | null>(null);
+  const firstRun = useRef(true);
 
+  // On ne déplace QUE la barre horizontalement, jamais la page :
+  // scrollIntoView ferait défiler le document à l'arrivée sur la page.
   useEffect(() => {
-    const el = listRef.current?.querySelector<HTMLElement>('[data-active="true"]');
-    el?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    if (firstRun.current) {
+      firstRun.current = false;
+      return;
+    }
+    const list = listRef.current;
+    const container = list?.parentElement;
+    const el = list?.querySelector<HTMLElement>('[data-active="true"]');
+    if (!list || !container || !el) return;
+    const target = el.offsetLeft - container.clientWidth / 2 + el.clientWidth / 2;
+    container.scrollTo({ left: Math.max(target, 0), behavior: "smooth" });
   }, [active]);
 
   return (

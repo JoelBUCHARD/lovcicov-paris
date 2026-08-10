@@ -226,7 +226,7 @@ const Index = () => {
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="w-full px-6 md:px-6"
         >
-          <img
+          <img loading="lazy" decoding="async"
             src={editorial2026Duo.url}
             alt="LOVCICOV — Sweat Sacred Heart bleu marine et T-shirt blanc logo, Collection 2026"
             className="w-full h-[60vh] md:h-[80vh] object-cover object-top max-w-[900px] mx-auto"

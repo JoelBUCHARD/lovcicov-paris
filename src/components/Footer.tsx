@@ -166,7 +166,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
       <div className="border-t border-border/70">
         <div className="container-luxury py-14 md:py-16 text-center">
           <Link to="/" aria-label="LOVCICOV Paris — Accueil" className="inline-flex mb-6">
-            <img src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-9 w-auto" />
+            <img loading="lazy" decoding="async" src={lovcicovLogo} alt="LOVCICOV Paris" className="h-8 md:h-9 w-auto" />
           </Link>
 
 

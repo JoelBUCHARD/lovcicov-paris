@@ -53,7 +53,7 @@ const Fondatrice = () => {
             className="w-full max-w-md mx-auto mb-20"
           >
             <div className="aspect-[3/4] overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async"
                 src={fondatricePortrait.url}
                 alt="Georgiana Lovcicov, fondatrice de Lovcicov Paris"
                 className="w-full h-full object-cover"

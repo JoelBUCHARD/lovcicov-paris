@@ -1,4 +1,4 @@
-import { getCatalogEntry, isCatalogLoaded } from '@/lib/shopifyCatalog';
+import { getCatalogEntry, isCatalogLoaded, onCatalogUpdate } from '@/lib/shopifyCatalog';
 
 export interface ProductSpecs {
   composition: string;
@@ -1127,25 +1127,42 @@ const enrich = (list: Product[]): Product[] => {
   return out;
 };
 
-export const standardProducts: Product[] = enrich(rawStandardProducts.map(normalize));
-export const kimonoProducts: Product[] = enrich(rawKimonoProducts.map(normalize));
-export const mysticProducts: Product[] = enrich(rawMysticProducts.map(normalize));
-export const bijouxProducts: Product[] = enrich(rawBijouxProducts.map(normalize));
-export const sacsProducts: Product[] = enrich(rawSacsProducts.map(normalize));
-export const grigriProducts: Product[] = enrich(rawGrigriProducts.map(normalize));
+// Listes exportées : remplies immédiatement (instantané localStorage) puis
+// mises à jour EN PLACE quand la réponse Shopify arrive — le rendu n'attend jamais.
+export const standardProducts: Product[] = [];
+export const kimonoProducts: Product[] = [];
+export const mysticProducts: Product[] = [];
+export const bijouxProducts: Product[] = [];
+export const sacsProducts: Product[] = [];
+export const grigriProducts: Product[] = [];
 
 /** TOUS les produits du site, chacun une seule fois. */
-export const products: Product[] = (() => {
-  const all = [
-    ...standardProducts,
-    ...mysticProducts,
-    ...bijouxProducts,
-    ...sacsProducts,
-    ...grigriProducts,
-  ];
+export const products: Product[] = [];
+
+const fill = (target: Product[], next: Product[]) => {
+  target.length = 0;
+  target.push(...next);
+};
+
+const rebuild = () => {
+  fill(standardProducts, enrich(rawStandardProducts.map(normalize)));
+  fill(kimonoProducts, enrich(rawKimonoProducts.map(normalize)));
+  fill(mysticProducts, enrich(rawMysticProducts.map(normalize)));
+  fill(bijouxProducts, enrich(rawBijouxProducts.map(normalize)));
+  fill(sacsProducts, enrich(rawSacsProducts.map(normalize)));
+  fill(grigriProducts, enrich(rawGrigriProducts.map(normalize)));
+
   const seen = new Set<string>();
-  return all.filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)));
-})();
+  fill(
+    products,
+    [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts, ...grigriProducts].filter((p) =>
+      seen.has(p.id) ? false : (seen.add(p.id), true)
+    )
+  );
+};
+
+rebuild();
+onCatalogUpdate(rebuild);
 
 export const getProductsByUnivers = (u: Univers): Product[] =>
   products.filter((p) => p.univers === u);

@@ -55,13 +55,14 @@ const ScrollRestoration = () => {
     currentKey.current = location.key;
 
     if (navigationType !== "POP") {
-      window.scrollTo(0, 0);
+      // Instantané : `scroll-behavior: smooth` ne doit pas animer l'arrivée.
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
       return;
     }
 
     const target = readPositions()[location.key];
     if (!target) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
       return;
     }
 
