@@ -245,23 +245,23 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 4. SIGNATURE PIECES — PowerLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
-        <div className="text-center mb-14 md:mb-20 px-6">
+        <div className="site-container text-center mb-14 md:mb-20">
           <h2
             className="text-[#1A1A1A] font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1 }}
           >
             PowerLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#5F5E5A] font-light measure max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             La collection des messages qui donnent de l'énergie.
           </p>
         </div>
 
-        <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+        <div className="site-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {visibleStandardProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -288,23 +288,23 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 5. BRAND UNIVERSE — MysticLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
-        <div className="text-center mb-14 md:mb-20 px-6">
+        <div className="site-container text-center mb-14 md:mb-20">
           <h2
             className="font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
           >
             MysticLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#5F5E5A] font-light measure max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             La collection des talismans.
           </p>
         </div>
 
-        <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+        <div className="site-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {visibleMysticProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -333,23 +333,23 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 6. EDITORIAL INSPIRATION — StoneLov */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
-        <div className="text-center mb-14 md:mb-20 px-6">
+        <div className="site-container text-center mb-14 md:mb-20">
           <h2
             className="font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
           >
             StoneLov
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#5F5E5A] font-light measure max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             La collection de pierres naturelles.
           </p>
         </div>
 
-        <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+        <div className="site-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {featured.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
@@ -377,23 +377,23 @@ const Index = () => {
       {/* ————————————————————————————————————————————————————— */}
       {/* 7. BRAND UNIVERSE — LovBag */}
       {/* ————————————————————————————————————————————————————— */}
-      <div className="bg-[#F7F5F0]"><div className="max-w-5xl mx-auto border-t border-[#3A3A3A]" /></div>
+      <div className="bg-[#F7F5F0]"><div className="site-container border-t border-[#3A3A3A]" /></div>
       <section className="bg-[#F7F5F0] pt-10 md:pt-14 pb-10 md:pb-14">
 
-        <div className="text-center mb-14 md:mb-20 px-6">
+        <div className="site-container text-center mb-14 md:mb-20">
           <h2
             className="font-light"
             style={{ fontSize: 'clamp(32px, 4.5vw, 56px)', letterSpacing: '-0.015em', lineHeight: 1.1, color: '#1A1A1A' }}
           >
             LovBag
           </h2>
-          <p className="mt-5 text-[#5F5E5A] font-light max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
+          <p className="mt-5 text-[#5F5E5A] font-light measure max-w-[480px] mx-auto" style={{ fontSize: 14, lineHeight: 1.7 }}>
             La collection des sacs tressés à la main.
           </p>
         </div>
 
-        <div className="px-6 md:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 max-w-5xl mx-auto">
+        <div className="site-container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10">
             {sacsProducts.slice(0, 4).map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />
             ))}
