@@ -108,7 +108,7 @@ const Index = () => {
                 </em>
               </h1>
 
-              <p className="hidden lg:block text-[10px] tracking-[0.4em] uppercase text-[#8B7D6B] font-light -mt-8 mb-12">
+              <p className="hidden lg:block text-[10px] tracking-[0.4em] uppercase text-[#8B7D6B] font-light -mt-4 mb-12">
                 Made in Paradise
               </p>
 
