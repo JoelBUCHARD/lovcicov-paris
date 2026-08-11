@@ -152,7 +152,8 @@ const Cart = () => {
                   {items.map((item) => {
                     // Source unique : l'image du catalogue local (identique à la grille) quand le produit y existe
                     const localMatch = allLocalProducts.find((p) => p.shopifyHandle === item.product.node.handle);
-                    const image = (localMatch && resolveProductImage(localMatch.image)) || item.product.node.images?.edges?.[0]?.node?.url;
+                    // Images : uniquement locales (jamais Shopify)
+                    const image = (localMatch && resolveProductImage(localMatch.image)) || '/placeholder.svg';
                     const title = item.product.node.title;
                     const price = parseFloat(item.price.amount);
                     const size = item.selectedOptions.find(o => o.name.toLowerCase().includes('taille') || o.name.toLowerCase().includes('size'))?.value;
