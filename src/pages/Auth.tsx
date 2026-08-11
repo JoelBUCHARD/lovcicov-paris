@@ -29,6 +29,19 @@ const Auth = () => {
     return () => subscription.unsubscribe();
   }, [navigate]);
 
+  const translateError = (msg: string) => {
+    const m = msg.toLowerCase();
+    if (m.includes('invalid login credentials')) return 'Email ou mot de passe incorrect.';
+    if (m.includes('email not confirmed')) return 'Veuillez confirmer votre email avant de vous connecter.';
+    if (m.includes('user already registered')) return 'Un compte existe déjà avec cet email.';
+    if (m.includes('password should be at least')) return 'Le mot de passe doit contenir au moins 6 caractères.';
+    if (m.includes('unable to validate email address') || m.includes('invalid email')) return 'Adresse email invalide.';
+    if (m.includes('email rate limit') || m.includes('over_email_send_rate_limit')) return 'Trop de tentatives. Réessayez dans quelques minutes.';
+    if (m.includes('for security purposes')) return 'Trop de tentatives. Patientez quelques instants avant de réessayer.';
+    if (m.includes('network')) return 'Problème de connexion. Vérifiez votre réseau.';
+    return 'Une erreur est survenue. Veuillez réessayer.';
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
