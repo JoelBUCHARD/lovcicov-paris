@@ -8,17 +8,22 @@ import { MotionConfig, MotionGlobalConfig } from "framer-motion";
 MotionGlobalConfig.skipAnimations = true;
 import { lazy, Suspense, useEffect, useState } from "react";
 import { onCatalogUpdate } from "./lib/shopifyCatalog";
+import { onVisibilityUpdate } from "./lib/visibilityStore";
 
-/** Re-rend l'app quand le catalogue Shopify arrive, sans bloquer le premier rendu. */
+/** Re-rend l'app quand le catalogue Shopify ou la visibilité produit changent. */
 const useCatalogVersion = () => {
   const [, setV] = useState(0);
   useEffect(() => {
-    const unsubscribe = onCatalogUpdate(() => setV((v) => v + 1));
+    const bump = () => setV((v) => v + 1);
+    const unsubscribeCatalog = onCatalogUpdate(bump);
+    const unsubscribeVisibility = onVisibilityUpdate(bump);
     return () => {
-      unsubscribe();
+      unsubscribeCatalog();
+      unsubscribeVisibility();
     };
   }, []);
 };
+
 import { useCartSync } from "./hooks/useCartSync";
 import ScrollRestoration from "./components/ScrollRestoration";
 import { CartProvider } from "./context/CartContext";

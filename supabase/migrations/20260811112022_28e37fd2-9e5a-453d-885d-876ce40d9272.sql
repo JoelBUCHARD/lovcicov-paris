@@ -1,0 +1,1 @@
+insert into public.product_visibility (product_handle, visible) values ('local:powerlov-discipline', false) on conflict (product_handle) do update set visible = false;

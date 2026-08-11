@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { products } from '@/data/products';
+import { allProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
@@ -25,7 +25,7 @@ const ProductDetail = () => {
   const navState = location.state as { variantImage?: string; galleryOrder?: string[] } | null;
   const variantImage = navState?.variantImage;
   const galleryOrder = navState?.galleryOrder?.filter(Boolean);
-  const product = products.find((p) => p.id === id);
+  const product = allProducts.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
   const effectiveImage = galleryOrder?.length
     ? galleryOrder[0]

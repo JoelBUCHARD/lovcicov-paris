@@ -1,0 +1,1 @@
+update public.product_visibility set visible = true where product_handle = 'local:powerlov-discipline';

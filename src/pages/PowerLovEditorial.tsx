@@ -11,7 +11,8 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { getProductsByUnivers } from "@/data/products";
 
-const standardProducts = getProductsByUnivers("powerlov");
+// Lu à chaque rendu : hérite du filtre de visibilité global.
+const getStandardProducts = () => getProductsByUnivers("powerlov");
 import { resolveProductImage } from "@/lib/productImage";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { displayProductName } from '@/lib/productDisplayName';
@@ -102,9 +103,8 @@ const LABEL_BY_TYPE: Record<string, string> = {
   crewneck: "Sweat",
   hoodie: "Sweat capuche",
 };
-const TYPE_LABELS: Record<string, string> = Object.fromEntries(
-  standardProducts.map((p) => [p.id, LABEL_BY_TYPE[p.type ?? p.subcategory ?? "tshirt"] ?? "T-shirt"])
-);
+const typeLabelFor = (p: { type?: string; subcategory?: string }) =>
+  LABEL_BY_TYPE[p.type ?? p.subcategory ?? "tshirt"] ?? "T-shirt";
 
 // SPEC C — ordre des galeries selon la carte cliquée
 const galleryFor = (id: string, side: "face" | "dos"): string[] => {
@@ -151,14 +151,16 @@ type ProductCard = {
   categories: Exclude<Category, "all">[];
 };
 
-const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
+const buildProducts = (): ProductCard[] => {
+  const standardProducts = getStandardProducts();
+  return CARD_SPEC.flatMap(({ id, side }, index) => {
   const p = standardProducts.find((sp) => sp.id === id);
   const set = IMAGES[id];
   if (!p || !set) return [];
   const imageKey = side === "dos" ? set.porteDos : set.porteFace;
   const image = resolveProductImage(imageKey ?? "");
   if (!image) return [];
-  const typeLabel = TYPE_LABELS[id] ?? "T-shirt";
+  const typeLabel = typeLabelFor(p);
   const gallery = galleryFor(id, side);
   const hoverRaw = gallery[1] ? resolveProductImage(gallery[1]) : undefined;
   return [
@@ -174,13 +176,13 @@ const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
       categories: [typeLabel === "T-shirt" ? "tshirts" : "sweats"] as Exclude<Category, "all">[],
     },
   ];
-});
+  });
+};
 
 
 const heroImage =
   resolveProductImage("powerlov-standard-porte-dos") ||
   resolveProductImage("powerlov-bottomwide-lovcicov-2019-bird-market") ||
-  products[0]?.image ||
   "";
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
@@ -200,7 +202,9 @@ const PowerLovEditorial = () => {
   const [category, setCategory] = useState<Category>("all");
   const [sort, setSort] = useState<SortKey>("default");
 
-  const filtered = useMemo(() => {
+  const products = buildProducts();
+
+  const filtered = (() => {
     const base =
       category === "all"
         ? products
@@ -210,7 +214,7 @@ const PowerLovEditorial = () => {
     else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
     else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
-  }, [category, sort]);
+  })();
 
 
 

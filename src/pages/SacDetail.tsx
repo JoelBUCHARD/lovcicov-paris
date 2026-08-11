@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { sacsProducts } from '@/data/products';
+import { allProducts } from '@/data/products';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
@@ -21,7 +21,7 @@ const getImage = (key: string) => {
 
 const SacDetail = () => {
   const { slug: id } = useParams<{ slug: string }>();
-  const product = sacsProducts.find((p) => p.id === id);
+  const product = allProducts.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();
   // Source d'images unique : le tableau `images` du produit (BAGS),
   // projeté en { image, gallery }. Aucun override, aucun fallback externe.

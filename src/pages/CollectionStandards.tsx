@@ -19,7 +19,7 @@ const fadeUp = {
 };
 
 // Source unique : src/data/products.ts — aucune liste en dur.
-const powerlovProducts = getProductsByUnivers('powerlov').map((p) => ({
+const buildPowerlovProducts = () => getProductsByUnivers('powerlov').map((p) => ({
   id: p.id,
   name: p.name,
   image: resolveProductImage(p.image),
@@ -28,7 +28,7 @@ const powerlovProducts = getProductsByUnivers('powerlov').map((p) => ({
 
 const CollectionStandards = () => {
   const { isVisible } = useProductVisibility();
-  const visibleProducts = powerlovProducts.filter((p) => isVisible(localKey(p.id)));
+  const visibleProducts = buildPowerlovProducts().filter((p) => isVisible(localKey(p.id)));
   return (
     <div className="min-h-screen bg-[#F5F3F0]">
       <Navbar />

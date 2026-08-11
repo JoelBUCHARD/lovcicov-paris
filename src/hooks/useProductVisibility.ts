@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { applyVisibilityLocally, loadVisibility } from '@/lib/visibilityStore';
+
 
 export type VisibilityKey = string; // "local:<id>" or "shopify:<handle>"
 
@@ -22,8 +24,11 @@ async function loadMap(force = false): Promise<VisibilityMap> {
     }
     cachedMap = map;
     inflight = null;
+    // Garde le store global (filtre catalogue) synchronisé.
+    void loadVisibility(true);
     notify();
     return map;
+
   })();
   return inflight;
 }
@@ -44,11 +49,15 @@ async function upsertVisibility(keys: VisibilityKey[], visible: boolean) {
 
   if (error) throw error;
 
+  // Source de vérité partagée avec le catalogue (filtre global).
+  applyVisibilityLocally(uniqueKeys, visible);
+
   if (cachedMap) {
     for (const key of uniqueKeys) cachedMap[key] = visible;
     notify();
   }
 }
+
 
 export function invalidateVisibilityCache() {
   cachedMap = null;
