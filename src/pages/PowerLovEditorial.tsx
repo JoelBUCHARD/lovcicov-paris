@@ -246,11 +246,14 @@ const PowerLovEditorial = () => {
           className="relative w-screen overflow-hidden aspect-[4/5] md:aspect-[16/9]"
         >
           <img
-            src={heroImage}
-            alt="PowerLov par LOVCICOV Paris"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "brightness(1.15) contrast(0.98)", objectPosition: "center 45%" }}
+            src={heroPowerlov.url}
+            alt="T-shirt LOVCICOV PARIS blanc — collection PowerLov"
+            width={1537}
+            height={1023}
+            className="absolute inset-0 w-full h-full object-cover object-[62%_38%] md:object-[center_35%]"
+            style={{ filter: "brightness(1.05) contrast(0.98)" }}
             loading="eager"
+            fetchPriority="high"
             decoding="async"
           />
           <div
