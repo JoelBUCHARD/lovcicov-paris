@@ -287,6 +287,32 @@ const ProductPage = ({ product }: Props) => {
 
   const needsSize = !isJewelry && !isKimono;
 
+  // Les tailles proposées viennent des variantes Shopify (identifiant + disponibilité réels).
+  const sizeOptions = (() => {
+    if (!shopifyNode) return SIZES.map((value) => ({ value, available: true }));
+    const sizeOption = shopifyNode.options.find((o) => /taille|size/i.test(o.name));
+    if (!sizeOption) return SIZES.map((value) => ({ value, available: true }));
+    const variants = shopifyNode.variants.edges.map((e) => e.node);
+    const hasColor = shopifyNode.options.some((o) => /couleur|color/i.test(o.name));
+    return sizeOption.values.map((value) => {
+      const available = variants.some((v) => {
+        const sizeOk = v.selectedOptions.some((o) => o.value === value);
+        const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
+        return sizeOk && colorOk && v.availableForSale;
+      });
+      return { value, available };
+    });
+  })();
+
+  // Si la taille sélectionnée n'existe pas côté Shopify, on bascule sur la première taille disponible.
+  useEffect(() => {
+    if (!needsSize || !shopifyNode) return;
+    if (sizeOptions.some((s) => s.value === selectedSize && s.available)) return;
+    const fallback = sizeOptions.find((s) => s.available);
+    if (fallback && fallback.value !== selectedSize) setSelectedSize(fallback.value);
+  }, [shopifyNode, needsSize, selectedSize, sizeOptions]);
+
+
   // Variante correspondant exactement aux options choisies (taille / couleur).
   const currentVariant = (() => {
     if (!shopifyNode) return null;
@@ -596,13 +622,16 @@ const ProductPage = ({ product }: Props) => {
               </div>
 
               <div className="flex gap-2">
-                {SIZES.map((s) => (
+                {sizeOptions.map(({ value: s, available }) => (
                   <button
                     key={s}
-                    onClick={() => setSelectedSize(s)}
+                    onClick={() => available && setSelectedSize(s)}
+                    disabled={!available}
                     aria-pressed={selectedSize === s}
                     className={`flex-1 md:flex-none md:w-12 h-12 md:h-11 text-[12px] md:text-[11px] border transition-all active:scale-[0.97] ${
-                      selectedSize === s
+                      !available
+                        ? 'bg-white text-[#B8B4AD] border-[#E8E4DD] line-through cursor-not-allowed'
+                        : selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
                     }`}
@@ -611,6 +640,7 @@ const ProductPage = ({ product }: Props) => {
                     {s}
                   </button>
                 ))}
+
               </div>
               {stock !== null && stock <= 5 && (
                 <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
