@@ -16,6 +16,7 @@ import {
   formatEuro,
   SHIPPING_FEE,
   FREE_SHIPPING_THRESHOLD,
+  CART_SHIPPING_NOTE,
 } from '@/lib/shipping';
 import { standardProducts, mysticProducts, bijouxProducts, products as allLocalProducts } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
