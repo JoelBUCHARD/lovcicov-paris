@@ -287,6 +287,32 @@ const ProductPage = ({ product }: Props) => {
 
   const needsSize = !isJewelry && !isKimono;
 
+  // Les tailles proposées viennent des variantes Shopify (identifiant + disponibilité réels).
+  const sizeOptions = (() => {
+    if (!shopifyNode) return SIZES.map((value) => ({ value, available: true }));
+    const sizeOption = shopifyNode.options.find((o) => /taille|size/i.test(o.name));
+    if (!sizeOption) return SIZES.map((value) => ({ value, available: true }));
+    const variants = shopifyNode.variants.edges.map((e) => e.node);
+    const hasColor = shopifyNode.options.some((o) => /couleur|color/i.test(o.name));
+    return sizeOption.values.map((value) => {
+      const available = variants.some((v) => {
+        const sizeOk = v.selectedOptions.some((o) => o.value === value);
+        const colorOk = !hasColor || !product.shopifyColor || v.selectedOptions.some((o) => o.value === product.shopifyColor);
+        return sizeOk && colorOk && v.availableForSale;
+      });
+      return { value, available };
+    });
+  })();
+
+  // Si la taille sélectionnée n'existe pas côté Shopify, on bascule sur la première taille disponible.
+  useEffect(() => {
+    if (!needsSize || !shopifyNode) return;
+    if (sizeOptions.some((s) => s.value === selectedSize && s.available)) return;
+    const fallback = sizeOptions.find((s) => s.available);
+    if (fallback && fallback.value !== selectedSize) setSelectedSize(fallback.value);
+  }, [shopifyNode, needsSize, selectedSize, sizeOptions]);
+
+
   // Variante correspondant exactement aux options choisies (taille / couleur).
   const currentVariant = (() => {
     if (!shopifyNode) return null;
