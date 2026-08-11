@@ -76,7 +76,7 @@ const ShopifyOnlyDetail = () => {
 
   useEffect(() => {
     if (!node) return;
-    const firstImage = node.images.edges[0]?.node.url || '';
+    const firstImage = '';
     trackViewedProduct({
       key: `shopify:${node.handle}`,
       name: node.title,
