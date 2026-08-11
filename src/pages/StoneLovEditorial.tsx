@@ -11,7 +11,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { getProductsByUnivers } from "@/data/products";
 
-const bijouxProducts = getProductsByUnivers("stonelov");
+const getBijouxProducts = () => getProductsByUnivers("stonelov");
 import { resolveProductImage } from "@/lib/productImage";
 import heroImg from "@/assets/stonelov/hero.png";
 import closingImg from "@/assets/stonelov/closing.png";
@@ -71,7 +71,7 @@ const orderIndex = (id: string) => {
   return i === -1 ? DISPLAY_ORDER.length : i;
 };
 
-const products: ProductCard[] = bijouxProducts
+const buildProducts = (): ProductCard[] => getBijouxProducts()
   .map((p) => ({
     id: p.id,
     name: p.name,
@@ -121,7 +121,9 @@ const StoneLovEditorial = () => {
     return () => document.removeEventListener("mousedown", onClick);
   }, [filtersOpen]);
 
-  const filtered = useMemo(() => {
+  const products = buildProducts();
+
+  const filtered = (() => {
     const base = products.filter((p) =>
       category === "all" ? true : category === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
     );
@@ -130,7 +132,7 @@ const StoneLovEditorial = () => {
     else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
     
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
-  }, [category, sort]);
+  })();
 
 
   const scrollToGrid = () => {

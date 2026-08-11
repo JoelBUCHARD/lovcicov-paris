@@ -12,7 +12,7 @@ import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { getProductsByUnivers } from "@/data/products";
 
-const mysticProducts = getProductsByUnivers("mysticlov");
+const getMysticProducts = () => getProductsByUnivers("mysticlov");
 import { resolveProductImage } from "@/lib/productImage";
 import heroAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import closingAsset from "@/assets/mysticlov/mysticlov-block4-paris-street.png.asset.json";
@@ -49,7 +49,7 @@ const normalize = (s: string) =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
 
 
-const rawProducts: ProductCard[] = mysticProducts.map((p) => {
+const buildRawProducts = (): ProductCard[] => getMysticProducts().map((p) => {
   const image = resolveProductImage(p.image);
   const hoverRaw = p.gallery?.[0] ? resolveProductImage(p.gallery[0]) : undefined;
   return {
@@ -79,7 +79,7 @@ const shuffle = <T,>(arr: T[], seed = 42): T[] => {
   return a;
 };
 
-const products: ProductCard[] = shuffle(rawProducts, 137);
+const buildProducts = (): ProductCard[] => shuffle(buildRawProducts(), 137);
 
 
 const heroImage = heroAsset.url;
@@ -103,8 +103,9 @@ const MysticLovEditorial = () => {
   const [category, setCategory] = useState<Category>("all");
   const [sort, setSort] = useState<SortKey>("default");
 
-  const filtered = useMemo(
-    () => {
+  const products = buildProducts();
+
+  const filtered = (() => {
       const base = products.filter((p) =>
         category === "all"
           ? true
@@ -119,9 +120,8 @@ const MysticLovEditorial = () => {
       else if (sort === "price-desc") sorted.sort((a, b) => b.price - a.price);
       else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
       return spaceOutDuplicates(sorted, (p) => p.id || p.name);
-    },
-    [category, sort]
-  );
+  })();
+
 
 
   const scrollToGrid = () => {

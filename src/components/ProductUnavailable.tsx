@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import SEO from '@/components/SEO';
 
 const ProductUnavailable = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Produit indisponible — LOVCICOV"
+      description="Cette pièce n'est pas disponible actuellement."
+      path="/shop"
+      noindex
+    />
     <Navbar />
     <main className="pt-40 md:pt-52 pb-24 px-6 md:px-10">
       <div className="max-w-xl mx-auto text-center">

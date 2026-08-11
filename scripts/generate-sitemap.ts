@@ -41,11 +41,33 @@ const staticEntries: SitemapEntry[] = [
   { path: "/cgv", changefreq: "yearly", priority: "0.2" },
 ];
 
+/** Handles/ids masqués depuis l'admin — exclus du plan du site. */
+async function loadHiddenKeys(): Promise<Set<string>> {
+  try {
+    const url = process.env.VITE_SUPABASE_URL;
+    const key = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+    if (!url || !key) return new Set();
+    const res = await fetch(
+      `${url}/rest/v1/product_visibility?select=product_handle,visible&visible=eq.false`,
+      { headers: { apikey: key, Authorization: `Bearer ${key}` } },
+    );
+    if (!res.ok) return new Set();
+    const rows = (await res.json()) as Array<{ product_handle: string }>;
+    return new Set(rows.map((r) => r.product_handle));
+  } catch {
+    return new Set();
+  }
+}
+
 // Product entries from local catalog
 async function loadProductEntries(): Promise<SitemapEntry[]> {
   try {
     const mod = await import("../src/data/products");
-    const products = (mod as any).products as Array<{ id: string; shopifyHandle?: string }>;
+    const hidden = await loadHiddenKeys();
+    const all = ((mod as any).allProducts ?? (mod as any).products) as Array<{ id: string; shopifyHandle?: string }>;
+    const products = (all || []).filter(
+      (p) => !hidden.has(`local:${p.id}`) && !(p.shopifyHandle && hidden.has(`shopify:${p.shopifyHandle}`)),
+    );
     const seen = new Set<string>();
     const entries: SitemapEntry[] = [];
     for (const p of products || []) {

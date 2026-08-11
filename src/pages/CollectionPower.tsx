@@ -12,7 +12,7 @@ import { getProductsByUnivers } from '@/data/products';
 import { resolveProductImage } from '@/lib/productImage';
 
 // Source unique : src/data/products.ts — aucune liste en dur.
-const powerProducts: EditorialProduct[] = getProductsByUnivers('powerlov').map((p) => ({
+const buildPowerProducts = (): EditorialProduct[] => getProductsByUnivers('powerlov').map((p) => ({
   id: p.id,
   name: p.name,
   price: p.price,
@@ -21,9 +21,10 @@ const powerProducts: EditorialProduct[] = getProductsByUnivers('powerlov').map((
 }));
 
 
+
 const CollectionPower = () => {
   const { isVisible } = useProductVisibility();
-  const visiblePower = powerProducts.filter((p) => isVisible(localKey(p.id)));
+  const visiblePower = buildPowerProducts().filter((p) => isVisible(localKey(p.id)));
   const first = visiblePower.slice(0, 4);
   const rest = visiblePower.slice(4);
 

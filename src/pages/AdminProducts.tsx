@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
-import { products as localProducts } from '@/data/products';
+import { allProducts as localProducts } from '@/data/products';
 import { fetchShopifyProducts, type ShopifyProduct } from '@/lib/shopify';
 import {
   useProductVisibility,
@@ -212,21 +212,33 @@ const AdminProducts = () => {
                 <div
                   key={r.id}
                   className="grid grid-cols-1 md:grid-cols-[1fr_140px_100px_120px] gap-2 md:gap-4 px-4 py-4 border-b border-border last:border-b-0 items-center"
+                  style={visible ? undefined : { backgroundColor: '#F5F3EF' }}
                 >
                   <div>
-                    <a
-                      href={r.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-sm text-foreground hover:underline"
-                      style={{ fontFamily: ARIAL }}
-                    >
-                      {r.name}
-                    </a>
+                    <span className="flex items-center gap-2">
+                      <a
+                        href={r.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`text-sm hover:underline ${visible ? 'text-foreground' : 'text-muted-foreground line-through'}`}
+                        style={{ fontFamily: ARIAL }}
+                      >
+                        {r.name}
+                      </a>
+                      {!visible && (
+                        <span
+                          className="text-[9px] uppercase tracking-[0.15em] border border-border px-2 py-0.5"
+                          style={{ fontFamily: ARIAL, color: '#888780' }}
+                        >
+                          Masqué
+                        </span>
+                      )}
+                    </span>
                     <p className="text-[10px] text-muted-foreground mt-0.5" style={{ fontFamily: ARIAL }}>
                       {r.keys.length === 1 ? r.keys[0] : `${r.keys.length} entrées liées`}
                     </p>
                   </div>
+
                   <span className="text-[11px] text-muted-foreground" style={{ fontFamily: ARIAL }}>
                     {r.collection}
                   </span>

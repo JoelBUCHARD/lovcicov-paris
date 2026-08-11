@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
-import { products as localProducts, type Product } from '@/data/products';
+import { allProducts as localProducts, type Product } from '@/data/products';
 import ProductUnavailable from '@/components/ProductUnavailable';
 import { useProductVisibility, localKey, shopifyKey } from '@/hooks/useProductVisibility';
 

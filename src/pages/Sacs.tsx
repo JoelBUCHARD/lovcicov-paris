@@ -52,29 +52,31 @@ const orderIndex = (slug: string) => {
   return i === -1 ? displayOrder.length : i;
 };
 
-const products: ProductCard[] = BAGS.filter((b) => sacsProducts.some((p) => p.id === b.slug)).map((b) => ({
-  key: b.slug,
-  id: b.slug,
-  name: b.name,
-  typeLabel: BAG_SILHOUETTES[b.silhouette].label,
-  price: sacsProducts.find((p) => p.id === b.slug)?.price ?? 0,
-  image: resolveImage(b.images[0]),
-  hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
-  gallery: b.images.slice(1),
-  to: `/sacs/${b.slug}`,
-})).sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
+const buildSacs = (): ProductCard[] =>
+  BAGS.filter((b) => sacsProducts.some((p) => p.id === b.slug)).map((b) => ({
+    key: b.slug,
+    id: b.slug,
+    name: b.name,
+    typeLabel: BAG_SILHOUETTES[b.silhouette].label,
+    price: sacsProducts.find((p) => p.id === b.slug)?.price ?? 0,
+    image: resolveImage(b.images[0]),
+    hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
+    gallery: b.images.slice(1),
+    to: `/sacs/${b.slug}`,
+  })).sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
 
-const accessoires: ProductCard[] = grigriProducts.map((g) => ({
-  key: g.id,
-  id: g.id,
-  name: g.name,
-  typeLabel: "Grigri",
-  price: Number(g.price),
-  image: resolveImage(g.image),
-  hoverImage: g.gallery?.[0] ? resolveImage(g.gallery[0]) : undefined,
-  gallery: g.gallery ?? [],
-  to: `/shop/${g.id}`,
-}));
+const buildAccessoires = (): ProductCard[] =>
+  grigriProducts.map((g) => ({
+    key: g.id,
+    id: g.id,
+    name: g.name,
+    typeLabel: "Grigri",
+    price: Number(g.price),
+    image: resolveImage(g.image),
+    hoverImage: g.gallery?.[0] ? resolveImage(g.gallery[0]) : undefined,
+    gallery: g.gallery ?? [],
+    to: `/shop/${g.id}`,
+  }));
 
 
 const heroImage = "/images/sacs/hero-lovbag.jpg";
@@ -94,10 +96,12 @@ const Sacs = () => {
   const location = useLocation();
   const [section, setSection] = useState<Section>("sacs");
 
-  const filtered = useMemo(
-    () => spaceOutDuplicates(section === "accessoires" ? accessoires : products, (p) => p.id || p.name),
-    [section]
+  // Recalculé à chaque rendu : hérite du filtre de visibilité du catalogue.
+  const filtered = spaceOutDuplicates(
+    section === "accessoires" ? buildAccessoires() : buildSacs(),
+    (p) => p.id || p.name
   );
+
 
 
   const from = `${location.pathname}${location.search}`;

@@ -1,4 +1,6 @@
 import { getCatalogEntry, isCatalogLoaded, onCatalogUpdate } from '@/lib/shopifyCatalog';
+import { isKeyHidden, onVisibilityUpdate } from '@/lib/visibilityStore';
+
 
 export interface ProductSpecs {
   composition: string;
@@ -1129,6 +1131,8 @@ const enrich = (list: Product[]): Product[] => {
 
 // Listes exportées : remplies immédiatement (instantané localStorage) puis
 // mises à jour EN PLACE quand la réponse Shopify arrive — le rendu n'attend jamais.
+// Elles n'exposent QUE les produits visibles (drapeau d'admin appliqué ici, une
+// seule fois, pour que toutes les grilles/pages en héritent automatiquement).
 export const standardProducts: Product[] = [];
 export const kimonoProducts: Product[] = [];
 export const mysticProducts: Product[] = [];
@@ -1136,37 +1140,64 @@ export const bijouxProducts: Product[] = [];
 export const sacsProducts: Product[] = [];
 export const grigriProducts: Product[] = [];
 
-/** TOUS les produits du site, chacun une seule fois. */
+/** TOUS les produits VISIBLES du site, chacun une seule fois. */
 export const products: Product[] = [];
+
+/** Catalogue complet, masqués inclus — réservé à l'administration. */
+export const allProducts: Product[] = [];
 
 const fill = (target: Product[], next: Product[]) => {
   target.length = 0;
   target.push(...next);
 };
 
-const rebuild = () => {
-  fill(standardProducts, enrich(rawStandardProducts.map(normalize)));
-  fill(kimonoProducts, enrich(rawKimonoProducts.map(normalize)));
-  fill(mysticProducts, enrich(rawMysticProducts.map(normalize)));
-  fill(bijouxProducts, enrich(rawBijouxProducts.map(normalize)));
-  fill(sacsProducts, enrich(rawSacsProducts.map(normalize)));
-  fill(grigriProducts, enrich(rawGrigriProducts.map(normalize)));
+const visibleOnly = (list: Product[]) => list.filter((p) => !isKeyHidden(`local:${p.id}`));
 
-  const seen = new Set<string>();
+const rebuild = () => {
+  const all = {
+    standard: enrich(rawStandardProducts.map(normalize)),
+    kimono: enrich(rawKimonoProducts.map(normalize)),
+    mystic: enrich(rawMysticProducts.map(normalize)),
+    bijoux: enrich(rawBijouxProducts.map(normalize)),
+    sacs: enrich(rawSacsProducts.map(normalize)),
+    grigri: enrich(rawGrigriProducts.map(normalize)),
+  };
+
+  const dedupe = (list: Product[]) => {
+    const seen = new Set<string>();
+    return list.filter((p) => (seen.has(p.id) ? false : (seen.add(p.id), true)));
+  };
+
   fill(
-    products,
-    [...standardProducts, ...mysticProducts, ...bijouxProducts, ...sacsProducts, ...grigriProducts].filter((p) =>
-      seen.has(p.id) ? false : (seen.add(p.id), true)
-    )
+    allProducts,
+    dedupe([...all.standard, ...all.mystic, ...all.bijoux, ...all.sacs, ...all.grigri])
   );
+
+  fill(standardProducts, visibleOnly(all.standard));
+  fill(kimonoProducts, visibleOnly(all.kimono));
+  fill(mysticProducts, visibleOnly(all.mystic));
+  fill(bijouxProducts, visibleOnly(all.bijoux));
+  fill(sacsProducts, visibleOnly(all.sacs));
+  fill(grigriProducts, visibleOnly(all.grigri));
+
+  fill(products, visibleOnly(allProducts));
 };
 
 rebuild();
 onCatalogUpdate(rebuild);
+onVisibilityUpdate(rebuild);
 
 export const getProductsByUnivers = (u: Univers): Product[] =>
   products.filter((p) => p.univers === u);
 
 export const getProductById = (id?: string): Product | undefined =>
   products.find((p) => p.id === id);
+
+/** Recherche dans le catalogue complet (masqués inclus) — admin & fiches produit. */
+export const getAnyProductById = (id?: string): Product | undefined =>
+  allProducts.find((p) => p.id === id);
+
+export const isProductHidden = (id?: string): boolean =>
+  !!id && isKeyHidden(`local:${id}`);
+
 
