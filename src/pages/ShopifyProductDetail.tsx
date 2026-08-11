@@ -8,9 +8,11 @@ import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
 import { products as localProducts, type Product } from '@/data/products';
 import ProductUnavailable from '@/components/ProductUnavailable';
+import { refreshShopifyCatalog } from '@/lib/shopifyCatalog';
 import { useProductVisibility, localKey, shopifyKey } from '@/hooks/useProductVisibility';
 
 const ShopifyProductDetail = () => {
+  useEffect(() => { void refreshShopifyCatalog(); }, []);
   const { handle } = useParams<{ handle: string }>();
   const { isVisible, loading: visLoading } = useProductVisibility();
   const localProduct = localProducts.find((p) => p.shopifyHandle === handle);
