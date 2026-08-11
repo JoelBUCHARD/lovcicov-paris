@@ -76,7 +76,7 @@ const ShopifyOnlyDetail = () => {
 
   useEffect(() => {
     if (!node) return;
-    const firstImage = '';
+    const firstImage = node.images.edges[0]?.node.url || '';
     trackViewedProduct({
       key: `shopify:${node.handle}`,
       name: node.title,
@@ -112,7 +112,7 @@ const ShopifyOnlyDetail = () => {
     );
   }
 
-  // Aucune image Shopify : les visuels proviennent uniquement du catalogue local.
+  const imageUrls = node.images.edges.map((e) => e.node.url);
   const pseudoProduct: Product = {
     id: `shopify-${node.handle}`,
     shopifyHandle: node.handle,
@@ -122,7 +122,7 @@ const ShopifyOnlyDetail = () => {
     subcategory: detectSubcategory(node),
     description: node.description || '',
     details: '',
-    image: '',
+    image: imageUrls[0] || '',
   };
 
   return (
