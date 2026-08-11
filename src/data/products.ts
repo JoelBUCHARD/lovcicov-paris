@@ -848,11 +848,12 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
-    silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#F4C9C9',
-    body: 'Rose clair', trim: 'Rose',
+    silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#E4506B',
+    body: 'Rose vif', trim: 'Rose',
     description: "Le rose dans toutes ses nuances. Un camaïeu tout en retenue, où seule la bordure vient souligner la ligne du sac.",
     images: ['/images/sacs/LOV-BIG-03_01.jpg', '/images/sacs/LOV-BIG-03_02.jpg', '/images/sacs/LOV-BIG-03_03.jpg'],
   },
+
   {
     ref: 'LOV-BIG-04', slug: 'big-lov-bicolore-kaki', name: 'Big LOV Bicolore Kaki',
     silhouette: 'big', motif: 'Bicolore', colorName: 'Kaki', swatch: '#5A5A38',
@@ -862,7 +863,7 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-BIG-05', slug: 'big-lov-azteque-vert', name: 'Big LOV Aztèque Vert',
-    silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2A6670',
+    silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2E6B45',
     body: 'Vert, blanc cassé', trim: 'Vert',
     description: "Le motif losangé, tressé fil à fil en vert et blanc cassé. Un travail d'artisan qui se lit de loin.",
     images: ['/images/sacs/LOV-BIG-05_01.jpg', '/images/sacs/LOV-BIG-05_02.jpg', '/images/sacs/LOV-BIG-05_03.jpg'],
@@ -883,12 +884,13 @@ export const BAGS: BagSpec[] = [
     images: ['/images/sacs/LOV-SML-01_01.jpg', '/images/sacs/LOV-SML-01_02.jpg', '/images/sacs/LOV-SML-01_03.jpg'],
   },
   {
-    ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Kaki',
-    silhouette: 'sml', motif: 'Tricolore', colorName: 'Kaki', swatch: '#5A5A38',
-    body: 'Kaki, rose, argenté', trim: 'Argenté',
-    description: "Kaki, rose et argent : un contraste inattendu, souligné d'une bordure argentée.",
+    ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Rose',
+    silhouette: 'sml', motif: 'Tricolore', colorName: 'Rose', swatch: '#E0568A',
+    body: 'Rose, bordeaux, argenté', trim: 'Argenté',
+    description: "Rose, bordeaux et argent : un contraste inattendu, souligné d'une bordure argentée.",
     images: ['/images/sacs/LOV-SML-02_01.jpg', '/images/sacs/LOV-SML-02_02.jpg', '/images/sacs/LOV-SML-02_03.jpg'],
   },
+
   {
     ref: 'LOV-SML-03', slug: 'small-lov-bicolore-argent', name: 'Small LOV Bicolore Argent',
     silhouette: 'sml', motif: 'Bicolore', colorName: 'Argent', swatch: '#C0C0C0',
@@ -898,9 +900,10 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-SML-04', slug: 'small-lov-bicolore-bleu', name: 'Small LOV Bicolore Bleu',
-    silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#8FB6D1',
-    body: 'Bleu clair', trim: 'Rose clair',
-    description: "Un bleu clair adouci d'une bordure rose. La fraîcheur en format nomade.",
+    silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#2E5A6B',
+    body: 'Bleu canard', trim: 'Corail',
+    description: "Un bleu canard profond réveillé d'une bordure corail. La fraîcheur en format nomade.",
+
     images: ['/images/sacs/LOV-SML-04_01.jpg', '/images/sacs/LOV-SML-04_02.jpg', '/images/sacs/LOV-SML-04_03.jpg'],
   },
   {
@@ -911,10 +914,11 @@ export const BAGS: BagSpec[] = [
     images: ['/images/sacs/LOV-SML-05_01.jpg', '/images/sacs/LOV-SML-05_02.jpg', '/__l5e/assets-v1/a33b40eb-679e-4180-abc2-08aa6856b1aa/lovbag-small-lov-azteque-rouge-interieur.png'],
   },
   {
-    ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Terracotta',
-    silhouette: 'sml', motif: 'Aztèque', colorName: 'Terracotta', swatch: '#C4714A',
-    body: 'Terracotta, blanc', trim: 'Blanc',
-    description: "Terracotta et blanc, le motif aztèque dans sa version la plus douce.",
+    ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Bordeaux',
+    silhouette: 'sml', motif: 'Aztèque', colorName: 'Bordeaux', swatch: '#6E1F2E',
+    body: 'Bordeaux, blanc', trim: 'Blanc',
+    description: "Bordeaux et blanc, le motif aztèque dans sa version la plus douce.",
+
     images: ['/images/sacs/LOV-SML-06_01.jpg', '/images/sacs/LOV-SML-06_02.jpg', '/images/sacs/LOV-SML-06_03.jpg'],
   },
 ];
