@@ -8,7 +8,7 @@ const assetModules = import.meta.glob<AssetModule>('@/assets/**/*.asset.json', {
 const assetUrlByKey = new Map<string, string>();
 
 for (const [path, module] of Object.entries(assetModules)) {
-  const descriptor = 'default' in module && module.default ? module.default : module;
+  const descriptor: AssetDescriptor = 'default' in module ? module.default ?? {} : module;
   const url = descriptor.url;
   if (!url) continue;
 
