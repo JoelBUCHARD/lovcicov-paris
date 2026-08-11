@@ -112,7 +112,7 @@ const ShopifyOnlyDetail = () => {
     );
   }
 
-  const imageUrls = node.images.edges.map((e) => e.node.url);
+  // Aucune image Shopify : les visuels proviennent uniquement du catalogue local.
   const pseudoProduct: Product = {
     id: `shopify-${node.handle}`,
     shopifyHandle: node.handle,
@@ -122,7 +122,7 @@ const ShopifyOnlyDetail = () => {
     subcategory: detectSubcategory(node),
     description: node.description || '',
     details: '',
-    image: imageUrls[0] || '',
+    image: '',
   };
 
   return (
