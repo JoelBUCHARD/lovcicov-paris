@@ -863,7 +863,7 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-BIG-05', slug: 'big-lov-azteque-vert', name: 'Big LOV Aztèque Vert',
-    silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2A6670',
+    silhouette: 'big', motif: 'Aztèque', colorName: 'Vert', swatch: '#2E6B45',
     body: 'Vert, blanc cassé', trim: 'Vert',
     description: "Le motif losangé, tressé fil à fil en vert et blanc cassé. Un travail d'artisan qui se lit de loin.",
     images: ['/images/sacs/LOV-BIG-05_01.jpg', '/images/sacs/LOV-BIG-05_02.jpg', '/images/sacs/LOV-BIG-05_03.jpg'],
