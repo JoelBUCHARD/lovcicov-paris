@@ -1,7 +1,8 @@
 import { formatPrice } from '@/lib/price';
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { Link, useLocation } from "react-router-dom";
+import { availableTabs, countLabel } from "@/lib/filterTabs";
 import { motion } from "framer-motion";
 import CategoryTabs from "@/components/CategoryTabs";
 import Navbar from "@/components/Navbar";
