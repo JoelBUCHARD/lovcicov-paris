@@ -52,17 +52,15 @@ const getLocalVisuals = (product: ShopifyProduct['node']) => {
 interface ShopifyProductCardProps {
   product: ShopifyProduct;
   index?: number;
+  /** Conservé pour compatibilité : les visuels sont toujours locaux. */
   preferLocalVisuals?: boolean;
 }
 
-const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: ShopifyProductCardProps) => {
+const ShopifyProductCard = ({ product, index = 0 }: ShopifyProductCardProps) => {
   const location = useLocation();
   const node = product.node;
-  const storefrontMainImage = node.images.edges[0]?.node.url;
-  const storefrontHoverImage = node.images.edges[1]?.node.url;
-  const localVisuals = getLocalVisuals(node);
-  const mainImage = preferLocalVisuals ? localVisuals.mainImage || storefrontMainImage : storefrontMainImage || localVisuals.mainImage;
-  const hoverImage = preferLocalVisuals ? localVisuals.hoverImage || storefrontHoverImage : storefrontHoverImage || localVisuals.hoverImage;
+  // Source d'images UNIQUE : le catalogue local. Jamais les images Shopify.
+  const { mainImage, hoverImage } = getLocalVisuals(node);
   const price = parseFloat(node.priceRange.minVariantPrice.amount).toFixed(0);
   const currency = node.priceRange.minVariantPrice.currencyCode === 'EUR' ? '€' : node.priceRange.minVariantPrice.currencyCode;
   const from = `${location.pathname}${location.search}`;
@@ -78,7 +76,7 @@ const ShopifyProductCard = ({ product, index = 0, preferLocalVisuals = false }: 
       <Link
         to={`/product/${node.handle}`}
         state={{ from }}
-        onMouseEnter={() => { prefetchRoute('/product'); prefetchImage(storefrontMainImage); prefetchImage(storefrontHoverImage); }}
+        onMouseEnter={() => { prefetchRoute('/product'); prefetchImage(mainImage); prefetchImage(hoverImage); }}
         onTouchStart={() => { prefetchRoute('/product'); }}
         className="group flex flex-col h-full bg-white rounded-[4px] border-[0.5px] border-solid border-[#E8D8C8] shadow-none overflow-hidden"
       >
