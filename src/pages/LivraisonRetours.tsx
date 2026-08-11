@@ -13,7 +13,7 @@ const LivraisonRetours = () => (
     title="Livraison & Retours"
     seo={{
       title: "Livraison & Retours — LOVCICOV Paris",
-      description: "Délais, tarifs, suivi et retours. Livraison offerte en France dès 150 €, expéditions Europe et international depuis nos ateliers.",
+      description: "Délais, tarifs, suivi et retours. Livraison offerte en France dès 99 €, expéditions Europe et international depuis nos ateliers.",
       path: "/livraison-retours",
     }}
   >
@@ -31,7 +31,7 @@ const LivraisonRetours = () => (
       <p><strong className="text-foreground">Reste du monde</strong> — 5 à 10 jours ouvrés.</p>
       <p>
         <strong className="text-foreground">Livraison offerte</strong> en France métropolitaine
-        dès 150 € d'achat. Les tarifs précis pour chaque destination sont calculés automatiquement
+        dès 99 € d'achat. Les tarifs précis pour chaque destination sont calculés automatiquement
         au moment du paiement.
       </p>
     </Section>

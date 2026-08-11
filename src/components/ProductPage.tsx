@@ -1,3 +1,4 @@
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/shipping';
 import { SIZE_GUIDE_NOTE } from '@/config/sizing';
 import { formatPrice } from '@/lib/price';
 import { useState, useEffect, useMemo, useRef } from 'react';
@@ -887,7 +888,7 @@ const ProductPage = ({ product }: Props) => {
           <Accordion title="Livraison & retours">
             <ul className="list-none p-0 space-y-1">
               <li>Livraison standard : 3 à 5 jours ouvrés — 9,90€</li>
-              <li>Livraison offerte dès 99€ d'achat</li>
+              <li>Livraison offerte dès {FREE_SHIPPING_THRESHOLD}€ d'achat</li>
               <li>Retours gratuits sous 14 jours</li>
               <li>La pièce doit être retournée dans son emballage d'origine, non portée</li>
             </ul>

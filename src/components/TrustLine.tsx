@@ -1,10 +1,11 @@
+import { FREE_SHIPPING_THRESHOLD } from '@/lib/shipping';
 interface TrustLineProps {
   variant?: 'default' | 'muted';
   className?: string;
 }
 
 const items = [
-  'Livraison offerte dès 99€',
+  `Livraison offerte dès ${FREE_SHIPPING_THRESHOLD}€`,
   'Retours sous 14 jours',
   'Paiement sécurisé',
   'Une conseillère à votre écoute',

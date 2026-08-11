@@ -1,7 +1,9 @@
+import { TRUST_SHIPPING_TEXT, TRUST_PAYMENT_TEXT, TRUST_RETURNS_TEXT } from "@/lib/shipping";
+
 const items = [
-  { title: "Livraison offerte", text: "En France métropolitaine dès 150 € d'achat. Expédition Europe et international depuis Marseille." },
-  { title: "Paiement sécurisé", text: "Cartes bancaires, Apple Pay et Google Pay. Transactions chiffrées, données jamais conservées." },
-  { title: "Retours faciles", text: "14 jours pour changer d'avis. Articles non portés dans leur emballage d'origine." },
+  { title: "Livraison offerte", text: TRUST_SHIPPING_TEXT },
+  { title: "Paiement sécurisé", text: TRUST_PAYMENT_TEXT },
+  { title: "Retours faciles", text: TRUST_RETURNS_TEXT },
 ];
 
 const TrustBand = () => (
