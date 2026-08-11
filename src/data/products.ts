@@ -149,7 +149,7 @@ const rawStandardProducts: RawProduct[] = [
     description: 'Sweat écru en coton molletonné, patch cœur rouge brodé sur la poitrine gauche et logo LOVCICOV PARIS sous l\'encolure au dos. Coupe oversize unisexe.',
     details: 'Iconique par nature. Le cœur brodé comme signature, porté sans effort.',
     image: 'powerlov-iconic-cream-portrait-v2',
-    gallery: ['powerlov-iconic-cream-packshot-front-lovcicov-corrected', 'powerlov-iconic-cream-back-lovcicov'],
+    gallery: ['powerlov-iconic-cream-packshot-front-user-original', 'powerlov-iconic-cream-back-lovcicov'],
     badge: 'UNISEX',
   },
   {
