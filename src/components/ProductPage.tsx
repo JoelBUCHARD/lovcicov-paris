@@ -21,6 +21,7 @@ import GuideDesTaillesTable from '@/components/GuideDesTaillesTable';
 import ProductSpecsTable from '@/components/ProductSpecsTable';
 import ProductTypeLabel from '@/components/ProductTypeLabel';
 import { displayProductName } from '@/lib/productDisplayName';
+import { resolveProductImage } from '@/lib/productImage';
 
 // Fiches t-shirt PowerLov avec fiche technique complète
 const SPEC_SHEET_IDS = new Set([
@@ -29,31 +30,7 @@ const SPEC_SHEET_IDS = new Set([
   'powerlov-protected-aligned-unstoppable',
 ]);
 
-const imageModules = {
-  ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
-  ...(import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>),
-  ...(import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>),
-  ...(import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>),
-};
-const assetJsonModules = import.meta.glob('@/assets/**/*.asset.json', { eager: true }) as Record<string, { url?: string; default?: { url?: string } }>;
-const getImage = (key: string) => {
-  if (!key) return '';
-  if (/^https?:\/\//i.test(key) || key.startsWith('/')) return key;
-  const exactMatch = Object.entries(imageModules).find(([p]) => {
-    const filename = p.split('/').pop() ?? '';
-    const stem = filename.replace(/\.asset\.json$/, '').replace(/\.(jpg|jpeg|webp|png)$/i, '');
-    return stem === key;
-  });
-  if (exactMatch) return exactMatch[1];
-  const m = Object.entries(imageModules).find(([p]) => p.includes(key));
-  if (m) return m[1];
-  const j = Object.entries(assetJsonModules).find(([p]) => p.includes(key));
-  if (j) {
-    const mod = j[1] as any;
-    return (mod.default?.url ?? mod.url) || '';
-  }
-  return '';
-};
+const getImage = resolveProductImage;
 
 const SIZES = ['XS', 'S', 'M', 'L', 'XL'];
 const SANS = "'Inter', 'Instrument Sans', Arial, sans-serif";
