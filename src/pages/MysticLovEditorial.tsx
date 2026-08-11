@@ -1,8 +1,9 @@
 import { formatPrice } from '@/lib/price';
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
 import { Link, useLocation } from "react-router-dom";
+import { availableTabs, countLabel } from "@/lib/filterTabs";
 import CategoryTabs from "@/components/CategoryTabs";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
@@ -122,6 +123,19 @@ const MysticLovEditorial = () => {
       return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   })();
 
+  const matchesCategory = (p: (typeof products)[number], key: string) =>
+    key === "tshirts"
+      ? p.subcategory === "tshirt"
+      : key === "kimonos"
+      ? p.subcategory === "kimono"
+      : p.subcategory === "hoodie" || p.subcategory === "crewneck";
+
+  const tabs = availableTabs(CATEGORY_LABELS, products, matchesCategory);
+
+  useEffect(() => {
+    if (!tabs.some((t) => t.key === category)) setCategory("all");
+  }, [tabs, category]);
+
 
 
   const scrollToGrid = () => {
@@ -210,10 +224,15 @@ const MysticLovEditorial = () => {
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <span className="whitespace-nowrap" aria-hidden="true" />
+            <span
+              className="hidden md:inline whitespace-nowrap text-[11px]"
+              style={{ color: "rgba(13,13,13,0.5)", letterSpacing: "0.08em" }}
+            >
+              {countLabel(filtered.length)}
+            </span>
             <CategoryTabs
               ariaLabel="Catégories MysticLov"
-              tabs={CATEGORY_LABELS}
+              tabs={tabs}
               active={category}
               onChange={(k) => setCategory(k as Category)}
             />

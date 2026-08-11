@@ -14,6 +14,7 @@ import SortFilterMenu, { type SortKey } from '@/components/SortFilterMenu';
 import ScrollTabs from '@/components/ScrollTabs';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import { spaceOutDuplicates } from '@/lib/spaceOutDuplicates';
+import { countLabel } from '@/lib/filterTabs';
 
 type Collection = 'all' | 'standard' | 'mystic' | 'bijoux' | 'sacs' | 'accessoires';
 
@@ -90,6 +91,25 @@ const Shop = () => {
   }, [active, sort, visibleStandard, visibleMystic, visibleBijoux, visibleSacs, visibleAccessoires]);
 
 
+  // Une collection n'apparaît dans la barre que si elle contient au moins un produit visible.
+  const availableCollections = useMemo(() => {
+    const counts: Record<Collection, number> = {
+      all: shown.length,
+      standard: visibleStandard.length,
+      mystic: visibleMystic.length,
+      bijoux: visibleBijoux.length,
+      sacs: visibleSacs.length,
+      accessoires: visibleAccessoires.length,
+    };
+    return (Object.keys(filterMeta) as Collection[]).filter((key) => counts[key] > 0);
+  }, [shown, visibleStandard, visibleMystic, visibleBijoux, visibleSacs, visibleAccessoires]);
+
+  useEffect(() => {
+    if (availableCollections.length > 0 && !availableCollections.includes(active)) {
+      setActive('all');
+    }
+  }, [availableCollections, active]);
+
   const setCollection = (c: Collection) => {
     setActive(c);
     const next = new URLSearchParams(searchParams);
@@ -149,7 +169,7 @@ const Shop = () => {
           <div className="mx-auto max-w-[1360px] flex flex-col md:flex-row md:items-center md:justify-between gap-6 border-t border-b border-[#E8E1D5] py-5">
             <ScrollTabs
               ariaLabel="Filtres collection"
-              tabs={(Object.keys(filterMeta) as Collection[]).map((key) => ({
+              tabs={availableCollections.map((key) => ({
                 key,
                 label: filterMeta[key].label,
                 accent: filterMeta[key].accent,
@@ -158,7 +178,10 @@ const Shop = () => {
               onChange={setCollection}
             />
 
-            <div className="flex items-center justify-center md:justify-end">
+            <div className="flex items-center justify-center md:justify-end gap-4">
+              <span className="hidden md:inline whitespace-nowrap text-[11px] tracking-[0.08em] text-[#8A8378]">
+                {countLabel(products.length)}
+              </span>
               <SortFilterMenu sort={sort} onChange={setSort} />
             </div>
           </div>

@@ -2,6 +2,7 @@ import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useRef, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { Link, useLocation } from "react-router-dom";
+import { availableTabs, countLabel } from "@/lib/filterTabs";
 import { motion } from "framer-motion";
 import CategoryTabs from "@/components/CategoryTabs";
 import Navbar from "@/components/Navbar";
@@ -134,6 +135,14 @@ const StoneLovEditorial = () => {
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   })();
 
+  const tabs = availableTabs(CATEGORY_LABELS, products, (p, key) =>
+    key === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
+  );
+
+  useEffect(() => {
+    if (!tabs.some((t) => t.key === category)) setCategory("all");
+  }, [tabs, category]);
+
 
   const scrollToGrid = () => {
     document.getElementById("stonelov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -221,10 +230,15 @@ const StoneLovEditorial = () => {
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <span className="whitespace-nowrap" aria-hidden="true" />
+            <span
+              className="hidden md:inline whitespace-nowrap text-[11px]"
+              style={{ color: "rgba(13,13,13,0.5)", letterSpacing: "0.08em" }}
+            >
+              {countLabel(filtered.length)}
+            </span>
             <CategoryTabs
               ariaLabel="Catégories StoneLov"
-              tabs={CATEGORY_LABELS}
+              tabs={tabs}
               active={category}
               onChange={(k) => setCategory(k as typeof category)}
             />
