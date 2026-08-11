@@ -355,7 +355,7 @@ const Cart = () => {
 
 
                   <div className="mt-8 pt-6 border-t border-border/60 space-y-2.5 text-[11px] leading-relaxed text-muted-foreground">
-                    <p><span className="text-foreground">Livraison</span> — expédié sous 24 à 48 h depuis Paris, offert dès 99 €.</p>
+                    <p><span className="text-foreground">Livraison</span> — {CART_SHIPPING_NOTE}</p>
                     <p><span className="text-foreground">Retours</span> — 14 jours pour changer d'avis, sans justification.</p>
                     <p><span className="text-foreground">Paiement</span> — Visa, Mastercard, Amex, Apple&nbsp;Pay. Transactions cryptées.</p>
                     <p>
