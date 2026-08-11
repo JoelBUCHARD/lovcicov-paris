@@ -13,7 +13,7 @@ import editorial2026Duo from '@/assets/campagne-diptyque.webp.asset.json';
 import campagneMobile1 from '@/assets/campagne-mobile-1.webp.asset.json';
 import campagneMobile2 from '@/assets/campagne-mobile-2.webp.asset.json';
 
-import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
+import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden-v2.webp.asset.json';
 
 
 import ig1 from '@/assets/instagram/ig-1.png';
@@ -159,9 +159,9 @@ const Index = () => {
                 <img
                   src={slideHeroAsset.url}
                   alt="Sweat LOVCICOV PARIS écru, emblème colombe rouge — collection PowerLov"
-                  width={1269}
-                  height={952}
-                  className="w-full h-full object-cover object-[48%_30%] lg:object-[center_40%]"
+                  width={1448}
+                  height={1086}
+                  className="w-full h-full object-cover object-[52%_28%] lg:object-[center_40%]"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
