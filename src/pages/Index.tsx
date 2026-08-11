@@ -159,9 +159,9 @@ const Index = () => {
                 <img
                   src={slideHeroAsset.url}
                   alt="Sweat LOVCICOV PARIS écru, emblème colombe rouge — collection PowerLov"
-                  width={1269}
-                  height={952}
-                  className="w-full h-full object-cover object-[48%_30%] lg:object-[center_40%]"
+                  width={1448}
+                  height={1086}
+                  className="w-full h-full object-cover object-[42%_35%] lg:object-[center_40%]"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
