@@ -848,11 +848,12 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-BIG-03', slug: 'big-lov-bicolore-rose', name: 'Big LOV Bicolore Rose',
-    silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#F4C9C9',
-    body: 'Rose clair', trim: 'Rose',
+    silhouette: 'big', motif: 'Bicolore', colorName: 'Rose', swatch: '#E4506B',
+    body: 'Rose vif', trim: 'Rose',
     description: "Le rose dans toutes ses nuances. Un camaïeu tout en retenue, où seule la bordure vient souligner la ligne du sac.",
     images: ['/images/sacs/LOV-BIG-03_01.jpg', '/images/sacs/LOV-BIG-03_02.jpg', '/images/sacs/LOV-BIG-03_03.jpg'],
   },
+
   {
     ref: 'LOV-BIG-04', slug: 'big-lov-bicolore-kaki', name: 'Big LOV Bicolore Kaki',
     silhouette: 'big', motif: 'Bicolore', colorName: 'Kaki', swatch: '#5A5A38',
