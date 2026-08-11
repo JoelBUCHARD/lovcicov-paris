@@ -181,10 +181,7 @@ const buildProducts = (): ProductCard[] => {
 };
 
 
-const heroImage =
-  resolveProductImage("powerlov-standard-porte-dos") ||
-  resolveProductImage("powerlov-bottomwide-lovcicov-2019-bird-market") ||
-  "";
+import heroPowerlov from "@/assets/hero-powerlov-tshirt-blanc-chaise.webp.asset.json";
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
