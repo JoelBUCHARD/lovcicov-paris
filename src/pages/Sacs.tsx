@@ -10,12 +10,10 @@ import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { BAGS, BAG_SILHOUETTES, grigriProducts, sacsProducts } from "@/data/products";
-import { resolveProductImage } from "@/lib/productImage";
 import { displayProductName } from '@/lib/productDisplayName';
 
 type Section = "sacs" | "accessoires";
 
-const resolveImage = (key: string) => (key.startsWith("/") ? key : resolveProductImage(key));
 
 type ProductCard = {
   key: string;
@@ -52,29 +50,42 @@ const orderIndex = (slug: string) => {
   return i === -1 ? displayOrder.length : i;
 };
 
-const products: ProductCard[] = BAGS.filter((b) => sacsProducts.some((p) => p.id === b.slug)).map((b) => ({
-  key: b.slug,
-  id: b.slug,
-  name: b.name,
-  typeLabel: BAG_SILHOUETTES[b.silhouette].label,
-  price: sacsProducts.find((p) => p.id === b.slug)?.price ?? 0,
-  image: resolveImage(b.images[0]),
-  hoverImage: b.images[1] ? resolveImage(b.images[1]) : undefined,
-  gallery: b.images.slice(1),
-  to: `/sacs/${b.slug}`,
-})).sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
+// Visuels sacs : Storefront API uniquement (via sacsProducts.images).
+const buildBagCards = (): ProductCard[] =>
+  BAGS.flatMap((b) => {
+    const p = sacsProducts.find((sp) => sp.id === b.slug);
+    if (!p) return [];
+    const imgs = p.images ?? [];
+    if (!imgs.length) return [];
+    return [{
+      key: b.slug,
+      id: b.slug,
+      name: b.name,
+      typeLabel: BAG_SILHOUETTES[b.silhouette].label,
+      price: p.price,
+      image: imgs[0],
+      hoverImage: imgs[1],
+      gallery: imgs.slice(1),
+      to: `/sacs/${b.slug}`,
+    }];
+  }).sort((a, b) => orderIndex(a.id) - orderIndex(b.id));
 
-const accessoires: ProductCard[] = grigriProducts.map((g) => ({
-  key: g.id,
-  id: g.id,
-  name: g.name,
-  typeLabel: "Grigri",
-  price: Number(g.price),
-  image: resolveImage(g.image),
-  hoverImage: g.gallery?.[0] ? resolveImage(g.gallery[0]) : undefined,
-  gallery: g.gallery ?? [],
-  to: `/shop/${g.id}`,
-}));
+const buildAccessoireCards = (): ProductCard[] =>
+  grigriProducts.flatMap((g) => {
+    const imgs = g.images ?? [];
+    if (!imgs.length) return [];
+    return [{
+      key: g.id,
+      id: g.id,
+      name: g.name,
+      typeLabel: "Grigri",
+      price: Number(g.price),
+      image: imgs[0],
+      hoverImage: imgs[1],
+      gallery: imgs.slice(1),
+      to: `/shop/${g.id}`,
+    }];
+  });
 
 
 const heroImage = "/images/sacs/hero-lovbag.jpg";
@@ -94,10 +105,9 @@ const Sacs = () => {
   const location = useLocation();
   const [section, setSection] = useState<Section>("sacs");
 
-  const filtered = useMemo(
-    () => spaceOutDuplicates(section === "accessoires" ? accessoires : products, (p) => p.id || p.name),
-    [section]
-  );
+  const products = buildBagCards();
+  const accessoires = buildAccessoireCards();
+  const filtered = spaceOutDuplicates(section === "accessoires" ? accessoires : products, (p) => p.id || p.name);
 
 
   const from = `${location.pathname}${location.search}`;
