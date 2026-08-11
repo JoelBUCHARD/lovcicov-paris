@@ -13,7 +13,7 @@ import editorial2026Duo from '@/assets/campagne-diptyque.webp.asset.json';
 import campagneMobile1 from '@/assets/campagne-mobile-1.webp.asset.json';
 import campagneMobile2 from '@/assets/campagne-mobile-2.webp.asset.json';
 
-import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden.webp.asset.json';
+import slideHeroAsset from '@/assets/hero-lovcicov-dove-garden-v2.webp.asset.json';
 
 
 import ig1 from '@/assets/instagram/ig-1.png';
