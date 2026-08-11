@@ -900,8 +900,9 @@ export const BAGS: BagSpec[] = [
   },
   {
     ref: 'LOV-SML-04', slug: 'small-lov-bicolore-bleu', name: 'Small LOV Bicolore Bleu',
-    silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#8FB6D1',
-    body: 'Bleu clair', trim: 'Rose clair',
+    silhouette: 'sml', motif: 'Bicolore', colorName: 'Bleu', swatch: '#2E5A6B',
+    body: 'Bleu canard', trim: 'Corail',
+
     description: "Un bleu clair adouci d'une bordure rose. La fraîcheur en format nomade.",
     images: ['/images/sacs/LOV-SML-04_01.jpg', '/images/sacs/LOV-SML-04_02.jpg', '/images/sacs/LOV-SML-04_03.jpg'],
   },
