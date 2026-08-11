@@ -884,12 +884,13 @@ export const BAGS: BagSpec[] = [
     images: ['/images/sacs/LOV-SML-01_01.jpg', '/images/sacs/LOV-SML-01_02.jpg', '/images/sacs/LOV-SML-01_03.jpg'],
   },
   {
-    ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Kaki',
-    silhouette: 'sml', motif: 'Tricolore', colorName: 'Kaki', swatch: '#5A5A38',
-    body: 'Kaki, rose, argenté', trim: 'Argenté',
-    description: "Kaki, rose et argent : un contraste inattendu, souligné d'une bordure argentée.",
+    ref: 'LOV-SML-02', slug: 'small-lov-tricolore-kaki', name: 'Small LOV Tricolore Rose',
+    silhouette: 'sml', motif: 'Tricolore', colorName: 'Rose', swatch: '#E0568A',
+    body: 'Rose, bordeaux, argenté', trim: 'Argenté',
+    description: "Rose, bordeaux et argent : un contraste inattendu, souligné d'une bordure argentée.",
     images: ['/images/sacs/LOV-SML-02_01.jpg', '/images/sacs/LOV-SML-02_02.jpg', '/images/sacs/LOV-SML-02_03.jpg'],
   },
+
   {
     ref: 'LOV-SML-03', slug: 'small-lov-bicolore-argent', name: 'Small LOV Bicolore Argent',
     silhouette: 'sml', motif: 'Bicolore', colorName: 'Argent', swatch: '#C0C0C0',
