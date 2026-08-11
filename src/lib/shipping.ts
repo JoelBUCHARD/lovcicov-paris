@@ -14,3 +14,15 @@ export const formatEuro = (value: number) =>
   value.toLocaleString('fr-FR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + '\u00A0€';
 
 export const SHIPPING_LINE_LABEL = `Livraison ${formatEuro(SHIPPING_FEE)} — offerte dès ${FREE_SHIPPING_THRESHOLD}€ d'achat`;
+
+// Zone fees (informational copy)
+export const EUROPE_SHIPPING_FEE = 22;
+export const INTERNATIONAL_SHIPPING_FEE = 29;
+
+export const FREE_SHIPPING_LABEL = `Livraison offerte dès ${FREE_SHIPPING_THRESHOLD} €`;
+
+export const TRUST_SHIPPING_TEXT = `En France métropolitaine dès ${FREE_SHIPPING_THRESHOLD} € d'achat. Expédition depuis Paris. Europe ${EUROPE_SHIPPING_FEE} €, international ${INTERNATIONAL_SHIPPING_FEE} €.`;
+export const TRUST_PAYMENT_TEXT = "Cartes bancaires, Apple Pay et Google Pay. Transactions chiffrées, vos coordonnées bancaires ne transitent jamais par nos serveurs.";
+export const TRUST_RETURNS_TEXT = "14 jours pour changer d'avis. Articles non portés, dans leur emballage d'origine.";
+
+export const CART_SHIPPING_NOTE = `Expédition depuis Paris sous 24 à 48 h pour les articles en stock. Les articles en précommande sont expédiés sous 1 mois. Livraison offerte dès ${FREE_SHIPPING_THRESHOLD} € en France métropolitaine.`;
