@@ -29,8 +29,6 @@ export interface CatalogEntry {
   availableForSale: boolean;
   options: { name: string; values: string[] }[];
   variants: CatalogVariant[];
-  /** URLs des visuels produit — Storefront API uniquement, jamais de fichier local. */
-  images: string[];
 }
 
 const CATALOG_QUERY = `
@@ -43,7 +41,6 @@ const CATALOG_QUERY = `
           productType
           availableForSale
           priceRange { minVariantPrice { amount currencyCode } }
-          images(first: 10) { edges { node { url } } }
           options { name values }
           variants(first: 50) {
             edges {
@@ -63,9 +60,7 @@ const CATALOG_QUERY = `
   }
 `;
 
-// Instantané de session uniquement : aucune donnée produit (et donc aucune URL
-// d'image) n'est conservée au-delà de l'onglet en cours.
-const STORAGE_KEY = 'lovcicov-shopify-catalog-v2';
+const STORAGE_KEY = 'lovcicov-shopify-catalog-v1';
 
 let catalog: Map<string, CatalogEntry> = new Map();
 let loaded = false;
@@ -88,7 +83,6 @@ type RawNode = {
   productType: string;
   availableForSale: boolean;
   priceRange: { minVariantPrice: { amount: string; currencyCode: string } };
-  images?: { edges: { node: { url: string } }[] };
   options: { name: string; values: string[] }[];
   variants: { edges: { node: CatalogVariant }[] };
 };
@@ -102,7 +96,6 @@ const toEntries = (nodes: RawNode[]): CatalogEntry[] =>
     price: Math.round(parseFloat(n.priceRange.minVariantPrice.amount)),
     availableForSale: n.availableForSale,
     options: n.options ?? [],
-    images: (n.images?.edges ?? []).map((e) => e.node.url),
     variants: (n.variants?.edges ?? []).map((e) => e.node),
   }));
 
@@ -122,7 +115,7 @@ const setCatalog = (entries: CatalogEntry[]) => {
 /** Instantané synchrone (localStorage) pour éviter un écran vide au chargement. */
 const restoreSnapshot = () => {
   try {
-    const raw = sessionStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
     const entries = JSON.parse(raw) as CatalogEntry[];
     if (Array.isArray(entries) && entries.length) setCatalog(entries);
@@ -135,9 +128,10 @@ restoreSnapshot();
 
 let inflight: Promise<void> | null = null;
 
-export async function loadShopifyCatalog(force = false): Promise<void> {
-  if (inflight && !force) return inflight;
-  if (force) inflight = null;
+export async function loadShopifyCatalog(): Promise<void> {
+  // Une seule requête catalogue par session : les retours sur une page déjà
+  // visitée ne réinterrogent pas l'API.
+  if (inflight) return inflight;
   inflight = (async () => {
     try {
       const res = await fetch(SHOPIFY_STOREFRONT_URL, {
@@ -146,7 +140,6 @@ export async function loadShopifyCatalog(force = false): Promise<void> {
           'Content-Type': 'application/json',
           'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_TOKEN,
         },
-        cache: 'no-store',
         body: JSON.stringify({ query: CATALOG_QUERY, variables: { first: 250 } }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -157,7 +150,7 @@ export async function loadShopifyCatalog(force = false): Promise<void> {
       if (!entries.length) throw new Error('catalogue vide');
       setCatalog(entries);
       try {
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
       } catch {
         /* quota */
       }
@@ -167,9 +160,6 @@ export async function loadShopifyCatalog(force = false): Promise<void> {
   })();
   return inflight;
 }
-
-/** Relecture forcée de la Storefront API (appelée au chargement de chaque fiche produit). */
-export const refreshShopifyCatalog = () => loadShopifyCatalog(true);
 
 export const isCatalogLoaded = () => loaded;
 export const getCatalogEntry = (handle?: string): CatalogEntry | undefined =>

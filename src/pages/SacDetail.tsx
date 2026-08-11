@@ -6,16 +6,20 @@ import Footer from '@/components/Footer';
 import ProductPage from '@/components/ProductPage';
 import RelatedProducts, { trackViewedProduct } from '@/components/RelatedProducts';
 import ProductUnavailable from '@/components/ProductUnavailable';
-import { refreshShopifyCatalog } from '@/lib/shopifyCatalog';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 
-// Les visuels produit sont des URLs Shopify (Storefront API) : rien à résoudre localement.
-const getImage = (key: string) => key ?? '';
+const imageModules = {
+  ...(import.meta.glob('@/assets/**/*.jpg', { eager: true, import: 'default' }) as Record<string, string>),
+  ...(import.meta.glob('@/assets/**/*.jpeg', { eager: true, import: 'default' }) as Record<string, string>),
+  ...(import.meta.glob('@/assets/**/*.webp', { eager: true, import: 'default' }) as Record<string, string>),
+  ...(import.meta.glob('@/assets/**/*.png', { eager: true, import: 'default' }) as Record<string, string>),
+};
+const getImage = (key: string) => {
+  const m = Object.entries(imageModules).find(([p]) => p.includes(key));
+  return m ? m[1] : '';
+};
 
 const SacDetail = () => {
-  // Relecture forcée de la Storefront API à chaque ouverture de fiche produit.
-  useEffect(() => { void refreshShopifyCatalog(); }, []);
-
   const { slug: id } = useParams<{ slug: string }>();
   const product = sacsProducts.find((p) => p.id === id);
   const { isVisible, loading: visLoading } = useProductVisibility();

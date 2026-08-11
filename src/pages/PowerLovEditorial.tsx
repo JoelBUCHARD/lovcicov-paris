@@ -10,18 +10,110 @@ import JourneyContinuation from "@/components/JourneyContinuation";
 import SEO from "@/components/SEO";
 import { prefetchRoute, prefetchImage } from "@/lib/prefetch";
 import { getProductsByUnivers } from "@/data/products";
-import { resolveProductImage } from "@/lib/productImage";
 
+const standardProducts = getProductsByUnivers("powerlov");
+import { resolveProductImage } from "@/lib/productImage";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
 import { displayProductName } from '@/lib/productDisplayName';
 
 type Category = "all" | "tshirts" | "sweats";
+
+// ─── SPEC A — les 12 produits PowerLov et leurs visuels ───────────────
+type ImageSet = {
+  porteFace?: string;
+  porteDos?: string;
+  packFace: string;
+  packDos: string;
+};
+
+const IMAGES: Record<string, ImageSet> = {
+  "powerlov-discipline": {
+    porteFace: "powerlov-discipline-porte-face",
+    porteDos: "powerlov-discipline-porte-dos",
+    packFace: "powerlov-discipline-packshot-face",
+    packDos: "powerlov-discipline-packshot-dos",
+  },
+  "powerlov-if-god-dj-frequency": {
+    porteFace: "powerlov-pretty-smart-porte-face",
+    porteDos: "powerlov-pretty-smart-porte-dos",
+    packFace: "powerlov-pretty-smart-packshot-face",
+    packDos: "powerlov-pretty-smart-packshot-dos",
+  },
+  "powerlov-god-is-a-dancer": {
+    porteFace: "powerlov-god-dancer-porte-face",
+    porteDos: "powerlov-god-dancer-porte-dos",
+    packFace: "powerlov-god-dancer-packshot-face",
+    packDos: "powerlov-god-dancer-packshot-dos",
+  },
+  "powerlov-protected-aligned-unstoppable": {
+    porteFace: "powerlov-protected-porte-face",
+    packFace: "powerlov-protected-packshot-face",
+    packDos: "powerlov-protected-packshot-dos",
+  },
+  "powerlov-sacred-heart-sweat": {
+    porteFace: "powerlov-standard-porte-face",
+    porteDos: "powerlov-standard-porte-dos",
+    packFace: "powerlov-standard-packshot-face",
+    packDos: "powerlov-standard-packshot-dos",
+  },
+  "powerlov-iconic-by-nature": {
+    porteFace: "powerlov-iconic-stairs-red-boots",
+    packFace: "powerlov-iconic-cream-front-heart",
+    packDos: "powerlov-iconic-cream-back-lovcicov",
+  },
+  "powerlov-lovcicov-2019-bird": {
+    porteFace: "powerlov-holy-dove-porte-face",
+    packFace: "powerlov-holy-dove-packshot-face",
+    packDos: "powerlov-holy-dove-packshot-dos",
+  },
+  "powerlov-mom-boss-crisis-manager": {
+    porteFace: "powerlov-heart-icon-porte-face",
+    porteDos: "powerlov-heart-icon-porte-dos",
+    packFace: "powerlov-heart-icon-packshot-face",
+    packDos: "powerlov-heart-icon-packshot-dos",
+  },
+  "powerlov-lovcicov-2019-hoodie": {
+    porteFace: "powerlov-heart-signature-porte-face",
+    packFace: "powerlov-heart-signature-packshot-face",
+    packDos: "powerlov-heart-signature-packshot-dos",
+  },
+  "powerlov-energy-never-lies-hoodie": {
+    porteFace: "powerlov-perfectly-porte-face",
+    porteDos: "powerlov-perfectly-porte-dos",
+    packFace: "powerlov-perfectly-packshot-face",
+    packDos: "powerlov-perfectly-packshot-dos",
+  },
+  "powerlov-lovcicov-2029-bird": {
+    porteFace: "powerlov-my-own-muse-porte-face",
+    porteDos: "powerlov-my-own-muse-porte-dos",
+    packFace: "powerlov-my-own-muse-packshot-face",
+    packDos: "powerlov-my-own-muse-packshot-dos",
+  },
+  "powerlov-less-drama-champagne": {
+    porteDos: "powerlov-less-drama-porte-dos",
+    packFace: "powerlov-less-drama-packshot-face",
+    packDos: "powerlov-less-drama-packshot-dos",
+  },
+};
 
 // Étiquette dérivée du champ `type` de products.ts (source de vérité unique).
 const LABEL_BY_TYPE: Record<string, string> = {
   tshirt: "T-shirt",
   crewneck: "Sweat",
   hoodie: "Sweat capuche",
+};
+const TYPE_LABELS: Record<string, string> = Object.fromEntries(
+  standardProducts.map((p) => [p.id, LABEL_BY_TYPE[p.type ?? p.subcategory ?? "tshirt"] ?? "T-shirt"])
+);
+
+// SPEC C — ordre des galeries selon la carte cliquée
+const galleryFor = (id: string, side: "face" | "dos"): string[] => {
+  const s = IMAGES[id];
+  if (!s) return [];
+  if (side === "dos") {
+    return [s.porteDos, s.porteFace, s.packDos, s.packFace].filter(Boolean) as string[];
+  }
+  return [s.porteFace, s.porteDos, s.packFace, s.packDos].filter(Boolean) as string[];
 };
 
 // SPEC B — les 19 cartes, dans l'ordre exact
@@ -59,37 +151,37 @@ type ProductCard = {
   categories: Exclude<Category, "all">[];
 };
 
-/**
- * Cartes de la grille — visuels issus exclusivement de la Storefront API.
- * Carte « face » = 1re image Shopify du produit, carte « dos » = 2e image.
- */
-const buildCards = (): ProductCard[] => {
-  const standardProducts = getProductsByUnivers("powerlov");
-  return CARD_SPEC.flatMap(({ id, side }, index) => {
-    const p = standardProducts.find((sp) => sp.id === id);
-    const shopifyImages = p?.images ?? [];
-    if (!p || !shopifyImages.length) return [];
-    const image = side === "dos" ? shopifyImages[1] : shopifyImages[0];
-    if (!image) return [];
-    const typeLabel = LABEL_BY_TYPE[p.type ?? p.subcategory ?? "tshirt"] ?? "T-shirt";
-    // La galerie de la fiche démarre sur le visuel cliqué.
-    const gallery = [image, ...shopifyImages.filter((u) => u !== image)];
-    const hoverRaw = gallery[1];
-    return [
-      {
-        key: `${id}-${side}-${index}`,
-        id,
-        name: p.name,
-        typeLabel,
-        price: p.price,
-        image,
-        hover: hoverRaw && hoverRaw !== image ? hoverRaw : undefined,
-        gallery,
-        categories: [typeLabel === "T-shirt" ? "tshirts" : "sweats"] as Exclude<Category, "all">[],
-      },
-    ];
-  });
-};
+const products: ProductCard[] = CARD_SPEC.flatMap(({ id, side }, index) => {
+  const p = standardProducts.find((sp) => sp.id === id);
+  const set = IMAGES[id];
+  if (!p || !set) return [];
+  const imageKey = side === "dos" ? set.porteDos : set.porteFace;
+  const image = resolveProductImage(imageKey ?? "");
+  if (!image) return [];
+  const typeLabel = TYPE_LABELS[id] ?? "T-shirt";
+  const gallery = galleryFor(id, side);
+  const hoverRaw = gallery[1] ? resolveProductImage(gallery[1]) : undefined;
+  return [
+    {
+      key: `${id}-${side}-${index}`,
+      id,
+      name: p.name,
+      typeLabel,
+      price: p.price,
+      image,
+      hover: hoverRaw && hoverRaw !== image ? hoverRaw : undefined,
+      gallery,
+      categories: [typeLabel === "T-shirt" ? "tshirts" : "sweats"] as Exclude<Category, "all">[],
+    },
+  ];
+});
+
+
+const heroImage =
+  resolveProductImage("powerlov-standard-porte-dos") ||
+  resolveProductImage("powerlov-bottomwide-lovcicov-2019-bird-market") ||
+  products[0]?.image ||
+  "";
 
 const CATEGORY_LABELS: { key: Category; label: string }[] = [
   { key: "all", label: "Tout voir" },
@@ -107,9 +199,6 @@ const PowerLovEditorial = () => {
   const location = useLocation();
   const [category, setCategory] = useState<Category>("all");
   const [sort, setSort] = useState<SortKey>("default");
-  const products = buildCards();
-  // Visuel de campagne du hero — reste local (ce n'est pas un visuel produit).
-  const heroImage = resolveProductImage("powerlov-standard-porte-dos") || products[0]?.image || "";
 
   const filtered = useMemo(() => {
     const base =
@@ -121,7 +210,7 @@ const PowerLovEditorial = () => {
     else if (sort === "price-desc") sorted.sort((a, b) => (Number(b.price) || 0) - (Number(a.price) || 0));
     else if (sort === "name-asc") sorted.sort((a, b) => a.name.localeCompare(b.name, "fr"));
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
-  }, [category, sort, products]);
+  }, [category, sort]);
 
 
 
