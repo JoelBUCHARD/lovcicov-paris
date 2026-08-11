@@ -134,6 +134,14 @@ const StoneLovEditorial = () => {
     return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   })();
 
+  const tabs = availableTabs(CATEGORY_LABELS, products, (p, key) =>
+    key === "colliers" ? p.typeLabel === "Collier" : p.typeLabel === "Bracelet"
+  );
+
+  useEffect(() => {
+    if (!tabs.some((t) => t.key === category)) setCategory("all");
+  }, [tabs, category]);
+
 
   const scrollToGrid = () => {
     document.getElementById("stonelov-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -224,7 +232,7 @@ const StoneLovEditorial = () => {
             <span className="whitespace-nowrap" aria-hidden="true" />
             <CategoryTabs
               ariaLabel="Catégories StoneLov"
-              tabs={CATEGORY_LABELS}
+              tabs={tabs}
               active={category}
               onChange={(k) => setCategory(k as typeof category)}
             />

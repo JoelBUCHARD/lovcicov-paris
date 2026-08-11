@@ -122,6 +122,19 @@ const MysticLovEditorial = () => {
       return spaceOutDuplicates(sorted, (p) => p.id || p.name);
   })();
 
+  const matchesCategory = (p: (typeof products)[number], key: string) =>
+    key === "tshirts"
+      ? p.subcategory === "tshirt"
+      : key === "kimonos"
+      ? p.subcategory === "kimono"
+      : p.subcategory === "hoodie" || p.subcategory === "crewneck";
+
+  const tabs = availableTabs(CATEGORY_LABELS, products, matchesCategory);
+
+  useEffect(() => {
+    if (!tabs.some((t) => t.key === category)) setCategory("all");
+  }, [tabs, category]);
+
 
 
   const scrollToGrid = () => {
@@ -213,7 +226,7 @@ const MysticLovEditorial = () => {
             <span className="whitespace-nowrap" aria-hidden="true" />
             <CategoryTabs
               ariaLabel="Catégories MysticLov"
-              tabs={CATEGORY_LABELS}
+              tabs={tabs}
               active={category}
               onChange={(k) => setCategory(k as Category)}
             />

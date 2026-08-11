@@ -97,10 +97,21 @@ const Sacs = () => {
   const [section, setSection] = useState<Section>("sacs");
 
   // Recalculé à chaque rendu : hérite du filtre de visibilité du catalogue.
+  const sacsItems = buildSacs();
+  const accessoiresItems = buildAccessoires();
+
   const filtered = spaceOutDuplicates(
-    section === "accessoires" ? buildAccessoires() : buildSacs(),
+    section === "accessoires" ? accessoiresItems : sacsItems,
     (p) => p.id || p.name
   );
+
+  const tabs = SECTION_LABELS.filter(
+    (t) => (t.key === "accessoires" ? accessoiresItems : sacsItems).length > 0
+  );
+
+  useEffect(() => {
+    if (tabs.length > 0 && !tabs.some((t) => t.key === section)) setSection(tabs[0].key);
+  }, [tabs, section]);
 
 
 
@@ -211,11 +222,16 @@ const Sacs = () => {
             className="mx-auto flex items-center justify-between gap-4"
             style={{ padding: "14px clamp(16px, 4vw, 48px)", maxWidth: 1600 }}
           >
-            <span className="whitespace-nowrap" aria-hidden="true" />
+            <span
+              className="hidden md:inline whitespace-nowrap text-[11px]"
+              style={{ color: "rgba(13,13,13,0.5)", letterSpacing: "0.08em" }}
+            >
+              {countLabel(filtered.length)}
+            </span>
 
             <CategoryTabs
               ariaLabel="Sacs et accessoires"
-              tabs={SECTION_LABELS}
+              tabs={tabs}
               active={section}
               onChange={(k) => setSection(k as typeof section)}
             />
