@@ -260,7 +260,7 @@ const rawKimonoProducts: RawProduct[] = [
   makeKimono('leela', 'Leela', 'bleu marine et rose tie-dye, brodée de perles nacrées'),
   makeKimono('meera', 'Meera', 'vert canard et bordeaux à motifs floraux, brodée de perles dorées'),
   { ...makeKimono('kiran', 'Kiran', 'fuchsia profond, brodée de perles dorées'), image: 'mysticlov-kimono-kiran-porte-v4' },
-  makeKimono('shakti', 'Shakti', 'rouge à motifs, rehaussée de rayures tie-dye vertes et de perles dorées'),
+  { ...makeKimono('shakti', 'Shakti', 'rouge à motifs, rehaussée de rayures tie-dye vertes et de perles dorées'), gallery: ['mysticlov-kimono-shakti-packshot-v2'] },
   { ...makeKimono('padma', 'Padma', 'magenta tie-dye, brodée de perles et de fils dorés'), image: 'mysticlov-kimono-padma-porte-v2' },
 ];
 
