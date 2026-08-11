@@ -622,13 +622,16 @@ const ProductPage = ({ product }: Props) => {
               </div>
 
               <div className="flex gap-2">
-                {SIZES.map((s) => (
+                {sizeOptions.map(({ value: s, available }) => (
                   <button
                     key={s}
-                    onClick={() => setSelectedSize(s)}
+                    onClick={() => available && setSelectedSize(s)}
+                    disabled={!available}
                     aria-pressed={selectedSize === s}
                     className={`flex-1 md:flex-none md:w-12 h-12 md:h-11 text-[12px] md:text-[11px] border transition-all active:scale-[0.97] ${
-                      selectedSize === s
+                      !available
+                        ? 'bg-white text-[#B8B4AD] border-[#E8E4DD] line-through cursor-not-allowed'
+                        : selectedSize === s
                         ? 'bg-[#1A1A1A] text-white border-[#1A1A1A]'
                         : 'bg-white text-[#1A1A1A] border-[#E8E4DD] hover:border-[#1A1A1A]'
                     }`}
@@ -637,6 +640,7 @@ const ProductPage = ({ product }: Props) => {
                     {s}
                   </button>
                 ))}
+
               </div>
               {stock !== null && stock <= 5 && (
                 <p className="mt-2" style={{ fontFamily: SANS, fontSize: 11, color: '#C0392B' }}>
