@@ -50,14 +50,14 @@ const Auth = () => {
 
     if (isLogin) {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) setError(error.message);
+      if (error) setError(translateError(error.message));
     } else {
       const { error } = await supabase.auth.signUp({
         email,
         password,
         options: { emailRedirectTo: window.location.origin },
       });
-      if (error) setError(error.message);
+      if (error) setError(translateError(error.message));
       else setMessage('Vérifiez votre email pour confirmer votre inscription.');
     }
     setLoading(false);
@@ -68,7 +68,7 @@ const Auth = () => {
       provider: 'google',
       options: { redirectTo: window.location.origin + '/account' },
     });
-    if (error) setError(error.message);
+    if (error) setError(translateError(error.message));
   };
 
   return (
