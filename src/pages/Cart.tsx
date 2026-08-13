@@ -66,6 +66,7 @@ const Cart = () => {
 
 
   const handleCheckout = () => {
+    trackBeginCheckout({ num_items: count, value: grandTotal });
     const checkoutUrl = getCheckoutUrl();
     if (checkoutUrl) {
       window.open(checkoutUrl, '_blank');
