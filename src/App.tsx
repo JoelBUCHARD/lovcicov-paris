@@ -26,6 +26,7 @@ const useCatalogVersion = () => {
 
 import { useCartSync } from "./hooks/useCartSync";
 import ScrollRestoration from "./components/ScrollRestoration";
+import TrackingRouter from "./components/TrackingRouter";
 import { CartProvider } from "./context/CartContext";
 
 // Eager: homepage + always-visible UI for fastest first paint
@@ -74,6 +75,8 @@ const AppContent = () => {
   return (
     <>
       <ScrollRestoration />
+      <TrackingRouter />
+
       <NewsletterPopup />
       <CookieBanner />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
