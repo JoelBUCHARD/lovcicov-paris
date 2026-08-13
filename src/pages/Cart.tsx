@@ -22,6 +22,7 @@ import { standardProducts, mysticProducts, bijouxProducts, products as allLocalP
 import { resolveProductImage } from '@/lib/productImage';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
 import { SOCIAL_LABELS, whatsappLink } from '@/config/social';
+import { trackBeginCheckout } from '@/lib/tracking';
 
 // Source d'images unique, partagée avec la grille, la fiche produit et « Vous aimerez aussi »
 const getLocalImage = (key: string) => resolveProductImage(key);
