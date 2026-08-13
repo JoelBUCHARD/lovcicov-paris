@@ -340,6 +340,12 @@ const ProductPage = ({ product }: Props) => {
   const showPreorderNote = isPreorderVariant;
   const ctaDisabled = isAdding || soldOut || (needsSize && !selectedSize) || !variantChecked;
 
+  useEffect(() => {
+    trackViewItem({ item_id: product.id, item_name: product.name, value: product.price });
+  }, [product.id]);
+
+
+
 
   const handleAddToCart = async () => {
     trackAddToCart({ item_id: product.id, value: shopifyPrice });
