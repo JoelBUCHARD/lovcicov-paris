@@ -10,6 +10,7 @@ import { useCart } from '@/context/CartContext';
 import { useCartStore } from '@/stores/cartStore';
 import { fetchShopifyProductByHandle } from '@/lib/shopify';
 import { toast } from '@/hooks/use-toast';
+import { trackViewItem, trackAddToCart } from '@/lib/tracking';
 import ColorSwatches from '@/components/ColorSwatches';
 import { detectStones } from '@/data/stoneMeanings';
 import { useProductVisibility, localKey } from '@/hooks/useProductVisibility';
@@ -341,6 +342,7 @@ const ProductPage = ({ product }: Props) => {
 
 
   const handleAddToCart = async () => {
+    trackAddToCart({ item_id: product.id, value: shopifyPrice });
     if (!product.shopifyHandle) {
       // Le panier utilise toujours l'image canonique du catalogue (la même que la grille)
       const canonical = allProducts.find((p) => p.id === product.id);
