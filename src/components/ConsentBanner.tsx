@@ -44,6 +44,10 @@ const ConsentBanner = () => {
   const [marketing, setMarketing] = useState(false);
 
   useEffect(() => {
+    // Nettoyage de l'ancienne clé de consentement (non interprétée)
+    try {
+      localStorage.removeItem('lovcicov-cookie-consent');
+    } catch {}
     const saved = readConsent();
     if (saved) {
       applyConsent(saved.analytics, saved.marketing);
@@ -79,7 +83,7 @@ const ConsentBanner = () => {
     <div
       role="dialog"
       aria-label="Consentement aux cookies"
-      className="fixed bottom-0 left-0 right-0 z-[60] px-4 pb-4 md:px-6 md:pb-6 pointer-events-none"
+      className="fixed bottom-0 left-0 right-0 z-[9999] px-4 pb-4 md:px-6 md:pb-6 pointer-events-none"
     >
       <div className="pointer-events-auto max-w-3xl mx-auto bg-background border border-border shadow-lg p-5 md:p-6 rounded-[2px]">
         <p className="text-brand text-[10px] tracking-[0.2em] text-muted-foreground mb-2">CONFIDENTIALITÉ</p>
