@@ -66,6 +66,7 @@ const CGV = lazy(() => import("./pages/CGV"));
 const AdminProducts = lazy(() => import("./pages/AdminProducts"));
 const Magazine = lazy(() => import("./pages/Magazine"));
 const MagazineArticle = lazy(() => import("./pages/MagazineArticle"));
+const Cookies = lazy(() => import("./pages/Cookies"));
 
 const queryClient = new QueryClient();
 
@@ -78,7 +79,7 @@ const AppContent = () => {
       <TrackingRouter />
 
       <NewsletterPopup />
-      <CookieBanner />
+      <ConsentBanner />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
