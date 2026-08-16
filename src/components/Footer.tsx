@@ -156,6 +156,15 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
                 <li><Link to="/mentions-legales" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Mentions Légales</Link></li>
                 <li><Link to="/confidentialite" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">Confidentialité</Link></li>
                 <li><Link to="/cgv" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">CGV</Link></li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => window.dispatchEvent(new Event('lov:open-consent'))}
+                    className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors"
+                  >
+                    Gérer mes cookies
+                  </button>
+                </li>
               </ul>
             </nav>
           </div>

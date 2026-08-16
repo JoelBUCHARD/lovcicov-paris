@@ -32,7 +32,7 @@ import { CartProvider } from "./context/CartContext";
 // Eager: homepage + always-visible UI for fastest first paint
 import Index from "./pages/Index";
 import NewsletterPopup from "./components/NewsletterPopup";
-import CookieBanner from "./components/CookieBanner";
+import ConsentBanner from "./components/ConsentBanner";
 
 // Lazy: all secondary routes are split into separate chunks.
 // They will be fetched on demand (and prefetched on hover via src/lib/prefetch.ts).
@@ -66,6 +66,7 @@ const CGV = lazy(() => import("./pages/CGV"));
 const AdminProducts = lazy(() => import("./pages/AdminProducts"));
 const Magazine = lazy(() => import("./pages/Magazine"));
 const MagazineArticle = lazy(() => import("./pages/MagazineArticle"));
+const Cookies = lazy(() => import("./pages/Cookies"));
 
 const queryClient = new QueryClient();
 
@@ -78,7 +79,7 @@ const AppContent = () => {
       <TrackingRouter />
 
       <NewsletterPopup />
-      <CookieBanner />
+      <ConsentBanner />
       <Suspense fallback={<div className="min-h-screen bg-background" />}>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -118,6 +119,7 @@ const AppContent = () => {
           <Route path="/account" element={<Account />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/confidentialite" element={<Confidentialite />} />
+          <Route path="/cookies" element={<Cookies />} />
           <Route path="/livraison-retours" element={<LivraisonRetours />} />
           <Route path="/cgv" element={<CGV />} />
           <Route path="/admin/products" element={<AdminProducts />} />
