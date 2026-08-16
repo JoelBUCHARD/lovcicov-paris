@@ -32,7 +32,7 @@ import { CartProvider } from "./context/CartContext";
 // Eager: homepage + always-visible UI for fastest first paint
 import Index from "./pages/Index";
 import NewsletterPopup from "./components/NewsletterPopup";
-import CookieBanner from "./components/CookieBanner";
+import ConsentBanner from "./components/ConsentBanner";
 
 // Lazy: all secondary routes are split into separate chunks.
 // They will be fetched on demand (and prefetched on hover via src/lib/prefetch.ts).
