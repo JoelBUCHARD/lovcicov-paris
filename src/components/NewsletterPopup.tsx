@@ -17,8 +17,36 @@ const NewsletterPopup = () => {
     if (typeof window === 'undefined') return;
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === 'submitted' || stored === 'dismissed') return;
-    const t = setTimeout(() => setOpen(true), 5000);
-    return () => clearTimeout(t);
+
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    // Le pop-up ne s'affiche jamais tant qu'aucun choix de consentement n'existe.
+    const hasConsent = () => {
+      try {
+        return !!localStorage.getItem('lov_consent');
+      } catch {
+        return false;
+      }
+    };
+    const schedule = () => {
+      timeout = setTimeout(() => setOpen(true), 5000);
+    };
+    if (hasConsent()) {
+      schedule();
+    } else {
+      const interval = setInterval(() => {
+        if (hasConsent()) {
+          clearInterval(interval);
+          schedule();
+        }
+      }, 500);
+      return () => {
+        clearInterval(interval);
+        if (timeout) clearTimeout(timeout);
+      };
+    }
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
   }, []);
 
   const close = () => {
