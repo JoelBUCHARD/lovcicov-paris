@@ -85,7 +85,7 @@ const rawStandardProducts: RawProduct[] = [
     subcategory: 'tshirt',
     description: 'La discipline n\'est pas une contrainte. C\'est un luxe que tu t\'offres chaque jour. Ce t-shirt oversize en coton biologique lourd porte son manifeste dans le dos, en lettres brossées noir et rouge — et le cœur LOVCICOV brodé près du col, comme un rappel discret. Le mannequin porte une taille XS.',
     details: 'La discipline n\'est pas une contrainte. C\'est un luxe que tu t\'offres chaque jour. Ce t-shirt oversize en coton biologique lourd porte son manifeste dans le dos, en lettres brossées noir et rouge — et le cœur LOVCICOV brodé près du col, comme un rappel discret. Le mannequin porte une taille XS.',
-    image: 'powerlov-discipline-porte-face-v2',
+    image: 'powerlov-discipline-porte-face-v3',
     gallery: ['powerlov-discipline-porte-dos', 'powerlov-discipline-packshot-face', 'powerlov-discipline-packshot-dos'],
     badge: 'UNISEX',
   },
