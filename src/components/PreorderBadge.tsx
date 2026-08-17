@@ -29,12 +29,20 @@ export default function PreorderBadge({ productId }: { productId?: string }) {
 
   return (
     <span
-      className="pointer-events-none absolute left-2 top-2 z-10 bg-[#0D0D0D] text-[#FAF9F7] font-light"
+      className="pointer-events-none absolute z-10"
       style={{
-        fontSize: 8,
-        letterSpacing: '0.18em',
-        textTransform: 'uppercase',
-        padding: '3px 6px',
+        left: 16,
+        bottom: 16,
+        backgroundColor: 'rgba(255,255,255,0.85)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        color: '#1A1A1A',
+        fontSize: 11,
+        fontWeight: 450,
+        letterSpacing: '0.08em',
+        textTransform: 'none',
+        padding: '6px 12px',
+        borderRadius: 2,
         lineHeight: 1,
       }}
     >
