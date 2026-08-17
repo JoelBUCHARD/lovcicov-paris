@@ -30,13 +30,13 @@ type ImageSet = {
 
 const IMAGES: Record<string, ImageSet> = {
   "powerlov-discipline": {
-    porteFace: "powerlov-discipline-porte-face",
+    porteFace: "powerlov-discipline-porte-face-v2",
     porteDos: "powerlov-discipline-porte-dos",
     packFace: "powerlov-discipline-packshot-face",
     packDos: "powerlov-discipline-packshot-dos",
   },
   "powerlov-if-god-dj-frequency": {
-    porteFace: "powerlov-pretty-smart-porte-face",
+    porteFace: "powerlov-pretty-smart-porte-face-v2",
     porteDos: "powerlov-pretty-smart-porte-dos",
     packFace: "powerlov-pretty-smart-packshot-face",
     packDos: "powerlov-pretty-smart-packshot-dos",
@@ -69,13 +69,13 @@ const IMAGES: Record<string, ImageSet> = {
     packDos: "powerlov-holy-dove-packshot-dos",
   },
   "powerlov-mom-boss-crisis-manager": {
-    porteFace: "powerlov-heart-icon-porte-face",
+    porteFace: "powerlov-heart-icon-porte-face-v2",
     porteDos: "powerlov-heart-icon-porte-dos",
     packFace: "powerlov-heart-icon-packshot-face",
     packDos: "powerlov-heart-icon-packshot-dos",
   },
   "powerlov-lovcicov-2019-hoodie": {
-    porteFace: "powerlov-heart-signature-porte-face",
+    porteFace: "powerlov-heart-signature-porte-face-v2",
     packFace: "powerlov-heart-signature-packshot-face",
     packDos: "powerlov-heart-signature-packshot-dos",
   },
