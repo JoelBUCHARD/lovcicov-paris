@@ -914,10 +914,10 @@ export const BAGS: BagSpec[] = [
     images: ['/images/sacs/LOV-SML-05_01.jpg', '/images/sacs/LOV-SML-05_02.jpg', '/__l5e/assets-v1/a33b40eb-679e-4180-abc2-08aa6856b1aa/lovbag-small-lov-azteque-rouge-interieur.png'],
   },
   {
-    ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Bordeaux',
-    silhouette: 'sml', motif: 'Aztèque', colorName: 'Bordeaux', swatch: '#6E1F2E',
-    body: 'Bordeaux, blanc', trim: 'Blanc',
-    description: "Bordeaux et blanc, le motif aztèque dans sa version la plus douce.",
+    ref: 'LOV-SML-06', slug: 'small-lov-azteque-terracotta', name: 'Small LOV Aztèque Blanc & Marron',
+    silhouette: 'sml', motif: 'Aztèque', colorName: 'Blanc & Marron', swatch: '#8B5E3C',
+    body: 'Blanc, marron', trim: 'Marron',
+    description: "Blanc et marron, le motif aztèque dans sa version la plus douce.",
 
     images: ['/images/sacs/LOV-SML-06_01.jpg', '/images/sacs/LOV-SML-06_02.jpg', '/images/sacs/LOV-SML-06_03.jpg'],
   },
