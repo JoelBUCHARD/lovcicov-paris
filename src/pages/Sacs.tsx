@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
@@ -310,6 +311,7 @@ const Sacs = () => {
                     className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
                     style={{ backgroundColor: "#F0EDE7", aspectRatio: "2 / 3" }}
                   >
+                    <PreorderBadge productId={product.id} />
                     <img
                       src={product.image}
 

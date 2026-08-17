@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useRef, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
@@ -381,6 +382,7 @@ const StoneLovEditorial = () => {
                         aspectRatio: isHero ? undefined : "4 / 5",
                       }}
                     >
+                      <PreorderBadge productId={product.id} />
                       <img
                         src={product.image}
                         alt={product.name}

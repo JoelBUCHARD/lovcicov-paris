@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
@@ -318,6 +319,7 @@ const MysticLovEditorial = () => {
                         aspectRatio: "2 / 3",
                       }}
                     >
+                      <PreorderBadge productId={product.id} />
                       <img
                         src={product.image}
                         alt={product.name}

@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useState } from "react";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";
@@ -411,6 +412,7 @@ const PowerLovEditorial = () => {
                     className={`relative w-full overflow-hidden ${isHero ? "flex-1" : ""}`}
                     style={{ backgroundColor: "#F0EDE7", aspectRatio: "2 / 3" }}
                   >
+                    <PreorderBadge productId={product.id} />
                     <img
                       src={product.image}
                       alt={product.name}

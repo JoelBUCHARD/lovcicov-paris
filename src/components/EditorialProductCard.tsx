@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { resolveProductImage } from '@/lib/productImage';
 import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
 import { displayProductName } from '@/lib/productDisplayName';
+import PreorderBadge from '@/components/PreorderBadge';
 
 export interface EditorialProduct {
   id: string;
@@ -50,6 +51,7 @@ const EditorialProductCard = ({ product, index = 0, eager = false, to }: Props) 
         className="group flex flex-col h-full focus:outline-none focus-visible:ring-1 focus-visible:ring-[#1A1A1A] focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
       >
         <div className="relative aspect-[4/5] w-full overflow-hidden bg-[#F0EDE7]">
+          <PreorderBadge productId={product.id} />
           <img
             src={mainImage}
             alt={product.name}
