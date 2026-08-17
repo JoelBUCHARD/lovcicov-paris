@@ -30,7 +30,7 @@ type ImageSet = {
 
 const IMAGES: Record<string, ImageSet> = {
   "powerlov-discipline": {
-    porteFace: "powerlov-discipline-porte-face-v2",
+    porteFace: "powerlov-discipline-porte-face-v3",
     porteDos: "powerlov-discipline-porte-dos",
     packFace: "powerlov-discipline-packshot-face",
     packDos: "powerlov-discipline-packshot-dos",
