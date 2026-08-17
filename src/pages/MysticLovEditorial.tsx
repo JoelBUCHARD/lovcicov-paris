@@ -318,6 +318,7 @@ const MysticLovEditorial = () => {
                         aspectRatio: "2 / 3",
                       }}
                     >
+                      <PreorderBadge productId={product.id} />
                       <img
                         src={product.image}
                         alt={product.name}
