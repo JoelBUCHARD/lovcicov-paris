@@ -97,7 +97,7 @@ const rawStandardProducts: RawProduct[] = [
     subcategory: 'tshirt',
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « PRETTY. SMART. DANGEROUS. ». Unisex.',
     details: 'Une réponse. Une vibration. Une signature.',
-    image: 'powerlov-pretty-smart-porte-face',
+    image: 'powerlov-pretty-smart-porte-face-v2',
     gallery: ['powerlov-pretty-smart-porte-dos', 'powerlov-pretty-smart-packshot-face', 'powerlov-pretty-smart-packshot-dos'],
     badge: 'UNISEX',
   },
