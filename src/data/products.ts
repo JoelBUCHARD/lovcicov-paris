@@ -451,7 +451,7 @@ const rawMysticProducts: RawProduct[] = [
     image: 'mysticlov-sacred-hoodie-porte-face-v2',
     gallery: [
       'mystic-hoodie-love-noir-woman-street-v2',
-      'mysticlov-sacred-hoodie-porte-profil',
+      
       'mysticlov-sacred-hoodie-packshot-face',
       'mysticlov-sacred-hoodie-packshot-dos',
     ],
