@@ -19,7 +19,10 @@ export default function PreorderBadge({ productId }: { productId?: string }) {
 
   useEffect(() => {
     setPreorder(isPreorder(productId));
-    return onCatalogUpdate(() => setPreorder(isPreorder(productId)));
+    const unsubscribe = onCatalogUpdate(() => setPreorder(isPreorder(productId)));
+    return () => {
+      unsubscribe();
+    };
   }, [productId]);
 
   if (!preorder) return null;
