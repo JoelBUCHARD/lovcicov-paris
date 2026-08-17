@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import powerAsset from "@/assets/powerlov/powerlov-bottomwide-lovcicov-2019-bird-market.png.asset.json";
+import powerAsset from "@/assets/hero-powerlov-tshirt-blanc-chaise.webp.asset.json";
 import mysticAsset from "@/assets/mysticlov/mysticlov-hero-cafe-paris.png.asset.json";
 import stoneHero from "@/assets/stonelov/hero.png";
 
@@ -26,7 +26,7 @@ const UNIVERSES: Record<UniverseKey, UniverseCard> = {
     caption: "La discipline devient allure.",
     to: "/powerlov",
     image: powerAsset.url,
-    alt: "PowerLov — pièce iconique devant le Sacré-Cœur",
+    alt: "PowerLov — t-shirt blanc iconique",
     objectPosition: "center 30%",
   },
   mystic: {
