@@ -215,7 +215,7 @@ const rawStandardProducts: RawProduct[] = [
     subcategory: 'tshirt',
     description: 'Sweat à capuche coton molletonné gris chiné. Sérigraphie emblème colombe rouge « LOVCICOV 2019 PARIS » au dos. Coupe oversize. Unisex.',
     details: 'La colombe comme signature. Une pièce d\'archive, portée comme un symbole.',
-    image: 'powerlov-heart-signature-porte-face',
+    image: 'powerlov-heart-signature-porte-face-v2',
     gallery: ['powerlov-heart-signature-packshot-face', 'powerlov-heart-signature-packshot-dos'],
     badge: 'UNISEX',
   },
