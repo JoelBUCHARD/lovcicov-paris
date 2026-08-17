@@ -70,7 +70,7 @@ const IMAGES: Record<string, ImageSet> = {
   },
   "powerlov-mom-boss-crisis-manager": {
     porteFace: "powerlov-heart-icon-porte-face-v2",
-    porteDos: "powerlov-heart-icon-porte-dos",
+    porteDos: "powerlov-heart-icon-porte-dos-v3",
     packFace: "powerlov-heart-icon-packshot-face",
     packDos: "powerlov-heart-icon-packshot-dos",
   },
