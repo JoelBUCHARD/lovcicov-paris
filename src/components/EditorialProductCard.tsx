@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { resolveProductImage } from '@/lib/productImage';
 import { prefetchRoute, prefetchImage } from '@/lib/prefetch';
 import { displayProductName } from '@/lib/productDisplayName';
+import PreorderBadge from '@/components/PreorderBadge';
 
 export interface EditorialProduct {
   id: string;
