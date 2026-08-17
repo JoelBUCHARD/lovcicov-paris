@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useState } from "react";
 import SortFilterMenu, { type SortKey } from "@/components/SortFilterMenu";

@@ -1,3 +1,4 @@
+import PreorderBadge from '@/components/PreorderBadge';
 import { formatPrice } from '@/lib/price';
 import { useEffect, useMemo, useRef, useState } from "react";
 import { spaceOutDuplicates } from "@/lib/spaceOutDuplicates";
