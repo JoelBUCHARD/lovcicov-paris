@@ -204,7 +204,7 @@ const rawStandardProducts: RawProduct[] = [
     description: 'Coton lourd 280g, coupe oversize. Sérigraphie « LOVCICOV. CRISIS MANAGER. » au dos. Unisex.',
     details: 'Une déclaration d\'admiration pour celles qui tiennent tout, sans jamais rien lâcher.',
     image: 'powerlov-heart-icon-porte-face-v2',
-    gallery: ['powerlov-heart-icon-porte-dos', 'powerlov-heart-icon-packshot-face', 'powerlov-heart-icon-packshot-dos'],
+    gallery: ['powerlov-heart-icon-porte-dos-v3', 'powerlov-heart-icon-packshot-face', 'powerlov-heart-icon-packshot-dos'],
     badge: 'UNISEX',
   },
   {
