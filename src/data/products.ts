@@ -434,7 +434,7 @@ const rawMysticProducts: RawProduct[] = [
     details: 'L\'énergie : courage du cœur, loyauté, feu intérieur.',
     image: 'mysticlov-sacred-crewneck-porte-face',
     gallery: [
-      'mysticlov-sacred-crewneck-porte-dos',
+      'mysticlov-sacred-crewneck-porte-dos-v2',
       'mysticlov-sacred-crewneck-packshot-face',
       'mysticlov-sacred-crewneck-packshot-dos',
     ],
