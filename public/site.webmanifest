@@ -2,9 +2,9 @@
   "name": "LOVCICOV",
   "short_name": "LOVCICOV",
   "icons": [
-    { "src": "/favicon-32.png?v=2", "type": "image/png", "sizes": "32x32" },
-    { "src": "/apple-touch-icon.png?v=2", "type": "image/png", "sizes": "180x180" },
-    { "src": "/favicon.png?v=2", "type": "image/png", "sizes": "192x192" }
+    { "src": "/favicon-32.png?v=8", "type": "image/png", "sizes": "32x32" },
+    { "src": "/apple-touch-icon.png?v=8", "type": "image/png", "sizes": "180x180" },
+    { "src": "/favicon.png?v=8", "type": "image/png", "sizes": "192x192" }
   ],
   "theme_color": "#D60B11",
   "background_color": "#ffffff",
