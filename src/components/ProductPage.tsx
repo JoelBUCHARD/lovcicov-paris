@@ -570,7 +570,7 @@ const ProductPage = ({ product }: Props) => {
               className="mb-8 pt-3 border-t border-[#EDE9E2] max-w-[420px]"
               style={{ fontFamily: SANS, fontSize: 12, lineHeight: 1.65, color: '#6B6A65' }}
             >
-              Coton premium, coupe oversize unisexe. Signature LOVE brodée à la main.
+              Coton premium, coupe oversize unisexe.
             </p>
           )}
 
