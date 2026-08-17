@@ -382,6 +382,7 @@ const StoneLovEditorial = () => {
                         aspectRatio: isHero ? undefined : "4 / 5",
                       }}
                     >
+                      <PreorderBadge productId={product.id} />
                       <img
                         src={product.image}
                         alt={product.name}
