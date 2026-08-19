@@ -9,9 +9,8 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
-import editorial2026Duo from '@/assets/campagne-duo-2026-v3.png.asset.json';
-import campagneMobile1 from '@/assets/campagne-mobile-1.webp.asset.json';
-import campagneMobile2 from '@/assets/campagne-mobile-2.webp.asset.json';
+import campagneTeeBlanc from '@/assets/campagne-2026-tee-blanc.png.asset.json';
+import campagneSweatBleu from '@/assets/campagne-2026-sweat-bleu.png.asset.json';
 
 import slideHeroAsset from '@/assets/hero-lovcicov-tee-jardin.webp.asset.json';
 
@@ -229,37 +228,26 @@ const Index = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full px-6 md:px-6"
+          className="w-full"
         >
-          {/* Mobile : deux visuels portrait empilés */}
-          <div className="md:hidden flex flex-col gap-3 -mx-6">
-            <img loading="lazy" decoding="async"
-              src={campagneMobile1.url}
-              alt="Campagne LOVCICOV Paris — t-shirt blanc logo cœur"
-              width={1122}
-              height={1402}
-              className="w-full h-auto"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 w-full">
+            <img
+              loading="lazy"
+              decoding="async"
+              src={campagneTeeBlanc.url}
+              alt="T-shirt blanc oversize LOVCICOV Paris, logo cœur brodé"
+              className="w-full h-full object-cover"
             />
-            <img loading="lazy" decoding="async"
-              src={campagneMobile2.url}
-              alt="Campagne LOVCICOV Paris — sweat bleu cœur sacré"
-              width={1122}
-              height={1402}
-              className="w-full h-auto"
+            <img
+              loading="lazy"
+              decoding="async"
+              src={campagneSweatBleu.url}
+              alt="Sweat bleu délavé LOVCICOV Paris, cœur sacré brodé"
+              className="w-full h-full object-cover"
             />
           </div>
-
-          {/* Desktop : diptyque paysage inchangé */}
-          <img loading="lazy" decoding="async"
-            src={editorial2026Duo.url}
-            alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
-            width={1568}
-            height={1008}
-            className="hidden md:block w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
-          />
-
-
         </motion.div>
+
 
       </section>
 
