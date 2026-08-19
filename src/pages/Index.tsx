@@ -230,7 +230,7 @@ const Index = () => {
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="w-full"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 w-full">
             <img
               loading="lazy"
               decoding="async"
