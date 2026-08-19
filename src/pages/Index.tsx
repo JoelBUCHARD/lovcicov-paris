@@ -9,7 +9,7 @@ import Footer from '@/components/Footer';
 import SEO from '@/components/SEO';
 
 import HeroCarousel from '@/components/HeroCarousel';
-import editorial2026Duo from '@/assets/campagne-diptyque.webp.asset.json';
+import editorial2026Duo from '@/assets/campagne-duo-2026-v3.png.asset.json';
 import campagneMobile1 from '@/assets/campagne-mobile-1.webp.asset.json';
 import campagneMobile2 from '@/assets/campagne-mobile-2.webp.asset.json';
 
