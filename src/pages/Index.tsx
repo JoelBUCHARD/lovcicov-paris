@@ -158,7 +158,7 @@ const Index = () => {
               <div className="relative overflow-hidden aspect-[4/5] lg:aspect-[3/4] w-full">
                 <img
                   src={slideHeroAsset.url}
-                  alt="Sweat LOVCICOV PARIS écru, emblème colombe rouge — collection PowerLov"
+                  alt="T-shirt blanc LOVCICOV PARIS, logo cœur rouge — collection PowerLov"
                   width={1448}
                   height={1086}
                   className="w-full h-full object-cover object-[52%_28%] lg:object-[center_40%]"
