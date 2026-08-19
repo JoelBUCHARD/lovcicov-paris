@@ -253,8 +253,8 @@ const Index = () => {
           <img loading="lazy" decoding="async"
             src={editorial2026Duo.url}
             alt="Campagne LOVCICOV Paris — t-shirt blanc et sweat bleu cœur sacré"
-            width={1559}
-            height={1009}
+            width={1568}
+            height={1008}
             className="hidden md:block w-full h-auto object-cover object-center max-w-[1400px] mx-auto"
           />
 
