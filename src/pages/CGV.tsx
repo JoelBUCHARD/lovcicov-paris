@@ -102,7 +102,7 @@ const CGV = () => (
         Un email de confirmation est envoyé au Client dès validation de la commande. Cet email récapitule les produits commandés, le prix total et l'adresse de livraison.
       </p>
       <p>
-        LOVCICOV PARIS se réserve le droit d'annuler toute commande en cas de rupture de stock, de problème de paiement ou de commande anormalement élevée. Le Client en sera informé par email dans les plus brefs délais et remboursé intégralement.
+        MARQUE BLANCHE se réserve le droit d'annuler toute commande en cas de rupture de stock, de problème de paiement ou de commande anormalement élevée. Le Client en sera informé par email dans les plus brefs délais et remboursé intégralement.
       </p>
     </Section>
 
@@ -114,7 +114,7 @@ const CGV = () => (
         <li>Google Pay</li>
       </ul>
       <p>
-        Les transactions sont sécurisées par le protocole SSL. LOVCICOV PARIS n'a accès à aucune donnée bancaire du Client. Le paiement est débité au moment de la validation de la commande.
+        Les transactions sont sécurisées par le protocole SSL. MARQUE BLANCHE n'a accès à aucune donnée bancaire du Client. Le paiement est débité au moment de la validation de la commande.
       </p>
       <p>
         En cas de refus de paiement, la commande est automatiquement annulée.
@@ -123,7 +123,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 7 — LIVRAISON">
       <p>
-        LOVCICOV PARIS revendique le Very Slow Fashion — chaque pièce est fabriquée avec soin et intention. Les délais de livraison sont indicatifs et courent à compter de la confirmation du paiement.
+        MARQUE BLANCHE revendique le Very Slow Fashion — chaque pièce est fabriquée avec soin et intention. Les délais de livraison sont indicatifs et courent à compter de la confirmation du paiement.
       </p>
       <p><strong className="text-foreground">Délais de livraison :</strong></p>
       <ul className="list-disc pl-5 space-y-1">
@@ -139,10 +139,10 @@ const CGV = () => (
         <li>Livraison offerte dès 250 € d'achat</li>
       </ul>
       <p>
-        Les produits sont expédiés à l'adresse indiquée par le Client lors de la commande. LOVCICOV PARIS ne peut être tenu responsable des retards imputables au transporteur ou à des événements indépendants de sa volonté (grève, intempéries, etc.).
+        Les produits sont expédiés à l'adresse indiquée par le Client lors de la commande. MARQUE BLANCHE ne peut être tenu responsable des retards imputables au transporteur ou à des événements indépendants de sa volonté (grève, intempéries, etc.).
       </p>
       <p>
-        En cas de colis perdu, le Client doit contacter LOVCICOV PARIS dans un délai de 30 jours suivant la date de livraison estimée.
+        En cas de colis perdu, le Client doit contacter MARQUE BLANCHE dans un délai de 30 jours suivant la date de livraison estimée.
       </p>
     </Section>
 
@@ -179,7 +179,7 @@ const CGV = () => (
         <li>Toutes les étiquettes soient encore attachées</li>
       </ul>
       <p>
-        <strong className="text-foreground">Frais de retour :</strong> à la charge du Client sauf en cas de produit défectueux ou d'erreur de LOVCICOV PARIS.
+        <strong className="text-foreground">Frais de retour :</strong> à la charge du Client sauf en cas de produit défectueux ou d'erreur de MARQUE BLANCHE.
       </p>
       <p>
         <strong className="text-foreground">Remboursement :</strong> effectué dans un délai de 14 jours suivant la réception et vérification du produit retourné, via le même moyen de paiement utilisé lors de la commande.
@@ -191,7 +191,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 10 — GARANTIES LÉGALES">
       <p>
-        Tous les produits LOVCICOV PARIS bénéficient des garanties légales suivantes :
+        Tous les produits MARQUE BLANCHE bénéficient des garanties légales suivantes :
       </p>
       <p>
         <strong className="text-foreground">Garantie légale de conformité</strong> (articles L217-4 et suivants du Code de la consommation) : 2 ans à compter de la livraison du produit.
@@ -207,10 +207,10 @@ const CGV = () => (
 
     <Section title="ARTICLE 11 — PROPRIÉTÉ INTELLECTUELLE">
       <p>
-        L'ensemble des contenus du site lovcicov.com (textes, photos, visuels, logo, DA, univers créatifs) est la propriété exclusive de LOVCICOV PARIS et est protégé par le droit d'auteur.
+        L'ensemble des contenus du site lovcicov.com (textes, photos, visuels, logo, DA, univers créatifs) est la propriété exclusive de MARQUE BLANCHE et est protégé par le droit d'auteur.
       </p>
       <p>
-        Toute reproduction, représentation, modification ou exploitation de ces contenus, sans autorisation écrite préalable de LOVCICOV PARIS, est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.
+        Toute reproduction, représentation, modification ou exploitation de ces contenus, sans autorisation écrite préalable de MARQUE BLANCHE, est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.
       </p>
     </Section>
 
@@ -241,7 +241,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 13 — JEUX CONCOURS ET OPÉRATIONS PROMOTIONNELLES">
       <p>
-        Toute opération promotionnelle ou jeu concours organisé par LOVCICOV PARIS est soumis à un règlement spécifique disponible sur demande à{' '}
+        Toute opération promotionnelle ou jeu concours organisé par MARQUE BLANCHE est soumis à un règlement spécifique disponible sur demande à{' '}
         <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
       </p>
       <p>
@@ -250,7 +250,7 @@ const CGV = () => (
     </Section>
 
     <Section title="ARTICLE 14 — RESPONSABILITÉ">
-      <p>LOVCICOV PARIS ne peut être tenu responsable :</p>
+      <p>MARQUE BLANCHE ne peut être tenu responsable :</p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Des dommages résultant d'une mauvaise utilisation du produit</li>
         <li>Des retards de livraison imputables au transporteur</li>
@@ -274,7 +274,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 16 — MODIFICATION DES CGV">
       <p>
-        LOVCICOV PARIS se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur au moment de la commande.
+        MARQUE BLANCHE se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur au moment de la commande.
       </p>
     </Section>
 
