@@ -1,6 +1,6 @@
 // Shipping policy — single source of truth
 export const SHIPPING_FEE = 9.9;
-export const FREE_SHIPPING_THRESHOLD = 99;
+export const FREE_SHIPPING_THRESHOLD = 250;
 
 export const isFreeShipping = (subtotal: number) => subtotal >= FREE_SHIPPING_THRESHOLD;
 
