@@ -13,26 +13,25 @@ const LivraisonRetours = () => (
     title="Livraison & Retours"
     seo={{
       title: "Livraison & Retours — LOVCICOV Paris",
-      description: "Délais, tarifs, suivi et retours. Livraison offerte en France dès 99 €, expéditions Europe et international depuis nos ateliers.",
+      description: "Délais, tarifs, suivi et retours. Livraison offerte en France métropolitaine dès 250 €, expéditions Europe et international.",
       path: "/livraison-retours",
     }}
   >
     <Section title="1. Préparation de votre commande">
       <p>
-        Chaque commande est préparée avec soin dans nos ateliers à Marseille sous 1 à 3 jours
-        ouvrés après confirmation du paiement. Vous recevez un e-mail de confirmation dès
-        l'expédition, accompagné du numéro de suivi.
+        Chaque commande est préparée avec soin par notre partenaire logistique, dans son entrepôt
+        situé dans le nord de la France, sous 1 à 3 jours ouvrés après confirmation du paiement.
+        Vous recevez un e-mail de confirmation dès l'expédition, accompagné du numéro de suivi.
       </p>
     </Section>
 
     <Section title="2. Délais et tarifs de livraison">
-      <p><strong className="text-foreground">France métropolitaine</strong> — 2 à 4 jours ouvrés via Colissimo suivi.</p>
-      <p><strong className="text-foreground">Union Européenne</strong> — 3 à 7 jours ouvrés.</p>
-      <p><strong className="text-foreground">Reste du monde</strong> — 5 à 10 jours ouvrés.</p>
+      <p><strong className="text-foreground">France métropolitaine</strong> — 3 à 7 jours ouvrés.</p>
+      <p><strong className="text-foreground">Belgique et Europe</strong> — 5 à 10 jours ouvrés.</p>
+      <p><strong className="text-foreground">International</strong> — 7 à 15 jours ouvrés.</p>
       <p>
-        <strong className="text-foreground">Livraison offerte</strong> en France métropolitaine
-        dès 99 € d'achat. Les tarifs précis pour chaque destination sont calculés automatiquement
-        au moment du paiement.
+        Livraison offerte en France métropolitaine dès 250 euros d'achat. Les tarifs précis pour
+        chaque destination sont calculés automatiquement au moment du paiement.
       </p>
     </Section>
 
@@ -52,7 +51,7 @@ const LivraisonRetours = () => (
       </p>
       <p>
         Pour exercer ce droit, contactez-nous à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
         en précisant votre numéro de commande et les articles concernés.
       </p>
     </Section>
@@ -68,8 +67,14 @@ const LivraisonRetours = () => (
         d'erreur de notre part.
       </p>
       <p>
-        Adresse de retour : NATELSOL INVEST — LOVCICOV, 11 avenue Frédéric Mistral, 13008
-        Marseille, France.
+        L'adresse de retour et les instructions vous sont communiquées par e-mail sous 48 heures
+        après votre demande de retour. Aucun colis ne doit être renvoyé avant d'avoir reçu ces
+        instructions.
+      </p>
+      <p>
+        La responsabilité du Client peut être engagée en cas de dépréciation du produit résultant
+        de manipulations autres que celles nécessaires pour en établir la nature, les
+        caractéristiques et le bon fonctionnement.
       </p>
     </Section>
 
@@ -85,7 +90,7 @@ const LivraisonRetours = () => (
       <p>
         En cas de défaut de fabrication ou d'erreur de préparation, contactez-nous sous 7 jours
         après réception à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>.
         Nous prendrons en charge le retour et procéderons à l'échange ou au remboursement intégral.
       </p>
     </Section>
@@ -93,7 +98,7 @@ const LivraisonRetours = () => (
     <Section title="8. Service client">
       <p>
         Pour toute question, notre équipe est joignable par e-mail à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
         du lundi au vendredi, de 10h à 18h.
       </p>
     </Section>
