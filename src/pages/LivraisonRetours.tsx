@@ -19,20 +19,19 @@ const LivraisonRetours = () => (
   >
     <Section title="1. Préparation de votre commande">
       <p>
-        Chaque commande est préparée avec soin dans nos ateliers à Marseille sous 1 à 3 jours
-        ouvrés après confirmation du paiement. Vous recevez un e-mail de confirmation dès
-        l'expédition, accompagné du numéro de suivi.
+        Chaque commande est préparée avec soin par notre partenaire logistique, dans son entrepôt
+        situé dans le nord de la France, sous 1 à 3 jours ouvrés après confirmation du paiement.
+        Vous recevez un e-mail de confirmation dès l'expédition, accompagné du numéro de suivi.
       </p>
     </Section>
 
     <Section title="2. Délais et tarifs de livraison">
-      <p><strong className="text-foreground">France métropolitaine</strong> — 2 à 4 jours ouvrés via Colissimo suivi.</p>
-      <p><strong className="text-foreground">Union Européenne</strong> — 3 à 7 jours ouvrés.</p>
-      <p><strong className="text-foreground">Reste du monde</strong> — 5 à 10 jours ouvrés.</p>
+      <p><strong className="text-foreground">France métropolitaine</strong> — 3 à 7 jours ouvrés.</p>
+      <p><strong className="text-foreground">Belgique et Europe</strong> — 5 à 10 jours ouvrés.</p>
+      <p><strong className="text-foreground">International</strong> — 7 à 15 jours ouvrés.</p>
       <p>
-        <strong className="text-foreground">Livraison offerte</strong> en France métropolitaine
-        dès 99 € d'achat. Les tarifs précis pour chaque destination sont calculés automatiquement
-        au moment du paiement.
+        Livraison offerte en France métropolitaine dès 250 euros d'achat. Les tarifs précis pour
+        chaque destination sont calculés automatiquement au moment du paiement.
       </p>
     </Section>
 
