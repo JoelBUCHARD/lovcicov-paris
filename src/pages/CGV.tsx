@@ -18,7 +18,7 @@ const CGV = () => (
     }}
   >
     <p className="text-sm text-muted-foreground">
-      En vigueur au <strong className="text-foreground">26 mai 2026</strong>
+      En vigueur au <strong className="text-foreground">20 août 2026</strong>
     </p>
 
     <Section title="ARTICLE 1 — IDENTIFICATION">
@@ -26,13 +26,19 @@ const CGV = () => (
         Le site lovcicov.com est édité par :
       </p>
       <p>
-        <strong className="text-foreground">LOVCICOV PARIS</strong><br />
-        Fondatrice : Georgiana Lovcicov<br />
-        Email : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a><br />
-        Site web : <a href="https://www.lovcicov.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">www.lovcicov.com</a>
+        <strong className="text-foreground">MARQUE BLANCHE</strong>, société par actions simplifiée au capital de 1 000 euros,
+        immatriculée au Registre du Commerce et des Sociétés de Paris sous le numéro 944 407 519,
+        dont le siège social est situé Bureau 326, 59 rue de Ponthieu, 75008 Paris, France.<br />
+        SIRET : 944 407 519 00015<br />
+        Code APE : 14.13Z — Fabrication de vêtements de dessus<br />
+        TVA intracommunautaire : FR09944407519<br />
+        Directeur de la publication : Joël Buchard, Président<br />
+        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> — 06 63 72 47 99
       </p>
-      <p>Ci-après dénommé &quot;le Vendeur&quot;.</p>
+      <p>Marque exploitée : LOVCICOV.</p>
+      <p>Ci-après dénommé le Vendeur.</p>
     </Section>
+
 
     <Section title="ARTICLE 2 — CHAMP D'APPLICATION">
       <p>
