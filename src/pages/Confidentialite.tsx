@@ -88,13 +88,15 @@ const Confidentialite = () => (
 
     <Section title="7. Cookies">
       <p>
-        Le site utilise des cookies fonctionnels et de mesure d'audience (Google Analytics, etc.).
-        Vous pouvez les refuser ou les gérer via les réglages de votre navigateur.
+        Le site utilise des cookies fonctionnels nécessaires à son fonctionnement, ainsi que des
+        cookies de mesure d'audience et de publicité (Google Tag Manager, pixel Meta, Klaviyo)
+        déposés uniquement après votre consentement.
       </p>
       <p>
-        L'utilisateur est informé de l'usage des cookies lors de sa première visite sur le site
-        via un bandeau d'information.
+        Vous pouvez accepter, refuser ou personnaliser vos choix à tout moment via le bandeau de
+        consentement affiché lors de votre première visite.
       </p>
+
     </Section>
   </LegalPage>
 );
