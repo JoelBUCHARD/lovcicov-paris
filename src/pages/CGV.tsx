@@ -157,10 +157,10 @@ const CGV = () => (
         Le Client sera informé de la procédure de retour par email dans un délai de 48 h.
       </p>
       <p><strong className="text-foreground">Exceptions au droit de rétractation :</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Produits personnalisés ou réalisés sur mesure</li>
-        <li>Produits descellés ou portés</li>
-      </ul>
+      <p>
+        Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les biens confectionnés selon les spécifications du consommateur ou nettement personnalisés, ni pour les biens qui ont été descellés après la livraison et qui ne peuvent être renvoyés pour des raisons d'hygiène ou de protection de la santé.
+      </p>
+
     </Section>
 
     <Section title="ARTICLE 9 — RETOURS ET REMBOURSEMENTS">
