@@ -169,7 +169,7 @@ const CGV = () => (
       </p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Le produit soit retourné dans son emballage d'origine</li>
-        <li>Le produit n'ait pas été porté, lavé ou endommagé</li>
+        <li>Le produit soit dans un état permettant sa remise en vente, l'essayage étant admis</li>
         <li>Toutes les étiquettes soient encore attachées</li>
       </ul>
       <p>
