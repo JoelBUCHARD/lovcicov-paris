@@ -51,7 +51,7 @@ const LivraisonRetours = () => (
       </p>
       <p>
         Pour exercer ce droit, contactez-nous à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
         en précisant votre numéro de commande et les articles concernés.
       </p>
     </Section>
@@ -84,7 +84,7 @@ const LivraisonRetours = () => (
       <p>
         En cas de défaut de fabrication ou d'erreur de préparation, contactez-nous sous 7 jours
         après réception à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>.
         Nous prendrons en charge le retour et procéderons à l'échange ou au remboursement intégral.
       </p>
     </Section>
@@ -92,7 +92,7 @@ const LivraisonRetours = () => (
     <Section title="8. Service client">
       <p>
         Pour toute question, notre équipe est joignable par e-mail à
-        {' '}<a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
         du lundi au vendredi, de 10h à 18h.
       </p>
     </Section>
