@@ -18,7 +18,7 @@ const CGV = () => (
     }}
   >
     <p className="text-sm text-muted-foreground">
-      En vigueur au <strong className="text-foreground">26 mai 2026</strong>
+      En vigueur au <strong className="text-foreground">20 août 2026</strong>
     </p>
 
     <Section title="ARTICLE 1 — IDENTIFICATION">
@@ -26,13 +26,19 @@ const CGV = () => (
         Le site lovcicov.com est édité par :
       </p>
       <p>
-        <strong className="text-foreground">LOVCICOV PARIS</strong><br />
-        Fondatrice : Georgiana Lovcicov<br />
-        Email : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a><br />
-        Site web : <a href="https://www.lovcicov.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">www.lovcicov.com</a>
+        <strong className="text-foreground">MARQUE BLANCHE</strong>, société par actions simplifiée au capital de 1 000 euros,
+        immatriculée au Registre du Commerce et des Sociétés de Paris sous le numéro 944 407 519,
+        dont le siège social est situé Bureau 326, 59 rue de Ponthieu, 75008 Paris, France.<br />
+        SIRET : 944 407 519 00015<br />
+        Code APE : 14.13Z — Fabrication de vêtements de dessus<br />
+        TVA intracommunautaire : FR09944407519<br />
+        Directeur de la publication : Joël Buchard, Président<br />
+        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> — 06 63 72 47 99
       </p>
-      <p>Ci-après dénommé &quot;le Vendeur&quot;.</p>
+      <p>Marque exploitée : LOVCICOV.</p>
+      <p>Ci-après dénommé le Vendeur.</p>
     </Section>
+
 
     <Section title="ARTICLE 2 — CHAMP D'APPLICATION">
       <p>
@@ -64,29 +70,14 @@ const CGV = () => (
     </Section>
 
     <Section title="ARTICLE 4 — PRIX">
-      <p>Les prix sont indiqués en euros, toutes taxes comprises (TTC).</p>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm my-3 max-w-sm">
-        <div className="font-medium text-foreground">Produit</div>
-        <div className="font-medium text-foreground">Prix</div>
-        <div>T-shirt MysticLov</div>
-        <div>70 €</div>
-        <div>Sweat col rond MysticLov</div>
-        <div>120 €</div>
-        <div>Sweat à capuche MysticLov</div>
-        <div>180 €</div>
-        <div>Collier simple StoneLov</div>
-        <div>69 €</div>
-        <div>Collier double StoneLov</div>
-        <div>89 €</div>
-        <div>Bracelet StoneLov</div>
-        <div>39 €</div>
-      </div>
+      <p>Les prix sont indiqués en euros toutes taxes comprises.</p>
       <p>
-        Les prix peuvent être modifiés à tout moment. Le prix applicable est celui affiché au moment de la validation de la commande.
+        Le prix applicable est celui affiché sur la fiche produit au moment de la validation de la commande.
       </p>
       <p>
         Les frais de livraison sont indiqués séparément avant la validation de la commande.
       </p>
+
     </Section>
 
     <Section title="ARTICLE 5 — COMMANDE">
@@ -102,19 +93,22 @@ const CGV = () => (
         Un email de confirmation est envoyé au Client dès validation de la commande. Cet email récapitule les produits commandés, le prix total et l'adresse de livraison.
       </p>
       <p>
-        LOVCICOV PARIS se réserve le droit d'annuler toute commande en cas de rupture de stock, de problème de paiement ou de commande anormalement élevée. Le Client en sera informé par email dans les plus brefs délais et remboursé intégralement.
+        MARQUE BLANCHE se réserve le droit d'annuler toute commande en cas de rupture de stock, de problème de paiement ou de commande anormalement élevée. Le Client en sera informé par email dans les plus brefs délais et remboursé intégralement.
       </p>
     </Section>
 
     <Section title="ARTICLE 6 — PAIEMENT">
       <p>Le paiement s'effectue en ligne de manière sécurisée via :</p>
       <ul className="list-disc pl-5 space-y-1">
-        <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+        <li>Carte bancaire (Visa, Mastercard, American Express, Cartes Bancaires)</li>
         <li>Apple Pay</li>
-        <li>Google Pay</li>
+        <li>Shop Pay</li>
+        <li>PayPal</li>
+        <li>Klarna</li>
       </ul>
+
       <p>
-        Les transactions sont sécurisées par le protocole SSL. LOVCICOV PARIS n'a accès à aucune donnée bancaire du Client. Le paiement est débité au moment de la validation de la commande.
+        Les transactions sont sécurisées par le protocole SSL. MARQUE BLANCHE n'a accès à aucune donnée bancaire du Client. Le paiement est débité au moment de la validation de la commande.
       </p>
       <p>
         En cas de refus de paiement, la commande est automatiquement annulée.
@@ -123,7 +117,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 7 — LIVRAISON">
       <p>
-        LOVCICOV PARIS revendique le Very Slow Fashion — chaque pièce est fabriquée avec soin et intention. Les délais de livraison sont indicatifs et courent à compter de la confirmation du paiement.
+        MARQUE BLANCHE revendique le Very Slow Fashion — chaque pièce est fabriquée avec soin et intention. Les délais de livraison sont indicatifs et courent à compter de la confirmation du paiement.
       </p>
       <p><strong className="text-foreground">Délais de livraison :</strong></p>
       <ul className="list-disc pl-5 space-y-1">
@@ -139,10 +133,10 @@ const CGV = () => (
         <li>Livraison offerte dès 250 € d'achat</li>
       </ul>
       <p>
-        Les produits sont expédiés à l'adresse indiquée par le Client lors de la commande. LOVCICOV PARIS ne peut être tenu responsable des retards imputables au transporteur ou à des événements indépendants de sa volonté (grève, intempéries, etc.).
+        Les produits sont expédiés à l'adresse indiquée par le Client lors de la commande. MARQUE BLANCHE ne peut être tenu responsable des retards imputables au transporteur ou à des événements indépendants de sa volonté (grève, intempéries, etc.).
       </p>
       <p>
-        En cas de colis perdu, le Client doit contacter LOVCICOV PARIS dans un délai de 30 jours suivant la date de livraison estimée.
+        En cas de colis perdu, le Client doit contacter MARQUE BLANCHE dans un délai de 30 jours suivant la date de livraison estimée.
       </p>
     </Section>
 
@@ -163,10 +157,10 @@ const CGV = () => (
         Le Client sera informé de la procédure de retour par email dans un délai de 48 h.
       </p>
       <p><strong className="text-foreground">Exceptions au droit de rétractation :</strong></p>
-      <ul className="list-disc pl-5 space-y-1">
-        <li>Produits personnalisés ou réalisés sur mesure</li>
-        <li>Produits descellés ou portés</li>
-      </ul>
+      <p>
+        Conformément à l'article L221-28 du Code de la consommation, le droit de rétractation ne peut être exercé pour les biens confectionnés selon les spécifications du consommateur ou nettement personnalisés, ni pour les biens qui ont été descellés après la livraison et qui ne peuvent être renvoyés pour des raisons d'hygiène ou de protection de la santé.
+      </p>
+
     </Section>
 
     <Section title="ARTICLE 9 — RETOURS ET REMBOURSEMENTS">
@@ -179,7 +173,7 @@ const CGV = () => (
         <li>Toutes les étiquettes soient encore attachées</li>
       </ul>
       <p>
-        <strong className="text-foreground">Frais de retour :</strong> à la charge du Client sauf en cas de produit défectueux ou d'erreur de LOVCICOV PARIS.
+        <strong className="text-foreground">Frais de retour :</strong> à la charge du Client sauf en cas de produit défectueux ou d'erreur de MARQUE BLANCHE.
       </p>
       <p>
         <strong className="text-foreground">Remboursement :</strong> effectué dans un délai de 14 jours suivant la réception et vérification du produit retourné, via le même moyen de paiement utilisé lors de la commande.
@@ -187,11 +181,15 @@ const CGV = () => (
       <p>
         <strong className="text-foreground">Échange :</strong> possible sous réserve de disponibilité du produit souhaité. À préciser lors de la demande de retour.
       </p>
+      <p>
+        La responsabilité du Client peut être engagée en cas de dépréciation du produit résultant de manipulations autres que celles nécessaires pour en établir la nature, les caractéristiques et le bon fonctionnement.
+      </p>
+
     </Section>
 
     <Section title="ARTICLE 10 — GARANTIES LÉGALES">
       <p>
-        Tous les produits LOVCICOV PARIS bénéficient des garanties légales suivantes :
+        Tous les produits MARQUE BLANCHE bénéficient des garanties légales suivantes :
       </p>
       <p>
         <strong className="text-foreground">Garantie légale de conformité</strong> (articles L217-4 et suivants du Code de la consommation) : 2 ans à compter de la livraison du produit.
@@ -207,10 +205,10 @@ const CGV = () => (
 
     <Section title="ARTICLE 11 — PROPRIÉTÉ INTELLECTUELLE">
       <p>
-        L'ensemble des contenus du site lovcicov.com (textes, photos, visuels, logo, DA, univers créatifs) est la propriété exclusive de LOVCICOV PARIS et est protégé par le droit d'auteur.
+        L'ensemble des contenus du site lovcicov.com (textes, photos, visuels, logo, DA, univers créatifs) est la propriété exclusive de MARQUE BLANCHE et est protégé par le droit d'auteur.
       </p>
       <p>
-        Toute reproduction, représentation, modification ou exploitation de ces contenus, sans autorisation écrite préalable de LOVCICOV PARIS, est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.
+        Toute reproduction, représentation, modification ou exploitation de ces contenus, sans autorisation écrite préalable de MARQUE BLANCHE, est strictement interdite et constitue une contrefaçon sanctionnée par le Code de la propriété intellectuelle.
       </p>
     </Section>
 
@@ -241,7 +239,7 @@ const CGV = () => (
 
     <Section title="ARTICLE 13 — JEUX CONCOURS ET OPÉRATIONS PROMOTIONNELLES">
       <p>
-        Toute opération promotionnelle ou jeu concours organisé par LOVCICOV PARIS est soumis à un règlement spécifique disponible sur demande à{' '}
+        Toute opération promotionnelle ou jeu concours organisé par MARQUE BLANCHE est soumis à un règlement spécifique disponible sur demande à{' '}
         <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
       </p>
       <p>
@@ -250,7 +248,7 @@ const CGV = () => (
     </Section>
 
     <Section title="ARTICLE 14 — RESPONSABILITÉ">
-      <p>LOVCICOV PARIS ne peut être tenu responsable :</p>
+      <p>MARQUE BLANCHE ne peut être tenu responsable :</p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Des dommages résultant d'une mauvaise utilisation du produit</li>
         <li>Des retards de livraison imputables au transporteur</li>
@@ -261,20 +259,23 @@ const CGV = () => (
 
     <Section title="ARTICLE 15 — MÉDIATION ET LITIGES">
       <p>
-        En cas de litige, le Client peut recourir à une médiation conventionnelle ou à tout autre mode alternatif de règlement des différends.
+        Conformément à l'article L612-1 du Code de la consommation, le Client a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige qui l'oppose au Vendeur.
       </p>
       <p>
-        <strong className="text-foreground">Médiateur de la consommation :</strong> Le Client peut saisir gratuitement le médiateur de la consommation via la plateforme européenne de règlement en ligne des litiges :{' '}
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">https://ec.europa.eu/consumers/odr</a>
+        Le Client doit au préalable avoir adressé une réclamation écrite au service client à l'adresse{' '}
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        ou par courrier à MARQUE BLANCHE, Bureau 326, 59 rue de Ponthieu, 75008 Paris.
       </p>
+      <p>Médiateur désigné : en cours de désignation.</p>
       <p>
-        En l'absence de résolution amiable, les tribunaux français seront compétents. La loi applicable est la loi française.
+        En l'absence de résolution amiable, les tribunaux français sont compétents. La loi applicable est la loi française.
       </p>
+
     </Section>
 
     <Section title="ARTICLE 16 — MODIFICATION DES CGV">
       <p>
-        LOVCICOV PARIS se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur au moment de la commande.
+        MARQUE BLANCHE se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables sont celles en vigueur au moment de la commande.
       </p>
     </Section>
 
