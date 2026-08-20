@@ -70,29 +70,14 @@ const CGV = () => (
     </Section>
 
     <Section title="ARTICLE 4 — PRIX">
-      <p>Les prix sont indiqués en euros, toutes taxes comprises (TTC).</p>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm my-3 max-w-sm">
-        <div className="font-medium text-foreground">Produit</div>
-        <div className="font-medium text-foreground">Prix</div>
-        <div>T-shirt MysticLov</div>
-        <div>70 €</div>
-        <div>Sweat col rond MysticLov</div>
-        <div>120 €</div>
-        <div>Sweat à capuche MysticLov</div>
-        <div>180 €</div>
-        <div>Collier simple StoneLov</div>
-        <div>69 €</div>
-        <div>Collier double StoneLov</div>
-        <div>89 €</div>
-        <div>Bracelet StoneLov</div>
-        <div>39 €</div>
-      </div>
+      <p>Les prix sont indiqués en euros toutes taxes comprises.</p>
       <p>
-        Les prix peuvent être modifiés à tout moment. Le prix applicable est celui affiché au moment de la validation de la commande.
+        Le prix applicable est celui affiché sur la fiche produit au moment de la validation de la commande.
       </p>
       <p>
         Les frais de livraison sont indiqués séparément avant la validation de la commande.
       </p>
+
     </Section>
 
     <Section title="ARTICLE 5 — COMMANDE">
