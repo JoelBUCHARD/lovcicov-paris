@@ -18,35 +18,26 @@ const MentionsLegales = () => (
     }}
   >
     <Section title="1. Identification de l'éditeur">
+      <p>Le site lovcicov.com est édité par :</p>
       <p>
-        Le site MYSTIC LOV est édité par la société NATELSOL INVEST, société à responsabilité
-        limitée (SARL) au capital social de 624 009,00 €, immatriculée au Registre du Commerce
-        et des Sociétés de Marseille sous le numéro 790 009 096.
-      </p>
-      <p>
-        Adresse du siège social : 11 avenue Frédéric Mistral, 13008 Marseille, France<br />
-        SIREN : 790 009 096<br />
-        SIRET : 790 009 096 00039<br />
-        Numéro de TVA intracommunautaire : FR13790009096<br />
-        Directeur de la publication : Joël Buchard<br />
-        Adresse e-mail : <a href="mailto:j.buchard@me.com" className="underline hover:text-foreground">j.buchard@me.com</a>
-      </p>
-      <p>
-        Le directeur de la publication est une personne physique agissant en sa qualité de gérant
-        de la société NATELSOL INVEST.
+        <strong className="text-foreground">MARQUE BLANCHE</strong>, société par actions simplifiée au capital de 1 000 euros,
+        immatriculée au Registre du Commerce et des Sociétés de Paris sous le numéro 944 407 519,
+        dont le siège social est situé Bureau 326, 59 rue de Ponthieu, 75008 Paris, France.<br />
+        SIRET : 944 407 519 00015<br />
+        Code APE : 14.13Z — Fabrication de vêtements de dessus<br />
+        TVA intracommunautaire : FR09944407519<br />
+        Directeur de la publication : Joël Buchard, Président<br />
+        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> — 06 63 72 47 99
       </p>
     </Section>
 
     <Section title="2. Hébergement">
       <p>
-        Le site est hébergé par Lovable (hostinger of the published preview). Pour toute information,
-        veuillez consulter le site de l'hébergeur ou le contacter directement.
-      </p>
-      <p>
-        L'hébergement garantit la sécurité physique et logique du site et des données qui y sont
-        stockées.
+        Le site est hébergé par Lovable. Le tunnel de paiement est opéré par Shopify International Limited,
+        Victoria Buildings, 1-2 Haddington Road, Dublin 4, D04 XN32, Irlande.
       </p>
     </Section>
+
 
     <Section title="3. Propriété intellectuelle">
       <p>
