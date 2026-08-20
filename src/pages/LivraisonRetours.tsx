@@ -58,9 +58,10 @@ const LivraisonRetours = () => (
 
     <Section title="5. Conditions de retour">
       <p>
-        Les articles doivent être retournés <strong className="text-foreground">neufs, non
-        portés, dans leur emballage d'origine</strong> et accompagnés de leur facture. Tout
-        article abîmé, porté ou incomplet ne pourra être repris.
+        Les articles doivent être retournés <strong className="text-foreground">dans leur
+        emballage d'origine</strong>, accompagnés de leur facture, et dans un état permettant leur
+        remise en vente. L'essayage est admis. En revanche, un article visiblement porté, lavé,
+        abîmé ou incomplet pourra faire l'objet d'une retenue proportionnelle à sa dépréciation.
       </p>
       <p>
         Les frais de retour sont à la charge du client, sauf en cas de produit défectueux ou
