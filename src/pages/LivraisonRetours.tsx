@@ -67,8 +67,14 @@ const LivraisonRetours = () => (
         d'erreur de notre part.
       </p>
       <p>
-        Adresse de retour : NATELSOL INVEST — LOVCICOV, 11 avenue Frédéric Mistral, 13008
-        Marseille, France.
+        L'adresse de retour et les instructions vous sont communiquées par e-mail sous 48 heures
+        après votre demande de retour. Aucun colis ne doit être renvoyé avant d'avoir reçu ces
+        instructions.
+      </p>
+      <p>
+        La responsabilité du Client peut être engagée en cas de dépréciation du produit résultant
+        de manipulations autres que celles nécessaires pour en établir la nature, les
+        caractéristiques et le bon fonctionnement.
       </p>
     </Section>
 
