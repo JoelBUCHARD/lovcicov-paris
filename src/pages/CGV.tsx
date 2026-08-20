@@ -100,10 +100,13 @@ const CGV = () => (
     <Section title="ARTICLE 6 — PAIEMENT">
       <p>Le paiement s'effectue en ligne de manière sécurisée via :</p>
       <ul className="list-disc pl-5 space-y-1">
-        <li>Carte bancaire (Visa, Mastercard, American Express)</li>
+        <li>Carte bancaire (Visa, Mastercard, American Express, Cartes Bancaires)</li>
         <li>Apple Pay</li>
-        <li>Google Pay</li>
+        <li>Shop Pay</li>
+        <li>PayPal</li>
+        <li>Klarna</li>
       </ul>
+
       <p>
         Les transactions sont sécurisées par le protocole SSL. MARQUE BLANCHE n'a accès à aucune donnée bancaire du Client. Le paiement est débité au moment de la validation de la commande.
       </p>
