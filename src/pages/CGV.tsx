@@ -255,15 +255,18 @@ const CGV = () => (
 
     <Section title="ARTICLE 15 — MÉDIATION ET LITIGES">
       <p>
-        En cas de litige, le Client peut recourir à une médiation conventionnelle ou à tout autre mode alternatif de règlement des différends.
+        Conformément à l'article L612-1 du Code de la consommation, le Client a le droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige qui l'oppose au Vendeur.
       </p>
       <p>
-        <strong className="text-foreground">Médiateur de la consommation :</strong> Le Client peut saisir gratuitement le médiateur de la consommation via la plateforme européenne de règlement en ligne des litiges :{' '}
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">https://ec.europa.eu/consumers/odr</a>
+        Le Client doit au préalable avoir adressé une réclamation écrite au service client à l'adresse{' '}
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
+        ou par courrier à MARQUE BLANCHE, Bureau 326, 59 rue de Ponthieu, 75008 Paris.
       </p>
+      <p>Médiateur désigné : en cours de désignation.</p>
       <p>
-        En l'absence de résolution amiable, les tribunaux français seront compétents. La loi applicable est la loi française.
+        En l'absence de résolution amiable, les tribunaux français sont compétents. La loi applicable est la loi française.
       </p>
+
     </Section>
 
     <Section title="ARTICLE 16 — MODIFICATION DES CGV">
