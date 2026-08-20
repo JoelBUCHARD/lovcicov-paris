@@ -65,7 +65,7 @@ const CGV = () => (
         Pour les bijoux en pierres naturelles : chaque pierre étant unique, des variations de couleur, de texture et d'inclusion sont inhérentes à la nature du produit et ne constituent pas un défaut.
       </p>
       <p>
-        LOVCICOV PARIS se réserve le droit de modifier son offre de produits à tout moment.
+        MARQUE BLANCHE se réserve le droit de modifier son offre de produits à tout moment.
       </p>
     </Section>
 
