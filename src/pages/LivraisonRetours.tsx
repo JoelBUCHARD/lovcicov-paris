@@ -20,7 +20,7 @@ const LivraisonRetours = () => (
     <Section title="1. Préparation de votre commande">
       <p>
         Chaque commande est préparée avec soin par notre partenaire logistique, dans son entrepôt
-        situé dans le nord de la France, sous 1 à 3 jours ouvrés après confirmation du paiement.
+        situé à Sars-et-Rosières, Hauts-de-France, sous 1 à 3 jours ouvrés après confirmation du paiement.
         Vous recevez un e-mail de confirmation dès l'expédition, accompagné du numéro de suivi.
       </p>
     </Section>
