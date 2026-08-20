@@ -19,10 +19,10 @@ const Confidentialite = () => (
   >
     <Section title="1. Responsable du traitement">
       <p>
-        Le responsable du traitement des données collectées sur le site MYSTIC LOV est :<br />
-        NATELSOL INVEST, SARL au capital de 624 009 €<br />
+        Le responsable du traitement des données collectées sur le site LOVCICOV est :<br />
+        MARQUE BLANCHE, SARL au capital de 624 009 €<br />
         Siège social : 11 avenue Frédéric Mistral, 13008 Marseille, France<br />
-        Email : <a href="mailto:j.buchard@me.com" className="underline hover:text-foreground">j.buchard@me.com</a>
+        Email : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>
       </p>
     </Section>
 
@@ -56,7 +56,7 @@ const Confidentialite = () => (
 
     <Section title="5. Destinataires">
       <p>
-        Les données collectées sont destinées à un usage interne exclusivement par NATELSOL INVEST.
+        Les données collectées sont destinées à un usage interne exclusivement par MARQUE BLANCHE.
         Elles peuvent être transmises à des prestataires sous-traitants (logistique, paiement)
         dans le cadre strict de l'exécution du contrat.
       </p>
@@ -79,7 +79,7 @@ const Confidentialite = () => (
       </ul>
       <p>
         Pour exercer vos droits, contactez :{' '}
-        <a href="mailto:j.buchard@me.com" className="underline hover:text-foreground">j.buchard@me.com</a>.
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
         Une réponse vous sera apportée sous 30 jours.
       </p>
     </Section>

@@ -41,15 +41,15 @@ const MentionsLegales = () => (
 
     <Section title="3. Propriété intellectuelle">
       <p>
-        L'ensemble des contenus présents sur le site MYSTIC LOV, incluant, de façon non limitative,
+        L'ensemble des contenus présents sur le site LOVCICOV, incluant, de façon non limitative,
         les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que
-        leur mise en forme sont la propriété exclusive de NATELSOL INVEST, à l'exception des marques,
+        leur mise en forme sont la propriété exclusive de MARQUE BLANCHE, à l'exception des marques,
         logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
       </p>
       <p>
         Toute reproduction, distribution, modification, adaptation, retransmission ou publication,
         même partielle, de ces différents éléments est strictement interdite sans l'accord exprès
-        par écrit de NATELSOL INVEST. Cette représentation ou reproduction, par quelque procédé
+        par écrit de MARQUE BLANCHE. Cette représentation ou reproduction, par quelque procédé
         que ce soit, constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants
         du Code de la propriété intellectuelle.
       </p>
@@ -57,12 +57,12 @@ const MentionsLegales = () => (
 
     <Section title="4. Responsabilité">
       <p>
-        NATELSOL INVEST met tout en œuvre pour offrir aux utilisateurs des informations disponibles
+        MARQUE BLANCHE met tout en œuvre pour offrir aux utilisateurs des informations disponibles
         et vérifiées. Toutefois, elle ne saurait être tenue responsable des erreurs, d'une absence
         de disponibilité des informations et/ou de la présence de virus sur le site.
       </p>
       <p>
-        Le site peut contenir des liens hypertextes vers d'autres sites web. NATELSOL INVEST ne
+        Le site peut contenir des liens hypertextes vers d'autres sites web. MARQUE BLANCHE ne
         peut en aucun cas être tenue responsable du contenu de ces sites et de l'usage qui pourra
         en être fait par les utilisateurs.
       </p>
@@ -70,14 +70,14 @@ const MentionsLegales = () => (
 
     <Section title="5. Modification des mentions légales">
       <p>
-        NATELSOL INVEST se réserve le droit de modifier les présentes mentions à tout moment.
+        MARQUE BLANCHE se réserve le droit de modifier les présentes mentions à tout moment.
         L'utilisateur s'engage donc à les consulter régulièrement.
       </p>
     </Section>
 
     <Section title="6. Loi applicable">
       <p>
-        Le site internet MYSTIC LOV est soumis au droit français. En cas de litige, les tribunaux
+        Le site internet LOVCICOV est soumis au droit français. En cas de litige, les tribunaux
         français seront seuls compétents.
       </p>
     </Section>
