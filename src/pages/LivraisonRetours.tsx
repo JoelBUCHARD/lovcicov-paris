@@ -20,7 +20,7 @@ const LivraisonRetours = () => (
     <Section title="1. Préparation de votre commande">
       <p>
         Chaque commande est préparée avec soin par notre partenaire logistique, dans son entrepôt
-        situé dans le nord de la France, sous 1 à 3 jours ouvrés après confirmation du paiement.
+        situé à Sars-et-Rosières, Hauts-de-France, sous 1 à 3 jours ouvrés après confirmation du paiement.
         Vous recevez un e-mail de confirmation dès l'expédition, accompagné du numéro de suivi.
       </p>
     </Section>
@@ -67,9 +67,11 @@ const LivraisonRetours = () => (
         d'erreur de notre part.
       </p>
       <p>
-        L'adresse de retour et les instructions vous sont communiquées par e-mail sous 48 heures
-        après votre demande de retour. Aucun colis ne doit être renvoyé avant d'avoir reçu ces
-        instructions.
+        Adresse de retour : LOVCICOV — Service Retours, 17 rue de l'Épau, 59230 Sars-et-Rosières,
+        France. Merci de nous contacter à
+        {' '}<a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
+        avant tout renvoi afin d'obtenir votre numéro de retour et accélérer le traitement de votre
+        remboursement.
       </p>
       <p>
         La responsabilité du Client peut être engagée en cas de dépréciation du produit résultant

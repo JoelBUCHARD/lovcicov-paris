@@ -25,4 +25,4 @@ export const TRUST_SHIPPING_TEXT = "En France métropolitaine dès 250 € d'ach
 export const TRUST_PAYMENT_TEXT = "Cartes bancaires, Apple Pay, Shop Pay, PayPal et Klarna. Transactions chiffrées, vos coordonnées bancaires ne transitent jamais par nos serveurs.";
 export const TRUST_RETURNS_TEXT = "14 jours pour changer d'avis. Articles non portés, dans leur emballage d'origine.";
 
-export const CART_SHIPPING_NOTE = `Expédition depuis Paris sous 24 à 48 h pour les articles en stock. Les articles en précommande sont expédiés sous 1 mois. Livraison offerte dès ${FREE_SHIPPING_THRESHOLD} € en France métropolitaine.`;
+export const CART_SHIPPING_NOTE = `Expédition depuis notre entrepôt logistique de Sars-et-Rosières, Hauts-de-France sous 24 à 48 h pour les articles en stock. Les articles en précommande sont expédiés sous 1 mois. Livraison offerte dès ${FREE_SHIPPING_THRESHOLD} € en France métropolitaine.`;
