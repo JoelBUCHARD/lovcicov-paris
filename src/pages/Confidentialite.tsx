@@ -23,7 +23,7 @@ const Confidentialite = () => (
         MARQUE BLANCHE, société par actions simplifiée au capital de 1 000 euros,
         RCS Paris 944 407 519, dont le siège social est situé Bureau 326, 59 rue de Ponthieu,
         75008 Paris, France.<br />
-        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>
+        Contact : <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>
       </p>
     </Section>
 
@@ -81,7 +81,7 @@ const Confidentialite = () => (
       </ul>
       <p>
         Pour exercer vos droits, contactez :{' '}
-        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
+        <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>.
         Une réponse vous sera apportée sous 30 jours.
       </p>
     </Section>

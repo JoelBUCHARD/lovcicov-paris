@@ -27,7 +27,7 @@ const MentionsLegales = () => (
         Code APE : 14.13Z — Fabrication de vêtements de dessus<br />
         TVA intracommunautaire : FR09944407519<br />
         Directeur de la publication : Joël Buchard, Président<br />
-        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> — 06 63 72 47 99
+        Contact : <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a> — 06 38 53 83 77
       </p>
     </Section>
 
