@@ -181,6 +181,10 @@ const CGV = () => (
       <p>
         <strong className="text-foreground">Échange :</strong> possible sous réserve de disponibilité du produit souhaité. À préciser lors de la demande de retour.
       </p>
+      <p>
+        La responsabilité du Client peut être engagée en cas de dépréciation du produit résultant de manipulations autres que celles nécessaires pour en établir la nature, les caractéristiques et le bon fonctionnement.
+      </p>
+
     </Section>
 
     <Section title="ARTICLE 10 — GARANTIES LÉGALES">
