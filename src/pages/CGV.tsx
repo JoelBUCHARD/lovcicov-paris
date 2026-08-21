@@ -267,10 +267,11 @@ const CGV = () => (
         ou par courrier à MARQUE BLANCHE, Bureau 326, 59 rue de Ponthieu, 75008 Paris.
       </p>
       <p>
-        Médiateur désigné : CM2C — Centre de la Médiation de la Consommation de Conciliateurs de Justice,
-        association loi 1901 agréée par la CECMC sous le numéro W751237320, 49 rue de Ponthieu, 75008 Paris.
-        Site internet : <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">www.cm2c.net</a> — Téléphone : 01 89 47 00 14.
-        La saisine du médiateur est gratuite pour le Client.
+        Médiateur désigné : CM2C — Centre de la Médiation de la Consommation de Conciliateurs de justice,
+        association agréée par la CECMC sous le numéro W751237320, 49 rue de Ponthieu, 75008 Paris.
+        Le Client peut saisir CM2C en ligne sur{' '}
+        <a href="https://www.cm2c.net" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">www.cm2c.net</a>{' '}
+        ou par courrier à cette adresse. Le recours à la médiation est gratuit pour le consommateur.
       </p>
       <p>
         En l'absence de résolution amiable, les tribunaux français sont compétents. La loi applicable est la loi française.
