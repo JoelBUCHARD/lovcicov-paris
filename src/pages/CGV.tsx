@@ -33,7 +33,7 @@ const CGV = () => (
         Code APE : 14.13Z — Fabrication de vêtements de dessus<br />
         TVA intracommunautaire : FR09944407519<br />
         Directeur de la publication : Joël Buchard, Président<br />
-        Contact : <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a> — 06 38 53 83 77
+        Contact : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> — 06 38 53 83 77
       </p>
       <p>Marque exploitée : LOVCICOV.</p>
       <p>Ci-après dénommé le Vendeur.</p>
@@ -146,7 +146,7 @@ const CGV = () => (
       </p>
       <p><strong className="text-foreground">Pour exercer ce droit :</strong></p>
       <p>
-        Envoyer un email à <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a> avec les informations suivantes :
+        Envoyer un email à <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> avec les informations suivantes :
       </p>
       <ul className="list-disc pl-5 space-y-1">
         <li>Numéro de commande</li>
@@ -199,7 +199,7 @@ const CGV = () => (
       </p>
       <p>
         Pour tout problème lié à la qualité d'un produit, contactez{' '}
-        <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a> avec photos à l'appui.
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a> avec photos à l'appui.
       </p>
     </Section>
 
@@ -232,7 +232,7 @@ const CGV = () => (
       </ul>
       <p>
         Pour exercer ces droits :{' '}
-        <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>
       </p>
       <p>Les données ne sont jamais revendues à des tiers.</p>
     </Section>
@@ -240,7 +240,7 @@ const CGV = () => (
     <Section title="ARTICLE 13 — JEUX CONCOURS ET OPÉRATIONS PROMOTIONNELLES">
       <p>
         Toute opération promotionnelle ou jeu concours organisé par MARQUE BLANCHE est soumis à un règlement spécifique disponible sur demande à{' '}
-        <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>.
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>.
       </p>
       <p>
         Pour les jeux concours avec tirage au sort, une voie d'accès gratuite est toujours disponible conformément à la législation française. Les modalités de participation sans achat sont précisées dans le règlement de chaque opération.
@@ -263,7 +263,7 @@ const CGV = () => (
       </p>
       <p>
         Le Client doit au préalable avoir adressé une réclamation écrite au service client à l'adresse{' '}
-        <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a>{' '}
+        <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a>{' '}
         ou par courrier à MARQUE BLANCHE, Bureau 326, 59 rue de Ponthieu, 75008 Paris.
       </p>
       <p>
@@ -290,7 +290,7 @@ const CGV = () => (
         Pour toute question relative à une commande ou aux présentes CGV :
       </p>
       <p>
-        Email : <a href="mailto:contact@marqueblanche.ai" className="underline hover:text-foreground">contact@marqueblanche.ai</a><br />
+        Email : <a href="mailto:contact@lovcicov.com" className="underline hover:text-foreground">contact@lovcicov.com</a><br />
         Site : <a href="https://www.lovcicov.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">www.lovcicov.com</a>
       </p>
     </Section>

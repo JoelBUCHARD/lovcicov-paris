@@ -235,7 +235,7 @@ const CampagneSac = () => {
           style={{ fontFamily: ARIAL, fontSize: 11, color: SOFT, lineHeight: 1.8 }}
         >
           Tirage au sort effectué à la vente du 1000ème t-shirt. Une voie d'accès gratuite est
-          disponible sans obligation d'achat : envoyer un email à contact@marqueblanche.ai avec
+          disponible sans obligation d'achat : envoyer un email à contact@lovcicov.com avec
           l'objet « Je rejoins le Cercle ». Règlement complet disponible sur demande.
         </p>
       </section>
