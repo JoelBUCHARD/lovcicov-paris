@@ -134,7 +134,7 @@ const Footer = ({ hideTopBorder, hideNewsletter }: FooterProps) => {
               </p>
               <ul className="space-y-3">
                 <li>
-                  <a href="mailto:contact@marqueblanche.ai" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
+                  <a href="mailto:contact@lovcicov.com" className="text-[12px] tracking-[0.06em] text-foreground/80 hover:text-foreground transition-colors">
                     Nous écrire
                   </a>
                 </li>
